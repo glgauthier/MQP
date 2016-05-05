@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[paper=letterpaper,margin=1.25in]{geometry}
+\usepackage{graphicx} 
+\graphicspath{ {figures/} } % all figures are in the 'figures' folder
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{setspace}
+% set up clickable links in ToC
+\usepackage{hyperref}
+\hypersetup{linktocpage, colorlinks=false, linktoc=all}
+% add in dots for sections in ToC
+\usepackage{tocloft}
+\renewcommand\cftsecleader{\cftdotfill{\cftdotsep}}
+
+
+\begin{document}
+
+% turn off page numbering for the first few pages
+\pagenumbering{gobble}
+
+%%%% Title page %%%%
+\input{titlepage.tex}
+\newpage
+
+% change margins, set to double space
+\newgeometry{top=1in,bottom=1in,right=1in,left=1in}
+\doublespacing
+
+% create a table of contents
+\tableofcontents
+\newpage
+
+%create a list of figures
+\listoffigures
+\newpage 
+
+\pagenumbering{roman} % change page numbering to i,ii, ...
+
+%%%% Acknowledgements %%%%
+\input{ack.tex}
+\newpage
+
+%%%% Abstract %%%%
+\input{abstract.tex}
+\newpage
+
+\pagenumbering{arabic} % change page numbering to 1,2, ...
+
+%%%% Introduction %%%%
+\input{introduction.tex}
+
+\end{document}
