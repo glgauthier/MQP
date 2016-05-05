@@ -6,13 +6,28 @@
 \usepackage{float}
 \usepackage{indentfirst}
 \usepackage{setspace}
+\usepackage{amsmath}
+
 % set up clickable links in ToC
 \usepackage{hyperref}
 \hypersetup{linktocpage, colorlinks=false, linktoc=all}
 % add in dots for sections in ToC
 \usepackage{tocloft}
 \renewcommand\cftsecleader{\cftdotfill{\cftdotsep}}
+% include subsections, etc.. in table of contents
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
 
+% verilog code snippet configuration
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{listings}
+\lstset{
+	language=Verilog,
+	frame=single,
+	numbers=left,
+	keywordstyle=\color{Blue}\ttfamily\footnotesize,
+        commentstyle=\color{Green}\ttfamily\footnotesize,
+	}  
 
 \begin{document}
 
@@ -38,8 +53,8 @@
 \pagenumbering{roman} % change page numbering to i,ii, ...
 
 %%%% Acknowledgements %%%%
-\input{ack.tex}
-\newpage
+%\input{ack.tex}
+%\newpage
 
 %%%% Abstract %%%%
 \input{abstract.tex}
@@ -49,5 +64,15 @@
 
 %%%% Introduction %%%%
 \input{introduction.tex}
+\newpage
 
+%%%% Bibliography %%%%
+
+\singlespacing
+\input{bib.tex}
+\doublespacing
+\newpage
+
+%%%% Example code - DELETE ME BEFORE FINAL SUBMISSION %%%%
+\input{examples.tex}
 \end{document}
