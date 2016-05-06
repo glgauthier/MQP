@@ -1,0 +1,62 @@
+\section{Background}
+A major concern with real-time image processing, especially in first responder situations, is speed. Because FPGAs have the ability to process data in parallel, they are ideal for this type of application. Using an FPGA for this system will enable all data inputs to be processed at the same time, thereby dramatically increasing throughput speed. Dealing with each input separately makes it easier to combine everything together, especially because each component functions at a different clock speed. Also, since everything is running in parallel, more cameras can be added to the system to increase the field of vision of the device without introducing any latency in the system, as long as enough memory is available.
+\par
+SLAM is a widely expanding field with much potential for improvement. One application of such a system is a proof of concept of camera-based SLAM systems, presented by Andrew Davison of Oxford University in a research paper entitled ''Real-Time SLAM with a Single Camera'' \cite{davison}. This system is handheld and relies on a computer using a 2.2 GHz Pentium processor connected to a single camera and laser rangefinder. The system requires prior knowledge of the area being analyzed before it can successfully localize and map. It implements edge detection, but is limited to the narrow field of vision of the rangefinder, so it is only able to map an object directly in front of it. This system carries a latency of around 33 milliseconds. An output frame of the device is shown in Figure \ref{rtSLAM}.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.8\textwidth]{real_time_SLAM.png}}
+	\caption{Real-Time SLAM with a Single Camera \cite{davison}}
+	\label{rtSLAM}
+\end{figure}
+
+The frame on the left in Figure \ref{rtSLAM} is the video feed with 6 points of a paper target input as prior knowledge, along with successfully marked identifying features (marked as red squares), and another identifying feature that is not marked for measurement (marked by a yellow circle). The frame on the right is a localization graph displaying the positions of all red squares.
+\par
+A more commercial device similar to our concept is Serveball?s Squito\textsuperscript{TM} \cite{serveball}. Squito is a wireless, throwable, 360$^{\circ}$ panoramic camera that implements target detection to stabilize the video feed from its many cameras. It is shown in Figure \ref{squito} below.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.3\textwidth]{serveball_squito.png}}
+	\caption{Serveball's Squito \cite{serveball}}
+	\label{squito}
+\end{figure}
+
+Squito utilizes a microprocessor receiving input from cameras, as well as orientation and position sensors in order to transmit a real-time stabilized video of its adventure. The device is still in the prototype stage and is receiving interest from first responders. The image in Figure \ref{squito_io} shows the input from the Squito's four cameras on the left, and the corresponding stitched output on the right.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.6\textwidth]{serveball_io.png}}
+	\caption{Serveball's Squito Input and Output \cite{serveball}}
+	\label{squito_io}
+\end{figure}
+
+By using multiple camera sensors in a sensor suite, it is also possible to determine depth information from corresponding images of an area. This technique is known as stereo imaging, and the process of gathering depth information from a pair of stereo images is known as disparity mapping. University of Bologna researchers Stefano Mattoccia and Matteo Poggi have worked to implement a real-time disparity mapping algorithm on an FPGA, and an example of a stereo image disparity is shown in Figure \ref{disparity_example} below \cite{mattoccia}. Using their stereo vision algorithm, the researchers are able to generate real-time image data showing the relative locations of objects within an image frame using color gradients. Based on this depth information, it is also possible to detect objects located within the field of view of the stereo imaging system, as shown in Figure \ref{disparity_example}. An implementation similar to this would be extremely useful in a SLAM-like system, as it would allow for the localization of objects and creation of 2D ''floorplans'' of an area in real-time using only two camera sensors.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.9\textwidth]{disparity_example.png}}
+	\caption{From Left to Right: Original Image, Disparity Map, Object Detection Results \cite{mattoccia}}
+	\label{disparity_example}
+\end{figure}
+
+Many security systems implement human detection and human body tracking in order to increase their effectiveness. These devices process real-time images in order to identify human characteristics, and are limited to the field of vision of a stationary or rotating camera. An example of this type of system is explored by the Mitsubishi corporation in a research paper entitled ''Human Body Tracking by Adaptive Background Models and Mean-Shift Analysis'' \cite{porikli}. The paper explores a stationary image processing system implemented on a PC platform with a 1.8GHz processor that yields a maximum processing time of 100 milliseconds. An output frame of the system is shown in Figure \ref{human_tracking} below.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.5\textwidth]{human_tracking.png}}
+	\caption{Human Body Tracking by Adaptive Background Models and Mean-Shift Analysis \cite{porikli}}
+	\label{human_tracking}
+\end{figure}
+
+Our proposed device will combine the ideas of the four systems examined. It will be able to simultaneously localize and map an area, as well as implement human detection algorithms. The device will be capable of generating real-time 2D maps of any area it has traversed with humans' locations labeled, and an augmented video feed of what the device is recording with any humans' positions marked.
+\par
+In order to successfully implement this system, we propose the creation of a device that will rely on two stereo cameras, a laser rangefinder, and an inertial measurement unit (IMU) as its sensor suite, as shown in Appendix Item 2. Limitations of previous art have been in their ability to combine human detection with real-time localization and mapping of a large field of vision. Little to no existing commercial products are also capable of processing their gathered data locally and in real-time, with their gathered data usually requiring post-processing on external computing devices. Stereo cameras will allow our device to calculate disparity, just as human eyes do. Although disparity is useful for localization, it is not enough for accurate mapping because it only accurately provides the relative distance between objects. The inclusion of a rangefinder will allow for precise base distance readings, and an IMU will be used to spatially reference all gathered data. All of this data will be combined with the disparity maps and image data in order to create flawless localization and mapping. All time-dependent processing required for the device will be mainly done in parallel using hardware on an FPGA. An overall functional block diagram of our intended implementation is shown in Figure \ref{orig_bd} below.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.2\textwidth]{block_diagram.png}}
+	\caption{Functional Block Diagram}
+	\label{orig_bd}
+\end{figure}
+
+Most applicable previous camera-based systems have also focused on object detection from a stationary point, or edge detection from a mobile platform. Our project aims to combine these concepts, by creating a mobile device that detects people which will be especially of use in many first responder situations. In addition, this device will receive data from the visible light and infrared spectrums in order to identify people quickly and accurately in a way that has not been previously implemented.
+\par
+As our research has progressed over time, our project objectives have continually evolved. We originally envisioned the creation of a device that used laser rangefinders to create 3D maps of its surroundings, similar to that of a Carnegie Mellon University device created in order to volumetrically map abandoned mines \cite{thrun}.
+\par
+As our research progressed, we believed that we could use a visual light and thermal imaging camera set to gather information on an area, and supplement that data with IMU and rangefinder readings in order to produce detailed maps of our sensor suites? surroundings. Eventually we came upon the concept of disparity mapping and generating depth information from image data, and decided that we would again like to shift the overall setup of our device to rely mainly on stereo image data. Due to our overall budget and the resources that have been made available to us, in the coming terms we plan to use an electronic rangefinder, IMU, and stereo camera pair to generate real-time SPLAM video and floorplan information. Although we were also originally planning on including a thermal camera in our sensor suite as well, we have decided to eliminate the module in favor of higher quality cameras due to its prohibitive cost, low resolution, slow sampling rate, and small field of view. More information on this decision can be found in Appendix Item 3.
+
+

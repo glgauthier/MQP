@@ -1,9 +1,7 @@
-\phantomsection % makes clickable ToC link work
-\addcontentsline{toc}{section}{LaTeX Coding Examples}
-\section*{LaTeX Coding Examples}
+\subsection{LaTeX Coding Examples}
 This section isn't intended to remain here, but can serve as an example for how to set things up later on
 
-\subsection{Figures} 
+\subsubsection{Figures} 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.25\textwidth]{WPI_Inst_Prim_FulClr.png}}
 	\caption{A Test Figure}
@@ -12,7 +10,7 @@ This section isn't intended to remain here, but can serve as an example for how 
 
 Using the \verb!\ref! command, I'm able to reference Figure \ref{wpiLogo} by calling \verb!\ref{wpiLogo}!.
 
-\subsection{Code Snippet}
+\subsubsection{Code Snippet}
 Code snippets can be created by calling \verb!\begin{lstlisting}!, inserting all code, and then calling \verb!\end{lstlisting}!. Also call \verb!\singlespacing! before the code snippet and \verb!\doublespacing! after to keep things from getting too big.
 \singlespacing % single space code
 \begin{lstlisting}
@@ -22,7 +20,7 @@ always @ (x, y, z)
 \end{lstlisting}
 \doublespacing % return to double spacing after
 
-\subsection{Using the bibliography}
+\subsubsection{Using the bibliography}
 All bibliographic references are contained in \texttt{bib.tex}. To cite a reference in the paper, use the \verb!\cite! command.
 \par
 As an example, I can cite \textit{Serveball} at the end of this sentence by calling \verb!\cite{serveball}!.\cite{serveball}

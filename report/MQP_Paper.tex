@@ -7,13 +7,18 @@
 \usepackage{indentfirst}
 \usepackage{setspace}
 \usepackage{amsmath}
+\usepackage{url}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 % set up clickable links in ToC
 \usepackage{hyperref}
 \hypersetup{linktocpage, colorlinks=false, linktoc=all}
+
 % add in dots for sections in ToC
-\usepackage{tocloft}
+\usepackage[titles]{tocloft}
 \renewcommand\cftsecleader{\cftdotfill{\cftdotsep}}
+
 % include subsections, etc.. in table of contents
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -31,48 +36,48 @@
 
 \begin{document}
 
-% turn off page numbering for the first few pages
-\pagenumbering{gobble}
+\pagenumbering{gobble} % turn off page numbering for the first few pages
 
-%%%% Title page %%%%
-\input{titlepage.tex}
+\input{titlepage.tex} %%%% Title page %%%%
 \newpage
 
-% change margins, set to double space
-\newgeometry{top=1in,bottom=1in,right=1in,left=1in}
+\newgeometry{top=1in,bottom=1in,right=1in,left=1in} % change margins, set to double space
 \doublespacing
 
-% create a table of contents
-\tableofcontents
+\tableofcontents % create a table of contents
 \newpage
 
-%create a list of figures
-\listoffigures
+\begin{small} % make the font smaller to accommodate for long figure names
+\listoffigures % create a list of figures
+\end{small}
 \newpage 
 
 \pagenumbering{roman} % change page numbering to i,ii, ...
 
-%%%% Acknowledgements %%%%
-%\input{ack.tex}
+%\input{ack.tex} %%%% Acknowledgements %%%%
 %\newpage
 
-%%%% Abstract %%%%
-\input{abstract.tex}
+\input{abstract.tex} %%%% Abstract %%%%
 \newpage
 
 \pagenumbering{arabic} % change page numbering to 1,2, ...
 
-%%%% Introduction %%%%
-\input{introduction.tex}
+\input{introduction.tex} %%%% Introduction %%%%
 \newpage
 
-%%%% Bibliography %%%%
+\input{background.tex} %%%% Background %%%%
+\newpage
 
 \singlespacing
-\input{bib.tex}
+\input{bib.tex} %%%% Bibliography %%%%
 \doublespacing
 \newpage
 
-%%%% Example code - DELETE ME BEFORE FINAL SUBMISSION %%%%
-\input{examples.tex}
+\section{Appendix} %%%% Appendix %%%% 
+\input{appendix_1.tex} % useful resources
+\input{appendix_2.tex} % component selection
+\input{appendix_3.tex} % camera module decision matrix
+\vspace{0.5cm} % I'm having trouble getting a space after the camera decision matrix table
+\input{examples.tex} % example latex code for setting things up
+
 \end{document}
