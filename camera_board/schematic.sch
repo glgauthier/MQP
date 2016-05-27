@@ -1321,9 +1321,9 @@ W = angled&lt;p&gt;
 <segment>
 <pinref part="CAMERA1" gate="G$1" pin="12"/>
 <wire x1="116.84" y1="104.14" x2="86.36" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="104.14" x2="86.36" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="CONTROL" gate="1" pin="2"/>
-<wire x1="86.36" y1="157.48" x2="104.14" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="104.14" x2="86.36" y2="162.56" width="0.1524" layer="91"/>
+<pinref part="CONTROL" gate="1" pin="6"/>
+<wire x1="86.36" y1="162.56" x2="104.14" y2="162.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -1339,18 +1339,18 @@ W = angled&lt;p&gt;
 <segment>
 <pinref part="CAMERA1" gate="G$1" pin="2"/>
 <wire x1="116.84" y1="91.44" x2="81.28" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="91.44" x2="81.28" y2="162.56" width="0.1524" layer="91"/>
-<pinref part="CONTROL" gate="1" pin="6"/>
-<wire x1="81.28" y1="162.56" x2="104.14" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="91.44" x2="81.28" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="CONTROL" gate="1" pin="2"/>
+<wire x1="81.28" y1="157.48" x2="104.14" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$16" class="0">
 <segment>
 <pinref part="CAMERA1" gate="G$1" pin="31"/>
 <wire x1="132.08" y1="129.54" x2="137.16" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="129.54" x2="137.16" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="CONTROL" gate="1" pin="1"/>
-<wire x1="137.16" y1="157.48" x2="119.38" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="129.54" x2="137.16" y2="162.56" width="0.1524" layer="91"/>
+<pinref part="CONTROL" gate="1" pin="5"/>
+<wire x1="119.38" y1="162.56" x2="137.16" y2="162.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$17" class="0">
@@ -1366,9 +1366,9 @@ W = angled&lt;p&gt;
 <segment>
 <pinref part="CAMERA1" gate="G$1" pin="27"/>
 <wire x1="132.08" y1="124.46" x2="142.24" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="124.46" x2="142.24" y2="162.56" width="0.1524" layer="91"/>
-<pinref part="CONTROL" gate="1" pin="5"/>
-<wire x1="142.24" y1="162.56" x2="119.38" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="124.46" x2="142.24" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="CONTROL" gate="1" pin="1"/>
+<wire x1="119.38" y1="157.48" x2="142.24" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$19" class="0">

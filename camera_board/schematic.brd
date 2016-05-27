@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -38,7 +38,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
@@ -57,10 +57,13 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="0" x2="100" y2="0" width="0" layer="20"/>
-<wire x1="100" y1="0" x2="100" y2="80" width="0" layer="20"/>
-<wire x1="100" y1="80" x2="0" y2="80" width="0" layer="20"/>
-<wire x1="0" y1="80" x2="0" y2="0" width="0" layer="20"/>
+<wire x1="0" y1="0" x2="36.754" y2="0" width="0" layer="20"/>
+<wire x1="36.754" y1="0" x2="36.754" y2="25.644" width="0" layer="20"/>
+<wire x1="36.754" y1="25.644" x2="0" y2="25.644" width="0" layer="20"/>
+<wire x1="0" y1="25.644" x2="0" y2="0" width="0" layer="20"/>
+<hole x="2.794" y="22.86" drill="3.2"/>
+<hole x="34.036" y="2.794" drill="3.2"/>
+<hole x="33.782" y="22.86" drill="3.2"/>
 </plain>
 <libraries>
 <library name="_hhn_con_pinhead_box_1mm27">
@@ -597,46 +600,49 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="CAMERA1" library="_hhn_con_pinhead_box_1mm27" package="PHB_1MM27_2X17_SNT" value="MT9V034" x="25.4" y="30.48"/>
-<element name="DATA" library="con-lsta" package="FE06-2" value="" x="20.32" y="24.13" rot="MR0">
-<attribute name="MF" value="" x="20.32" y="24.13" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MPN" value="" x="20.32" y="24.13" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="20.32" y="24.13" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="20.32" y="24.13" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="CAMERA1" library="_hhn_con_pinhead_box_1mm27" package="PHB_1MM27_2X17_SNT" value="MT9V034" x="14.986" y="11.938"/>
+<element name="DATA" library="con-lsta" package="FE06-2" value="" x="9.906" y="5.588" rot="MR0">
+<attribute name="MF" value="" x="9.906" y="5.588" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="MPN" value="" x="9.906" y="5.588" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="9.906" y="5.588" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="9.906" y="5.588" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="POWER1" library="con-molex" package="22-23-2021" value="MAIN" x="6.35" y="30.48" rot="MR0">
-<attribute name="MF" value="MOLEX" x="6.35" y="30.48" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MPN" value="22-23-2021" x="6.35" y="30.48" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="OC_NEWARK" value="25C3832" x="6.35" y="30.48" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="OC_FARNELL" value="1462926" x="6.35" y="30.48" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="POWER1" library="con-molex" package="22-23-2021" value="MAIN" x="23.876" y="5.588" rot="MR90">
+<attribute name="MF" value="MOLEX" x="23.876" y="5.588" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MPN" value="22-23-2021" x="23.876" y="5.588" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="OC_NEWARK" value="25C3832" x="23.876" y="5.588" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="OC_FARNELL" value="1462926" x="23.876" y="5.588" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="PWR2" library="con-molex" package="22-23-2021" value="NC" x="24.13" y="36.83" rot="MR180">
-<attribute name="MF" value="MOLEX" x="24.13" y="36.83" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="MPN" value="22-23-2021" x="24.13" y="36.83" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="OC_NEWARK" value="25C3832" x="24.13" y="36.83" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="OC_FARNELL" value="1462926" x="24.13" y="36.83" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="PWR2" library="con-molex" package="22-23-2021" value="NC" x="27.051" y="19.558" rot="MR180">
+<attribute name="MF" value="MOLEX" x="27.051" y="19.558" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="MPN" value="22-23-2021" x="27.051" y="19.558" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="OC_NEWARK" value="25C3832" x="27.051" y="19.558" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="OC_FARNELL" value="1462926" x="27.051" y="19.558" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="CONTROL" library="con-lstb" package="MA03-2" value="" x="35.56" y="36.83" rot="MR0">
-<attribute name="MF" value="" x="35.56" y="36.83" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MPN" value="" x="35.56" y="36.83" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="35.56" y="36.83" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="35.56" y="36.83" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="CONTROL" library="con-lstb" package="MA03-2" value="" x="17.526" y="19.558" rot="MR270">
+<attribute name="MF" value="" x="17.526" y="19.558" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="MPN" value="" x="17.526" y="19.558" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="17.526" y="19.558" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="17.526" y="19.558" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
-<element name="CCD_DATA" library="con-lstb" package="MA04-1" value="" x="34.29" y="25.4" rot="MR0">
-<attribute name="MF" value="" x="34.29" y="25.4" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MPN" value="" x="34.29" y="25.4" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="34.29" y="25.4" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="34.29" y="25.4" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="CCD_DATA" library="con-lstb" package="MA04-1" value="" x="31.242" y="12.7" rot="MR90">
+<attribute name="MF" value="" x="31.242" y="12.7" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MPN" value="" x="31.242" y="12.7" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="31.242" y="12.7" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="31.242" y="12.7" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="SERIAL" library="pinhead" package="1X02" value="" x="15.24" y="38.1" rot="MR180"/>
+<element name="SERIAL" library="pinhead" package="1X02" value="" x="8.636" y="18.288" rot="MR180"/>
 </elements>
 <signals>
 <signal name="VCC">
 <contactref element="CAMERA1" pad="26"/>
 <contactref element="CAMERA1" pad="25"/>
 <contactref element="POWER1" pad="2"/>
-<wire x1="30.48" y1="29.845" x2="5.08" y2="30.48" width="0" layer="19" extent="1-1"/>
-<wire x1="30.48" y1="31.115" x2="30.48" y2="29.845" width="0" layer="19" extent="1-1"/>
+<wire x1="23.876" y1="6.858" x2="21.59" y2="6.858" width="0.3048" layer="16"/>
+<wire x1="21.59" y1="6.858" x2="19.812" y2="8.636" width="0.3048" layer="16"/>
+<wire x1="19.812" y1="8.636" x2="19.812" y2="11.049" width="0.3048" layer="16"/>
+<wire x1="19.812" y1="11.049" x2="20.066" y2="11.303" width="0.3048" layer="16"/>
+<wire x1="20.066" y1="11.303" x2="20.066" y2="12.573" width="0.3048" layer="16"/>
 </signal>
 <signal name="GND">
 <contactref element="CAMERA1" pad="4"/>
@@ -644,17 +650,27 @@ design rules under a new name.</description>
 <contactref element="CAMERA1" pad="20"/>
 <contactref element="CAMERA1" pad="28"/>
 <contactref element="POWER1" pad="1"/>
-<wire x1="16.51" y1="31.115" x2="7.62" y2="30.48" width="0" layer="19" extent="1-1"/>
-<wire x1="22.86" y1="31.115" x2="16.51" y2="31.115" width="0" layer="19" extent="1-1"/>
-<wire x1="26.67" y1="31.115" x2="22.86" y2="31.115" width="0" layer="19" extent="1-1"/>
-<wire x1="31.75" y1="31.115" x2="26.67" y2="31.115" width="0" layer="19" extent="1-1"/>
+<polygon width="0.3048" layer="1" isolate="0.4064">
+<vertex x="0" y="24.892"/>
+<vertex x="0" y="0"/>
+<vertex x="35.56" y="0"/>
+<vertex x="35.56" y="24.892"/>
+</polygon>
 </signal>
 <signal name="1.8V">
 <contactref element="CAMERA1" pad="32"/>
 <contactref element="CAMERA1" pad="30"/>
 <contactref element="PWR2" pad="2"/>
-<wire x1="33.02" y1="31.115" x2="25.4" y2="36.83" width="0" layer="19" extent="1-1"/>
-<wire x1="34.29" y1="31.115" x2="33.02" y2="31.115" width="0" layer="19" extent="1-1"/>
+<wire x1="22.606" y1="12.573" x2="23.876" y2="12.573" width="0.3048" layer="1"/>
+<wire x1="28.321" y1="19.558" x2="28.321" y2="18.161" width="0.3048" layer="1"/>
+<wire x1="28.321" y1="18.161" x2="27.686" y2="17.526" width="0.3048" layer="1"/>
+<wire x1="27.686" y1="17.526" x2="23.368" y2="17.526" width="0.3048" layer="1"/>
+<wire x1="23.368" y1="17.526" x2="21.082" y2="15.24" width="0.3048" layer="1"/>
+<via x="21.082" y="15.24" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="21.082" y1="15.24" x2="21.082" y2="14.986" width="0.3048" layer="16"/>
+<wire x1="21.082" y1="14.986" x2="22.86" y2="13.208" width="0.3048" layer="16"/>
+<wire x1="22.86" y1="13.208" x2="22.86" y2="12.827" width="0.3048" layer="16"/>
+<wire x1="22.86" y1="12.827" x2="22.606" y2="12.573" width="0.3048" layer="16"/>
 </signal>
 <signal name="TRIGGER">
 <contactref element="CAMERA1" pad="22"/>
@@ -662,129 +678,304 @@ design rules under a new name.</description>
 <signal name="2.8V">
 <contactref element="CAMERA1" pad="18"/>
 <contactref element="PWR2" pad="1"/>
-<wire x1="25.4" y1="31.115" x2="22.86" y2="36.83" width="0" layer="19" extent="1-1"/>
+<wire x1="14.986" y1="12.573" x2="14.986" y2="13.97" width="0.3048" layer="16"/>
+<wire x1="14.986" y1="13.97" x2="16.256" y2="15.24" width="0.3048" layer="16"/>
+<wire x1="16.256" y1="15.24" x2="18.796" y2="15.24" width="0.3048" layer="16"/>
+<via x="18.796" y="15.24" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="18.796" y1="15.24" x2="19.558" y2="15.24" width="0.3048" layer="1"/>
+<wire x1="19.558" y1="15.24" x2="23.876" y2="19.558" width="0.3048" layer="1"/>
+<wire x1="23.876" y1="19.558" x2="25.781" y2="19.558" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$1">
 <contactref element="CAMERA1" pad="23"/>
 <contactref element="DATA" pad="1"/>
-<wire x1="29.21" y1="29.845" x2="26.67" y2="25.4" width="0" layer="19" extent="1-1"/>
+<wire x1="16.256" y1="6.858" x2="16.256" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="16.256" y1="8.128" x2="18.796" y2="10.668" width="0.3048" layer="16"/>
+<wire x1="18.796" y1="10.668" x2="18.796" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$2">
 <contactref element="CAMERA1" pad="21"/>
 <contactref element="DATA" pad="2"/>
-<wire x1="27.94" y1="29.845" x2="26.67" y2="22.86" width="0" layer="19" extent="1-1"/>
+<wire x1="16.256" y1="4.318" x2="14.986" y2="5.588" width="0.3048" layer="16"/>
+<wire x1="14.986" y1="5.588" x2="14.986" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="14.986" y1="8.128" x2="17.526" y2="10.668" width="0.3048" layer="16"/>
+<wire x1="17.526" y1="10.668" x2="17.526" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$3">
 <contactref element="CAMERA1" pad="19"/>
 <contactref element="DATA" pad="3"/>
-<wire x1="26.67" y1="29.845" x2="24.13" y2="25.4" width="0" layer="19" extent="1-1"/>
+<wire x1="13.716" y1="6.858" x2="13.716" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="13.716" y1="8.128" x2="16.256" y2="10.668" width="0.3048" layer="16"/>
+<wire x1="16.256" y1="10.668" x2="16.256" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$4">
 <contactref element="CAMERA1" pad="17"/>
 <contactref element="DATA" pad="4"/>
-<wire x1="25.4" y1="29.845" x2="24.13" y2="22.86" width="0" layer="19" extent="1-1"/>
+<wire x1="13.716" y1="4.318" x2="12.446" y2="5.588" width="0.3048" layer="16"/>
+<wire x1="12.446" y1="5.588" x2="12.446" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="12.446" y1="8.128" x2="14.986" y2="10.668" width="0.3048" layer="16"/>
+<wire x1="14.986" y1="10.668" x2="14.986" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$5">
 <contactref element="CAMERA1" pad="15"/>
 <contactref element="DATA" pad="5"/>
-<wire x1="24.13" y1="29.845" x2="21.59" y2="25.4" width="0" layer="19" extent="1-1"/>
+<wire x1="11.176" y1="6.858" x2="11.176" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="11.176" y1="8.128" x2="13.716" y2="10.668" width="0.3048" layer="16"/>
+<wire x1="13.716" y1="10.668" x2="13.716" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$6">
 <contactref element="CAMERA1" pad="13"/>
 <contactref element="DATA" pad="6"/>
-<wire x1="22.86" y1="29.845" x2="21.59" y2="22.86" width="0" layer="19" extent="1-1"/>
+<wire x1="11.176" y1="4.318" x2="9.906" y2="5.588" width="0.3048" layer="16"/>
+<wire x1="9.906" y1="5.588" x2="9.906" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="9.906" y1="8.128" x2="12.446" y2="10.668" width="0.3048" layer="16"/>
+<wire x1="12.446" y1="10.668" x2="12.446" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$7">
 <contactref element="CAMERA1" pad="11"/>
 <contactref element="DATA" pad="7"/>
-<wire x1="21.59" y1="29.845" x2="19.05" y2="25.4" width="0" layer="19" extent="1-1"/>
+<wire x1="8.636" y1="6.858" x2="8.636" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="8.636" y1="8.128" x2="11.176" y2="10.668" width="0.3048" layer="16"/>
+<wire x1="11.176" y1="10.668" x2="11.176" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$8">
 <contactref element="CAMERA1" pad="9"/>
 <contactref element="DATA" pad="8"/>
-<wire x1="20.32" y1="29.845" x2="19.05" y2="22.86" width="0" layer="19" extent="1-1"/>
+<wire x1="8.636" y1="4.318" x2="7.366" y2="5.588" width="0.3048" layer="16"/>
+<wire x1="7.366" y1="5.588" x2="7.366" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="7.366" y1="8.128" x2="9.906" y2="10.668" width="0.3048" layer="16"/>
+<wire x1="9.906" y1="10.668" x2="9.906" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$9">
 <contactref element="CAMERA1" pad="7"/>
 <contactref element="DATA" pad="9"/>
-<wire x1="19.05" y1="29.845" x2="16.51" y2="25.4" width="0" layer="19" extent="1-1"/>
+<wire x1="6.096" y1="6.858" x2="6.096" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="6.096" y1="8.128" x2="8.636" y2="10.668" width="0.3048" layer="16"/>
+<wire x1="8.636" y1="10.668" x2="8.636" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$10">
 <contactref element="CAMERA1" pad="5"/>
 <contactref element="DATA" pad="10"/>
-<wire x1="17.78" y1="29.845" x2="16.51" y2="22.86" width="0" layer="19" extent="1-1"/>
+<wire x1="6.096" y1="4.318" x2="4.826" y2="5.588" width="0.3048" layer="16"/>
+<wire x1="4.826" y1="5.588" x2="4.826" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="4.826" y1="8.128" x2="7.366" y2="10.668" width="0.3048" layer="16"/>
+<wire x1="7.366" y1="10.668" x2="7.366" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$11">
 <contactref element="CAMERA1" pad="3"/>
 <contactref element="DATA" pad="11"/>
-<wire x1="13.97" y1="25.4" x2="16.51" y2="29.845" width="0" layer="19" extent="1-1"/>
+<wire x1="3.556" y1="6.858" x2="3.556" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="3.556" y1="8.128" x2="6.096" y2="10.668" width="0.3048" layer="16"/>
+<wire x1="6.096" y1="10.668" x2="6.096" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$12">
 <contactref element="CAMERA1" pad="1"/>
 <contactref element="DATA" pad="12"/>
-<wire x1="13.97" y1="22.86" x2="15.24" y2="29.845" width="0" layer="19" extent="1-1"/>
+<wire x1="3.556" y1="4.318" x2="2.286" y2="5.588" width="0.3048" layer="16"/>
+<wire x1="2.286" y1="5.588" x2="2.286" y2="8.763" width="0.3048" layer="16"/>
+<wire x1="2.286" y1="8.763" x2="4.826" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$13">
 <contactref element="CAMERA1" pad="12"/>
-<contactref element="CONTROL" pad="2"/>
-<wire x1="21.59" y1="31.115" x2="38.1" y2="38.1" width="0" layer="19" extent="1-1"/>
+<contactref element="CONTROL" pad="6"/>
+<wire x1="16.256" y1="17.018" x2="15.621" y2="17.018" width="0.3048" layer="16"/>
+<wire x1="15.621" y1="17.018" x2="11.176" y2="12.573" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$14">
 <contactref element="CAMERA1" pad="10"/>
 <contactref element="CONTROL" pad="4"/>
-<wire x1="20.32" y1="31.115" x2="35.56" y2="38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="9.906" y1="12.573" x2="9.906" y2="13.208" width="0.3048" layer="16"/>
+<wire x1="9.906" y1="13.208" x2="16.256" y2="19.558" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$15">
 <contactref element="CAMERA1" pad="2"/>
-<contactref element="CONTROL" pad="6"/>
-<wire x1="15.24" y1="31.115" x2="33.02" y2="38.1" width="0" layer="19" extent="1-1"/>
+<contactref element="CONTROL" pad="2"/>
+<wire x1="4.826" y1="12.573" x2="4.826" y2="19.812" width="0.3048" layer="16"/>
+<wire x1="4.826" y1="19.812" x2="7.112" y2="22.098" width="0.3048" layer="16"/>
+<wire x1="7.112" y1="22.098" x2="16.256" y2="22.098" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$16">
 <contactref element="CAMERA1" pad="31"/>
-<contactref element="CONTROL" pad="1"/>
-<wire x1="34.29" y1="29.845" x2="38.1" y2="35.56" width="0" layer="19" extent="1-1"/>
+<contactref element="CONTROL" pad="5"/>
+<wire x1="18.796" y1="17.018" x2="21.336" y2="17.018" width="0.3048" layer="16"/>
+<wire x1="21.336" y1="17.018" x2="24.13" y2="14.224" width="0.3048" layer="16"/>
+<wire x1="24.13" y1="14.224" x2="26.67" y2="14.224" width="0.3048" layer="16"/>
+<wire x1="26.67" y1="14.224" x2="27.178" y2="13.716" width="0.3048" layer="16"/>
+<wire x1="27.178" y1="13.716" x2="27.178" y2="10.16" width="0.3048" layer="16"/>
+<wire x1="27.178" y1="10.16" x2="26.67" y2="9.652" width="0.3048" layer="16"/>
+<wire x1="26.67" y1="9.652" x2="24.13" y2="9.652" width="0.3048" layer="16"/>
+<wire x1="24.13" y1="9.652" x2="23.876" y2="9.906" width="0.3048" layer="16"/>
+<wire x1="23.876" y1="9.906" x2="23.876" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$17">
 <contactref element="CAMERA1" pad="29"/>
 <contactref element="CONTROL" pad="3"/>
-<wire x1="33.02" y1="29.845" x2="35.56" y2="35.56" width="0" layer="19" extent="1-1"/>
+<wire x1="18.796" y1="19.558" x2="21.336" y2="19.558" width="0.3048" layer="16"/>
+<wire x1="21.336" y1="19.558" x2="22.606" y2="18.288" width="0.3048" layer="16"/>
+<wire x1="22.606" y1="18.288" x2="22.606" y2="17.018" width="0.3048" layer="16"/>
+<wire x1="22.606" y1="17.018" x2="24.511" y2="15.113" width="0.3048" layer="16"/>
+<wire x1="24.511" y1="15.113" x2="27.051" y2="15.113" width="0.3048" layer="16"/>
+<wire x1="27.051" y1="15.113" x2="27.686" y2="14.478" width="0.3048" layer="16"/>
+<wire x1="27.686" y1="14.478" x2="27.686" y2="14.47330625" width="0.3048" layer="16"/>
+<wire x1="27.686" y1="14.47330625" x2="28.01166875" y2="14.1476375" width="0.3048" layer="16"/>
+<wire x1="28.01166875" y1="14.1476375" x2="28.01166875" y2="9.72366875" width="0.3048" layer="16"/>
+<wire x1="28.01166875" y1="9.72366875" x2="27.178" y2="8.89" width="0.3048" layer="16"/>
+<wire x1="27.178" y1="8.89" x2="23.368" y2="8.89" width="0.3048" layer="16"/>
+<wire x1="23.368" y1="8.89" x2="22.606" y2="9.652" width="0.3048" layer="16"/>
+<wire x1="22.606" y1="9.652" x2="22.606" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$18">
 <contactref element="CAMERA1" pad="27"/>
-<contactref element="CONTROL" pad="5"/>
-<wire x1="31.75" y1="29.845" x2="33.02" y2="35.56" width="0" layer="19" extent="1-1"/>
+<contactref element="CONTROL" pad="1"/>
+<wire x1="18.796" y1="22.098" x2="21.336" y2="22.098" width="0.3048" layer="16"/>
+<wire x1="21.336" y1="22.098" x2="23.876" y2="19.558" width="0.3048" layer="16"/>
+<wire x1="23.876" y1="19.558" x2="23.876" y2="17.018" width="0.3048" layer="16"/>
+<wire x1="23.876" y1="17.018" x2="25.146" y2="15.748" width="0.3048" layer="16"/>
+<wire x1="25.146" y1="15.748" x2="27.686" y2="15.748" width="0.3048" layer="16"/>
+<wire x1="27.686" y1="15.748" x2="28.956" y2="14.478" width="0.3048" layer="16"/>
+<wire x1="28.956" y1="14.478" x2="28.956" y2="9.398" width="0.3048" layer="16"/>
+<wire x1="28.956" y1="9.398" x2="27.686" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="27.686" y1="8.128" x2="22.606" y2="8.128" width="0.3048" layer="16"/>
+<wire x1="22.606" y1="8.128" x2="21.336" y2="9.398" width="0.3048" layer="16"/>
+<wire x1="21.336" y1="9.398" x2="21.336" y2="11.303" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$19">
 <contactref element="CAMERA1" pad="33"/>
 <contactref element="CCD_DATA" pad="1"/>
-<wire x1="35.56" y1="29.845" x2="38.1" y2="25.4" width="0" layer="19" extent="1-1"/>
+<wire x1="25.146" y1="11.303" x2="31.242" y2="8.89" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$20">
 <contactref element="CCD_DATA" pad="2"/>
 <contactref element="CAMERA1" pad="34"/>
-<wire x1="35.56" y1="31.115" x2="35.56" y2="25.4" width="0" layer="19" extent="1-1"/>
+<wire x1="25.146" y1="12.573" x2="31.242" y2="11.43" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$21">
 <contactref element="CAMERA1" pad="16"/>
 <contactref element="CCD_DATA" pad="3"/>
-<wire x1="24.13" y1="31.115" x2="33.02" y2="25.4" width="0" layer="19" extent="1-1"/>
+<wire x1="13.716" y1="12.573" x2="31.242" y2="13.97" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$22">
 <contactref element="CAMERA1" pad="24"/>
 <contactref element="CCD_DATA" pad="4"/>
-<wire x1="29.21" y1="31.115" x2="30.48" y2="25.4" width="0" layer="19" extent="1-1"/>
+<wire x1="18.796" y1="12.573" x2="31.242" y2="16.51" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$23">
 <contactref element="SERIAL" pad="2"/>
 <contactref element="CAMERA1" pad="8"/>
-<wire x1="19.05" y1="31.115" x2="16.51" y2="38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="9.906" y1="18.288" x2="9.906" y2="15.748" width="0.3048" layer="16"/>
+<wire x1="9.906" y1="15.748" x2="8.636" y2="14.478" width="0.3048" layer="16"/>
+<wire x1="8.636" y1="14.478" x2="8.636" y2="12.573" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$24">
 <contactref element="SERIAL" pad="1"/>
 <contactref element="CAMERA1" pad="6"/>
-<wire x1="17.78" y1="31.115" x2="13.97" y2="38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="7.366" y1="12.573" x2="7.366" y2="18.288" width="0.3048" layer="16"/>
+</signal>
+<signal name="N$26">
+</signal>
+<signal name="N$25">
+<via x="18.796" y="15.24" extent="1-16" drill="0.6" shape="octagon"/>
+</signal>
+<signal name="N$27">
+<via x="21.082" y="15.24" extent="1-16" drill="0.6" shape="octagon"/>
 </signal>
 </signals>
+<errors>
+<approved hash="5,1,87d56b5f89fcce8a"/>
+<approved hash="5,1,17e3820b36efdf6d"/>
+<approved hash="5,1,166b89deb15a5f75"/>
+<approved hash="5,1,7fd56b5a3d7a9315"/>
+<approved hash="5,1,706befc075c49bf5"/>
+<approved hash="5,1,71e3e415f2711bed"/>
+<approved hash="5,1,09d56b4f98e06789"/>
+<approved hash="5,1,82681dca8a4e6476"/>
+<approved hash="5,1,83e0161f0dfbe46e"/>
+<approved hash="5,1,15d56b4cb06e280c"/>
+<approved hash="5,1,01e39419797d90ed"/>
+<approved hash="5,1,006b9fccfec810f5"/>
+<approved hash="5,1,4fd56b76b7d7fc8c"/>
+<approved hash="5,1,33e3a62084c46d6d"/>
+<approved hash="5,1,326badf50371ed75"/>
+<approved hash="5,1,87d56b7c8b5dc108"/>
+<approved hash="5,1,11e3842a304ed9ed"/>
+<approved hash="5,1,106b8fffb7fb59f5"/>
+<approved hash="5,1,8dd56b7bcedb9595"/>
+<approved hash="5,1,0e6b91e164658a75"/>
+<approved hash="5,1,0fe39a34e3d00a6d"/>
+<approved hash="5,1,31d56b60a6416609"/>
+<approved hash="5,1,806a1feb88ef66f4"/>
+<approved hash="5,1,81e2143e0f5ae6ec"/>
+<approved hash="5,1,1fd56b69b5cf2a8a"/>
+<approved hash="5,1,7e6be1eded690375"/>
+<approved hash="5,1,7fe3ea386adc836d"/>
+<approved hash="5,1,47d56b97b9b4ff0a"/>
+<approved hash="5,1,31e3a4c386a76fed"/>
+<approved hash="5,1,306baf160112eff5"/>
+<approved hash="5,1,99d56b9d9432c38a"/>
+<approved hash="5,1,13e386cd3129d86d"/>
+<approved hash="5,1,126b8d18b69c5875"/>
+<approved hash="5,1,8dd56b98ccb89409"/>
+<approved hash="5,1,006b9f029a0674f5"/>
+<approved hash="5,1,01e394d71db3f4ed"/>
+<approved hash="5,1,83ec16d10835e162"/>
+<approved hash="5,1,82641d048f80617a"/>
+<approved hash="5,1,0fd56b8aa7ac2d08"/>
+<approved hash="5,1,91e004db54bfbdee"/>
+<approved hash="5,1,90680f0ed30a3df6"/>
+<approved hash="5,1,45d56bb4ba15f188"/>
+<approved hash="5,1,37e3a2e287066e6d"/>
+<approved hash="5,1,91d56bb2a293c204"/>
+<approved hash="5,1,01e394ecb3885aed"/>
+<approved hash="5,1,006b9f39343ddaf5"/>
+<approved hash="5,1,97d56bb9d1199689"/>
+<approved hash="5,16,87d56b5f89fcce8a"/>
+<approved hash="5,16,17e3820b36efdf6d"/>
+<approved hash="5,16,166b89deb15a5f75"/>
+<approved hash="5,16,7fd56b5a3d7a9315"/>
+<approved hash="5,16,706befc075c49bf5"/>
+<approved hash="5,16,71e3e415f2711bed"/>
+<approved hash="5,16,09d56b4f98e06789"/>
+<approved hash="5,16,82681dca8a4e6476"/>
+<approved hash="5,16,83e0161f0dfbe46e"/>
+<approved hash="5,16,15d56b4cb06e280c"/>
+<approved hash="5,16,01e39419797d90ed"/>
+<approved hash="5,16,006b9fccfec810f5"/>
+<approved hash="5,16,4fd56b76b7d7fc8c"/>
+<approved hash="5,16,33e3a62084c46d6d"/>
+<approved hash="5,16,326badf50371ed75"/>
+<approved hash="5,16,87d56b7c8b5dc108"/>
+<approved hash="5,16,11e3842a304ed9ed"/>
+<approved hash="5,16,106b8fffb7fb59f5"/>
+<approved hash="5,16,8dd56b7bcedb9595"/>
+<approved hash="5,16,0e6b91e164658a75"/>
+<approved hash="5,16,0fe39a34e3d00a6d"/>
+<approved hash="5,16,31d56b60a6416609"/>
+<approved hash="5,16,806a1feb88ef66f4"/>
+<approved hash="5,16,81e2143e0f5ae6ec"/>
+<approved hash="5,16,1fd56b69b5cf2a8a"/>
+<approved hash="5,16,7e6be1eded690375"/>
+<approved hash="5,16,7fe3ea386adc836d"/>
+<approved hash="5,16,47d56b97b9b4ff0a"/>
+<approved hash="5,16,31e3a4c386a76fed"/>
+<approved hash="5,16,306baf160112eff5"/>
+<approved hash="5,16,99d56b9d9432c38a"/>
+<approved hash="5,16,13e386cd3129d86d"/>
+<approved hash="5,16,126b8d18b69c5875"/>
+<approved hash="5,16,8dd56b98ccb89409"/>
+<approved hash="5,16,006b9f029a0674f5"/>
+<approved hash="5,16,01e394d71db3f4ed"/>
+<approved hash="5,16,83ec16d10835e162"/>
+<approved hash="5,16,82641d048f80617a"/>
+<approved hash="5,16,0fd56b8aa7ac2d08"/>
+<approved hash="5,16,91e004db54bfbdee"/>
+<approved hash="5,16,90680f0ed30a3df6"/>
+<approved hash="5,16,45d56bb4ba15f188"/>
+<approved hash="5,16,37e3a2e287066e6d"/>
+<approved hash="5,16,91d56bb2a293c204"/>
+<approved hash="5,16,01e394ecb3885aed"/>
+<approved hash="5,16,006b9f39343ddaf5"/>
+<approved hash="5,16,97d56bb9d1199689"/>
+</errors>
 </board>
 </drawing>
 </eagle>
