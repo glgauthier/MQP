@@ -946,6 +946,21 @@ W = angled&lt;p&gt;
 <rectangle x1="-1.651" y1="-2.921" x2="-0.889" y2="-1.905" layer="21"/>
 <rectangle x1="0.889" y1="-2.921" x2="1.651" y2="-1.905" layer="21"/>
 </package>
+<package name="1X01">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<wire x1="-0.635" y1="1.27" x2="0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-0.635" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="1.27" x2="-1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-0.635" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
+<pad name="1" x="0" y="0" drill="1.016" shape="octagon"/>
+<text x="-1.3462" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-1.27" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="PINHD2">
@@ -957,6 +972,15 @@ W = angled&lt;p&gt;
 <text x="-6.35" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="1" x="-2.54" y="2.54" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="2" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
+</symbol>
+<symbol name="PINHD1">
+<wire x1="-6.35" y1="-2.54" x2="1.27" y2="-2.54" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="1.27" y2="2.54" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="-6.35" y2="2.54" width="0.4064" layer="94"/>
+<wire x1="-6.35" y1="2.54" x2="-6.35" y2="-2.54" width="0.4064" layer="94"/>
+<text x="-6.35" y="3.175" size="1.778" layer="95">&gt;NAME</text>
+<text x="-6.35" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -986,6 +1010,22 @@ W = angled&lt;p&gt;
 </device>
 </devices>
 </deviceset>
+<deviceset name="PINHD-1X1" prefix="JP" uservalue="yes">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="PINHD1" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="1X01">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -1006,7 +1046,7 @@ W = angled&lt;p&gt;
 <part name="P+3" library="supply1" deviceset="+5V" device="" value="+2.8V"/>
 <part name="TRIGGER" library="supply1" deviceset="+5V" device="" value="Trigger"/>
 <part name="DATA" library="con-lsta" deviceset="FE06-2" device=""/>
-<part name="POWER1" library="con-molex" deviceset="22-23-2021" device="" value="MAIN"/>
+<part name="POWER" library="con-molex" deviceset="22-23-2021" device="" value="MAIN"/>
 <part name="PWR2" library="con-molex" deviceset="22-23-2021" device="" value="NC"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" deviceset="VCC" device=""/>
@@ -1014,6 +1054,8 @@ W = angled&lt;p&gt;
 <part name="P+6" library="supply1" deviceset="+5V" device="" value="+2.8V"/>
 <part name="CONTROL" library="con-lstb" deviceset="MA03-2" device=""/>
 <part name="SERIAL" library="pinhead" deviceset="PINHD-1X2" device=""/>
+<part name="TRIGGER1" library="supply1" deviceset="+5V" device="" value="Trigger"/>
+<part name="TRIG" library="pinhead" deviceset="PINHD-1X1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1031,8 +1073,8 @@ unconnected</text>
 <instance part="P+3" gate="1" x="116.84" y="104.14" rot="R90"/>
 <instance part="TRIGGER" gate="1" x="109.22" y="109.22" rot="R90"/>
 <instance part="DATA" gate="G$1" x="205.74" y="73.66" rot="R180"/>
-<instance part="POWER1" gate="-1" x="48.26" y="129.54" rot="R180"/>
-<instance part="POWER1" gate="-2" x="48.26" y="132.08" rot="R180"/>
+<instance part="POWER" gate="-1" x="48.26" y="129.54" rot="R180"/>
+<instance part="POWER" gate="-2" x="48.26" y="132.08" rot="R180"/>
 <instance part="PWR2" gate="-1" x="48.26" y="109.22" rot="R180"/>
 <instance part="PWR2" gate="-2" x="48.26" y="111.76" rot="R180"/>
 <instance part="GND2" gate="1" x="58.42" y="124.46"/>
@@ -1041,6 +1083,8 @@ unconnected</text>
 <instance part="P+6" gate="1" x="63.5" y="114.3"/>
 <instance part="CONTROL" gate="1" x="127" y="152.4"/>
 <instance part="SERIAL" gate="G$1" x="83.82" y="91.44" rot="R180"/>
+<instance part="TRIGGER1" gate="1" x="66.04" y="154.94" rot="R270"/>
+<instance part="TRIG" gate="G$1" x="35.56" y="154.94" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -1059,7 +1103,7 @@ unconnected</text>
 <junction x="160.02" y="114.3"/>
 </segment>
 <segment>
-<pinref part="POWER1" gate="-2" pin="S"/>
+<pinref part="POWER" gate="-2" pin="S"/>
 <pinref part="P+4" gate="VCC" pin="VCC"/>
 <wire x1="50.8" y1="132.08" x2="58.42" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="132.08" x2="58.42" y2="134.62" width="0.1524" layer="91"/>
@@ -1085,7 +1129,7 @@ unconnected</text>
 <wire x1="132.08" y1="116.84" x2="124.46" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="POWER1" gate="-1" pin="S"/>
+<pinref part="POWER" gate="-1" pin="S"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="50.8" y1="129.54" x2="58.42" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="129.54" x2="58.42" y2="127" width="0.1524" layer="91"/>
@@ -1114,6 +1158,11 @@ unconnected</text>
 <pinref part="TRIGGER" gate="1" pin="+5V"/>
 <pinref part="CAMERA1" gate="G$1" pin="22"/>
 <wire x1="111.76" y1="109.22" x2="132.08" y2="109.22" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="TRIG" gate="G$1" pin="1"/>
+<pinref part="TRIGGER1" gate="1" pin="+5V"/>
+<wire x1="38.1" y1="154.94" x2="63.5" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="2.8V" class="0">
