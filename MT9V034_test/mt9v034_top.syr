@@ -1,0 +1,483 @@
+Release 14.1 - xst P.15xf (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Reading design: mt9v034_top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mt9v034_top.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "mt9v034_top"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : mt9v034_top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\ipcore_dir\dcm.v" into library work
+Parsing module <dcm>.
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\ipcore_dir\dcm\example_design\dcm_exdes.v" into library work
+Parsing module <dcm_exdes>.
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\debounce.v" into library work
+Parsing module <debounce>.
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\clk_divs.v" into library work
+Parsing module <clk_div>.
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" into library work
+Parsing module <mt9v034_top>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <mt9v034_top>.
+
+Elaborating module <dcm>.
+
+Elaborating module <IBUFG>.
+
+Elaborating module <DCM_SP(CLKDV_DIVIDE=2.0,CLKFX_DIVIDE=25,CLKFX_MULTIPLY=6,CLKIN_DIVIDE_BY_2="FALSE",CLKIN_PERIOD=10.0,CLKOUT_PHASE_SHIFT="NONE",CLK_FEEDBACK="1X",DESKEW_ADJUST="SYSTEM_SYNCHRONOUS",PHASE_SHIFT=0,STARTUP_WAIT="FALSE")>.
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\ipcore_dir\dcm.v" Line 130: Assignment to status_int ignored, since the identifier is never used
+
+Elaborating module <BUFG>.
+
+Elaborating module <clk_div>.
+
+Elaborating module <debounce>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <mt9v034_top>.
+    Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v".
+    Summary:
+	no macro.
+Unit <mt9v034_top> synthesized.
+
+Synthesizing Unit <dcm>.
+    Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\ipcore_dir\dcm.v".
+    Summary:
+	no macro.
+Unit <dcm> synthesized.
+
+Synthesizing Unit <clk_div>.
+    Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\clk_divs.v".
+    Found 21-bit register for signal <bounce_count>.
+    Found 21-bit adder for signal <bounce_count[20]_GND_6_o_add_2_OUT> created at line 23.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  21 D-type flip-flop(s).
+Unit <clk_div> synthesized.
+
+Synthesizing Unit <debounce>.
+    Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\debounce.v".
+    Found 1-bit register for signal <btn_val>.
+    Found 2-bit register for signal <count>.
+    Summary:
+	inferred   3 D-type flip-flop(s).
+Unit <debounce> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 21-bit adder                                          : 1
+# Registers                                            : 3
+ 1-bit register                                        : 1
+ 2-bit register                                        : 1
+ 21-bit register                                       : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <clk_div>.
+The following registers are absorbed into counter <bounce_count>: 1 register on signal <bounce_count>.
+Unit <clk_div> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 1
+ 21-bit up counter                                     : 1
+# Registers                                            : 3
+ Flip-Flops                                            : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <mt9v034_top> ...
+
+Optimizing unit <debounce> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block mt9v034_top, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 24
+ Flip-Flops                                            : 24
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : mt9v034_top.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 76
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 20
+#      LUT2                        : 1
+#      LUT3                        : 4
+#      LUT5                        : 1
+#      LUT6                        : 6
+#      MUXCY                       : 20
+#      VCC                         : 1
+#      XORCY                       : 21
+# FlipFlops/Latches                : 24
+#      FD                          : 2
+#      FDE                         : 1
+#      FDR                         : 21
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 6
+#      IBUF                        : 2
+#      IBUFG                       : 1
+#      OBUF                        : 3
+# DCMs                             : 1
+#      DCM_SP                      : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              24  out of  18224     0%  
+ Number of Slice LUTs:                   33  out of   9112     0%  
+    Number used as Logic:                33  out of   9112     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     33
+   Number with an unused Flip Flop:       9  out of     33    27%  
+   Number with an unused LUT:             0  out of     33     0%  
+   Number of fully used LUT-FF pairs:    24  out of     33    72%  
+   Number of unique control sets:         3
+
+IO Utilization: 
+ Number of IOs:                           6
+ Number of bonded IOBs:                   6  out of    232     2%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+------------------------------------------+------------------------+-------+
+Clock Signal                              | Clock buffer(FF name)  | Load  |
+------------------------------------------+------------------------+-------+
+sysclk                                    | DCM_SP:CLKFX           | 21    |
+clk_50mS(debounce_clk/clk_debounce<20>3:O)| NONE(*)(deb/btn_val)   | 3     |
+------------------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 2.338ns (Maximum Frequency: 427.643MHz)
+   Minimum input arrival time before clock: 3.550ns
+   Maximum output required time after clock: 3.597ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'sysclk'
+  Clock period: 1.172ns (frequency: 853.301MHz)
+  Total number of paths / destination ports: 672 / 42
+-------------------------------------------------------------------------
+Delay:               4.883ns (Levels of Logic = 3)
+  Source:            debounce_clk/bounce_count_12 (FF)
+  Destination:       debounce_clk/bounce_count_0 (FF)
+  Source Clock:      sysclk rising 0.2X
+  Destination Clock: sysclk rising 0.2X
+
+  Data Path: debounce_clk/bounce_count_12 to debounce_clk/bounce_count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.447   0.721  debounce_clk/bounce_count_12 (debounce_clk/bounce_count_12)
+     LUT2:I0->O            1   0.203   0.580  debounce_clk/GND_6_o_GND_6_o_equal_2_o<20>1_SW0 (N3)
+     LUT6:I5->O            2   0.205   0.981  debounce_clk/GND_6_o_GND_6_o_equal_2_o<20>1 (debounce_clk/GND_6_o_GND_6_o_equal_2_o<20>1)
+     LUT6:I0->O           21   0.203   1.113  debounce_clk/Mcount_bounce_count_val3 (debounce_clk/Mcount_bounce_count_val)
+     FDR:R                     0.430          debounce_clk/bounce_count_0
+    ----------------------------------------
+    Total                      4.883ns (1.488ns logic, 3.395ns route)
+                                       (30.5% logic, 69.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_50mS'
+  Clock period: 2.338ns (frequency: 427.643MHz)
+  Total number of paths / destination ports: 8 / 4
+-------------------------------------------------------------------------
+Delay:               2.338ns (Levels of Logic = 1)
+  Source:            deb/count_0 (FF)
+  Destination:       deb/btn_val (FF)
+  Source Clock:      clk_50mS rising
+  Destination Clock: clk_50mS rising
+
+  Data Path: deb/count_0 to deb/btn_val
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               4   0.447   0.788  deb/count_0 (deb/count_0)
+     LUT3:I1->O            1   0.203   0.579  deb/btn_count[1]_AND_1_o_inv11 (deb/btn_count[1]_AND_1_o_inv_0)
+     FDE:CE                    0.322          deb/btn_val
+    ----------------------------------------
+    Total                      2.338ns (0.972ns logic, 1.366ns route)
+                                       (41.6% logic, 58.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'sysclk'
+  Total number of paths / destination ports: 21 / 21
+-------------------------------------------------------------------------
+Offset:              3.550ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       debounce_clk/bounce_count_0 (FF)
+  Destination Clock: sysclk rising 0.2X
+
+  Data Path: reset to debounce_clk/bounce_count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.580  reset_IBUF (reset_IBUF)
+     LUT6:I5->O           21   0.205   1.113  debounce_clk/Mcount_bounce_count_val3 (debounce_clk/Mcount_bounce_count_val)
+     FDR:R                     0.430          debounce_clk/bounce_count_0
+    ----------------------------------------
+    Total                      3.550ns (1.857ns logic, 1.692ns route)
+                                       (52.3% logic, 47.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_50mS'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              3.239ns (Levels of Logic = 2)
+  Source:            trigger (PAD)
+  Destination:       deb/btn_val (FF)
+  Destination Clock: clk_50mS rising
+
+  Data Path: trigger to deb/btn_val
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.222   0.912  trigger_IBUF (trigger_IBUF)
+     LUT3:I0->O            1   0.205   0.579  deb/btn_count[1]_AND_1_o_inv11 (deb/btn_count[1]_AND_1_o_inv_0)
+     FDE:CE                    0.322          deb/btn_val
+    ----------------------------------------
+    Total                      3.239ns (1.749ns logic, 1.490ns route)
+                                       (54.0% logic, 46.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_50mS'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              3.597ns (Levels of Logic = 1)
+  Source:            deb/btn_val (FF)
+  Destination:       trigPin (PAD)
+  Source Clock:      clk_50mS rising
+
+  Data Path: deb/btn_val to trigPin
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.447   0.579  deb/btn_val (deb/btn_val)
+     OBUF:I->O                 2.571          trigPin_OBUF (trigPin)
+    ----------------------------------------
+    Total                      3.597ns (3.018ns logic, 0.579ns route)
+                                       (83.9% logic, 16.1% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk_50mS
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk_50mS       |    2.338|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sysclk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+sysclk         |    4.883|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.75 secs
+ 
+--> 
+
+Total memory usage is 280236 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

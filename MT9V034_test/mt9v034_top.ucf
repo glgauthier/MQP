@@ -1,0 +1,22 @@
+NET "sysclk" LOC = V10; #Nexys3 100MHz fpga_clk
+NET "reset" LOC = B8; 	#Nexys3 Center button
+NET "trigger" LOC = D9; #Nexys3 Right button
+NET "LOCKED" LOC = U16; #Nexys3 LED0
+
+#Should use ODDR2 pins for these signals in the future
+NET "trigPin" LOC = T11;  #LED7
+NET "cam_sysclk" LOC = R11; #LED6
+PIN "CLK_24MHz/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+
+# seven segment display
+#NET "cathodes[0]" LOC = L14;
+#NET "cathodes[1]" LOC = N14;
+#NET "cathodes[2]" LOC = M14;
+#NET "cathodes[3]" LOC = U18;
+#NET "cathodes[4]" LOC = U17;
+#NET "cathodes[5]" LOC = T18;
+#NET "cathodes[6]" LOC = T17;
+#NET "anodes[0]" LOC = N16;
+#NET "anodes[1]" LOC = N15;
+#NET "anodes[2]" LOC = P18;
+#NET "anodes[3]" LOC = P17;
