@@ -134,6 +134,8 @@ WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\i
 
 Elaborating module <BUFG>.
 
+Elaborating module <ODDR2(DDR_ALIGNMENT="NONE",INIT=1'b0,SRTYPE="SYNC")>.
+
 Elaborating module <clk_div>.
 
 Elaborating module <debounce>.
@@ -157,7 +159,7 @@ Unit <dcm> synthesized.
 Synthesizing Unit <clk_div>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\clk_divs.v".
     Found 21-bit register for signal <bounce_count>.
-    Found 21-bit adder for signal <bounce_count[20]_GND_6_o_add_2_OUT> created at line 23.
+    Found 21-bit adder for signal <bounce_count[20]_GND_7_o_add_2_OUT> created at line 23.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  21 D-type flip-flop(s).
@@ -177,9 +179,9 @@ HDL Synthesis Report
 Macro Statistics
 # Adders/Subtractors                                   : 1
  21-bit adder                                          : 1
-# Registers                                            : 3
- 1-bit register                                        : 1
- 2-bit register                                        : 1
+# Registers                                            : 5
+ 1-bit register                                        : 2
+ 2-bit register                                        : 2
  21-bit register                                       : 1
 
 =========================================================================
@@ -199,8 +201,8 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # Counters                                             : 1
  21-bit up counter                                     : 1
-# Registers                                            : 3
- Flip-Flops                                            : 3
+# Registers                                            : 6
+ Flip-Flops                                            : 6
 
 =========================================================================
 
@@ -222,8 +224,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 24
- Flip-Flops                                            : 24
+# Registers                                            : 27
+ Flip-Flops                                            : 27
 
 =========================================================================
 
@@ -246,27 +248,28 @@ Top Level Output File Name         : mt9v034_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 76
+# BELS                             : 81
 #      GND                         : 1
-#      INV                         : 1
+#      INV                         : 2
 #      LUT1                        : 20
 #      LUT2                        : 1
-#      LUT3                        : 4
+#      LUT3                        : 8
 #      LUT5                        : 1
 #      LUT6                        : 6
 #      MUXCY                       : 20
 #      VCC                         : 1
 #      XORCY                       : 21
-# FlipFlops/Latches                : 24
-#      FD                          : 2
-#      FDE                         : 1
+# FlipFlops/Latches                : 28
+#      FD                          : 4
+#      FDE                         : 2
 #      FDR                         : 21
+#      ODDR2                       : 1
 # Clock Buffers                    : 2
 #      BUFG                        : 2
-# IO Buffers                       : 6
-#      IBUF                        : 2
+# IO Buffers                       : 8
+#      IBUF                        : 3
 #      IBUFG                       : 1
-#      OBUF                        : 3
+#      OBUF                        : 4
 # DCMs                             : 1
 #      DCM_SP                      : 1
 
@@ -277,20 +280,20 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              24  out of  18224     0%  
- Number of Slice LUTs:                   33  out of   9112     0%  
-    Number used as Logic:                33  out of   9112     0%  
+ Number of Slice Registers:              28  out of  18224     0%  
+ Number of Slice LUTs:                   38  out of   9112     0%  
+    Number used as Logic:                38  out of   9112     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     33
-   Number with an unused Flip Flop:       9  out of     33    27%  
-   Number with an unused LUT:             0  out of     33     0%  
-   Number of fully used LUT-FF pairs:    24  out of     33    72%  
-   Number of unique control sets:         3
+ Number of LUT Flip Flop pairs used:     39
+   Number with an unused Flip Flop:      11  out of     39    28%  
+   Number with an unused LUT:             1  out of     39     2%  
+   Number of fully used LUT-FF pairs:    27  out of     39    69%  
+   Number of unique control sets:         4
 
 IO Utilization: 
- Number of IOs:                           6
- Number of bonded IOBs:                   6  out of    232     2%  
+ Number of IOs:                           8
+ Number of bonded IOBs:                   8  out of    232     3%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
@@ -316,8 +319,8 @@ Clock Information:
 ------------------------------------------+------------------------+-------+
 Clock Signal                              | Clock buffer(FF name)  | Load  |
 ------------------------------------------+------------------------+-------+
-sysclk                                    | DCM_SP:CLKFX           | 21    |
-clk_50mS(debounce_clk/clk_debounce<20>3:O)| NONE(*)(deb/btn_val)   | 3     |
+sysclk                                    | DCM_SP:CLKFX           | 23    |
+clk_50mS(debounce_clk/clk_debounce<20>3:O)| NONE(*)(deb/btn_val)   | 6     |
 ------------------------------------------+------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
@@ -347,18 +350,18 @@ Timing constraint: Default period analysis for Clock 'sysclk'
   Total number of paths / destination ports: 672 / 42
 -------------------------------------------------------------------------
 Delay:               4.883ns (Levels of Logic = 3)
-  Source:            debounce_clk/bounce_count_12 (FF)
+  Source:            debounce_clk/bounce_count_13 (FF)
   Destination:       debounce_clk/bounce_count_0 (FF)
   Source Clock:      sysclk rising 0.2X
   Destination Clock: sysclk rising 0.2X
 
-  Data Path: debounce_clk/bounce_count_12 to debounce_clk/bounce_count_0
+  Data Path: debounce_clk/bounce_count_13 to debounce_clk/bounce_count_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.447   0.721  debounce_clk/bounce_count_12 (debounce_clk/bounce_count_12)
-     LUT2:I0->O            1   0.203   0.580  debounce_clk/GND_6_o_GND_6_o_equal_2_o<20>1_SW0 (N3)
-     LUT6:I5->O            2   0.205   0.981  debounce_clk/GND_6_o_GND_6_o_equal_2_o<20>1 (debounce_clk/GND_6_o_GND_6_o_equal_2_o<20>1)
+     FDR:C->Q              2   0.447   0.721  debounce_clk/bounce_count_13 (debounce_clk/bounce_count_13)
+     LUT2:I0->O            1   0.203   0.580  debounce_clk/GND_7_o_GND_7_o_equal_2_o<20>1_SW0 (N3)
+     LUT6:I5->O            2   0.205   0.981  debounce_clk/GND_7_o_GND_7_o_equal_2_o<20>1 (debounce_clk/GND_7_o_GND_7_o_equal_2_o<20>1)
      LUT6:I0->O           21   0.203   1.113  debounce_clk/Mcount_bounce_count_val3 (debounce_clk/Mcount_bounce_count_val)
      FDR:R                     0.430          debounce_clk/bounce_count_0
     ----------------------------------------
@@ -368,7 +371,7 @@ Delay:               4.883ns (Levels of Logic = 3)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_50mS'
   Clock period: 2.338ns (frequency: 427.643MHz)
-  Total number of paths / destination ports: 8 / 4
+  Total number of paths / destination ports: 16 / 8
 -------------------------------------------------------------------------
 Delay:               2.338ns (Levels of Logic = 1)
   Source:            deb/count_0 (FF)
@@ -409,7 +412,7 @@ Offset:              3.550ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_50mS'
-  Total number of paths / destination ports: 4 / 4
+  Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
 Offset:              3.239ns (Levels of Logic = 2)
   Source:            trigger (PAD)
@@ -429,19 +432,19 @@ Offset:              3.239ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_50mS'
-  Total number of paths / destination ports: 1 / 1
+  Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
 Offset:              3.597ns (Levels of Logic = 1)
-  Source:            deb/btn_val (FF)
-  Destination:       trigPin (PAD)
+  Source:            deb1/btn_val (FF)
+  Destination:       cam_reset (PAD)
   Source Clock:      clk_50mS rising
 
-  Data Path: deb/btn_val to trigPin
+  Data Path: deb1/btn_val to cam_reset
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              1   0.447   0.579  deb/btn_val (deb/btn_val)
-     OBUF:I->O                 2.571          trigPin_OBUF (trigPin)
+     FDE:C->Q              1   0.447   0.579  deb1/btn_val (deb1/btn_val)
+     OBUF:I->O                 2.571          cam_reset_OBUF (cam_reset)
     ----------------------------------------
     Total                      3.597ns (3.018ns logic, 0.579ns route)
                                        (83.9% logic, 16.1% route)
@@ -470,8 +473,8 @@ sysclk         |    4.883|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.75 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.88 secs
  
 --> 
 

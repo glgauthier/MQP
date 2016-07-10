@@ -37,33 +37,35 @@ Setup/Hold to clock sysclk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-reset       |    5.369(R)|      SLOW  |   -2.557(R)|      FAST  |cam_sysclk_OBUF   |   0.000|
+reset       |    4.683(R)|      SLOW  |   -2.053(R)|      FAST  |clk_24MHz         |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
+
+Clock sysclk to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+cam_sysclk  |         4.241(R)|      SLOW  |         2.421(R)|      FAST  |clk_24MHz         |   0.000|
+            |         4.221(F)|      SLOW  |         2.427(F)|      FAST  |clk_24MHz         |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock sysclk
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-sysclk         |    3.930|         |         |         |
+sysclk         |    4.039|         |         |         |
 ---------------+---------+---------+---------+---------+
 
-Pad to Pad
----------------+---------------+---------+
-Source Pad     |Destination Pad|  Delay  |
----------------+---------------+---------+
-sysclk         |cam_sysclk     |    4.313|
----------------+---------------+---------+
 
-
-Analysis completed Sat Jul 09 18:33:56 2016 
+Analysis completed Sun Jul 10 14:46:03 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 245 MB
+Peak Memory Usage: 244 MB
 
 
 

@@ -1,7 +1,7 @@
 Release 14.1 par P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-GEORGES-T460P::  Sat Jul 09 18:33:48 2016
+GEORGES-T460P::  Sun Jul 10 14:45:54 2016
 
 par -w -intstyle ise -ol high -mt off mt9v034_top_map.ncd mt9v034_top.ncd
 mt9v034_top.pcf 
@@ -27,16 +27,16 @@ Device speed data version:  "PRODUCTION 1.21 2012-04-23".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                    24 out of  18,224    1%
-    Number used as Flip Flops:                  24
+  Number of Slice Registers:                    27 out of  18,224    1%
+    Number used as Flip Flops:                  27
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                         32 out of   9,112    1%
-    Number used as logic:                       31 out of   9,112    1%
-      Number using O6 output only:              10
+  Number of Slice LUTs:                         35 out of   9,112    1%
+    Number used as logic:                       34 out of   9,112    1%
+      Number using O6 output only:              12
       Number using O5 output only:              19
-      Number using O5 and O6:                    2
+      Number using O5 and O6:                    3
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   2,176    0%
     Number used exclusively as route-thrus:      1
@@ -45,12 +45,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    11 out of   2,278    1%
+  Number of occupied Slices:                    15 out of   2,278    1%
   Nummber of MUXCYs used:                       24 out of   4,556    1%
-  Number of LUT Flip Flop pairs used:           32
-    Number with an unused Flip Flop:             9 out of      32   28%
-    Number with an unused LUT:                   0 out of      32    0%
-    Number of fully used LUT-FF pairs:          23 out of      32   71%
+  Number of LUT Flip Flop pairs used:           35
+    Number with an unused Flip Flop:            10 out of      35   28%
+    Number with an unused LUT:                   0 out of      35    0%
+    Number of fully used LUT-FF pairs:          25 out of      35   71%
     Number of slice register sites lost
       to control set restrictions:               0 out of  18,224    0%
 
@@ -61,8 +61,9 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                         6 out of     232    2%
-    Number of LOCed IOBs:                        6 out of       6  100%
+  Number of bonded IOBs:                         8 out of     232    3%
+    Number of LOCed IOBs:                        8 out of       8  100%
+    IOB Flip Flops:                              1
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -81,7 +82,9 @@ Specific Feature Utilization:
     Number used as DCM_CLKGENs:                  0
   Number of ILOGIC2/ISERDES2s:                   0 out of     248    0%
   Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     248    0%
-  Number of OLOGIC2/OSERDES2s:                   0 out of     248    0%
+  Number of OLOGIC2/OSERDES2s:                   1 out of     248    1%
+    Number used as OLOGIC2s:                     1
+    Number used as OSERDES2s:                    0
   Number of BSCANs:                              0 out of       4    0%
   Number of BUFHs:                               0 out of     128    0%
   Number of BUFPLLs:                             0 out of       8    0%
@@ -105,13 +108,13 @@ Finished initial Timing Analysis.  REAL time: 2 secs
 Starting Router
 
 
-Phase  1  : 127 unrouted;      REAL time: 2 secs 
+Phase  1  : 147 unrouted;      REAL time: 2 secs 
 
-Phase  2  : 97 unrouted;      REAL time: 2 secs 
+Phase  2  : 111 unrouted;      REAL time: 2 secs 
 
-Phase  3  : 22 unrouted;      REAL time: 2 secs 
+Phase  3  : 13 unrouted;      REAL time: 2 secs 
 
-Phase  4  : 22 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
+Phase  4  : 13 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
 Updating file: mt9v034_top.ncd with current fully routed design.
 
@@ -147,11 +150,11 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net cam | SETUP       |         N/A|     3.930ns|     N/A|           0
-  _sysclk_OBUF                              | HOLD        |     0.464ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     2.162ns|     N/A|           0
+  _50mS                                     | HOLD        |     0.438ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     1.750ns|     N/A|           0
-  _50mS                                     | HOLD        |     0.584ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     4.039ns|     N/A|           0
+  _24MHz                                    | HOLD        |     0.472ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
