@@ -4,10 +4,12 @@ NET "cam_rst" LOC = C4; #Nexys3 left button
 NET "trigger" LOC = D9; #Nexys3 Right button
 NET "LOCKED" LOC = U16; #Nexys3 LED0
 
+
 #Should use ODDR2 pins for these signals in the future
-NET "trigPin" LOC = K2;  #PmodB1
+NET "cam_trigger" LOC = K2;  #PmodB1
 NET "cam_sysclk" LOC = K5; #PmodB10
 NET "cam_reset" LOC = K3; #PmodB9
+
 #PIN "CLK_24MHz/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = false;
 
 # seven segment display

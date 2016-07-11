@@ -1,7 +1,7 @@
 Release 14.1 par P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-GEORGES-T460P::  Sun Jul 10 14:45:54 2016
+GEORGES-T460P::  Mon Jul 11 16:57:00 2016
 
 par -w -intstyle ise -ol high -mt off mt9v034_top_map.ncd mt9v034_top.ncd
 mt9v034_top.pcf 
@@ -110,11 +110,11 @@ Starting Router
 
 Phase  1  : 147 unrouted;      REAL time: 2 secs 
 
-Phase  2  : 111 unrouted;      REAL time: 2 secs 
+Phase  2  : 111 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 13 unrouted;      REAL time: 2 secs 
+Phase  3  : 17 unrouted;      REAL time: 3 secs 
 
-Phase  4  : 13 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
+Phase  4  : 17 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
 Updating file: mt9v034_top.ncd with current fully routed design.
 
@@ -153,8 +153,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Autotimespec constraint for clock net clk | SETUP       |         N/A|     2.162ns|     N/A|           0
   _50mS                                     | HOLD        |     0.438ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     4.039ns|     N/A|           0
-  _24MHz                                    | HOLD        |     0.472ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     3.932ns|     N/A|           0
+  _24MHz                                    | HOLD        |     0.469ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -170,7 +170,7 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 3 secs 
+Total REAL time to PAR completion: 4 secs 
 Total CPU time to PAR completion: 3 secs 
 
 Peak Memory Usage:  349 MB

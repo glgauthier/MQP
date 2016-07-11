@@ -12,11 +12,12 @@ module mt9v034_top(
 		output LOCKED,
 		output cam_sysclk,
 		output cam_reset,
-		output trigPin
+		output cam_trigger
     );
-
+ 
 wire clk_50mS;
 wire clk_24MHz;
+wire uart_clk;
 
 // 24MHz clock for driving MT9V034's SYSCLK
 dcm CLK_24MHz
@@ -27,6 +28,7 @@ dcm CLK_24MHz
     .LOCKED(LOCKED)
 	 ); 
 
+// forward the camera sysclk out using a dedicated clocking route
 ODDR2 #(
       .DDR_ALIGNMENT("NONE"), // Sets output alignment to "NONE", "C0" or "C1" 
       .INIT(1'b0),    // Sets initial state of the Q output to 1'b0 or 1'b1
@@ -42,17 +44,18 @@ ODDR2 #(
       .S(1'b0)   // 1-bit set input
    );
 	
-clk_div debounce_clk(
+clk_div clks(
 	 .reset(reset), // synchronous reset
     .clk_24M(clk_24MHz), // 24MHz clock signal
-    .clk_debounce(clk_50mS) // 20Hz clock pulse
+    .clk_debounce(clk_50mS), // 20Hz clock pulse
+	 .clk_uart(uart_clk) // 9600 baud
     );
 	 
 // debounce trigger button input
 debounce deb(
     .clk(clk_50mS),
     .btn(trigger),
-    .btn_val(trigPin)
+    .btn_val(cam_trigger)
     );
 	 
 // debounce camera reset button

@@ -4,13 +4,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: mt9v034_top.prj
 
@@ -137,6 +137,7 @@ Elaborating module <BUFG>.
 Elaborating module <ODDR2(DDR_ALIGNMENT="NONE",INIT=1'b0,SRTYPE="SYNC")>.
 
 Elaborating module <clk_div>.
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" Line 50: Assignment to uart_clk ignored, since the identifier is never used
 
 Elaborating module <debounce>.
 
@@ -146,6 +147,7 @@ Elaborating module <debounce>.
 
 Synthesizing Unit <mt9v034_top>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v".
+INFO:Xst:3210 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" line 46: Output port <clk_uart> of the instance <clks> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <mt9v034_top> synthesized.
@@ -158,11 +160,13 @@ Unit <dcm> synthesized.
 
 Synthesizing Unit <clk_div>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\clk_divs.v".
+    Found 16-bit register for signal <uart_count>.
     Found 21-bit register for signal <bounce_count>.
-    Found 21-bit adder for signal <bounce_count[20]_GND_7_o_add_2_OUT> created at line 23.
+    Found 21-bit adder for signal <bounce_count[20]_GND_7_o_add_2_OUT> created at line 24.
+    Found 16-bit adder for signal <uart_count[15]_GND_7_o_add_8_OUT> created at line 33.
     Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred  21 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  37 D-type flip-flop(s).
 Unit <clk_div> synthesized.
 
 Synthesizing Unit <debounce>.
@@ -177,10 +181,12 @@ Unit <debounce> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 1
+# Adders/Subtractors                                   : 2
+ 16-bit adder                                          : 1
  21-bit adder                                          : 1
-# Registers                                            : 5
+# Registers                                            : 6
  1-bit register                                        : 2
+ 16-bit register                                       : 1
  2-bit register                                        : 2
  21-bit register                                       : 1
 
@@ -192,6 +198,7 @@ Macro Statistics
 
 
 Synthesizing (advanced) Unit <clk_div>.
+The following registers are absorbed into counter <uart_count>: 1 register on signal <uart_count>.
 The following registers are absorbed into counter <bounce_count>: 1 register on signal <bounce_count>.
 Unit <clk_div> synthesized (advanced).
 
@@ -199,7 +206,8 @@ Unit <clk_div> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Counters                                             : 1
+# Counters                                             : 2
+ 16-bit up counter                                     : 1
  21-bit up counter                                     : 1
 # Registers                                            : 6
  Flip-Flops                                            : 6
@@ -212,7 +220,25 @@ Macro Statistics
 
 Optimizing unit <mt9v034_top> ...
 
+Optimizing unit <clk_div> ...
+
 Optimizing unit <debounce> ...
+WARNING:Xst:2677 - Node <clks/uart_count_15> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_14> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_13> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_12> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_10> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_9> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_11> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_8> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_7> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_5> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_4> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_6> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_3> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_2> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_0> of sequential type is unconnected in block <mt9v034_top>.
+WARNING:Xst:2677 - Node <clks/uart_count_1> of sequential type is unconnected in block <mt9v034_top>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -316,12 +342,12 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
-------------------------------------------+------------------------+-------+
-Clock Signal                              | Clock buffer(FF name)  | Load  |
-------------------------------------------+------------------------+-------+
-sysclk                                    | DCM_SP:CLKFX           | 23    |
-clk_50mS(debounce_clk/clk_debounce<20>3:O)| NONE(*)(deb/btn_val)   | 6     |
-------------------------------------------+------------------------+-------+
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+sysclk                             | DCM_SP:CLKFX           | 23    |
+clk_50mS(clks/clk_debounce<20>3:O) | NONE(*)(deb/btn_val)   | 6     |
+-----------------------------------+------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
@@ -350,20 +376,20 @@ Timing constraint: Default period analysis for Clock 'sysclk'
   Total number of paths / destination ports: 672 / 42
 -------------------------------------------------------------------------
 Delay:               4.883ns (Levels of Logic = 3)
-  Source:            debounce_clk/bounce_count_13 (FF)
-  Destination:       debounce_clk/bounce_count_0 (FF)
+  Source:            clks/bounce_count_18 (FF)
+  Destination:       clks/bounce_count_20 (FF)
   Source Clock:      sysclk rising 0.2X
   Destination Clock: sysclk rising 0.2X
 
-  Data Path: debounce_clk/bounce_count_13 to debounce_clk/bounce_count_0
+  Data Path: clks/bounce_count_18 to clks/bounce_count_20
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.447   0.721  debounce_clk/bounce_count_13 (debounce_clk/bounce_count_13)
-     LUT2:I0->O            1   0.203   0.580  debounce_clk/GND_7_o_GND_7_o_equal_2_o<20>1_SW0 (N3)
-     LUT6:I5->O            2   0.205   0.981  debounce_clk/GND_7_o_GND_7_o_equal_2_o<20>1 (debounce_clk/GND_7_o_GND_7_o_equal_2_o<20>1)
-     LUT6:I0->O           21   0.203   1.113  debounce_clk/Mcount_bounce_count_val3 (debounce_clk/Mcount_bounce_count_val)
-     FDR:R                     0.430          debounce_clk/bounce_count_0
+     FDR:C->Q              2   0.447   0.721  clks/bounce_count_18 (clks/bounce_count_18)
+     LUT2:I0->O            1   0.203   0.580  clks/GND_7_o_GND_7_o_equal_2_o<20>1_SW0 (N2)
+     LUT6:I5->O            2   0.205   0.981  clks/GND_7_o_GND_7_o_equal_2_o<20>1 (clks/GND_7_o_GND_7_o_equal_2_o<20>1)
+     LUT6:I0->O           21   0.203   1.113  clks/Mcount_bounce_count_val3 (clks/Mcount_bounce_count_val)
+     FDR:R                     0.430          clks/bounce_count_0
     ----------------------------------------
     Total                      4.883ns (1.488ns logic, 3.395ns route)
                                        (30.5% logic, 69.5% route)
@@ -396,16 +422,16 @@ Timing constraint: Default OFFSET IN BEFORE for Clock 'sysclk'
 -------------------------------------------------------------------------
 Offset:              3.550ns (Levels of Logic = 2)
   Source:            reset (PAD)
-  Destination:       debounce_clk/bounce_count_0 (FF)
+  Destination:       clks/bounce_count_20 (FF)
   Destination Clock: sysclk rising 0.2X
 
-  Data Path: reset to debounce_clk/bounce_count_0
+  Data Path: reset to clks/bounce_count_20
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             1   1.222   0.580  reset_IBUF (reset_IBUF)
-     LUT6:I5->O           21   0.205   1.113  debounce_clk/Mcount_bounce_count_val3 (debounce_clk/Mcount_bounce_count_val)
-     FDR:R                     0.430          debounce_clk/bounce_count_0
+     LUT6:I5->O           21   0.205   1.113  clks/Mcount_bounce_count_val3 (clks/Mcount_bounce_count_val)
+     FDR:R                     0.430          clks/bounce_count_0
     ----------------------------------------
     Total                      3.550ns (1.857ns logic, 1.692ns route)
                                        (52.3% logic, 47.7% route)
@@ -473,14 +499,14 @@ sysclk         |    4.883|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 4.88 secs
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.75 secs
  
 --> 
 
 Total memory usage is 280236 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    1 (   0 filtered)
-Number of infos    :    1 (   0 filtered)
+Number of warnings :   18 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
 
