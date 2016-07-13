@@ -1,15 +1,31 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Mon Jul 11 16:56:58 2016
+// Written by: Map P.15xf on Wed Jul 13 14:13:21 2016
 //! **************************************************************************
 
 SCHEMATIC START;
+COMP "SW_cam_oe" LOCATE = SITE "T9" LEVEL 1;
 COMP "cam_rst" LOCATE = SITE "C4" LEVEL 1;
+COMP "cam_oe" LOCATE = SITE "J1" LEVEL 1;
+COMP "anodes<0>" LOCATE = SITE "N16" LEVEL 1;
+COMP "cathodes<0>" LOCATE = SITE "L14" LEVEL 1;
+COMP "anodes<1>" LOCATE = SITE "N15" LEVEL 1;
+COMP "cathodes<1>" LOCATE = SITE "N14" LEVEL 1;
+COMP "anodes<2>" LOCATE = SITE "P18" LEVEL 1;
+COMP "cathodes<2>" LOCATE = SITE "M14" LEVEL 1;
+COMP "anodes<3>" LOCATE = SITE "P17" LEVEL 1;
+COMP "cathodes<3>" LOCATE = SITE "U18" LEVEL 1;
+COMP "cathodes<4>" LOCATE = SITE "U17" LEVEL 1;
+COMP "cathodes<5>" LOCATE = SITE "T18" LEVEL 1;
+COMP "cathodes<6>" LOCATE = SITE "T17" LEVEL 1;
 COMP "trigger" LOCATE = SITE "D9" LEVEL 1;
+COMP "cam_i2c_sclk" LOCATE = SITE "H3" LEVEL 1;
+COMP "SW_cam_info" LOCATE = SITE "T10" LEVEL 1;
 COMP "cam_trigger" LOCATE = SITE "K2" LEVEL 1;
 COMP "reset" LOCATE = SITE "B8" LEVEL 1;
 COMP "cam_reset" LOCATE = SITE "K3" LEVEL 1;
 COMP "sysclk" LOCATE = SITE "V10" LEVEL 1;
 COMP "cam_sysclk" LOCATE = SITE "K5" LEVEL 1;
 COMP "LOCKED" LOCATE = SITE "U16" LEVEL 1;
+COMP "cam_i2c_sda" LOCATE = SITE "L7" LEVEL 1;
 SCHEMATIC END;
 

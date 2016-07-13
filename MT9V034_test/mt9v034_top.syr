@@ -4,13 +4,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: mt9v034_top.prj
 
@@ -112,10 +112,14 @@ Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\ipcor
 Parsing module <dcm>.
 Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\ipcore_dir\dcm\example_design\dcm_exdes.v" into library work
 Parsing module <dcm_exdes>.
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\sevenSeg.v" into library work
+Parsing module <seven_seg>.
 Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\debounce.v" into library work
 Parsing module <debounce>.
 Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\clk_divs.v" into library work
 Parsing module <clk_div>.
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\btnlatch.v" into library work
+Parsing module <btnlatch>.
 Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" into library work
 Parsing module <mt9v034_top>.
 
@@ -134,12 +138,17 @@ WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\i
 
 Elaborating module <BUFG>.
 
+Elaborating module <clk_div>.
+
+Elaborating module <seven_seg>.
+
 Elaborating module <ODDR2(DDR_ALIGNMENT="NONE",INIT=1'b0,SRTYPE="SYNC")>.
 
-Elaborating module <clk_div>.
-WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" Line 50: Assignment to uart_clk ignored, since the identifier is never used
+Elaborating module <ODDR2(DDR_ALIGNMENT="NONE",INIT=1'b1,SRTYPE="SYNC")>.
 
 Elaborating module <debounce>.
+
+Elaborating module <btnlatch>.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -147,9 +156,19 @@ Elaborating module <debounce>.
 
 Synthesizing Unit <mt9v034_top>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v".
-INFO:Xst:3210 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" line 46: Output port <clk_uart> of the instance <clks> is unconnected or connected to loadless signal.
+        READ = 8'b10001011
+    Found 16-bit register for signal <displayVal>.
+    Found 1-bit register for signal <cam_i2c_sda>.
+    Found 6-bit register for signal <i2c_count>.
+    Found 6-bit adder for signal <i2c_count[5]_GND_1_o_add_9_OUT> created at line 141.
+    Found 3-bit subtractor for signal <GND_1_o_GND_1_o_sub_8_OUT<2:0>> created at line 140.
+    Found 6-bit comparator lessequal for signal <n0008> created at line 138
+    Found 6-bit comparator greater for signal <i2c_count[5]_GND_1_o_LessThan_7_o> created at line 138
     Summary:
-	no macro.
+	inferred   2 Adder/Subtractor(s).
+	inferred  23 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred   1 Multiplexer(s).
 Unit <mt9v034_top> synthesized.
 
 Synthesizing Unit <dcm>.
@@ -160,35 +179,105 @@ Unit <dcm> synthesized.
 
 Synthesizing Unit <clk_div>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\clk_divs.v".
-    Found 16-bit register for signal <uart_count>.
+    Found 16-bit register for signal <seg_count>.
+    Found 9-bit register for signal <sclk_count>.
     Found 21-bit register for signal <bounce_count>.
-    Found 21-bit adder for signal <bounce_count[20]_GND_7_o_add_2_OUT> created at line 24.
-    Found 16-bit adder for signal <uart_count[15]_GND_7_o_add_8_OUT> created at line 33.
+    Found 21-bit adder for signal <bounce_count[20]_GND_6_o_add_2_OUT> created at line 25.
+    Found 16-bit adder for signal <seg_count[15]_GND_6_o_add_7_OUT> created at line 34.
+    Found 9-bit adder for signal <sclk_count[8]_GND_6_o_add_12_OUT> created at line 43.
+    Found 9-bit comparator greater for signal <sclk> created at line 49
     Summary:
-	inferred   2 Adder/Subtractor(s).
-	inferred  37 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  46 D-type flip-flop(s).
+	inferred   1 Comparator(s).
 Unit <clk_div> synthesized.
+
+Synthesizing Unit <seven_seg>.
+    Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\sevenSeg.v".
+    Found 4-bit register for signal <anodes>.
+    Found 4-bit register for signal <currentVal>.
+    Found 2-bit register for signal <count>.
+    Found 2-bit adder for signal <count[1]_GND_7_o_add_2_OUT> created at line 28.
+    Found 4x4-bit Read Only RAM for signal <count[1]_GND_7_o_wide_mux_4_OUT>
+    Found 16x7-bit Read Only RAM for signal <cathodes>
+    Found 4-bit 4-to-1 multiplexer for signal <count[1]_values[15]_wide_mux_5_OUT> created at line 30.
+    Summary:
+	inferred   2 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  10 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <seven_seg> synthesized.
 
 Synthesizing Unit <debounce>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\debounce.v".
     Found 1-bit register for signal <btn_val>.
     Found 2-bit register for signal <count>.
+    Found finite state machine <FSM_0> for signal <count>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 5                                              |
+    | Inputs             | 1                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
     Summary:
-	inferred   3 D-type flip-flop(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
 Unit <debounce> synthesized.
+
+Synthesizing Unit <btnlatch>.
+    Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\btnlatch.v".
+    Found 1-bit register for signal <btn_val>.
+    Found 2-bit register for signal <count>.
+    Found finite state machine <FSM_1> for signal <count>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 1                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
+Unit <btnlatch> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 2
+# RAMs                                                 : 2
+ 16x7-bit single-port Read Only RAM                    : 1
+ 4x4-bit single-port Read Only RAM                     : 1
+# Adders/Subtractors                                   : 6
  16-bit adder                                          : 1
+ 2-bit adder                                           : 1
  21-bit adder                                          : 1
-# Registers                                            : 6
- 1-bit register                                        : 2
- 16-bit register                                       : 1
- 2-bit register                                        : 2
+ 3-bit subtractor                                      : 1
+ 6-bit adder                                           : 1
+ 9-bit adder                                           : 1
+# Registers                                            : 13
+ 1-bit register                                        : 5
+ 16-bit register                                       : 2
+ 2-bit register                                        : 1
  21-bit register                                       : 1
+ 4-bit register                                        : 2
+ 6-bit register                                        : 1
+ 9-bit register                                        : 1
+# Comparators                                          : 3
+ 6-bit comparator greater                              : 1
+ 6-bit comparator lessequal                            : 1
+ 9-bit comparator greater                              : 1
+# Multiplexers                                         : 2
+ 1-bit 2-to-1 multiplexer                              : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# FSMs                                                 : 4
 
 =========================================================================
 
@@ -198,51 +287,110 @@ Macro Statistics
 
 
 Synthesizing (advanced) Unit <clk_div>.
-The following registers are absorbed into counter <uart_count>: 1 register on signal <uart_count>.
+The following registers are absorbed into counter <seg_count>: 1 register on signal <seg_count>.
+The following registers are absorbed into counter <sclk_count>: 1 register on signal <sclk_count>.
 The following registers are absorbed into counter <bounce_count>: 1 register on signal <bounce_count>.
 Unit <clk_div> synthesized (advanced).
+
+Synthesizing (advanced) Unit <mt9v034_top>.
+The following registers are absorbed into counter <i2c_count>: 1 register on signal <i2c_count>.
+Unit <mt9v034_top> synthesized (advanced).
+
+Synthesizing (advanced) Unit <seven_seg>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+INFO:Xst:3231 - The small RAM <Mram_cathodes> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 7-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <currentVal>    |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <cathodes>      |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3231 - The small RAM <Mram_count[1]_GND_7_o_wide_mux_4_OUT> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 4-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <count>         |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <seven_seg> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Counters                                             : 2
+# RAMs                                                 : 2
+ 16x7-bit single-port distributed Read Only RAM        : 1
+ 4x4-bit single-port distributed Read Only RAM         : 1
+# Adders/Subtractors                                   : 1
+ 3-bit subtractor                                      : 1
+# Counters                                             : 5
  16-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
  21-bit up counter                                     : 1
-# Registers                                            : 6
- Flip-Flops                                            : 6
+ 6-bit up counter                                      : 1
+ 9-bit up counter                                      : 1
+# Registers                                            : 29
+ Flip-Flops                                            : 29
+# Comparators                                          : 3
+ 6-bit comparator greater                              : 1
+ 6-bit comparator lessequal                            : 1
+ 9-bit comparator greater                              : 1
+# Multiplexers                                         : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# FSMs                                                 : 4
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+INFO:Xst:2261 - The FF/Latch <displayVal_1> in Unit <mt9v034_top> is equivalent to the following 4 FFs/Latches, which will be removed : <displayVal_4> <displayVal_6> <displayVal_8> <displayVal_13> 
+INFO:Xst:2261 - The FF/Latch <displayVal_0> in Unit <mt9v034_top> is equivalent to the following 10 FFs/Latches, which will be removed : <displayVal_2> <displayVal_3> <displayVal_5> <displayVal_7> <displayVal_9> <displayVal_10> <displayVal_11> <displayVal_12> <displayVal_14> <displayVal_15> 
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <count[1:2]> with gray encoding.
+Optimizing FSM <FSM_0> on signal <count[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 10    | 01
+ 01    | 11
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_1> on signal <count[1:2]> with gray encoding.
+Optimizing FSM <FSM_1> on signal <count[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 10    | 01
+ 01    | 11
+-------------------
 
 Optimizing unit <mt9v034_top> ...
 
 Optimizing unit <clk_div> ...
 
-Optimizing unit <debounce> ...
-WARNING:Xst:2677 - Node <clks/uart_count_15> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_14> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_13> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_12> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_10> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_9> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_11> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_8> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_7> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_5> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_4> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_6> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_3> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_2> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_0> of sequential type is unconnected in block <mt9v034_top>.
-WARNING:Xst:2677 - Node <clks/uart_count_1> of sequential type is unconnected in block <mt9v034_top>.
+Optimizing unit <seven_seg> ...
+INFO:Xst:2261 - The FF/Latch <clks/bounce_count_1> in Unit <mt9v034_top> is equivalent to the following 2 FFs/Latches, which will be removed : <clks/sclk_count_1> <clks/seg_count_1> 
+INFO:Xst:2261 - The FF/Latch <clks/bounce_count_2> in Unit <mt9v034_top> is equivalent to the following 2 FFs/Latches, which will be removed : <clks/sclk_count_2> <clks/seg_count_2> 
+INFO:Xst:2261 - The FF/Latch <clks/bounce_count_3> in Unit <mt9v034_top> is equivalent to the following 2 FFs/Latches, which will be removed : <clks/sclk_count_3> <clks/seg_count_3> 
+INFO:Xst:2261 - The FF/Latch <clks/bounce_count_4> in Unit <mt9v034_top> is equivalent to the following 2 FFs/Latches, which will be removed : <clks/sclk_count_4> <clks/seg_count_4> 
+INFO:Xst:2261 - The FF/Latch <clks/sclk_count_0> in Unit <mt9v034_top> is equivalent to the following 2 FFs/Latches, which will be removed : <clks/bounce_count_0> <clks/seg_count_0> 
+INFO:Xst:2261 - The FF/Latch <clks/bounce_count_5> in Unit <mt9v034_top> is equivalent to the following FF/Latch, which will be removed : <clks/seg_count_5> 
+INFO:Xst:2261 - The FF/Latch <clks/bounce_count_6> in Unit <mt9v034_top> is equivalent to the following FF/Latch, which will be removed : <clks/seg_count_6> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block mt9v034_top, actual ratio is 0.
+Found area constraint ratio of 100 (+ 5) on block mt9v034_top, actual ratio is 1.
 
 Final Macro Processing ...
 
@@ -250,8 +398,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 27
- Flip-Flops                                            : 27
+# Registers                                            : 63
+ Flip-Flops                                            : 63
 
 =========================================================================
 
@@ -274,28 +422,30 @@ Top Level Output File Name         : mt9v034_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 81
+# BELS                             : 182
 #      GND                         : 1
-#      INV                         : 2
-#      LUT1                        : 20
-#      LUT2                        : 1
+#      INV                         : 6
+#      LUT1                        : 43
+#      LUT2                        : 11
 #      LUT3                        : 8
-#      LUT5                        : 1
-#      LUT6                        : 6
-#      MUXCY                       : 20
+#      LUT4                        : 12
+#      LUT5                        : 4
+#      LUT6                        : 19
+#      MUXCY                       : 43
 #      VCC                         : 1
-#      XORCY                       : 21
-# FlipFlops/Latches                : 28
-#      FD                          : 4
-#      FDE                         : 2
-#      FDR                         : 21
-#      ODDR2                       : 1
-# Clock Buffers                    : 2
-#      BUFG                        : 2
-# IO Buffers                       : 8
-#      IBUF                        : 3
+#      XORCY                       : 34
+# FlipFlops/Latches                : 65
+#      FD                          : 19
+#      FDE                         : 8
+#      FDR                         : 34
+#      FDRE                        : 2
+#      ODDR2                       : 2
+# Clock Buffers                    : 3
+#      BUFG                        : 3
+# IO Buffers                       : 24
+#      IBUF                        : 5
 #      IBUFG                       : 1
-#      OBUF                        : 4
+#      OBUF                        : 18
 # DCMs                             : 1
 #      DCM_SP                      : 1
 
@@ -306,23 +456,23 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              28  out of  18224     0%  
- Number of Slice LUTs:                   38  out of   9112     0%  
-    Number used as Logic:                38  out of   9112     0%  
+ Number of Slice Registers:              65  out of  18224     0%  
+ Number of Slice LUTs:                  103  out of   9112     1%  
+    Number used as Logic:               103  out of   9112     1%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     39
-   Number with an unused Flip Flop:      11  out of     39    28%  
-   Number with an unused LUT:             1  out of     39     2%  
-   Number of fully used LUT-FF pairs:    27  out of     39    69%  
-   Number of unique control sets:         4
+ Number of LUT Flip Flop pairs used:    107
+   Number with an unused Flip Flop:      42  out of    107    39%  
+   Number with an unused LUT:             4  out of    107     3%  
+   Number of fully used LUT-FF pairs:    61  out of    107    57%  
+   Number of unique control sets:         7
 
 IO Utilization: 
- Number of IOs:                           8
- Number of bonded IOBs:                   8  out of    232     3%  
+ Number of IOs:                          24
+ Number of bonded IOBs:                  24  out of    232    10%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+ Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
 
 ---------------------------
 Partition Resource Summary:
@@ -342,13 +492,14 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)  | Load  |
------------------------------------+------------------------+-------+
-sysclk                             | DCM_SP:CLKFX           | 23    |
-clk_50mS(clks/clk_debounce<20>3:O) | NONE(*)(deb/btn_val)   | 6     |
------------------------------------+------------------------+-------+
-(*) This 1 clock signal(s) are generated by combinatorial logic,
+-----------------------------------+----------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)      | Load  |
+-----------------------------------+----------------------------+-------+
+clk_20Hz(clks/clk_debounce<20>3:O) | NONE(*)(deb/count_FSM_FFd2)| 10    |
+sysclk                             | DCM_SP:CLKFX               | 46    |
+clk_50kHz_unbuf(clks/sclk1:O)      | BUFG(*)(clkfwd1)           | 11    |
+-----------------------------------+----------------------------+-------+
+(*) These 2 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -361,9 +512,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 2.338ns (Maximum Frequency: 427.643MHz)
-   Minimum input arrival time before clock: 3.550ns
-   Maximum output required time after clock: 3.597ns
+   Minimum period: 3.511ns (Maximum Frequency: 284.848MHz)
+   Minimum input arrival time before clock: 3.833ns
+   Maximum output required time after clock: 4.821ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -371,56 +522,100 @@ Timing Details:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'sysclk'
-  Clock period: 1.172ns (frequency: 853.301MHz)
-  Total number of paths / destination ports: 672 / 42
+Timing constraint: Default period analysis for Clock 'clk_20Hz'
+  Clock period: 1.637ns (frequency: 610.762MHz)
+  Total number of paths / destination ports: 16 / 8
 -------------------------------------------------------------------------
-Delay:               4.883ns (Levels of Logic = 3)
-  Source:            clks/bounce_count_18 (FF)
-  Destination:       clks/bounce_count_20 (FF)
+Delay:               1.637ns (Levels of Logic = 1)
+  Source:            sw_deb/btn_val (FF)
+  Destination:       sw_deb/btn_val (FF)
+  Source Clock:      clk_20Hz rising
+  Destination Clock: clk_20Hz rising
+
+  Data Path: sw_deb/btn_val to sw_deb/btn_val
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              11   0.447   0.883  sw_deb/btn_val (sw_deb/btn_val)
+     LUT3:I2->O            1   0.205   0.000  sw_deb/btn_val_rstpot (sw_deb/btn_val_rstpot)
+     FD:D                      0.102          sw_deb/btn_val
+    ----------------------------------------
+    Total                      1.637ns (0.754ns logic, 0.883ns route)
+                                       (46.1% logic, 53.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'sysclk'
+  Clock period: 1.220ns (frequency: 819.823MHz)
+  Total number of paths / destination ports: 1047 / 80
+-------------------------------------------------------------------------
+Delay:               5.082ns (Levels of Logic = 3)
+  Source:            clks/bounce_count_1 (FF)
+  Destination:       segs/count_1 (FF)
   Source Clock:      sysclk rising 0.2X
   Destination Clock: sysclk rising 0.2X
 
-  Data Path: clks/bounce_count_18 to clks/bounce_count_20
+  Data Path: clks/bounce_count_1 to segs/count_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.447   0.721  clks/bounce_count_18 (clks/bounce_count_18)
-     LUT2:I0->O            1   0.203   0.580  clks/GND_7_o_GND_7_o_equal_2_o<20>1_SW0 (N2)
-     LUT6:I5->O            2   0.205   0.981  clks/GND_7_o_GND_7_o_equal_2_o<20>1 (clks/GND_7_o_GND_7_o_equal_2_o<20>1)
-     LUT6:I0->O           21   0.203   1.113  clks/Mcount_bounce_count_val3 (clks/Mcount_bounce_count_val)
-     FDR:R                     0.430          clks/bounce_count_0
+     FDR:C->Q              7   0.447   1.138  clks/bounce_count_1 (clks/bounce_count_1)
+     LUT6:I0->O            2   0.203   0.961  clks/anodes<15>1 (clks/anodes<15>)
+     LUT6:I1->O            3   0.203   0.879  clks/anodes<15>3 (clk_10kHz)
+     LUT3:I0->O            2   0.205   0.616  segs/_n00261 (segs/_n0026)
+     FDRE:R                    0.430          segs/count_0
     ----------------------------------------
-    Total                      4.883ns (1.488ns logic, 3.395ns route)
-                                       (30.5% logic, 69.5% route)
+    Total                      5.082ns (1.488ns logic, 3.594ns route)
+                                       (29.3% logic, 70.7% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'clk_50mS'
-  Clock period: 2.338ns (frequency: 427.643MHz)
-  Total number of paths / destination ports: 16 / 8
+Timing constraint: Default period analysis for Clock 'clk_50kHz_unbuf'
+  Clock period: 3.511ns (frequency: 284.848MHz)
+  Total number of paths / destination ports: 62 / 9
 -------------------------------------------------------------------------
-Delay:               2.338ns (Levels of Logic = 1)
-  Source:            deb/count_0 (FF)
-  Destination:       deb/btn_val (FF)
-  Source Clock:      clk_50mS rising
-  Destination Clock: clk_50mS rising
+Delay:               3.511ns (Levels of Logic = 3)
+  Source:            i2c_count_5 (FF)
+  Destination:       cam_i2c_sda (FF)
+  Source Clock:      clk_50kHz_unbuf rising
+  Destination Clock: clk_50kHz_unbuf rising
 
-  Data Path: deb/count_0 to deb/btn_val
+  Data Path: i2c_count_5 to cam_i2c_sda
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               4   0.447   0.788  deb/count_0 (deb/count_0)
-     LUT3:I1->O            1   0.203   0.579  deb/btn_count[1]_AND_1_o_inv11 (deb/btn_count[1]_AND_1_o_inv_0)
-     FDE:CE                    0.322          deb/btn_val
+     FD:C->Q              10   0.447   0.961  i2c_count_5 (i2c_count_5)
+     LUT2:I0->O            1   0.203   0.808  cam_i2c_sda_glue_set_SW0 (N4)
+     LUT6:I3->O            1   0.205   0.580  cam_i2c_sda_glue_set (cam_i2c_sda_glue_set)
+     LUT6:I5->O            1   0.205   0.000  cam_i2c_sda_rstpot (cam_i2c_sda_rstpot)
+     FD:D                      0.102          cam_i2c_sda
     ----------------------------------------
-    Total                      2.338ns (0.972ns logic, 1.366ns route)
-                                       (41.6% logic, 58.4% route)
+    Total                      3.511ns (1.162ns logic, 2.349ns route)
+                                       (33.1% logic, 66.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_20Hz'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              2.425ns (Levels of Logic = 2)
+  Source:            trigger (PAD)
+  Destination:       deb/btn_val (FF)
+  Destination Clock: clk_20Hz rising
+
+  Data Path: trigger to deb/btn_val
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.222   0.898  trigger_IBUF (trigger_IBUF)
+     LUT4:I0->O            1   0.203   0.000  deb/btn_val_rstpot (deb/btn_val_rstpot)
+     FD:D                      0.102          deb/btn_val
+    ----------------------------------------
+    Total                      2.425ns (1.527ns logic, 0.898ns route)
+                                       (63.0% logic, 37.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'sysclk'
-  Total number of paths / destination ports: 21 / 21
+  Total number of paths / destination ports: 34 / 34
 -------------------------------------------------------------------------
-Offset:              3.550ns (Levels of Logic = 2)
+Offset:              3.833ns (Levels of Logic = 2)
   Source:            reset (PAD)
   Destination:       clks/bounce_count_20 (FF)
   Destination Clock: sysclk rising 0.2X
@@ -429,63 +624,91 @@ Offset:              3.550ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.222   0.580  reset_IBUF (reset_IBUF)
-     LUT6:I5->O           21   0.205   1.113  clks/Mcount_bounce_count_val3 (clks/Mcount_bounce_count_val)
-     FDR:R                     0.430          clks/bounce_count_0
+     IBUF:I->O            11   1.222   0.883  reset_IBUF (reset_IBUF)
+     LUT6:I5->O           20   0.205   1.092  clks/Mcount_bounce_count_val3 (clks/Mcount_bounce_count_val)
+     FDR:R                     0.430          clks/bounce_count_9
     ----------------------------------------
-    Total                      3.550ns (1.857ns logic, 1.692ns route)
-                                       (52.3% logic, 47.7% route)
+    Total                      3.833ns (1.857ns logic, 1.976ns route)
+                                       (48.5% logic, 51.5% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_50mS'
-  Total number of paths / destination ports: 8 / 8
+Timing constraint: Default OFFSET OUT AFTER for Clock 'sysclk'
+  Total number of paths / destination ports: 32 / 11
 -------------------------------------------------------------------------
-Offset:              3.239ns (Levels of Logic = 2)
-  Source:            trigger (PAD)
-  Destination:       deb/btn_val (FF)
-  Destination Clock: clk_50mS rising
+Offset:              4.821ns (Levels of Logic = 2)
+  Source:            segs/currentVal_0 (FF)
+  Destination:       cathodes<6> (PAD)
+  Source Clock:      sysclk rising 0.2X
 
-  Data Path: trigger to deb/btn_val
+  Data Path: segs/currentVal_0 to cathodes<6>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             4   1.222   0.912  trigger_IBUF (trigger_IBUF)
-     LUT3:I0->O            1   0.205   0.579  deb/btn_count[1]_AND_1_o_inv11 (deb/btn_count[1]_AND_1_o_inv_0)
-     FDE:CE                    0.322          deb/btn_val
+     FDE:C->Q              7   0.447   1.021  segs/currentVal_0 (segs/currentVal_0)
+     LUT4:I0->O            1   0.203   0.579  segs/Mram_cathodes41 (cathodes_4_OBUF)
+     OBUF:I->O                 2.571          cathodes_4_OBUF (cathodes<4>)
     ----------------------------------------
-    Total                      3.239ns (1.749ns logic, 1.490ns route)
-                                       (54.0% logic, 46.0% route)
+    Total                      4.821ns (3.221ns logic, 1.600ns route)
+                                       (66.8% logic, 33.2% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_50mS'
-  Total number of paths / destination ports: 2 / 2
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_50kHz_unbuf'
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              3.597ns (Levels of Logic = 1)
+Offset:              3.634ns (Levels of Logic = 1)
+  Source:            cam_i2c_sda (FF)
+  Destination:       cam_i2c_sda (PAD)
+  Source Clock:      clk_50kHz_unbuf rising
+
+  Data Path: cam_i2c_sda to cam_i2c_sda
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.447   0.616  cam_i2c_sda (cam_i2c_sda_OBUF)
+     OBUF:I->O                 2.571          cam_i2c_sda_OBUF (cam_i2c_sda)
+    ----------------------------------------
+    Total                      3.634ns (3.018ns logic, 0.616ns route)
+                                       (83.0% logic, 17.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_20Hz'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              3.634ns (Levels of Logic = 1)
   Source:            deb1/btn_val (FF)
   Destination:       cam_reset (PAD)
-  Source Clock:      clk_50mS rising
+  Source Clock:      clk_20Hz rising
 
   Data Path: deb1/btn_val to cam_reset
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              1   0.447   0.579  deb1/btn_val (deb1/btn_val)
+     FD:C->Q               2   0.447   0.616  deb1/btn_val (deb1/btn_val)
      OBUF:I->O                 2.571          cam_reset_OBUF (cam_reset)
     ----------------------------------------
-    Total                      3.597ns (3.018ns logic, 0.579ns route)
-                                       (83.9% logic, 16.1% route)
+    Total                      3.634ns (3.018ns logic, 0.616ns route)
+                                       (83.0% logic, 17.0% route)
 
 =========================================================================
 
 Cross Clock Domains Report:
 --------------------------
 
-Clock to Setup on destination clock clk_50mS
+Clock to Setup on destination clock clk_20Hz
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_50mS       |    2.338|         |         |         |
+clk_20Hz       |    1.637|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clk_50kHz_unbuf
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk_20Hz       |    2.764|         |         |         |
+clk_50kHz_unbuf|    3.511|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock sysclk
@@ -493,20 +716,21 @@ Clock to Setup on destination clock sysclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-sysclk         |    4.883|         |         |         |
+clk_50kHz_unbuf|    1.714|         |         |         |
+sysclk         |    5.082|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.75 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.49 secs
  
 --> 
 
 Total memory usage is 280236 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   18 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :   12 (   0 filtered)
 

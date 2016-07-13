@@ -47,7 +47,7 @@
 # PART OF THIS FILE AT ALL TIMES.
 # 
 
-set device xc6slx16ftg256-3
+set device xc6slx16csg324-3
 set projName dcm
 set design dcm
 set projDir [file dirname [info script]]
