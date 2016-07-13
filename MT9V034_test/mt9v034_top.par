@@ -1,7 +1,7 @@
 Release 14.1 par P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-GEORGES-T460P::  Wed Jul 13 14:27:03 2016
+GEORGES-T460P::  Wed Jul 13 15:14:11 2016
 
 par -w -intstyle ise -ol high -mt off mt9v034_top_map.ncd mt9v034_top.ncd
 mt9v034_top.pcf 
@@ -47,10 +47,10 @@ Slice Logic Utilization:
 Slice Logic Distribution:
   Number of occupied Slices:                    31 out of   2,278    1%
   Nummber of MUXCYs used:                       52 out of   4,556    1%
-  Number of LUT Flip Flop pairs used:           90
-    Number with an unused Flip Flop:            35 out of      90   38%
-    Number with an unused LUT:                   0 out of      90    0%
-    Number of fully used LUT-FF pairs:          55 out of      90   61%
+  Number of LUT Flip Flop pairs used:           91
+    Number with an unused Flip Flop:            34 out of      91   37%
+    Number with an unused LUT:                   1 out of      91    1%
+    Number of fully used LUT-FF pairs:          56 out of      91   61%
     Number of slice register sites lost
       to control set restrictions:               0 out of  18,224    0%
 
@@ -108,13 +108,13 @@ Finished initial Timing Analysis.  REAL time: 2 secs
 Starting Router
 
 
-Phase  1  : 392 unrouted;      REAL time: 2 secs 
+Phase  1  : 394 unrouted;      REAL time: 2 secs 
 
-Phase  2  : 301 unrouted;      REAL time: 3 secs 
+Phase  2  : 304 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 58 unrouted;      REAL time: 3 secs 
+Phase  3  : 73 unrouted;      REAL time: 3 secs 
 
-Phase  4  : 58 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
+Phase  4  : 73 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
 Updating file: mt9v034_top.ncd with current fully routed design.
 
@@ -150,10 +150,10 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     2.965ns|     N/A|           0
-  _50kHz                                    | HOLD        |     0.436ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     3.975ns|     N/A|           0
+  _50kHz                                    | HOLD        |     0.425ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     1.314ns|     N/A|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     1.349ns|     N/A|           0
   _20Hz                                     | HOLD        |     0.426ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
   Autotimespec constraint for clock net clk | SETUP       |         N/A|     4.624ns|     N/A|           0

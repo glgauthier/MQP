@@ -1,9 +1,10 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Wed Jul 13 14:27:01 2016
+// Written by: Map P.15xf on Wed Jul 13 15:14:09 2016
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "SW_cam_oe" LOCATE = SITE "T9" LEVEL 1;
+COMP "cam_i2c_sda" LOCATE = SITE "L7" LEVEL 1;
 COMP "cam_rst" LOCATE = SITE "C4" LEVEL 1;
 COMP "cam_oe" LOCATE = SITE "J1" LEVEL 1;
 COMP "anodes<0>" LOCATE = SITE "N16" LEVEL 1;
@@ -26,6 +27,5 @@ COMP "cam_reset" LOCATE = SITE "K3" LEVEL 1;
 COMP "sysclk" LOCATE = SITE "V10" LEVEL 1;
 COMP "cam_sysclk" LOCATE = SITE "K5" LEVEL 1;
 COMP "LOCKED" LOCATE = SITE "U16" LEVEL 1;
-COMP "cam_i2c_sda" LOCATE = SITE "L7" LEVEL 1;
 SCHEMATIC END;
 

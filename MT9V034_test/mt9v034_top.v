@@ -11,7 +11,7 @@ module mt9v034_top(
 		input trigger,
 		input SW_cam_oe,
 		input SW_cam_info,
-		output reg cam_i2c_sda,
+		output cam_i2c_sda,
 		output cam_i2c_sclk,
 		output LOCKED,
 		output cam_sysclk,
@@ -21,7 +21,7 @@ module mt9v034_top(
 		output [6:0] cathodes,
 		output [3:0] anodes
 		);
-parameter [7:0] READ = 8'h8b; // printed LSB->msb so this will appear as 0xB8 to the i2c bus
+parameter [7:0] READ = 8'hB8; // printed LSB->msb so this will appear as 0xB8 to the i2c bus
 
 wire clk_20Hz_unbuf;
 wire clk_20Hz;
@@ -126,30 +126,33 @@ btnlatch sw_oe(
     );
 
 reg [5:0] i2c_count = 6'b00_0000; 
+reg i2c_value;
 always @(posedge clk_50kHz)
 begin
 	if(!cam_info_deb)
 	begin
 		i2c_count <= 6'b00_0000;
 		displayVal [15:0] <= 16'h0000;
-		cam_i2c_sda <= 1'b1;
+		i2c_value <= 1'b1;
 	end
 	
 	if(cam_info_deb && (i2c_count == 6'b00_0000))
 	begin
-		cam_i2c_sda <= 1'b0; // pull SDA low
+		i2c_value <= 1'b0; // pull SDA low
 		i2c_count <= i2c_count + 1'b1;
 	end
-	else if ((i2c_count >= 1) && (i2c_count < 8)) // write/read command
+	else if ((i2c_count >= 1) && (i2c_count <= 8)) // write/read command
 	begin
-		cam_i2c_sda <= READ[i2c_count-1]; // send 0xB8, LSB first
+		i2c_value <= READ[8-i2c_count]; // send 0xB8, MSB first
 		i2c_count <= i2c_count + 1'b1;
 	end
-	else if (i2c_count == 8)
+	else if (i2c_count > 8)
 	begin
 		displayVal [15:0] <= 16'hffff;
-		cam_i2c_sda <= 1'b1;
+		i2c_value <= 1'b1;
 	end
 end
+
+assign cam_i2c_sda = i2c_value;
 
 endmodule

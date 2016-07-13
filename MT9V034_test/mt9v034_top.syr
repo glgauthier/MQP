@@ -156,14 +156,14 @@ Elaborating module <btnlatch>.
 
 Synthesizing Unit <mt9v034_top>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v".
-        READ = 8'b10001011
+        READ = 8'b10111000
     Found 16-bit register for signal <displayVal>.
     Found 1-bit register for signal <cam_i2c_sda>.
     Found 6-bit register for signal <i2c_count>.
-    Found 6-bit adder for signal <i2c_count[5]_GND_1_o_add_9_OUT> created at line 146.
-    Found 3-bit subtractor for signal <GND_1_o_GND_1_o_sub_8_OUT<2:0>> created at line 145.
-    Found 6-bit comparator lessequal for signal <n0008> created at line 143
-    Found 6-bit comparator greater for signal <i2c_count[5]_GND_1_o_LessThan_7_o> created at line 143
+    Found 6-bit adder for signal <i2c_count[5]_GND_1_o_add_9_OUT> created at line 147.
+    Found 3-bit subtractor for signal <GND_1_o_GND_1_o_sub_8_OUT<2:0>> created at line 146.
+    Found 6-bit comparator lessequal for signal <n0008> created at line 144
+    Found 6-bit comparator greater for signal <n0010> created at line 144
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  23 D-type flip-flop(s).
@@ -426,11 +426,11 @@ Primitive and Black Box Usage:
 #      GND                         : 1
 #      INV                         : 6
 #      LUT1                        : 43
-#      LUT2                        : 11
-#      LUT3                        : 8
+#      LUT2                        : 12
+#      LUT3                        : 7
 #      LUT4                        : 12
-#      LUT5                        : 4
-#      LUT6                        : 19
+#      LUT5                        : 3
+#      LUT6                        : 20
 #      MUXCY                       : 43
 #      VCC                         : 1
 #      XORCY                       : 34
@@ -511,7 +511,7 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 3.511ns (Maximum Frequency: 284.848MHz)
+   Minimum period: 3.873ns (Maximum Frequency: 258.221MHz)
    Minimum input arrival time before clock: 3.833ns
    Maximum output required time after clock: 4.821ns
    Maximum combinational path delay: No path found
@@ -568,27 +568,27 @@ Delay:               5.082ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_50kHz_unbuf'
-  Clock period: 3.511ns (frequency: 284.848MHz)
+  Clock period: 3.873ns (frequency: 258.221MHz)
   Total number of paths / destination ports: 62 / 9
 -------------------------------------------------------------------------
-Delay:               3.511ns (Levels of Logic = 3)
+Delay:               3.873ns (Levels of Logic = 3)
   Source:            i2c_count_5 (FF)
-  Destination:       cam_i2c_sda (FF)
+  Destination:       i2c_value (FF)
   Source Clock:      clk_50kHz_unbuf rising
   Destination Clock: clk_50kHz_unbuf rising
 
-  Data Path: i2c_count_5 to cam_i2c_sda
+  Data Path: i2c_count_5 to i2c_value
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FD:C->Q              10   0.447   0.961  i2c_count_5 (i2c_count_5)
-     LUT2:I0->O            1   0.203   0.808  cam_i2c_sda_glue_set_SW0 (N4)
-     LUT6:I3->O            1   0.205   0.580  cam_i2c_sda_glue_set (cam_i2c_sda_glue_set)
-     LUT6:I5->O            1   0.205   0.000  cam_i2c_sda_rstpot (cam_i2c_sda_rstpot)
-     FD:D                      0.102          cam_i2c_sda
+     LUT2:I0->O            1   0.203   0.808  i2c_value_glue_set_SW0 (N4)
+     LUT6:I3->O            1   0.205   0.944  i2c_value_glue_set (i2c_value_glue_set)
+     LUT6:I0->O            1   0.203   0.000  i2c_value_rstpot (i2c_value_rstpot)
+     FD:D                      0.102          i2c_value
     ----------------------------------------
-    Total                      3.511ns (1.162ns logic, 2.349ns route)
-                                       (33.1% logic, 66.9% route)
+    Total                      3.873ns (1.160ns logic, 2.713ns route)
+                                       (30.0% logic, 70.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_20Hz_unbuf'
@@ -655,15 +655,15 @@ Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_50kHz_unbuf'
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
 Offset:              3.634ns (Levels of Logic = 1)
-  Source:            cam_i2c_sda (FF)
+  Source:            i2c_value (FF)
   Destination:       cam_i2c_sda (PAD)
   Source Clock:      clk_50kHz_unbuf rising
 
-  Data Path: cam_i2c_sda to cam_i2c_sda
+  Data Path: i2c_value to cam_i2c_sda
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.616  cam_i2c_sda (cam_i2c_sda_OBUF)
+     FD:C->Q               2   0.447   0.616  i2c_value (i2c_value)
      OBUF:I->O                 2.571          cam_i2c_sda_OBUF (cam_i2c_sda)
     ----------------------------------------
     Total                      3.634ns (3.018ns logic, 0.616ns route)
@@ -706,8 +706,8 @@ Clock to Setup on destination clock clk_50kHz_unbuf
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_20Hz_unbuf |    2.764|         |         |         |
-clk_50kHz_unbuf|    3.511|         |         |         |
+clk_20Hz_unbuf |    3.146|         |         |         |
+clk_50kHz_unbuf|    3.873|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock sysclk
@@ -723,7 +723,7 @@ sysclk         |    5.082|         |         |         |
 
 
 Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.16 secs
+Total CPU time to Xst completion: 5.34 secs
  
 --> 
 
