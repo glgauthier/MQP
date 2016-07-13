@@ -23,6 +23,7 @@ module mt9v034_top(
 		);
 parameter [7:0] READ = 8'h8b; // printed LSB->msb so this will appear as 0xB8 to the i2c bus
 
+wire clk_20Hz_unbuf;
 wire clk_20Hz;
 wire clk_10kHz;
 wire clk_50kHz_unbuf;
@@ -42,15 +43,19 @@ dcm CLK_24MHz
 clk_div clks(
 	 .reset(reset), // synchronous reset
     .clk_24M(clk_24MHz), // 24MHz clock signal
-    .clk_debounce(clk_20Hz), // 20Hz clock pulse
+    .clk_debounce(clk_20Hz_unbuf), // 20Hz clock pulse
 	 .anodes(clk_10kHz), // 10k 7Seg anode driver
 	 .sclk(clk_50kHz_unbuf) // 50k I2C sclk
     );
-	 
- BUFG clk_50k (
+
+BUFG clk_20H (
+      .O(clk_20Hz), // 1-bit output: Clock buffer output
+      .I(clk_20Hz_unbuf)  // 1-bit input: Clock buffer input
+);
+BUFG clk_50k (
       .O(clk_50kHz), // 1-bit output: Clock buffer output
       .I(clk_50kHz_unbuf)  // 1-bit input: Clock buffer input
- );
+);
 
 reg [15:0] displayVal = 16'hdead;
 seven_seg segs(

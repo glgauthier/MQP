@@ -1,7 +1,7 @@
 Release 14.1 par P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-GEORGES-T460P::  Wed Jul 13 14:13:23 2016
+GEORGES-T460P::  Wed Jul 13 14:27:03 2016
 
 par -w -intstyle ise -ol high -mt off mt9v034_top_map.ncd mt9v034_top.ncd
 mt9v034_top.pcf 
@@ -47,10 +47,10 @@ Slice Logic Utilization:
 Slice Logic Distribution:
   Number of occupied Slices:                    31 out of   2,278    1%
   Nummber of MUXCYs used:                       52 out of   4,556    1%
-  Number of LUT Flip Flop pairs used:           92
-    Number with an unused Flip Flop:            35 out of      92   38%
-    Number with an unused LUT:                   2 out of      92    2%
-    Number of fully used LUT-FF pairs:          55 out of      92   59%
+  Number of LUT Flip Flop pairs used:           90
+    Number with an unused Flip Flop:            35 out of      90   38%
+    Number with an unused LUT:                   0 out of      90    0%
+    Number of fully used LUT-FF pairs:          55 out of      90   61%
     Number of slice register sites lost
       to control set restrictions:               0 out of  18,224    0%
 
@@ -74,8 +74,8 @@ Specific Feature Utilization:
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
     Number used as BUFIO2FBs:                    1
     Number used as BUFIO2FB_2CLKs:               0
-  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
-    Number used as BUFGs:                        3
+  Number of BUFG/BUFGMUXs:                       4 out of      16   25%
+    Number used as BUFGs:                        4
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     1 out of       4   25%
     Number used as DCMs:                         1
@@ -110,11 +110,11 @@ Starting Router
 
 Phase  1  : 392 unrouted;      REAL time: 2 secs 
 
-Phase  2  : 307 unrouted;      REAL time: 3 secs 
+Phase  2  : 301 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 75 unrouted;      REAL time: 3 secs 
+Phase  3  : 58 unrouted;      REAL time: 3 secs 
 
-Phase  4  : 75 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
+Phase  4  : 58 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
 Updating file: mt9v034_top.ncd with current fully routed design.
 
@@ -150,14 +150,14 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     4.661ns|     N/A|           0
-  _24MHz                                    | HOLD        |     0.450ns|            |       0|           0
-----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     1.224ns|     N/A|           0
-  _20Hz                                     | HOLD        |     0.411ns|            |       0|           0
-----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     2.580ns|     N/A|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     2.965ns|     N/A|           0
   _50kHz                                    | HOLD        |     0.436ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     1.314ns|     N/A|           0
+  _20Hz                                     | HOLD        |     0.426ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     4.624ns|     N/A|           0
+  _24MHz                                    | HOLD        |     0.445ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -176,7 +176,7 @@ All signals are completely routed.
 Total REAL time to PAR completion: 4 secs 
 Total CPU time to PAR completion: 4 secs 
 
-Peak Memory Usage:  349 MB
+Peak Memory Usage:  345 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

@@ -11,12 +11,12 @@ Target Device  : xc6slx16
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Wed Jul 13 14:13:17 2016
+Mapped Date    : Wed Jul 13 14:26:56 2016
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    1
+Number of warnings:    0
 Slice Logic Utilization:
   Number of Slice Registers:                    63 out of  18,224    1%
     Number used as Flip Flops:                  63
@@ -38,10 +38,10 @@ Slice Logic Utilization:
 Slice Logic Distribution:
   Number of occupied Slices:                    31 out of   2,278    1%
   Nummber of MUXCYs used:                       52 out of   4,556    1%
-  Number of LUT Flip Flop pairs used:           92
-    Number with an unused Flip Flop:            35 out of      92   38%
-    Number with an unused LUT:                   2 out of      92    2%
-    Number of fully used LUT-FF pairs:          55 out of      92   59%
+  Number of LUT Flip Flop pairs used:           90
+    Number with an unused Flip Flop:            35 out of      90   38%
+    Number with an unused LUT:                   0 out of      90    0%
+    Number of fully used LUT-FF pairs:          55 out of      90   61%
     Number of unique control sets:               7
     Number of slice register sites lost
       to control set restrictions:              33 out of  18,224    1%
@@ -66,8 +66,8 @@ Specific Feature Utilization:
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
     Number used as BUFIO2FBs:                    1
     Number used as BUFIO2FB_2CLKs:               0
-  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
-    Number used as BUFGs:                        3
+  Number of BUFG/BUFGMUXs:                       4 out of      16   25%
+    Number used as BUFGs:                        4
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     1 out of       4   25%
     Number used as DCMs:                         1
@@ -90,9 +90,9 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                2.86
+Average Fanout of Non-Clock Nets:                2.83
 
-Peak Memory Usage:  401 MB
+Peak Memory Usage:  397 MB
 Total REAL time to MAP completion:  4 secs 
 Total CPU time to MAP completion:   4 secs 
 
@@ -117,9 +117,6 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
-WARNING:PhysDesignRules:372 - Gated clock. Clock net clk_20Hz is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to
-   control the loading of data into the flip-flop.
 
 Section 3 - Informational
 -------------------------

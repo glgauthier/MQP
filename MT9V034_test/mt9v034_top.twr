@@ -37,7 +37,7 @@ Setup/Hold to clock sysclk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-reset       |    6.293(R)|      SLOW  |   -2.689(R)|      FAST  |clk_24MHz         |   0.000|
+reset       |    6.177(R)|      SLOW  |   -2.343(R)|      FAST  |clk_24MHz         |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock sysclk to Pad
@@ -45,19 +45,19 @@ Clock sysclk to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-anodes<0>   |         5.019(R)|      SLOW  |         3.002(R)|      FAST  |clk_24MHz         |   0.000|
+anodes<0>   |         4.883(R)|      SLOW  |         2.933(R)|      FAST  |clk_24MHz         |   0.000|
 anodes<1>   |         4.944(R)|      SLOW  |         2.960(R)|      FAST  |clk_24MHz         |   0.000|
-anodes<2>   |         4.669(R)|      SLOW  |         2.792(R)|      FAST  |clk_24MHz         |   0.000|
-anodes<3>   |         4.755(R)|      SLOW  |         2.847(R)|      FAST  |clk_24MHz         |   0.000|
+anodes<2>   |         4.836(R)|      SLOW  |         2.921(R)|      FAST  |clk_24MHz         |   0.000|
+anodes<3>   |         4.635(R)|      SLOW  |         2.785(R)|      FAST  |clk_24MHz         |   0.000|
 cam_sysclk  |         4.241(R)|      SLOW  |         2.421(R)|      FAST  |clk_24MHz         |   0.000|
             |         4.221(F)|      SLOW  |         2.427(F)|      FAST  |clk_24MHz         |   0.000|
-cathodes<0> |         7.700(R)|      SLOW  |         4.408(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<1> |         7.565(R)|      SLOW  |         4.466(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<2> |         7.366(R)|      SLOW  |         4.199(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<3> |         7.743(R)|      SLOW  |         4.418(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<4> |         7.539(R)|      SLOW  |         4.419(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<5> |         7.367(R)|      SLOW  |         4.223(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<6> |         7.626(R)|      SLOW  |         4.318(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<0> |         7.756(R)|      SLOW  |         4.446(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<1> |         7.621(R)|      SLOW  |         4.495(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<2> |         7.422(R)|      SLOW  |         4.237(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<3> |         7.797(R)|      SLOW  |         4.454(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<4> |         7.595(R)|      SLOW  |         4.448(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<5> |         7.423(R)|      SLOW  |         4.261(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<6> |         7.680(R)|      SLOW  |         4.354(R)|      FAST  |clk_24MHz         |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock sysclk
@@ -65,18 +65,18 @@ Clock to Setup on destination clock sysclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-sysclk         |    4.661|         |         |         |
+sysclk         |    4.624|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Wed Jul 13 14:13:33 2016 
+Analysis completed Wed Jul 13 14:27:11 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 244 MB
+Peak Memory Usage: 240 MB
 
 
 
