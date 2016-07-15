@@ -2,16 +2,13 @@ NET "sysclk" LOC = V10; #Nexys3 100MHz fpga_clk
 NET "reset" LOC = B8; 	#Nexys3 Center button
 NET "cam_rst" LOC = C4; #Nexys3 left button
 NET "trigger" LOC = D9; #Nexys3 Right button
-NET "LOCKED" LOC = U16; #Nexys3 LED0
-NET "SW_cam_info" LOC = T10; //sw1
-NET "SW_cam_oe" LOC = T9; //sw2
+NET "LOCKED" LOC = T11; #Nexys3 LED7
+NET "SW_cam_oe" LOC = T10; //sw1
 
 #Should use ODDR2 pins for these signals in the future
 NET "cam_trigger" LOC = K2;  #PmodB1
 NET "cam_sysclk" LOC = K5; #PmodB10
 NET "cam_reset" LOC = K3; #PmodB9
-NET "cam_i2c_sclk" LOC = H3;
-NET "cam_i2c_sda" LOC = L7;
 NET "cam_oe" LOC = J1;
 #PIN "CLK_24MHz/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = false;
 

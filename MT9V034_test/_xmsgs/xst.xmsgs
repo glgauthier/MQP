@@ -5,40 +5,43 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\ipcore_dir\dcm.v" Line 130: Assignment to <arg fmt="%s" index="1">status_int</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="872" delta="new" >"C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" Line 49: Using initial value of <arg fmt="%s" index="1">displayVal</arg> since it is never assigned
 </msg>
 
-<msg type="info" file="Xst" num="3231" delta="old" >The small RAM &lt;<arg fmt="%s" index="1">Mram_cathodes</arg>&gt; will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\ipcore_dir\dcm.v" Line 130: Assignment to <arg fmt="%s" index="1">status_int</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="info" file="Xst" num="3231" delta="old" >The small RAM &lt;<arg fmt="%s" index="1">Mram_count[1]_GND_7_o_wide_mux_4_OUT</arg>&gt; will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">anodes_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">segs</arg>&gt;.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">displayVal_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;displayVal_4&gt; &lt;displayVal_6&gt; &lt;displayVal_8&gt; &lt;displayVal_13&gt; </arg>
+<msg type="info" file="Xst" num="3231" delta="new" >The small RAM &lt;<arg fmt="%s" index="1">Mram__n0037</arg>&gt; will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">displayVal_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">10 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;displayVal_2&gt; &lt;displayVal_3&gt; &lt;displayVal_5&gt; &lt;displayVal_7&gt; &lt;displayVal_9&gt; &lt;displayVal_10&gt; &lt;displayVal_11&gt; &lt;displayVal_12&gt; &lt;displayVal_14&gt; &lt;displayVal_15&gt; </arg>
+<msg type="info" file="Xst" num="3218" delta="new" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_cathodes</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/sclk_count_1&gt; &lt;clks/seg_count_1&gt; </arg>
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">anodes_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">seven_seg</arg>&gt;.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/sclk_count_2&gt; &lt;clks/seg_count_2&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">currentVal_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">seven_seg</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;anodes_2&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/sclk_count_3&gt; &lt;clks/seg_count_3&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/seg_count_0&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/sclk_count_4&gt; &lt;clks/seg_count_4&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/seg_count_1&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/sclk_count_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/bounce_count_0&gt; &lt;clks/seg_count_0&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/seg_count_2&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/seg_count_5&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/seg_count_3&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/seg_count_6&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/seg_count_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">clks/bounce_count_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mt9v034_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;clks/seg_count_5&gt; </arg>
 </msg>
 
 </messages>

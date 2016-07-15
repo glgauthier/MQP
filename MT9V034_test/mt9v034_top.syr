@@ -128,6 +128,7 @@ Parsing module <mt9v034_top>.
 =========================================================================
 
 Elaborating module <mt9v034_top>.
+WARNING:HDLCompiler:872 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" Line 49: Using initial value of displayVal since it is never assigned
 
 Elaborating module <dcm>.
 
@@ -144,8 +145,6 @@ Elaborating module <seven_seg>.
 
 Elaborating module <ODDR2(DDR_ALIGNMENT="NONE",INIT=1'b0,SRTYPE="SYNC")>.
 
-Elaborating module <ODDR2(DDR_ALIGNMENT="NONE",INIT=1'b1,SRTYPE="SYNC")>.
-
 Elaborating module <debounce>.
 
 Elaborating module <btnlatch>.
@@ -156,19 +155,8 @@ Elaborating module <btnlatch>.
 
 Synthesizing Unit <mt9v034_top>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v".
-        READ = 8'b10111000
-    Found 16-bit register for signal <displayVal>.
-    Found 1-bit register for signal <cam_i2c_sda>.
-    Found 6-bit register for signal <i2c_count>.
-    Found 6-bit adder for signal <i2c_count[5]_GND_1_o_add_9_OUT> created at line 147.
-    Found 3-bit subtractor for signal <GND_1_o_GND_1_o_sub_8_OUT<2:0>> created at line 146.
-    Found 6-bit comparator lessequal for signal <n0008> created at line 144
-    Found 6-bit comparator greater for signal <n0010> created at line 144
     Summary:
-	inferred   2 Adder/Subtractor(s).
-	inferred  23 D-type flip-flop(s).
-	inferred   2 Comparator(s).
-	inferred   1 Multiplexer(s).
+	no macro.
 Unit <mt9v034_top> synthesized.
 
 Synthesizing Unit <dcm>.
@@ -180,16 +168,12 @@ Unit <dcm> synthesized.
 Synthesizing Unit <clk_div>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\clk_divs.v".
     Found 16-bit register for signal <seg_count>.
-    Found 9-bit register for signal <sclk_count>.
     Found 21-bit register for signal <bounce_count>.
-    Found 21-bit adder for signal <bounce_count[20]_GND_6_o_add_2_OUT> created at line 25.
-    Found 16-bit adder for signal <seg_count[15]_GND_6_o_add_7_OUT> created at line 34.
-    Found 9-bit adder for signal <sclk_count[8]_GND_6_o_add_12_OUT> created at line 43.
-    Found 9-bit comparator greater for signal <sclk> created at line 49
+    Found 21-bit adder for signal <bounce_count[20]_GND_6_o_add_2_OUT> created at line 24.
+    Found 16-bit adder for signal <seg_count[15]_GND_6_o_add_8_OUT> created at line 33.
     Summary:
-	inferred   3 Adder/Subtractor(s).
-	inferred  46 D-type flip-flop(s).
-	inferred   1 Comparator(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  37 D-type flip-flop(s).
 Unit <clk_div> synthesized.
 
 Synthesizing Unit <seven_seg>.
@@ -198,14 +182,12 @@ Synthesizing Unit <seven_seg>.
     Found 4-bit register for signal <currentVal>.
     Found 2-bit register for signal <count>.
     Found 2-bit adder for signal <count[1]_GND_7_o_add_2_OUT> created at line 28.
-    Found 4x4-bit Read Only RAM for signal <count[1]_GND_7_o_wide_mux_4_OUT>
     Found 16x7-bit Read Only RAM for signal <cathodes>
-    Found 4-bit 4-to-1 multiplexer for signal <count[1]_values[15]_wide_mux_5_OUT> created at line 30.
+    Found 4x8-bit Read Only RAM for signal <_n0037>
     Summary:
 	inferred   2 RAM(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred  10 D-type flip-flop(s).
-	inferred   1 Multiplexer(s).
 Unit <seven_seg> synthesized.
 
 Synthesizing Unit <debounce>.
@@ -254,30 +236,18 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 2
  16x7-bit single-port Read Only RAM                    : 1
- 4x4-bit single-port Read Only RAM                     : 1
-# Adders/Subtractors                                   : 6
+ 4x8-bit single-port Read Only RAM                     : 1
+# Adders/Subtractors                                   : 3
  16-bit adder                                          : 1
  2-bit adder                                           : 1
  21-bit adder                                          : 1
- 3-bit subtractor                                      : 1
- 6-bit adder                                           : 1
- 9-bit adder                                           : 1
-# Registers                                            : 13
- 1-bit register                                        : 5
- 16-bit register                                       : 2
+# Registers                                            : 7
+ 1-bit register                                        : 3
+ 16-bit register                                       : 1
  2-bit register                                        : 1
  21-bit register                                       : 1
- 4-bit register                                        : 2
- 6-bit register                                        : 1
- 9-bit register                                        : 1
-# Comparators                                          : 3
- 6-bit comparator greater                              : 1
- 6-bit comparator lessequal                            : 1
- 9-bit comparator greater                              : 1
-# Multiplexers                                         : 2
- 1-bit 2-to-1 multiplexer                              : 1
- 4-bit 4-to-1 multiplexer                              : 1
-# FSMs                                                 : 4
+ 8-bit register                                        : 1
+# FSMs                                                 : 3
 
 =========================================================================
 
@@ -285,42 +255,39 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+WARNING:Xst:2677 - Node <anodes_3> of sequential type is unconnected in block <segs>.
 
 Synthesizing (advanced) Unit <clk_div>.
 The following registers are absorbed into counter <seg_count>: 1 register on signal <seg_count>.
-The following registers are absorbed into counter <sclk_count>: 1 register on signal <sclk_count>.
 The following registers are absorbed into counter <bounce_count>: 1 register on signal <bounce_count>.
 Unit <clk_div> synthesized (advanced).
 
-Synthesizing (advanced) Unit <mt9v034_top>.
-The following registers are absorbed into counter <i2c_count>: 1 register on signal <i2c_count>.
-Unit <mt9v034_top> synthesized (advanced).
-
 Synthesizing (advanced) Unit <seven_seg>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
-INFO:Xst:3231 - The small RAM <Mram_cathodes> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+INFO:Xst:3231 - The small RAM <Mram__n0037> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 8-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <count>         |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_cathodes> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
     |     aspect ratio   | 16-word x 7-bit                     |          |
     |     weA            | connected to signal <GND>           | high     |
-    |     addrA          | connected to signal <currentVal>    |          |
+    |     addrA          | connected to signal <("1",anodes_currentVal<6:4>)> |          |
     |     diA            | connected to signal <GND>           |          |
     |     doA            | connected to signal <cathodes>      |          |
     -----------------------------------------------------------------------
-INFO:Xst:3231 - The small RAM <Mram_count[1]_GND_7_o_wide_mux_4_OUT> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
-    -----------------------------------------------------------------------
-    | ram_type           | Distributed                         |          |
-    -----------------------------------------------------------------------
-    | Port A                                                              |
-    |     aspect ratio   | 4-word x 4-bit                      |          |
-    |     weA            | connected to signal <GND>           | high     |
-    |     addrA          | connected to signal <count>         |          |
-    |     diA            | connected to signal <GND>           |          |
-    |     doA            | connected to internal node          |          |
-    -----------------------------------------------------------------------
 Unit <seven_seg> synthesized (advanced).
+WARNING:Xst:2677 - Node <anodes_3> of sequential type is unconnected in block <seven_seg>.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -328,32 +295,20 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 2
  16x7-bit single-port distributed Read Only RAM        : 1
- 4x4-bit single-port distributed Read Only RAM         : 1
-# Adders/Subtractors                                   : 1
- 3-bit subtractor                                      : 1
-# Counters                                             : 5
+ 4x8-bit single-port distributed Read Only RAM         : 1
+# Counters                                             : 3
  16-bit up counter                                     : 1
  2-bit up counter                                      : 1
  21-bit up counter                                     : 1
- 6-bit up counter                                      : 1
- 9-bit up counter                                      : 1
-# Registers                                            : 29
- Flip-Flops                                            : 29
-# Comparators                                          : 3
- 6-bit comparator greater                              : 1
- 6-bit comparator lessequal                            : 1
- 9-bit comparator greater                              : 1
-# Multiplexers                                         : 1
- 4-bit 4-to-1 multiplexer                              : 1
-# FSMs                                                 : 4
+# Registers                                            : 10
+ Flip-Flops                                            : 10
+# FSMs                                                 : 3
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <displayVal_1> in Unit <mt9v034_top> is equivalent to the following 4 FFs/Latches, which will be removed : <displayVal_4> <displayVal_6> <displayVal_8> <displayVal_13> 
-INFO:Xst:2261 - The FF/Latch <displayVal_0> in Unit <mt9v034_top> is equivalent to the following 10 FFs/Latches, which will be removed : <displayVal_2> <displayVal_3> <displayVal_5> <displayVal_7> <displayVal_9> <displayVal_10> <displayVal_11> <displayVal_12> <displayVal_14> <displayVal_15> 
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <FSM_0> on signal <count[1:2]> with gray encoding.
 Optimizing FSM <FSM_0> on signal <count[1:2]> with gray encoding.
@@ -366,7 +321,6 @@ Optimizing FSM <FSM_0> on signal <count[1:2]> with gray encoding.
 -------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <FSM_1> on signal <count[1:2]> with gray encoding.
-Optimizing FSM <FSM_1> on signal <count[1:2]> with gray encoding.
 -------------------
  State | Encoding
 -------------------
@@ -374,19 +328,19 @@ Optimizing FSM <FSM_1> on signal <count[1:2]> with gray encoding.
  10    | 01
  01    | 11
 -------------------
+INFO:Xst:2261 - The FF/Latch <currentVal_1> in Unit <seven_seg> is equivalent to the following FF/Latch, which will be removed : <anodes_2> 
 
 Optimizing unit <mt9v034_top> ...
 
 Optimizing unit <clk_div> ...
 
 Optimizing unit <seven_seg> ...
-INFO:Xst:2261 - The FF/Latch <clks/bounce_count_1> in Unit <mt9v034_top> is equivalent to the following 2 FFs/Latches, which will be removed : <clks/sclk_count_1> <clks/seg_count_1> 
-INFO:Xst:2261 - The FF/Latch <clks/bounce_count_2> in Unit <mt9v034_top> is equivalent to the following 2 FFs/Latches, which will be removed : <clks/sclk_count_2> <clks/seg_count_2> 
-INFO:Xst:2261 - The FF/Latch <clks/bounce_count_3> in Unit <mt9v034_top> is equivalent to the following 2 FFs/Latches, which will be removed : <clks/sclk_count_3> <clks/seg_count_3> 
-INFO:Xst:2261 - The FF/Latch <clks/bounce_count_4> in Unit <mt9v034_top> is equivalent to the following 2 FFs/Latches, which will be removed : <clks/sclk_count_4> <clks/seg_count_4> 
-INFO:Xst:2261 - The FF/Latch <clks/sclk_count_0> in Unit <mt9v034_top> is equivalent to the following 2 FFs/Latches, which will be removed : <clks/bounce_count_0> <clks/seg_count_0> 
+INFO:Xst:2261 - The FF/Latch <clks/bounce_count_0> in Unit <mt9v034_top> is equivalent to the following FF/Latch, which will be removed : <clks/seg_count_0> 
+INFO:Xst:2261 - The FF/Latch <clks/bounce_count_1> in Unit <mt9v034_top> is equivalent to the following FF/Latch, which will be removed : <clks/seg_count_1> 
+INFO:Xst:2261 - The FF/Latch <clks/bounce_count_2> in Unit <mt9v034_top> is equivalent to the following FF/Latch, which will be removed : <clks/seg_count_2> 
+INFO:Xst:2261 - The FF/Latch <clks/bounce_count_3> in Unit <mt9v034_top> is equivalent to the following FF/Latch, which will be removed : <clks/seg_count_3> 
+INFO:Xst:2261 - The FF/Latch <clks/bounce_count_4> in Unit <mt9v034_top> is equivalent to the following FF/Latch, which will be removed : <clks/seg_count_4> 
 INFO:Xst:2261 - The FF/Latch <clks/bounce_count_5> in Unit <mt9v034_top> is equivalent to the following FF/Latch, which will be removed : <clks/seg_count_5> 
-INFO:Xst:2261 - The FF/Latch <clks/bounce_count_6> in Unit <mt9v034_top> is equivalent to the following FF/Latch, which will be removed : <clks/seg_count_6> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -398,8 +352,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 63
- Flip-Flops                                            : 63
+# Registers                                            : 47
+ Flip-Flops                                            : 47
 
 =========================================================================
 
@@ -422,30 +376,30 @@ Top Level Output File Name         : mt9v034_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 182
+# BELS                             : 144
 #      GND                         : 1
-#      INV                         : 6
-#      LUT1                        : 43
-#      LUT2                        : 12
-#      LUT3                        : 7
-#      LUT4                        : 12
-#      LUT5                        : 3
-#      LUT6                        : 20
-#      MUXCY                       : 43
+#      INV                         : 4
+#      LUT1                        : 35
+#      LUT2                        : 10
+#      LUT3                        : 11
+#      LUT4                        : 2
+#      LUT5                        : 1
+#      LUT6                        : 13
+#      MUXCY                       : 35
 #      VCC                         : 1
-#      XORCY                       : 34
-# FlipFlops/Latches                : 65
-#      FD                          : 19
-#      FDE                         : 8
-#      FDR                         : 34
+#      XORCY                       : 31
+# FlipFlops/Latches                : 48
+#      FD                          : 8
+#      FDE                         : 6
+#      FDR                         : 31
 #      FDRE                        : 2
-#      ODDR2                       : 2
-# Clock Buffers                    : 4
-#      BUFG                        : 4
-# IO Buffers                       : 24
-#      IBUF                        : 5
+#      ODDR2                       : 1
+# Clock Buffers                    : 3
+#      BUFG                        : 3
+# IO Buffers                       : 21
+#      IBUF                        : 4
 #      IBUFG                       : 1
-#      OBUF                        : 18
+#      OBUF                        : 16
 # DCMs                             : 1
 #      DCM_SP                      : 1
 
@@ -456,23 +410,23 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              65  out of  18224     0%  
- Number of Slice LUTs:                  103  out of   9112     1%  
-    Number used as Logic:               103  out of   9112     1%  
+ Number of Slice Registers:              48  out of  18224     0%  
+ Number of Slice LUTs:                   76  out of   9112     0%  
+    Number used as Logic:                76  out of   9112     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    107
-   Number with an unused Flip Flop:      42  out of    107    39%  
-   Number with an unused LUT:             4  out of    107     3%  
-   Number of fully used LUT-FF pairs:    61  out of    107    57%  
-   Number of unique control sets:         7
+ Number of LUT Flip Flop pairs used:     78
+   Number with an unused Flip Flop:      30  out of     78    38%  
+   Number with an unused LUT:             2  out of     78     2%  
+   Number of fully used LUT-FF pairs:    46  out of     78    58%  
+   Number of unique control sets:         5
 
 IO Utilization: 
- Number of IOs:                          24
- Number of bonded IOBs:                  24  out of    232    10%  
+ Number of IOs:                          21
+ Number of bonded IOBs:                  21  out of    232     9%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                4  out of     16    25%  
+ Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
 
 ---------------------------
 Partition Resource Summary:
@@ -495,11 +449,10 @@ Clock Information:
 ----------------------------------------+----------------------------+-------+
 Clock Signal                            | Clock buffer(FF name)      | Load  |
 ----------------------------------------+----------------------------+-------+
-clk_20Hz_unbuf(clks/clk_debounce<20>3:O)| BUFG(*)(deb/count_FSM_FFd2)| 10    |
-sysclk                                  | DCM_SP:CLKFX               | 46    |
-clk_50kHz_unbuf(clks/sclk1:O)           | BUFG(*)(clkfwd1)           | 11    |
+clk_20Hz_unbuf(clks/clk_debounce<20>3:O)| BUFG(*)(deb/count_FSM_FFd1)| 8     |
+sysclk                                  | DCM_SP:CLKFX               | 41    |
 ----------------------------------------+----------------------------+-------+
-(*) These 2 clock signal(s) are generated by combinatorial logic,
+(*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 
@@ -511,9 +464,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 3.873ns (Maximum Frequency: 258.221MHz)
-   Minimum input arrival time before clock: 3.833ns
-   Maximum output required time after clock: 4.821ns
+   Minimum period: 1.599ns (Maximum Frequency: 625.293MHz)
+   Minimum input arrival time before clock: 3.587ns
+   Maximum output required time after clock: 4.832ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -522,77 +475,53 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_20Hz_unbuf'
-  Clock period: 1.637ns (frequency: 610.762MHz)
-  Total number of paths / destination ports: 16 / 8
+  Clock period: 1.599ns (frequency: 625.293MHz)
+  Total number of paths / destination ports: 14 / 7
 -------------------------------------------------------------------------
-Delay:               1.637ns (Levels of Logic = 1)
-  Source:            sw_deb/btn_val (FF)
-  Destination:       sw_deb/btn_val (FF)
+Delay:               1.599ns (Levels of Logic = 1)
+  Source:            deb/count_FSM_FFd1 (FF)
+  Destination:       deb/btn_val (FF)
   Source Clock:      clk_20Hz_unbuf rising
   Destination Clock: clk_20Hz_unbuf rising
 
-  Data Path: sw_deb/btn_val to sw_deb/btn_val
+  Data Path: deb/count_FSM_FFd1 to deb/btn_val
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              11   0.447   0.883  sw_deb/btn_val (sw_deb/btn_val)
-     LUT3:I2->O            1   0.205   0.000  sw_deb/btn_val_rstpot (sw_deb/btn_val_rstpot)
-     FD:D                      0.102          sw_deb/btn_val
+     FD:C->Q               2   0.447   0.845  deb/count_FSM_FFd1 (deb/count_FSM_FFd1)
+     LUT4:I1->O            1   0.205   0.000  deb/btn_val_rstpot (deb/btn_val_rstpot)
+     FD:D                      0.102          deb/btn_val
     ----------------------------------------
-    Total                      1.637ns (0.754ns logic, 0.883ns route)
-                                       (46.1% logic, 53.9% route)
+    Total                      1.599ns (0.754ns logic, 0.845ns route)
+                                       (47.1% logic, 52.9% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'sysclk'
-  Clock period: 1.220ns (frequency: 819.823MHz)
-  Total number of paths / destination ports: 1047 / 80
+  Clock period: 1.218ns (frequency: 821.261MHz)
+  Total number of paths / destination ports: 1126 / 80
 -------------------------------------------------------------------------
-Delay:               5.082ns (Levels of Logic = 3)
-  Source:            clks/bounce_count_1 (FF)
+Delay:               5.074ns (Levels of Logic = 3)
+  Source:            clks/bounce_count_4 (FF)
   Destination:       segs/count_1 (FF)
   Source Clock:      sysclk rising 0.2X
   Destination Clock: sysclk rising 0.2X
 
-  Data Path: clks/bounce_count_1 to segs/count_1
+  Data Path: clks/bounce_count_4 to segs/count_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              7   0.447   1.138  clks/bounce_count_1 (clks/bounce_count_1)
-     LUT6:I0->O            2   0.203   0.961  clks/anodes<15>1 (clks/anodes<15>)
-     LUT6:I1->O            3   0.203   0.879  clks/anodes<15>3 (clk_10kHz)
+     FDR:C->Q              6   0.447   1.109  clks/bounce_count_4 (clks/bounce_count_4)
+     LUT6:I0->O            2   0.203   0.981  clks/anodes<15>2 (clks/anodes<15>1)
+     LUT6:I0->O            3   0.203   0.879  clks/anodes<15>3 (clk_10kHz)
      LUT3:I0->O            2   0.205   0.616  segs/_n00261 (segs/_n0026)
      FDRE:R                    0.430          segs/count_0
     ----------------------------------------
-    Total                      5.082ns (1.488ns logic, 3.594ns route)
+    Total                      5.074ns (1.488ns logic, 3.586ns route)
                                        (29.3% logic, 70.7% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'clk_50kHz_unbuf'
-  Clock period: 3.873ns (frequency: 258.221MHz)
-  Total number of paths / destination ports: 62 / 9
--------------------------------------------------------------------------
-Delay:               3.873ns (Levels of Logic = 3)
-  Source:            i2c_count_5 (FF)
-  Destination:       i2c_value (FF)
-  Source Clock:      clk_50kHz_unbuf rising
-  Destination Clock: clk_50kHz_unbuf rising
-
-  Data Path: i2c_count_5 to i2c_value
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FD:C->Q              10   0.447   0.961  i2c_count_5 (i2c_count_5)
-     LUT2:I0->O            1   0.203   0.808  i2c_value_glue_set_SW0 (N4)
-     LUT6:I3->O            1   0.205   0.944  i2c_value_glue_set (i2c_value_glue_set)
-     LUT6:I0->O            1   0.203   0.000  i2c_value_rstpot (i2c_value_rstpot)
-     FD:D                      0.102          i2c_value
-    ----------------------------------------
-    Total                      3.873ns (1.160ns logic, 2.713ns route)
-                                       (30.0% logic, 70.0% route)
-
-=========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_20Hz_unbuf'
-  Total number of paths / destination ports: 10 / 10
+  Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
 Offset:              2.425ns (Levels of Logic = 2)
   Source:            trigger (PAD)
@@ -612,9 +541,9 @@ Offset:              2.425ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'sysclk'
-  Total number of paths / destination ports: 34 / 34
+  Total number of paths / destination ports: 31 / 31
 -------------------------------------------------------------------------
-Offset:              3.833ns (Levels of Logic = 2)
+Offset:              3.587ns (Levels of Logic = 2)
   Source:            reset (PAD)
   Destination:       clks/bounce_count_20 (FF)
   Destination Clock: sysclk rising 0.2X
@@ -623,51 +552,32 @@ Offset:              3.833ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            11   1.222   0.883  reset_IBUF (reset_IBUF)
-     LUT6:I5->O           20   0.205   1.092  clks/Mcount_bounce_count_val3 (clks/Mcount_bounce_count_val)
-     FDR:R                     0.430          clks/bounce_count_9
+     IBUF:I->O             2   1.222   0.617  reset_IBUF (reset_IBUF)
+     LUT6:I5->O           21   0.205   1.113  clks/Mcount_bounce_count_val3 (clks/Mcount_bounce_count_val)
+     FDR:R                     0.430          clks/bounce_count_0
     ----------------------------------------
-    Total                      3.833ns (1.857ns logic, 1.976ns route)
-                                       (48.5% logic, 51.5% route)
+    Total                      3.587ns (1.857ns logic, 1.730ns route)
+                                       (51.8% logic, 48.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'sysclk'
-  Total number of paths / destination ports: 32 / 11
+  Total number of paths / destination ports: 25 / 11
 -------------------------------------------------------------------------
-Offset:              4.821ns (Levels of Logic = 2)
-  Source:            segs/currentVal_0 (FF)
-  Destination:       cathodes<6> (PAD)
+Offset:              4.832ns (Levels of Logic = 2)
+  Source:            segs/currentVal_1 (FF)
+  Destination:       cathodes<4> (PAD)
   Source Clock:      sysclk rising 0.2X
 
-  Data Path: segs/currentVal_0 to cathodes<6>
+  Data Path: segs/currentVal_1 to cathodes<4>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              7   0.447   1.021  segs/currentVal_0 (segs/currentVal_0)
-     LUT4:I0->O            1   0.203   0.579  segs/Mram_cathodes41 (cathodes_4_OBUF)
+     FDE:C->Q              8   0.447   1.031  segs/currentVal_1 (segs/currentVal_1)
+     LUT3:I0->O            1   0.205   0.579  segs/Mram_cathodes41 (cathodes_4_OBUF)
      OBUF:I->O                 2.571          cathodes_4_OBUF (cathodes<4>)
     ----------------------------------------
-    Total                      4.821ns (3.221ns logic, 1.600ns route)
-                                       (66.8% logic, 33.2% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_50kHz_unbuf'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              3.634ns (Levels of Logic = 1)
-  Source:            i2c_value (FF)
-  Destination:       cam_i2c_sda (PAD)
-  Source Clock:      clk_50kHz_unbuf rising
-
-  Data Path: i2c_value to cam_i2c_sda
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.616  i2c_value (i2c_value)
-     OBUF:I->O                 2.571          cam_i2c_sda_OBUF (cam_i2c_sda)
-    ----------------------------------------
-    Total                      3.634ns (3.018ns logic, 0.616ns route)
-                                       (83.0% logic, 17.0% route)
+    Total                      4.832ns (3.223ns logic, 1.609ns route)
+                                       (66.7% logic, 33.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_20Hz_unbuf'
@@ -698,16 +608,7 @@ Clock to Setup on destination clock clk_20Hz_unbuf
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_20Hz_unbuf |    1.637|         |         |         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock clk_50kHz_unbuf
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk_20Hz_unbuf |    3.146|         |         |         |
-clk_50kHz_unbuf|    3.873|         |         |         |
+clk_20Hz_unbuf |    1.599|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock sysclk
@@ -715,21 +616,20 @@ Clock to Setup on destination clock sysclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_50kHz_unbuf|    1.714|         |         |         |
-sysclk         |    5.082|         |         |         |
+sysclk         |    5.074|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.34 secs
+Total CPU time to Xst completion: 5.16 secs
  
 --> 
 
 Total memory usage is 276208 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    1 (   0 filtered)
-Number of infos    :   11 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :    9 (   0 filtered)
 

@@ -37,7 +37,7 @@ Setup/Hold to clock sysclk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-reset       |    6.177(R)|      SLOW  |   -2.343(R)|      FAST  |clk_24MHz         |   0.000|
+reset       |    6.464(R)|      SLOW  |   -2.901(R)|      FAST  |clk_24MHz         |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock sysclk to Pad
@@ -45,19 +45,19 @@ Clock sysclk to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-anodes<0>   |         4.883(R)|      SLOW  |         2.933(R)|      FAST  |clk_24MHz         |   0.000|
-anodes<1>   |         4.944(R)|      SLOW  |         2.960(R)|      FAST  |clk_24MHz         |   0.000|
-anodes<2>   |         4.836(R)|      SLOW  |         2.921(R)|      FAST  |clk_24MHz         |   0.000|
-anodes<3>   |         4.635(R)|      SLOW  |         2.785(R)|      FAST  |clk_24MHz         |   0.000|
+anodes<0>   |         5.895(R)|      SLOW  |         3.570(R)|      FAST  |clk_24MHz         |   0.000|
+anodes<1>   |         5.810(R)|      SLOW  |         3.538(R)|      FAST  |clk_24MHz         |   0.000|
+anodes<2>   |         5.484(R)|      SLOW  |         3.319(R)|      FAST  |clk_24MHz         |   0.000|
+anodes<3>   |         5.583(R)|      SLOW  |         3.413(R)|      FAST  |clk_24MHz         |   0.000|
 cam_sysclk  |         4.241(R)|      SLOW  |         2.421(R)|      FAST  |clk_24MHz         |   0.000|
             |         4.221(F)|      SLOW  |         2.427(F)|      FAST  |clk_24MHz         |   0.000|
-cathodes<0> |         7.756(R)|      SLOW  |         4.446(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<1> |         7.621(R)|      SLOW  |         4.495(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<2> |         7.422(R)|      SLOW  |         4.237(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<3> |         7.797(R)|      SLOW  |         4.454(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<4> |         7.595(R)|      SLOW  |         4.448(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<5> |         7.423(R)|      SLOW  |         4.261(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<6> |         7.680(R)|      SLOW  |         4.354(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<0> |         7.907(R)|      SLOW  |         4.159(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<1> |         7.692(R)|      SLOW  |         4.013(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<2> |         7.886(R)|      SLOW  |         4.037(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<3> |         7.508(R)|      SLOW  |         3.996(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<4> |         7.327(R)|      SLOW  |         3.929(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<5> |         7.489(R)|      SLOW  |         3.790(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<6> |         7.329(R)|      SLOW  |         3.875(R)|      FAST  |clk_24MHz         |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock sysclk
@@ -65,11 +65,11 @@ Clock to Setup on destination clock sysclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-sysclk         |    4.624|         |         |         |
+sysclk         |    4.801|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Wed Jul 13 15:14:20 2016 
+Analysis completed Fri Jul 15 08:48:09 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:
