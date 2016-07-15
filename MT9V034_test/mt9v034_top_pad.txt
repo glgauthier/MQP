@@ -1,7 +1,7 @@
 Release 14.1 - par P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Fri Jul 15 08:48:05 2016
+Fri Jul 15 09:17:50 2016
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -323,7 +323,7 @@ Pinout by Pin Number:
 |U13       |           |IOBM     |IO_L14P_D11_2                |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |U14       |           |         |VCCO_2                       |         |           |2             |          |         |           |         |2.50     |          |           |                |
 |U15       |           |IOBM     |IO_L5P_2                     |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
-|U16       |           |IOBM     |IO_L2P_CMPCLK_2              |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|U16       |i2c_ready  |IOB      |IO_L2P_CMPCLK_2              |OUTPUT   |LVCMOS25*  |2             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |U17       |cathodes<4>|IOB      |IO_L52P_M1DQ14_1             |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |U18       |cathodes<3>|IOB      |IO_L52N_M1DQ15_1             |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |V1        |           |         |GND                          |         |           |              |          |         |           |         |         |          |           |                |

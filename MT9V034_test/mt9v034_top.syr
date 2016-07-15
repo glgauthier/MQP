@@ -128,7 +128,7 @@ Parsing module <mt9v034_top>.
 =========================================================================
 
 Elaborating module <mt9v034_top>.
-WARNING:HDLCompiler:872 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" Line 49: Using initial value of displayVal since it is never assigned
+WARNING:HDLCompiler:872 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" Line 50: Using initial value of displayVal since it is never assigned
 
 Elaborating module <dcm>.
 
@@ -155,8 +155,14 @@ Elaborating module <btnlatch>.
 
 Synthesizing Unit <mt9v034_top>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v".
+    Found 5-bit register for signal <init_count>.
+    Found 5-bit adder for signal <init_count[4]_GND_1_o_add_2_OUT> created at line 94.
+    Found 5-bit comparator greater for signal <init_count[4]_PWR_1_o_LessThan_2_o> created at line 93
+    Found 5-bit comparator lessequal for signal <n0005> created at line 97
     Summary:
-	no macro.
+	inferred   1 Adder/Subtractor(s).
+	inferred   5 D-type flip-flop(s).
+	inferred   2 Comparator(s).
 Unit <mt9v034_top> synthesized.
 
 Synthesizing Unit <dcm>.
@@ -237,17 +243,22 @@ Macro Statistics
 # RAMs                                                 : 2
  16x7-bit single-port Read Only RAM                    : 1
  4x8-bit single-port Read Only RAM                     : 1
-# Adders/Subtractors                                   : 3
+# Adders/Subtractors                                   : 4
  16-bit adder                                          : 1
  2-bit adder                                           : 1
  21-bit adder                                          : 1
+ 5-bit adder                                           : 1
 # Registers                                            : 7
- 1-bit register                                        : 3
+ 1-bit register                                        : 2
  16-bit register                                       : 1
  2-bit register                                        : 1
  21-bit register                                       : 1
+ 5-bit register                                        : 1
  8-bit register                                        : 1
-# FSMs                                                 : 3
+# Comparators                                          : 2
+ 5-bit comparator greater                              : 1
+ 5-bit comparator lessequal                            : 1
+# FSMs                                                 : 2
 
 =========================================================================
 
@@ -261,6 +272,10 @@ Synthesizing (advanced) Unit <clk_div>.
 The following registers are absorbed into counter <seg_count>: 1 register on signal <seg_count>.
 The following registers are absorbed into counter <bounce_count>: 1 register on signal <bounce_count>.
 Unit <clk_div> synthesized (advanced).
+
+Synthesizing (advanced) Unit <mt9v034_top>.
+The following registers are absorbed into counter <init_count>: 1 register on signal <init_count>.
+Unit <mt9v034_top> synthesized (advanced).
 
 Synthesizing (advanced) Unit <seven_seg>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
@@ -296,13 +311,17 @@ Macro Statistics
 # RAMs                                                 : 2
  16x7-bit single-port distributed Read Only RAM        : 1
  4x8-bit single-port distributed Read Only RAM         : 1
-# Counters                                             : 3
+# Counters                                             : 4
  16-bit up counter                                     : 1
  2-bit up counter                                      : 1
  21-bit up counter                                     : 1
-# Registers                                            : 10
- Flip-Flops                                            : 10
-# FSMs                                                 : 3
+ 5-bit up counter                                      : 1
+# Registers                                            : 9
+ Flip-Flops                                            : 9
+# Comparators                                          : 2
+ 5-bit comparator greater                              : 1
+ 5-bit comparator lessequal                            : 1
+# FSMs                                                 : 2
 
 =========================================================================
 
@@ -310,8 +329,7 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_0> on signal <count[1:2]> with gray encoding.
-Optimizing FSM <FSM_0> on signal <count[1:2]> with gray encoding.
+Optimizing FSM <FSM_1> on signal <count[1:2]> with gray encoding.
 -------------------
  State | Encoding
 -------------------
@@ -320,7 +338,7 @@ Optimizing FSM <FSM_0> on signal <count[1:2]> with gray encoding.
  01    | 11
 -------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_1> on signal <count[1:2]> with gray encoding.
+Optimizing FSM <FSM_0> on signal <count[1:2]> with gray encoding.
 -------------------
  State | Encoding
 -------------------
@@ -352,8 +370,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 47
- Flip-Flops                                            : 47
+# Registers                                            : 49
+ Flip-Flops                                            : 49
 
 =========================================================================
 
@@ -376,30 +394,30 @@ Top Level Output File Name         : mt9v034_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 144
+# BELS                             : 149
 #      GND                         : 1
-#      INV                         : 4
+#      INV                         : 5
 #      LUT1                        : 35
 #      LUT2                        : 10
-#      LUT3                        : 11
-#      LUT4                        : 2
-#      LUT5                        : 1
+#      LUT3                        : 12
+#      LUT4                        : 4
+#      LUT5                        : 2
 #      LUT6                        : 13
 #      MUXCY                       : 35
 #      VCC                         : 1
 #      XORCY                       : 31
-# FlipFlops/Latches                : 48
-#      FD                          : 8
+# FlipFlops/Latches                : 50
+#      FD                          : 5
 #      FDE                         : 6
 #      FDR                         : 31
-#      FDRE                        : 2
+#      FDRE                        : 7
 #      ODDR2                       : 1
 # Clock Buffers                    : 3
 #      BUFG                        : 3
-# IO Buffers                       : 21
+# IO Buffers                       : 22
 #      IBUF                        : 4
 #      IBUFG                       : 1
-#      OBUF                        : 16
+#      OBUF                        : 17
 # DCMs                             : 1
 #      DCM_SP                      : 1
 
@@ -410,20 +428,20 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              48  out of  18224     0%  
- Number of Slice LUTs:                   76  out of   9112     0%  
-    Number used as Logic:                76  out of   9112     0%  
+ Number of Slice Registers:              50  out of  18224     0%  
+ Number of Slice LUTs:                   81  out of   9112     0%  
+    Number used as Logic:                81  out of   9112     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     78
-   Number with an unused Flip Flop:      30  out of     78    38%  
-   Number with an unused LUT:             2  out of     78     2%  
-   Number of fully used LUT-FF pairs:    46  out of     78    58%  
-   Number of unique control sets:         5
+ Number of LUT Flip Flop pairs used:     83
+   Number with an unused Flip Flop:      33  out of     83    39%  
+   Number with an unused LUT:             2  out of     83     2%  
+   Number of fully used LUT-FF pairs:    48  out of     83    57%  
+   Number of unique control sets:         6
 
 IO Utilization: 
- Number of IOs:                          21
- Number of bonded IOBs:                  21  out of    232     9%  
+ Number of IOs:                          22
+ Number of bonded IOBs:                  22  out of    232     9%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
@@ -449,8 +467,8 @@ Clock Information:
 ----------------------------------------+----------------------------+-------+
 Clock Signal                            | Clock buffer(FF name)      | Load  |
 ----------------------------------------+----------------------------+-------+
-clk_20Hz_unbuf(clks/clk_debounce<20>3:O)| BUFG(*)(deb/count_FSM_FFd1)| 8     |
-sysclk                                  | DCM_SP:CLKFX               | 41    |
+sysclk                                  | DCM_SP:CLKFX               | 46    |
+clk_20Hz_unbuf(clks/clk_debounce<20>3:O)| BUFG(*)(deb/count_FSM_FFd1)| 5     |
 ----------------------------------------+----------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
@@ -474,31 +492,9 @@ Timing Details:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'clk_20Hz_unbuf'
-  Clock period: 1.599ns (frequency: 625.293MHz)
-  Total number of paths / destination ports: 14 / 7
--------------------------------------------------------------------------
-Delay:               1.599ns (Levels of Logic = 1)
-  Source:            deb/count_FSM_FFd1 (FF)
-  Destination:       deb/btn_val (FF)
-  Source Clock:      clk_20Hz_unbuf rising
-  Destination Clock: clk_20Hz_unbuf rising
-
-  Data Path: deb/count_FSM_FFd1 to deb/btn_val
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.845  deb/count_FSM_FFd1 (deb/count_FSM_FFd1)
-     LUT4:I1->O            1   0.205   0.000  deb/btn_val_rstpot (deb/btn_val_rstpot)
-     FD:D                      0.102          deb/btn_val
-    ----------------------------------------
-    Total                      1.599ns (0.754ns logic, 0.845ns route)
-                                       (47.1% logic, 52.9% route)
-
-=========================================================================
 Timing constraint: Default period analysis for Clock 'sysclk'
   Clock period: 1.218ns (frequency: 821.261MHz)
-  Total number of paths / destination ports: 1126 / 80
+  Total number of paths / destination ports: 1161 / 90
 -------------------------------------------------------------------------
 Delay:               5.074ns (Levels of Logic = 3)
   Source:            clks/bounce_count_4 (FF)
@@ -520,28 +516,30 @@ Delay:               5.074ns (Levels of Logic = 3)
                                        (29.3% logic, 70.7% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_20Hz_unbuf'
-  Total number of paths / destination ports: 8 / 8
+Timing constraint: Default period analysis for Clock 'clk_20Hz_unbuf'
+  Clock period: 1.599ns (frequency: 625.293MHz)
+  Total number of paths / destination ports: 8 / 4
 -------------------------------------------------------------------------
-Offset:              2.425ns (Levels of Logic = 2)
-  Source:            trigger (PAD)
+Delay:               1.599ns (Levels of Logic = 1)
+  Source:            deb/count_FSM_FFd1 (FF)
   Destination:       deb/btn_val (FF)
+  Source Clock:      clk_20Hz_unbuf rising
   Destination Clock: clk_20Hz_unbuf rising
 
-  Data Path: trigger to deb/btn_val
+  Data Path: deb/count_FSM_FFd1 to deb/btn_val
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             3   1.222   0.898  trigger_IBUF (trigger_IBUF)
-     LUT4:I0->O            1   0.203   0.000  deb/btn_val_rstpot (deb/btn_val_rstpot)
+     FD:C->Q               2   0.447   0.845  deb/count_FSM_FFd1 (deb/count_FSM_FFd1)
+     LUT4:I1->O            1   0.205   0.000  deb/btn_val_rstpot (deb/btn_val_rstpot)
      FD:D                      0.102          deb/btn_val
     ----------------------------------------
-    Total                      2.425ns (1.527ns logic, 0.898ns route)
-                                       (63.0% logic, 37.0% route)
+    Total                      1.599ns (0.754ns logic, 0.845ns route)
+                                       (47.1% logic, 52.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'sysclk'
-  Total number of paths / destination ports: 31 / 31
+  Total number of paths / destination ports: 36 / 36
 -------------------------------------------------------------------------
 Offset:              3.587ns (Levels of Logic = 2)
   Source:            reset (PAD)
@@ -560,8 +558,28 @@ Offset:              3.587ns (Levels of Logic = 2)
                                        (51.8% logic, 48.2% route)
 
 =========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_20Hz_unbuf'
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Offset:              2.425ns (Levels of Logic = 2)
+  Source:            trigger (PAD)
+  Destination:       deb/btn_val (FF)
+  Destination Clock: clk_20Hz_unbuf rising
+
+  Data Path: trigger to deb/btn_val
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.222   0.898  trigger_IBUF (trigger_IBUF)
+     LUT4:I0->O            1   0.203   0.000  deb/btn_val_rstpot (deb/btn_val_rstpot)
+     FD:D                      0.102          deb/btn_val
+    ----------------------------------------
+    Total                      2.425ns (1.527ns logic, 0.898ns route)
+                                       (63.0% logic, 37.0% route)
+
+=========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'sysclk'
-  Total number of paths / destination ports: 25 / 11
+  Total number of paths / destination ports: 32 / 13
 -------------------------------------------------------------------------
 Offset:              4.832ns (Levels of Logic = 2)
   Source:            segs/currentVal_1 (FF)
@@ -581,19 +599,19 @@ Offset:              4.832ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_20Hz_unbuf'
-  Total number of paths / destination ports: 3 / 3
+  Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
 Offset:              3.634ns (Levels of Logic = 1)
-  Source:            deb1/btn_val (FF)
-  Destination:       cam_reset (PAD)
+  Source:            deb/btn_val (FF)
+  Destination:       cam_trigger (PAD)
   Source Clock:      clk_20Hz_unbuf rising
 
-  Data Path: deb1/btn_val to cam_reset
+  Data Path: deb/btn_val to cam_trigger
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.616  deb1/btn_val (deb1/btn_val)
-     OBUF:I->O                 2.571          cam_reset_OBUF (cam_reset)
+     FD:C->Q               2   0.447   0.616  deb/btn_val (deb/btn_val)
+     OBUF:I->O                 2.571          cam_trigger_OBUF (cam_trigger)
     ----------------------------------------
     Total                      3.634ns (3.018ns logic, 0.616ns route)
                                        (83.0% logic, 17.0% route)
@@ -622,8 +640,8 @@ sysclk         |    5.074|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.16 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.07 secs
  
 --> 
 

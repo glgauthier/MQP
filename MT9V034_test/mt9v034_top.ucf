@@ -3,6 +3,7 @@ NET "reset" LOC = B8; 	#Nexys3 Center button
 NET "cam_rst" LOC = C4; #Nexys3 left button
 NET "trigger" LOC = D9; #Nexys3 Right button
 NET "LOCKED" LOC = T11; #Nexys3 LED7
+NET "i2c_ready" LOC = U16; // LED0
 NET "SW_cam_oe" LOC = T10; //sw1
 
 #Should use ODDR2 pins for these signals in the future

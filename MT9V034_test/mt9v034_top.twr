@@ -37,7 +37,8 @@ Setup/Hold to clock sysclk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-reset       |    6.464(R)|      SLOW  |   -2.901(R)|      FAST  |clk_24MHz         |   0.000|
+cam_rst     |    4.704(R)|      SLOW  |   -2.414(R)|      FAST  |clk_24MHz         |   0.000|
+reset       |    7.467(R)|      SLOW  |   -2.915(R)|      FAST  |clk_24MHz         |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock sysclk to Pad
@@ -45,19 +46,21 @@ Clock sysclk to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-anodes<0>   |         5.895(R)|      SLOW  |         3.570(R)|      FAST  |clk_24MHz         |   0.000|
-anodes<1>   |         5.810(R)|      SLOW  |         3.538(R)|      FAST  |clk_24MHz         |   0.000|
-anodes<2>   |         5.484(R)|      SLOW  |         3.319(R)|      FAST  |clk_24MHz         |   0.000|
-anodes<3>   |         5.583(R)|      SLOW  |         3.413(R)|      FAST  |clk_24MHz         |   0.000|
+anodes<0>   |         5.671(R)|      SLOW  |         3.463(R)|      FAST  |clk_24MHz         |   0.000|
+anodes<1>   |         5.698(R)|      SLOW  |         3.497(R)|      FAST  |clk_24MHz         |   0.000|
+anodes<2>   |         5.444(R)|      SLOW  |         3.299(R)|      FAST  |clk_24MHz         |   0.000|
+anodes<3>   |         5.519(R)|      SLOW  |         3.348(R)|      FAST  |clk_24MHz         |   0.000|
+cam_reset   |         6.716(R)|      SLOW  |         3.907(R)|      FAST  |clk_24MHz         |   0.000|
 cam_sysclk  |         4.241(R)|      SLOW  |         2.421(R)|      FAST  |clk_24MHz         |   0.000|
             |         4.221(F)|      SLOW  |         2.427(F)|      FAST  |clk_24MHz         |   0.000|
-cathodes<0> |         7.907(R)|      SLOW  |         4.159(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<1> |         7.692(R)|      SLOW  |         4.013(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<2> |         7.886(R)|      SLOW  |         4.037(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<3> |         7.508(R)|      SLOW  |         3.996(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<4> |         7.327(R)|      SLOW  |         3.929(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<5> |         7.489(R)|      SLOW  |         3.790(R)|      FAST  |clk_24MHz         |   0.000|
-cathodes<6> |         7.329(R)|      SLOW  |         3.875(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<0> |         7.371(R)|      SLOW  |         4.136(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<1> |         7.156(R)|      SLOW  |         3.990(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<2> |         7.350(R)|      SLOW  |         4.013(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<3> |         7.001(R)|      SLOW  |         3.972(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<4> |         7.320(R)|      SLOW  |         3.933(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<5> |         6.953(R)|      SLOW  |         3.766(R)|      FAST  |clk_24MHz         |   0.000|
+cathodes<6> |         6.822(R)|      SLOW  |         3.851(R)|      FAST  |clk_24MHz         |   0.000|
+i2c_ready   |         8.918(R)|      SLOW  |         5.367(R)|      FAST  |clk_24MHz         |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock sysclk
@@ -65,11 +68,11 @@ Clock to Setup on destination clock sysclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-sysclk         |    4.801|         |         |         |
+sysclk         |    4.843|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Fri Jul 15 08:48:09 2016 
+Analysis completed Fri Jul 15 09:17:54 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:

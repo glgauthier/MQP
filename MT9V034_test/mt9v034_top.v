@@ -5,18 +5,19 @@
 // Test module for controlling the Leopardboard LI-VM34LP camera breakout
 //////////////////////////////////////////////////////////////////////////////////
  module mt9v034_top(
-		input sysclk,
-		input reset,
-		input cam_rst,
-		input trigger,
-		input SW_cam_oe,
-		output LOCKED,
-		output cam_sysclk,
-		output cam_reset,
-		output cam_trigger,
-		output cam_oe,
-		output [6:0] cathodes,
-		output [3:0] anodes
+		input sysclk, // 100MHz fpga clk
+		input reset, // oddr2 reset
+		input cam_rst, // button for camera RESET_BAR
+		input trigger, // button for camera trigger
+		input SW_cam_oe, // switch for camera output enable
+		output LOCKED, // oddr2 LOCKED led
+		output cam_sysclk, // sysclk out to camera
+		output cam_reset, // reset_bar out to camera
+		output cam_trigger, // trigger out to camera
+		output cam_oe, // output enable out to camera
+		output i2c_ready, // LED indicator for i2c bus ready
+		output [6:0] cathodes, // 7seg cathodes
+		output [3:0] anodes // 7seg anodes
 		); 
  
 wire clk_20Hz_unbuf;
@@ -46,6 +47,7 @@ BUFG clk_20H (
       .I(clk_20Hz_unbuf)  // 1-bit input: Clock buffer input
 );
 
+// 7seg display controls
 reg [15:0] displayVal = 16'hdead;
 seven_seg segs(
     .values(displayVal), // values to be written to the four seven segment LEDs
@@ -77,18 +79,24 @@ debounce deb(
     .btn(trigger),
     .btn_val(cam_trigger)
     );
-	 
-// debounce camera reset button
-debounce deb1(
-    .clk(clk_20Hz),
-    .btn(cam_rst),
-    .btn_val(cam_reset)
-    );
 
+// debounce output enable switch
 btnlatch sw_oe(
     .clk(clk_20Hz),
     .btn(SW_cam_oe),
     .btn_val(cam_oe)
     );
+	 
+// camera initialization sequence
+reg [4:0] init_count = 5'b0_0000;
+always @(posedge clk_24MHz) // cam sysclk before ODDR2
+begin
+	if (cam_rst) // if cam_rst is pressed, redo the initialization sequence
+		init_count <= 5'b0_0000;
+	else if(init_count < 30) // keep cam_rst asserted for at least 20 cam_sysclk cycles - I use 30 since it's the minimum time for the i2c bus to be ready
+		init_count <= init_count + 1'b1;
+end
+assign cam_reset = (init_count >= 20);
+assign i2c_ready = (init_count >= 30);
 
 endmodule
