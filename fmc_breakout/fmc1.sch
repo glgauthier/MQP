@@ -654,6 +654,163 @@ DIN A3, landscape with location and doc. field</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="AL422B">
+<packages>
+<package name="SOP28">
+<description>&lt;b&gt;SMALL OUTLINE PACKAGE&lt;/b&gt;</description>
+<wire x1="-9.9" y1="6.9" x2="9.9" y2="6.9" width="0.1998" layer="39"/>
+<wire x1="9.9" y1="6.9" x2="9.9" y2="-6.9" width="0.1998" layer="39"/>
+<wire x1="-9.9" y1="-6.9" x2="-9.9" y2="6.9" width="0.1998" layer="39"/>
+<wire x1="9.415" y1="4.91" x2="9.415" y2="-4.91" width="0.2032" layer="51"/>
+<wire x1="9.415" y1="-4.91" x2="-9.415" y2="-4.91" width="0.2032" layer="51"/>
+<wire x1="-9.415" y1="-4.91" x2="-9.415" y2="4.91" width="0.2032" layer="51"/>
+<wire x1="-9.415" y1="4.91" x2="9.415" y2="4.91" width="0.2032" layer="51"/>
+<wire x1="9.9" y1="-6.9" x2="-9.9" y2="-6.9" width="0.1998" layer="39"/>
+<smd name="1" x="-8.255" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="2" x="-6.985" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="3" x="-5.715" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="4" x="-4.445" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="5" x="-3.175" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="6" x="-1.905" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="7" x="-0.635" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="8" x="0.635" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="9" x="1.905" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="10" x="3.175" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="11" x="4.445" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="12" x="5.715" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="13" x="6.985" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="14" x="8.255" y="-5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="15" x="8.255" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="16" x="6.985" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="17" x="5.715" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="18" x="4.445" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="19" x="3.175" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="20" x="1.905" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="21" x="0.635" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="22" x="-0.635" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="23" x="-1.905" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="24" x="-3.175" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="25" x="-4.445" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="26" x="-5.715" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="27" x="-6.985" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<smd name="28" x="-8.255" y="5.5" dx="0.6" dy="2.2" layer="1"/>
+<text x="-8.255" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+<text x="-8.255" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
+<text x="-7.62" y="-4.3101" size="1.27" layer="21" rot="R90">1</text>
+<rectangle x1="-8.5049" y1="-6.3401" x2="-8.0051" y2="-5.0099" layer="51"/>
+<rectangle x1="-7.2349" y1="-6.3401" x2="-6.7351" y2="-5.0099" layer="51"/>
+<rectangle x1="-5.9649" y1="-6.3401" x2="-5.4651" y2="-5.0099" layer="51"/>
+<rectangle x1="-4.6949" y1="-6.3401" x2="-4.1951" y2="-5.0099" layer="51"/>
+<rectangle x1="-3.4249" y1="-6.3401" x2="-2.9251" y2="-5.0099" layer="51"/>
+<rectangle x1="-2.1549" y1="-6.3401" x2="-1.6551" y2="-5.0099" layer="51"/>
+<rectangle x1="-0.8849" y1="-6.3401" x2="-0.3851" y2="-5.0099" layer="51"/>
+<rectangle x1="0.3851" y1="-6.3401" x2="0.8849" y2="-5.0099" layer="51"/>
+<rectangle x1="1.6551" y1="-6.3401" x2="2.1549" y2="-5.0099" layer="51"/>
+<rectangle x1="2.9251" y1="-6.3401" x2="3.4249" y2="-5.0099" layer="51"/>
+<rectangle x1="4.1951" y1="-6.3401" x2="4.6949" y2="-5.0099" layer="51"/>
+<rectangle x1="5.4651" y1="-6.3401" x2="5.9649" y2="-5.0099" layer="51"/>
+<rectangle x1="6.7351" y1="-6.3401" x2="7.2349" y2="-5.0099" layer="51"/>
+<rectangle x1="8.0051" y1="-6.3401" x2="8.5049" y2="-5.0099" layer="51"/>
+<rectangle x1="8.0051" y1="5.0099" x2="8.5049" y2="6.3401" layer="51"/>
+<rectangle x1="6.7351" y1="5.0099" x2="7.2349" y2="6.3401" layer="51"/>
+<rectangle x1="5.4651" y1="5.0099" x2="5.9649" y2="6.3401" layer="51"/>
+<rectangle x1="4.1951" y1="5.0099" x2="4.6949" y2="6.3401" layer="51"/>
+<rectangle x1="2.9251" y1="5.0099" x2="3.4249" y2="6.3401" layer="51"/>
+<rectangle x1="1.6551" y1="5.0099" x2="2.1549" y2="6.3401" layer="51"/>
+<rectangle x1="0.3851" y1="5.0099" x2="0.8849" y2="6.3401" layer="51"/>
+<rectangle x1="-0.8849" y1="5.0099" x2="-0.3851" y2="6.3401" layer="51"/>
+<rectangle x1="-2.1549" y1="5.0099" x2="-1.6551" y2="6.3401" layer="51"/>
+<rectangle x1="-3.4249" y1="5.0099" x2="-2.9251" y2="6.3401" layer="51"/>
+<rectangle x1="-4.6949" y1="5.0099" x2="-4.1951" y2="6.3401" layer="51"/>
+<rectangle x1="-5.9649" y1="5.0099" x2="-5.4651" y2="6.3401" layer="51"/>
+<rectangle x1="-7.2349" y1="5.0099" x2="-6.7351" y2="6.3401" layer="51"/>
+<rectangle x1="-8.5049" y1="5.0099" x2="-8.0051" y2="6.3401" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="ALB422B">
+<wire x1="-12.7" y1="17.78" x2="12.7" y2="17.78" width="0.254" layer="94"/>
+<wire x1="12.7" y1="17.78" x2="12.7" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="17.78" x2="-12.7" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-17.78" x2="12.7" y2="-17.78" width="0.254" layer="94"/>
+<pin name="DI0" x="-17.78" y="15.24" length="middle"/>
+<pin name="DI1" x="-17.78" y="12.7" length="middle"/>
+<pin name="DI2" x="-17.78" y="10.16" length="middle"/>
+<pin name="DI3" x="-17.78" y="7.62" length="middle"/>
+<pin name="/WE" x="-17.78" y="-10.16" length="middle"/>
+<pin name="GND1" x="-2.54" y="-22.86" length="middle" direction="pwr" rot="R90"/>
+<pin name="TST" x="-17.78" y="-12.7" length="middle"/>
+<pin name="/WRST" x="-17.78" y="-15.24" length="middle"/>
+<pin name="WCK" x="-17.78" y="-7.62" length="middle"/>
+<pin name="VDD" x="0" y="22.86" length="middle" direction="pwr" rot="R270"/>
+<pin name="DI4" x="-17.78" y="5.08" length="middle"/>
+<pin name="DI5" x="-17.78" y="2.54" length="middle"/>
+<pin name="DI6" x="-17.78" y="0" length="middle"/>
+<pin name="DI7" x="-17.78" y="-2.54" length="middle"/>
+<pin name="DO0" x="17.78" y="15.24" length="middle" rot="R180"/>
+<pin name="DO1" x="17.78" y="12.7" length="middle" rot="R180"/>
+<pin name="DO2" x="17.78" y="10.16" length="middle" rot="R180"/>
+<pin name="DO3" x="17.78" y="7.62" length="middle" rot="R180"/>
+<pin name="/RE" x="17.78" y="-5.08" length="middle" rot="R180"/>
+<pin name="GND2" x="2.54" y="-22.86" length="middle" direction="pwr" rot="R90"/>
+<pin name="/OE" x="17.78" y="-15.24" length="middle" rot="R180"/>
+<pin name="/RRST" x="17.78" y="-7.62" length="middle" rot="R180"/>
+<pin name="RCK" x="17.78" y="-10.16" length="middle" rot="R180"/>
+<pin name="DEC" x="17.78" y="-12.7" length="middle" rot="R180"/>
+<pin name="DO4" x="17.78" y="5.08" length="middle" rot="R180"/>
+<pin name="DO5" x="17.78" y="2.54" length="middle" rot="R180"/>
+<pin name="DO6" x="17.78" y="0" length="middle" rot="R180"/>
+<pin name="DO7" x="17.78" y="-2.54" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="AL422B">
+<description>Averlogic
+AL422B
+3Mbit FIFO</description>
+<gates>
+<gate name="G$1" symbol="ALB422B" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOP28">
+<connects>
+<connect gate="G$1" pin="/OE" pad="22"/>
+<connect gate="G$1" pin="/RE" pad="24"/>
+<connect gate="G$1" pin="/RRST" pad="21"/>
+<connect gate="G$1" pin="/WE" pad="5"/>
+<connect gate="G$1" pin="/WRST" pad="8"/>
+<connect gate="G$1" pin="DEC" pad="19"/>
+<connect gate="G$1" pin="DI0" pad="1"/>
+<connect gate="G$1" pin="DI1" pad="2"/>
+<connect gate="G$1" pin="DI2" pad="3"/>
+<connect gate="G$1" pin="DI3" pad="4"/>
+<connect gate="G$1" pin="DI4" pad="11"/>
+<connect gate="G$1" pin="DI5" pad="12"/>
+<connect gate="G$1" pin="DI6" pad="13"/>
+<connect gate="G$1" pin="DI7" pad="14"/>
+<connect gate="G$1" pin="DO0" pad="28"/>
+<connect gate="G$1" pin="DO1" pad="27"/>
+<connect gate="G$1" pin="DO2" pad="26"/>
+<connect gate="G$1" pin="DO3" pad="25"/>
+<connect gate="G$1" pin="DO4" pad="18"/>
+<connect gate="G$1" pin="DO5" pad="17"/>
+<connect gate="G$1" pin="DO6" pad="16"/>
+<connect gate="G$1" pin="DO7" pad="15"/>
+<connect gate="G$1" pin="GND1" pad="6"/>
+<connect gate="G$1" pin="GND2" pad="23"/>
+<connect gate="G$1" pin="RCK" pad="20"/>
+<connect gate="G$1" pin="TST" pad="7"/>
+<connect gate="G$1" pin="VDD" pad="10"/>
+<connect gate="G$1" pin="WCK" pad="9"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -666,6 +823,8 @@ DIN A3, landscape with location and doc. field</description>
 <parts>
 <part name="ZED1" library="zed-board" deviceset="ZED-BOARD" device=""/>
 <part name="FRAME1" library="frames" deviceset="A3L-LOC" device="" value="ZED FMC breakout"/>
+<part name="AL422B" library="AL422B" deviceset="AL422B" device=""/>
+<part name="U$2" library="AL422B" deviceset="AL422B" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -675,6 +834,8 @@ DIN A3, landscape with location and doc. field</description>
 <instance part="ZED1" gate="-A" x="68.58" y="68.58"/>
 <instance part="ZED1" gate="-B" x="68.58" y="-55.88"/>
 <instance part="FRAME1" gate="G$1" x="-2.54" y="-121.92"/>
+<instance part="AL422B" gate="G$1" x="190.5" y="73.66"/>
+<instance part="U$2" gate="G$1" x="190.5" y="-45.72"/>
 </instances>
 <busses>
 </busses>
@@ -1042,6 +1203,16 @@ DIN A3, landscape with location and doc. field</description>
 <pinref part="ZED1" gate="-A" pin="D32"/>
 <wire x1="83.82" y1="40.64" x2="88.9" y2="40.64" width="0.1524" layer="91"/>
 <label x="86.36" y="40.64" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="AL422B" gate="G$1" pin="VDD"/>
+<wire x1="190.5" y1="96.52" x2="190.5" y2="101.6" width="0.1524" layer="91"/>
+<label x="193.04" y="99.06" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="VDD"/>
+<wire x1="190.5" y1="-22.86" x2="190.5" y2="-17.78" width="0.1524" layer="91"/>
+<label x="193.04" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="12V" class="0">
