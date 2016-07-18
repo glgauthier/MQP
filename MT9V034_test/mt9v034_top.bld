@@ -3,19 +3,197 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 Command Line: C:\Xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
 -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc mt9v034_top.ucf -p
-xc6slx16-csg324-3 mt9v034_top.ngc mt9v034_top.ngd
+xc6slx16-csg324-3 mt9v034_top.ngc mt9v034_top.ngd -bm
+ipcore_dir/microblaze_mcs.bmm
 
 Reading NGO file
 "C:/Users/georges/Documents/GitHub/MQP/MT9V034_test/mt9v034_top.ngc" ...
+Loading design module "ipcore_dir/microblaze_mcs.ngc"...
 Gathering constraint information from source properties...
 Done.
 
 Annotating constraints to design from ucf file "mt9v034_top.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
+INFO:ConstraintSystem - The Period constraint <NET "sysclk" PERIOD = 10ns HIGH
+   50%;> [mt9v034_top.ucf(2)], is specified using the Net Period method which is
+   not recommended. Please use the Timespec PERIOD method.
+
 Done...
 
+Processing BMM file "ipcore_dir/microblaze_mcs.bmm" ...
+
 Checking expanded design ...
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[31].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[30].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[29].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[28].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[27].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[26].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[25].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[24].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[23].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[22].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[21].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[20].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[19].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[18].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[17].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[16].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[15].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[14].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[13].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[12].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[11].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[10].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[9].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[8].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[7].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[6].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[5].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[4].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[3].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[2].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[1].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_
+   FPGA.Result_Mux_Bits[0].Result_Mux_Bit_I/EX_Result_DFF' has unconnected
+   output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[28].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[27].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[26].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[25].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[24].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[23].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[22].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[21].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[20].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[19].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_F
+   PGA.Not_All_Bits.PC_GEN[17].PC_Bit_I/PC_EX_DFF' has unconnected output pin
+WARNING:NgdBuild:440 - FF primitive
+   'mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Ext_NM_BRK_
+   FDRSE' has unconnected output pin
 
 Partition Implementation Status
 -------------------------------
@@ -26,9 +204,9 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:   0
+  Number of warnings:  46
 
-Total memory usage is 183564 kilobytes
+Total memory usage is 199740 kilobytes
 
 Writing NGD file "mt9v034_top.ngd" ...
 Total REAL time to NGDBUILD completion:  3 sec

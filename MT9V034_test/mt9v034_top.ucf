@@ -1,4 +1,5 @@
 NET "sysclk" LOC = V10; #Nexys3 100MHz fpga_clk
+NET "sysclk" PERIOD = 10ns HIGH 50%;
 NET "reset" LOC = B8; 	#Nexys3 Center button
 NET "cam_rst" LOC = C4; #Nexys3 left button
 NET "trigger" LOC = D9; #Nexys3 Right button
@@ -11,7 +12,28 @@ NET "cam_trigger" LOC = K2;  #PmodB1
 NET "cam_sysclk" LOC = K5; #PmodB10
 NET "cam_reset" LOC = K3; #PmodB9
 NET "cam_oe" LOC = J1;
+NET "cam_LV" LOC = L4;
+NET "FIFO_WE" LOC = J3;
 #PIN "CLK_24MHz/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = false;
+
+# microblaze stuff
+NET "mcs_reset" LOC = A8; #btnu
+NET "UART_Rx" LOC = N17;
+NET "UART_Tx" LOC = N18;
+NET "FIFO_OE" LOC = K6;
+NET "FIFO_RRST" LOC = L7;
+NET "FIFO_RCK" LOC = H3;
+NET "MICRO_LED" LOC = V16; # middle led
+NET "MICRO_SW" LOC = T9;
+NET "FIFO_DATA[0]" LOC = E11;
+NET "FIFO_DATA[1]" LOC = F11;
+NET "FIFO_DATA[2]" LOC = F10;
+NET "FIFO_DATA[3]" LOC = G11;
+NET "FIFO_DATA[4]" LOC = E12;
+NET "FIFO_DATA[5]" LOC = F12;
+NET "FIFO_DATA[6]" LOC = C12;
+NET "FIFO_DATA[7]" LOC = D12;
+
 
 # seven segment display
 NET "cathodes[0]" LOC = L14;
