@@ -18,12 +18,13 @@ NET "FIFO_WE" LOC = J3;
 
 # microblaze stuff
 NET "mcs_reset" LOC = A8; #btnu
-NET "UART_Rx" LOC = N17;
+//NET "UART_Rx" LOC = N17;
 NET "UART_Tx" LOC = N18;
 NET "FIFO_OE" LOC = K6;
 NET "FIFO_RRST" LOC = L7;
 NET "FIFO_RCK" LOC = H3;
-NET "MICRO_LED" LOC = V16; # middle led
+NET "MICRO_LED0" LOC = V16;
+#NET "MICRO_LED1" LOC = V15;
 NET "MICRO_SW" LOC = T9;
 NET "FIFO_DATA[0]" LOC = E11;
 NET "FIFO_DATA[1]" LOC = F11;

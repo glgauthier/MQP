@@ -59,11 +59,11 @@
 microblaze_mcs your_instance_name (
   .Clk(Clk), // input Clk
   .Reset(Reset), // input Reset
-  .UART_Rx(UART_Rx), // input UART_Rx
   .UART_Tx(UART_Tx), // output UART_Tx
-  .GPO1(GPO1), // output [3 : 0] GPO1
+  .GPO1(GPO1), // output [2 : 0] GPO1
+  .GPO2(GPO2), // output [9 : 0] GPO2
   .GPI1(GPI1), // input [7 : 0] GPI1
-  .GPI2(GPI2) // input [0 : 0] GPI2
+  .GPI2(GPI2) // input [1 : 0] GPI2
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

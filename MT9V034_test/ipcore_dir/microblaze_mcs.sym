@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="microblaze_mcs">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2016-7-18T16:45:30</timestamp>
+    <timestamp>2016-7-19T19:53:0</timestamp>
     <pin polarity="Input" x="0" y="80" name="clk" />
     <pin polarity="Input" x="0" y="112" name="reset" />
     <pin polarity="Output" x="768" y="80" name="uart_tx" />
-    <pin polarity="Input" x="0" y="144" name="uart_rx" />
     <pin polarity="Input" x="0" y="304" name="gpi1[7:0]" />
-    <pin polarity="Input" x="0" y="336" name="gpi2[0:0]" />
-    <pin polarity="Output" x="768" y="656" name="gpo1[3:0]" />
+    <pin polarity="Input" x="0" y="336" name="gpi2[1:0]" />
+    <pin polarity="Output" x="768" y="656" name="gpo1[2:0]" />
+    <pin polarity="Output" x="768" y="688" name="gpo2[9:0]" />
     <graph>
         <text style="fontsize:40;fontname:Arial" x="32" y="32">microblaze_mcs</text>
         <rect width="704" x="32" y="32" height="1568" />
@@ -18,13 +18,13 @@
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="112" type="pin reset" />
         <line x2="736" y1="80" y2="80" x1="768" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="732" y="80" type="pin uart_tx" />
-        <line x2="32" y1="144" y2="144" x1="0" />
-        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="144" type="pin uart_rx" />
         <line x2="32" y1="304" y2="304" style="linewidth:W" x1="0" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="304" type="pin gpi1[7:0]" />
         <line x2="32" y1="336" y2="336" style="linewidth:W" x1="0" />
-        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="336" type="pin gpi2[0:0]" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="336" type="pin gpi2[1:0]" />
         <line x2="736" y1="656" y2="656" style="linewidth:W" x1="768" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="732" y="656" type="pin gpo1[3:0]" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="732" y="656" type="pin gpo1[2:0]" />
+        <line x2="736" y1="688" y2="688" style="linewidth:W" x1="768" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="732" y="688" type="pin gpo2[9:0]" />
     </graph>
 </symbol>

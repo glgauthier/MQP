@@ -1,0 +1,81 @@
+Release 14.1 ngdbuild P.15xf (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: C:\Xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
+-intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc6slx16-csg324-3
+btnlatch.ngc btnlatch.ngd -bm ipcore_dir/microblaze_mcs.bmm
+
+Reading NGO file
+"C:/Users/georges/Documents/GitHub/MQP/MT9V034_test/btnlatch.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Resolving constraint associations...
+Checking Constraint Associations...
+Done...
+
+Processing BMM file "ipcore_dir/microblaze_mcs.bmm" ...
+ERROR:NgdBuild:989 - Failed to process BMM information
+   ipcore_dir/microblaze_mcs.bmm
+
+Checking expanded design ...
+
+INTERNAL_ERROR::45 - Memory allocation leak of 112 bytes at 0x079173A8 for a 'AddressMappingType' record.
+    Total memory in use at allocation was 19172 bytes.
+    Source file "BmmUtils.c", line number 3054.
+
+
+INTERNAL_ERROR::45 - Memory allocation leak of 58 bytes at 0x07A16530 for a StrNew.
+    Total memory in use at allocation was 19284 bytes.
+    Source file "BmmUtils.c", line number 3059.
+
+
+INTERNAL_ERROR::45 - Memory allocation leak of 88 bytes at 0x07747C58 for a 'AddressMapType' record.
+    Total memory in use at allocation was 19342 bytes.
+    Source file "BmmUtils.c", line number 2572.
+
+
+INTERNAL_ERROR::45 - Memory allocation leak of 40 bytes at 0x07A168B8 for a 'symbol_context' record.
+    Total memory in use at allocation was 19430 bytes.
+    Source file "SymbolUtils.c", line number 516.
+
+
+INTERNAL_ERROR::45 - Memory allocation leak of 38 bytes at 0x07508D50 for a StrDup.
+    Total memory in use at allocation was 19470 bytes.
+    Source file "BmmUtils.c", line number 2585.
+
+
+INTERNAL_ERROR::45 - Memory allocation leak of 16 bytes at 0x0780CA00 for a 'DataFileNameListType' record.
+    Total memory in use at allocation was 19508 bytes.
+    Source file "data2bramCore.c", line number 3561.
+
+
+INTERNAL_ERROR::45 - Memory allocation leak of 24 bytes at 0x0780B418 for a 'AddressSpaceLinkType' record.
+    Total memory in use at allocation was 19524 bytes.
+    Source file "BmmUtils.c", line number 2291.
+
+
+INTERNAL_ERROR::45 - Memory allocation leak of 96 bytes at 0x07747D30 for 'void *' data.
+    Total memory in use at allocation was 19548 bytes.
+    Source file "D2BUtil_Data2Bram.c", line number 727.
+
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     1
+  Number of warnings:   0
+
+Total memory usage is 183432 kilobytes
+
+Total REAL time to NGDBUILD completion:  2 sec
+Total CPU time to NGDBUILD completion:   2 sec
+
+One or more errors were found during NGDBUILD.  No NGD file will be written.
+
+Writing NGDBUILD log file "btnlatch.bld"...

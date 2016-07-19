@@ -9,10 +9,21 @@
 module clk_div(
 	 input reset, // synchronous reset
     input clk_24M, // 4MHz clock signal
+	 output clk_fifo,
     output clk_debounce, // 20Hz clock pulse
 	 output anodes //10kHz 7seg anode driver
     );
 
+// 1MHz fifo read clock
+reg [4:0] fifo_count;
+always @(posedge clk_24M)
+	if (reset) // synchronous reset
+		fifo_count <= 0;
+	else if (fifo_count == 23)
+		fifo_count <= 0;
+	else 
+		fifo_count <= fifo_count + 1'b1;
+		
 // counter with room to count from 0 past 1,200,000 (24M/1.2M = 20Hz; 50mS debounce)
 reg [20:0] bounce_count; 
 always @(posedge clk_24M)
@@ -33,6 +44,7 @@ always @(posedge clk_24M)
 		seg_count <= seg_count + 1'b1;	
 
 // when each counter rolls over, pulse the respective clk output
+assign clk_fifo = ((fifo_count >= 5'b01100)&&(fifo_count<=5'b11000));
 assign clk_debounce = (bounce_count == 18'h0_00_00);
 assign anodes = (seg_count == 12'h000);
 

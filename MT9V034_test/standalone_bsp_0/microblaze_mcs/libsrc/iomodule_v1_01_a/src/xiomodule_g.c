@@ -61,6 +61,38 @@ XIOModule_Config XIOModule_ConfigTable[] =
 			XPAR_IOMODULE_0_GPO4_INIT,
 		},
 		{
+			{
+				XNullHandler,
+				(void *)XNULL
+			},
+			{
+				XNullHandler,
+				(void *)XNULL
+			},
+			{
+				XNullHandler,
+				(void *)XNULL
+			},
+			{
+				XNullHandler,
+				(void *)XNULL
+			},
+			{
+				XNullHandler,
+				(void *)XNULL
+			},
+			{
+				XNullHandler,
+				(void *)XNULL
+			},
+			{
+				XNullHandler,
+				(void *)XNULL
+			},
+			{
+				XNullHandler,
+				(void *)XNULL
+			}
 		}
 
 	}

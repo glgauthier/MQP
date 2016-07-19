@@ -1,12 +1,11 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Mon Jul 18 12:47:33 2016
+// Written by: Map P.15xf on Tue Jul 19 15:53:51 2016
 //! **************************************************************************
 
 SCHEMATIC START;
 NET
         "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I"
         USELOWSKEWLINES;
-COMP "UART_Rx" LOCATE = SITE "N17" LEVEL 1;
 COMP "UART_Tx" LOCATE = SITE "N18" LEVEL 1;
 COMP "cam_reset" LOCATE = SITE "K3" LEVEL 1;
 COMP "anodes<0>" LOCATE = SITE "N16" LEVEL 1;
@@ -32,6 +31,7 @@ COMP "cam_trigger" LOCATE = SITE "K2" LEVEL 1;
 COMP "i2c_ready" LOCATE = SITE "U16" LEVEL 1;
 COMP "cam_LV" LOCATE = SITE "L4" LEVEL 1;
 COMP "cam_oe" LOCATE = SITE "J1" LEVEL 1;
+COMP "MICRO_LED0" LOCATE = SITE "V16" LEVEL 1;
 COMP "FIFO_RRST" LOCATE = SITE "L7" LEVEL 1;
 COMP "cathodes<0>" LOCATE = SITE "L14" LEVEL 1;
 COMP "cathodes<1>" LOCATE = SITE "N14" LEVEL 1;
@@ -42,7 +42,6 @@ COMP "cathodes<5>" LOCATE = SITE "T18" LEVEL 1;
 COMP "cathodes<6>" LOCATE = SITE "T17" LEVEL 1;
 COMP "sysclk" LOCATE = SITE "V10" LEVEL 1;
 COMP "FIFO_RCK" LOCATE = SITE "H3" LEVEL 1;
-COMP "MICRO_LED" LOCATE = SITE "V16" LEVEL 1;
 COMP "FIFO_OE" LOCATE = SITE "K6" LEVEL 1;
 COMP "FIFO_WE" LOCATE = SITE "J3" LEVEL 1;
 COMP "MICRO_SW" LOCATE = SITE "T9" LEVEL 1;

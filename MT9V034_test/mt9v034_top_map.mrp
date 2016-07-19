@@ -11,49 +11,49 @@ Target Device  : xc6slx16
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Mon Jul 18 12:47:24 2016
+Mapped Date    : Tue Jul 19 15:53:39 2016
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    0
+Number of warnings:   24
 Slice Logic Utilization:
-  Number of Slice Registers:                   340 out of  18,224    1%
-    Number used as Flip Flops:                 338
+  Number of Slice Registers:                   338 out of  18,224    1%
+    Number used as Flip Flops:                 336
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                2
-  Number of Slice LUTs:                        639 out of   9,112    7%
-    Number used as logic:                      529 out of   9,112    5%
-      Number using O6 output only:             347
-      Number using O5 output only:              48
-      Number using O5 and O6:                  134
+  Number of Slice LUTs:                        835 out of   9,112    9%
+    Number used as logic:                      580 out of   9,112    6%
+      Number using O6 output only:             378
+      Number using O5 output only:              55
+      Number using O5 and O6:                  147
       Number used as ROM:                        0
-    Number used as Memory:                     106 out of   2,176    4%
-      Number used as Dual Port RAM:             64
-        Number using O6 output only:             0
+    Number used as Memory:                     249 out of   2,176   11%
+      Number used as Dual Port RAM:            208
+        Number using O6 output only:           144
         Number using O5 output only:             0
         Number using O5 and O6:                 64
       Number used as Single Port RAM:            0
-      Number used as Shift Register:            42
-        Number using O6 output only:            35
+      Number used as Shift Register:            41
+        Number using O6 output only:            34
         Number using O5 output only:             0
         Number using O5 and O6:                  7
-    Number used exclusively as route-thrus:      4
-      Number with same-slice register load:      0
-      Number with same-slice carry load:         4
+    Number used exclusively as route-thrus:      6
+      Number with same-slice register load:      1
+      Number with same-slice carry load:         5
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   225 out of   2,278    9%
-  Nummber of MUXCYs used:                      124 out of   4,556    2%
-  Number of LUT Flip Flop pairs used:          668
-    Number with an unused Flip Flop:           376 out of     668   56%
-    Number with an unused LUT:                  29 out of     668    4%
-    Number of fully used LUT-FF pairs:         263 out of     668   39%
-    Number of unique control sets:              41
+  Number of occupied Slices:                   275 out of   2,278   12%
+  Nummber of MUXCYs used:                      136 out of   4,556    2%
+  Number of LUT Flip Flop pairs used:          847
+    Number with an unused Flip Flop:           559 out of     847   65%
+    Number with an unused LUT:                  12 out of     847    1%
+    Number of fully used LUT-FF pairs:         276 out of     847   32%
+    Number of unique control sets:              57
     Number of slice register sites lost
-      to control set restrictions:             157 out of  18,224    1%
+      to control set restrictions:             248 out of  18,224    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -62,9 +62,9 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        40 out of     232   17%
-    Number of LOCed IOBs:                       40 out of      40  100%
-    IOB Flip Flops:                              1
+  Number of bonded IOBs:                        39 out of     232   16%
+    Number of LOCed IOBs:                       39 out of      39  100%
+    IOB Flip Flops:                              2
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                        16 out of      32   50%
@@ -75,16 +75,16 @@ Specific Feature Utilization:
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
     Number used as BUFIO2FBs:                    1
     Number used as BUFIO2FB_2CLKs:               0
-  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
-    Number used as BUFGs:                        3
+  Number of BUFG/BUFGMUXs:                       4 out of      16   25%
+    Number used as BUFGs:                        4
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     1 out of       4   25%
     Number used as DCMs:                         1
     Number used as DCM_CLKGENs:                  0
   Number of ILOGIC2/ISERDES2s:                   0 out of     248    0%
   Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     248    0%
-  Number of OLOGIC2/OSERDES2s:                   1 out of     248    1%
-    Number used as OLOGIC2s:                     1
+  Number of OLOGIC2/OSERDES2s:                   2 out of     248    1%
+    Number used as OLOGIC2s:                     2
     Number used as OSERDES2s:                    0
   Number of BSCANs:                              0 out of       4    0%
   Number of BUFHs:                               0 out of     128    0%
@@ -99,11 +99,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                4.02
+Average Fanout of Non-Clock Nets:                4.50
 
-Peak Memory Usage:  415 MB
-Total REAL time to MAP completion:  10 secs 
-Total CPU time to MAP completion:   10 secs 
+Peak Memory Usage:  421 MB
+Total REAL time to MAP completion:  12 secs 
+Total CPU time to MAP completion:   12 secs 
 
 Table of Contents
 -----------------
@@ -126,17 +126,65 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line9_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line20_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line10_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line21_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line35_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line1_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line7_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line2_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line18_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line6_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line8_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line3_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line17_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line14_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line11_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line34_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line5_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line4_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line16_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line12_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line13_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line22_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line19_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line15_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
 
 Section 3 - Informational
 -------------------------
-INFO:LIT:243 - Logical network mcs_0/U0/iomodule_0/write_data<31> has no load.
-INFO:LIT:395 - The above info message is repeated 58 more times for the
+INFO:LIT:243 - Logical network linebuf/Mram_pixel_line361/SPO has no load.
+INFO:LIT:395 - The above info message is repeated 80 more times for the
    following (max. 5 shown):
-   mcs_0/U0/iomodule_0/write_data<30>,
-   mcs_0/U0/iomodule_0/write_data<29>,
-   mcs_0/U0/iomodule_0/write_data<28>,
-   mcs_0/U0/iomodule_0/write_data<27>,
-   mcs_0/U0/iomodule_0/write_data<26>
+   linebuf/Mram_pixel_line332/SPO,
+   linebuf/Mram_pixel_line362/SPO,
+   linebuf/Mram_pixel_line322/SPO,
+   linebuf/Mram_pixel_line321/SPO,
+   linebuf/Mram_pixel_line331/SPO
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:MapLib:159 - Net Timing constraints on signal sysclk are pushed forward
@@ -157,9 +205,9 @@ INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-  80 block(s) removed
-  38 block(s) optimized away
-  34 signal(s) removed
+  78 block(s) removed
+  37 block(s) optimized away
+  32 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -365,10 +413,6 @@ The signal "mcs_0/U0/iomodule_0/write_data<11>" is sourceless and has been
 removed.
 The signal "mcs_0/U0/iomodule_0/write_data<10>" is sourceless and has been
 removed.
-The signal "mcs_0/U0/iomodule_0/write_data<9>" is sourceless and has been
-removed.
-The signal "mcs_0/U0/iomodule_0/write_data<8>" is sourceless and has been
-removed.
 The signal "mcs_0/U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd" is
 sourceless and has been removed.
 The signal
@@ -429,8 +473,6 @@ Unused block "mcs_0/U0/iomodule_0/write_data_28" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_29" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_30" (FF) removed.
 Unused block "mcs_0/U0/iomodule_0/write_data_31" (FF) removed.
-Unused block "mcs_0/U0/iomodule_0/write_data_8" (FF) removed.
-Unused block "mcs_0/U0/iomodule_0/write_data_9" (FF) removed.
 Unused block
 "mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/Using_FPGA.F
 PGA_LUT6_Target.low_addr_i_INST" (LUT6_2) removed.
@@ -538,8 +580,6 @@ LUT3
 		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.No_
 Carry_Decoding.alu_carry_select_LUT
    optimized to 0
-FDR 		mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Write_DIV_result
-   optimized to 0
 GND 		mcs_0/XST_GND
 VCC 		mcs_0/XST_VCC
 
@@ -562,14 +602,13 @@ Section 6 - IOB Properties
 | FIFO_DATA<6>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | FIFO_DATA<7>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | FIFO_OE                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| FIFO_RCK                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| FIFO_RCK                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | ODDR         |          |          |
 | FIFO_RRST                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | FIFO_WE                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | LOCKED                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| MICRO_LED                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| MICRO_LED0                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | MICRO_SW                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | SW_cam_oe                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| UART_Rx                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | UART_Tx                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | anodes<0>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | anodes<1>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |

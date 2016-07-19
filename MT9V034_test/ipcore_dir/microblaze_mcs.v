@@ -7,7 +7,7 @@
 // \   \   \/     Version: P.15xf
 //  \   \         Application: netgen
 //  /   /         Filename: microblaze_mcs.v
-// /___/   /\     Timestamp: Mon Jul 18 12:45:29 2016
+// /___/   /\     Timestamp: Tue Jul 19 15:52:59 2016
 // \   \  /  \ 
 //  \___\/\___\
 //             
@@ -34,25 +34,24 @@
 `timescale 1 ns/1 ps
 
 module microblaze_mcs (
-  Clk, Reset, UART_Rx, UART_Tx, GPI1, GPI2, GPO1
+  Clk, Reset, UART_Tx, GPI1, GPI2, GPO1, GPO2
 )/* synthesis syn_black_box syn_noprune=1 */;
   input Clk;
   input Reset;
-  input UART_Rx;
   output UART_Tx;
   input [7 : 0] GPI1;
-  input [0 : 0] GPI2;
-  output [3 : 0] GPO1;
+  input [1 : 0] GPI2;
+  output [2 : 0] GPO1;
+  output [9 : 0] GPO2;
   
   // synthesis translate_off
   
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/TX_16 ;
-  wire N1;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/TX_25 ;
   wire \U0/ilmb_cntlr/lmb_select ;
-  wire \U0/ilmb_cntlr/lmb_addrstrobe_i_19 ;
-  wire \U0/ilmb_cntlr/Sl_Ready_i_20 ;
+  wire \U0/ilmb_cntlr/lmb_addrstrobe_i_27 ;
+  wire \U0/ilmb_cntlr/Sl_Ready_i_28 ;
   wire \U0/filter_reset.reset_vec[2]_filter_reset.reset_vec[1]_OR_2_o ;
-  wire \U0/LMB_Rst_25 ;
+  wire \U0/LMB_Rst_33 ;
   wire \U0/dlmb_LMB_Ready ;
   wire \U0/dlmb_M_AddrStrobe ;
   wire \U0/dlmb_M_WriteStrobe ;
@@ -60,28 +59,21 @@ module microblaze_mcs (
   wire \U0/ilmb_Sl_Ready ;
   wire \U0/ilmb_M_AddrStrobe ;
   wire \U0/ilmb_LMB_Rst ;
-  wire \U0/iomodule_0/lmb_reg_read_213 ;
+  wire \U0/iomodule_0/lmb_reg_read_221 ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_223 ;
   wire \U0/iomodule_0/GND_4336_o_lmb_reg_write_AND_327_o1 ;
+  wire \U0/iomodule_0/gpo2_write ;
   wire \U0/iomodule_0/gpo1_write ;
   wire \U0/iomodule_0/uart_tx_write ;
-  wire \U0/iomodule_0/uart_status_read ;
-  wire \U0/iomodule_0/uart_rx_read ;
   wire \U0/iomodule_0/LMB_WriteStrobe_LMB_AddrStrobe_AND_325_o ;
   wire \U0/iomodule_0/LMB_ReadStrobe_LMB_AddrStrobe_AND_323_o ;
-  wire \U0/iomodule_0/lmb_reg_write_252 ;
-  wire \U0/iomodule_0/lmb_reg_read_Q_253 ;
+  wire \U0/iomodule_0/lmb_reg_write_260 ;
+  wire \U0/iomodule_0/lmb_reg_read_Q_261 ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/loop_Bit ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/not_First.Out1_295 ;
   wire \U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_Read_inv ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[0] ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[3] ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[5] ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[6] ;
-  wire \U0/iomodule_0/IOModule_Core_I1/en_16x_baud ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Frame_Error ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_exists_i_293 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_303 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_304 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In_0_313 ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/Clk_En_Out_i_299 ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_300 ;
   wire \U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_Read_inv ;
   wire \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ;
   wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_Out ;
@@ -92,49 +84,28 @@ module microblaze_mcs (
   wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_23 ;
   wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_01 ;
   wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_67 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_344 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/serial_Data_345 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_346 ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_341 ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/serial_Data_342 ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_343 ;
   wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Data_Enable ;
   wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/div16 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Read_RX_Data_inv ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/_n0073_inv ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/recycle ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_GND_4369_o_MUX_4573_o ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/start_Edge_Detected_GND_4369_o_MUX_4556_o ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/previous_RX_GND_4369_o_MUX_4554_o ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_PWR_84_o_MUX_4551_o ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/running_381 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/start_Edge_Detected_382 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/previous_RX_383 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_1_385 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/mid_Start_Bit ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_Read_inv ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/TX_Buffer_Empty_INV_247_o ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/overrun_error_398 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/frame_error_399 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.jump ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.pc_Incr ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.reg_Test_Equal_N ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.reg_Test_Equal ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.LWX_SWX_Carry ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.LWX_SWX_Write_Carry ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.write_Carry ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.new_Carry ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Shift_Carry_In_412 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext16_414 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_415 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Unsigned_Op_416 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Compare_Instr_417 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Shift_Carry_In_363 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext16_365 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_366 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Unsigned_Op_367 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Compare_Instr_368 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.carry_In ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ;
@@ -142,17 +113,17 @@ module microblaze_mcs (
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_PC ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.reg_Write_I ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_427 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_428 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_429 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_430 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_378 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_379 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_380 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_381 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.enable_Interrupt ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.carry ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.bip_Active ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.reg_neg ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.reg_zero ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Carry ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/op1_Reg ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/op1_I ;
@@ -240,6 +211,7 @@ module microblaze_mcs (
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[30].Operand_Select_Bit_I/op1_I ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[30].Operand_Select_Bit_I/op1_Reg ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op2_I ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_I ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_Reg ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[28].Operand_Select_Bit_I/op2_I ;
@@ -503,19 +475,17 @@ module microblaze_mcs (
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable28 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable26 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<7>1_1187 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<8>1_1188 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<9>1_1189 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<7>1_1139 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<8>1_1140 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<9>1_1141 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I12 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable11 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable10 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable3 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I1 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I_0 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/_n0993_inv ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/_n0876 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/sub_Carry ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_Val2_n_i ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/use_Reg_Neg_DI_i ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_Val1_i ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reg_Test_Equal_N_i ;
@@ -523,17 +493,17 @@ module microblaze_mcs (
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/use_Reg_Neg_S_i ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force1_i ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Valid_Reg ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_85_o ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force2_i ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/correct_Carry_II ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_IExt_Exception_AND_20_o ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_92_o_1213 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_92_o_1162 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/correct_Carry_Select ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/n0235 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF[3]_take_Intr_Now_AND_101_o ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_AND_106_o ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_PWR_12_o_MUX_4239_o ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_PWR_12_o_MUX_4238_o ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_PWR_12_o_MUX_4237_o ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_GND_12_o_MUX_4384_o ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/opsel1_SPR_Select ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_GND_12_o_MUX_4150_o ;
@@ -560,19 +530,16 @@ module microblaze_mcs (
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump_Carry2 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/correct_Carry ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_I ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_inHibit_EX_Rst_OR_58_o ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reset_n ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/enable_Interrupts_I_1248 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/enable_Interrupts_I_1197 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/dready_Valid ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_n ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_GND_12_o_MUX_4170_o ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_Select ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/intr_or_delay_slot_jump ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.res_forward2_3 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.res_forward1_3 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/other_Write ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_1207 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ifetch_carry1 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump_carry3_sel ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/MSR_Carry ;
@@ -585,29 +552,27 @@ module microblaze_mcs (
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump_Carry1 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_I_S ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/set_BIP_I_1273 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reset_BIP_I_1274 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1275 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_1276 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1277 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/select_ALU_Carry_1278 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1279 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_lwx_I_1280 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1283 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_1284 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_1285 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_1286 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1287 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1288 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump2_I_1289 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_decode_I_1290 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_1292 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Write_DIV_result_1293 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_1294 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1295 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/set_BIP_I_1220 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reset_BIP_I_1221 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1222 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_1223 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1224 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/select_ALU_Carry_1225 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1226 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_lwx_I_1227 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1229 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1230 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_1231 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_1232 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1233 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1234 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump2_I_1235 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_decode_I_1236 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_1238 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_1239 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1240 ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/use_Reg_Neg_DI ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/use_Reg_Neg_S ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_Val2_N ;
@@ -618,80 +583,75 @@ module microblaze_mcs (
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_Valid ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/of_Valid_early ;
   wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/reset_Buffer_Addr ;
-  wire \U0/dlmb_cntlr/Sl_Ready_i_1325 ;
-  wire \U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ;
+  wire \U0/dlmb_cntlr/Sl_Ready_i_1270 ;
+  wire \U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ;
   wire \U0/dlmb_cntlr/lmb_select ;
   wire \U0/ilmb_cntlr/Sl_Ready_i_inv ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/Mmux_op2_I11_1329 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[8].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[7].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[6].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[5].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[4].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[3].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[2].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[1].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[14].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[13].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[12].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[11].Operand_Select_Bit_I/Mmux_op2_I11 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I13_1344 ;
   wire N2;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o11 ;
+  wire N4;
+  wire N6;
+  wire N8;
+  wire N10;
+  wire N12;
   wire N14;
+  wire N16;
   wire N18;
   wire N20;
   wire N22;
   wire N24;
   wire N26;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_glue_rst_1353 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/overrun_error_glue_set_1354 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/frame_error_glue_set_1355 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[28].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1356 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_ce_1357 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1358 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[30].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1359 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Force_Val2_FDRSE_glue_set_1360 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_glue_set_1361 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_glue_set_1362 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_glue_set_1363 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_glue_set_1364 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_glue_set_1365 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_glue_rst_1366 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_glue_set_1367 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_glue_set_1368 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_glue_set_1369 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Zero_Detect_I/Using_FPGA.Part_Of_Zero_Carry_Start_rt_1370 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Using_Breakable_Pipe.Take_Intr_MUXCY_2_rt_1371 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.New_Carry_MUXCY_rt_1372 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.clean_iReady_MuxCY_rt_1373 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/running_rstpot_1374 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_rstpot_1375 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_exists_i_rstpot_1376 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_rstpot ;
-  wire \U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In_0_rstpot_1378 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_rstpot_1379 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_rstpot_1380 ;
-  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_rstpot_1381 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_rstpot_1382 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_rstpot1_1383 ;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_rstpot1_1384 ;
+  wire N28;
   wire N30;
   wire N32;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_rstpot_1387 ;
-  wire N34;
-  wire N40;
-  wire N42;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o1 ;
   wire N44;
   wire N46;
   wire N48;
-  wire N50;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_glue_rst_1294 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[28].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1295 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_ce_1296 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1297 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[30].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1298 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Force_Val2_FDRSE_glue_set_1299 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_glue_set_1300 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_glue_set_1301 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_glue_set_1302 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_glue_set_1303 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_glue_rst_1304 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_glue_set_1305 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_glue_set_1306 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_glue_set_1307 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Zero_Detect_I/Using_FPGA.Part_Of_Zero_Carry_Start_rt_1308 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.New_Carry_MUXCY_rt_1309 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.clean_iReady_MuxCY_rt_1310 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_rstpot ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_3_rstpot_1312 ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_rstpot_1313 ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_rstpot_1314 ;
+  wire \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_rstpot_1315 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_rstpot_1316 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_rstpot_1317 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_rstpot1_1318 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_rstpot1_1319 ;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_rstpot1_1320 ;
   wire N52;
   wire N54;
   wire N56;
-  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ;
+  wire N62;
+  wire N64;
+  wire N66;
+  wire N68;
+  wire N70;
+  wire N72;
+  wire N74;
+  wire N76;
+  wire N78;
+  wire N80;
+  wire \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1334 ;
+  wire N82;
+  wire N83;
+  wire N84;
+  wire N85;
   wire \NLW_U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Register_File_I/Using_FPGA.Gen_RegFile[31].Register_File_Bit_I/Using_LUT6.RegFile_X2_SPO_UNCONNECTED ;
   wire \NLW_U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Register_File_I/Using_FPGA.Gen_RegFile[30].Register_File_Bit_I/Using_LUT6.RegFile_X2_SPO_UNCONNECTED ;
   wire \NLW_U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Register_File_I/Using_FPGA.Gen_RegFile[29].Register_File_Bit_I/Using_LUT6.RegFile_X2_SPO_UNCONNECTED ;
@@ -3015,7 +2975,8 @@ module microblaze_mcs (
   wire \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIA<4>_UNCONNECTED ;
   wire \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIA<3>_UNCONNECTED ;
   wire \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIA<2>_UNCONNECTED ;
-  wire [3 : 0] \U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i ;
+  wire [2 : 0] \U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i ;
+  wire [9 : 0] \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i ;
   wire [2 : 0] \U0/filter_reset.reset_vec ;
   wire [1 : 0] \U0/dlmb_Sl_Ready ;
   wire [31 : 0] \U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write ;
@@ -3030,17 +2991,16 @@ module microblaze_mcs (
   wire [55 : 32] \U0/dlmb_Sl_DBus ;
   wire [5 : 0] \U0/iomodule_0/lmb_abus_Q ;
   wire [31 : 0] \U0/iomodule_0/write_data ;
-  wire [7 : 0] \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data ;
+  wire [1 : 1] \U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.Clk_En_I ;
+  wire [3 : 3] \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status ;
   wire [7 : 0] \U0/iomodule_0/IOModule_Core_I1/intc_cipr ;
+  wire [1 : 0] \U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In ;
   wire [7 : 0] \U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In ;
   wire [2 : 0] \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/h_Cnt ;
   wire [2 : 0] \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/sum_cnt ;
   wire [3 : 1] \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/cnt_cy ;
   wire [2 : 0] \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_sel ;
   wire [7 : 0] \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut ;
-  wire [8 : 1] \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel ;
-  wire [7 : 0] \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i ;
-  wire [8 : 0] \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data ;
   wire [1 : 0] \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/FPU_Cond ;
   wire [1 : 0] \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Logic_Oper ;
   wire [3 : 1] \U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr ;
@@ -3080,33 +3040,42 @@ module microblaze_mcs (
   wire [3 : 1] \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.buffer_Addr_S_I ;
   wire [3 : 2] \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/buffer_Addr_Carry ;
   assign
-    GPO1[3] = \U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i [3],
     GPO1[2] = \U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i [2],
     GPO1[1] = \U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i [1],
     GPO1[0] = \U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i [0],
-    UART_Tx = \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/TX_16 ;
+    GPO2[9] = \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [9],
+    GPO2[8] = \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [8],
+    GPO2[7] = \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [7],
+    GPO2[6] = \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [6],
+    GPO2[5] = \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [5],
+    GPO2[4] = \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [4],
+    GPO2[3] = \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [3],
+    GPO2[2] = \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [2],
+    GPO2[1] = \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [1],
+    GPO2[0] = \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [0],
+    UART_Tx = \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/TX_25 ;
   VCC   XST_VCC (
     .P(\U0/ilmb_cntlr/lmb_select )
   );
   GND   XST_GND (
-    .G(N1)
+    .G(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR )
   );
   FDR   \U0/ilmb_cntlr/lmb_addrstrobe_i  (
     .C(Clk),
     .D(\U0/ilmb_M_AddrStrobe ),
     .R(\U0/ilmb_LMB_Rst ),
-    .Q(\U0/ilmb_cntlr/lmb_addrstrobe_i_19 )
+    .Q(\U0/ilmb_cntlr/lmb_addrstrobe_i_27 )
   );
   FDR   \U0/ilmb_cntlr/Sl_Ready_i  (
     .C(Clk),
     .D(\U0/ilmb_cntlr/lmb_select ),
     .R(\U0/ilmb_LMB_Rst ),
-    .Q(\U0/ilmb_cntlr/Sl_Ready_i_20 )
+    .Q(\U0/ilmb_cntlr/Sl_Ready_i_28 )
   );
   FDS   \U0/ilmb/POR_FF_I  (
     .C(Clk),
-    .D(N1),
-    .S(\U0/LMB_Rst_25 ),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .S(\U0/LMB_Rst_33 ),
     .Q(\U0/ilmb_LMB_Rst )
   );
   FD   \U0/filter_reset.reset_vec_0  (
@@ -3127,12 +3096,12 @@ module microblaze_mcs (
   FD   \U0/LMB_Rst  (
     .C(Clk),
     .D(\U0/filter_reset.reset_vec[2]_filter_reset.reset_vec[1]_OR_2_o ),
-    .Q(\U0/LMB_Rst_25 )
+    .Q(\U0/LMB_Rst_33 )
   );
   FD   \U0/iomodule_0/lmb_reg_read_Q  (
     .C(Clk),
-    .D(\U0/iomodule_0/lmb_reg_read_213 ),
-    .Q(\U0/iomodule_0/lmb_reg_read_Q_253 )
+    .D(\U0/iomodule_0/lmb_reg_read_221 ),
+    .Q(\U0/iomodule_0/lmb_reg_read_Q_261 )
   );
   FD   \U0/iomodule_0/lmb_abus_Q_0  (
     .C(Clk),
@@ -3167,12 +3136,12 @@ module microblaze_mcs (
   FD   \U0/iomodule_0/lmb_reg_read  (
     .C(Clk),
     .D(\U0/iomodule_0/LMB_ReadStrobe_LMB_AddrStrobe_AND_323_o ),
-    .Q(\U0/iomodule_0/lmb_reg_read_213 )
+    .Q(\U0/iomodule_0/lmb_reg_read_221 )
   );
   FD   \U0/iomodule_0/lmb_reg_write  (
     .C(Clk),
     .D(\U0/iomodule_0/LMB_WriteStrobe_LMB_AddrStrobe_AND_325_o ),
-    .Q(\U0/iomodule_0/lmb_reg_write_252 )
+    .Q(\U0/iomodule_0/lmb_reg_write_260 )
   );
   FD   \U0/iomodule_0/write_data_31  (
     .C(Clk),
@@ -3336,43 +3305,73 @@ module microblaze_mcs (
   );
   SRL16E #(
     .INIT ( 16'h0001 ))
+  \U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/One_SRL16.SRL16E_I  (
+    .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .A1(\U0/ilmb_cntlr/lmb_select ),
+    .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.Clk_En_I [1]),
+    .CLK(Clk),
+    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/loop_Bit ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/loop_Bit )
+  );
+  SRL16E #(
+    .INIT ( 16'h0001 ))
   \U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[1].Divide_I/One_SRL16.SRL16E_I  (
-    .A0(\U0/ilmb_cntlr/lmb_select ),
-    .A1(N1),
-    .A2(\U0/ilmb_cntlr/lmb_select ),
+    .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .A3(\U0/ilmb_cntlr/lmb_select ),
     .CE(\U0/ilmb_cntlr/lmb_select ),
     .CLK(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud )
+    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.Clk_En_I [1]),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.Clk_En_I [1])
+  );
+  FD   \U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/not_First.Out1  (
+    .C(Clk),
+    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/loop_Bit ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/not_First.Out1_295 )
+  );
+  FDE #(
+    .INIT ( 1'b0 ))
+  \U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/Clk_En_Out_i  (
+    .C(Clk),
+    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/not_First.Out1_295 ),
+    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.Clk_En_I [1]),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/Clk_En_Out_i_299 )
   );
   FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i_0  (
     .C(Clk),
     .CE(\U0/iomodule_0/gpo1_write ),
     .D(\U0/iomodule_0/write_data [0]),
-    .R(\U0/LMB_Rst_25 ),
+    .R(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i [0])
   );
   FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i_1  (
     .C(Clk),
     .CE(\U0/iomodule_0/gpo1_write ),
     .D(\U0/iomodule_0/write_data [1]),
-    .R(\U0/LMB_Rst_25 ),
+    .R(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i [1])
   );
   FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i_2  (
     .C(Clk),
     .CE(\U0/iomodule_0/gpo1_write ),
     .D(\U0/iomodule_0/write_data [2]),
-    .R(\U0/LMB_Rst_25 ),
+    .R(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i [2])
   );
-  FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i_3  (
+  FDR   \U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In_0  (
     .C(Clk),
-    .CE(\U0/iomodule_0/gpo1_write ),
-    .D(\U0/iomodule_0/write_data [3]),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I1/gpo_io_i [3])
+    .D(GPI2[0]),
+    .R(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_Read_inv ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In [0])
+  );
+  FDR   \U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In_1  (
+    .C(Clk),
+    .D(GPI2[1]),
+    .R(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_Read_inv ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In [1])
   );
   FDR   \U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In_7  (
     .C(Clk),
@@ -3426,7 +3425,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[31].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [32])
   );
@@ -3434,7 +3433,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[30].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [33])
   );
@@ -3442,7 +3441,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[29].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [34])
   );
@@ -3450,7 +3449,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[28].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [35])
   );
@@ -3458,7 +3457,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[27].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [36])
   );
@@ -3466,7 +3465,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[26].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [37])
   );
@@ -3474,7 +3473,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[25].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [38])
   );
@@ -3482,7 +3481,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[24].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [39])
   );
@@ -3490,7 +3489,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[23].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [40])
   );
@@ -3498,7 +3497,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[22].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [41])
   );
@@ -3506,7 +3505,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[21].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [42])
   );
@@ -3514,7 +3513,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[20].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [43])
   );
@@ -3522,7 +3521,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[19].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [44])
   );
@@ -3530,7 +3529,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[18].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [45])
   );
@@ -3538,7 +3537,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[17].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [46])
   );
@@ -3546,7 +3545,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[16].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [47])
   );
@@ -3554,7 +3553,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[15].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [48])
   );
@@ -3562,7 +3561,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[14].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [49])
   );
@@ -3570,7 +3569,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[13].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [50])
   );
@@ -3578,7 +3577,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[12].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [51])
   );
@@ -3586,7 +3585,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[11].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [52])
   );
@@ -3594,7 +3593,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[10].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [53])
   );
@@ -3602,7 +3601,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[9].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [54])
   );
@@ -3610,7 +3609,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[8].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/dlmb_Sl_DBus [55])
   );
@@ -3618,7 +3617,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[7].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [7])
   );
@@ -3626,7 +3625,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[6].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [6])
   );
@@ -3634,7 +3633,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[5].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [5])
   );
@@ -3642,7 +3641,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[4].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [4])
   );
@@ -3650,7 +3649,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[3].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [3])
   );
@@ -3658,7 +3657,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[2].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [2])
   );
@@ -3666,7 +3665,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[1].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [1])
   );
@@ -3674,9 +3673,79 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[0].fdr_i  (
     .C(Clk),
-    .D(N1),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .R(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [0])
+  );
+  FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i_9  (
+    .C(Clk),
+    .CE(\U0/iomodule_0/gpo2_write ),
+    .D(\U0/iomodule_0/write_data [9]),
+    .R(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [9])
+  );
+  FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i_8  (
+    .C(Clk),
+    .CE(\U0/iomodule_0/gpo2_write ),
+    .D(\U0/iomodule_0/write_data [8]),
+    .R(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [8])
+  );
+  FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i_7  (
+    .C(Clk),
+    .CE(\U0/iomodule_0/gpo2_write ),
+    .D(\U0/iomodule_0/write_data [7]),
+    .R(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [7])
+  );
+  FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i_6  (
+    .C(Clk),
+    .CE(\U0/iomodule_0/gpo2_write ),
+    .D(\U0/iomodule_0/write_data [6]),
+    .R(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [6])
+  );
+  FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i_5  (
+    .C(Clk),
+    .CE(\U0/iomodule_0/gpo2_write ),
+    .D(\U0/iomodule_0/write_data [5]),
+    .R(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [5])
+  );
+  FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i_4  (
+    .C(Clk),
+    .CE(\U0/iomodule_0/gpo2_write ),
+    .D(\U0/iomodule_0/write_data [4]),
+    .R(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [4])
+  );
+  FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i_3  (
+    .C(Clk),
+    .CE(\U0/iomodule_0/gpo2_write ),
+    .D(\U0/iomodule_0/write_data [3]),
+    .R(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [3])
+  );
+  FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i_2  (
+    .C(Clk),
+    .CE(\U0/iomodule_0/gpo2_write ),
+    .D(\U0/iomodule_0/write_data [2]),
+    .R(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [2])
+  );
+  FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i_1  (
+    .C(Clk),
+    .CE(\U0/iomodule_0/gpo2_write ),
+    .D(\U0/iomodule_0/write_data [1]),
+    .R(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [1])
+  );
+  FDRE   \U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i_0  (
+    .C(Clk),
+    .CE(\U0/iomodule_0/gpo2_write ),
+    .D(\U0/iomodule_0/write_data [0]),
+    .R(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/GPO_I2/gpo_io_i [0])
   );
   XORCY   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/Counter[0].XORCY_I  (
     .CI(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/cnt_cy [1]),
@@ -3730,7 +3799,7 @@ module microblaze_mcs (
     .A1(\U0/ilmb_cntlr/lmb_select ),
     .A2(\U0/ilmb_cntlr/lmb_select ),
     .A3(\U0/ilmb_cntlr/lmb_select ),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
+    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/Clk_En_Out_i_299 ),
     .CLK(Clk),
     .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/div16 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/div16 )
@@ -3739,7 +3808,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/FDRE_I  (
     .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
+    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/Clk_En_Out_i_299 ),
     .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/div16 ),
     .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Data_Enable ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Data_Enable )
@@ -3747,328 +3816,98 @@ module microblaze_mcs (
   FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/serial_Data  (
     .C(Clk),
     .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_Out ),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/serial_Data_345 )
+    .R(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/serial_Data_342 )
   );
   FDSE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_sel_0  (
     .C(Clk),
     .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Data_Enable ),
     .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/sum_cnt [0]),
-    .S(\U0/LMB_Rst_25 ),
+    .S(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_sel [0])
   );
   FDSE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_sel_1  (
     .C(Clk),
     .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Data_Enable ),
     .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/sum_cnt [1]),
-    .S(\U0/LMB_Rst_25 ),
+    .S(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_sel [1])
   );
   FDSE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_sel_2  (
     .C(Clk),
     .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Data_Enable ),
     .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/sum_cnt [2]),
-    .S(\U0/LMB_Rst_25 ),
+    .S(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_sel [2])
   );
   FDS   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/TX  (
     .C(Clk),
     .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Run_tx_Start_AND_360_o ),
-    .S(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/TX_16 )
+    .S(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/TX_25 )
   );
   FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut_0  (
     .C(Clk),
     .CE(\U0/iomodule_0/uart_tx_write ),
     .D(\U0/iomodule_0/write_data [7]),
-    .R(\U0/LMB_Rst_25 ),
+    .R(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut [0])
   );
   FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut_1  (
     .C(Clk),
     .CE(\U0/iomodule_0/uart_tx_write ),
     .D(\U0/iomodule_0/write_data [6]),
-    .R(\U0/LMB_Rst_25 ),
+    .R(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut [1])
   );
   FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut_2  (
     .C(Clk),
     .CE(\U0/iomodule_0/uart_tx_write ),
     .D(\U0/iomodule_0/write_data [5]),
-    .R(\U0/LMB_Rst_25 ),
+    .R(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut [2])
   );
   FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut_3  (
     .C(Clk),
     .CE(\U0/iomodule_0/uart_tx_write ),
     .D(\U0/iomodule_0/write_data [4]),
-    .R(\U0/LMB_Rst_25 ),
+    .R(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut [3])
   );
   FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut_4  (
     .C(Clk),
     .CE(\U0/iomodule_0/uart_tx_write ),
     .D(\U0/iomodule_0/write_data [3]),
-    .R(\U0/LMB_Rst_25 ),
+    .R(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut [4])
   );
   FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut_5  (
     .C(Clk),
     .CE(\U0/iomodule_0/uart_tx_write ),
     .D(\U0/iomodule_0/write_data [2]),
-    .R(\U0/LMB_Rst_25 ),
+    .R(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut [5])
   );
   FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut_6  (
     .C(Clk),
     .CE(\U0/iomodule_0/uart_tx_write ),
     .D(\U0/iomodule_0/write_data [1]),
-    .R(\U0/LMB_Rst_25 ),
+    .R(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut [6])
   );
   FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut_7  (
     .C(Clk),
     .CE(\U0/iomodule_0/uart_tx_write ),
     .D(\U0/iomodule_0/write_data [0]),
-    .R(\U0/LMB_Rst_25 ),
+    .R(\U0/LMB_Rst_33 ),
     .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut [7])
-  );
-  SRL16E #(
-    .INIT ( 16'h0000 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Delay_16  (
-    .A0(\U0/ilmb_cntlr/lmb_select ),
-    .A1(\U0/ilmb_cntlr/lmb_select ),
-    .A2(\U0/ilmb_cntlr/lmb_select ),
-    .A3(\U0/ilmb_cntlr/lmb_select ),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .CLK(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/recycle ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point )
-  );
-  SRL16E #(
-    .INIT ( 16'h0000 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mid_Start_Bit_SRL16  (
-    .A0(N1),
-    .A1(\U0/ilmb_cntlr/lmb_select ),
-    .A2(\U0/ilmb_cntlr/lmb_select ),
-    .A3(N1),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .CLK(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/start_Edge_Detected_382 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/mid_Start_Bit )
-  );
-  FDRE #(
-    .INIT ( 1'b0 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Convert_Serial_To_Parallel[8].Rest_Bits.Others_I  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [8]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/mid_Start_Bit ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [8])
-  );
-  FDRE #(
-    .INIT ( 1'b0 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Convert_Serial_To_Parallel[7].Rest_Bits.Others_I  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [7]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/mid_Start_Bit ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [7])
-  );
-  FDRE #(
-    .INIT ( 1'b0 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Convert_Serial_To_Parallel[6].Rest_Bits.Others_I  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [6]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/mid_Start_Bit ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [6])
-  );
-  FDRE #(
-    .INIT ( 1'b0 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Convert_Serial_To_Parallel[5].Rest_Bits.Others_I  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [5]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/mid_Start_Bit ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [5])
-  );
-  FDRE #(
-    .INIT ( 1'b0 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Convert_Serial_To_Parallel[4].Rest_Bits.Others_I  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [4]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/mid_Start_Bit ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [4])
-  );
-  FDRE #(
-    .INIT ( 1'b0 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Convert_Serial_To_Parallel[3].Rest_Bits.Others_I  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [3]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/mid_Start_Bit ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [3])
-  );
-  FDRE #(
-    .INIT ( 1'b0 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Convert_Serial_To_Parallel[2].Rest_Bits.Others_I  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [2]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/mid_Start_Bit ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [2])
-  );
-  FDSE #(
-    .INIT ( 1'b1 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Convert_Serial_To_Parallel[1].First_Bit.First_Bit_I  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [1]),
-    .S(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/mid_Start_Bit ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [1])
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data_7  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [7]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Read_RX_Data_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [7])
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data_6  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [6]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Read_RX_Data_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [6])
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data_5  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [5]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Read_RX_Data_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [5])
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data_4  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [4]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Read_RX_Data_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [4])
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data_3  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [3]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Read_RX_Data_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [3])
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data_2  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [2]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Read_RX_Data_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [2])
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data_1  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [1]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Read_RX_Data_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [1])
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data_0  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [0]),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Read_RX_Data_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [0])
-  );
-  FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i_7  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [1]),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [7])
-  );
-  FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i_6  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [2]),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [6])
-  );
-  FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i_5  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [3]),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [5])
-  );
-  FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i_4  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [4]),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [4])
-  );
-  FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i_3  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [5]),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [3])
-  );
-  FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i_2  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [6]),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [2])
-  );
-  FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i_1  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [7]),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [1])
-  );
-  FDRE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i_0  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [8]),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_i [0])
-  );
-  FDS   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_2  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_1_385 ),
-    .S(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [0])
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_6  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/frame_error_399 ),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_Read_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[6] )
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_5  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/overrun_error_398 ),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_Read_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[5] )
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_3  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/TX_Buffer_Empty_INV_247_o ),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_Read_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[3] )
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_0  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_exists_i_293 ),
-    .R(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_Read_inv ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[0] )
   );
   FD #(
     .INIT ( 1'b1 ))
   \U0/microblaze_I/MicroBlaze_Core_I/sync_reset  (
     .C(Clk),
     .D(\U0/ilmb_cntlr/Sl_Ready_i_inv ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 )
   );
   RAM32X1D #(
     .INIT ( 32'h00000000 ))
@@ -5380,8 +5219,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [15]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [15]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/op1_Reg )
@@ -5416,8 +5255,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [14]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [14]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[14].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[14].Operand_Select_Bit_I/op1_Reg )
@@ -5452,8 +5291,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [13]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [13]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[13].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[13].Operand_Select_Bit_I/op1_Reg )
@@ -5488,8 +5327,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [12]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [12]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[12].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[12].Operand_Select_Bit_I/op1_Reg )
@@ -5524,8 +5363,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [11]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [11]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[11].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[11].Operand_Select_Bit_I/op1_Reg )
@@ -5560,8 +5399,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [10]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [10]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/op1_Reg )
@@ -5596,8 +5435,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [9]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [9]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/op1_Reg )
@@ -5632,8 +5471,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [8]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [8]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[8].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[8].Operand_Select_Bit_I/op1_Reg )
@@ -5668,8 +5507,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [7]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [7]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[7].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[7].Operand_Select_Bit_I/op1_Reg )
@@ -5704,8 +5543,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [6]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [6]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[6].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[6].Operand_Select_Bit_I/op1_Reg )
@@ -5740,8 +5579,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [5]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [5]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[5].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[5].Operand_Select_Bit_I/op1_Reg )
@@ -5776,8 +5615,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [4]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [4]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[4].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[4].Operand_Select_Bit_I/op1_Reg )
@@ -5812,8 +5651,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [3]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [3]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[3].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[3].Operand_Select_Bit_I/op1_Reg )
@@ -5848,8 +5687,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [2]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [2]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[2].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[2].Operand_Select_Bit_I/op1_Reg )
@@ -5884,8 +5723,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [1]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [1]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[1].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[1].Operand_Select_Bit_I/op1_Reg )
@@ -5921,7 +5760,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [23]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/pc_OF_I [23]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[23].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[23].Operand_Select_Bit_I/op1_Reg )
@@ -5957,7 +5796,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [22]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/pc_OF_I [22]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[22].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[22].Operand_Select_Bit_I/op1_Reg )
@@ -5993,7 +5832,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [21]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/pc_OF_I [21]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[21].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[21].Operand_Select_Bit_I/op1_Reg )
@@ -6029,7 +5868,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [20]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/pc_OF_I [20]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[20].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[20].Operand_Select_Bit_I/op1_Reg )
@@ -6065,7 +5904,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [19]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/pc_OF_I [19]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[19].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[19].Operand_Select_Bit_I/op1_Reg )
@@ -6101,7 +5940,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [18]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/pc_OF_I [18]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[18].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[18].Operand_Select_Bit_I/op1_Reg )
@@ -6137,7 +5976,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [17]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/pc_OF_I [17]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[17].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[17].Operand_Select_Bit_I/op1_Reg )
@@ -6172,8 +6011,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [16]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [16]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[16].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[16].Operand_Select_Bit_I/op1_Reg )
@@ -6182,112 +6021,112 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [0]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [0])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_1  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [1]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [1])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_2  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [2]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [2])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_3  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [3]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [3])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_4  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [4]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [4])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_5  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [5]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [5])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_6  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [6]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [6])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_7  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [7]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [7])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_8  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [8]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [8])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_9  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [9]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [9])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_10  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [10]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [10])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_11  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [11]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [11])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_12  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [12]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [12])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_13  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [13]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [13])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_14  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [14]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [14])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg_15  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Instr ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [15]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [15])
   );
   LUT6_2 #(
@@ -6297,7 +6136,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [24]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/op1_SPR ),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/op1_Reg )
@@ -6333,7 +6172,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [25]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[25].Operand_Select_Bit_I/op1_SPR ),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[25].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[25].Operand_Select_Bit_I/op1_Reg )
@@ -6369,7 +6208,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [29]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/op1_SPR ),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/op1_Reg )
@@ -6405,7 +6244,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [30]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[30].Operand_Select_Bit_I/op1_SPR ),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[30].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[30].Operand_Select_Bit_I/op1_Reg )
@@ -6440,8 +6279,8 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg1_Data [31]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [31]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
-    .I3(N1),
-    .I4(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_Reg )
@@ -6477,7 +6316,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [28]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[28].Operand_Select_Bit_I/op1_SPR ),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[28].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[28].Operand_Select_Bit_I/op1_Reg )
@@ -6513,7 +6352,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [27]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[27].Operand_Select_Bit_I/op1_SPR ),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[27].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[27].Operand_Select_Bit_I/op1_Reg )
@@ -6549,7 +6388,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [26]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[26].Operand_Select_Bit_I/op1_SPR ),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[26].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[26].Operand_Select_Bit_I/op1_Reg )
@@ -6585,7 +6424,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward1 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[0].Operand_Select_Bit_I/op1_SPR ),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_SPR ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[0].Operand_Select_Bit_I/op1_I ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[0].Operand_Select_Bit_I/op1_Reg )
@@ -6621,7 +6460,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Op1_Low [1]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[31].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[31].ALU_Bit_I1/op2_is_1 )
@@ -6644,7 +6483,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Op1_Low [0]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[30].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[30].ALU_Bit_I1/op2_is_1 )
@@ -6667,7 +6506,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/op1_shift[29] ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[29].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[29].ALU_Bit_I1/op2_is_1 )
@@ -6690,7 +6529,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [28]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[28].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[28].ALU_Bit_I1/op2_is_1 )
@@ -6713,7 +6552,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [27]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[27].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[27].ALU_Bit_I1/op2_is_1 )
@@ -6736,7 +6575,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [26]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[26].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[26].ALU_Bit_I1/op2_is_1 )
@@ -6759,7 +6598,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [25]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[25].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[25].ALU_Bit_I1/op2_is_1 )
@@ -6782,7 +6621,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [24]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[24].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[24].ALU_Bit_I1/op2_is_1 )
@@ -6805,7 +6644,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [23]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[23].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[23].ALU_Bit_I1/op2_is_1 )
@@ -6828,7 +6667,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [22]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[22].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[22].ALU_Bit_I1/op2_is_1 )
@@ -6851,7 +6690,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [21]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[21].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[21].ALU_Bit_I1/op2_is_1 )
@@ -6874,7 +6713,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [20]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[20].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[20].ALU_Bit_I1/op2_is_1 )
@@ -6897,7 +6736,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [19]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[19].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[19].ALU_Bit_I1/op2_is_1 )
@@ -6920,7 +6759,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [18]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[18].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[18].ALU_Bit_I1/op2_is_1 )
@@ -6943,7 +6782,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [17]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[17].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[17].ALU_Bit_I1/op2_is_1 )
@@ -6966,7 +6805,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [16]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[16].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[16].ALU_Bit_I1/op2_is_1 )
@@ -6989,7 +6828,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [15]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[15].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[15].ALU_Bit_I1/op2_is_1 )
@@ -7012,7 +6851,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [14]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[14].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[14].ALU_Bit_I1/op2_is_1 )
@@ -7035,7 +6874,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [13]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[13].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[13].ALU_Bit_I1/op2_is_1 )
@@ -7058,7 +6897,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [12]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[12].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[12].ALU_Bit_I1/op2_is_1 )
@@ -7081,7 +6920,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [11]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[11].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[11].ALU_Bit_I1/op2_is_1 )
@@ -7104,7 +6943,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [10]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[10].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[10].ALU_Bit_I1/op2_is_1 )
@@ -7127,7 +6966,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [9]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[9].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[9].ALU_Bit_I1/op2_is_1 )
@@ -7150,7 +6989,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [8]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[8].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[8].ALU_Bit_I1/op2_is_1 )
@@ -7173,7 +7012,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [7]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[7].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[7].ALU_Bit_I1/op2_is_1 )
@@ -7196,7 +7035,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [6]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[6].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[6].ALU_Bit_I1/op2_is_1 )
@@ -7219,7 +7058,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [5]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[5].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[5].ALU_Bit_I1/op2_is_1 )
@@ -7242,7 +7081,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [4]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[4].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[4].ALU_Bit_I1/op2_is_1 )
@@ -7265,7 +7104,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [3]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[3].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[3].ALU_Bit_I1/op2_is_1 )
@@ -7288,7 +7127,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [2]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[2].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[2].ALU_Bit_I1/op2_is_1 )
@@ -7311,7 +7150,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [1]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[1].ALU_Bit_I1/alu_AddSub ),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[1].ALU_Bit_I1/op2_is_1 )
@@ -7328,7 +7167,7 @@ module microblaze_mcs (
     .O(\U0/dlmb_M_ABus [1])
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.No_Carry_Decoding.CarryIn_MUXCY  (
-    .CI(N1),
+    .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.No_Carry_Decoding.EX_CarryIn_I ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.No_Carry_Decoding.control_carry ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.alu_carry [32])
@@ -7359,7 +7198,7 @@ module microblaze_mcs (
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[0].ALU_Bit_I1/Using_FPGA_LUT6.Last_Bit.Pre_MUXCY_I  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.alu_carry [1]),
-    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Unsigned_Op_416 ),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Unsigned_Op_367 ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[0].ALU_Bit_I1/Using_FPGA_LUT6.Last_Bit.maintain_sign_n ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[0].ALU_Bit_I1/Using_FPGA_LUT6.Last_Bit.invert_result )
   );
@@ -7384,7 +7223,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/op1_shift[0] ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Op [1]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[0].ALU_Bit_I1/Using_FPGA_LUT6.Last_Bit.alu_AddSub_1 )
   );
@@ -7402,15 +7241,15 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[31].Shift_Logic_Bit_I/Shift_LUT  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Op1_Low [0]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Op1_Low [1]),
-    .I2(N1),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[31].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[31].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[31].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[31].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [31])
   );
   LUT4 #(
@@ -7427,15 +7266,15 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[30].Shift_Logic_Bit_I/Shift_LUT  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/op1_shift[29] ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Op1_Low [0]),
-    .I2(N1),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[30].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[30].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[30].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[30].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [30])
   );
   LUT4 #(
@@ -7452,15 +7291,15 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[29].Shift_Logic_Bit_I/Shift_LUT  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [28]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/op1_shift[29] ),
-    .I2(N1),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[29].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[29].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[29].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[29].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [29])
   );
   LUT4 #(
@@ -7477,15 +7316,15 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[28].Shift_Logic_Bit_I/Shift_LUT  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [27]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [28]),
-    .I2(N1),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[28].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[28].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[28].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[28].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [28])
   );
   LUT4 #(
@@ -7502,15 +7341,15 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[27].Shift_Logic_Bit_I/Shift_LUT  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [26]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [27]),
-    .I2(N1),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[27].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[27].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[27].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[27].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [27])
   );
   LUT4 #(
@@ -7527,15 +7366,15 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[26].Shift_Logic_Bit_I/Shift_LUT  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [25]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [26]),
-    .I2(N1),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[26].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[26].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[26].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[26].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [26])
   );
   LUT4 #(
@@ -7552,15 +7391,15 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[25].Shift_Logic_Bit_I/Shift_LUT  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [24]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [25]),
-    .I2(N1),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[25].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[25].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[25].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[25].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [25])
   );
   LUT4 #(
@@ -7577,15 +7416,15 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[24].Shift_Logic_Bit_I/Shift_LUT  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [23]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [24]),
-    .I2(N1),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[24].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[24].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[24].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[24].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [24])
   );
   LUT4 #(
@@ -7603,14 +7442,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [22]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [23]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext<0>1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[23].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[23].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[23].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[23].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [23])
   );
   LUT4 #(
@@ -7628,14 +7467,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [21]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [22]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext<0>1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[22].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[22].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[22].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[22].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [22])
   );
   LUT4 #(
@@ -7653,14 +7492,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [20]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [21]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext<0>1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[21].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[21].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[21].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[21].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [21])
   );
   LUT4 #(
@@ -7678,14 +7517,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [19]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [20]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext<0>1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[20].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[20].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[20].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[20].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [20])
   );
   LUT4 #(
@@ -7703,14 +7542,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [18]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [19]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext<0>1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[19].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[19].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[19].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[19].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [19])
   );
   LUT4 #(
@@ -7728,14 +7567,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [17]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [18]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext<0>1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[18].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[18].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[18].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[18].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [18])
   );
   LUT4 #(
@@ -7753,14 +7592,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [16]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [17]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext<0>1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[17].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[17].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[17].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[17].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [17])
   );
   LUT4 #(
@@ -7778,14 +7617,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [15]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [16]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext<0>1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[16].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[16].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[16].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[16].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [16])
   );
   LUT4 #(
@@ -7803,14 +7642,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [14]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [15]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[15].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[15].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[15].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[15].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [15])
   );
   LUT4 #(
@@ -7828,14 +7667,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [13]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [14]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[14].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[14].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[14].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[14].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [14])
   );
   LUT4 #(
@@ -7853,14 +7692,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [12]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [13]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[13].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[13].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[13].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[13].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [13])
   );
   LUT4 #(
@@ -7878,14 +7717,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [11]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [12]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[12].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[12].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[12].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[12].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [12])
   );
   LUT4 #(
@@ -7903,14 +7742,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [10]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [11]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[11].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[11].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[11].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[11].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [11])
   );
   LUT4 #(
@@ -7928,14 +7767,14 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [9]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [10]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[10].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5 
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[10].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[10].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[10].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [10])
   );
   LUT4 #(
@@ -7953,13 +7792,13 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [8]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [9]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[9].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[9].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[9].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[9].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [9])
   );
   LUT4 #(
@@ -7977,13 +7816,13 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [7]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [8]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[8].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[8].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[8].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[8].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [8])
   );
   LUT4 #(
@@ -8001,13 +7840,13 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [6]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [7]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[7].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[7].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[7].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[7].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [7])
   );
   LUT4 #(
@@ -8025,13 +7864,13 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [5]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [6]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[6].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[6].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[6].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[6].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [6])
   );
   LUT4 #(
@@ -8049,13 +7888,13 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [4]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [5]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[5].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[5].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[5].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[5].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [5])
   );
   LUT4 #(
@@ -8073,13 +7912,13 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [3]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [4]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[4].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[4].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[4].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[4].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [4])
   );
   LUT4 #(
@@ -8097,13 +7936,13 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [2]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [3]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[3].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[3].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[3].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[3].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [3])
   );
   LUT4 #(
@@ -8121,13 +7960,13 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [1]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [2]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[2].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[2].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[2].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[2].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [2])
   );
   LUT4 #(
@@ -8145,13 +7984,13 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/op1_shift[0] ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [1]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[1].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[1].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[1].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[1].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [1])
   );
   LUT4 #(
@@ -8169,20 +8008,20 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/msb ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/op1_shift[0] ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[0].Shift_Logic_Bit_I/shift_Res )
   );
   MUXF5   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[0].Shift_Logic_Bit_I/Shift_Logic_Mux  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[0].Shift_Logic_Bit_I/shift_Res ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Using_FPGA.Shift_Logic_Bits[0].Shift_Logic_Bit_I/logic_Res_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Shift_Logic_Result_basic [0])
   );
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[31].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/alu_Result [31]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[31].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8205,8 +8044,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[30].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/alu_Result [30]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[30].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8229,8 +8068,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[29].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [29]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[29].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8253,8 +8092,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[28].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [28]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[28].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8277,8 +8116,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[27].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [27]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[27].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8301,8 +8140,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[26].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [26]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[26].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8325,8 +8164,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[25].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [25]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[25].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8349,8 +8188,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[24].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [24]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[24].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8373,8 +8212,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[23].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [23]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[23].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8397,8 +8236,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[22].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [22]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[22].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8421,8 +8260,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[21].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [21]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[21].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8445,8 +8284,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[20].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [20]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[20].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8469,8 +8308,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[19].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [19]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[19].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8493,8 +8332,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[18].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [18]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[18].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8517,8 +8356,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[17].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [17]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[17].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8541,8 +8380,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[16].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [16]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[16].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8565,8 +8404,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[15].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [15]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[15].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8589,8 +8428,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[14].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [14]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[14].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8613,8 +8452,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[13].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [13]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[13].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8637,8 +8476,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[12].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [12]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[12].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8661,8 +8500,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[11].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [11]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[11].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8685,8 +8524,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[10].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [10]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[10].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8709,8 +8548,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[9].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [9]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[9].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8733,8 +8572,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[8].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [8]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[8].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8757,8 +8596,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[7].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [7]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[7].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8781,8 +8620,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[6].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [6]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[6].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8805,8 +8644,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[5].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [5]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[5].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8829,8 +8668,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[4].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [4]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[4].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8853,8 +8692,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[3].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [3]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[3].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8877,8 +8716,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[2].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [2]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[2].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8901,8 +8740,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[1].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [1]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[1].Result_Mux_Bit_I/mul_ALU_Res )
@@ -8925,8 +8764,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEFE0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[0].Result_Mux_Bit_I/Mul_ALU_Mux  (
-    .I0(N1),
-    .I1(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel [1]),
     .I3(\U0/dlmb_M_ABus [0]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Using_FPGA.Result_Mux_Bits[0].Result_Mux_Bit_I/mul_ALU_Res )
@@ -9208,7 +9047,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[17].PC_Bit_I/pc_I ),
@@ -9220,7 +9059,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/pc_I ),
@@ -9232,7 +9071,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[19].PC_Bit_I/pc_I ),
@@ -9244,7 +9083,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[20].PC_Bit_I/pc_I ),
@@ -9256,7 +9095,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[21].PC_Bit_I/pc_I ),
@@ -9268,7 +9107,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[22].PC_Bit_I/pc_I ),
@@ -9280,7 +9119,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[23].PC_Bit_I/pc_I ),
@@ -9292,7 +9131,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[24].PC_Bit_I/pc_I ),
@@ -9304,7 +9143,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[25].PC_Bit_I/pc_I ),
@@ -9316,7 +9155,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[26].PC_Bit_I/pc_I ),
@@ -9328,7 +9167,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[27].PC_Bit_I/pc_I ),
@@ -9340,7 +9179,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[28].PC_Bit_I/pc_I ),
@@ -9352,7 +9191,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/pc_I ),
@@ -9363,18 +9202,18 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/SUM_I  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.pc_Incr ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/MUXCY_X  (
-    .CI(N1),
+    .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.pc_Incr ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [29])
   );
   XORCY   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/XOR_X  (
-    .CI(N1),
+    .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .LI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/xor_Sum ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/pc_Sum )
   );
@@ -9384,21 +9223,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [29]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [29])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[28].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[28].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[28].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[28].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [29]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[28].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [28])
   );
@@ -9413,21 +9252,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[28].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [28]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [28])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[27].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[27].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[27].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[27].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [28]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[27].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [27])
   );
@@ -9442,21 +9281,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[27].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [27]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [27])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[26].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[26].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[26].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[26].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [27]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[26].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [26])
   );
@@ -9471,21 +9310,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[26].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [26]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [26])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[25].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[25].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[25].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[25].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [26]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[25].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [25])
   );
@@ -9500,21 +9339,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[25].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [25]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [25])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[24].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[24].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[24].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[24].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [25]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[24].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [24])
   );
@@ -9529,21 +9368,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[24].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [24]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [24])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[23].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[23].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[23].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[23].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [24]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[23].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [23])
   );
@@ -9558,21 +9397,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[23].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [23]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [23])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[22].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[22].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[22].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[22].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [23]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[22].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [22])
   );
@@ -9587,21 +9426,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[22].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [22]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [22])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[21].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[21].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[21].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[21].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [22]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[21].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [21])
   );
@@ -9616,21 +9455,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[21].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [21]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [21])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[20].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[20].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[20].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[20].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [21]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[20].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [20])
   );
@@ -9645,21 +9484,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[20].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [20]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [20])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[19].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[19].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[19].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[19].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [20]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[19].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [19])
   );
@@ -9674,21 +9513,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[19].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [19]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [19])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [19]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/xor_Sum ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [18])
   );
@@ -9703,21 +9542,21 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [18]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [18])
   );
   LUT4 #(
     .INIT ( 16'hF066 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[17].PC_Bit_I/SUM_I  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[17].PC_Bit_I/pc_I ),
-    .I2(N1),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[17].PC_Bit_I/xor_Sum )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[17].PC_Bit_I/MUXCY_X  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Carry [18]),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[17].PC_Bit_I/xor_Sum ),
     .LO(\NLW_U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[17].PC_Bit_I/MUXCY_X_LO_UNCONNECTED )
   );
@@ -9732,7 +9571,7 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[17].PC_Bit_I/pc_Sum ),
     .I1(\U0/dlmb_M_ABus [17]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/ilmb_M_ABus [17])
   );
   FDSE #(
@@ -9741,7 +9580,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [29]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[29].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9758,7 +9597,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [28]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[28].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9775,7 +9614,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [27]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[27].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9792,7 +9631,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [26]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[26].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9809,7 +9648,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [25]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[25].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9826,7 +9665,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [24]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[24].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9843,7 +9682,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [23]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[23].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9860,7 +9699,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [22]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[22].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9877,7 +9716,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [21]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[21].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9894,7 +9733,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [20]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[20].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9911,7 +9750,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [19]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[19].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9928,7 +9767,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [18]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[18].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9945,7 +9784,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.pc_write_I ),
     .D(\U0/ilmb_M_ABus [17]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.Not_All_Bits.PC_GEN[17].PC_Bit_I/pc_I )
   );
   FDE #(
@@ -9994,8 +9833,8 @@ module microblaze_mcs (
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Zero_Detect_I/Using_FPGA.Part_Of_Zero_Carry_Start  (
     .CI(\U0/ilmb_cntlr/lmb_select ),
-    .DI(N1),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Zero_Detect_I/Using_FPGA.Part_Of_Zero_Carry_Start_rt_1370 ),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Zero_Detect_I/Using_FPGA.Part_Of_Zero_Carry_Start_rt_1308 ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Zero_Detect_I/Using_FPGA.zero_CI [0])
   );
   LUT6_2 #(
@@ -10017,7 +9856,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Op1_Low [1]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op2_i [30]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Op1_Low [0]),
-    .I4(N1),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/low_addr_i [0]),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/low_addr_i [1])
@@ -10027,9 +9866,9 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/Using_FPGA.FPGA_LUT6_Target_ADDR.LOW_ADDR_OUT_LUT6  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/low_addr_i [1]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/low_addr_i [0]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_428 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_427 ),
-    .I4(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_379 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_378 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\NLW_U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/Using_FPGA.FPGA_LUT6_Target_ADDR.LOW_ADDR_OUT_LUT6_O6_UNCONNECTED ),
     .O5(\NLW_U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/Using_FPGA.FPGA_LUT6_Target_ADDR.LOW_ADDR_OUT_LUT6_O5_UNCONNECTED )
@@ -10041,7 +9880,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [27]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [23]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [31]),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_428 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_379 ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/dlmb_M_DBus [23]),
     .O5(\U0/dlmb_M_DBus [19])
@@ -10053,7 +9892,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [26]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [22]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [30]),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_428 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_379 ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/dlmb_M_DBus [22]),
     .O5(\U0/dlmb_M_DBus [18])
@@ -10065,7 +9904,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [25]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [21]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [29]),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_428 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_379 ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/dlmb_M_DBus [21]),
     .O5(\U0/dlmb_M_DBus [17])
@@ -10077,7 +9916,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [24]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [20]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.raw_Data_Write [28]),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_428 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_379 ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/dlmb_M_DBus [20]),
     .O5(\U0/dlmb_M_DBus [16])
@@ -10085,11 +9924,11 @@ module microblaze_mcs (
   LUT6_2 #(
     .INIT ( 64'h1111111155555555 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/Using_FPGA.Use_Dynamic_Bus_Sizing.Not_Using_Reverse_Mem_Instr.FPGA_LUT6_Target_WriteSel.WRITE_MSB_SEL_I  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_428 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_427 ),
-    .I2(N1),
-    .I3(N1),
-    .I4(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_379 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_378 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/sel_Write_Mux_MSB [1]),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/sel_Write_Mux_MSB [0])
@@ -10099,9 +9938,9 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/Using_FPGA.Use_Dynamic_Bus_Sizing.Not_Using_Reverse_Mem_Instr.FPGA_LUT6_Target_ReadSel.READ_SEL_I  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/byte_selects [1]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/byte_selects [0]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_428 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_427 ),
-    .I4(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_379 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_378 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/sel_LSB [1]),
     .O5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/sel_LSB [0])
@@ -10111,9 +9950,9 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/Using_FPGA.FPGA_LUT6_Target_BE.BYTE_2_3_I  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/byte_selects [0]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/byte_selects [1]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_428 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_427 ),
-    .I4(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_379 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_378 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/dlmb_M_BE [0]),
     .O5(\U0/dlmb_M_BE [1])
@@ -10123,9 +9962,9 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/Using_FPGA.FPGA_LUT6_Target_BE.BYTE_0_1_I  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/byte_selects [0]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Byte_Doublet_Handle_I/byte_selects [1]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_428 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_427 ),
-    .I4(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_379 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_378 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I5(\U0/ilmb_cntlr/lmb_select ),
     .O6(\U0/dlmb_M_BE [2]),
     .O5(\U0/dlmb_M_BE [3])
@@ -10335,13 +10174,13 @@ module microblaze_mcs (
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Intr_Carry_MUXCY  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/correct_Carry_I ),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/_n0876 ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/correct_Carry_II )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Using_Breakable_Pipe.Take_Intr_MUXCY_3  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_II ),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/ilmb_cntlr/lmb_select ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts )
   );
@@ -10351,7 +10190,7 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/alu_Op_II [1]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/alu_Op_II [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/use_ALU_Carry ),
-    .I3(N1),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/correct_Carry_Select )
   );
   LUT3 #(
@@ -10376,19 +10215,19 @@ module microblaze_mcs (
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Using_Breakable_Pipe.Take_Intr_MUXCY_2  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_I ),
-    .DI(N1),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Using_Breakable_Pipe.Take_Intr_MUXCY_2_rt_1371 ),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_II )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.iFetch_MuxCY_2  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ifetch_carry1 ),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reset_n ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ifetch_carry2 )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.MUXCY_JUMP_CARRY3  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump_Carry2 ),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump_carry3_sel ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump )
   );
@@ -10468,7 +10307,7 @@ module microblaze_mcs (
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Using_Breakable_Pipe.Take_Intr_MUXCY_1  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .DI(N1),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_Select ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_I )
   );
@@ -10495,7 +10334,7 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Res_Forward2_LUT3  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [4]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [4]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.res_forward2_3 )
   );
   LUT3 #(
@@ -10503,7 +10342,7 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Res_Forward1_LUT3  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg1_Addr [4]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [4]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.res_forward1_3 )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.iFetch_MuxCY_1  (
@@ -10515,37 +10354,37 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hAABA ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.force_di2_LUT4  (
-    .I0(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_Val2_N ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_DI2 )
   );
   LUT4 #(
     .INIT ( 16'h0200 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.force_jump2_LUT4  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I1(N1),
-    .I2(N1),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_jump2 )
   );
   LUT4 #(
     .INIT ( 16'h0004 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.of_PipeRun_without_dready_LUT4  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1295 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1240 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_Valid ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 ),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_without_dready )
   );
   LUT4 #(
     .INIT ( 16'h0040 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.of_PipeRun_Select_LUT4  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1295 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1240 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_Valid ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 ),
-    .I3(N1),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_Select )
   );
   LUT3 #(
@@ -10573,7 +10412,7 @@ module microblaze_mcs (
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.New_Carry_MUXCY  (
     .CI(\U0/microblaze_I/MicroBlaze_Core_I/Area.alu_Carry ),
     .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Op1_Low [1]),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.New_Carry_MUXCY_rt_1372 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.New_Carry_MUXCY_rt_1309 ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.new_Carry )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.of_PipeRun_MuxCY_1  (
@@ -10587,14 +10426,14 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_I_LUT  (
     .I0(\U0/dlmb_LMB_Ready ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/dready_Valid ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/other_Write ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_1207 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Valid_Reg ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_I_S )
   );
   MUXCY_L   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.clean_iReady_MuxCY  (
     .CI(\U0/ilmb_Sl_Ready ),
-    .DI(N1),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.clean_iReady_MuxCY_rt_1373 ),
+    .DI(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.clean_iReady_MuxCY_rt_1310 ),
     .LO(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady )
   );
   FDRE #(
@@ -10603,7 +10442,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reg_Test_Equal_N_i ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/intr_or_delay_slot_jump ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg_Test_Equal_N )
   );
   FDSE #(
@@ -10612,7 +10451,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reg_Test_Equal_i ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/intr_or_delay_slot_jump ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg_Test_Equal )
   );
   FDRE #(
@@ -10621,7 +10460,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/use_Reg_Neg_DI_i ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/intr_or_delay_slot_jump ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/use_Reg_Neg_DI )
   );
   FDRE #(
@@ -10630,7 +10469,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/use_Reg_Neg_S_i ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/intr_or_delay_slot_jump ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/use_Reg_Neg_S )
   );
   FDRE #(
@@ -10639,7 +10478,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_Val1_i ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/intr_or_delay_slot_jump ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_Val1 )
   );
   FDRE #(
@@ -10648,7 +10487,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force2_i ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/intr_or_delay_slot_jump ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force2 )
   );
   FDRE #(
@@ -10657,7 +10496,7 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force1_i ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/intr_or_delay_slot_jump ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force1 )
   );
   FDE #(
@@ -10689,35 +10528,35 @@ module microblaze_mcs (
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_instr_OF[9]_MUX_4383_o ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable10 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reset_BIP_I_1274 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reset_BIP_I_1221 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Compare_Instr  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_instr_OF[31]_MUX_4230_o ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable10 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Compare_Instr_417 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Compare_Instr_368 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/enable_Interrupts_I  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [10]),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable28 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/enable_Interrupts_I_1248 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/enable_Interrupts_I_1197 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Unsigned_Op  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [14]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable11 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Unsigned_Op_416 )
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Unsigned_Op_367 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable26 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1277 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1224 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Result_Sel_0  (
     .C(Clk),
@@ -10743,22 +10582,22 @@ module microblaze_mcs (
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_1  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<7>1_1187 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<7>1_1139 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [1])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_2  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<8>1_1188 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<8>1_1140 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [2])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_3  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<9>1_1189 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<9>1_1141 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [3])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I_4  (
@@ -10772,156 +10611,135 @@ module microblaze_mcs (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Logic_Oper [0])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Logic_Oper_1  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Logic_Oper [1])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/FPU_Cond_0  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [9]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/FPU_Cond [0])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/FPU_Cond_1  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [10]),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/FPU_Cond [1])
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Shift_Carry_In  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/correct_Carry ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Shift_Carry_In_412 )
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Shift_Carry_In_363 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/set_BIP_I  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_GND_12_o_MUX_4384_o ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable10 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/set_BIP_I_1273 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/set_BIP_I_1220 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_AND_106_o ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 )
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_PWR_12_o_MUX_4238_o ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable11 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_415 )
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_366 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext16  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_PWR_12_o_MUX_4239_o ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable11 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext16_414 )
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext16_365 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/n0235 ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable26 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_428 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/byte_i_379 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_instr_OF[4]_equal_54_o ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable26 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_427 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_i_378 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/select_ALU_Carry  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF[0]_INV_44_o ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable10 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/select_ALU_Carry_1278 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/select_ALU_Carry_1225 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_lwx_I  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I1 ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[21]_AND_21_o ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable3 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_lwx_I_1280 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_lwx_I_1227 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I1 ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_IExt_Exception_AND_20_o ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable3 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I1 ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[21]_AND_22_o ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable3 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1279 )
-  );
-  FDRE #(
-    .INIT ( 1'b0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase  (
-    .C(Clk),
-    .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable11 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 )
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1226 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump2_I  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_92_o_1213 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump2_I_1289 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_92_o_1162 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump2_I_1235 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF[3]_take_Intr_Now_AND_101_o ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_411 )
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Select_Logic_362 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_decode_I  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_mbar_decode ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_decode_I_1290 )
-  );
-  FDR   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Write_DIV_result  (
-    .C(Clk),
-    .D(N1),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I_0 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Write_DIV_result_1293 )
-  );
-  FDR   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready  (
-    .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.LWX_SWX_Carry ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I_0 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_1294 )
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_decode_I_1236 )
   );
   FDR #(
     .INIT ( 1'b0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first  (
     .C(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_GND_12_o_MUX_4150_o ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1295 )
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1240 )
   );
   SRL16E #(
     .INIT ( 16'h0000 ))
@@ -10929,7 +10747,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [0]),
@@ -10941,7 +10759,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [1]),
@@ -10953,7 +10771,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [2]),
@@ -10965,7 +10783,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [3]),
@@ -10977,7 +10795,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [4]),
@@ -10989,7 +10807,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [5]),
@@ -11001,7 +10819,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [6]),
@@ -11013,7 +10831,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [7]),
@@ -11025,7 +10843,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [8]),
@@ -11037,7 +10855,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [9]),
@@ -11049,7 +10867,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [10]),
@@ -11061,7 +10879,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [11]),
@@ -11073,7 +10891,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [12]),
@@ -11085,7 +10903,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [13]),
@@ -11097,7 +10915,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [14]),
@@ -11109,7 +10927,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [15]),
@@ -11121,7 +10939,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [16]),
@@ -11133,7 +10951,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [17]),
@@ -11145,7 +10963,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [18]),
@@ -11157,7 +10975,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [19]),
@@ -11169,7 +10987,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [20]),
@@ -11181,7 +10999,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [21]),
@@ -11193,7 +11011,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [22]),
@@ -11205,7 +11023,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [23]),
@@ -11217,7 +11035,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [24]),
@@ -11229,7 +11047,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [25]),
@@ -11241,7 +11059,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [26]),
@@ -11253,7 +11071,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [27]),
@@ -11265,7 +11083,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [28]),
@@ -11277,7 +11095,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [29]),
@@ -11289,7 +11107,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [30]),
@@ -11301,7 +11119,7 @@ module microblaze_mcs (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [3]),
     .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [2]),
     .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
-    .A3(N1),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/clean_iReady ),
     .CLK(Clk),
     .D(\U0/ilmb_port_BRAM_Din [31]),
@@ -11374,21 +11192,21 @@ module microblaze_mcs (
   );
   FDS   \U0/dlmb/POR_FF_I  (
     .C(Clk),
-    .D(N1),
-    .S(\U0/LMB_Rst_25 ),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .S(\U0/LMB_Rst_33 ),
     .Q(\U0/dlmb_LMB_Rst )
   );
   FDR   \U0/dlmb_cntlr/Sl_Ready_i  (
     .C(Clk),
     .D(\U0/dlmb_cntlr/lmb_select ),
     .R(\U0/dlmb_LMB_Rst ),
-    .Q(\U0/dlmb_cntlr/Sl_Ready_i_1325 )
+    .Q(\U0/dlmb_cntlr/Sl_Ready_i_1270 )
   );
   FDR   \U0/dlmb_cntlr/lmb_addrstrobe_i  (
     .C(Clk),
     .D(\U0/dlmb_M_AddrStrobe ),
     .R(\U0/dlmb_LMB_Rst ),
-    .Q(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 )
+    .Q(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 )
   );
   LUT3 #(
     .INIT ( 8'hA8 ))
@@ -11401,31 +11219,9 @@ module microblaze_mcs (
   LUT2 #(
     .INIT ( 4'h8 ))
   \U0/ilmb_cntlr/Sl_Ready1  (
-    .I0(\U0/ilmb_cntlr/Sl_Ready_i_20 ),
-    .I1(\U0/ilmb_cntlr/lmb_addrstrobe_i_19 ),
+    .I0(\U0/ilmb_cntlr/Sl_Ready_i_28 ),
+    .I1(\U0/ilmb_cntlr/lmb_addrstrobe_i_27 ),
     .O(\U0/ilmb_Sl_Ready )
-  );
-  LUT6 #(
-    .INIT ( 64'h0000000200000000 ))
-  \U0/iomodule_0/uart_status_read1  (
-    .I0(\U0/iomodule_0/lmb_abus_Q [4]),
-    .I1(\U0/iomodule_0/lmb_abus_Q [3]),
-    .I2(\U0/iomodule_0/lmb_abus_Q [2]),
-    .I3(\U0/iomodule_0/lmb_abus_Q [5]),
-    .I4(\U0/iomodule_0/lmb_abus_Q [1]),
-    .I5(\U0/iomodule_0/lmb_reg_read_213 ),
-    .O(\U0/iomodule_0/uart_status_read )
-  );
-  LUT6 #(
-    .INIT ( 64'h0000000100000000 ))
-  \U0/iomodule_0/uart_rx_read1  (
-    .I0(\U0/iomodule_0/lmb_abus_Q [4]),
-    .I1(\U0/iomodule_0/lmb_abus_Q [3]),
-    .I2(\U0/iomodule_0/lmb_abus_Q [2]),
-    .I3(\U0/iomodule_0/lmb_abus_Q [5]),
-    .I4(\U0/iomodule_0/lmb_abus_Q [1]),
-    .I5(\U0/iomodule_0/lmb_reg_read_213 ),
-    .O(\U0/iomodule_0/uart_rx_read )
   );
   LUT6 #(
     .INIT ( 64'h0040000000000000 ))
@@ -11433,10 +11229,20 @@ module microblaze_mcs (
     .I0(\U0/dlmb_M_ABus [1]),
     .I1(\U0/dlmb_M_ABus [0]),
     .I2(\U0/dlmb_M_AddrStrobe ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1277 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1224 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ),
     .O(\U0/iomodule_0/LMB_ReadStrobe_LMB_AddrStrobe_AND_323_o )
+  );
+  LUT5 #(
+    .INIT ( 32'h00400000 ))
+  \U0/iomodule_0/Mmux_gpo2_write11  (
+    .I0(\U0/iomodule_0/lmb_abus_Q [0]),
+    .I1(\U0/iomodule_0/GND_4336_o_lmb_reg_write_AND_327_o1 ),
+    .I2(\U0/iomodule_0/lmb_abus_Q [3]),
+    .I3(\U0/iomodule_0/lmb_abus_Q [4]),
+    .I4(\U0/iomodule_0/lmb_abus_Q [5]),
+    .O(\U0/iomodule_0/gpo2_write )
   );
   LUT5 #(
     .INIT ( 32'h00000040 ))
@@ -11463,14 +11269,14 @@ module microblaze_mcs (
   \U0/iomodule_0/GND_4336_o_lmb_reg_write_AND_327_o11  (
     .I0(\U0/iomodule_0/lmb_abus_Q [1]),
     .I1(\U0/iomodule_0/lmb_abus_Q [2]),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
     .O(\U0/iomodule_0/GND_4336_o_lmb_reg_write_AND_327_o1 )
   );
   LUT2 #(
     .INIT ( 4'hE ))
   \U0/iomodule_0/Sl_Ready1  (
-    .I0(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I1(\U0/iomodule_0/lmb_reg_write_252 ),
+    .I0(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I1(\U0/iomodule_0/lmb_reg_write_260 ),
     .O(\U0/dlmb_Sl_Ready [1])
   );
   LUT6 #(
@@ -11480,19 +11286,19 @@ module microblaze_mcs (
     .I1(\U0/iomodule_0/lmb_abus_Q [5]),
     .I2(\U0/iomodule_0/lmb_abus_Q [4]),
     .I3(\U0/iomodule_0/lmb_abus_Q [2]),
-    .I4(\U0/iomodule_0/lmb_reg_read_213 ),
+    .I4(\U0/iomodule_0/lmb_reg_read_221 ),
     .I5(\U0/iomodule_0/lmb_abus_Q [3]),
     .O(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_Read_inv )
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFEFFFFFF ))
+    .INIT ( 64'hFFFEFFFFFFFFFFFF ))
   \U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_Read_inv1  (
-    .I0(\U0/iomodule_0/lmb_abus_Q [1]),
-    .I1(\U0/iomodule_0/lmb_abus_Q [4]),
+    .I0(\U0/iomodule_0/lmb_abus_Q [4]),
+    .I1(\U0/iomodule_0/lmb_abus_Q [3]),
     .I2(\U0/iomodule_0/lmb_abus_Q [5]),
-    .I3(\U0/iomodule_0/lmb_abus_Q [2]),
-    .I4(\U0/iomodule_0/lmb_reg_read_213 ),
-    .I5(\U0/iomodule_0/lmb_abus_Q [3]),
+    .I3(\U0/iomodule_0/lmb_abus_Q [1]),
+    .I4(\U0/iomodule_0/lmb_abus_Q [2]),
+    .I5(\U0/iomodule_0/lmb_reg_read_221 ),
     .O(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_Read_inv )
   );
   LUT6 #(
@@ -11503,15 +11309,15 @@ module microblaze_mcs (
     .I2(\U0/iomodule_0/lmb_abus_Q [4]),
     .I3(\U0/iomodule_0/lmb_abus_Q [5]),
     .I4(\U0/iomodule_0/lmb_abus_Q [2]),
-    .I5(\U0/iomodule_0/lmb_reg_read_213 ),
+    .I5(\U0/iomodule_0/lmb_reg_read_221 ),
     .O(\U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/rst_cipr_rd )
   );
   LUT3 #(
     .INIT ( 8'h51 ))
   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Run_tx_Start_AND_360_o1  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_344 ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_346 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/serial_Data_345 ),
+    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_341 ),
+    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_343 ),
+    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/serial_Data_342 ),
     .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Run_tx_Start_AND_360_o )
   );
   LUT3 #(
@@ -11546,240 +11352,102 @@ module microblaze_mcs (
     .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/fifo_DOut [7]),
     .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_67 )
   );
-  LUT4 #(
-    .INIT ( 16'hBA8A ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_serial_to_parallel<8>11  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [8]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [7]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [8])
-  );
-  LUT4 #(
-    .INIT ( 16'hBA8A ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_serial_to_parallel<7>11  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [7]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [6]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [7])
-  );
-  LUT4 #(
-    .INIT ( 16'hBA8A ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_serial_to_parallel<6>11  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [6]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [5]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [6])
-  );
-  LUT4 #(
-    .INIT ( 16'hBA8A ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_serial_to_parallel<5>11  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [5]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [4]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [5])
-  );
-  LUT4 #(
-    .INIT ( 16'hBA8A ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_serial_to_parallel<4>11  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [4]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [3]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [4])
-  );
-  LUT4 #(
-    .INIT ( 16'hBA8A ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_serial_to_parallel<2>11  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [2]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [1]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [2])
-  );
-  LUT4 #(
-    .INIT ( 16'hBA8A ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_serial_to_parallel<1>11  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [1]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [0]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [1])
-  );
-  LUT4 #(
-    .INIT ( 16'hBA8A ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_serial_to_parallel<3>11  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [3]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [2]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/serial_to_parallel [3])
-  );
-  LUT4 #(
-    .INIT ( 16'h2000 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Frame_Error1  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [0]),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Frame_Error )
-  );
-  LUT3 #(
-    .INIT ( 8'h54 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/recycle1  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/mid_Start_Bit ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/recycle )
-  );
   LUT5 #(
-    .INIT ( 32'h40000000 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_stop_Bit_Position_GND_4369_o_MUX_4573_o11  (
-    .I0(\U0/LMB_Rst_25 ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [0]),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .I4(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_GND_4369_o_MUX_4573_o )
-  );
-  LUT4 #(
-    .INIT ( 16'h0004 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_start_Edge_Detected_GND_4369_o_MUX_4556_o11  (
-    .I0(\U0/LMB_Rst_25 ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/previous_RX_383 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/running_381 ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [0]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/start_Edge_Detected_GND_4369_o_MUX_4556_o )
-  );
-  LUT2 #(
-    .INIT ( 4'h4 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_previous_RX_GND_4369_o_MUX_4554_o11  (
-    .I0(\U0/LMB_Rst_25 ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [0]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/previous_RX_GND_4369_o_MUX_4554_o )
-  );
-  LUT2 #(
-    .INIT ( 4'hE ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Mmux_RX_PWR_84_o_MUX_4551_o11  (
-    .I0(\U0/LMB_Rst_25 ),
-    .I1(UART_Rx),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_PWR_84_o_MUX_4551_o )
-  );
-  LUT2 #(
-    .INIT ( 4'hE ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/_n0073_inv1  (
-    .I0(\U0/LMB_Rst_25 ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/_n0073_inv )
-  );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[23].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [7]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [23]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [23]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [7]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [23]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [23]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[23].Operand_Select_Bit_I/op2_I )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[22].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [6]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [22]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [22]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [6]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [22]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [22]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[22].Operand_Select_Bit_I/op2_I )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[21].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [5]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [21]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [21]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [5]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [21]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [21]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[21].Operand_Select_Bit_I/op2_I )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[20].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [4]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [20]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [20]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [4]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [20]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [20]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[20].Operand_Select_Bit_I/op2_I )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[19].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [3]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [19]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [19]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [3]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [19]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [19]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[19].Operand_Select_Bit_I/op2_I )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[18].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [2]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [18]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [18]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [2]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [18]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [18]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[18].Operand_Select_Bit_I/op2_I )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[17].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [1]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [17]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [17]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [1]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [17]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [17]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[17].Operand_Select_Bit_I/op2_I )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[16].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [0]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [16]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [16]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [0]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [16]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [16]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[16].Operand_Select_Bit_I/op2_I )
   );
   LUT3 #(
     .INIT ( 8'h20 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I111  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [0]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1334 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [8]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [24]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [24]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [8]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [24]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [24]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/op2_I )
   );
   LUT2 #(
@@ -11789,15 +11457,14 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_PC ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/op1_SPR )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[25].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [9]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [25]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [25]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [9]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [25]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [25]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[25].Operand_Select_Bit_I/op2_I )
   );
   LUT2 #(
@@ -11807,15 +11474,14 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_PC ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[25].Operand_Select_Bit_I/op1_SPR )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [13]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [29]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [29]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [13]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [29]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [29]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/op2_I )
   );
   LUT3 #(
@@ -11826,15 +11492,14 @@ module microblaze_mcs (
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_PC ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/op1_SPR )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[30].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [14]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [30]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [30]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [14]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [30]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [30]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[30].Operand_Select_Bit_I/op2_I )
   );
   LUT2 #(
@@ -11844,26 +11509,24 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_PC ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[30].Operand_Select_Bit_I/op1_SPR )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [15]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [31]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [31]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [15]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [31]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [31]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op2_I )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[28].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [12]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [28]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [28]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [12]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [28]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [28]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[28].Operand_Select_Bit_I/op2_I )
   );
   LUT3 #(
@@ -11874,15 +11537,14 @@ module microblaze_mcs (
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_PC ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[28].Operand_Select_Bit_I/op1_SPR )
   );
-  LUT6 #(
-    .INIT ( 64'hCCFFCCAACCFACCFA ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[27].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [11]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [27]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [27]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [11]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [27]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [27]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[27].Operand_Select_Bit_I/op2_I )
   );
   LUT2 #(
@@ -11892,15 +11554,14 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_PC ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[27].Operand_Select_Bit_I/op1_SPR )
   );
-  LUT6 #(
-    .INIT ( 64'hCC55CC00CC50CC50 ))
+  LUT5 #(
+    .INIT ( 32'hAFA0ACAC ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[26].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [10]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [26]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [26]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [10]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [26]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [26]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[26].Operand_Select_Bit_I/op2_I )
   );
   LUT2 #(
@@ -11920,7 +11581,7 @@ module microblaze_mcs (
   LUT3 #(
     .INIT ( 8'hD7 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[0].ALU_Bit_I1/Using_FPGA_LUT6.Last_Bit.maintain_sign_n1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Compare_Instr_417 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Compare_Instr_368 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op2_i [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/op1_shift[0] ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ALU_I/FPGA_Target.ALL_Bits[0].ALU_Bit_I1/Using_FPGA_LUT6.Last_Bit.maintain_sign_n )
@@ -11928,8 +11589,8 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hEA40 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext<0>21  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext16_414 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_415 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext16_365 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_366 ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [24]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [16]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext [0])
@@ -11937,8 +11598,8 @@ module microblaze_mcs (
   LUT3 #(
     .INIT ( 8'h20 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext<0>111  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_415 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext16_414 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_366 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext16_365 ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [24]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/sext<0>1 )
   );
@@ -11947,40 +11608,40 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/Mmux_msb11  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/FPU_Cond [0]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/FPU_Cond [1]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Shift_Carry_In_412 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Shift_Carry_In_363 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/op1_shift[0] ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/msb )
   );
   LUT5 #(
     .INIT ( 32'hEFEA4540 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/DATA_SIZE_gt_8.DATA_SIZE_gt_16.Mask_DOUBLET_MSB.Upper_extend<0>1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_415 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_366 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [16]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext16_414 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_429 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext16_365 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_380 ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [24]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/DATA_SIZE_gt_8.DATA_SIZE_gt_16.Mask_DOUBLET_MSB.Upper_extend [0])
   );
   LUT3 #(
     .INIT ( 8'hE4 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/Mmux_data_Read_Mask<16>11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_415 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_430 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sext8_366 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_381 ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [24]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Result_Mux_I/data_Read_Mask [16])
   );
   LUT3 #(
     .INIT ( 8'hF8 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Mmux_rst_Values_II11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reset_BIP_I_1274 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reset_BIP_I_1221 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/rst_Values_II [28])
   );
   LUT2 #(
     .INIT ( 4'hE ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Mmux_rst_Values_II31  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/rst_Values_II [30])
   );
@@ -12068,15 +11729,6 @@ module microblaze_mcs (
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_GND_12_o_MUX_4384_o )
   );
-  LUT4 #(
-    .INIT ( 16'h8880 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/lwx_swx_Write_Carry_i1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_lwx_I_1280 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1279 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.LWX_SWX_Write_Carry )
-  );
   LUT6 #(
     .INIT ( 64'h0000000800000000 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_GND_12_o_PWR_12_o_MUX_4239_o11  (
@@ -12107,14 +11759,14 @@ module microblaze_mcs (
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_II ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 )
   );
   LUT5 #(
     .INIT ( 32'hF0F0FCF8 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable31  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_1294 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_1239 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .I3(\U0/dlmb_LMB_Ready ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable3 )
@@ -12122,9 +11774,9 @@ module microblaze_mcs (
   LUT4 #(
     .INIT ( 16'hFFA8 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ),
     .I1(\U0/dlmb_LMB_Ready ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_1294 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_1239 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I1 )
   );
@@ -12134,7 +11786,7 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [7]),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<7>1_1187 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<7>1_1139 )
   );
   LUT3 #(
     .INIT ( 8'hF8 ))
@@ -12142,7 +11794,7 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [8]),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<8>1_1188 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<8>1_1140 )
   );
   LUT3 #(
     .INIT ( 8'hF8 ))
@@ -12150,7 +11802,7 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [9]),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<9>1_1189 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF<9>1_1141 )
   );
   LUT3 #(
     .INIT ( 8'h10 ))
@@ -12193,23 +11845,23 @@ module microblaze_mcs (
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Valid_Reg )
   );
   LUT5 #(
-    .INIT ( 32'h40000000 ))
+    .INIT ( 32'h08000000 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[21]_AND_22_o1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [5]),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[21]_AND_21_o1 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[21]_AND_22_o )
   );
   LUT5 #(
-    .INIT ( 32'h00004000 ))
+    .INIT ( 32'h00400000 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[21]_AND_21_o2  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[21]_AND_21_o1 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [5]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [5]),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[21]_AND_21_o1 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[21]_AND_21_o )
   );
   LUT5 #(
@@ -12222,20 +11874,10 @@ module microblaze_mcs (
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [8]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reg_Test_Equal_N_i )
   );
-  LUT5 #(
-    .INIT ( 32'hF8F0FBFF ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_force_Val2_n_i11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_99_o ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_Val2_n_i )
-  );
   LUT4 #(
     .INIT ( 16'hEFAA ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable281  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_99_o ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
@@ -12244,10 +11886,10 @@ module microblaze_mcs (
   LUT6 #(
     .INIT ( 64'h5FFF133300000000 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/i_AS_I1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_decode_I_1290 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1288 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1295 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_decode_I_1236 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1234 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1240 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
     .I4(\U0/ilmb_Sl_Ready ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ifetch_carry2 ),
     .O(\U0/ilmb_M_AddrStrobe )
@@ -12273,17 +11915,9 @@ module microblaze_mcs (
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/use_Reg_Neg_S_i )
   );
   LUT3 #(
-    .INIT ( 8'hEC ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable111  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable11 )
-  );
-  LUT3 #(
     .INIT ( 8'hEA ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable101  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable10 )
@@ -12304,20 +11938,18 @@ module microblaze_mcs (
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 )
   );
-  LUT3 #(
-    .INIT ( 8'h10 ))
+  LUT2 #(
+    .INIT ( 4'h4 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_alu_Op_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/alu_Op_II [0]),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/alu_Op_II [0]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/alu_Op_I [0])
   );
-  LUT3 #(
-    .INIT ( 8'hF4 ))
+  LUT2 #(
+    .INIT ( 4'h4 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_alu_Op_I21  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/alu_Op_II [1]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/alu_Op_I [1])
   );
   LUT2 #(
@@ -12328,11 +11960,11 @@ module microblaze_mcs (
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_instr_OF[9]_MUX_4383_o )
   );
   LUT4 #(
-    .INIT ( 16'h0004 ))
+    .INIT ( 16'h0010 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_GND_12_o_instr_OF[31]_MUX_4230_o11  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [15]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [15]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_instr_OF[31]_MUX_4230_o )
   );
@@ -12350,15 +11982,8 @@ module microblaze_mcs (
     .INIT ( 4'hB ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_jump_carry3_sel11  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_Valid ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump2_I_1289 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump2_I_1235 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump_carry3_sel )
-  );
-  LUT2 #(
-    .INIT ( 4'hE ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I_01  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I_0 )
   );
   LUT2 #(
     .INIT ( 4'hE ))
@@ -12396,41 +12021,26 @@ module microblaze_mcs (
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_instr_OF[4]_equal_54_o )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_reservation_AND_30_o1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1287 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1279 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.LWX_SWX_Carry )
-  );
-  LUT2 #(
     .INIT ( 4'h8 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1229 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump )
   );
-  LUT4 #(
-    .INIT ( 16'hFF01 ))
+  LUT3 #(
+    .INIT ( 8'h01 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_Select1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump2_I_1289 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1229 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump2_I_1235 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_Select )
   );
   LUT2 #(
     .INIT ( 4'h8 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_S1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_1285 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_1232 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.write_Carry )
-  );
-  LUT2 #(
-    .INIT ( 4'hE ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/other_Write1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_1286 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Write_DIV_result_1293 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/other_Write )
   );
   LUT2 #(
     .INIT ( 4'h6 ))
@@ -12472,58 +12082,47 @@ module microblaze_mcs (
     .INIT ( 4'hE ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/reset_Buffer_Addr1  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/reset_Buffer_Addr )
   );
   LUT6 #(
-    .INIT ( 64'hFFFEFEFEFF000000 ))
+    .INIT ( 64'hFFFEFF00FEFE0000 ))
+  \U0/dlmb/DBus_Oring.tmp_or1  (
+    .I0(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In [0]),
+    .I1(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [0]),
+    .I2(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [0]),
+    .I3(\U0/dlmb_port_BRAM_Din [31]),
+    .I4(\U0/dlmb_Sl_Ready [1]),
+    .I5(\U0/dlmb_Sl_Ready [0]),
+    .O(\U0/dlmb_LMB_ReadDBus [31])
+  );
+  LUT6 #(
+    .INIT ( 64'hFFFEFF00FEFE0000 ))
   \U0/dlmb/DBus_Oring.Res<30>1  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [1]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [1]),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [1]),
+    .I0(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In [1]),
+    .I1(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [1]),
+    .I2(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [1]),
     .I3(\U0/dlmb_port_BRAM_Din [30]),
-    .I4(\U0/dlmb_Sl_Ready [0]),
-    .I5(\U0/dlmb_Sl_Ready [1]),
+    .I4(\U0/dlmb_Sl_Ready [1]),
+    .I5(\U0/dlmb_Sl_Ready [0]),
     .O(\U0/dlmb_LMB_ReadDBus [30])
   );
   LUT6 #(
-    .INIT ( 64'hFFFEFEFEFF000000 ))
-  \U0/dlmb/DBus_Oring.Res<29>1  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [2]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [2]),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [2]),
-    .I3(\U0/dlmb_port_BRAM_Din [29]),
-    .I4(\U0/dlmb_Sl_Ready [0]),
-    .I5(\U0/dlmb_Sl_Ready [1]),
-    .O(\U0/dlmb_LMB_ReadDBus [29])
-  );
-  LUT6 #(
-    .INIT ( 64'hFFFEFEFEFF000000 ))
-  \U0/dlmb/DBus_Oring.Res<27>1  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [4]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [4]),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [4]),
-    .I3(\U0/dlmb_port_BRAM_Din [27]),
-    .I4(\U0/dlmb_Sl_Ready [0]),
-    .I5(\U0/dlmb_Sl_Ready [1]),
-    .O(\U0/dlmb_LMB_ReadDBus [27])
-  );
-  LUT6 #(
-    .INIT ( 64'hFFFEFEFEFF000000 ))
-  \U0/dlmb/DBus_Oring.Res<24>1  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [7]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [7]),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [7]),
-    .I3(\U0/dlmb_port_BRAM_Din [24]),
-    .I4(\U0/dlmb_Sl_Ready [0]),
-    .I5(\U0/dlmb_Sl_Ready [1]),
-    .O(\U0/dlmb_LMB_ReadDBus [24])
+    .INIT ( 64'hFFFEFF00FEFE0000 ))
+  \U0/dlmb/DBus_Oring.Res<28>1  (
+    .I0(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [3]),
+    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status [3]),
+    .I2(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [3]),
+    .I3(\U0/dlmb_port_BRAM_Din [28]),
+    .I4(\U0/dlmb_Sl_Ready [1]),
+    .I5(\U0/dlmb_Sl_Ready [0]),
+    .O(\U0/dlmb_LMB_ReadDBus [28])
   );
   LUT2 #(
     .INIT ( 4'h8 ))
   \U0/dlmb_cntlr/Sl_Ready1  (
-    .I0(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I1(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I0(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I1(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .O(\U0/dlmb_Sl_Ready [0])
   );
   LUT3 #(
@@ -12558,327 +12157,311 @@ module microblaze_mcs (
     .I2(\U0/dlmb_M_BE [0]),
     .O(\U0/dlmb_port_BRAM_WEN [0])
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [9]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/Mmux_op2_I11_1329 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [9]),
+    .O(N2)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [9]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [9]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/Mmux_op2_I11_1329 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N2),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [9]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [9]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[8].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [8]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[8].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[8].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [8]),
+    .O(N4)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[8].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [8]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [8]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[8].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[8].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N4),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [8]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [8]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[8].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[7].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [7]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[7].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[7].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [7]),
+    .O(N6)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[7].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [7]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [7]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[7].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[7].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N6),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [7]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [7]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[7].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[6].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [6]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[6].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[6].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [6]),
+    .O(N8)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[6].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [6]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [6]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[6].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[6].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N8),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [6]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [6]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[6].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[5].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [5]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[5].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[5].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [5]),
+    .O(N10)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[5].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [5]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [5]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[5].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[5].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N10),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [5]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [5]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[5].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[4].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [4]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[4].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[4].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [4]),
+    .O(N12)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[4].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [4]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [4]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[4].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[4].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N12),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [4]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [4]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[4].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[3].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [3]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[3].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[3].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [3]),
+    .O(N14)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[3].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [3]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [3]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[3].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[3].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N14),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [3]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [3]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[3].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[2].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [2]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[2].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[2].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [2]),
+    .O(N16)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[2].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [2]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [2]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[2].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[2].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N16),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [2]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [2]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[2].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[1].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [1]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[1].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[1].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [1]),
+    .O(N18)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[1].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [1]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [1]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[1].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[1].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N18),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [1]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [1]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[1].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [15]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [15]),
+    .O(N20)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [15]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [15]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N20),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [15]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [15]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[15].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[14].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [14]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[14].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[14].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [14]),
+    .O(N22)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[14].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [14]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [14]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[14].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[14].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N22),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [14]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [14]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[14].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[13].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [13]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[13].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[13].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [13]),
+    .O(N24)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[13].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [13]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [13]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[13].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[13].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N24),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [13]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [13]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[13].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[12].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [12]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[12].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[12].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [12]),
+    .O(N26)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[12].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [12]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [12]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[12].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[12].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N26),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [12]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [12]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[12].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[11].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [11]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[11].Operand_Select_Bit_I/Mmux_op2_I11 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[11].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [11]),
+    .O(N28)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[11].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [11]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [11]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[11].Operand_Select_Bit_I/Mmux_op2_I11 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[11].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N28),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [11]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [11]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[11].Operand_Select_Bit_I/op2_I )
   );
-  LUT3 #(
-    .INIT ( 8'h80 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [10]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I13_1344 )
+  LUT2 #(
+    .INIT ( 4'h8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [10]),
+    .O(N30)
   );
   LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFFC0A0 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I13  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [10]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [10]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I13_1344 ),
+    .INIT ( 64'hFFFFFFFFAAF0AACC ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1  (
+    .I0(N30),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [10]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [10]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I11 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/op2_I )
   );
   LUT3 #(
     .INIT ( 8'hE4 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[0].Operand_Select_Bit_I/Mmux_op2_I1_SW0  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_419 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/using_Imm_370 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [0]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Size_17to32.imm_Reg [0]),
-    .O(N2)
+    .O(N32)
   );
-  LUT6 #(
-    .INIT ( 64'hF0F05500F0F04444 ))
+  LUT5 #(
+    .INIT ( 32'hCCF0CCAA ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[0].Operand_Select_Bit_I/Mmux_op2_I1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [0]),
-    .I2(N2),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [0]),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12_717 ),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/reg2_Data [0]),
+    .I1(N32),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/ex_Result [0]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I12 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.res_Forward2 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[0].Operand_Select_Bit_I/op2_I )
   );
   LUT6 #(
     .INIT ( 64'h0000000110101011 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o12  (
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o11  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [12]),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [13]),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [1]),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o11 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o1 )
   );
   LUT2 #(
     .INIT ( 4'h1 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_OpSel1_PC1_SW0  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [15]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
-    .O(N14)
+    .O(N44)
   );
   LUT6 #(
     .INIT ( 64'hFFFFCECCFFFF0000 ))
@@ -12886,118 +12469,53 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [1]),
-    .I3(N14),
+    .I3(N44),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.opsel1_PC )
+  );
+  LUT4 #(
+    .INIT ( 16'hFFFE ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reg_Write_Low2_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [2]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [3]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [4]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [0]),
+    .O(N46)
+  );
+  LUT6 #(
+    .INIT ( 64'hAAAAAA0008080800 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reg_Write_Low2  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I1(\U0/dlmb_LMB_Ready ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1224 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [1]),
+    .I4(N46),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_1207 ),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg_Write_I )
   );
   LUT6 #(
     .INIT ( 64'h44544444EEFEEEEE ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_ex_Valid_inHibit_EX_MUX_4104_o1  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .I1(N18),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump2_I_1289 ),
+    .I1(N48),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump2_I_1235 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_Valid ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/jump_Carry2 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_rstpot )
   );
-  LUT3 #(
-    .INIT ( 8'hFE ))
-  \U0/dlmb/DBus_Oring.tmp_or_SW0  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[0] ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [0]),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [0]),
-    .O(N20)
-  );
-  LUT6 #(
-    .INIT ( 64'hFFFEFEFEFF000000 ))
-  \U0/dlmb/DBus_Oring.tmp_or  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In_0_313 ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [0]),
-    .I2(N20),
-    .I3(\U0/dlmb_port_BRAM_Din [31]),
-    .I4(\U0/dlmb_Sl_Ready [0]),
-    .I5(\U0/dlmb_Sl_Ready [1]),
-    .O(\U0/dlmb_LMB_ReadDBus [31])
-  );
-  LUT2 #(
-    .INIT ( 4'hE ))
-  \U0/dlmb/DBus_Oring.Res<28>_SW0  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [3]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [3]),
-    .O(N22)
-  );
-  LUT6 #(
-    .INIT ( 64'hFFFEFEFEFF000000 ))
-  \U0/dlmb/DBus_Oring.Res<28>  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [3]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[3] ),
-    .I2(N22),
-    .I3(\U0/dlmb_port_BRAM_Din [28]),
-    .I4(\U0/dlmb_Sl_Ready [0]),
-    .I5(\U0/dlmb_Sl_Ready [1]),
-    .O(\U0/dlmb_LMB_ReadDBus [28])
-  );
-  LUT2 #(
-    .INIT ( 4'hE ))
-  \U0/dlmb/DBus_Oring.Res<26>_SW0  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [5]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [5]),
-    .O(N24)
-  );
-  LUT6 #(
-    .INIT ( 64'hFFFEFEFEFF000000 ))
-  \U0/dlmb/DBus_Oring.Res<26>  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [5]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[5] ),
-    .I2(N24),
-    .I3(\U0/dlmb_port_BRAM_Din [26]),
-    .I4(\U0/dlmb_Sl_Ready [0]),
-    .I5(\U0/dlmb_Sl_Ready [1]),
-    .O(\U0/dlmb_LMB_ReadDBus [26])
-  );
-  LUT2 #(
-    .INIT ( 4'hE ))
-  \U0/dlmb/DBus_Oring.Res<25>_SW0  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [6]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [6]),
-    .O(N26)
-  );
-  LUT6 #(
-    .INIT ( 64'hFFFEFEFEFF000000 ))
-  \U0/dlmb/DBus_Oring.Res<25>  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Data [6]),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status[6] ),
-    .I2(N26),
-    .I3(\U0/dlmb_port_BRAM_Din [25]),
-    .I4(\U0/dlmb_Sl_Ready [0]),
-    .I5(\U0/dlmb_Sl_Ready [1]),
-    .O(\U0/dlmb_LMB_ReadDBus [25])
-  );
   FDS   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i  (
     .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_glue_rst_1353 ),
-    .S(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_303 )
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/overrun_error  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/overrun_error_glue_set_1354 ),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/overrun_error_398 )
-  );
-  FDR   \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/frame_error  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/frame_error_glue_set_1355 ),
-    .R(\U0/LMB_Rst_25 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/frame_error_399 )
+    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_glue_rst_1294 ),
+    .S(\U0/LMB_Rst_33 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_300 )
   );
   FDR #(
     .INIT ( 1'b0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[28].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I  (
     .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[28].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1356 ),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[28].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1295 ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/rst_Values_II [28]),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.bip_Active )
   );
@@ -13005,7 +12523,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I  (
     .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1358 ),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1297 ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/rst_Values_II [29]),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.carry )
   );
@@ -13013,7 +12531,7 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[30].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I  (
     .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[30].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1359 ),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[30].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1298 ),
     .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/rst_Values_II [30]),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.enable_Interrupt )
   );
@@ -13021,16 +12539,15 @@ module microblaze_mcs (
     .INIT ( 1'b0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Ext_NM_BRK_FDRSE  (
     .C(Clk),
-    .CE(N1),
-    .D(N1),
+    .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .Q(\NLW_U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Ext_NM_BRK_FDRSE_Q_UNCONNECTED )
   );
-  FDR #(
+  FD #(
     .INIT ( 1'b0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Force_Val2_FDRSE  (
     .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Force_Val2_FDRSE_glue_set_1360 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Force_Val2_FDRSE_glue_set_1299 ),
     .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_Val2_N )
   );
   FDRE #(
@@ -13038,233 +12555,251 @@ module microblaze_mcs (
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_glue_set_1361 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_1286 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_glue_set_1300 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_1207 )
   );
-  LUT3 #(
-    .INIT ( 8'hF4 ))
+  LUT2 #(
+    .INIT ( 4'hE ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_glue_set  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_GND_12_o_MUX_4170_o ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_GND_12_o_MUX_4170_o ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_glue_set_1361 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_glue_set_1300 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_glue_set_1362 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_1285 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_glue_set_1301 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_1232 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_glue_set_1363 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_413 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_PWR_12_o_MUX_4237_o ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_364 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_glue_set_1364 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_430 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_glue_set_1302 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_381 )
   );
   FDRE   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i  (
     .C(Clk),
     .CE(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_glue_set_1365 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_429 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_glue_set_1303 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_380 )
   );
   FDS   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n  (
     .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_glue_rst_1366 ),
-    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1283 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_glue_rst_1304 ),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1230 )
   );
   FDR   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch  (
     .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_glue_set_1367 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_1284 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_glue_set_1305 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_1231 )
   );
   FDR #(
     .INIT ( 1'b0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation  (
     .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_glue_set_1368 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1287 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_glue_set_1306 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1233 )
   );
   FDR #(
     .INIT ( 1'b0 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress  (
     .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_glue_set_1369 ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1288 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_glue_set_1307 ),
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1234 )
   );
   LUT1 #(
     .INIT ( 2'h2 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Zero_Detect_I/Using_FPGA.Part_Of_Zero_Carry_Start_rt  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg_Test_Equal ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Zero_Detect_I/Using_FPGA.Part_Of_Zero_Carry_Start_rt_1370 )
-  );
-  LUT1 #(
-    .INIT ( 2'h2 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Using_Breakable_Pipe.Take_Intr_MUXCY_2_rt  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Using_Breakable_Pipe.Take_Intr_MUXCY_2_rt_1371 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Zero_Detect_I/Using_FPGA.Part_Of_Zero_Carry_Start_rt_1308 )
   );
   LUT1 #(
     .INIT ( 2'h2 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.New_Carry_MUXCY_rt  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/select_ALU_Carry_1278 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.New_Carry_MUXCY_rt_1372 )
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/select_ALU_Carry_1225 ),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.New_Carry_MUXCY_rt_1309 )
   );
   LUT1 #(
     .INIT ( 2'h2 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.clean_iReady_MuxCY_rt  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1283 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.clean_iReady_MuxCY_rt_1373 )
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1230 ),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.clean_iReady_MuxCY_rt_1310 )
   );
   FDR   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid  (
     .C(Clk),
     .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_rstpot ),
-    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 )
+    .R(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 )
   );
-  LUT2 #(
-    .INIT ( 4'h4 ))
-  \U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In_0_rstpot  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_Read_inv ),
-    .I1(GPI2[0]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In_0_rstpot_1378 )
-  );
-  FD   \U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In_0  (
+  FD   \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_3  (
     .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In_0_rstpot_1378 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/GPI_I2/GPI_In_0_313 )
+    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_3_rstpot_1312 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status [3])
   );
   FD   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent  (
     .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_rstpot_1379 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_304 )
+    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_rstpot_1313 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_223 )
   );
   FD   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start  (
     .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_rstpot_1380 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_344 )
+    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_rstpot_1314 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_341 )
   );
   FD   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits  (
     .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_rstpot_1381 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_346 )
+    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_rstpot_1315 ),
+    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_343 )
+  );
+  FD   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready  (
+    .C(Clk),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_rstpot_1316 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_1239 )
   );
   FD   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I  (
     .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_rstpot_1382 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_1292 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_rstpot_1317 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_1238 )
   );
   FD   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I  (
     .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_rstpot1_1383 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_1276 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_rstpot1_1318 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_1223 )
   );
   FD   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i  (
     .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_rstpot1_1384 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1275 )
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_rstpot1_1319 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1222 )
   );
-  LUT5 #(
-    .INIT ( 32'hFEEEF444 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Force_Val2_FDRSE_glue_set  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_Val2_N ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_Val2_n_i ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Force_Val2_FDRSE_glue_set_1360 )
+  FD   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX  (
+    .C(Clk),
+    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_rstpot1_1320 ),
+    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1229 )
   );
   LUT6 #(
-    .INIT ( 64'h5555110155551111 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[9].Operand_Select_Bit_I/Mmux_op2_I11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_II ),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[10].Operand_Select_Bit_I/Mmux_op2_I1 )
-  );
-  LUT6 #(
-    .INIT ( 64'h0000000008000000 ))
+    .INIT ( 64'h0040000000000000 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_99_o<0>1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_99_o )
   );
   LUT4 #(
-    .INIT ( 16'hFFEA ))
+    .INIT ( 16'hFFF8 ))
   \U0/dlmb/Ready_ORing.i1  (
-    .I0(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I1(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
-    .I2(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I3(\U0/iomodule_0/lmb_reg_read_Q_253 ),
+    .I0(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I1(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
+    .I2(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I3(\U0/iomodule_0/lmb_reg_write_260 ),
     .O(\U0/dlmb_LMB_Ready )
   );
-  LUT4 #(
-    .INIT ( 16'hD8FF ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_85_o1_SW0  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [6]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg1_Addr [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
-    .O(N30)
+  LUT6 #(
+    .INIT ( 64'hFFFFEEE0EEE0EEE0 ))
+  \U0/dlmb/DBus_Oring.Res<29>1  (
+    .I0(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [2]),
+    .I1(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [2]),
+    .I2(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I3(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I4(\U0/dlmb_port_BRAM_Din [29]),
+    .I5(\U0/dlmb_Sl_Ready [0]),
+    .O(\U0/dlmb_LMB_ReadDBus [29])
   );
   LUT6 #(
-    .INIT ( 64'h0000002000200020 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_85_o1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
-    .I3(N30),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 ),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_85_o )
+    .INIT ( 64'hFFFFEEE0EEE0EEE0 ))
+  \U0/dlmb/DBus_Oring.Res<27>1  (
+    .I0(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [4]),
+    .I1(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [4]),
+    .I2(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I3(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I4(\U0/dlmb_port_BRAM_Din [27]),
+    .I5(\U0/dlmb_Sl_Ready [0]),
+    .O(\U0/dlmb_LMB_ReadDBus [27])
+  );
+  LUT6 #(
+    .INIT ( 64'hFFFFEEE0EEE0EEE0 ))
+  \U0/dlmb/DBus_Oring.Res<26>1  (
+    .I0(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [5]),
+    .I1(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [5]),
+    .I2(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I3(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I4(\U0/dlmb_port_BRAM_Din [26]),
+    .I5(\U0/dlmb_Sl_Ready [0]),
+    .O(\U0/dlmb_LMB_ReadDBus [26])
+  );
+  LUT6 #(
+    .INIT ( 64'hFFFFEEE0EEE0EEE0 ))
+  \U0/dlmb/DBus_Oring.Res<25>1  (
+    .I0(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [6]),
+    .I1(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [6]),
+    .I2(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I3(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I4(\U0/dlmb_port_BRAM_Din [25]),
+    .I5(\U0/dlmb_Sl_Ready [0]),
+    .O(\U0/dlmb_LMB_ReadDBus [25])
+  );
+  LUT6 #(
+    .INIT ( 64'hFFFFEEE0EEE0EEE0 ))
+  \U0/dlmb/DBus_Oring.Res<24>1  (
+    .I0(\U0/iomodule_0/IOModule_Core_I1/intc_cipr [7]),
+    .I1(\U0/iomodule_0/IOModule_Core_I1/GPI_I1/GPI_In [7]),
+    .I2(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I3(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I4(\U0/dlmb_port_BRAM_Din [24]),
+    .I5(\U0/dlmb_Sl_Ready [0]),
+    .O(\U0/dlmb_LMB_ReadDBus [24])
   );
   LUT2 #(
     .INIT ( 4'h8 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/i_AS_I1_SW1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1295 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_decode_I_1290 ),
-    .O(N32)
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1240 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_decode_I_1236 ),
+    .O(N52)
   );
   LUT6 #(
     .INIT ( 64'hFFFFFFFF08880AAA ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I171  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ifetch_carry2 ),
     .I1(\U0/ilmb_Sl_Ready ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I3(N32),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1288 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I3(N52),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1234 ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I12 )
+  );
+  LUT3 #(
+    .INIT ( 8'hE4 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg1_Addr [0]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [6]),
+    .O(N54)
   );
   LUT6 #(
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<23>1  (
     .I0(\U0/dlmb_Sl_DBus [55]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [23]),
     .O(\U0/dlmb_LMB_ReadDBus [23])
   );
@@ -13272,10 +12807,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<22>1  (
     .I0(\U0/dlmb_Sl_DBus [54]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [22]),
     .O(\U0/dlmb_LMB_ReadDBus [22])
   );
@@ -13283,10 +12818,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<21>1  (
     .I0(\U0/dlmb_Sl_DBus [53]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [21]),
     .O(\U0/dlmb_LMB_ReadDBus [21])
   );
@@ -13294,10 +12829,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<20>1  (
     .I0(\U0/dlmb_Sl_DBus [52]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [20]),
     .O(\U0/dlmb_LMB_ReadDBus [20])
   );
@@ -13305,10 +12840,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<19>1  (
     .I0(\U0/dlmb_Sl_DBus [51]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [19]),
     .O(\U0/dlmb_LMB_ReadDBus [19])
   );
@@ -13316,10 +12851,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<18>1  (
     .I0(\U0/dlmb_Sl_DBus [50]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [18]),
     .O(\U0/dlmb_LMB_ReadDBus [18])
   );
@@ -13327,10 +12862,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<17>1  (
     .I0(\U0/dlmb_Sl_DBus [49]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [17]),
     .O(\U0/dlmb_LMB_ReadDBus [17])
   );
@@ -13338,10 +12873,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<16>1  (
     .I0(\U0/dlmb_Sl_DBus [48]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [16]),
     .O(\U0/dlmb_LMB_ReadDBus [16])
   );
@@ -13349,10 +12884,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<15>1  (
     .I0(\U0/dlmb_Sl_DBus [47]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [15]),
     .O(\U0/dlmb_LMB_ReadDBus [15])
   );
@@ -13360,10 +12895,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<14>1  (
     .I0(\U0/dlmb_Sl_DBus [46]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [14]),
     .O(\U0/dlmb_LMB_ReadDBus [14])
   );
@@ -13371,10 +12906,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<13>1  (
     .I0(\U0/dlmb_Sl_DBus [45]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [13]),
     .O(\U0/dlmb_LMB_ReadDBus [13])
   );
@@ -13382,10 +12917,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<12>1  (
     .I0(\U0/dlmb_Sl_DBus [44]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [12]),
     .O(\U0/dlmb_LMB_ReadDBus [12])
   );
@@ -13393,10 +12928,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<11>1  (
     .I0(\U0/dlmb_Sl_DBus [43]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [11]),
     .O(\U0/dlmb_LMB_ReadDBus [11])
   );
@@ -13404,10 +12939,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<10>1  (
     .I0(\U0/dlmb_Sl_DBus [42]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [10]),
     .O(\U0/dlmb_LMB_ReadDBus [10])
   );
@@ -13415,10 +12950,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<9>1  (
     .I0(\U0/dlmb_Sl_DBus [41]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [9]),
     .O(\U0/dlmb_LMB_ReadDBus [9])
   );
@@ -13426,10 +12961,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<8>1  (
     .I0(\U0/dlmb_Sl_DBus [40]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [8]),
     .O(\U0/dlmb_LMB_ReadDBus [8])
   );
@@ -13437,10 +12972,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<7>1  (
     .I0(\U0/dlmb_Sl_DBus [39]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [7]),
     .O(\U0/dlmb_LMB_ReadDBus [7])
   );
@@ -13448,10 +12983,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<6>1  (
     .I0(\U0/dlmb_Sl_DBus [38]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [6]),
     .O(\U0/dlmb_LMB_ReadDBus [6])
   );
@@ -13459,10 +12994,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<5>1  (
     .I0(\U0/dlmb_Sl_DBus [37]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [5]),
     .O(\U0/dlmb_LMB_ReadDBus [5])
   );
@@ -13470,10 +13005,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<4>1  (
     .I0(\U0/dlmb_Sl_DBus [36]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [4]),
     .O(\U0/dlmb_LMB_ReadDBus [4])
   );
@@ -13481,10 +13016,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<3>1  (
     .I0(\U0/dlmb_Sl_DBus [35]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [3]),
     .O(\U0/dlmb_LMB_ReadDBus [3])
   );
@@ -13492,10 +13027,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<2>1  (
     .I0(\U0/dlmb_Sl_DBus [34]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [2]),
     .O(\U0/dlmb_LMB_ReadDBus [2])
   );
@@ -13503,10 +13038,10 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<1>1  (
     .I0(\U0/dlmb_Sl_DBus [33]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [1]),
     .O(\U0/dlmb_LMB_ReadDBus [1])
   );
@@ -13514,83 +13049,31 @@ module microblaze_mcs (
     .INIT ( 64'hFFA8A8A8A8A8A8A8 ))
   \U0/dlmb/DBus_Oring.Res<0>1  (
     .I0(\U0/dlmb_Sl_DBus [32]),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
     .I5(\U0/dlmb_port_BRAM_Din [0]),
     .O(\U0/dlmb_LMB_ReadDBus [0])
-  );
-  FD   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX  (
-    .C(Clk),
-    .D(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_rstpot_1387 ),
-    .Q(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 )
-  );
-  FDE   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/previous_RX  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/_n0073_inv ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/previous_RX_GND_4369_o_MUX_4554_o ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/previous_RX_383 )
-  );
-  FDE #(
-    .INIT ( 1'b0 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/start_Edge_Detected  (
-    .C(Clk),
-    .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/_n0073_inv ),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/start_Edge_Detected_GND_4369_o_MUX_4556_o ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/start_Edge_Detected_382 )
-  );
-  FD   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_GND_4369_o_MUX_4573_o ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 )
-  );
-  FD   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_1  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_PWR_84_o_MUX_4551_o ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_1_385 )
-  );
-  FD   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/running  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/running_rstpot_1374 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/running_381 )
-  );
-  FD   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_rstpot_1375 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 )
-  );
-  FD   \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_exists_i  (
-    .C(Clk),
-    .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_exists_i_rstpot_1376 ),
-    .Q(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_exists_i_293 )
   );
   LUT6 #(
     .INIT ( 64'h3303000022022202 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_rstpot1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_1276 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_1223 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .I2(\U0/ilmb_M_AddrStrobe ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_mbar_decode ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_PipeRun_s_I12 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_rstpot1_1383 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_rstpot1_1318 )
   );
   LUT3 #(
     .INIT ( 8'hF7 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Ok_To_Stop1_SW0  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1295 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1288 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1240 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1234 ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [4]),
-    .O(N34)
-  );
-  LUT3 #(
-    .INIT ( 8'hF8 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/intr_or_delay_slot_jump1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/intr_or_delay_slot_jump )
+    .O(N56)
   );
   LUT6 #(
     .INIT ( 64'h1404040404040404 ))
@@ -13617,121 +13100,70 @@ module microblaze_mcs (
   LUT5 #(
     .INIT ( 32'h01031133 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PC_Incr1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_1276 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_1284 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_hold_I_1223 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_1231 ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_Valid ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.buffer_Addr [1]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.pc_Incr )
-  );
-  LUT5 #(
-    .INIT ( 32'h55515540 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_rstpot  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_inHibit_EX_Rst_OR_58_o ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_85_o ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_rstpot_1387 )
   );
   LUT4 #(
     .INIT ( 16'hFF8A ))
   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_glue_rst  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_303 ),
-    .I1(\U0/LMB_Rst_25 ),
+    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_300 ),
+    .I1(\U0/LMB_Rst_33 ),
     .I2(\U0/iomodule_0/uart_tx_write ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_304 ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_glue_rst_1353 )
-  );
-  LUT5 #(
-    .INIT ( 32'h14440444 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_rstpot  (
-    .I0(\U0/LMB_Rst_25 ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .I4(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data [8]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_rstpot_1375 )
-  );
-  LUT6 #(
-    .INIT ( 64'h5555444404444444 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/running_rstpot  (
-    .I0(\U0/LMB_Rst_25 ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/running_381 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/sample_Point ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/stop_Bit_Position_380 ),
-    .I4(\U0/iomodule_0/IOModule_Core_I1/en_16x_baud ),
-    .I5(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/start_Edge_Detected_382 ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/running_rstpot_1374 )
-  );
-  LUT4 #(
-    .INIT ( 16'h1110 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_exists_i_rstpot  (
-    .I0(\U0/LMB_Rst_25 ),
-    .I1(\U0/iomodule_0/uart_rx_read ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_exists_i_293 ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_exists_i_rstpot_1376 )
-  );
-  LUT4 #(
-    .INIT ( 16'hF222 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/overrun_error_glue_set  (
-    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/overrun_error_398 ),
-    .I1(\U0/iomodule_0/uart_status_read ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/rx_data_exists_i_293 ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/new_rx_data_write_294 ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/overrun_error_glue_set_1354 )
+    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_223 ),
+    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_glue_rst_1294 )
   );
   LUT5 #(
     .INIT ( 32'h00010000 ))
   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_rstpot  (
-    .I0(\U0/LMB_Rst_25 ),
+    .I0(\U0/LMB_Rst_33 ),
     .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_sel [0]),
     .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_sel [1]),
     .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_sel [2]),
     .I4(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Data_Enable ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_rstpot_1379 )
+    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_rstpot_1313 )
   );
   LUT5 #(
     .INIT ( 32'h11110010 ))
   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_rstpot  (
-    .I0(\U0/LMB_Rst_25 ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_346 ),
+    .I0(\U0/LMB_Rst_33 ),
+    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_343 ),
     .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Data_Enable ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_303 ),
-    .I4(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_344 ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_rstpot_1380 )
+    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_300 ),
+    .I4(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_341 ),
+    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_rstpot_1314 )
   );
   LUT5 #(
     .INIT ( 32'h11111000 ))
   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_rstpot  (
-    .I0(\U0/LMB_Rst_25 ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_304 ),
+    .I0(\U0/LMB_Rst_33 ),
+    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/data_is_sent_223 ),
     .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Data_Enable ),
-    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_344 ),
-    .I4(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_346 ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_rstpot_1381 )
+    .I3(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_Start_341 ),
+    .I4(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_343 ),
+    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_rstpot_1315 )
+  );
+  LUT4 #(
+    .INIT ( 16'h0010 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_rstpot  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1233 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1226 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/swx_ready_rstpot_1316 )
   );
   LUT5 #(
     .INIT ( 32'hFFBFAAAA ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable261  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reset_OR_DriverANDClockEnable26 )
-  );
-  LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFEFFFF ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_glue_set  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[25]_equal_70_o ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Sign_Extend_glue_set_1363 )
   );
   LUT5 #(
     .INIT ( 32'hFFFFFF7F ))
@@ -13741,18 +13173,18 @@ module microblaze_mcs (
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [1]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
-    .O(N40)
+    .O(N62)
   );
   LUT6 #(
     .INIT ( 64'h1010101010105410 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_rstpot1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1275 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1222 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
-    .I5(N40),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_rstpot1_1384 )
+    .I5(N62),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_rstpot1_1319 )
   );
   LUT5 #(
     .INIT ( 32'hFF75FFFF ))
@@ -13762,26 +13194,46 @@ module microblaze_mcs (
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_glue_set_1365 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/quadlet_Read_i_glue_set_1303 )
   );
-  LUT3 #(
-    .INIT ( 8'hF7 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o14_SW0  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg1_Addr [2]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
-    .O(N42)
+  LUT5 #(
+    .INIT ( 32'hFFB3FFFF ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_rstpot1_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1229 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
+    .I3(N54),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
+    .O(N64)
   );
   LUT6 #(
-    .INIT ( 64'h1101111155555555 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o14  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
-    .I2(N42),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o11 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_GND_12_o_MUX_4170_o )
+    .INIT ( 64'h0000008C00AF008C ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_rstpot1  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1230 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1229 ),
+    .I2(\U0/ilmb_Sl_Ready ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
+    .I5(N64),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_rstpot1_1320 )
+  );
+  LUT2 #(
+    .INIT ( 4'hB ))
+  \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_3_rstpot_SW0  (
+    .I0(\U0/iomodule_0/lmb_abus_Q [5]),
+    .I1(\U0/iomodule_0/lmb_reg_read_221 ),
+    .O(N66)
+  );
+  LUT6 #(
+    .INIT ( 64'h0000000000010000 ))
+  \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_3_rstpot  (
+    .I0(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_300 ),
+    .I1(\U0/iomodule_0/lmb_abus_Q [1]),
+    .I2(\U0/iomodule_0/lmb_abus_Q [2]),
+    .I3(\U0/iomodule_0/lmb_abus_Q [3]),
+    .I4(\U0/iomodule_0/lmb_abus_Q [4]),
+    .I5(N66),
+    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_3_rstpot_1312 )
   );
   LUT6 #(
     .INIT ( 64'h0000000800000000 ))
@@ -13789,18 +13241,10 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/delay_slot_jump ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_rstpot_1382 )
-  );
-  LUT3 #(
-    .INIT ( 8'hF4 ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/frame_error_glue_set  (
-    .I0(\U0/iomodule_0/uart_status_read ),
-    .I1(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/frame_error_399 ),
-    .I2(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/RX_Frame_Error ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/frame_error_glue_set_1355 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_rstpot_1317 )
   );
   LUT3 #(
     .INIT ( 8'h27 ))
@@ -13808,38 +13252,38 @@ module microblaze_mcs (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [6]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg1_Addr [0]),
-    .O(N44)
+    .O(N68)
   );
   LUT6 #(
     .INIT ( 64'h00FFFFFF00080808 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_92_o  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
-    .I2(N44),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 ),
+    .I2(N68),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1229 ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
     .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_99_o ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_92_o_1213 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[6]_Select_92_o_1162 )
   );
   LUT5 #(
-    .INIT ( 32'h00404040 ))
+    .INIT ( 32'h00080808 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_IExt_Exception_AND_20_o1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1229 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_IExt_Exception_AND_20_o )
   );
   LUT6 #(
     .INIT ( 64'h0000000800000000 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_force1_i11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [8]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [9]),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force1_i )
   );
   LUT6 #(
@@ -13856,53 +13300,31 @@ module microblaze_mcs (
   LUT5 #(
     .INIT ( 32'h80800080 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Write_Strobe1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1277 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1279 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1287 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1224 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1226 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1233 ),
     .O(\U0/dlmb_M_WriteStrobe )
   );
   LUT3 #(
     .INIT ( 8'hA2 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/D_AS1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_1292 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1279 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1287 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_1238 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1226 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1233 ),
     .O(\U0/dlmb_M_AddrStrobe )
   );
   LUT6 #(
     .INIT ( 64'hFFFFFFFF00101010 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_ex_Valid_inHibit_EX_MUX_4104_o1_SW0  (
-    .I0(\U0/iomodule_0/lmb_reg_write_252 ),
-    .I1(\U0/iomodule_0/lmb_reg_read_Q_253 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 ),
-    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1325 ),
-    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1326 ),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1295 ),
-    .O(N18)
-  );
-  LUT6 #(
-    .INIT ( 64'hFFFFFFFFFFFEFFFF ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Read_RX_Data_inv1  (
-    .I0(\U0/iomodule_0/lmb_abus_Q [1]),
-    .I1(\U0/iomodule_0/lmb_abus_Q [3]),
-    .I2(\U0/iomodule_0/lmb_abus_Q [2]),
-    .I3(\U0/iomodule_0/lmb_abus_Q [5]),
-    .I4(\U0/iomodule_0/lmb_reg_read_213 ),
-    .I5(\U0/iomodule_0/lmb_abus_Q [4]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_RX.UART_RX_I1/Read_RX_Data_inv )
-  );
-  LUT6 #(
-    .INIT ( 64'hFFFFFFFFFEFFFFFF ))
-  \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_Read_inv1  (
-    .I0(\U0/iomodule_0/lmb_abus_Q [5]),
-    .I1(\U0/iomodule_0/lmb_abus_Q [1]),
-    .I2(\U0/iomodule_0/lmb_abus_Q [2]),
-    .I3(\U0/iomodule_0/lmb_abus_Q [4]),
-    .I4(\U0/iomodule_0/lmb_reg_read_213 ),
-    .I5(\U0/iomodule_0/lmb_abus_Q [3]),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/UART_Status_Read_inv )
+    .I0(\U0/iomodule_0/lmb_reg_write_260 ),
+    .I1(\U0/iomodule_0/lmb_reg_read_Q_261 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ),
+    .I3(\U0/dlmb_cntlr/Sl_Ready_i_1270 ),
+    .I4(\U0/dlmb_cntlr/lmb_addrstrobe_i_1271 ),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1240 ),
+    .O(N48)
   );
   LUT4 #(
     .INIT ( 16'hFFEA ))
@@ -13911,7 +13333,7 @@ module microblaze_mcs (
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [10]),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [9]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
-    .O(N46)
+    .O(N70)
   );
   LUT6 #(
     .INIT ( 64'h0001000100011001 ))
@@ -13921,8 +13343,19 @@ module microblaze_mcs (
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
-    .I5(N46),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_glue_set_1362 )
+    .I5(N70),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_glue_set_1301 )
+  );
+  LUT6 #(
+    .INIT ( 64'hFFFDFDFDFFA8A8A8 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Force_Val2_FDRSE_glue_set  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
+    .I2(N72),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1229 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/force_Val2_N ),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Force_Val2_FDRSE_glue_set_1299 )
   );
   LUT5 #(
     .INIT ( 32'hF7FFFFFF ))
@@ -13932,113 +13365,93 @@ module microblaze_mcs (
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg1_Addr [3]),
-    .O(N48)
+    .O(N74)
   );
   LUT6 #(
     .INIT ( 64'h55515151555D5D5D ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_GND_12_o_GND_12_o_MUX_4150_o1  (
-    .I0(N34),
+    .I0(N56),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1229 ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I5(N48),
+    .I5(N74),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/GND_12_o_GND_12_o_MUX_4150_o )
   );
   LUT4 #(
     .INIT ( 16'hBAAA ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Mmux_rst_Values_II21  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.new_Carry ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_1285 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_1232 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/rst_Values_II [29])
-  );
-  LUT5 #(
-    .INIT ( 32'h2F222222 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_inHibit_EX_Rst_OR_58_o1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_2nd_Phase_1255 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1283 ),
-    .I3(\U0/ilmb_cntlr/lmb_addrstrobe_i_19 ),
-    .I4(\U0/ilmb_cntlr/Sl_Ready_i_20 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_inHibit_EX_Rst_OR_58_o )
   );
   LUT3 #(
     .INIT ( 8'hF8 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_1285 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_ce_1357 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1358 )
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Carry_I_1232 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_ce_1296 ),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1297 )
+  );
+  LUT6 #(
+    .INIT ( 64'hFFFFFFFFFFFBFBFB ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_PWR_12_o_MUX_4237_o11  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [9]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.imm_Value [10]),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_PWR_12_o_MUX_4237_o )
   );
   LUT4 #(
     .INIT ( 16'hFFDF ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_glue_rst_SW0  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1282 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/inHibit_EX_1229 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
     .I3(\U0/ilmb_M_AddrStrobe ),
-    .O(N50)
+    .O(N76)
   );
   LUT6 #(
     .INIT ( 64'h40EAAAAA40400000 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_glue_rst  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1283 ),
-    .I1(\U0/ilmb_cntlr/lmb_addrstrobe_i_19 ),
-    .I2(\U0/ilmb_cntlr/Sl_Ready_i_20 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1230 ),
+    .I1(\U0/ilmb_cntlr/lmb_addrstrobe_i_27 ),
+    .I2(\U0/ilmb_cntlr/Sl_Ready_i_28 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/of_Valid ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/_n0993_inv ),
-    .I5(N50),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_glue_rst_1366 )
+    .I5(N76),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_glue_rst_1304 )
   );
   LUT4 #(
     .INIT ( 16'h80FF ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/_n0993_inv1_SW0  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_decode_I_1290 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1295 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mbar_decode_I_1236 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mul_Handling.mbar_first_1240 ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ifetch_carry2 ),
-    .O(N52)
+    .O(N78)
   );
   LUT6 #(
     .INIT ( 64'hAAAA0888FFFFFFFF ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/_n0993_inv1  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1288 ),
-    .I2(\U0/ilmb_cntlr/Sl_Ready_i_20 ),
-    .I3(\U0/ilmb_cntlr/lmb_addrstrobe_i_19 ),
-    .I4(N52),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1283 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1234 ),
+    .I2(\U0/ilmb_cntlr/Sl_Ready_i_28 ),
+    .I3(\U0/ilmb_cntlr/lmb_addrstrobe_i_27 ),
+    .I4(N78),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/nonvalid_IFetch_n_1230 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/_n0993_inv )
   );
   LUT5 #(
-    .INIT ( 32'hEF00EE00 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reg_Write_Low2_SW1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Write_DIV_result_1293 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Reg_1286 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1277 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I4(\U0/dlmb_LMB_Ready ),
-    .O(N54)
-  );
-  LUT6 #(
-    .INIT ( 64'hFFFFFFFE00000000 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Reg_Write_Low2  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [3]),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [2]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [1]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [0]),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/write_Addr_I [4]),
-    .I5(N54),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg_Write_I )
-  );
-  LUT5 #(
-    .INIT ( 32'h40000000 ))
+    .INIT ( 32'h08000000 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_115_o<0>11  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
     .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_115_o<0>1 )
@@ -14049,52 +13462,41 @@ module microblaze_mcs (
     .I0(\U0/dlmb_M_WriteStrobe ),
     .I1(\U0/dlmb_M_ABus [1]),
     .I2(\U0/dlmb_M_ABus [0]),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_1292 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1287 ),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1279 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/d_AS_I_1238 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1233 ),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1226 ),
     .O(\U0/iomodule_0/LMB_WriteStrobe_LMB_AddrStrobe_AND_325_o )
   );
   LUT5 #(
-    .INIT ( 32'hFFDFA888 ))
+    .INIT ( 32'hFDFFA888 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[30].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/enable_Interrupts_I_1248 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1275 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Op1_Low [0]),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/enable_Interrupts_I_1197 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Op1_Low [0]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1222 ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.enable_Interrupt ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[30].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1359 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[30].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1298 )
   );
   LUT5 #(
-    .INIT ( 32'hFFDFA888 ))
+    .INIT ( 32'hFDFFA888 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[28].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/set_BIP_I_1273 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1275 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [28]),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/set_BIP_I_1220 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/op1_i [28]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1222 ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.bip_Active ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[28].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1356 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[28].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_set_1295 )
   );
   LUT6 #(
     .INIT ( 64'h222AAAAAEE2AAAAA ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_MSR_Carry11  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.carry ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_lwx_I_1280 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1279 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 ),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1287 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_lwx_I_1227 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1226 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1233 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/MSR_Carry )
-  );
-  LUT6 #(
-    .INIT ( 64'hFEEEAEEE54440444 ))
-  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_ce  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.LWX_SWX_Write_Carry ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.carry ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1275 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/op1_shift[29] ),
-    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.LWX_SWX_Carry ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_ce_1357 )
   );
   LUT5 #(
     .INIT ( 32'hFFFFFFF7 ))
@@ -14104,7 +13506,7 @@ module microblaze_mcs (
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_glue_set_1364 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/doublet_Read_i_glue_set_1302 )
   );
   LUT6 #(
     .INIT ( 64'h0040000000000000 ))
@@ -14120,42 +13522,53 @@ module microblaze_mcs (
   LUT5 #(
     .INIT ( 32'hCDCDCD0F ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_glue_set_SW1  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_lwx_I_1280 ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1279 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1287 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_lwx_I_1227 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1226 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1233 ),
     .I3(\U0/dlmb_LMB_Ready ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/PC_Module_I/Using_FPGA.normal_piperun ),
-    .O(N56)
+    .O(N80)
   );
   LUT6 #(
     .INIT ( 64'h0100550011105500 ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_glue_set  (
     .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
-    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/set_BIP_I_1273 ),
-    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1281 ),
-    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1287 ),
-    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1291 ),
-    .I5(N56),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_glue_set_1368 )
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/set_BIP_I_1220 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1233 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I5(N80),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_glue_set_1306 )
+  );
+  LUT6 #(
+    .INIT ( 64'hFFFFFFFF9DFFFFFF ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Force_Val2_FDRSE_glue_set_SW0  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [2]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
+    .O(N72)
   );
   LUT5 #(
     .INIT ( 32'h2A7F2A2A ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_glue_set  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_1284 ),
-    .I1(\U0/ilmb_cntlr/Sl_Ready_i_20 ),
-    .I2(\U0/ilmb_cntlr/lmb_addrstrobe_i_19 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_1231 ),
+    .I1(\U0/ilmb_cntlr/Sl_Ready_i_28 ),
+    .I2(\U0/ilmb_cntlr/lmb_addrstrobe_i_27 ),
     .I3(\U0/ilmb_M_AddrStrobe ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.jump ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_glue_set_1367 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/missed_IFetch_glue_set_1305 )
   );
   LUT4 #(
     .INIT ( 16'hFF2A ))
   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_glue_set  (
-    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1288 ),
-    .I1(\U0/ilmb_cntlr/Sl_Ready_i_20 ),
-    .I2(\U0/ilmb_cntlr/lmb_addrstrobe_i_19 ),
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1234 ),
+    .I1(\U0/ilmb_cntlr/Sl_Ready_i_28 ),
+    .I2(\U0/ilmb_cntlr/lmb_addrstrobe_i_27 ),
     .I3(\U0/ilmb_M_AddrStrobe ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_glue_set_1369 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_glue_set_1307 )
   );
   LUT5 #(
     .INIT ( 32'h00AE00AA ))
@@ -14165,7 +13578,59 @@ module microblaze_mcs (
     .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
     .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/take_Intr_Now_II ),
     .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_instr_OF[0]_equal_114_o<0>1 ),
-    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1398 )
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_take_Intr_Now_Early_AND_173_o1_1334 )
+  );
+  MUXF7   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o13  (
+    .I0(N82),
+    .I1(N83),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o1 ),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PWR_12_o_GND_12_o_MUX_4170_o )
+  );
+  LUT6 #(
+    .INIT ( 64'h15111111FFFFFFFF ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o13_F  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [3]),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [5]),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.reg1_Addr [2]),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [4]),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
+    .O(N82)
+  );
+  LUT2 #(
+    .INIT ( 4'h7 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Mmux_PWR_12_o_GND_12_o_MUX_4170_o13_G  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [0]),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF [1]),
+    .O(N83)
+  );
+  MUXF7   \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_ce  (
+    .I0(N84),
+    .I1(N85),
+    .S(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_swx_I_1226 ),
+    .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_ce_1296 )
+  );
+  LUT6 #(
+    .INIT ( 64'h7F557F7F2A000000 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_ce_F  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/is_lwx_I_1227 ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/op1_shift[29] ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1222 ),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.carry ),
+    .O(N84)
+  );
+  LUT6 #(
+    .INIT ( 64'h7577FDFF2000A888 ))
+  \U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/MSR_Reg_I/Using_FPGA.MSR_Bits[29].Using_MSR_Reg_Bit.MSR_Reg_Bit_I/MSR_I_glue_ce_G  (
+    .I0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/ex_Valid_1237 ),
+    .I1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/load_Store_i_1228 ),
+    .I2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Shift_Logic_Module_I/op1_shift[29] ),
+    .I3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/mtsmsr_write_i_1222 ),
+    .I4(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reservation_1233 ),
+    .I5(\U0/microblaze_I/MicroBlaze_Core_I/Area.carry ),
+    .O(N85)
   );
   INV   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/Mmux_h_Cnt<0>11_INV_0  (
     .I(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/mux_sel [0]),
@@ -14180,12 +13645,8 @@ module microblaze_mcs (
     .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/h_Cnt [2])
   );
   INV   \U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/cnt_cy<3>1_INV_0  (
-    .I(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_346 ),
+    .I(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_DataBits_343 ),
     .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/cnt_cy [3])
-  );
-  INV   \U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/TX_Buffer_Empty_INV_247_o1_INV_0  (
-    .I(\U0/iomodule_0/IOModule_Core_I1/Using_UART_TX.UART_TX_I1/tx_buffer_empty_i_303 ),
-    .O(\U0/iomodule_0/IOModule_Core_I1/Using_UART.Uart_Control_Status_I1/TX_Buffer_Empty_INV_247_o )
   );
   INV   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/_n08761_INV_0  (
     .I(\U0/microblaze_I/MicroBlaze_Core_I/Area.disable_Interrupts ),
@@ -14196,15 +13657,15 @@ module microblaze_mcs (
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/instr_OF[0]_INV_44_o )
   );
   INV   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reset_n1_INV_0  (
-    .I(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_400 ),
+    .I(\U0/microblaze_I/MicroBlaze_Core_I/sync_reset_1143 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/reset_n )
   );
   INV   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/dready_Valid1_INV_0  (
-    .I(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1277 ),
+    .I(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/writing_1224 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/dready_Valid )
   );
   INV   \U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_n1_INV_0  (
-    .I(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1288 ),
+    .I(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_1234 ),
     .O(\U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/iFetch_In_Progress_n )
   );
   INV   \U0/dlmb_cntlr/pselect_mask_lmb/A_Bus[0]_BAR[0]_equal_3_o<0>1_INV_0  (
@@ -14212,7 +13673,7 @@ module microblaze_mcs (
     .O(\U0/dlmb_cntlr/lmb_select )
   );
   INV   \U0/ilmb_cntlr/Sl_Ready_i_inv1_INV_0  (
-    .I(\U0/ilmb_cntlr/Sl_Ready_i_20 ),
+    .I(\U0/ilmb_cntlr/Sl_Ready_i_28 ),
     .O(\U0/ilmb_cntlr/Sl_Ready_i_inv )
   );
   RAMB16BWER #(
@@ -14310,16 +13771,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -14459,7 +13923,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[15].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -14556,16 +14022,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -14705,7 +14174,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[14].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -14802,16 +14273,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -14951,7 +14425,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[13].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -15048,16 +14524,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -15197,7 +14676,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[12].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -15294,16 +14775,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -15442,7 +14926,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[11].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -15539,16 +15025,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -15687,7 +15176,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[10].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -15784,16 +15275,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -15932,7 +15426,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[9].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -16029,16 +15525,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -16177,7 +15676,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[8].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -16274,16 +15775,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -16422,7 +15926,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[7].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -16519,16 +16025,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -16667,7 +16176,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[6].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -16764,16 +16275,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -16912,7 +16426,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[5].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -17009,16 +16525,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -17157,7 +16676,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[4].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -17254,16 +16775,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -17402,7 +16926,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[3].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -17499,16 +17025,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -17647,7 +17176,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[2].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -17744,16 +17275,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -17892,7 +17426,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[1].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
   RAMB16BWER #(
     .INIT_00 ( 256'h0000000000000000000000000000000000000000000000000000000000000000 ),
@@ -17989,16 +17525,19 @@ module microblaze_mcs (
     .REGCEA(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_REGCEA_UNCONNECTED ),
     .CLKA(Clk),
     .ENB(\U0/dlmb_M_AddrStrobe ),
-    .RSTB(N1),
+    .RSTB(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CLKB(Clk),
     .REGCEB(\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_REGCEB_UNCONNECTED ),
-    .RSTA(N1),
+    .RSTA(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .ENA(\U0/ilmb_M_AddrStrobe ),
     .DIPA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIPA<3>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIPA<2>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIPA<1>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIPA<0>_UNCONNECTED }),
-    .WEA({N1, N1, N1, N1}),
+    .WEA({\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR }),
     .DOA({\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DOA<31>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DOA<30>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DOA<29>_UNCONNECTED , 
@@ -18137,7 +17676,9 @@ module microblaze_mcs (
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIA<5>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIA<4>_UNCONNECTED , 
 \NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIA<3>_UNCONNECTED , 
-\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIA<2>_UNCONNECTED , N1, N1})
+\NLW_U0/lmb_bram_I/RAM_Inst/Using_B16_S2.The_BRAMs[0].RAMB16_S2_1_DIA<2>_UNCONNECTED , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR , 
+\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR })
   );
 
 // synthesis translate_on
