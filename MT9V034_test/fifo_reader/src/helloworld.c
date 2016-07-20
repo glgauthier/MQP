@@ -47,8 +47,8 @@ int main()
     XIOModule gpo;
 
     // GPI1 = pixel_value(7:0)
-    data = XIOModule_Initialize(&gpi, XPAR_IOMODULE_0_DEVICE_ID);
-    data = XIOModule_Start(&gpi);
+    XIOModule_Initialize(&gpi, XPAR_IOMODULE_0_DEVICE_ID);
+    XIOModule_Start(&gpi);
 
     // GPO1 = (GETDATA)|(RRST)|(LED)
     XIOModule_Initialize(&gpo, XPAR_IOMODULE_0_DEVICE_ID);
@@ -89,7 +89,13 @@ int main()
     			GPO1 |= (GETDATA); // make sure we're not trying to read data
     			XIOModule_DiscreteWrite(&gpo,1,GPO1);
 
+    			u32 pixelsRead = 0;
+
     			while(row<480){
+    				// make sure read_sw hasn't been turned off
+    				GPI2 = XIOModule_DiscreteRead(&gpi,2);
+    			    if ((GPI2&SW_READ)==0) break;
+
     				u8 i=0;
     				// check to see if BUF_READY is good to go
     		    	GPI2 = XIOModule_DiscreteRead(&gpi,2);
@@ -120,6 +126,7 @@ int main()
 
 						// increment to the next pixel position
 						pixel_position++;
+						pixelsRead ++;
     				}
     				// signal to the FPGA that we want more data!
     				GPO1 |= (GETDATA);
@@ -129,7 +136,11 @@ int main()
     				//xil_printf("Row: %d",row);
 
     			}
+    			//xil_printf("%d Pixels Read by MCS",pixelsRead);
     		} else {
+    			GPO1 &=~(GETDATA);
+    			GPO1 |= RRST;
+    		    XIOModule_DiscreteWrite(&gpo,1,GPO1);
     			print("\n\rReset for new sequence\n\r");
     		}
     	}

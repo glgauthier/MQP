@@ -71,7 +71,7 @@ BUFG clk_20H (
 );
 
 // 7seg display controls
-reg [15:0] displayVal = 16'hdead;
+wire [15:0] displayVal;
 seven_seg segs(
     .values(displayVal), // values to be written to the four seven segment LEDs
 	 .CLK(clk_24MHz), // 24MHz clock
@@ -170,7 +170,8 @@ fifo_read linebuf(
 	.fifo_rrst(FIFO_RRST), // fifo read reset (reset read addr pointer to 0)
 	.fifo_oe(FIFO_OE), // fifo output enable (allow for addr pointer to increment)
 	.buffer_ready(mcs_read_en),
-	.pixel_value(pixelVal) // 8-bit pixel value from internal buffer
+	.pixel_value(pixelVal), // 8-bit pixel value from internal buffer
+	.current_line(displayVal)
    );
 
 endmodule

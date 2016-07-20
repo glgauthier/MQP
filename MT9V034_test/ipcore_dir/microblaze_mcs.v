@@ -7,7 +7,7 @@
 // \   \   \/     Version: P.15xf
 //  \   \         Application: netgen
 //  /   /         Filename: microblaze_mcs.v
-// /___/   /\     Timestamp: Tue Jul 19 15:52:59 2016
+// /___/   /\     Timestamp: Wed Jul 20 10:30:59 2016
 // \   \  /  \ 
 //  \___\/\___\
 //             
@@ -3308,7 +3308,7 @@ module microblaze_mcs (
   \U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[2].Divide_I/One_SRL16.SRL16E_I  (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .A1(\U0/ilmb_cntlr/lmb_select ),
-    .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
+    .A2(\U0/ilmb_cntlr/lmb_select ),
     .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.Clk_En_I [1]),
     .CLK(Clk),
@@ -3319,9 +3319,9 @@ module microblaze_mcs (
     .INIT ( 16'h0001 ))
   \U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.SRL16s[1].Divide_I/One_SRL16.SRL16E_I  (
     .A0(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
-    .A1(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
-    .A2(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
-    .A3(\U0/ilmb_cntlr/lmb_select ),
+    .A1(\U0/ilmb_cntlr/lmb_select ),
+    .A2(\U0/ilmb_cntlr/lmb_select ),
+    .A3(\U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[31].Operand_Select_Bit_I/op1_SPR ),
     .CE(\U0/ilmb_cntlr/lmb_select ),
     .CLK(Clk),
     .D(\U0/iomodule_0/IOModule_Core_I1/Using_UART.UART_FIT_I/Implement_FIT.Using_SRL16s.Clk_En_I [1]),

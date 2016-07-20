@@ -27,53 +27,72 @@ module fifo_read(
 	output reg fifo_rrst, // fifo read reset (reset read addr pointer to 0)
 	output reg fifo_oe, // fifo output enable (allow for addr pointer to increment)
 	output reg buffer_ready,
-	output [7:0] pixel_value // 8-bit value from internal buffer
+	output [7:0] pixel_value, // 8-bit value from internal buffer
+	output [15:0] current_line
    );
 
 parameter [1:0] ready = 2'b00;
 parameter [1:0] read = 2'b01;
 parameter [1:0] done = 2'b10;  
-reg [1:0] state = ready;
+parameter [1:0] init = 2'b11;
 
-reg [7:0] pixel_line [0:751];
+reg [1:0] state = ready;
+reg [1:0] next_state = ready;
+
+reg [7:0] pixel_line [0:751]; // implemented in BRAM
 reg [9:0] pixel = 10'b00_0000_0000;
+reg [15:0] num_lines = 16'h0000;
+
+always @(posedge fifo_rck)
+	state <= next_state;
+	
+always @(state,get_data,pixel)	
+	case(state)
+		ready: if(get_data) 
+					next_state = init;
+				 else
+					next_state = ready;
+		init: next_state = read;
+		read: if(pixel == 752)
+					next_state = done;
+				else
+					next_state = read;
+		done: next_state = ready;
+	endcase
 
 always @(posedge fifo_rck)
 begin
 		if(reset_pointer) 
-			fifo_rrst <= 1'b0;
-		else if((state==ready) && (get_data))
 			begin
-			buffer_ready <= 1'b0;
-			state <= read;
+			fifo_rrst <= 1'b0;
+			num_lines <= 16'h0000;
+			end
+		else if(state==ready) // allow for MCS to read from pixel_line
+			begin
+			fifo_rrst <= 1'b1; // make sure read addr doesn't get reset
+			end
+		else if(state == init) // prepare to read new data from the AL422 into pixel_line
+			begin
+			pixel <= 10'b00_0000_000;
+			num_lines <= num_lines + 1'b1;
 			fifo_oe <= 1'b0; // allow for read pointer to increment
 			end
-		else if((state == read) && (pixel == 10'b00_0000_0000))
+		else if(state == read) // read data in from the AL422
 			begin
+			buffer_ready <= 1'b0;
 			pixel_line[pixel] <= fifo_data;
 			pixel <= pixel + 1'b1;
 			end
-		else if((state == read) && (pixel < 751))
-			begin
-			fifo_rrst <= 1'b1;
-			pixel_line[pixel] <= fifo_data;
-			pixel <= pixel + 1'b1;
-			end
-		else if((state == read) && (pixel == 751))
-			begin
-			pixel_line[pixel] <= fifo_data;
-			state <= done;
-			end
-		else // state = done
+		else if(state == done)
 			begin
 			buffer_ready <= 1'b1;
-			state <= ready;
 			fifo_oe <= 1'b1;
-			pixel <= 10'b00_0000_000;
 			end
 end
 
-
-assign pixel_value [7:0] = pixel_line[pixel_addr];
+// display number of lines written on 7seg display
+assign current_line = (num_lines); 
+// allow for MCS to read stored pixel line at given addr if state==ready
+assign pixel_value [7:0] = (state == ready ? pixel_line[pixel_addr] : 8'h00);
 
 endmodule
