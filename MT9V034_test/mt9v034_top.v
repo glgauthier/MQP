@@ -19,17 +19,15 @@
 		output i2c_ready, // LED indicator for i2c bus ready
 		output [6:0] cathodes, // 7seg cathodes
 		output [3:0] anodes, // 7seg anodes
-		input MICRO_SW,
-		//input MICRO_SW1,
-		input mcs_reset,
-		output MICRO_LED0,
-		//output MICRO_LED1,
-		input [7:0] FIFO_DATA,
-		output FIFO_WE,
-		output FIFO_OE,
-		output FIFO_RRST,
-		output FIFO_RCK,
-		output UART_Tx
+		input MICRO_SW, // SW2, used to trigger a new FIFO dump over UART from the mcs
+		input mcs_reset, // Microblaze reset
+		output MICRO_LED0, // LED used to indicate if mcs is reading from FIFO
+		input [7:0] FIFO_DATA, // DO[7:0] from AL422b fifo
+		output FIFO_WE, // Write enable to fifo (LV inverted)
+		output FIFO_OE, // read enable to fifo (active low)
+		output FIFO_RRST, // read reset to fifo (active low)
+		output FIFO_RCK, // rck to fifo (1MHz)
+		output UART_Tx // UART send pin from mcs
 		); 
  
 wire clk_20Hz_unbuf, clk_20Hz;

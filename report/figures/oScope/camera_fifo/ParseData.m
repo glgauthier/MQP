@@ -1,7 +1,9 @@
 % Camera data read through use of AL422B FIFO, arduino, and PuTTy logging
 clear all;
-%close all;
-fid = fopen('rewiredFSM.log','r');
+close all;
+FILENAME =  uigetfile('*.log','multiselect','off');
+fprintf('File %s selected\n\r',FILENAME);
+fid = fopen(FILENAME,'r');
 image = zeros(480,752);
 XPOS = 1;
 YPOS = 1;
@@ -15,7 +17,7 @@ while 1
       image(YPOS,XPOS) = str2num(c)/255;
   else
       ERRNUM = ERRNUM + 1;
-      sprintf('Error #%d: Line %d contains no data',ERRNUM,LINENUM)
+      fprintf('Error #%d: Line %d contains no data\n\r',ERRNUM,LINENUM)
   end
   if XPOS<752
       XPOS = XPOS + 1;
@@ -28,7 +30,20 @@ while 1
   end
   LINENUM = LINENUM + 1; % current line in file (for debug)
 end
-fclose(fid);
-close(h) 
+
 figure
 imshow(image);
+
+%save the image to a file, overwrite if already saved
+[path,name,ext] = fileparts(FILENAME);
+imgname = strcat(name,'.png');
+if (exist(imgname, 'file') == 2)
+    fprintf('File for image already exists... overwriting it\n\r')
+    delete(imgname);
+end
+% change to eps for vector image
+saveas(gcf,imgname);
+fprintf('Saved figure to image %s\n\r',imgname);
+
+fclose(fid);
+close(h) 
