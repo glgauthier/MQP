@@ -1,0 +1,70 @@
+\subsection{Cameras}
+After obtaining two of the MT9V034 cameras chosen through the process referenced in Appendix item \ref{camdecision}, several steps were taken to obtain test data from each camera. These steps are outlined in the following sections.
+
+\subsubsection{Camera Breakout Boards}
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.5\textwidth]{camera_board.png}}
+	\caption{LI-VM34LP Breakout Board}
+	\label{camBreakoutBoard}
+\end{figure}
+
+\subsubsection{I$^2$C Control} 
+Started by trying to get the camera version...
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{oScope/i2c_0x00/tek00001.png}}
+	\caption{Requesting Camera Version}
+	\label{camVersion}
+\end{figure}
+
+\par
+Next, set camera control register for trigger mode and confirmed that it was working
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{oScope/i2c_0x07/cam_ctl_write_full.png}}
+	\caption{Enabling Camera Trigger Mode}
+	\label{camControl}
+\end{figure}
+
+
+\subsubsection{Camera Output}
+
+Normal mode of operation.....
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{camFvLv.png}}
+	\caption{Frame and Line Valid}
+	\label{FvLv}
+\end{figure}
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{camLvPckDout.png}}
+	\caption{Line Data Transfer}
+	\label{LvDout}
+\end{figure}
+
+\par
+Grabbing an image of normal ops...
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{oScope/pclk_fv_lv/tek00003.png}}
+	\caption{Camera Data Transfer}
+	\label{camDataTransfer}
+\end{figure}
+
+\par
+triggered!
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{oScope/i2c_0x07/externalTrigger/externalTrig.png}}
+	\caption{Camera Running in Trigger Mode}
+	\label{camInTrigMode}
+\end{figure}
+
+
+\subsubsection{Data Management}
+AL422B FIFO, etc...
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{oScope/camera_fifo/fifoDataOut.png}}
+	\caption{FIFO Data Output}
+	\label{fifoDataOut}
+\end{figure}
+
+\subsubsection{Transmitting Images Over UART for Analysis}
+throw in screenshot of PuTTy
