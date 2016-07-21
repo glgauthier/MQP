@@ -24,7 +24,6 @@
 #include "platform.h"
 #include "xparameters.h"
 #include "xiomodule.h"
-#include "xio.h"
 
 // GPO1
 #define GETDATA (1<<2) // load a new line of pixels into the FPGA buffer
@@ -42,14 +41,14 @@ int main()
 {
     init_platform();
     int pixel_position = 0,row = 0;;
-    u8 data=0x00,GPO1,GPI2,swState,prevState;
+    u8 data=0x00,GPO1=0x00,GPI2=0x00,swState=0x00,prevState=0x00;
 
     XIOModule gpi;
     XIOModule gpo;
 
     // GPI1 = pixel_value(7:0)
-    data = XIOModule_Initialize(&gpi, XPAR_IOMODULE_0_DEVICE_ID);
-    data = XIOModule_Start(&gpi);
+    XIOModule_Initialize(&gpi, XPAR_IOMODULE_0_DEVICE_ID);
+    XIOModule_Start(&gpi);
 
     // GPO1 = (GETDATA)|(RRST)|(LED)
     XIOModule_Initialize(&gpo, XPAR_IOMODULE_0_DEVICE_ID);
@@ -64,16 +63,19 @@ int main()
 
     	if((GPI2&SW_READ)!=0){
 			swState = 1;
-			GPO1 |= LED;
-
+			if (row >= 480) GPO1 &=~(LED);
+			else GPO1 |= LED;
+			GPO1 &=~(RRST|GETDATA);
+		    XIOModule_DiscreteWrite(&gpo,1,GPO1);
     	}else{
     		row = 0;
 			swState = 0;
-			GPO1 &= ~(RRST|GETDATA);
-			GPO1 &= ~LED;
+			GPO1 |= GETDATA; // reset FIFO at boot
+			GPO1 &= ~(RRST|LED);
 			XIOModule_DiscreteWrite(&gpo,1,GPO1);
     	}
 
+    	// code below runs only once based on SW state change
     	if (prevState != swState){
     		if(swState){
     			print("\n\rReading from FIFO...\n\r");
@@ -87,33 +89,58 @@ int main()
     			GPO1 |= (GETDATA); // make sure we're not trying to read data
     			XIOModule_DiscreteWrite(&gpo,1,GPO1);
 
+    			u32 pixelsRead = 0;
+
     			while(row<480){
-    				GPO1 &=~ (GETDATA); // make sure we're not trying to read data
-    				XIOModule_DiscreteWrite(&gpo,1,GPO1);
+    				// make sure read_sw hasn't been turned off
+    				GPI2 = XIOModule_DiscreteRead(&gpi,2);
+    			    if ((GPI2&SW_READ)==0) break;
+
+    				u8 i=0;
     				// check to see if BUF_READY is good to go
     		    	GPI2 = XIOModule_DiscreteRead(&gpi,2);
     		    	// wait until it is
     				while((GPI2&BUF_READY)==0){
+    					if(i==0){
+    						i++;
+    						//print("\n\t buffer not ready \n\r");
+    					}
     					GPI2 = XIOModule_DiscreteRead(&gpi,2);
     				}
+    				GPO1 &=~ (GETDATA); // make sure we're not trying to read data
+    				XIOModule_DiscreteWrite(&gpo,1,GPO1);
 
-    				while (pixel_position < 751){
-						// update pixel position for FPGA buffer
-						XIOModule_DiscreteWrite(&gpo,2,pixel_position);
-						// read value at pixel position from FPGA buffer
+    				while (pixel_position < 752){
+    					// update pixel position for FPGA buffer
+    					XIOModule_DiscreteWrite(&gpo,2,pixel_position);
+
+    					// make sure read_sw hasn't been turned off
+        		    	GPI2 = XIOModule_DiscreteRead(&gpi,2);
+        		    	if ((GPI2&SW_READ)==0) break;
+
+        		    	// read value at pixel position from FPGA buffer
 						data = XIOModule_DiscreteRead(&gpi,1);
-						// print the value
-						xil_printf("Data = %d",data);
+
+						//print the value
+						xil_printf("%d\n\r",data);
+
 						// increment to the next pixel position
 						pixel_position++;
+						pixelsRead ++;
     				}
+    				// signal to the FPGA that we want more data!
+    				GPO1 |= (GETDATA);
+    				XIOModule_DiscreteWrite(&gpo,1,GPO1);
     				pixel_position = 0;
     				row++;
     				//xil_printf("Row: %d",row);
-    				GPO1 |= (GETDATA);
-    				XIOModule_DiscreteWrite(&gpo,1,GPO1);
+
     			}
-    		}else{
+    			//xil_printf("%d Pixels Read by MCS",pixelsRead);
+    		} else {
+    			GPO1 &=~(GETDATA);
+    			GPO1 |= RRST;
+    		    XIOModule_DiscreteWrite(&gpo,1,GPO1);
     			print("\n\rReset for new sequence\n\r");
     		}
     	}

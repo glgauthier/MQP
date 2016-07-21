@@ -54,7 +54,6 @@ int main()
     XIOModule_Initialize(&gpo, XPAR_IOMODULE_0_DEVICE_ID);
     XIOModule_Start(&gpo);
 
-
     print("\n\rMT9V034 controller and AL422B FIFO reader\n\r");
     while(1)
     {
@@ -68,11 +67,10 @@ int main()
 			GPO1 &=~(RRST|GETDATA);
 		    XIOModule_DiscreteWrite(&gpo,1,GPO1);
     	}else{
-    		row = 0;
-			swState = 0;
-			GPO1 &= ~(RRST|GETDATA);
-			GPO1 &= ~LED;
+			GPO1 &= ~(RRST|LED|GETDATA);
 			XIOModule_DiscreteWrite(&gpo,1,GPO1);
+			row = 0;
+			swState = 0;
     	}
 
     	// code below runs only once based on SW state change

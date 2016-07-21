@@ -3,13 +3,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: mt9v034_top.prj
@@ -162,14 +162,15 @@ Elaborating module <fifo_read>.
 
 Synthesizing Unit <mt9v034_top>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v".
-    Found 5-bit register for signal <init_count>.
-    Found 5-bit adder for signal <init_count[4]_GND_1_o_add_2_OUT> created at line 144.
-    Found 5-bit comparator greater for signal <init_count[4]_PWR_1_o_LessThan_2_o> created at line 143
-    Found 5-bit comparator lessequal for signal <n0007> created at line 146
+    Found 12-bit register for signal <init_count>.
+    Found 12-bit adder for signal <init_count[11]_GND_1_o_add_2_OUT> created at line 142.
+    Found 12-bit comparator greater for signal <init_count[11]_PWR_1_o_LessThan_2_o> created at line 141
+    Found 12-bit comparator lessequal for signal <n0006> created at line 144
+    Found 12-bit comparator lessequal for signal <n0008> created at line 145
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred   5 D-type flip-flop(s).
-	inferred   2 Comparator(s).
+	inferred  12 D-type flip-flop(s).
+	inferred   3 Comparator(s).
 Unit <mt9v034_top> synthesized.
 
 Synthesizing Unit <dcm>.
@@ -295,21 +296,24 @@ Macro Statistics
  752x8-bit dual-port RAM                               : 1
 # Adders/Subtractors                                   : 7
  10-bit adder                                          : 1
+ 12-bit adder                                          : 1
  16-bit adder                                          : 2
  2-bit adder                                           : 1
  21-bit adder                                          : 1
- 5-bit adder                                           : 2
+ 5-bit adder                                           : 1
 # Registers                                            : 15
  1-bit register                                        : 6
  10-bit register                                       : 1
+ 12-bit register                                       : 1
  16-bit register                                       : 2
  2-bit register                                        : 1
  21-bit register                                       : 1
  4-bit register                                        : 2
- 5-bit register                                        : 2
-# Comparators                                          : 4
- 5-bit comparator greater                              : 1
- 5-bit comparator lessequal                            : 3
+ 5-bit register                                        : 1
+# Comparators                                          : 5
+ 12-bit comparator greater                             : 1
+ 12-bit comparator lessequal                           : 2
+ 5-bit comparator lessequal                            : 2
 # Multiplexers                                         : 4
  1-bit 2-to-1 multiplexer                              : 2
  10-bit 2-to-1 multiplexer                             : 1
@@ -392,15 +396,17 @@ Macro Statistics
  752x8-bit dual-port distributed RAM                   : 1
 # Counters                                             : 7
  10-bit up counter                                     : 1
+ 12-bit up counter                                     : 1
  16-bit up counter                                     : 2
  2-bit up counter                                      : 1
  21-bit up counter                                     : 1
- 5-bit up counter                                      : 2
+ 5-bit up counter                                      : 1
 # Registers                                            : 14
  Flip-Flops                                            : 14
-# Comparators                                          : 4
- 5-bit comparator greater                              : 1
- 5-bit comparator lessequal                            : 3
+# Comparators                                          : 5
+ 12-bit comparator greater                             : 1
+ 12-bit comparator lessequal                           : 2
+ 5-bit comparator lessequal                            : 2
 # Multiplexers                                         : 3
  1-bit 2-to-1 multiplexer                              : 2
  4-bit 4-to-1 multiplexer                              : 1
@@ -473,8 +479,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 86
- Flip-Flops                                            : 86
+# Registers                                            : 93
+ Flip-Flops                                            : 93
 
 =========================================================================
 
@@ -497,29 +503,29 @@ Top Level Output File Name         : mt9v034_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1018
+# BELS                             : 1051
 #      GND                         : 2
 #      INV                         : 21
-#      LUT1                        : 53
-#      LUT2                        : 66
-#      LUT3                        : 65
-#      LUT4                        : 197
-#      LUT5                        : 65
-#      LUT6                        : 138
+#      LUT1                        : 64
+#      LUT2                        : 65
+#      LUT3                        : 63
+#      LUT4                        : 194
+#      LUT5                        : 66
+#      LUT6                        : 142
 #      LUT6_2                      : 90
 #      MULT_AND                    : 3
-#      MUXCY                       : 59
+#      MUXCY                       : 70
 #      MUXCY_L                     : 75
 #      MUXF5                       : 66
 #      MUXF6                       : 1
 #      MUXF7                       : 10
 #      VCC                         : 2
-#      XORCY                       : 105
-# FlipFlops/Latches                : 451
+#      XORCY                       : 117
+# FlipFlops/Latches                : 458
 #      FD                          : 95
 #      FDE                         : 137
 #      FDR                         : 90
-#      FDRE                        : 102
+#      FDRE                        : 109
 #      FDS                         : 8
 #      FDSE                        : 17
 #      ODDR2                       : 2
@@ -546,18 +552,18 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             451  out of  18224     2%  
- Number of Slice LUTs:                 1015  out of   9112    11%  
-    Number used as Logic:               695  out of   9112     7%  
+ Number of Slice Registers:             458  out of  18224     2%  
+ Number of Slice LUTs:                 1025  out of   9112    11%  
+    Number used as Logic:               705  out of   9112     7%  
     Number used as Memory:              320  out of   2176    14%  
        Number used as RAM:              272
        Number used as SRL:               48
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1179
-   Number with an unused Flip Flop:     728  out of   1179    61%  
-   Number with an unused LUT:           164  out of   1179    13%  
-   Number of fully used LUT-FF pairs:   287  out of   1179    24%  
+ Number of LUT Flip Flop pairs used:   1189
+   Number with an unused Flip Flop:     731  out of   1189    61%  
+   Number with an unused LUT:           164  out of   1189    13%  
+   Number of fully used LUT-FF pairs:   294  out of   1189    24%  
    Number of unique control sets:        44
 
 IO Utilization: 
@@ -591,7 +597,7 @@ Clock Information:
 Clock Signal                            | Clock buffer(FF name)  | Load  |
 ----------------------------------------+------------------------+-------+
 clk_20Hz_unbuf(clks/clk_debounce<20>3:O)| BUFG(*)(deb/btn_val)   | 7     |
-sysclk                                  | DCM_SP:CLKFX           | 50    |
+sysclk                                  | DCM_SP:CLKFX           | 57    |
 clk_1MHz_unbuf(clks/clk_fifo1:O)        | BUFG(*)(clkfwd1)       | 81    |
 sysclk                                  | DCM_SP:CLK0            | 491   |
 ----------------------------------------+------------------------+-------+
@@ -609,7 +615,7 @@ Speed Grade: -3
 
    Minimum period: 6.873ns (Maximum Frequency: 145.501MHz)
    Minimum input arrival time before clock: 3.543ns
-   Maximum output required time after clock: 4.821ns
+   Maximum output required time after clock: 5.632ns
    Maximum combinational path delay: 5.157ns
 
 Timing Details:
@@ -641,7 +647,7 @@ Delay:               2.306ns (Levels of Logic = 1)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'sysclk'
   Clock period: 6.873ns (frequency: 145.501MHz)
-  Total number of paths / destination ports: 123994 / 2333
+  Total number of paths / destination ports: 124157 / 2347
 -------------------------------------------------------------------------
 Delay:               6.873ns (Levels of Logic = 5)
   Source:            mcs_0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFFs[1].FDS_I (FF)
@@ -680,7 +686,7 @@ Delay:               5.186ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDE:C->Q             50   0.447   1.892  linebuf/pixel_4 (linebuf/pixel_4)
-     LUT5:I0->O            1   0.203   0.580  linebuf/GND_12_o_GND_12_o_equal_4_o<9>_SW0 (N01)
+     LUT5:I0->O            1   0.203   0.580  linebuf/GND_12_o_GND_12_o_equal_4_o<9>_SW0 (N7)
      LUT6:I5->O            3   0.205   0.755  linebuf/GND_12_o_GND_12_o_equal_4_o<9> (linebuf/GND_12_o_GND_12_o_equal_4_o)
      LUT4:I2->O            1   0.203   0.579  linebuf/_n0122_inv1 (linebuf/_n0122_inv)
      FDE:CE                    0.322          linebuf/fifo_oe
@@ -710,7 +716,7 @@ Offset:              3.011ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'sysclk'
-  Total number of paths / destination ports: 39 / 39
+  Total number of paths / destination ports: 46 / 46
 -------------------------------------------------------------------------
 Offset:              3.543ns (Levels of Logic = 2)
   Source:            reset (PAD)
@@ -749,23 +755,24 @@ Offset:              2.433ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'sysclk'
-  Total number of paths / destination ports: 41 / 15
+  Total number of paths / destination ports: 55 / 15
 -------------------------------------------------------------------------
-Offset:              4.821ns (Levels of Logic = 2)
-  Source:            segs/currentVal_2 (FF)
-  Destination:       cathodes<6> (PAD)
+Offset:              5.632ns (Levels of Logic = 3)
+  Source:            init_count_9 (FF)
+  Destination:       i2c_ready (PAD)
   Source Clock:      sysclk rising 0.2X
 
-  Data Path: segs/currentVal_2 to cathodes<6>
+  Data Path: init_count_9 to i2c_ready
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              7   0.447   1.021  segs/currentVal_2 (segs/currentVal_2)
-     LUT4:I0->O            1   0.203   0.579  segs/cathodes<0>1 (cathodes_0_OBUF)
-     OBUF:I->O                 2.571          cathodes_0_OBUF (cathodes<0>)
+     FDRE:C->Q             4   0.447   1.048  init_count_9 (init_count_9)
+     LUT6:I0->O            1   0.203   0.580  i2c_ready1_SW0 (N3)
+     LUT6:I5->O            1   0.205   0.579  i2c_ready1 (i2c_ready_OBUF)
+     OBUF:I->O                 2.571          i2c_ready_OBUF (i2c_ready)
     ----------------------------------------
-    Total                      4.821ns (3.221ns logic, 1.600ns route)
-                                       (66.8% logic, 33.2% route)
+    Total                      5.632ns (3.426ns logic, 2.206ns route)
+                                       (60.8% logic, 39.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_20Hz_unbuf'
@@ -860,7 +867,7 @@ sysclk         |    6.873|         |         |         |
 
 
 Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.88 secs
+Total CPU time to Xst completion: 7.79 secs
  
 --> 
 
