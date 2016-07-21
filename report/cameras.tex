@@ -12,17 +12,12 @@ After obtaining two of the MT9V034 cameras chosen through the process referenced
 Started by trying to get the camera version...
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1.0\textwidth]{oScope/i2c_0x00/tek00001.png}}
-	\caption{Requesting Camera Version}
+	\caption{Example I$^2$C Transfer with Camera}
 	\label{camVersion}
 \end{figure}
 
 \par
 Next, set camera control register for trigger mode and confirmed that it was working
-\begin{figure}[H]
-	\centerline{\includegraphics[width=1.0\textwidth]{oScope/i2c_0x07/cam_ctl_write_full.png}}
-	\caption{Enabling Camera Trigger Mode}
-	\label{camControl}
-\end{figure}
 
 
 \subsubsection{Camera Output}
@@ -61,10 +56,20 @@ triggered!
 AL422B FIFO, etc...
 
 \begin{figure}[H]
-	\centerline{\includegraphics[width=1.0\textwidth]{oScope/camera_fifo/fifoDataOut.png}}
-	\caption{FIFO Data Output}
+	\centerline{\includegraphics[width=1.0\textwidth]{oScope/camera_fifo/fifo_rstAndDataTimed.png}}
+	\caption{Transferring Line Data from FIFO to FPGA}
 	\label{fifoDataOut}
 \end{figure}
 
 \subsubsection{Transmitting Images Over UART for Analysis}
 throw in screenshot of PuTTy
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.6\textwidth]{oScope/camera_fifo/PuTTy.png}}
+	\caption{Reading FIFO Data}
+	\label{PuTTYfifoData}
+\end{figure}
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.75\textwidth]{oScope/camera_fifo/notebook.png}}
+	\caption{Notebook With Grid and Oscilloscope Leads}
+	\label{notebookImage}
+\end{figure}

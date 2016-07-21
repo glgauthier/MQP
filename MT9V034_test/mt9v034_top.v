@@ -53,30 +53,22 @@ dcm CLK_24MHz
 // further divide the dcm clock to other freqs	 
 clk_div clks(
 	 .reset(reset), // synchronous reset
-    .clk_24M(clk_24MHz), // 24MHz clock signal
-	 .clk_fifo(clk_1MHz_unbuf),
-    .clk_debounce(clk_20Hz_unbuf), // 20Hz clock pulse
+    .clk_24M(clk_24MHz), // 24MHz camera SCLK
+	 .clk_fifo(clk_1MHz_unbuf), // 1MHz FIFO RCK
+    .clk_debounce(clk_20Hz_unbuf), // 20Hz clock pulse for debouncing stuff
 	 .anodes(clk_10kHz) // 10k 7Seg anode driver
     );
 
+// clock buffer for 1MHz fifo rck
 BUFG clk_1M (
-      .O(clk_1MHz), // 1-bit output: Clock buffer output
-      .I(clk_1MHz_unbuf)  // 1-bit input: Clock buffer input
+      .O(clk_1MHz), 
+      .I(clk_1MHz_unbuf)  
 );
+// clock buffer for 20Hz button debouncing
 BUFG clk_20H (
-      .O(clk_20Hz), // 1-bit output: Clock buffer output
-      .I(clk_20Hz_unbuf)  // 1-bit input: Clock buffer input
+      .O(clk_20Hz), 
+      .I(clk_20Hz_unbuf)  
 );
-
-// 7seg display controls
-wire [15:0] displayVal;
-seven_seg segs(
-    .values(displayVal), // values to be written to the four seven segment LEDs
-	 .CLK(clk_24MHz), // 24MHz clock
-	 .en(clk_10kHz), // 10kHz counter enable used for setting the segment refresh rate
-    .cathodes(cathodes), 
-    .anodes(anodes)
-    );
 	 
 // forward the camera sysclk out using a dedicated clocking route
 ODDR2 #(
@@ -110,6 +102,16 @@ ODDR2 #(
       .S(1'b0)   // 1-bit set input
    );
 
+// 7seg display controls
+wire [15:0] displayVal;
+seven_seg segs(
+    .values(displayVal), // values to be written to the four seven segment LEDs
+	 .CLK(clk_24MHz), // 24MHz clock
+	 .en(clk_10kHz), // 10kHz counter enable used for setting the segment refresh rate
+    .cathodes(cathodes), 
+    .anodes(anodes)
+    );
+	 
 // debounce trigger button input
 debounce deb(
     .clk(clk_20Hz),

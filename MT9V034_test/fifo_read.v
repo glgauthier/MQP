@@ -37,7 +37,7 @@ parameter [1:0] done = 2'b10;
 parameter [1:0] init = 2'b11;
 
 reg [1:0] state = ready;
-reg [1:0] next_state = ready;
+reg [1:0] prev_state, next_state = ready;
 
 reg [7:0] pixel_line [0:751]; // implemented in BRAM
 reg [9:0] pixel = 10'b00_0000_0000;
@@ -48,16 +48,34 @@ always @(posedge fifo_rck)
 	
 always @(state,get_data,pixel)	
 	case(state)
-		ready: if(get_data) 
+		ready: 
+			begin
+				if(get_data) 
 					next_state = init;
-				 else
+				else
 					next_state = ready;
-		init: next_state = read;
-		read: if(pixel == 752)
+					
+				prev_state = ready;
+			end
+		init: 
+			begin
+				next_state = read;
+				prev_state = init;
+			end
+		read: 
+			begin
+				if(pixel == 751)
 					next_state = done;
 				else
 					next_state = read;
-		done: next_state = ready;
+					
+				prev_state = read;
+			end
+		done: 
+			begin
+				next_state = ready;
+				prev_state = done;
+			end
 	endcase
 
 always @(posedge fifo_rck)
@@ -69,30 +87,35 @@ begin
 			end
 		else if(state==ready) // allow for MCS to read from pixel_line
 			begin
+			//pixel_value [7:0] <= pixel_line[pixel_addr];
 			fifo_rrst <= 1'b1; // make sure read addr doesn't get reset
 			end
 		else if(state == init) // prepare to read new data from the AL422 into pixel_line
 			begin
 			pixel <= 10'b00_0000_000;
 			num_lines <= num_lines + 1'b1;
+			buffer_ready <= 1'b0;
 			fifo_oe <= 1'b0; // allow for read pointer to increment
 			end
 		else if(state == read) // read data in from the AL422
 			begin
-			buffer_ready <= 1'b0;
-			pixel_line[pixel] <= fifo_data;
-			pixel <= pixel + 1'b1;
+			if(next_state == done)
+				fifo_oe <= 1'b1; // turn off read enable
+			if(prev_state != init) // one cycle delay between init and valid data
+			begin
+				pixel_line[pixel] <= fifo_data;
+				pixel <= pixel + 1'b1;
+			end
 			end
 		else if(state == done)
 			begin
 			buffer_ready <= 1'b1;
-			fifo_oe <= 1'b1;
 			end
 end
 
 // display number of lines written on 7seg display
 assign current_line = (num_lines); 
 // allow for MCS to read stored pixel line at given addr if state==ready
-assign pixel_value [7:0] = (state == ready ? pixel_line[pixel_addr] : 8'h00);
+assign pixel_value [7:0] = pixel_line[pixel_addr];
 
 endmodule

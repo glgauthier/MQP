@@ -144,9 +144,9 @@ Elaborating module <BUFG>.
 
 Elaborating module <clk_div>.
 
-Elaborating module <seven_seg>.
-
 Elaborating module <ODDR2(DDR_ALIGNMENT="NONE",INIT=1'b0,SRTYPE="SYNC")>.
+
+Elaborating module <seven_seg>.
 
 Elaborating module <debounce>.
 
@@ -199,8 +199,8 @@ Synthesizing Unit <seven_seg>.
     Found 4-bit register for signal <anodes>.
     Found 4-bit register for signal <currentVal>.
     Found 2-bit register for signal <count>.
-    Found 2-bit adder for signal <count[1]_GND_7_o_add_2_OUT> created at line 28.
-    Found 4x4-bit Read Only RAM for signal <count[1]_GND_7_o_wide_mux_4_OUT>
+    Found 2-bit adder for signal <count[1]_GND_8_o_add_2_OUT> created at line 28.
+    Found 4x4-bit Read Only RAM for signal <count[1]_GND_8_o_wide_mux_4_OUT>
     Found 16x7-bit Read Only RAM for signal <cathodes>
     Found 4-bit 4-to-1 multiplexer for signal <count[1]_values[15]_wide_mux_5_OUT> created at line 30.
     Summary:
@@ -261,22 +261,22 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <pixel_l
     Found 1-bit register for signal <fifo_rrst>.
     Found 16-bit register for signal <num_lines>.
     Found 10-bit register for signal <pixel>.
-    Found 1-bit register for signal <fifo_oe>.
     Found 1-bit register for signal <buffer_ready>.
+    Found 1-bit register for signal <fifo_oe>.
     Found 2-bit register for signal <state>.
     Found finite state machine <FSM_2> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
     | Transitions        | 6                                              |
     | Inputs             | 2                                              |
-    | Outputs            | 6                                              |
+    | Outputs            | 7                                              |
     | Clock              | fifo_rck (rising_edge)                         |
     | Power Up State     | 00                                             |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 16-bit adder for signal <num_lines[15]_GND_12_o_add_9_OUT> created at line 77.
-    Found 10-bit adder for signal <pixel[9]_GND_12_o_add_12_OUT> created at line 84.
+    Found 16-bit adder for signal <num_lines[15]_GND_12_o_add_10_OUT> created at line 96.
+    Found 10-bit adder for signal <pixel[9]_GND_12_o_add_15_OUT> created at line 107.
     Summary:
 	inferred   1 RAM(s).
 	inferred   2 Adder/Subtractor(s).
@@ -311,10 +311,9 @@ Macro Statistics
  5-bit comparator greater                              : 1
  5-bit comparator lessequal                            : 3
 # Multiplexers                                         : 4
- 1-bit 2-to-1 multiplexer                              : 1
+ 1-bit 2-to-1 multiplexer                              : 2
  10-bit 2-to-1 multiplexer                             : 1
  4-bit 4-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 1
 # FSMs                                                 : 4
 
 =========================================================================
@@ -370,7 +369,7 @@ INFO:Xst:3231 - The small RAM <Mram_cathodes> will be implemented on LUTs in ord
     |     diA            | connected to signal <GND>           |          |
     |     doA            | connected to signal <cathodes>      |          |
     -----------------------------------------------------------------------
-INFO:Xst:3231 - The small RAM <Mram_count[1]_GND_7_o_wide_mux_4_OUT> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+INFO:Xst:3231 - The small RAM <Mram_count[1]_GND_8_o_wide_mux_4_OUT> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
@@ -403,9 +402,8 @@ Macro Statistics
  5-bit comparator greater                              : 1
  5-bit comparator lessequal                            : 3
 # Multiplexers                                         : 3
- 1-bit 2-to-1 multiplexer                              : 1
+ 1-bit 2-to-1 multiplexer                              : 2
  4-bit 4-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 1
 # FSMs                                                 : 4
 
 =========================================================================
@@ -499,15 +497,15 @@ Top Level Output File Name         : mt9v034_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1020
+# BELS                             : 1018
 #      GND                         : 2
 #      INV                         : 21
 #      LUT1                        : 53
 #      LUT2                        : 66
-#      LUT3                        : 58
-#      LUT4                        : 195
-#      LUT5                        : 75
-#      LUT6                        : 139
+#      LUT3                        : 65
+#      LUT4                        : 197
+#      LUT5                        : 65
+#      LUT6                        : 138
 #      LUT6_2                      : 90
 #      MULT_AND                    : 3
 #      MUXCY                       : 59
@@ -549,17 +547,17 @@ Selected Device : 6slx16csg324-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:             451  out of  18224     2%  
- Number of Slice LUTs:                 1017  out of   9112    11%  
-    Number used as Logic:               697  out of   9112     7%  
+ Number of Slice LUTs:                 1015  out of   9112    11%  
+    Number used as Logic:               695  out of   9112     7%  
     Number used as Memory:              320  out of   2176    14%  
        Number used as RAM:              272
        Number used as SRL:               48
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1182
-   Number with an unused Flip Flop:     731  out of   1182    61%  
-   Number with an unused LUT:           165  out of   1182    13%  
-   Number of fully used LUT-FF pairs:   286  out of   1182    24%  
+ Number of LUT Flip Flop pairs used:   1179
+   Number with an unused Flip Flop:     728  out of   1179    61%  
+   Number with an unused LUT:           164  out of   1179    13%  
+   Number of fully used LUT-FF pairs:   287  out of   1179    24%  
    Number of unique control sets:        44
 
 IO Utilization: 
@@ -668,26 +666,27 @@ Delay:               6.873ns (Levels of Logic = 5)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_1MHz_unbuf'
-  Clock period: 4.216ns (frequency: 237.209MHz)
-  Total number of paths / destination ports: 907 / 395
+  Clock period: 5.186ns (frequency: 192.829MHz)
+  Total number of paths / destination ports: 916 / 395
 -------------------------------------------------------------------------
-Delay:               4.216ns (Levels of Logic = 2)
-  Source:            linebuf/state_FSM_FFd1 (FF)
-  Destination:       linebuf/Mram_pixel_line312 (RAM)
+Delay:               5.186ns (Levels of Logic = 3)
+  Source:            linebuf/pixel_4 (FF)
+  Destination:       linebuf/fifo_oe (FF)
   Source Clock:      clk_1MHz_unbuf rising
   Destination Clock: clk_1MHz_unbuf rising
 
-  Data Path: linebuf/state_FSM_FFd1 to linebuf/Mram_pixel_line312
+  Data Path: linebuf/pixel_4 to linebuf/fifo_oe
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              28   0.447   1.235  linebuf/state_FSM_FFd1 (linebuf/state_FSM_FFd1)
-     LUT3:I2->O           12   0.205   1.137  linebuf/Mmux_BUS_000211 (linebuf/BUS_0002)
-     LUT5:I2->O            4   0.205   0.683  linebuf/write_ctrl8 (linebuf/write_ctrl8)
-     RAM64M:WE                 0.304          linebuf/Mram_pixel_line9
+     FDE:C->Q             50   0.447   1.892  linebuf/pixel_4 (linebuf/pixel_4)
+     LUT5:I0->O            1   0.203   0.580  linebuf/GND_12_o_GND_12_o_equal_4_o<9>_SW0 (N01)
+     LUT6:I5->O            3   0.205   0.755  linebuf/GND_12_o_GND_12_o_equal_4_o<9> (linebuf/GND_12_o_GND_12_o_equal_4_o)
+     LUT4:I2->O            1   0.203   0.579  linebuf/_n0122_inv1 (linebuf/_n0122_inv)
+     FDE:CE                    0.322          linebuf/fifo_oe
     ----------------------------------------
-    Total                      4.216ns (1.161ns logic, 3.055ns route)
-                                       (27.5% logic, 72.5% route)
+    Total                      5.186ns (1.380ns logic, 3.806ns route)
+                                       (26.6% logic, 73.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_20Hz_unbuf'
@@ -835,8 +834,8 @@ Clock to Setup on destination clock clk_1MHz_unbuf
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_1MHz_unbuf |    4.216|         |         |         |
-sysclk         |    4.322|         |         |         |
+clk_1MHz_unbuf |    5.186|         |         |         |
+sysclk         |    4.436|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk_20Hz_unbuf
@@ -852,7 +851,7 @@ Clock to Setup on destination clock sysclk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_1MHz_unbuf |    3.205|         |         |         |
+clk_1MHz_unbuf |    3.079|         |         |         |
 clk_20Hz_unbuf |    1.128|         |         |         |
 sysclk         |    6.873|         |         |         |
 ---------------+---------+---------+---------+---------+
@@ -861,7 +860,7 @@ sysclk         |    6.873|         |         |         |
 
 
 Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.86 secs
+Total CPU time to Xst completion: 8.98 secs
  
 --> 
 

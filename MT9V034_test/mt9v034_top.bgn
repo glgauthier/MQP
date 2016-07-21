@@ -6,9 +6,9 @@ C:\Xilinx\14.1\ISE_DS\ISE\.
 -3
 Opened constraints file mt9v034_top.pcf.
 
-Wed Jul 20 12:35:54 2016
+Thu Jul 21 12:27:19 2016
 
-C:\Xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -bd C:/Users/georges/Documents/GitHub/MQP/MT9V034_test/fifo_reader/Debug/fifo_reader.elf tag microblaze_mcs -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:2 -g ProgPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:No -g SPI_buswidth:1 -g TIMER_CFG:0xFFFF -g multipin_wakeup:No -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No -g en_sw_gsr:No -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 mt9v034_top.ncd 
+C:\Xilinx\14.1\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -bd C:/Users/georges/Documents/Github/MQP/MT9V034_test/fifo_reader/Debug/fifo_reader.elf tag microblaze_mcs -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:2 -g ProgPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:No -g SPI_buswidth:1 -g TIMER_CFG:0xFFFF -g multipin_wakeup:No -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No -g en_sw_gsr:No -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 mt9v034_top.ncd 
 
 Summary of Bitgen Options:
 +----------------------+----------------------+
@@ -131,17 +131,11 @@ There were 0 CONFIG constraint(s) processed from mt9v034_top.pcf.
 Updating BRAM initialization data for design mt9v034_top.ncd.
 Saving updated design in "mt9v034_top_bd.ncd".
 Running DRC.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line3_RAMD_O> is
-   incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line1_RAMD_O> is
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line2_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line4_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line11_RAMD_O> is
-   incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line34_RAMD_O> is
-   incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line9_RAMD_O> is
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line3_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line8_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
@@ -149,33 +143,39 @@ WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line5_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line6_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line10_RAMD_O> is
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line1_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line35_RAMD_O> is
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line34_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line21_RAMD_O> is
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line11_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line7_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line2_RAMD_O> is
-   incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line22_RAMD_O> is
-   incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line19_RAMD_O> is
-   incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line14_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line13_RAMD_O> is
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line9_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line20_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line16_RAMD_O> is
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line22_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line10_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line19_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line18_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line15_RAMD_O> is
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line16_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line12_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line21_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line35_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line13_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line15_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <linebuf/Mram_pixel_line17_RAMD_O> is
    incomplete. The signal does not drive any load pins in the design.

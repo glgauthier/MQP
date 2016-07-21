@@ -10,6 +10,7 @@ YPOS = 1;
 LINENUM = 1;
 ERRNUM = 0;
 h = waitbar(0,'Parsing image...');
+c = fgetl(fid); %get rid of 1st line
 while 1
   c = fgetl(fid);
   if ~ischar(c), break, end
@@ -25,7 +26,7 @@ while 1
       XPOS = 1;
       YPOS = YPOS + 1;
   end
-  if mod(LINENUM,15000)==0
+  if mod(LINENUM,36096)==0
     waitbar(LINENUM /360000);
   end
   LINENUM = LINENUM + 1; % current line in file (for debug)
