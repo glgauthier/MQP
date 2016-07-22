@@ -38,7 +38,9 @@ The default camera data transmission scheme was also examined using an oscillosc
 \end{figure}
 
 \subsubsection{I$^2$C Control} 
-Started by trying to get the camera version...
+The MT9V034 Camera module's mode of operation can be configured using a standard I$^2$C control interface. Based on the LIVM34LP camera breakout schematic, the camera breakout boards have been configured so that each camera is accessible at I$^2$C address $0x58$ \cite{livm34lp}. Note that since both cameras come configured with the same I$^2$C bus address, a pullup resistor must be removed from one of the cameras I$^2$C address lines so that both are individually accessible.
+\par
+Although the MT9V034 camera control registers are closed source, the previous models' registers are available in the camera module datasheet, and have been found to work with the current model thus far \cite{mt9v032}. As a baseline, the camera module was sent a read request at address $0x00$, which should return $0x1324$ for the MT9V034 camera module. An oscilloscope screenshot of this request is shown in Figure \ref{camVersion}, with the first packet consisting of a request to address $0x00$ of device $0x058$, and the second packet consisting of the camera's response of $0x1324$. 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1.0\textwidth]{oScope/i2c_0x00/tek00001.png}}
 	\caption{Example I$^2$C Transfer with Camera}
@@ -46,8 +48,13 @@ Started by trying to get the camera version...
 \end{figure}
 
 \par
-Next, set camera control register for trigger mode and confirmed that it was working. triggered!
-
+After the camera I$^2$C was confirmed to work, the camera control register was modified to put the camera in "snapshot" mode. In this mode, the camera module will no longer continuously take pictures, and will only gather new images when an external trigger is activated. This is the mode that the camera will need to operate in in order to acquire stereo imagery, since a shared trigger line will allow for both cameras to be controlled simultaneously. 
+\par
+SHOULD PUT A TABLE SHOWING CONTROL REGISTER BITS AND THEIR FUNCTION HERE AT SOME POINT OR PUT IN APPENDIX WITH A REFERENCE
+\par
+According to the previous camera iteration's datasheet, the camera module's operational mode can be set through control register $0x07$. By default, this register will be set to a value of $0x0388$, which corresponds to master mode with parallel output and simultaneous readout of pixel data enabled \cite{mt9v032}. In order to put the camera in trigger mode, the control register needs to be written with value $0x0198$, which allows for the same functionality as before with the exception of having continuous shutter mode replaced with an external trigger. 
+\par
+After modifying the state of this register, a button was attached to the camera's TRIGGER input line, and the TRIGGER and FRAME\_VALID lines were observed on channels one and two of the oscilloscope, as shown in Figure \ref{camInTrigMode}.
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1.0\textwidth]{oScope/i2c_0x07/externalTrigger/externalTrig.png}}
 	\caption{Camera Trigger and FV in Trigger Mode}
@@ -57,6 +64,12 @@ Next, set camera control register for trigger mode and confirmed that it was wor
 
 \subsubsection{Data Management}
 AL422B FIFO, etc...
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.5\textwidth]{oScope/camera_fifo/DSC_0010.JPG}}
+	\caption{Camera With FIFO and FPGA Control}
+	\label{cameraTestSetup}
+\end{figure}
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1.0\textwidth]{oScope/camera_fifo/fifo_rstAndDataTimed.png}}
