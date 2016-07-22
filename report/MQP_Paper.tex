@@ -22,17 +22,67 @@
 % include subsections, etc.. in table of contents
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
-
-% verilog code snippet configuration
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+%% CODE SNIPPET CONFIGURATION %%
 \usepackage{listings}
-\lstset{
+% verilog code snippet configuration
+\lstdefinestyle{Verilog}{
 	language=Verilog,
 	frame=single,
+	basicstyle=\ttfamily\footnotesize, %font and size
 	numbers=left,
-	keywordstyle=\color{Blue}\ttfamily\footnotesize,
-        commentstyle=\color{Green}\ttfamily\footnotesize,
+	numberstyle=\tiny\color{black},
+	keywordstyle=\color{Blue}\ttfamily,
+    commentstyle=\color{Green}\ttfamily,
 	}  
+% Matlab code snippet configuration
+\definecolor{mygreen}{rgb}{0.11,0.67,0} % color values Red, Green, Blue
+\definecolor{mylilas}{rgb}{0.67,0.22,0.95}
+\lstdefinestyle{Matlab}{
+   language=Matlab,
+   frame=single,
+   keywords={break,case,catch,continue,else,elseif,end,for,function,
+      global,if,otherwise,persistent,return,switch,try,while},
+   basicstyle=\ttfamily\footnotesize, %font and size
+   keywordstyle=\color{blue},
+   commentstyle=\color{mygreen},
+   stringstyle=\color{mylilas},
+   emph = [1]{all},
+   emphstyle = [1]{\color{mylilas}},
+   numbers=left,
+   numberstyle=\tiny\color{black},
+   stepnumber=1,
+   numbersep=10pt,
+   backgroundcolor=\color{white},
+   tabsize=4,
+   showspaces=false,
+   showstringspaces=false
+}  
+% C code 
+\definecolor{Cpurp}{rgb}{0.5,0,0.38}
+\definecolor{Cgreen}{rgb}{0.47,0.70,0.53}
+\lstdefinestyle{C}{
+   language=C,
+   frame=single,
+   basicstyle=\ttfamily\footnotesize, %font and size
+   keywordstyle=\color{Cpurp},
+   emph = [1]{u8, u16, u32, XIOModule},
+   emphstyle = [1]{\color{Cgreen}},
+   commentstyle=\color{Green},
+   stringstyle=\color{blue},
+   numbers=left,
+   numberstyle=\tiny\color{black},
+   stepnumber=1,
+   numbersep=10pt,
+   backgroundcolor=\color{white},
+   tabsize=4,
+   showspaces=false,
+   showstringspaces=false
+}  
+\lstset{%
+  escapeinside={(*}{*)},%
+}
 
 \begin{document}
 
@@ -78,10 +128,10 @@
 \newpage
 
 \section{Appendix} %%%% Appendix %%%% 
-\input{appendix_1.tex} % useful resources
-\input{appendix_2.tex} % component selection
-\input{appendix_3.tex} % camera module decision matrix
-\vspace{0.5cm} % I'm having trouble getting a space after the camera decision matrix table
-\input{examples.tex} % example latex code for setting things up
+\input{appendix/resources.tex} % useful resources
+\input{appendix/componentSelection.tex} % component selection
+\input{appendix/camDecisionMatrix.tex} % camera module decision matrix
+\input{appendix/matlabCode.tex}
+\input{appendix/examples.tex} % example latex code for setting things up
 
 \end{document}
