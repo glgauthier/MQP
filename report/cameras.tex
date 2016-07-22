@@ -1,11 +1,40 @@
-\subsection{Cameras}
+\subsection{Camera Testing}
 After obtaining two of the MT9V034 cameras chosen through the process referenced in Appendix item \ref{camdecision}, several steps were taken to obtain test data from each camera. These steps are outlined in the following sections.
 
-\subsubsection{Camera Breakout Boards}
+\subsubsection{Camera Operation}
+In order to gather working images from each camera module, we first needed to understand what circuitry our camera module breakouts contained so that we could interface with them. MT9V034 camera breakouts were purchased from Leopard Imaging Inc. Although these camera module breakout boards are intended to be used with Leopard Imaging's LeopardBoard ARM development board, the breakouts were found to contain only the supporting circuitry recommended in the MT9V034 datasheet, and we decided that they would be ideal for our application \cite{livm34lp,mt9v034}. 
+\par
+Once the schematics of each camera module breakout were known, it was then possible to design a basic control interface for each camera. According to the MT9V034 datasheet, each camera module needs to be supplied with an external Master Clock and Output Enable signal in order to operate \cite{mt9v034}. A simple Verilog module for the Nexys3 Spartan-6 FPGA board was created in order to supply the camera module with a 24MHz master clock signal, and a switch was used to toggle output enable. With this module implemented, the camera module's default outputs could then be observed. In order to interface the camera module with an FPGA, the breakout board shown in Figure \ref{camBreakoutBoard} was also created to make the module's pins more easily accessible based on functionality. 
+
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.5\textwidth]{camera_board.png}}
 	\caption{LI-VM34LP Breakout Board}
 	\label{camBreakoutBoard}
+\end{figure}
+
+\par
+By default, the MT9V034 camera module will continuously gather image data at 60Hz  as long as it is supplied with an external clock signal and output is enabled \cite{mt9v034}. Several output signals from the camera module are then used to transmit image data. Each image, or frame, is broken up into individual "lines" which correspond to a line of pixels that stretch the width of the frame. Since our camera module captures images at 752x480 pixel resolution, one frame will contain 480 lines of 752 pixels each. The camera module breaks up image data by frame and line, and camera data pins FRAME\_VALID and LINE\_VALID are toggled to indicate the transmission of a frame or line. The timing diagram shown in Figure \ref{FvLv} shows the operation of these pins while transmitting an image.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{camFvLv.png}}
+	\caption{Frame and Line Valid \cite{mt9v034}}
+	\label{FvLv}
+\end{figure}
+
+\par
+Since the MT9V034 module transmits image data in parallel and each pixel contains 10 bits of resolution, 10 pins are used to transmit pixel values in parallel. Pixel data is transmitted in correspondence with LINE\_VALID and output clock signal PIXCLK. When LINE\_VALID is asserted, the pixel data pins are updated with values corresponding to pixels 0-751 of the given line. Values for each pixel are written out on the falling edge of the camera's PIXCLK pin, allowing for each pixel's value to be read on the rising edge of PIXCLK cycle. A full LINE\_VALID data transmission sequence will therefore contain 752 PIXCLK cycles, corresponding to the 752 pixels that make up the given line. A timing diagram of this data transmission scheme is shown in Figure \ref{LvDout}.  
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{camLvPckDout.png}}
+	\caption{Line Data Transfer \cite{mt9v034}}
+	\label{LvDout}
+\end{figure}
+
+\par
+The default camera data transmission scheme was also examined using an oscilloscope, as shown in Figure \ref{camDataTransfer}, with channels 1-4 corresponding to camera PCLK, FRAME\_VALID, LINE\_VALID, and Data[0], respectively. In the case of Figure \ref{camDataTransfer}, the camera is initially powered off, resulting in an inactive PCLK signal.
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{oScope/pclk_fv_lv_data2/tek00004.png}}
+	\caption{Camera Data Transfer}
+	\label{camDataTransfer}
 \end{figure}
 
 \subsubsection{I$^2$C Control} 
@@ -17,37 +46,11 @@ Started by trying to get the camera version...
 \end{figure}
 
 \par
-Next, set camera control register for trigger mode and confirmed that it was working
-
-
-\subsubsection{Camera Output}
-
-Normal mode of operation.....
-\begin{figure}[H]
-	\centerline{\includegraphics[width=1.0\textwidth]{camFvLv.png}}
-	\caption{Frame and Line Valid}
-	\label{FvLv}
-\end{figure}
-\begin{figure}[H]
-	\centerline{\includegraphics[width=1.0\textwidth]{camLvPckDout.png}}
-	\caption{Line Data Transfer}
-	\label{LvDout}
-\end{figure}
-
-\par
-Grabbing an image of normal ops...
-\begin{figure}[H]
-	\centerline{\includegraphics[width=1.0\textwidth]{oScope/pclk_fv_lv/tek00003.png}}
-	\caption{Camera Data Transfer}
-	\label{camDataTransfer}
-\end{figure}
-
-\par
-triggered!
+Next, set camera control register for trigger mode and confirmed that it was working. triggered!
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1.0\textwidth]{oScope/i2c_0x07/externalTrigger/externalTrig.png}}
-	\caption{Camera Running in Trigger Mode}
+	\caption{Camera Trigger and FV in Trigger Mode}
 	\label{camInTrigMode}
 \end{figure}
 
@@ -62,7 +65,7 @@ AL422B FIFO, etc...
 \end{figure}
 
 \subsubsection{Transmitting Images Over UART for Analysis}
-throw in screenshot of PuTTy
+The source code found in Appendix item \ref{camTestC} was implemented on a Microblaze MCS in order to transmit camera line data from the FPGA's internal line buffer over UART. An example of the microcontroller's UART output is shown in Figure \ref{PuTTYfifoData}. 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.6\textwidth]{oScope/camera_fifo/PuTTy.png}}
 	\caption{Reading FIFO Data}
@@ -70,7 +73,7 @@ throw in screenshot of PuTTy
 \end{figure}
 
 \par
-After the image was recieved through PuTTy, the \textsc{Matlab} script found in Appendix item \ref{camTestMatlab} was used to parse the corresponding logfile into a greyscale image.
+After the image was recieved through PuTTy, the \textsc{Matlab} script found in Appendix item \ref{camTestMatlab} was used to parse the corresponding logfile into a greyscale image. An example image created through this process is shown in Figure \ref{notebookImage}. Note that the sub-optimal quality of this image is due to the test setup's wiring. 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.75\textwidth]{oScope/camera_fifo/notebook.png}}
 	\caption{Notebook With Grid and Oscilloscope Leads}
