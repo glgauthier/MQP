@@ -27,7 +27,7 @@ Squito utilizes a microprocessor receiving input from cameras, as well as orient
 	\label{squito_io}
 \end{figure}
 
-By using multiple camera sensors in a sensor suite, it is also possible to determine depth information from corresponding images of an area. This technique is known as stereo imaging, and the process of gathering depth information from a pair of stereo images is known as disparity mapping. University of Bologna researchers Stefano Mattoccia and Matteo Poggi have worked to implement a real-time disparity mapping algorithm on an FPGA, and an example of a stereo image disparity is shown in Figure \ref{disparity_example} below \cite{mattoccia}. Using their stereo vision algorithm, the researchers are able to generate real-time image data showing the relative locations of objects within an image frame using color gradients. Based on this depth information, it is also possible to detect objects located within the field of view of the stereo imaging system, as shown in Figure \ref{disparity_example}. An implementation similar to this would be extremely useful in a SLAM-like system, as it would allow for the localization of objects and creation of 2D ''floorplans'' of an area in real-time using only two camera sensors.
+By using multiple camera sensors in a sensor suite, it is also possible to determine depth information from corresponding images of an area. This technique is known as stereo imaging, and the process of gathering depth information from a pair of stereo images is known as disparity mapping. University of Bologna researchers Stefano Mattoccia and Matteo Poggi have worked to implement a real-time disparity mapping algorithm on an FPGA, and an example of a stereo image disparity is shown in Figure \ref{disparity_example} below \cite{mattoccia}. Using their stereo vision algorithm, the researchers are able to generate real-time image data showing the relative locations of objects within an image frame using color gradients. Based on this depth information, it is also possible to detect objects located within the field of view of the stereo imaging system, as shown in Figure \ref{disparity_example}. An implementation similar to this would be extremely useful in a SLAM-like system, as it would allow for the localization of objects and creation of 2D "floorplans" of an area in real-time using only two camera sensors.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.9\textwidth]{disparity_example.png}}
@@ -35,11 +35,11 @@ By using multiple camera sensors in a sensor suite, it is also possible to deter
 	\label{disparity_example}
 \end{figure}
 
-Many security systems implement human detection and human body tracking in order to increase their effectiveness. These devices process real-time images in order to identify human characteristics, and are limited to the field of vision of a stationary or rotating camera. An example of this type of system is explored by the Mitsubishi corporation in a research paper entitled ''Human Body Tracking by Adaptive Background Models and Mean-Shift Analysis'' \cite{porikli}. The paper explores a stationary image processing system implemented on a PC platform with a 1.8GHz processor that yields a maximum processing time of 100 milliseconds. An output frame of the system is shown in Figure \ref{human_tracking} below.
+Many security systems implement human detection and human body tracking in order to increase their effectiveness. These devices process real-time images in order to identify human characteristics, and are limited to the field of vision of a stationary or rotating camera. An example of this type of system is explored by the Mitsubishi corporation in a research paper entitled "Human Body Tracking by Adaptive Background Models and Mean-Shift Analysis" \cite{porikli}. The paper explores a stationary image processing system implemented on a PC platform with a 1.8GHz processor that yields a maximum processing time of 100 milliseconds. An output frame of the system is shown in Figure \ref{human_tracking} below.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.5\textwidth]{human_tracking.png}}
-	\caption{Human Body Tracking by Adaptive Background Models and Mean-Shift Analysis \cite{porikli}}
+	\caption{\small{Human Body Tracking by Adaptive Background Models and Mean-Shift Analysis \cite{porikli}}}
 	\label{human_tracking}
 \end{figure}
 

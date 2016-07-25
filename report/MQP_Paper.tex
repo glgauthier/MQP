@@ -10,7 +10,9 @@
 \usepackage{url}
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
+% Fix backwards double quotes
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
 % set up clickable links in ToC
 \usepackage{hyperref} % [hidelinks] to turn off hilights
 \hypersetup{linktocpage, colorlinks=false, linktoc=all}
@@ -36,6 +38,10 @@
 	numberstyle=\tiny\color{black},
 	keywordstyle=\color{Blue}\ttfamily,
     commentstyle=\color{Green}\ttfamily,
+    emph = [1]{`timescale},
+    emphstyle = [1]{\color{Magenta}},
+    emph = [2]{BUFG,ODDR2},
+    emphstyle = [2]{\color{Maroon}},
 	}  
 % Matlab code snippet configuration
 \definecolor{mygreen}{rgb}{0.11,0.67,0} % color values Red, Green, Blue
@@ -134,8 +140,12 @@
 \input{appendix/resources.tex} % useful resources
 \input{appendix/componentSelection.tex} % component selection
 \input{appendix/camDecisionMatrix.tex} % camera module decision matrix
+\input{appendix/camControlReg.tex}
+\newpage
 \input{appendix/matlabCode.tex}
+\newpage
 \input{appendix/verilogCode.tex}
+\newpage
 \input{appendix/cCode.tex}
 
 \input{appendix/examples.tex} % example latex code for setting things up

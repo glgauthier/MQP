@@ -149,6 +149,7 @@ wire fifo_rden;
 assign FIFO_OE = fifo_rden;
 assign FIFO_WE = ~cam_LV;
 
+// Microblaze MCS for reading from local buffer/Tx over UART
 wire fifo_read_en, fifo_reset; // tell fpga to put new data in the FIFO
 wire [7:0] pixelVal; // value of a camera pixel from fpga line buffer -> microblaze
 wire [9:0] pixelPos; // pixel position (0-751) on a line, from microblaze -> fpga line buffer
@@ -164,6 +165,7 @@ microblaze_mcs mcs_0 (
   .GPI2({read_en,mcs_read_en}) // sw1
 );
 
+// Buffer for storing a line of pixels from the FIFO
 fifo_read linebuf(
 	.reset_pointer(fifo_reset),
 	.get_data(fifo_read_en), // from microblaze (sent to trigger new read from FIFO to FPGA buffer)
