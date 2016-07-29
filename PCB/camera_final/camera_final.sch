@@ -6882,10 +6882,8 @@ Metric Code Size 5664</description>
 <part name="PMODB" library="con-lstb" deviceset="MA06-2" device=""/>
 <part name="I2C" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="R1" library="rcl" deviceset="R-US_" device="R0805"/>
-<part name="R2" library="rcl" deviceset="R-US_" device="R0805"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="GND3" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND4" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND5" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND6" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -6916,10 +6914,8 @@ Metric Code Size 5664</description>
 <instance part="PMODB" gate="1" x="66.04" y="40.64"/>
 <instance part="I2C" gate="G$1" x="170.18" y="40.64"/>
 <instance part="R1" gate="G$1" x="132.08" y="96.52" rot="R90"/>
-<instance part="R2" gate="G$1" x="261.62" y="96.52" rot="R90"/>
 <instance part="GND1" gate="1" x="223.52" y="78.74"/>
 <instance part="GND2" gate="1" x="228.6" y="78.74"/>
-<instance part="GND3" gate="1" x="261.62" y="86.36"/>
 <instance part="GND4" gate="1" x="132.08" y="86.36"/>
 <instance part="GND5" gate="1" x="99.06" y="78.74"/>
 <instance part="GND6" gate="1" x="93.98" y="78.74"/>
@@ -7373,11 +7369,6 @@ Metric Code Size 5664</description>
 <pinref part="GND2" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="R2" gate="G$1" pin="1"/>
-<pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="261.62" y1="91.44" x2="261.62" y2="88.9" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="R1" gate="G$1" pin="1"/>
 <pinref part="GND4" gate="1" pin="GND"/>
 <wire x1="132.08" y1="91.44" x2="132.08" y2="88.9" width="0.1524" layer="91"/>
@@ -7583,7 +7574,6 @@ Metric Code Size 5664</description>
 <segment>
 <pinref part="U$1" gate="G$1" pin="RCK"/>
 <label x="248.92" y="101.6" size="1.778" layer="95"/>
-<pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="243.84" y1="101.6" x2="261.62" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 <segment>
