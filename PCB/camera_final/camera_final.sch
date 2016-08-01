@@ -7574,7 +7574,7 @@ Metric Code Size 5664</description>
 <segment>
 <pinref part="U$1" gate="G$1" pin="RCK"/>
 <label x="248.92" y="101.6" size="1.778" layer="95"/>
-<wire x1="243.84" y1="101.6" x2="261.62" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="243.84" y1="101.6" x2="251.46" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="PMODA" gate="1" pin="7"/>

@@ -113,3 +113,32 @@ Although this system was tested using the Nexys3 (Spartan-6) FPGA board, the use
 	\caption{Camera Test Setup}
 	\label{camTestSetup}
 \end{figure}
+
+\subsection{Final Camera Implementation}
+After successfully gathering image data from a single camera module, an interface needed to be created for controlling both cameras at once using the ZedBoard. Interfacing each camera module directly to the ZedBoard's GPIO is not feasible, since the pair would consume every available PMOD pin on the board, leaving no additional pins for the IMU or rangefinder\footnote{$[2*(D[9:0]+TRIGGER+OE+RST+SCLK+PCLK+FV+LV)]+SDA+SCL = 36\,\,pins$}. One solution originally investigated was the use of the ZedBoard's FPGA Mezzanine Card (FMC) connector, since it contains 68 available GPIO pins and would be more than adequate for interfacing the stereo cameras with the board. However, the FMC connector has been configured to provide logic voltage levels of only 1.8 or 2.5 volts without modification to the ZedBoard. Since each camera module is only compatible with 3.3 volt logic, the FMC connector is therefore not be feasible for our designs.
+\par
+This leaves the final option of reducing the overall pin count required by the cameras and interfacing the combined camera setup with the board's PMOD pins. One significant method of reducing the necessary pins required is to include an individual AL422B FIFO per camera. Based on the testing described in the previous section, it has already been determined that these FIFO modules are compatible with the MT9V034 cameras, and are capable of significantly reducing memory requirements on the FPGA. A second major advantage of including these FIFO modules in the camera interface is that their data output lines may be placed in a high-impedance state. This means that the individual data output lines of each FIFO module can be connected in parallel, with a single FIFO driving the lines at a time. Since the bulk of each camera module's required pin count lies in its data lines, the ability to connect these lines in parallel reduces the overall camera GPIO requirements by 8 pins. Since each AL422B FIFO module is capable of being read from at a clock speed of up to 50MHz and the maximum master clock rate of each MT9V034 camera module is 27MHz, the inclusion of the FIFO modules also won't cause a significant decrease in the overall speed of the stereo camera system \cite{al422b,mt9v034}.
+\par
+Along with the shared camera data lines between each AL422B FIFO module, it is also possible to connect several other signals in parallel. Since each camera image capture should be triggered at approximately the same time in a stereo imaging setup, it is already desirable to connect both camera TRIGGER lines together. The RST, OE, SDL, SCA, and SCLK lines of each camera module can also be tied together in pairs of two, and the OE lines can simply be held at 3.3 volts. Lastly, since each camera LV signal must be inverted for use with the AL422B FIFOs, a discrete inverter IC may be used to save on FPGA GPIO. Overall, these modifications will save a total of 25 pins, as shown in Equation \ref{lowerPincount}.
+\begin{equation}
+\label{lowerPincount}
+\begin{split}
+36\,\, Pins - (8\,\,Data + 4 \,\,truncated\,\,bits) - (TRIGGER+SCLK+RST) \\ - 2*(OE+PCLK+FV+LV) = 13\,\,pins\,(!) 
+\end{split}
+\end{equation}
+\par
+Note each FIFO must be controlled individually, requiring an additional Read Reset (RRST) and Read Enable (RE) pin per camera, as well as a shared Read Clock (RCK) line. This brings the total pin count required by the stereo camera setup to 16 pins plus two I2C pins, which is conveniently the number of GPIO available in two PMOD headers. This setup was implemented as shown in Appendix item \ref{stereoCameraSchematic}, and the final stereo camera breakout board shown in Figure \ref{stereoCameraBoard} was then created.  
+\begin{figure}[H] 
+	\begin{subfigure}{1\textwidth}
+	\centering
+		\includegraphics[width=0.65\linewidth]{stereo_top.png}
+		\caption{PCB Top}
+	\end{subfigure}
+	\begin{subfigure}{1\textwidth}
+	\centering
+		\includegraphics[width=0.65\linewidth]{stereo_bottom.png}
+		\caption{PCB Bottom}
+	\end{subfigure}
+	\caption{Stereo Camera PMOD Board}
+	\label{stereoCameraBoard}
+\end{figure}
