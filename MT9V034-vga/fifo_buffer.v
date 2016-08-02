@@ -4,8 +4,8 @@
 // local buffer.
 //////////////////////////////////////////////////////////////////////////////////
 module fifo_buffer(
-	input reset_pointer, // from microblaze, signal to assert fifo_rrst
-	input get_data, // from microblaze (sent to trigger new read from FIFO to FPGA buffer)
+	//input reset_pointer, // from microblaze, signal to assert fifo_rrst
+	//input get_data,
 	input [10:0] href, // from microblaze, 0-751
 	input [10:0] vref,
 	input blank,
@@ -14,8 +14,12 @@ module fifo_buffer(
 	output reg fifo_rrst, // fifo read reset (reset read addr pointer to 0)
 	output reg fifo_oe, // fifo output enable (allow for addr pointer to increment)
 	output reg [7:0] pixel_value, // 8-bit value from internal buffer
-	output [15:0] current_line // value to seven segment displays
+	output [15:0] current_line, // value to seven segment displays
+	output reg trigger
    );
+
+reg reset_pointer; 
+reg get_data; 
 
 parameter [1:0] ready = 2'b00;
 parameter [1:0] read = 2'b01;
@@ -26,7 +30,7 @@ reg buffer_ready;
 reg [1:0] state = ready;
 reg [1:0] prev_state, next_state = ready;
 
-reg [7:0] pixel_array [0:45][0:29]; // implemented in BRAM
+reg [7:0] pixel_array [0:59][0:91]; // implemented in BRAM
 
 reg [9:0] pixel = 10'b00_0000_0000;
 reg [15:0] num_lines = 16'h0000;
@@ -34,12 +38,15 @@ reg [15:0] num_lines = 16'h0000;
 always @(posedge fifo_rck)
 	state <= next_state;
 	
-always @(state,get_data,num_lines)	
+always @(state,get_data,num_lines,pixel)	
 	case(state)
 		ready: 
 			begin
 				if(get_data) 
+				begin
+					trigger = 1'b0;
 					next_state = init;
+				end
 				else
 					next_state = ready;
 					
@@ -52,7 +59,7 @@ always @(state,get_data,num_lines)
 			end
 		read: 
 			begin
-				if(num_lines == 30) // was pixel == 751
+				if(num_lines == 479) // was pixel == 751
 					next_state = done;
 				else
 					next_state = read;
@@ -63,17 +70,13 @@ always @(state,get_data,num_lines)
 			begin
 				next_state = ready;
 				prev_state = done;
+				trigger = 1'b1;
 			end
 	endcase
 
 always @(posedge fifo_rck)
 begin
-		if(reset_pointer) 
-			begin
-			fifo_rrst <= 1'b0;
-			num_lines <= 16'h0000;
-			end
-		else if(state==ready) // allow for MCS to read from pixel_line
+		if(state==ready) // allow for MCS to read from pixel_line
 			begin
 			fifo_rrst <= 1'b1; // make sure read addr doesn't get reset
 			end
@@ -90,14 +93,14 @@ begin
 			
 			if((prev_state != init) && (pixel < 751)) // one cycle delay between init and valid data
 				
-				if((pixel<=45) && (num_lines <= 29)) // read in top left corner of image
+				if((pixel>=329 && pixel <= 421) && (num_lines >= 209 && num_lines <= 269)) // read in top left corner of image
 				begin
-					pixel_array[pixel][num_lines] <= fifo_data;
+					pixel_array[(num_lines-209)][(pixel-329)] <= fifo_data;
 					pixel <= pixel + 1'b1;
 				end
 				else
 					pixel <= pixel + 1'b1;
-			else if((prev_state != init) && (pixel == 751))
+			else if(prev_state != init)
 				begin
 				pixel <= 10'b00_0000_0000;
 				num_lines <= num_lines + 1'b1;
@@ -106,6 +109,8 @@ begin
 		else if(state == done)
 			begin
 			buffer_ready <= 1'b1;
+			fifo_rrst <= 1'b0;
+			num_lines <= 16'h0000;
 			end
 end
 
@@ -114,14 +119,15 @@ assign current_line = (num_lines);
 
 // allow for MCS to read stored pixel line at given addr if state==ready
 always @ (buffer_ready, href, vref, blank, pixel_value, pixel_array)
-	if(buffer_ready)
-	begin
-		if(blank)
-			pixel_value [7:0] = 8'h00;
-		else if ((vref <= 29) && (href <= 45))
-			pixel_value [7:0] = pixel_array[href][vref];
-		else 
-			pixel_value [7:0] = 8'he0;
-	end
-	else pixel_value [7:0] = 8'h02;
+	if(blank)
+		pixel_value [7:0] = 8'h00;
+	else if ((274 <= href && href <= 366) && (209 <= vref && vref <= 269)) // && buffer_ready
+		pixel_value [7:0] = pixel_array[vref-209][href-274];
+	else if (href == 367 && vref == 270)
+		get_data = 1'b1;
+	else if (href == 368 && vref == 271)
+		get_data = 1'b0;
+	else 
+		pixel_value [7:0] = 8'h00;
+
 endmodule

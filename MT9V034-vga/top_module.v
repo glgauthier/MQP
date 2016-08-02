@@ -35,6 +35,7 @@
 wire clk_20Hz_unbuf, clk_20Hz;
 wire clk_10kHz;
 wire clk_1MHz, clk_1MHz_unbuf;
+wire clk_5MHz;
 wire clk_24MHz;
 wire clk_25MHz;
 
@@ -127,11 +128,11 @@ seven_seg segs(
     );
 	 
 // debounce trigger button input
-debounce deb(
-    .clk(clk_20Hz),
-    .btn(trigger),
-    .btn_val(cam_trigger)
-    );
+//debounce deb(
+//    .clk(clk_20Hz),
+//    .btn(trigger),
+//    .btn_val(cam_trigger)
+//    );
 
 // debounce output enable switch
 btnlatch sw_oe(
@@ -171,8 +172,8 @@ vga_controller_640_60 vgaOut(
 
 // Buffer for storing a scaled down set of pixels from FIFO for VGA display
 fifo_buffer imgbuf(
-	.reset_pointer(fifo_rst),
-	.get_data(read_en), // from microblaze (sent to trigger new read from FIFO to FPGA buffer)
+	//.reset_pointer(fifo_rst),
+	//.get_data(read_en), // was read_en
 	.href(hcount),
 	.vref(vcount),
 	.blank(blank),
@@ -181,7 +182,8 @@ fifo_buffer imgbuf(
 	.fifo_rrst(FIFO_RRST), // fifo read reset (reset read addr pointer to 0)
 	.fifo_oe(fifo_rden), // fifo output enable (allow for addr pointer to increment)
 	.pixel_value(rgb), // 8-bit pixel value from internal buffer
-	.current_line(displayVal)
+	.current_line(displayVal),
+	.trigger(cam_trigger)
    );
 
 endmodule
