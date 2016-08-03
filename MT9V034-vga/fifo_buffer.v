@@ -59,7 +59,7 @@ always @(state,get_data,num_lines,pixel)
 			end
 		read: 
 			begin
-				if(num_lines == 479) // was pixel == 751
+				if(num_lines == 280) // was pixel == 751
 					next_state = done;
 				else
 					next_state = read;

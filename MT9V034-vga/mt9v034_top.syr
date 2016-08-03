@@ -4,13 +4,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: mt9v034_top.prj
 
@@ -130,7 +130,6 @@ Parsing architecture <Behavioral> of entity <vga_controller_640_60>.
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
-WARNING:HDLCompiler:1016 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" Line 45: Port CLK_OUT3 is not connected to this instance
 
 Elaborating module <mt9v034_top>.
 
@@ -146,13 +145,14 @@ WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\ip
 Elaborating module <BUFG>.
 
 Elaborating module <clk_divs>.
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" Line 66: Assignment to clk_1MHz ignored, since the identifier is never used
 
 Elaborating module <ODDR2(DDR_ALIGNMENT="NONE",INIT=1'b0,SRTYPE="SYNC")>.
 
 Elaborating module <seven_seg>.
 
 Elaborating module <btnlatch>.
-WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" Line 149: Assignment to read_en ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" Line 150: Assignment to read_en ignored, since the identifier is never used
 Going to vhdl side to elaborate module vga_controller_640_60
 
 Elaborating entity <vga_controller_640_60> (architecture <Behavioral>) from library <work>.
@@ -160,7 +160,7 @@ Back to verilog to continue elaboration
 
 Elaborating module <fifo_buffer>.
 WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\fifo_buffer.v" Line 77: Assignment to buffer_ready ignored, since the identifier is never used
-WARNING:Xst:2972 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" line 146. All outputs of instance <fifoRead_en> of block <btnlatch> are unconnected in block <mt9v034_top>. Underlying logic will be removed.
+WARNING:Xst:2972 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" line 147. All outputs of instance <fifoRead_en> of block <btnlatch> are unconnected in block <mt9v034_top>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -170,13 +170,12 @@ Synthesizing Unit <mt9v034_top>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v".
 WARNING:Xst:647 - Input <trigger> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <fifo_rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" line 45: Output port <CLK_OUT3> of the instance <CLK_24MHz> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" line 146: Output port <btn_val> of the instance <fifoRead_en> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" line 147: Output port <btn_val> of the instance <fifoRead_en> is unconnected or connected to loadless signal.
     Found 12-bit register for signal <init_count>.
-    Found 12-bit adder for signal <init_count[11]_GND_1_o_add_2_OUT> created at line 115.
-    Found 12-bit comparator greater for signal <init_count[11]_PWR_1_o_LessThan_2_o> created at line 114
-    Found 12-bit comparator lessequal for signal <n0006> created at line 117
-    Found 12-bit comparator lessequal for signal <n0008> created at line 118
+    Found 12-bit adder for signal <init_count[11]_GND_1_o_add_2_OUT> created at line 116.
+    Found 12-bit comparator greater for signal <init_count[11]_PWR_1_o_LessThan_2_o> created at line 115
+    Found 12-bit comparator lessequal for signal <n0006> created at line 118
+    Found 12-bit comparator lessequal for signal <n0008> created at line 119
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  12 D-type flip-flop(s).
@@ -1621,15 +1620,15 @@ Top Level Output File Name         : mt9v034_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1066
+# BELS                             : 1068
 #      GND                         : 1
 #      INV                         : 11
 #      LUT1                        : 49
-#      LUT2                        : 19
+#      LUT2                        : 18
 #      LUT3                        : 62
-#      LUT4                        : 23
-#      LUT5                        : 467
-#      LUT6                        : 276
+#      LUT4                        : 27
+#      LUT5                        : 459
+#      LUT6                        : 283
 #      MUXCY                       : 80
 #      VCC                         : 1
 #      XORCY                       : 77
@@ -1662,16 +1661,16 @@ Selected Device : 6slx16csg324-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:             121  out of  18224     0%  
- Number of Slice LUTs:                 2587  out of   9112    28%  
-    Number used as Logic:               907  out of   9112     9%  
+ Number of Slice LUTs:                 2589  out of   9112    28%  
+    Number used as Logic:               909  out of   9112     9%  
     Number used as Memory:             1680  out of   2176    77%  
        Number used as RAM:             1680
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   2599
-   Number with an unused Flip Flop:    2478  out of   2599    95%  
-   Number with an unused LUT:            12  out of   2599     0%  
-   Number of fully used LUT-FF pairs:   109  out of   2599     4%  
+ Number of LUT Flip Flop pairs used:   2601
+   Number with an unused Flip Flop:    2480  out of   2601    95%  
+   Number with an unused LUT:            12  out of   2601     0%  
+   Number of fully used LUT-FF pairs:   109  out of   2601     4%  
    Number of unique control sets:        20
 
 IO Utilization: 
@@ -1706,13 +1705,13 @@ Clock Signal                                                         | Clock buf
 ---------------------------------------------------------------------+------------------------------+-------+
 clk_20Hz_unbuf(clks/clk_debounce<20>3:O)                             | BUFG(*)(sw_oe/btn_val)       | 2     |
 CLK_24MHz/pll_base_inst/CLKOUT1                                      | BUFG                         | 57    |
-clk_1MHz_unbuf(clks/clk_fifo1:O)                                     | BUFG(*)(clkfwd1)             | 759   |
+CLK_24MHz/pll_base_inst/CLKOUT2                                      | BUFG                         | 759   |
 imgbuf/state[1]_GND_17_o_Mux_9_o(imgbuf/state[1]_GND_17_o_Mux_9_o1:O)| NONE(*)(imgbuf/trigger)      | 1     |
 imgbuf/GND_16_o_GND_16_o_OR_79_o(imgbuf/GND_16_o_GND_16_o_OR_79_o1:O)| NONE(*)(imgbuf/pixel_value_0)| 8     |
 imgbuf/blank_GND_16_o_AND_30_o(imgbuf/blank_GND_16_o_AND_30_o1:O)    | NONE(*)(imgbuf/get_data)     | 1     |
 CLK_24MHz/pll_base_inst/CLKOUT0                                      | BUFG                         | 24    |
 ---------------------------------------------------------------------+------------------------------+-------+
-(*) These 5 clock signal(s) are generated by combinatorial logic,
+(*) These 4 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -1725,7 +1724,7 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 6.079ns (Maximum Frequency: 164.509MHz)
+   Minimum period: 6.062ns (Maximum Frequency: 164.970MHz)
    Minimum input arrival time before clock: 4.011ns
    Maximum output required time after clock: 5.632ns
    Maximum combinational path delay: 5.157ns
@@ -1781,29 +1780,29 @@ Delay:               4.751ns (Levels of Logic = 3)
                                        (31.3% logic, 68.7% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'clk_1MHz_unbuf'
-  Clock period: 6.079ns (frequency: 164.509MHz)
-  Total number of paths / destination ports: 61375 / 4609
+Timing constraint: Default period analysis for Clock 'CLK_24MHz/pll_base_inst/CLKOUT2'
+  Clock period: 6.062ns (frequency: 164.970MHz)
+  Total number of paths / destination ports: 62095 / 4609
 -------------------------------------------------------------------------
-Delay:               6.079ns (Levels of Logic = 4)
+Delay:               6.062ns (Levels of Logic = 4)
   Source:            imgbuf/num_lines_13 (FF)
   Destination:       imgbuf/Mram_pixel_array_4362 (RAM)
-  Source Clock:      clk_1MHz_unbuf rising
-  Destination Clock: clk_1MHz_unbuf rising
+  Source Clock:      CLK_24MHz/pll_base_inst/CLKOUT2 rising
+  Destination Clock: CLK_24MHz/pll_base_inst/CLKOUT2 rising
 
   Data Path: imgbuf/num_lines_13 to imgbuf/Mram_pixel_array_4362
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FD:C->Q               4   0.447   0.912  imgbuf/num_lines_13 (imgbuf/num_lines_13)
-     LUT3:I0->O            2   0.205   0.721  imgbuf/GND_16_o_GND_16_o_equal_4_o<15>21 (imgbuf/GND_16_o_GND_16_o_equal_4_o<15>2)
-     LUT6:I4->O            8   0.203   1.050  imgbuf/Mmux_BUS_000118 (imgbuf/Mmux_BUS_000117)
-     LUT5:I1->O           17   0.203   1.028  imgbuf/GND_27_o_BUS_0001_AND_32_o11 (imgbuf/GND_27_o_BUS_0001_AND_32_o1)
-     LUT6:I5->O            8   0.205   0.802  imgbuf/write_ctrl115 (imgbuf/write_ctrl115)
-     RAM32X1D:WE               0.304          imgbuf/Mram_pixel_array_4191
+     LUT3:I0->O            2   0.205   0.721  imgbuf/GND_16_o_GND_16_o_equal_4_o<15>31 (imgbuf/GND_16_o_GND_16_o_equal_4_o<15>3)
+     LUT6:I4->O            8   0.203   1.031  imgbuf/Mmux_BUS_000111 (imgbuf/Mmux_BUS_00011)
+     LUT6:I3->O           17   0.205   1.028  imgbuf/GND_27_o_BUS_0001_AND_47_o11 (imgbuf/GND_27_o_BUS_0001_AND_47_o1)
+     LUT6:I5->O            8   0.205   0.802  imgbuf/write_ctrl91 (imgbuf/write_ctrl91)
+     RAM32X1D:WE               0.304          imgbuf/Mram_pixel_array_1853
     ----------------------------------------
-    Total                      6.079ns (1.567ns logic, 4.512ns route)
-                                       (25.8% logic, 74.2% route)
+    Total                      6.062ns (1.569ns logic, 4.493ns route)
+                                       (25.9% logic, 74.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK_24MHz/pll_base_inst/CLKOUT0'
@@ -1881,13 +1880,13 @@ Offset:              4.011ns (Levels of Logic = 2)
                                        (46.3% logic, 53.7% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_1MHz_unbuf'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK_24MHz/pll_base_inst/CLKOUT2'
   Total number of paths / destination ports: 960 / 960
 -------------------------------------------------------------------------
 Offset:              3.454ns (Levels of Logic = 1)
   Source:            FIFO_DATA<3> (PAD)
   Destination:       imgbuf/Mram_pixel_array_422 (RAM)
-  Destination Clock: clk_1MHz_unbuf rising
+  Destination Clock: CLK_24MHz/pll_base_inst/CLKOUT2 rising
 
   Data Path: FIFO_DATA<3> to imgbuf/Mram_pixel_array_422
                                 Gate     Net
@@ -1997,13 +1996,13 @@ Offset:              3.597ns (Levels of Logic = 1)
                                        (83.9% logic, 16.1% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_1MHz_unbuf'
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_24MHz/pll_base_inst/CLKOUT2'
   Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
 Offset:              3.597ns (Levels of Logic = 1)
   Source:            imgbuf/fifo_oe (FF)
   Destination:       FIFO_OE (PAD)
-  Source Clock:      clk_1MHz_unbuf rising
+  Source Clock:      CLK_24MHz/pll_base_inst/CLKOUT2 rising
 
   Data Path: imgbuf/fifo_oe to FIFO_OE
                                 Gate     Net
@@ -2072,16 +2071,16 @@ Clock to Setup on destination clock CLK_24MHz/pll_base_inst/CLKOUT1
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
 CLK_24MHz/pll_base_inst/CLKOUT1|    4.751|         |         |         |
-clk_1MHz_unbuf                 |    2.695|         |         |         |
+CLK_24MHz/pll_base_inst/CLKOUT2|    2.695|         |         |         |
 -------------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock clk_1MHz_unbuf
+Clock to Setup on destination clock CLK_24MHz/pll_base_inst/CLKOUT2
 -------------------------------+---------+---------+---------+---------+
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
 CLK_24MHz/pll_base_inst/CLKOUT0|    4.250|         |         |         |
-clk_1MHz_unbuf                 |    6.079|         |         |         |
+CLK_24MHz/pll_base_inst/CLKOUT2|    6.062|         |         |         |
 imgbuf/blank_GND_16_o_AND_30_o |         |    1.558|         |         |
 -------------------------------+---------+---------+---------+---------+
 
@@ -2099,7 +2098,7 @@ Clock to Setup on destination clock imgbuf/GND_16_o_GND_16_o_OR_79_o
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
 CLK_24MHz/pll_base_inst/CLKOUT0|         |         |   39.313|         |
-clk_1MHz_unbuf                 |         |         |   35.387|         |
+CLK_24MHz/pll_base_inst/CLKOUT2|         |         |   35.387|         |
 -------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock imgbuf/blank_GND_16_o_AND_30_o
@@ -2111,24 +2110,24 @@ CLK_24MHz/pll_base_inst/CLKOUT0|         |         |    5.286|         |
 -------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock imgbuf/state[1]_GND_17_o_Mux_9_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk_1MHz_unbuf |         |         |    2.112|         |
----------------+---------+---------+---------+---------+
+-------------------------------+---------+---------+---------+---------+
+                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-------------------------------+---------+---------+---------+---------+
+CLK_24MHz/pll_base_inst/CLKOUT2|         |         |    2.112|         |
+-------------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 15.00 secs
-Total CPU time to Xst completion: 14.92 secs
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 15.49 secs
  
 --> 
 
-Total memory usage is 332360 kilobytes
+Total memory usage is 332392 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   81 (   0 filtered)
-Number of infos    :   72 (   0 filtered)
+Number of infos    :   71 (   0 filtered)
 
