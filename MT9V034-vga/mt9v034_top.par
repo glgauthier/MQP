@@ -1,7 +1,7 @@
 Release 14.1 par P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-GEORGES-T460P::  Sat Aug 13 17:52:16 2016
+GEORGES-T460P::  Sat Aug 13 19:02:07 2016
 
 par -w -intstyle ise -ol high -mt off mt9v034_top_map.ncd mt9v034_top.ncd
 mt9v034_top.pcf 
@@ -22,16 +22,16 @@ Device speed data version:  "PRODUCTION 1.21 2012-04-23".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   102 out of  18,224    1%
-    Number used as Flip Flops:                 101
+  Number of Slice Registers:                   119 out of  18,224    1%
+    Number used as Flip Flops:                 118
     Number used as Latches:                      1
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                      2,040 out of   9,112   22%
-    Number used as logic:                      838 out of   9,112    9%
-      Number using O6 output only:             748
-      Number using O5 output only:              28
-      Number using O5 and O6:                   62
+  Number of Slice LUTs:                      2,072 out of   9,112   22%
+    Number used as logic:                      869 out of   9,112    9%
+      Number using O6 output only:             756
+      Number using O5 output only:              47
+      Number using O5 and O6:                   66
       Number used as ROM:                        0
     Number used as Memory:                   1,200 out of   2,176   55%
       Number used as Dual Port RAM:          1,200
@@ -40,18 +40,18 @@ Slice Logic Utilization:
         Number using O5 and O6:                480
       Number used as Single Port RAM:            0
       Number used as Shift Register:             0
-    Number used exclusively as route-thrus:      2
+    Number used exclusively as route-thrus:      3
       Number with same-slice register load:      0
-      Number with same-slice carry load:         2
+      Number with same-slice carry load:         3
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   698 out of   2,278   30%
-  Nummber of MUXCYs used:                       68 out of   4,556    1%
-  Number of LUT Flip Flop pairs used:        2,049
-    Number with an unused Flip Flop:         1,956 out of   2,049   95%
-    Number with an unused LUT:                   9 out of   2,049    1%
-    Number of fully used LUT-FF pairs:          84 out of   2,049    4%
+  Number of occupied Slices:                   704 out of   2,278   30%
+  Nummber of MUXCYs used:                       92 out of   4,556    2%
+  Number of LUT Flip Flop pairs used:        2,080
+    Number with an unused Flip Flop:         1,970 out of   2,080   94%
+    Number with an unused LUT:                   8 out of   2,080    1%
+    Number of fully used LUT-FF pairs:         102 out of   2,080    4%
     Number of slice register sites lost
       to control set restrictions:               0 out of  18,224    0%
 
@@ -62,8 +62,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        46 out of     232   19%
-    Number of LOCed IOBs:                       46 out of      46  100%
+  Number of bonded IOBs:                        47 out of     232   20%
+    Number of LOCed IOBs:                       47 out of      47  100%
     IOB Flip Flops:                              2
     IOB Latches:                                 9
 
@@ -76,8 +76,8 @@ Specific Feature Utilization:
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
     Number used as BUFIO2FBs:                    1
     Number used as BUFIO2FB_2CLKs:               0
-  Number of BUFG/BUFGMUXs:                       4 out of      16   25%
-    Number used as BUFGs:                        4
+  Number of BUFG/BUFGMUXs:                       5 out of      16   31%
+    Number used as BUFGs:                        5
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
   Number of ILOGIC2/ISERDES2s:                   0 out of     248    0%
@@ -108,136 +108,136 @@ Finished initial Timing Analysis.  REAL time: 3 secs
 WARNING:Par:288 - The signal SW_read_fifo_IBUF has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal trigger_IBUF has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal fifo_rst_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_261_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_591_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_251_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_252_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_291_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_301_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_111_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_316_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_581_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_582_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_561_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_571_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_562_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_572_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_232_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_81_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_231_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_262_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_242_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_582_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_82_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_261_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_252_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_371_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_121_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_101_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_241_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_221_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_552_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_222_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_541_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_191_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_251_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_281_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_282_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_592_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_272_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_292_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_381_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_391_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_02_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_01_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_11_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_551_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_216_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_217_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_532_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_542_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_202_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_517_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_192_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_92_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_502_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_591_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_271_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_291_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_91_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_112_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_317_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_361_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_321_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_322_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_362_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_341_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_351_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_381_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_372_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_371_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_571_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_561_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_572_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_271_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_272_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_282_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_302_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_332_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_331_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_352_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_342_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_401_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_402_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_382_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_122_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_121_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_391_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_101_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_551_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_231_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_562_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_102_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_392_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_221_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_81_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_82_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_222_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_232_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_242_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_11_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_02_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_541_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_241_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_552_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_542_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_201_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_202_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_92_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_12_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_411_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_410_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_310_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_01_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_216_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_531_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_217_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_521_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_71_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_191_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_522_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_192_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_516_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_72_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_517_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_502_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_152_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_481_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_472_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_131_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_451_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_432_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_422_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_431_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_311_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_532_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_181_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_432_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_211_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_402_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_401_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_411_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_392_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_372_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_12_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_102_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_522_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_521_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_201_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_516_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_501_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_171_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_71_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_72_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_182_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_172_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_492_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_491_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_181_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_151_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_471_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_152_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_472_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_482_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_162_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_142_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_481_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_161_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_162_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_141_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_142_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_61_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_132_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_62_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_442_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_462_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_131_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_461_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_441_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_416_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_302_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_301_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_111_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_331_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_462_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_452_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_417_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_322_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_451_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_416_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_421_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_510_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_210_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_321_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_351_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_422_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_352_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_382_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_511_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_211_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_510_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_410_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_310_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_122_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_311_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_531_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_172_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_171_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_491_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_492_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_471_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_62_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_441_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_442_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_316_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_317_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_332_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_362_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_361_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_341_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_342_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal imgbuf/Mram_pixel_array_210_RAMD_O has no load.  PAR will not attempt to route this signal.
 Starting Router
 
 
-Phase  1  : 13766 unrouted;      REAL time: 3 secs 
+Phase  1  : 13879 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 12718 unrouted;      REAL time: 4 secs 
+Phase  2  : 12801 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 3671 unrouted;      REAL time: 8 secs 
+Phase  3  : 3696 unrouted;      REAL time: 9 secs 
 
-Phase  4  : 3671 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  4  : 3696 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
 
 Updating file: mt9v034_top.ncd with current fully routed design.
 
@@ -251,8 +251,8 @@ Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL 
 
 Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 16 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 16 secs 
-Total REAL time to Router completion: 16 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 17 secs 
+Total REAL time to Router completion: 17 secs 
 Total CPU time to Router completion: 16 secs 
 
 Partition Implementation Status
@@ -273,18 +273,20 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |            clk_5MHz | BUFGMUX_X3Y13| No   |  317 |  0.538     |  1.384      |
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_24MHz |  BUFGMUX_X2Y2| No   |   13 |  0.552     |  1.408      |
+|           clk_24MHz |  BUFGMUX_X2Y2| No   |   18 |  0.540     |  1.408      |
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_25MHz |  BUFGMUX_X2Y4| No   |    9 |  0.042     |  0.904      |
+|            clk_20Hz |  BUFGMUX_X2Y1| No   |    2 |  0.000     |  0.858      |
++---------------------+--------------+------+------+------------+-------------+
+|           clk_25MHz |  BUFGMUX_X2Y4| No   |    9 |  0.008     |  0.858      |
 +---------------------+--------------+------+------+------------+-------------+
 |imgbuf/state[1]_GND_ |              |      |      |            |             |
-|        17_o_Mux_9_o |         Local|      |    1 |  0.000     |  1.098      |
+|        17_o_Mux_9_o |         Local|      |    1 |  0.000     |  1.519      |
 +---------------------+--------------+------+------+------------+-------------+
 |imgbuf/GND_16_o_GND_ |              |      |      |            |             |
-|        16_o_OR_79_o |         Local|      |    8 |  0.504     |  2.270      |
+|        16_o_OR_79_o |         Local|      |    8 |  0.504     |  2.496      |
 +---------------------+--------------+------+------+------------+-------------+
 |imgbuf/blank_GND_16_ |              |      |      |            |             |
-|          o_AND_30_o |         Local|      |    1 |  0.000     |  0.713      |
+|          o_AND_30_o |         Local|      |    1 |  0.000     |  0.280      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -306,19 +308,19 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  PERIOD analysis for net "CLK_24MHz/clkout | SETUP       |     6.355ns|     9.890ns|       0|           0
-  1" derived from  NET "CLK_24MHz/clkin1" P | HOLD        |     0.435ns|            |       0|           0
+  PERIOD analysis for net "CLK_24MHz/clkout | SETUP       |     6.277ns|    10.280ns|       0|           0
+  1" derived from  NET "CLK_24MHz/clkin1" P | HOLD        |     0.413ns|            |       0|           0
   ERIOD = 10 ns HIGH 50%                    |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
   NET "CLK_24MHz/clkin1" PERIOD = 10 ns HIG | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
   H 50%                                     |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  PERIOD analysis for net "CLK_24MHz/clkout | SETUP       |    35.432ns|     4.568ns|       0|           0
-  0" derived from  NET "CLK_24MHz/clkin1" P | HOLD        |     0.511ns|            |       0|           0
+  PERIOD analysis for net "CLK_24MHz/clkout | SETUP       |    34.836ns|     5.164ns|       0|           0
+  0" derived from  NET "CLK_24MHz/clkin1" P | HOLD        |     0.503ns|            |       0|           0
   ERIOD = 10 ns HIGH 50%                    |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  PERIOD analysis for net "CLK_24MHz/clkout | SETUP       |   189.778ns|    10.222ns|       0|           0
-  2" derived from  NET "CLK_24MHz/clkin1" P | HOLD        |     0.440ns|            |       0|           0
+  PERIOD analysis for net "CLK_24MHz/clkout | SETUP       |   190.577ns|     9.423ns|       0|           0
+  2" derived from  NET "CLK_24MHz/clkin1" P | HOLD        |     0.397ns|            |       0|           0
   ERIOD = 10 ns HIGH 50%                    |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
 
@@ -333,10 +335,10 @@ Derived Constraints for CLK_24MHz/clkin1
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|CLK_24MHz/clkin1               |     10.000ns|      3.334ns|      2.374ns|            0|            0|            0|       147034|
-| CLK_24MHz/clkout0             |     40.000ns|      4.568ns|          N/A|            0|            0|         1524|            0|
-| CLK_24MHz/clkout1             |     41.667ns|      9.890ns|          N/A|            0|            0|          807|            0|
-| CLK_24MHz/clkout2             |    200.000ns|     10.222ns|          N/A|            0|            0|       144703|            0|
+|CLK_24MHz/clkin1               |     10.000ns|      3.334ns|      2.467ns|            0|            0|            0|       147559|
+| CLK_24MHz/clkout0             |     40.000ns|      5.164ns|          N/A|            0|            0|         1524|            0|
+| CLK_24MHz/clkout1             |     41.667ns|     10.280ns|          N/A|            0|            0|         1332|            0|
+| CLK_24MHz/clkout2             |    200.000ns|      9.423ns|          N/A|            0|            0|       144703|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
