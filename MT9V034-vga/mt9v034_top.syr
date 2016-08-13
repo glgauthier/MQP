@@ -4,13 +4,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: mt9v034_top.prj
 
@@ -145,14 +145,14 @@ WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\ip
 Elaborating module <BUFG>.
 
 Elaborating module <clk_divs>.
-WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" Line 66: Assignment to clk_1MHz ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" Line 68: Assignment to clk_1MHz ignored, since the identifier is never used
 
 Elaborating module <ODDR2(DDR_ALIGNMENT="NONE",INIT=1'b0,SRTYPE="SYNC")>.
 
 Elaborating module <seven_seg>.
 
 Elaborating module <btnlatch>.
-WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" Line 150: Assignment to read_en ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" Line 145: Assignment to read_en ignored, since the identifier is never used
 Going to vhdl side to elaborate module vga_controller_640_60
 
 Elaborating entity <vga_controller_640_60> (architecture <Behavioral>) from library <work>.
@@ -160,7 +160,7 @@ Back to verilog to continue elaboration
 
 Elaborating module <fifo_buffer>.
 WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\fifo_buffer.v" Line 77: Assignment to buffer_ready ignored, since the identifier is never used
-WARNING:Xst:2972 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" line 147. All outputs of instance <fifoRead_en> of block <btnlatch> are unconnected in block <mt9v034_top>. Underlying logic will be removed.
+WARNING:Xst:2972 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" line 142. All outputs of instance <fifoRead_en> of block <btnlatch> are unconnected in block <mt9v034_top>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -170,12 +170,12 @@ Synthesizing Unit <mt9v034_top>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v".
 WARNING:Xst:647 - Input <trigger> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <fifo_rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" line 147: Output port <btn_val> of the instance <fifoRead_en> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\top_module.v" line 142: Output port <btn_val> of the instance <fifoRead_en> is unconnected or connected to loadless signal.
     Found 12-bit register for signal <init_count>.
-    Found 12-bit adder for signal <init_count[11]_GND_1_o_add_2_OUT> created at line 116.
-    Found 12-bit comparator greater for signal <init_count[11]_PWR_1_o_LessThan_2_o> created at line 115
-    Found 12-bit comparator lessequal for signal <n0006> created at line 118
-    Found 12-bit comparator lessequal for signal <n0008> created at line 119
+    Found 12-bit adder for signal <init_count[11]_GND_1_o_add_2_OUT> created at line 118.
+    Found 12-bit comparator greater for signal <init_count[11]_PWR_1_o_LessThan_2_o> created at line 117
+    Found 12-bit comparator lessequal for signal <n0006> created at line 120
+    Found 12-bit comparator lessequal for signal <n0008> created at line 121
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  12 D-type flip-flop(s).
@@ -219,26 +219,6 @@ Synthesizing Unit <seven_seg>.
 	inferred  10 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
 Unit <seven_seg> synthesized.
-
-Synthesizing Unit <btnlatch>.
-    Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\btnlatch.v".
-    Found 1-bit register for signal <btn_val>.
-    Found 2-bit register for signal <count>.
-    Found finite state machine <FSM_0> for signal <count>.
-    -----------------------------------------------------------------------
-    | States             | 3                                              |
-    | Transitions        | 6                                              |
-    | Inputs             | 1                                              |
-    | Outputs            | 2                                              |
-    | Clock              | clk (rising_edge)                              |
-    | Power Up State     | 00                                             |
-    | Encoding           | auto                                           |
-    | Implementation     | LUT                                            |
-    -----------------------------------------------------------------------
-    Summary:
-	inferred   1 D-type flip-flop(s).
-	inferred   1 Finite State Machine(s).
-Unit <btnlatch> synthesized.
 
 Synthesizing Unit <vga_controller_640_60>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034-vga\vga.vhd".
@@ -393,7 +373,7 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <pixel_a
     Found 1-bit register for signal <fifo_oe>.
     Found 16-bit register for signal <num_lines>.
     Found 2-bit register for signal <state>.
-    Found finite state machine <FSM_1> for signal <state>.
+    Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
     | Transitions        | 6                                              |
@@ -457,8 +437,8 @@ Macro Statistics
  5-bit adder                                           : 1
  6-bit subtractor                                      : 2
  7-bit subtractor                                      : 2
-# Registers                                            : 17
- 1-bit register                                        : 6
+# Registers                                            : 16
+ 1-bit register                                        : 5
  10-bit register                                       : 1
  11-bit register                                       : 2
  12-bit register                                       : 1
@@ -484,7 +464,7 @@ Macro Statistics
  11-bit 2-to-1 multiplexer                             : 2
  16-bit 2-to-1 multiplexer                             : 1
  4-bit 4-to-1 multiplexer                              : 1
-# FSMs                                                 : 2
+# FSMs                                                 : 1
 # Xors                                                 : 344
  1-bit xor2                                            : 344
 
@@ -1519,8 +1499,8 @@ Macro Statistics
  2-bit up counter                                      : 1
  21-bit up counter                                     : 1
  5-bit up counter                                      : 1
-# Registers                                            : 24
- Flip-Flops                                            : 24
+# Registers                                            : 23
+ Flip-Flops                                            : 23
 # Comparators                                          : 20
  10-bit comparator greater                             : 1
  10-bit comparator lessequal                           : 2
@@ -1534,7 +1514,7 @@ Macro Statistics
  1-bit 2-to-1 multiplexer                              : 10
  10-bit 2-to-1 multiplexer                             : 2
  4-bit 4-to-1 multiplexer                              : 1
-# FSMs                                                 : 2
+# FSMs                                                 : 1
 # Xors                                                 : 344
  1-bit xor2                                            : 344
 
@@ -1544,16 +1524,7 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_0> on signal <count[1:2]> with gray encoding.
--------------------
- State | Encoding
--------------------
- 00    | 00
- 10    | 01
- 01    | 11
--------------------
-Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <imgbuf/FSM_1> on signal <state[1:2]> with user encoding.
+Optimizing FSM <imgbuf/FSM_0> on signal <state[1:2]> with user encoding.
 -------------------
  State | Encoding
 -------------------
@@ -1596,8 +1567,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 118
- Flip-Flops                                            : 118
+# Registers                                            : 116
+ Flip-Flops                                            : 116
 
 =========================================================================
 
@@ -1620,11 +1591,11 @@ Top Level Output File Name         : mt9v034_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1068
+# BELS                             : 1065
 #      GND                         : 1
-#      INV                         : 11
+#      INV                         : 10
 #      LUT1                        : 49
-#      LUT2                        : 18
+#      LUT2                        : 16
 #      LUT3                        : 62
 #      LUT4                        : 27
 #      LUT5                        : 459
@@ -1632,9 +1603,9 @@ Primitive and Black Box Usage:
 #      MUXCY                       : 80
 #      VCC                         : 1
 #      XORCY                       : 77
-# FlipFlops/Latches                : 130
-#      FD                          : 26
-#      FDE                         : 21
+# FlipFlops/Latches                : 128
+#      FD                          : 25
+#      FDE                         : 20
 #      FDR                         : 47
 #      FDRE                        : 24
 #      LD                          : 2
@@ -1646,8 +1617,8 @@ Primitive and Black Box Usage:
 #      RAM64X1D                    : 120
 # Clock Buffers                    : 6
 #      BUFG                        : 6
-# IO Buffers                       : 45
-#      IBUF                        : 12
+# IO Buffers                       : 43
+#      IBUF                        : 10
 #      IBUFG                       : 1
 #      OBUF                        : 32
 # Others                           : 1
@@ -1660,22 +1631,22 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             121  out of  18224     0%  
- Number of Slice LUTs:                 2589  out of   9112    28%  
-    Number used as Logic:               909  out of   9112     9%  
+ Number of Slice Registers:             119  out of  18224     0%  
+ Number of Slice LUTs:                 2586  out of   9112    28%  
+    Number used as Logic:               906  out of   9112     9%  
     Number used as Memory:             1680  out of   2176    77%  
        Number used as RAM:             1680
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   2601
-   Number with an unused Flip Flop:    2480  out of   2601    95%  
-   Number with an unused LUT:            12  out of   2601     0%  
-   Number of fully used LUT-FF pairs:   109  out of   2601     4%  
-   Number of unique control sets:        20
+ Number of LUT Flip Flop pairs used:   2598
+   Number with an unused Flip Flop:    2479  out of   2598    95%  
+   Number with an unused LUT:            12  out of   2598     0%  
+   Number of fully used LUT-FF pairs:   107  out of   2598     4%  
+   Number of unique control sets:        18
 
 IO Utilization: 
- Number of IOs:                          48
- Number of bonded IOBs:                  45  out of    232    19%  
+ Number of IOs:                          46
+ Number of bonded IOBs:                  43  out of    232    18%  
     IOB Flip Flops/Latches:               9
 
 Specific Feature Utilization:
@@ -1703,7 +1674,6 @@ Clock Information:
 ---------------------------------------------------------------------+------------------------------+-------+
 Clock Signal                                                         | Clock buffer(FF name)        | Load  |
 ---------------------------------------------------------------------+------------------------------+-------+
-clk_20Hz_unbuf(clks/clk_debounce<20>3:O)                             | BUFG(*)(sw_oe/btn_val)       | 2     |
 CLK_24MHz/pll_base_inst/CLKOUT1                                      | BUFG                         | 57    |
 CLK_24MHz/pll_base_inst/CLKOUT2                                      | BUFG                         | 759   |
 imgbuf/state[1]_GND_17_o_Mux_9_o(imgbuf/state[1]_GND_17_o_Mux_9_o1:O)| NONE(*)(imgbuf/trigger)      | 1     |
@@ -1711,7 +1681,7 @@ imgbuf/GND_16_o_GND_16_o_OR_79_o(imgbuf/GND_16_o_GND_16_o_OR_79_o1:O)| NONE(*)(i
 imgbuf/blank_GND_16_o_AND_30_o(imgbuf/blank_GND_16_o_AND_30_o1:O)    | NONE(*)(imgbuf/get_data)     | 1     |
 CLK_24MHz/pll_base_inst/CLKOUT0                                      | BUFG                         | 24    |
 ---------------------------------------------------------------------+------------------------------+-------+
-(*) These 4 clock signal(s) are generated by combinatorial logic,
+(*) These 3 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -1727,33 +1697,11 @@ Speed Grade: -3
    Minimum period: 6.062ns (Maximum Frequency: 164.970MHz)
    Minimum input arrival time before clock: 4.011ns
    Maximum output required time after clock: 5.632ns
-   Maximum combinational path delay: 5.157ns
+   Maximum combinational path delay: No path found
 
 Timing Details:
 ---------------
 All values displayed in nanoseconds (ns)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'clk_20Hz_unbuf'
-  Clock period: 2.272ns (frequency: 440.121MHz)
-  Total number of paths / destination ports: 2 / 2
--------------------------------------------------------------------------
-Delay:               2.272ns (Levels of Logic = 1)
-  Source:            sw_oe/count_FSM_FFd2 (FF)
-  Destination:       sw_oe/btn_val (FF)
-  Source Clock:      clk_20Hz_unbuf rising
-  Destination Clock: clk_20Hz_unbuf rising
-
-  Data Path: sw_oe/count_FSM_FFd2 to sw_oe/btn_val
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.721  sw_oe/count_FSM_FFd2 (sw_oe/count_FSM_FFd2)
-     LUT2:I0->O            1   0.203   0.579  sw_oe/btn_count[1]_AND_2_o_inv1 (sw_oe/btn_count[1]_AND_2_o_inv)
-     FDE:CE                    0.322          sw_oe/btn_val
-    ----------------------------------------
-    Total                      2.272ns (0.972ns logic, 1.300ns route)
-                                       (42.8% logic, 57.2% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK_24MHz/pll_base_inst/CLKOUT1'
@@ -1838,26 +1786,6 @@ Delay:               5.606ns (Levels of Logic = 14)
     ----------------------------------------
     Total                      5.606ns (1.687ns logic, 3.919ns route)
                                        (30.1% logic, 69.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_20Hz_unbuf'
-  Total number of paths / destination ports: 3 / 3
--------------------------------------------------------------------------
-Offset:              2.979ns (Levels of Logic = 2)
-  Source:            SW_cam_oe (PAD)
-  Destination:       sw_oe/btn_val (FF)
-  Destination Clock: clk_20Hz_unbuf rising
-
-  Data Path: SW_cam_oe to sw_oe/btn_val
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             3   1.222   0.651  SW_cam_oe_IBUF (SW_cam_oe_IBUF)
-     LUT2:I1->O            1   0.205   0.579  sw_oe/btn_count[1]_AND_2_o_inv1 (sw_oe/btn_count[1]_AND_2_o_inv)
-     FDE:CE                    0.322          sw_oe/btn_val
-    ----------------------------------------
-    Total                      2.979ns (1.749ns logic, 1.230ns route)
-                                       (58.7% logic, 41.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK_24MHz/pll_base_inst/CLKOUT1'
@@ -1977,39 +1905,20 @@ Offset:              3.648ns (Levels of Logic = 1)
                                        (84.1% logic, 15.9% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_20Hz_unbuf'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              3.597ns (Levels of Logic = 1)
-  Source:            sw_oe/btn_val (FF)
-  Destination:       cam_oe (PAD)
-  Source Clock:      clk_20Hz_unbuf rising
-
-  Data Path: sw_oe/btn_val to cam_oe
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDE:C->Q              1   0.447   0.579  sw_oe/btn_val (sw_oe/btn_val)
-     OBUF:I->O                 2.571          cam_oe_OBUF (cam_oe)
-    ----------------------------------------
-    Total                      3.597ns (3.018ns logic, 0.579ns route)
-                                       (83.9% logic, 16.1% route)
-
-=========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_24MHz/pll_base_inst/CLKOUT2'
   Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
 Offset:              3.597ns (Levels of Logic = 1)
   Source:            imgbuf/fifo_oe (FF)
-  Destination:       FIFO_OE (PAD)
+  Destination:       FIFO_OE1 (PAD)
   Source Clock:      CLK_24MHz/pll_base_inst/CLKOUT2 rising
 
-  Data Path: imgbuf/fifo_oe to FIFO_OE
+  Data Path: imgbuf/fifo_oe to FIFO_OE1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDE:C->Q              1   0.447   0.579  imgbuf/fifo_oe (imgbuf/fifo_oe)
-     OBUF:I->O                 2.571          FIFO_OE_OBUF (FIFO_OE)
+     OBUF:I->O                 2.571          FIFO_OE1_OBUF (FIFO_OE1)
     ----------------------------------------
     Total                      3.597ns (3.018ns logic, 0.579ns route)
                                        (83.9% logic, 16.1% route)
@@ -2032,25 +1941,6 @@ Offset:              3.874ns (Levels of Logic = 1)
     ----------------------------------------
     Total                      3.874ns (3.018ns logic, 0.856ns route)
                                        (77.9% logic, 22.1% route)
-
-=========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               5.157ns (Levels of Logic = 3)
-  Source:            cam_LV (PAD)
-  Destination:       FIFO_WE (PAD)
-
-  Data Path: cam_LV to FIFO_WE
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             1   1.222   0.579  cam_LV_IBUF (cam_LV_IBUF)
-     INV:I->O              1   0.206   0.579  FIFO_WE1_INV_0 (FIFO_WE_OBUF)
-     OBUF:I->O                 2.571          FIFO_WE_OBUF (FIFO_WE)
-    ----------------------------------------
-    Total                      5.157ns (3.999ns logic, 1.158ns route)
-                                       (77.5% logic, 22.5% route)
 
 =========================================================================
 
@@ -2084,20 +1974,12 @@ CLK_24MHz/pll_base_inst/CLKOUT2|    6.062|         |         |         |
 imgbuf/blank_GND_16_o_AND_30_o |         |    1.558|         |         |
 -------------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock clk_20Hz_unbuf
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk_20Hz_unbuf |    2.272|         |         |         |
----------------+---------+---------+---------+---------+
-
 Clock to Setup on destination clock imgbuf/GND_16_o_GND_16_o_OR_79_o
 -------------------------------+---------+---------+---------+---------+
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
-CLK_24MHz/pll_base_inst/CLKOUT0|         |         |   39.313|         |
+CLK_24MHz/pll_base_inst/CLKOUT0|         |         |   39.473|         |
 CLK_24MHz/pll_base_inst/CLKOUT2|         |         |   35.387|         |
 -------------------------------+---------+---------+---------+---------+
 
@@ -2106,7 +1988,7 @@ Clock to Setup on destination clock imgbuf/blank_GND_16_o_AND_30_o
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
-CLK_24MHz/pll_base_inst/CLKOUT0|         |         |    5.286|         |
+CLK_24MHz/pll_base_inst/CLKOUT0|         |         |    5.260|         |
 -------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock imgbuf/state[1]_GND_17_o_Mux_9_o
@@ -2120,12 +2002,12 @@ CLK_24MHz/pll_base_inst/CLKOUT2|         |         |    2.112|         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 14.00 secs
-Total CPU time to Xst completion: 14.60 secs
+Total REAL time to Xst completion: 15.00 secs
+Total CPU time to Xst completion: 14.96 secs
  
 --> 
 
-Total memory usage is 332464 kilobytes
+Total memory usage is 332328 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   81 (   0 filtered)
