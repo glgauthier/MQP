@@ -128,6 +128,8 @@ Along with the shared camera data lines between each AL422B FIFO module, it is a
 \end{equation}
 \par
 Note each FIFO must be controlled individually, requiring an additional Read Reset (RRST) and Read Enable (RE) pin per camera, as well as a shared Read Clock (RCK) line. This brings the total pin count required by the stereo camera setup to 16 pins plus two I2C pins, which is conveniently the number of GPIO available in two PMOD headers. This setup was implemented as shown in Appendix item \ref{stereoCameraSchematic}, and the final stereo camera breakout board shown in Figure \ref{stereoCameraBoard} was then created.  
+\par
+A Verilog module was created using a modified version of the MT9V034 camera test code found in Appendix item \ref{mt9v034TestCode} and a VGA controller in order to test the stereo camera breakout board. A switch input is used to select one of the two camera modules for image aquisition, and a binned 60x92 pixel set from the center of the camera's image is buffered locally for VGA display. The image is then independently written to the display according to internal VGA timing. This process is repeated at a high rate of speed, allowing for a realtime video stream from the selected camera to be displayed. The assembled stereo breakout board used in this test is shown in Figure \ref{stereoTestSetup}.
 \begin{figure}[H] 
 	\begin{subfigure}{1\textwidth}
 	\centering
@@ -136,9 +138,16 @@ Note each FIFO must be controlled individually, requiring an additional Read Res
 	\end{subfigure}
 	\begin{subfigure}{1\textwidth}
 	\centering
-		\includegraphics[width=0.65\linewidth]{stereo_bottom.png}
-		\caption{PCB Bottom}
+		\includegraphics[width=0.65\linewidth]{stereo_board_assembled.JPG}
+		\caption{Assembled PCB}
 	\end{subfigure}
-	\caption{Stereo Camera PMOD Board}
+	\caption{Stereo Camera PMOD PCB}
 	\label{stereoCameraBoard}
+\end{figure}
+\par
+\begin{figure}[H] 
+	\centering
+	\includegraphics[width=0.8\linewidth]{stereo_breakout.JPG}
+	\caption{Stereo Camera Breakout Under Test}
+	\label{stereoTestSetup}
 \end{figure}
