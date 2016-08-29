@@ -92,7 +92,7 @@ An example of the transmission of one line of pixel data from the FIFO to the FP
 	\label{fifoDataOut}
 \end{figure}
 
-\subsubsection{Transmitting Images Over UART for Analysis}
+\subsubsection{Transmitting Images Over UART for Analysis} \label{UARTimg}
 Once the FIFO and FPGA line buffer interfaces were created, the source code found in Appendix item \ref{camTestC} was implemented on a Microblaze SoC in order to transmit camera line data from the FPGA's internal line buffer over UART. An example of the microcontroller's UART output is shown in Figure \ref{PuTTYfifoData}. The microcontroller will print the value of each pixel followed by a newline and carriage return, starting with the top left pixel in the acquired image. 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.8\textwidth]{oScope/camera_fifo/PuTTy.png}}
@@ -151,3 +151,13 @@ A Verilog module was created using a modified version of the MT9V034 camera test
 	\caption{Stereo Camera Breakout Under Test}
 	\label{stereoTestSetup}
 \end{figure}
+\par
+After attempting to manually focus each camera using the VGA module described above, the code used in Section \ref{UARTimg} was used to transmit image data from the stereo cameras to a computer for further analysis. As you can see from the example image in Figure \ref{newBoardImage} below, the new stereo camera setup is far less susceptible to data loss in comparison to the previous version. 
+\begin{figure}[H] 
+	\centering
+	\includegraphics[width=0.8\linewidth]{cam1_image.png}
+	\caption{Stereo Camera Breakout Sample Image}
+	\label{stereoTestSetup}
+\end{figure}
+\par
+For further comparison, please refer back to the test image acquired using the original camera test setup, as shown in Figure \ref{notebookImage}.
