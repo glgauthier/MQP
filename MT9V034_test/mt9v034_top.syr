@@ -3,13 +3,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: mt9v034_top.prj
@@ -151,10 +151,12 @@ Elaborating module <seven_seg>.
 Elaborating module <debounce>.
 
 Elaborating module <btnlatch>.
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" Line 126: Assignment to cam_oe ignored, since the identifier is never used
 
 Elaborating module <microblaze_mcs>.
 
 Elaborating module <fifo_read>.
+WARNING:Xst:2972 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" line 123. All outputs of instance <sw_oe> of block <btnlatch> are unconnected in block <mt9v034_top>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -162,11 +164,12 @@ Elaborating module <fifo_read>.
 
 Synthesizing Unit <mt9v034_top>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v".
+INFO:Xst:3210 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" line 123: Output port <btn_val> of the instance <sw_oe> is unconnected or connected to loadless signal.
     Found 12-bit register for signal <init_count>.
-    Found 12-bit adder for signal <init_count[11]_GND_1_o_add_2_OUT> created at line 142.
-    Found 12-bit comparator greater for signal <init_count[11]_PWR_1_o_LessThan_2_o> created at line 141
-    Found 12-bit comparator lessequal for signal <n0006> created at line 144
-    Found 12-bit comparator lessequal for signal <n0008> created at line 145
+    Found 12-bit adder for signal <init_count[11]_GND_1_o_add_2_OUT> created at line 144.
+    Found 12-bit comparator greater for signal <init_count[11]_PWR_1_o_LessThan_2_o> created at line 143
+    Found 12-bit comparator lessequal for signal <n0006> created at line 146
+    Found 12-bit comparator lessequal for signal <n0008> created at line 147
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  12 D-type flip-flop(s).
@@ -276,8 +279,8 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <pixel_l
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 16-bit adder for signal <num_lines[15]_GND_12_o_add_10_OUT> created at line 96.
-    Found 10-bit adder for signal <pixel[9]_GND_12_o_add_15_OUT> created at line 107.
+    Found 16-bit adder for signal <num_lines[15]_GND_12_o_add_10_OUT> created at line 81.
+    Found 10-bit adder for signal <pixel[9]_GND_12_o_add_15_OUT> created at line 92.
     Summary:
 	inferred   1 RAM(s).
 	inferred   2 Adder/Subtractor(s).
@@ -301,8 +304,8 @@ Macro Statistics
  2-bit adder                                           : 1
  21-bit adder                                          : 1
  5-bit adder                                           : 1
-# Registers                                            : 15
- 1-bit register                                        : 6
+# Registers                                            : 14
+ 1-bit register                                        : 5
  10-bit register                                       : 1
  12-bit register                                       : 1
  16-bit register                                       : 2
@@ -318,7 +321,7 @@ Macro Statistics
  1-bit 2-to-1 multiplexer                              : 2
  10-bit 2-to-1 multiplexer                             : 1
  4-bit 4-to-1 multiplexer                              : 1
-# FSMs                                                 : 4
+# FSMs                                                 : 3
 
 =========================================================================
 
@@ -401,8 +404,8 @@ Macro Statistics
  2-bit up counter                                      : 1
  21-bit up counter                                     : 1
  5-bit up counter                                      : 1
-# Registers                                            : 14
- Flip-Flops                                            : 14
+# Registers                                            : 13
+ Flip-Flops                                            : 13
 # Comparators                                          : 5
  12-bit comparator greater                             : 1
  12-bit comparator lessequal                           : 2
@@ -410,7 +413,7 @@ Macro Statistics
 # Multiplexers                                         : 3
  1-bit 2-to-1 multiplexer                              : 2
  4-bit 4-to-1 multiplexer                              : 1
-# FSMs                                                 : 4
+# FSMs                                                 : 3
 
 =========================================================================
 
@@ -427,7 +430,6 @@ Optimizing FSM <FSM_0> on signal <count[1:2]> with gray encoding.
  01    | 11
 -------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_1> on signal <count[1:2]> with gray encoding.
 Optimizing FSM <FSM_1> on signal <count[1:2]> with gray encoding.
 -------------------
  State | Encoding
@@ -479,8 +481,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 93
- Flip-Flops                                            : 93
+# Registers                                            : 91
+ Flip-Flops                                            : 91
 
 =========================================================================
 
@@ -503,11 +505,11 @@ Top Level Output File Name         : mt9v034_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1051
+# BELS                             : 1048
 #      GND                         : 2
-#      INV                         : 21
+#      INV                         : 20
 #      LUT1                        : 64
-#      LUT2                        : 65
+#      LUT2                        : 63
 #      LUT3                        : 63
 #      LUT4                        : 194
 #      LUT5                        : 66
@@ -521,9 +523,9 @@ Primitive and Black Box Usage:
 #      MUXF7                       : 10
 #      VCC                         : 2
 #      XORCY                       : 117
-# FlipFlops/Latches                : 458
-#      FD                          : 95
-#      FDE                         : 137
+# FlipFlops/Latches                : 456
+#      FD                          : 94
+#      FDE                         : 136
 #      FDR                         : 90
 #      FDRE                        : 109
 #      FDS                         : 8
@@ -538,8 +540,8 @@ Primitive and Black Box Usage:
 #      SRL16E                      : 48
 # Clock Buffers                    : 4
 #      BUFG                        : 4
-# IO Buffers                       : 39
-#      IBUF                        : 15
+# IO Buffers                       : 37
+#      IBUF                        : 13
 #      IBUFG                       : 1
 #      OBUF                        : 23
 # DCMs                             : 1
@@ -552,23 +554,23 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             458  out of  18224     2%  
- Number of Slice LUTs:                 1025  out of   9112    11%  
-    Number used as Logic:               705  out of   9112     7%  
+ Number of Slice Registers:             456  out of  18224     2%  
+ Number of Slice LUTs:                 1022  out of   9112    11%  
+    Number used as Logic:               702  out of   9112     7%  
     Number used as Memory:              320  out of   2176    14%  
        Number used as RAM:              272
        Number used as SRL:               48
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1189
-   Number with an unused Flip Flop:     731  out of   1189    61%  
-   Number with an unused LUT:           164  out of   1189    13%  
-   Number of fully used LUT-FF pairs:   294  out of   1189    24%  
-   Number of unique control sets:        44
+ Number of LUT Flip Flop pairs used:   1186
+   Number with an unused Flip Flop:     730  out of   1186    61%  
+   Number with an unused LUT:           164  out of   1186    13%  
+   Number of fully used LUT-FF pairs:   292  out of   1186    24%  
+   Number of unique control sets:        43
 
 IO Utilization: 
- Number of IOs:                          39
- Number of bonded IOBs:                  39  out of    232    16%  
+ Number of IOs:                          38
+ Number of bonded IOBs:                  37  out of    232    15%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:               16  out of     32    50%  
@@ -596,7 +598,7 @@ Clock Information:
 ----------------------------------------+------------------------+-------+
 Clock Signal                            | Clock buffer(FF name)  | Load  |
 ----------------------------------------+------------------------+-------+
-clk_20Hz_unbuf(clks/clk_debounce<20>3:O)| BUFG(*)(deb/btn_val)   | 7     |
+clk_20Hz_unbuf(clks/clk_debounce<20>3:O)| BUFG(*)(deb/btn_val)   | 5     |
 sysclk                                  | DCM_SP:CLKFX           | 57    |
 clk_1MHz_unbuf(clks/clk_fifo1:O)        | BUFG(*)(clkfwd1)       | 81    |
 sysclk                                  | DCM_SP:CLK0            | 491   |
@@ -616,7 +618,7 @@ Speed Grade: -3
    Minimum period: 6.873ns (Maximum Frequency: 145.501MHz)
    Minimum input arrival time before clock: 3.543ns
    Maximum output required time after clock: 5.632ns
-   Maximum combinational path delay: 5.157ns
+   Maximum combinational path delay: No path found
 
 Timing Details:
 ---------------
@@ -625,7 +627,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_20Hz_unbuf'
   Clock period: 2.306ns (frequency: 433.633MHz)
-  Total number of paths / destination ports: 9 / 8
+  Total number of paths / destination ports: 7 / 6
 -------------------------------------------------------------------------
 Delay:               2.306ns (Levels of Logic = 1)
   Source:            deb/count_FSM_FFd2 (FF)
@@ -696,7 +698,7 @@ Delay:               5.186ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_20Hz_unbuf'
-  Total number of paths / destination ports: 10 / 10
+  Total number of paths / destination ports: 7 / 7
 -------------------------------------------------------------------------
 Offset:              3.011ns (Levels of Logic = 2)
   Source:            trigger (PAD)
@@ -776,7 +778,7 @@ Offset:              5.632ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_20Hz_unbuf'
-  Total number of paths / destination ports: 2 / 2
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
 Offset:              3.597ns (Levels of Logic = 1)
   Source:            deb/btn_val (FF)
@@ -799,37 +801,18 @@ Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_1MHz_unbuf'
 -------------------------------------------------------------------------
 Offset:              3.634ns (Levels of Logic = 1)
   Source:            linebuf/fifo_rrst (FF)
-  Destination:       FIFO_RRST (PAD)
+  Destination:       FIFO_RRST2 (PAD)
   Source Clock:      clk_1MHz_unbuf rising
 
-  Data Path: linebuf/fifo_rrst to FIFO_RRST
+  Data Path: linebuf/fifo_rrst to FIFO_RRST2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDR:C->Q              2   0.447   0.616  linebuf/fifo_rrst (linebuf/fifo_rrst)
-     OBUF:I->O                 2.571          FIFO_RRST_OBUF (FIFO_RRST)
+     OBUF:I->O                 2.571          FIFO_RRST2_OBUF (FIFO_RRST2)
     ----------------------------------------
     Total                      3.634ns (3.018ns logic, 0.616ns route)
                                        (83.0% logic, 17.0% route)
-
-=========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               5.157ns (Levels of Logic = 3)
-  Source:            cam_LV (PAD)
-  Destination:       FIFO_WE (PAD)
-
-  Data Path: cam_LV to FIFO_WE
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             1   1.222   0.579  cam_LV_IBUF (cam_LV_IBUF)
-     INV:I->O              1   0.206   0.579  FIFO_WE1_INV_0 (FIFO_WE_OBUF)
-     OBUF:I->O                 2.571          FIFO_WE_OBUF (FIFO_WE)
-    ----------------------------------------
-    Total                      5.157ns (3.999ns logic, 1.158ns route)
-                                       (77.5% logic, 22.5% route)
 
 =========================================================================
 
@@ -866,14 +849,14 @@ sysclk         |    6.873|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.79 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.27 secs
  
 --> 
 
-Total memory usage is 296472 kilobytes
+Total memory usage is 296316 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    2 (   0 filtered)
-Number of infos    :   13 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :   14 (   0 filtered)
 
