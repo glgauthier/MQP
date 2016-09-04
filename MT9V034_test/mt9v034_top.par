@@ -1,7 +1,7 @@
 Release 14.1 par P.15xf (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-GEORGES-T460P::  Mon Aug 29 16:45:53 2016
+GEORGES-T460P::  Sun Sep 04 14:55:38 2016
 
 par -w -intstyle ise -ol high -mt off mt9v034_top_map.ncd mt9v034_top.ncd
 mt9v034_top.pcf 
@@ -22,16 +22,16 @@ Device speed data version:  "PRODUCTION 1.21 2012-04-23".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   356 out of  18,224    1%
-    Number used as Flip Flops:                 354
+  Number of Slice Registers:                   358 out of  18,224    1%
+    Number used as Flip Flops:                 356
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                2
-  Number of Slice LUTs:                        844 out of   9,112    9%
-    Number used as logic:                      589 out of   9,112    6%
+  Number of Slice LUTs:                        847 out of   9,112    9%
+    Number used as logic:                      592 out of   9,112    6%
       Number using O6 output only:             360
       Number using O5 output only:              71
-      Number using O5 and O6:                  158
+      Number using O5 and O6:                  161
       Number used as ROM:                        0
     Number used as Memory:                     249 out of   2,176   11%
       Number used as Dual Port RAM:            208
@@ -49,12 +49,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   281 out of   2,278   12%
+  Number of occupied Slices:                   283 out of   2,278   12%
   Nummber of MUXCYs used:                      164 out of   4,556    3%
-  Number of LUT Flip Flop pairs used:          867
-    Number with an unused Flip Flop:           558 out of     867   64%
-    Number with an unused LUT:                  23 out of     867    2%
-    Number of fully used LUT-FF pairs:         286 out of     867   32%
+  Number of LUT Flip Flop pairs used:          868
+    Number with an unused Flip Flop:           557 out of     868   64%
+    Number with an unused LUT:                  21 out of     868    2%
+    Number of fully used LUT-FF pairs:         290 out of     868   33%
     Number of slice register sites lost
       to control set restrictions:               0 out of  18,224    0%
 
@@ -109,57 +109,56 @@ Router effort level (-rl):    High
 Starting initial Timing Analysis.  REAL time: 2 secs 
 Finished initial Timing Analysis.  REAL time: 2 secs 
 
-WARNING:Par:288 - The signal SW_cam_oe_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line2_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal linebuf/Mram_pixel_line4_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line1_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line5_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal linebuf/Mram_pixel_line6_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line8_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal linebuf/Mram_pixel_line7_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal linebuf/Mram_pixel_line3_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line2_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line8_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line12_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line1_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line5_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line15_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line16_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line18_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal linebuf/Mram_pixel_line9_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal linebuf/Mram_pixel_line20_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line10_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line21_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line11_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line34_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal linebuf/Mram_pixel_line19_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal linebuf/Mram_pixel_line17_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line16_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line15_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line13_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal linebuf/Mram_pixel_line14_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line11_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line22_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line34_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line10_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line21_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal linebuf/Mram_pixel_line35_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal linebuf/Mram_pixel_line18_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line22_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line13_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal linebuf/Mram_pixel_line12_RAMD_O has no load.  PAR will not attempt to route this signal.
 Starting Router
 
 
-Phase  1  : 5764 unrouted;      REAL time: 2 secs 
+Phase  1  : 5780 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 4947 unrouted;      REAL time: 3 secs 
+Phase  2  : 4957 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 1615 unrouted;      REAL time: 5 secs 
+Phase  3  : 1719 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 1615 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  4  : 1719 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
 Updating file: mt9v034_top.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
 
 Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
 Total REAL time to Router completion: 8 secs 
-Total CPU time to Router completion: 8 secs 
+Total CPU time to Router completion: 9 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -177,13 +176,13 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|          clk_100MHz |  BUFGMUX_X2Y3| No   |  170 |  0.061     |  0.909      |
+|          clk_100MHz |  BUFGMUX_X2Y3| No   |  172 |  0.061     |  0.910      |
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_24MHz | BUFGMUX_X3Y13| No   |   18 |  0.513     |  1.377      |
+|           clk_24MHz | BUFGMUX_X3Y13| No   |   18 |  0.510     |  1.377      |
 +---------------------+--------------+------+------+------------+-------------+
-|            clk_20Hz |  BUFGMUX_X2Y4| No   |    4 |  0.012     |  0.872      |
+|            clk_20Hz |  BUFGMUX_X2Y4| No   |    6 |  0.017     |  0.877      |
 +---------------------+--------------+------+------+------------+-------------+
-|            clk_1MHz |  BUFGMUX_X2Y2| No   |   49 |  0.521     |  1.379      |
+|            clk_1MHz |  BUFGMUX_X2Y2| No   |   49 |  0.533     |  1.379      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -205,15 +204,15 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  PERIOD analysis for net "CLK_24MHz/clk0"  | SETUP       |     2.093ns|     7.907ns|       0|           0
-  derived from  NET "CLK_24MHz/clkin1" PERI | HOLD        |     0.362ns|            |       0|           0
+  PERIOD analysis for net "CLK_24MHz/clk0"  | SETUP       |     1.151ns|     8.849ns|       0|           0
+  derived from  NET "CLK_24MHz/clkin1" PERI | HOLD        |     0.256ns|            |       0|           0
   OD = 10 ns HIGH 50%                       |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
   NET "CLK_24MHz/clkin1" PERIOD = 10 ns HIG | MINLOWPULSE |     4.660ns|     5.340ns|       0|           0
   H 50%                                     |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  PERIOD analysis for net "CLK_24MHz/clkfx" | SETUP       |    36.955ns|     4.711ns|       0|           0
-   derived from  NET "CLK_24MHz/clkin1" PER | HOLD        |     0.463ns|            |       0|           0
+  PERIOD analysis for net "CLK_24MHz/clkfx" | SETUP       |    37.066ns|     4.600ns|       0|           0
+   derived from  NET "CLK_24MHz/clkin1" PER | HOLD        |     0.456ns|            |       0|           0
   IOD = 10 ns HIGH 50%                      |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
 
@@ -228,9 +227,9 @@ Derived Constraints for CLK_24MHz/clkin1
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|CLK_24MHz/clkin1               |     10.000ns|      5.340ns|      7.907ns|            0|            0|            0|       103985|
-| CLK_24MHz/clk0                |     10.000ns|      7.907ns|          N/A|            0|            0|       102669|            0|
-| CLK_24MHz/clkfx               |     41.667ns|      4.711ns|          N/A|            0|            0|         1316|            0|
+|CLK_24MHz/clkin1               |     10.000ns|      5.340ns|      8.849ns|            0|            0|            0|       103985|
+| CLK_24MHz/clk0                |     10.000ns|      8.849ns|          N/A|            0|            0|       102669|            0|
+| CLK_24MHz/clkfx               |     41.667ns|      4.600ns|          N/A|            0|            0|         1316|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
@@ -240,19 +239,19 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-WARNING:Par:283 - There are 25 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+WARNING:Par:283 - There are 24 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 8 secs 
-Total CPU time to PAR completion: 8 secs 
+Total REAL time to PAR completion: 9 secs 
+Total CPU time to PAR completion: 9 secs 
 
-Peak Memory Usage:  385 MB
+Peak Memory Usage:  381 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
 Timing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 27
+Number of warning messages: 26
 Number of info messages: 0
 
 Writing design to file mt9v034_top.ncd
