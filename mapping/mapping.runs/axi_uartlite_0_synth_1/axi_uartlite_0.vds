@@ -1,0 +1,672 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Tue Sep 06 10:19:38 2016
+# Process ID: 6304
+# Current directory: C:/Users/John/Documents/GitHub/MQP/mapping/mapping.runs/axi_uartlite_0_synth_1
+# Command line: vivado.exe -log axi_uartlite_0.vds -mode batch -messageDb vivado.pb -notrace -source axi_uartlite_0.tcl
+# Log file: C:/Users/John/Documents/GitHub/MQP/mapping/mapping.runs/axi_uartlite_0_synth_1/axi_uartlite_0.vds
+# Journal file: C:/Users/John/Documents/GitHub/MQP/mapping/mapping.runs/axi_uartlite_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source axi_uartlite_0.tcl -notrace
+Command: synth_design -top axi_uartlite_0 -part xc7z020clg484-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 3904 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:39 . Memory (MB): peak = 296.461 ; gain = 89.324
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'axi_uartlite_0' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/synth/axi_uartlite_0.vhd:86]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_S_AXI_ACLK_FREQ_HZ bound to: 100000000 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_BAUDRATE bound to: 19200 - type: integer 
+	Parameter C_DATA_BITS bound to: 8 - type: integer 
+	Parameter C_USE_PARITY bound to: 0 - type: integer 
+	Parameter C_ODD_PARITY bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'axi_uartlite' declared at 'c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/axi_uartlite.vhd:150' bound to instance 'U0' of component 'axi_uartlite' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/synth/axi_uartlite_0.vhd:155]
+INFO: [Synth 8-638] synthesizing module 'axi_uartlite' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/axi_uartlite.vhd:220]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_S_AXI_ACLK_FREQ_HZ bound to: 100000000 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_BAUDRATE bound to: 19200 - type: integer 
+	Parameter C_DATA_BITS bound to: 8 - type: integer 
+	Parameter C_USE_PARITY bound to: 0 - type: integer 
+	Parameter C_ODD_PARITY bound to: 0 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* max_fanout = "10000" *) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/axi_uartlite.vhd:169]
+INFO: [Synth 8-5534] Detected attribute (* max_fanout = "10000" *) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/axi_uartlite.vhd:170]
+INFO: [Synth 8-638] synthesizing module 'uartlite_core' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/uartlite_core.vhd:162]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_S_AXI_ACLK_FREQ_HZ bound to: 100000000 - type: integer 
+	Parameter C_BAUDRATE bound to: 19200 - type: integer 
+	Parameter C_DATA_BITS bound to: 8 - type: integer 
+	Parameter C_USE_PARITY bound to: 0 - type: integer 
+	Parameter C_ODD_PARITY bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'baudrate' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/baudrate.vhd:124]
+	Parameter C_RATIO bound to: 326 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'baudrate' (1#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/baudrate.vhd:124]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/uartlite_core.vhd:428]
+INFO: [Synth 8-638] synthesizing module 'uartlite_rx' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/uartlite_rx.vhd:161]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_DATA_BITS bound to: 8 - type: integer 
+	Parameter C_USE_PARITY bound to: 0 - type: integer 
+	Parameter C_ODD_PARITY bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'cdc_sync' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_cdc_v1_0_2/hdl/src/vhdl/cdc_sync.vhd:106]
+	Parameter C_CDC_TYPE bound to: 1 - type: integer 
+	Parameter C_RESET_STATE bound to: 0 - type: integer 
+	Parameter C_SINGLE_BIT bound to: 1 - type: integer 
+	Parameter C_FLOP_INPUT bound to: 0 - type: integer 
+	Parameter C_VECTOR_WIDTH bound to: 32 - type: integer 
+	Parameter C_MTBF_STAGES bound to: 4 - type: integer 
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to' to cell 'FDR' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_cdc_v1_0_2/hdl/src/vhdl/cdc_sync.vhd:514]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d2' to cell 'FDR' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_cdc_v1_0_2/hdl/src/vhdl/cdc_sync.vhd:545]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d3' to cell 'FDR' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_cdc_v1_0_2/hdl/src/vhdl/cdc_sync.vhd:554]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4' to cell 'FDR' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_cdc_v1_0_2/hdl/src/vhdl/cdc_sync.vhd:564]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5' to cell 'FDR' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_cdc_v1_0_2/hdl/src/vhdl/cdc_sync.vhd:574]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d6' to cell 'FDR' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_cdc_v1_0_2/hdl/src/vhdl/cdc_sync.vhd:584]
+INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (2#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_cdc_v1_0_2/hdl/src/vhdl/cdc_sync.vhd:106]
+INFO: [Synth 8-638] synthesizing module 'dynshreg_i_f' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/dynshreg_i_f.vhd:168]
+	Parameter C_DEPTH bound to: 16 - type: integer 
+	Parameter C_DWIDTH bound to: 1 - type: integer 
+	Parameter C_INIT_VALUE bound to: 1'b0 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-256] done synthesizing module 'dynshreg_i_f' (3#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/dynshreg_i_f.vhd:168]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_f' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_srl_fifo_v1_0_2/hdl/src/vhdl/srl_fifo_f.vhd:161]
+	Parameter C_DWIDTH bound to: 8 - type: integer 
+	Parameter C_DEPTH bound to: 16 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_rbu_f' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_srl_fifo_v1_0_2/hdl/src/vhdl/srl_fifo_rbu_f.vhd:192]
+	Parameter C_DWIDTH bound to: 8 - type: integer 
+	Parameter C_DEPTH bound to: 16 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-638] synthesizing module 'cntr_incr_decr_addn_f' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_srl_fifo_v1_0_2/hdl/src/vhdl/cntr_incr_decr_addn_f.vhd:143]
+	Parameter C_SIZE bound to: 5 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-256] done synthesizing module 'cntr_incr_decr_addn_f' (4#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_srl_fifo_v1_0_2/hdl/src/vhdl/cntr_incr_decr_addn_f.vhd:143]
+INFO: [Synth 8-638] synthesizing module 'dynshreg_f' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_srl_fifo_v1_0_2/hdl/src/vhdl/dynshreg_f.vhd:153]
+	Parameter C_DEPTH bound to: 16 - type: integer 
+	Parameter C_DWIDTH bound to: 8 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-256] done synthesizing module 'dynshreg_f' (5#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_srl_fifo_v1_0_2/hdl/src/vhdl/dynshreg_f.vhd:153]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_rbu_f' (6#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_srl_fifo_v1_0_2/hdl/src/vhdl/srl_fifo_rbu_f.vhd:192]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_f' (7#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/lib_srl_fifo_v1_0_2/hdl/src/vhdl/srl_fifo_f.vhd:161]
+INFO: [Synth 8-256] done synthesizing module 'uartlite_rx' (8#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/uartlite_rx.vhd:161]
+INFO: [Synth 8-638] synthesizing module 'uartlite_tx' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/uartlite_tx.vhd:151]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_DATA_BITS bound to: 8 - type: integer 
+	Parameter C_USE_PARITY bound to: 0 - type: integer 
+	Parameter C_ODD_PARITY bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'dynshreg_i_f__parameterized0' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/dynshreg_i_f.vhd:168]
+	Parameter C_DEPTH bound to: 16 - type: integer 
+	Parameter C_DWIDTH bound to: 1 - type: integer 
+	Parameter C_INIT_VALUE bound to: 16'b1000000000000000 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-256] done synthesizing module 'dynshreg_i_f__parameterized0' (8#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/dynshreg_i_f.vhd:168]
+INFO: [Synth 8-256] done synthesizing module 'uartlite_tx' (9#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/uartlite_tx.vhd:151]
+INFO: [Synth 8-256] done synthesizing module 'uartlite_core' (10#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/uartlite_core.vhd:162]
+INFO: [Synth 8-638] synthesizing module 'axi_lite_ipif' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/axi_lite_ipif.vhd:249]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_MIN_SIZE bound to: 32'b00000000000000000000000000001111 
+	Parameter C_USE_WSTRB bound to: 0 - type: integer 
+	Parameter C_DPHASE_TIMEOUT bound to: 0 - type: integer 
+	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111 
+	Parameter C_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000000100 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-638] synthesizing module 'slave_attachment' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/slave_attachment.vhd:239]
+	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111 
+	Parameter C_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000000100 
+	Parameter C_IPIF_ABUS_WIDTH bound to: 4 - type: integer 
+	Parameter C_IPIF_DBUS_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_MIN_SIZE bound to: 15 - type: integer 
+	Parameter C_USE_WSTRB bound to: 0 - type: integer 
+	Parameter C_DPHASE_TIMEOUT bound to: 0 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-638] synthesizing module 'address_decoder' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/address_decoder.vhd:190]
+	Parameter C_BUS_AWIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_MIN_SIZE bound to: 15 - type: integer 
+	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111 
+	Parameter C_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000000100 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+WARNING: [Synth 8-5827] expecting unsigned expression [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/address_decoder.vhd:438]
+INFO: [Synth 8-638] synthesizing module 'pselect_f' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/pselect_f.vhd:161]
+	Parameter C_AB bound to: 2 - type: integer 
+	Parameter C_AW bound to: 2 - type: integer 
+	Parameter C_BAR bound to: 2'b00 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f' (11#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/pselect_f.vhd:161]
+WARNING: [Synth 8-5827] expecting unsigned expression [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/address_decoder.vhd:438]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized0' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/pselect_f.vhd:161]
+	Parameter C_AB bound to: 2 - type: integer 
+	Parameter C_AW bound to: 2 - type: integer 
+	Parameter C_BAR bound to: 2'b01 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized0' (11#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/pselect_f.vhd:161]
+WARNING: [Synth 8-5827] expecting unsigned expression [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/address_decoder.vhd:438]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized1' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/pselect_f.vhd:161]
+	Parameter C_AB bound to: 2 - type: integer 
+	Parameter C_AW bound to: 2 - type: integer 
+	Parameter C_BAR bound to: 2'b10 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized1' (11#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/pselect_f.vhd:161]
+WARNING: [Synth 8-5827] expecting unsigned expression [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/address_decoder.vhd:438]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized2' [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/pselect_f.vhd:161]
+	Parameter C_AB bound to: 2 - type: integer 
+	Parameter C_AW bound to: 2 - type: integer 
+	Parameter C_BAR bound to: 2'b11 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized2' (11#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/pselect_f.vhd:161]
+INFO: [Synth 8-256] done synthesizing module 'address_decoder' (12#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/address_decoder.vhd:190]
+INFO: [Synth 8-226] default block is never used [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/slave_attachment.vhd:448]
+INFO: [Synth 8-256] done synthesizing module 'slave_attachment' (13#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/slave_attachment.vhd:239]
+INFO: [Synth 8-256] done synthesizing module 'axi_lite_ipif' (14#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_lite_ipif_v3_0_4/hdl/src/vhdl/axi_lite_ipif.vhd:249]
+INFO: [Synth 8-256] done synthesizing module 'axi_uartlite' (15#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_v2_0_13/hdl/src/vhdl/axi_uartlite.vhd:220]
+INFO: [Synth 8-256] done synthesizing module 'axi_uartlite_0' (16#1) [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/synth/axi_uartlite_0.vhd:86]
+WARNING: [Synth 8-3331] design address_decoder has unconnected port Address_In_Erly[2]
+WARNING: [Synth 8-3331] design address_decoder has unconnected port Address_In_Erly[3]
+WARNING: [Synth 8-3331] design address_decoder has unconnected port Bus_RNW
+WARNING: [Synth 8-3331] design slave_attachment has unconnected port S_AXI_WSTRB[3]
+WARNING: [Synth 8-3331] design slave_attachment has unconnected port S_AXI_WSTRB[2]
+WARNING: [Synth 8-3331] design slave_attachment has unconnected port S_AXI_WSTRB[1]
+WARNING: [Synth 8-3331] design slave_attachment has unconnected port S_AXI_WSTRB[0]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_aclk
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_resetn
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[31]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[30]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[29]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[28]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[27]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[26]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[25]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[24]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[23]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[22]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[21]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[20]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[19]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[18]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[17]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[16]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[15]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[14]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[13]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[12]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[11]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[10]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[9]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[8]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[7]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[6]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[5]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[4]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[3]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[2]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[1]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[0]
+WARNING: [Synth 8-3331] design cdc_sync has unconnected port scndry_resetn
+WARNING: [Synth 8-3331] design uartlite_core has unconnected port bus2ip_cs
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:21 ; elapsed = 00:00:42 . Memory (MB): peak = 334.969 ; gain = 127.832
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:43 . Memory (MB): peak = 334.969 ; gain = 127.832
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0_board.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0_board.xdc] for cell 'U0'
+Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0.xdc] for cell 'U0'
+Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/mapping/mapping.runs/axi_uartlite_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/mapping/mapping.runs/axi_uartlite_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  FDR => FDRE: 6 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.281 . Memory (MB): peak = 650.617 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:47 ; elapsed = 00:01:25 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:47 ; elapsed = 00:01:25 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for U0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:47 ; elapsed = 00:01:25 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "EN_16x_Baud" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "fifo_full_p1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "mux_sel_is_zero" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_axi_rresp_i" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_axi_rresp_i" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_axi_bresp_i" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_axi_bresp_i" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:48 ; elapsed = 00:01:27 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 1     
+	   3 Input      5 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 46    
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   7 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 43    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module baudrate 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 1     
++---Registers : 
+	                9 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module cntr_incr_decr_addn_f 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      5 Bit       Adders := 1     
++---Registers : 
+	                5 Bit    Registers := 1     
+Module srl_fifo_rbu_f 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 3     
+Module uartlite_rx 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 15    
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 12    
+Module uartlite_tx 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 10    
+Module uartlite_core 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+Module pselect_f 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module pselect_f__parameterized0 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module pselect_f__parameterized1 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module pselect_f__parameterized2 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module address_decoder 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 6     
+Module slave_attachment 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 1     
+	   7 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 8     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:48 ; elapsed = 00:01:27 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "UARTLITE_CORE_I/BAUD_RATE_I/EN_16x_Baud" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[31]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[30]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[29]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[28]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[27]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[26]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[25]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[24]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[23]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[22]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[21]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[20]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[19]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[18]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[17]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[16]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[15]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[14]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[13]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[12]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[11]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[10]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[9]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wdata[8]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wstrb[3]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wstrb[2]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wstrb[1]
+WARNING: [Synth 8-3331] design axi_uartlite has unconnected port s_axi_wstrb[0]
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:49 ; elapsed = 00:01:28 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+Finished Parallel Reinference  : Time (s): cpu = 00:00:49 ; elapsed = 00:01:28 . Memory (MB): peak = 650.617 ; gain = 443.480
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3332] Sequential element (UARTLITE_CORE_I/UARTLITE_RX_I/INPUT_DOUBLE_REGS3/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5) is unused and will be removed from module axi_uartlite.
+INFO: [Synth 8-3332] Sequential element (UARTLITE_CORE_I/UARTLITE_RX_I/INPUT_DOUBLE_REGS3/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d6) is unused and will be removed from module axi_uartlite.
+INFO: [Synth 8-3332] Sequential element (UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/underflow_i_reg) is unused and will be removed from module axi_uartlite.
+INFO: [Synth 8-3332] Sequential element (UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/overflow_i_reg) is unused and will be removed from module axi_uartlite.
+INFO: [Synth 8-3332] Sequential element (UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/underflow_i_reg) is unused and will be removed from module axi_uartlite.
+INFO: [Synth 8-3332] Sequential element (UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/overflow_i_reg) is unused and will be removed from module axi_uartlite.
+INFO: [Synth 8-3332] Sequential element (AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/bus2ip_addr_i_reg[1]) is unused and will be removed from module axi_uartlite.
+INFO: [Synth 8-3332] Sequential element (AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/bus2ip_addr_i_reg[0]) is unused and will be removed from module axi_uartlite.
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:01:31 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:50 ; elapsed = 00:01:31 . Memory (MB): peak = 650.617 ; gain = 443.480
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:13 ; elapsed = 00:01:58 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:14 ; elapsed = 00:01:59 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3332] Sequential element (AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/s_axi_bresp_i_reg[0]) is unused and will be removed from module axi_uartlite.
+INFO: [Synth 8-3332] Sequential element (AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/s_axi_rresp_i_reg[0]) is unused and will be removed from module axi_uartlite.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:14 ; elapsed = 00:01:59 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:01:14 ; elapsed = 00:01:59 . Memory (MB): peak = 650.617 ; gain = 443.480
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:01:14 ; elapsed = 00:01:59 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:16 ; elapsed = 00:02:01 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:16 ; elapsed = 00:02:01 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:16 ; elapsed = 00:02:01 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:16 ; elapsed = 00:02:01 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:16 ; elapsed = 00:02:01 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:16 ; elapsed = 00:02:01 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++-------------+----------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name  | RTL Name                                                                         | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++-------------+----------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|axi_uartlite | UARTLITE_CORE_I/UARTLITE_RX_I/DELAY_16_I/INFERRED_GEN.data_reg[15][0]            | 16     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|axi_uartlite | UARTLITE_CORE_I/UARTLITE_TX_I/MID_START_BIT_SRL16_I/INFERRED_GEN.data_reg[15][0] | 16     | 1     | NO           | NO                 | YES               | 1      | 0       | 
++-------------+----------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+
+Dynamic Shift Register Report:
++------------+---------------------------+--------+------------+--------+---------+--------+--------+--------+
+|Module Name | RTL Name                  | Length | Data Width | SRL16E | SRLC32E | Mux F7 | Mux F8 | Mux F9 | 
++------------+---------------------------+--------+------------+--------+---------+--------+--------+--------+
+|dsrl        | INFERRED_GEN.data_reg[15] | 16     | 1          | 1      | 0       | 0      | 0      | 0      | 
+|dsrl__1     | INFERRED_GEN.data_reg[15] | 16     | 8          | 8      | 0       | 0      | 0      | 0      | 
+|dsrl__2     | INFERRED_GEN.data_reg[15] | 16     | 1          | 1      | 0       | 0      | 0      | 0      | 
+|dsrl__4     | INFERRED_GEN.data_reg[15] | 16     | 8          | 8      | 0       | 0      | 0      | 0      | 
++------------+---------------------------+--------+------------+--------+---------+--------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |LUT1   |     2|
+|2     |LUT2   |     9|
+|3     |LUT3   |    22|
+|4     |LUT4   |    16|
+|5     |LUT5   |    42|
+|6     |LUT6   |    20|
+|7     |SRL16E |    18|
+|8     |FDR    |     4|
+|9     |FDRE   |    73|
+|10    |FDSE   |    16|
++------+-------+------+
+
+Report Instance Areas: 
++------+--------------------------------------------------------------------------+-----------------------------+------+
+|      |Instance                                                                  |Module                       |Cells |
++------+--------------------------------------------------------------------------+-----------------------------+------+
+|1     |top                                                                       |                             |   222|
+|2     |  U0                                                                      |axi_uartlite                 |   222|
+|3     |    AXI_LITE_IPIF_I                                                       |axi_lite_ipif                |    65|
+|4     |      I_SLAVE_ATTACHMENT                                                  |slave_attachment             |    65|
+|5     |        I_DECODER                                                         |address_decoder              |    37|
+|6     |          \MEM_DECODE_GEN[0].PER_CE_GEN[0].MULTIPLE_CES_THIS_CS_GEN.CE_I  |pselect_f                    |     1|
+|7     |          \MEM_DECODE_GEN[0].PER_CE_GEN[2].MULTIPLE_CES_THIS_CS_GEN.CE_I  |pselect_f__parameterized1    |     1|
+|8     |    UARTLITE_CORE_I                                                       |uartlite_core                |   157|
+|9     |      BAUD_RATE_I                                                         |baudrate                     |    22|
+|10    |      UARTLITE_RX_I                                                       |uartlite_rx                  |    77|
+|11    |        DELAY_16_I                                                        |dynshreg_i_f                 |    17|
+|12    |        INPUT_DOUBLE_REGS3                                                |cdc_sync                     |     5|
+|13    |        SRL_FIFO_I                                                        |srl_fifo_f_0                 |    28|
+|14    |          I_SRL_FIFO_RBU_F                                                |srl_fifo_rbu_f_1             |    28|
+|15    |            CNTR_INCR_DECR_ADDN_F_I                                       |cntr_incr_decr_addn_f_2      |    17|
+|16    |            DYNSHREG_F_I                                                  |dynshreg_f_3                 |     9|
+|17    |      UARTLITE_TX_I                                                       |uartlite_tx                  |    49|
+|18    |        MID_START_BIT_SRL16_I                                             |dynshreg_i_f__parameterized0 |     3|
+|19    |        SRL_FIFO_I                                                        |srl_fifo_f                   |    31|
+|20    |          I_SRL_FIFO_RBU_F                                                |srl_fifo_rbu_f               |    31|
+|21    |            CNTR_INCR_DECR_ADDN_F_I                                       |cntr_incr_decr_addn_f        |    17|
+|22    |            DYNSHREG_F_I                                                  |dynshreg_f                   |    13|
++------+--------------------------------------------------------------------------+-----------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:16 ; elapsed = 00:02:01 . Memory (MB): peak = 650.617 ; gain = 443.480
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 28 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:01:02 . Memory (MB): peak = 650.617 ; gain = 117.445
+Synthesis Optimization Complete : Time (s): cpu = 00:01:16 ; elapsed = 00:02:02 . Memory (MB): peak = 650.617 ; gain = 443.480
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0_board.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0_board.xdc] for cell 'U0'
+Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/mapping/mapping.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0.xdc] for cell 'U0'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  FDR => FDRE: 4 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+82 Infos, 75 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:10 ; elapsed = 00:01:40 . Memory (MB): peak = 650.617 ; gain = 434.320
+INFO: [Coretcl 2-1174] Renamed 21 cell refs.
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.428 . Memory (MB): peak = 650.617 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 06 10:21:55 2016...

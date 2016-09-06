@@ -75,5 +75,10 @@ cordic_0 cordic
     .m_axis_dout_tdata()
 );
 
+axi_uartlite_0 uart_controller
+(
+
+);
+
 
 endmodule
