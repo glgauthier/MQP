@@ -54,42 +54,7 @@ int main()
 {
     init_platform();
 
-//    u32 data;
-
-//    XIOModule iomodule;	// iomodule for gpi, gpo, and uart
-
-    u8 rx_buf[1577];	// receive buffer using XIOModule_Recv
-    u8 data_block[1577] = {};	// fifo for one block of rangefinder data
-
-    int i = 0;
-    int count = 0;
-
-//    data = XIOModule_Initialize(&iomodule, XPAR_IOMODULE_0_DEVICE_ID);
-//    data = XIOModule_Start(&iomodule);
-
-//    data = XIOModule_CfgInitialize(&iomodule, NULL, 1);
-
-    if (i = 0 && count == 0)
-    {
-    	print("G00076801\n\r");
-    }
-
-    rx_buf[i] = inbyte();
-
-    if(i >= 0 && i <= 1575)
-    {
-    	i++;
-    }
-    else if(i == 1576)
-    {
-    	i = 0;
-    	count++;
-    	memcpy(data_block, rx_buf, 1577);
-    }
-
-//    while
-//    	((data = XIOModule_Recv(&iomodule, rx_buf, 1)) == 0);
-
+    print("Nigga we made it!!!!\n\r");
 
     cleanup_platform();
     return 0;

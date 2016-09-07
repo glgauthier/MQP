@@ -59,7 +59,7 @@ int main()
 //    XIOModule iomodule;	// iomodule for gpi, gpo, and uart
 
     u8 rx_buf[1577];	// receive buffer using XIOModule_Recv
-    u8 data_block[1577] = {};	// fifo for one block of rangefinder data
+    u8 data_block[1577];	// fifo for one block of rangefinder data
 
     int i = 0;
     int count = 0;
@@ -84,7 +84,7 @@ int main()
     {
     	i = 0;
     	count++;
-    	memcpy(data_block, rx_buf, 1577);
+    	data_block = rx_buf;
     }
 
 //    while
