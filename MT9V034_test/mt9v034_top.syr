@@ -4,13 +4,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> Reading design: mt9v034_top.prj
 
@@ -151,6 +151,10 @@ Elaborating module <seven_seg>.
 Elaborating module <debounce>.
 
 Elaborating module <btnlatch>.
+WARNING:HDLCompiler:91 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" Line 168: Signal <fifo_rden> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+WARNING:HDLCompiler:91 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" Line 169: Signal <fifo_rrst> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+WARNING:HDLCompiler:91 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" Line 175: Signal <fifo_rden> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+WARNING:HDLCompiler:91 - "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v" Line 176: Signal <fifo_rrst> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
 
 Elaborating module <microblaze_mcs>.
 
@@ -163,14 +167,15 @@ Elaborating module <fifo_read>.
 Synthesizing Unit <mt9v034_top>.
     Related source file is "C:\Users\georges\Documents\GitHub\MQP\MT9V034_test\mt9v034_top.v".
     Found 12-bit register for signal <init_count>.
-    Found 12-bit adder for signal <init_count[11]_GND_1_o_add_2_OUT> created at line 142.
-    Found 12-bit comparator greater for signal <init_count[11]_PWR_1_o_LessThan_2_o> created at line 141
-    Found 12-bit comparator lessequal for signal <n0006> created at line 144
-    Found 12-bit comparator lessequal for signal <n0008> created at line 145
+    Found 12-bit adder for signal <init_count[11]_GND_1_o_add_2_OUT> created at line 150.
+    Found 12-bit comparator greater for signal <init_count[11]_PWR_1_o_LessThan_2_o> created at line 149
+    Found 12-bit comparator lessequal for signal <n0006> created at line 152
+    Found 12-bit comparator lessequal for signal <n0008> created at line 153
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  12 D-type flip-flop(s).
 	inferred   3 Comparator(s).
+	inferred   4 Multiplexer(s).
 Unit <mt9v034_top> synthesized.
 
 Synthesizing Unit <dcm>.
@@ -276,8 +281,8 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <pixel_l
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 16-bit adder for signal <num_lines[15]_GND_12_o_add_10_OUT> created at line 96.
-    Found 10-bit adder for signal <pixel[9]_GND_12_o_add_15_OUT> created at line 107.
+    Found 16-bit adder for signal <num_lines[15]_GND_12_o_add_10_OUT> created at line 81.
+    Found 10-bit adder for signal <pixel[9]_GND_12_o_add_15_OUT> created at line 92.
     Summary:
 	inferred   1 RAM(s).
 	inferred   2 Adder/Subtractor(s).
@@ -314,8 +319,8 @@ Macro Statistics
  12-bit comparator greater                             : 1
  12-bit comparator lessequal                           : 2
  5-bit comparator lessequal                            : 2
-# Multiplexers                                         : 4
- 1-bit 2-to-1 multiplexer                              : 2
+# Multiplexers                                         : 8
+ 1-bit 2-to-1 multiplexer                              : 6
  10-bit 2-to-1 multiplexer                             : 1
  4-bit 4-to-1 multiplexer                              : 1
 # FSMs                                                 : 4
@@ -407,8 +412,8 @@ Macro Statistics
  12-bit comparator greater                             : 1
  12-bit comparator lessequal                           : 2
  5-bit comparator lessequal                            : 2
-# Multiplexers                                         : 3
- 1-bit 2-to-1 multiplexer                              : 2
+# Multiplexers                                         : 7
+ 1-bit 2-to-1 multiplexer                              : 6
  4-bit 4-to-1 multiplexer                              : 1
 # FSMs                                                 : 4
 
@@ -503,11 +508,11 @@ Top Level Output File Name         : mt9v034_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1051
+# BELS                             : 1054
 #      GND                         : 2
-#      INV                         : 21
+#      INV                         : 20
 #      LUT1                        : 64
-#      LUT2                        : 65
+#      LUT2                        : 69
 #      LUT3                        : 63
 #      LUT4                        : 194
 #      LUT5                        : 66
@@ -538,8 +543,8 @@ Primitive and Black Box Usage:
 #      SRL16E                      : 48
 # Clock Buffers                    : 4
 #      BUFG                        : 4
-# IO Buffers                       : 39
-#      IBUF                        : 15
+# IO Buffers                       : 38
+#      IBUF                        : 14
 #      IBUFG                       : 1
 #      OBUF                        : 23
 # DCMs                             : 1
@@ -553,22 +558,22 @@ Selected Device : 6slx16csg324-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:             458  out of  18224     2%  
- Number of Slice LUTs:                 1025  out of   9112    11%  
-    Number used as Logic:               705  out of   9112     7%  
+ Number of Slice LUTs:                 1028  out of   9112    11%  
+    Number used as Logic:               708  out of   9112     7%  
     Number used as Memory:              320  out of   2176    14%  
        Number used as RAM:              272
        Number used as SRL:               48
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1189
-   Number with an unused Flip Flop:     731  out of   1189    61%  
-   Number with an unused LUT:           164  out of   1189    13%  
-   Number of fully used LUT-FF pairs:   294  out of   1189    24%  
+ Number of LUT Flip Flop pairs used:   1192
+   Number with an unused Flip Flop:     734  out of   1192    61%  
+   Number with an unused LUT:           164  out of   1192    13%  
+   Number of fully used LUT-FF pairs:   294  out of   1192    24%  
    Number of unique control sets:        44
 
 IO Utilization: 
- Number of IOs:                          39
- Number of bonded IOBs:                  39  out of    232    16%  
+ Number of IOs:                          38
+ Number of bonded IOBs:                  38  out of    232    16%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:               16  out of     32    50%  
@@ -616,7 +621,7 @@ Speed Grade: -3
    Minimum period: 6.873ns (Maximum Frequency: 145.501MHz)
    Minimum input arrival time before clock: 3.543ns
    Maximum output required time after clock: 5.632ns
-   Maximum combinational path delay: 5.157ns
+   Maximum combinational path delay: No path found
 
 Timing Details:
 ---------------
@@ -776,60 +781,43 @@ Offset:              5.632ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_20Hz_unbuf'
-  Total number of paths / destination ports: 2 / 2
+  Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
-Offset:              3.597ns (Levels of Logic = 1)
-  Source:            deb/btn_val (FF)
-  Destination:       cam_trigger (PAD)
+Offset:              4.587ns (Levels of Logic = 2)
+  Source:            sw_oe/btn_val (FF)
+  Destination:       FIFO_OE2 (PAD)
   Source Clock:      clk_20Hz_unbuf rising
 
-  Data Path: deb/btn_val to cam_trigger
+  Data Path: sw_oe/btn_val to FIFO_OE2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              1   0.447   0.579  deb/btn_val (deb/btn_val)
-     OBUF:I->O                 2.571          cam_trigger_OBUF (cam_trigger)
+     FDE:C->Q              4   0.447   0.788  sw_oe/btn_val (sw_oe/btn_val)
+     LUT2:I0->O            1   0.203   0.579  Mmux_FIFO_RRST211 (FIFO_RRST2_OBUF)
+     OBUF:I->O                 2.571          FIFO_RRST2_OBUF (FIFO_RRST2)
     ----------------------------------------
-    Total                      3.597ns (3.018ns logic, 0.579ns route)
-                                       (83.9% logic, 16.1% route)
+    Total                      4.587ns (3.221ns logic, 1.366ns route)
+                                       (70.2% logic, 29.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_1MHz_unbuf'
-  Total number of paths / destination ports: 2 / 2
+  Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Offset:              3.634ns (Levels of Logic = 1)
+Offset:              4.555ns (Levels of Logic = 2)
   Source:            linebuf/fifo_rrst (FF)
-  Destination:       FIFO_RRST (PAD)
+  Destination:       FIFO_RRST1 (PAD)
   Source Clock:      clk_1MHz_unbuf rising
 
-  Data Path: linebuf/fifo_rrst to FIFO_RRST
+  Data Path: linebuf/fifo_rrst to FIFO_RRST1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.447   0.616  linebuf/fifo_rrst (linebuf/fifo_rrst)
-     OBUF:I->O                 2.571          FIFO_RRST_OBUF (FIFO_RRST)
+     FDR:C->Q              3   0.447   0.755  linebuf/fifo_rrst (linebuf/fifo_rrst)
+     LUT2:I0->O            1   0.203   0.579  Mmux_FIFO_RRST111 (FIFO_RRST1_OBUF)
+     OBUF:I->O                 2.571          FIFO_RRST1_OBUF (FIFO_RRST1)
     ----------------------------------------
-    Total                      3.634ns (3.018ns logic, 0.616ns route)
-                                       (83.0% logic, 17.0% route)
-
-=========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               5.157ns (Levels of Logic = 3)
-  Source:            cam_LV (PAD)
-  Destination:       FIFO_WE (PAD)
-
-  Data Path: cam_LV to FIFO_WE
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             1   1.222   0.579  cam_LV_IBUF (cam_LV_IBUF)
-     INV:I->O              1   0.206   0.579  FIFO_WE1_INV_0 (FIFO_WE_OBUF)
-     OBUF:I->O                 2.571          FIFO_WE_OBUF (FIFO_WE)
-    ----------------------------------------
-    Total                      5.157ns (3.999ns logic, 1.158ns route)
-                                       (77.5% logic, 22.5% route)
+    Total                      4.555ns (3.221ns logic, 1.334ns route)
+                                       (70.7% logic, 29.3% route)
 
 =========================================================================
 
@@ -866,14 +854,14 @@ sysclk         |    6.873|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.79 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 8.07 secs
  
 --> 
 
-Total memory usage is 296472 kilobytes
+Total memory usage is 292404 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    2 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
 Number of infos    :   13 (   0 filtered)
 
