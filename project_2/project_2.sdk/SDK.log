@@ -193,3 +193,125 @@ con
 18:15:01 ERROR : Port COM3 is already in use.
 18:15:29 INFO  : Processor reset is completed for ps7_cortexa9_0
 18:15:29 ERROR : Port COM3 is already in use.
+10:42:56 INFO  : ps7_init is completed.
+10:42:56 INFO  : ps7_post_config is completed.
+10:42:56 INFO  : Processor reset is completed for ps7_cortexa9_0
+10:42:56 ERROR : Port COM3 is already in use.
+10:43:40 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+10:43:43 INFO  : Processor reset is completed for ps7_cortexa9_0
+10:43:43 ERROR : Port COM3 is already in use.
+10:44:17 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+10:44:20 INFO  : Processor reset is completed for ps7_cortexa9_0
+10:44:20 ERROR : Port COM3 is already in use.
+10:45:46 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+10:45:48 INFO  : Processor reset is completed for ps7_cortexa9_0
+10:45:48 ERROR : Port COM3 is already in use.
+10:46:55 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+10:46:57 INFO  : Processor reset is completed for ps7_cortexa9_0
+10:46:57 ERROR : Port COM3 is already in use.
+10:49:33 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+10:49:35 INFO  : Processor reset is completed for ps7_cortexa9_0
+10:49:35 ERROR : Port COM3 is already in use.
+10:50:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+10:50:08 INFO  : 'fpga -state' command is executed.
+10:50:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:50:10 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+10:50:10 INFO  : 'jtag frequency' command is executed.
+10:50:10 INFO  : Sourcing of 'C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+10:50:10 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+10:50:10 INFO  : Hardware design information is loaded from 'C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+10:50:11 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+10:50:11 INFO  : 'stop' command is executed.
+10:50:12 INFO  : 'ps7_init' command is executed.
+10:50:12 INFO  : 'ps7_post_config' command is executed.
+10:50:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:50:12 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+10:50:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:50:12 INFO  : The application 'C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module/Debug/uart_module.elf' is downloaded to processor 'ps7_cortexa9_0'.
+10:50:12 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+loadhw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+dow C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module/Debug/uart_module.elf
+----------------End of Script----------------
+
+10:50:12 INFO  : Memory regions updated for context APU
+10:50:13 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:50:13 INFO  : 'con' command is executed.
+10:50:13 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+con
+----------------End of Script----------------
+
+10:50:13 INFO  : Launch script is exported to file 'C:\Users\John\Documents\GitHub\MQP\project_2\project_2.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local_uart_module.elf.tcl'
+10:50:21 INFO  : Disconnected from the channel tcfchan#1.
+10:50:22 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+10:50:22 INFO  : 'fpga -state' command is executed.
+10:50:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:50:24 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+10:50:24 INFO  : 'jtag frequency' command is executed.
+10:50:24 INFO  : Sourcing of 'C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+10:50:25 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+10:50:37 INFO  : Hardware design information is loaded from 'C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+10:50:37 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+10:50:37 INFO  : 'stop' command is executed.
+10:50:38 INFO  : 'ps7_init' command is executed.
+10:50:38 INFO  : 'ps7_post_config' command is executed.
+10:50:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:50:38 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+10:50:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:50:38 INFO  : The application 'C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module/Debug/uart_module.elf' is downloaded to processor 'ps7_cortexa9_0'.
+10:50:38 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+loadhw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+dow C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module/Debug/uart_module.elf
+----------------End of Script----------------
+
+10:50:38 INFO  : Memory regions updated for context APU
+10:50:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+10:50:38 INFO  : 'con' command is executed.
+10:50:38 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+con
+----------------End of Script----------------
+
+10:50:38 INFO  : Launch script is exported to file 'C:\Users\John\Documents\GitHub\MQP\project_2\project_2.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local_uart_module.elf.tcl'
+11:09:15 INFO  : Disconnected from the channel tcfchan#2.
+11:09:20 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+11:19:59 INFO  : Launching XSDB server: xsdb.bat -interactive C:\Users\John\Documents\GitHub\MQP\project_2\project_2.sdk\temp_xsdb_launch_script.tcl
+11:20:06 INFO  : XSDB server has started successfully.
+11:20:29 INFO  : Processing command line option -hwspec C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper.hdf.
+11:20:34 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+11:25:37 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1473693470693,  Project:1473210230158
+11:25:37 INFO  : Project design_1_wrapper_hw_platform_0's source hardware specification located at C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+11:25:48 INFO  : Project design_1_wrapper_hw_platform_0's source hardware specification location will not be monitored anymore.
+11:25:59 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+11:27:07 INFO  : Launching XSDB server: xsdb.bat -interactive C:\Users\John\Documents\GitHub\MQP\project_2\project_2.sdk\temp_xsdb_launch_script.tcl
+11:27:09 INFO  : XSDB server has started successfully.
+11:27:21 INFO  : Processing command line option -hwspec C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper.hdf.
+11:36:07 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1473693470693,  Project:1473210230158
+11:36:07 INFO  : Copied contents of C:\Users\John\Documents\GitHub\MQP\project_2\project_2.sdk\design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+11:36:22 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+11:36:28 INFO  : 
+11:36:29 INFO  : Updating hardware inferred compiler options for uart_module.
+11:36:29 INFO  : Clearing existing target manager status.
+11:36:29 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+11:36:30 WARN  : Linker script will not be updated automatically. Users need to update it manually.

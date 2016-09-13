@@ -57,6 +57,12 @@ ECK=0,C_USE_DEFAULT_ACP_USER_VAL=0,C_S_AXI_ACP_ARUSER_VAL=31,C_S_AXI_ACP_AWUSER_
 _M_AXI_GP1_THREAD_ID_WIDTH=12,C_NUM_F2P_INTR_INPUTS=1,C_IRQ_F2P_MODE=DIRECT,C_DQ_WIDTH=32,C_DQS_WIDTH=4,C_DM_WIDTH=4,C_MIO_PRIMITIVE=54,C_TRACE_INTERNAL_WIDTH=2,C_USE_AXI_NONSECURE=0,C_USE_M_AXI_GP0=0,C_USE_M_AXI_GP1=0,C_USE_S_AXI_GP0=0,C_USE_S_AXI_HP0=0,C_USE_S_AXI_HP1=0,C_USE_S_AXI_HP2=0,C_USE_S_AXI_HP3=0,C_USE_S_AXI_ACP=0,C_PS7_SI_REV=PRODUCTION,C_FCLK_CLK0_BUF=true,C_FCLK_CLK1_BUF=false,C_FCLK_CLK2_BUF=false,C_FCLK_CLK3_BUF=false,C_PACKAGE_NAME=clg484}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_processing_system7_0_0 (
+  I2C1_SDA_I,
+  I2C1_SDA_O,
+  I2C1_SDA_T,
+  I2C1_SCL_I,
+  I2C1_SCL_O,
+  I2C1_SCL_T,
   TTC0_WAVE0_OUT,
   TTC0_WAVE1_OUT,
   TTC0_WAVE2_OUT,
@@ -88,6 +94,18 @@ module design_1_processing_system7_0_0 (
   PS_PORB
 );
 
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_1 SDA_I" *)
+input wire I2C1_SDA_I;
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_1 SDA_O" *)
+output wire I2C1_SDA_O;
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_1 SDA_T" *)
+output wire I2C1_SDA_T;
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_1 SCL_I" *)
+input wire I2C1_SCL_I;
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_1 SCL_O" *)
+output wire I2C1_SCL_O;
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_1 SCL_T" *)
+output wire I2C1_SCL_T;
 output wire TTC0_WAVE0_OUT;
 output wire TTC0_WAVE1_OUT;
 output wire TTC0_WAVE2_OUT;
@@ -262,12 +280,12 @@ inout wire PS_PORB;
     .I2C0_SCL_I(1'B0),
     .I2C0_SCL_O(),
     .I2C0_SCL_T(),
-    .I2C1_SDA_I(1'B0),
-    .I2C1_SDA_O(),
-    .I2C1_SDA_T(),
-    .I2C1_SCL_I(1'B0),
-    .I2C1_SCL_O(),
-    .I2C1_SCL_T(),
+    .I2C1_SDA_I(I2C1_SDA_I),
+    .I2C1_SDA_O(I2C1_SDA_O),
+    .I2C1_SDA_T(I2C1_SDA_T),
+    .I2C1_SCL_I(I2C1_SCL_I),
+    .I2C1_SCL_O(I2C1_SCL_O),
+    .I2C1_SCL_T(I2C1_SCL_T),
     .PJTAG_TCK(1'B0),
     .PJTAG_TMS(1'B0),
     .PJTAG_TDI(1'B0),
