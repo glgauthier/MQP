@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Mon Sep 12 11:11:42 2016
+//Date        : Thu Sep 22 21:11:31 2016
 //Host        : JOHN-HP running 64-bit major release  (build 7600)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -94,6 +94,7 @@ module design_1
         .DDR_VRN(FIXED_IO_ddr_vrn),
         .DDR_VRP(FIXED_IO_ddr_vrp),
         .DDR_WEB(DDR_we_n),
+        .FTMT_F2P_DEBUG({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .I2C1_SCL_I(1'b0),
         .I2C1_SDA_I(1'b0),
         .MIO(FIXED_IO_mio[53:0]),

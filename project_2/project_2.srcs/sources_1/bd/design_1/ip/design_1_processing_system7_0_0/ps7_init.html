@@ -383,10 +383,10 @@ inout
 <B>MIO 10</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO
+UART 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio[10]
+rx
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 LVCMOS 3.3V
@@ -398,7 +398,7 @@ slow
 disabled
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-inout
+in
 </TD>
 </TR>
 <TR valign="top">
@@ -406,10 +406,10 @@ inout
 <B>MIO 11</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-GPIO
+UART 0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-gpio[11]
+tx
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 LVCMOS 3.3V
@@ -421,7 +421,7 @@ slow
 disabled
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-inout
+out
 </TD>
 </TR>
 <TR valign="top">
@@ -1257,10 +1257,10 @@ in
 <B>MIO 48</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-UART 1
+GPIO
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-tx
+gpio[48]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 LVCMOS 1.8V
@@ -1272,7 +1272,7 @@ slow
 disabled
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-out
+inout
 </TD>
 </TR>
 <TR valign="top">
@@ -1280,10 +1280,10 @@ out
 <B>MIO 49</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-UART 1
+GPIO
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-rx
+gpio[49]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 LVCMOS 1.8V
@@ -1295,7 +1295,7 @@ slow
 disabled
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-in
+inout
 </TD>
 </TR>
 <TR valign="top">
@@ -6707,10 +6707,10 @@ SLCR_LOCK
 <B>1</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 0 Reference clock control. 0: disable, 1: enable</B>
@@ -6727,10 +6727,10 @@ SLCR_LOCK
 <B>2</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>2</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 1 reference clock active: 0: Clock is disabled 1: Clock is enabled</B>
@@ -6790,7 +6790,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>1402</B>
+<B>1401</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>UART Ref Clock Control</B>
@@ -7536,10 +7536,10 @@ SLCR_LOCK
 <B>100000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>100000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 0 AMBA Clock control 0: disable, 1: enable</B>
@@ -7556,10 +7556,10 @@ SLCR_LOCK
 <B>200000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>200000</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 1 AMBA Clock control 0: disable, 1: enable</B>
@@ -7639,7 +7639,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>1ec044d</B>
+<B>1dc044d</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>AMBA Peripheral Clock Control</B>
@@ -31449,10 +31449,10 @@ SLCR_LOCK
 <B>1</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Operates the same as MIO_PIN_00[TRI_ENABLE]</B>
@@ -31529,10 +31529,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>e0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 000: GPIO 10 (bank 0), Input/Output 001: CAN 0 Rx, Input 010: I2C 0 Serial Clock, Input/Ouput 011: PJTAG TDI, Input 100: SDIO 1 IO Bit 0, Input/Output 101: SPI 1 MOSI, Input/Output 110: reserved 111: UART 0 RxD, Input</B>
@@ -31632,7 +31632,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>600</B>
+<B>6e1</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Pin 10 Control</B>
@@ -31796,10 +31796,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>e0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 000: GPIO 11 (bank 0), Input/Output 001: CAN 0 Tx, Output 010: I2C 0 Serial Data, Input/Output 011: PJTAG TDO, Output 100: SDIO 1 Command, Input/Output 101: SPI 1 MISO, Input/Output 110: reserved 111: UART 0 TxD, Output</B>
@@ -31899,7 +31899,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>600</B>
+<B>6e0</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Pin 11 Control</B>
@@ -41515,10 +41515,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>7</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>e0</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 000: GPIO 48 (bank 1), Input/Output 001: CAN 1 Tx, Output 010: I2C 1 Serial Clock, Input/Output 011: PJTAG TCK, Input 100: SDIO 1 Clock, Input/Output 101: SPI 1 Serial Clock, Input/Output 110: reserved 111: UART 1 TxD, Output</B>
@@ -41618,7 +41618,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>2e0</B>
+<B>200</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Pin 48 Control</B>
@@ -41702,10 +41702,10 @@ SLCR_LOCK
 <B>1</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Operates the same as MIO_PIN_00[TRI_ENABLE]</B>
@@ -41782,10 +41782,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>7</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>e0</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 000: GPIO 49 (bank 1), Input/Output 001: CAN 1 Rx, Input 010: I2C 1 Serial Data, Input/Output 011: PJTAG TMS, Input 100: SDIO 1 IO Bit 1, Input/Output 101: SPI 1 Select 0, Input/Output 110: reserved 111: UART 1 RxD, Input</B>
@@ -41885,7 +41885,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>2e1</B>
+<B>200</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Pin 49 Control</B>
@@ -43359,7 +43359,7 @@ Baud_rate_divider_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001034</B>
+<B>0XE0000034</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -43381,7 +43381,7 @@ Baud_rate_gen_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001018</B>
+<B>0XE0000018</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -43403,7 +43403,7 @@ Control_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001000</B>
+<B>0XE0000000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -43425,7 +43425,7 @@ mode_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001004</B>
+<B>0XE0000004</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -44262,7 +44262,7 @@ CTRL
 <B>Baud_rate_divider_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001034</B>
+<B>0XE0000034</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -44322,7 +44322,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>Baud_rate_divider_reg0@0XE0001034</B>
+<B>Baud_rate_divider_reg0@0XE0000034</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -44369,7 +44369,7 @@ CTRL
 <B>Baud_rate_gen_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001018</B>
+<B>0XE0000018</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -44429,7 +44429,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>Baud_rate_gen_reg0@0XE0001018</B>
+<B>Baud_rate_gen_reg0@0XE0000018</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -44476,7 +44476,7 @@ CTRL
 <B>Control_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001000</B>
+<B>0XE0000000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -44696,7 +44696,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>Control_reg0@0XE0001000</B>
+<B>Control_reg0@0XE0000000</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -44743,7 +44743,7 @@ CTRL
 <B>mode_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001004</B>
+<B>0XE0000004</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -44883,7 +44883,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>mode_reg0@0XE0001004</B>
+<B>mode_reg0@0XE0000004</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -46368,6 +46368,402 @@ LAR
 <B>Lock Access Register</B>
 </TD>
 </TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTICONTROL">
+CTICONTROL
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTICONTROL">
+CTICONTROL
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTICONTROL">
+CTICONTROL
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIGATE">
+CTIGATE
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIGATE">
+CTIGATE
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIGATE">
+CTIGATE
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN0">
+CTIINEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN0">
+CTIINEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN0">
+CTIOUTEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88980A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN0">
+CTIOUTEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88990A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN0">
+CTIINEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN1">
+CTIINEN1
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809024</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 1 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN2">
+CTIINEN2
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809028</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 2 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN3">
+CTIINEN3
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF880902C</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 3 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN0">
+CTIOUTEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN1">
+CTIOUTEN1
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 1 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN2">
+CTIOUTEN2
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 2 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN3">
+CTIOUTEN3
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090AC</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 3 Register</B>
+</TD>
+</TR>
 </TABLE>
 <P>
 <H2><a name="ps7_debug_3_0">ps7_debug_3_0</a></H2>
@@ -46716,7 +47112,2113 @@ LAR
 </TABLE>
 <P>
 <H1>ENABLING CTI MODULES AND CHANNELS</H1>
+<H2><a name="CTICONTROL">Register (<A href=#mod___slcr> slcr </A>)CTICONTROL</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTICONTROL</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>GLBEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables or disables the ECT. When disabled, all cross triggering mapping logic functionality is disabled for this processor.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTICONTROL@0XF8898000</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTICONTROL">Register (<A href=#mod___slcr> slcr </A>)CTICONTROL</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTICONTROL</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>GLBEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables or disables the ECT. When disabled, all cross triggering mapping logic functionality is disabled for this processor.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTICONTROL@0XF8899000</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTICONTROL">Register (<A href=#mod___slcr> slcr </A>)CTICONTROL</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTICONTROL</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>GLBEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables or disables the ECT. When disabled, all cross triggering mapping logic functionality is disabled for this processor.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTICONTROL@0XF8809000</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIGATE">Register (<A href=#mod___slcr> slcr </A>)CTIGATE</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATE</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:3</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT3.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2:2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT2.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1:1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT1.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT0.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIGATE@0XF8898140</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>3</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIGATE">Register (<A href=#mod___slcr> slcr </A>)CTIGATE</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATE</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:3</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT3.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2:2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT2.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1:1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT1.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT0.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIGATE@0XF8899140</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>c</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIGATE">Register (<A href=#mod___slcr> slcr </A>)CTIGATE</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATE</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:3</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT3.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2:2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT2.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1:1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT1.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT0.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIGATE@0XF8809140</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
 <H1>MAPPING CPU0, CPU1 AND FTM EVENTS TO CTM CHANNELS</H1>
+<H2><a name="CTIINEN0">Register (<A href=#mod___slcr> slcr </A>)CTIINEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN0@0XF8898020</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN0">Register (<A href=#mod___slcr> slcr </A>)CTIINEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN0@0XF8899020</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN0">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88980A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN0@0XF88980A0</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN0">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88990A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN0@0XF88990A0</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN0">Register (<A href=#mod___slcr> slcr </A>)CTIINEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN0@0XF8809020</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN1">Register (<A href=#mod___slcr> slcr </A>)CTIINEN1</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809024</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN1@0XF8809024</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 1 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN2">Register (<A href=#mod___slcr> slcr </A>)CTIINEN2</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809028</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN2@0XF8809028</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 2 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN3">Register (<A href=#mod___slcr> slcr </A>)CTIINEN3</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF880902C</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN3@0XF880902C</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 3 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN0">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN0@0XF88090A0</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN1">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN1</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN1@0XF88090A4</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 1 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN2">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN2</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN2@0XF88090A8</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 2 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN3">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN3</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090AC</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN3@0XF88090AC</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 3 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
 </TABLE>
 <P>
 </body>
@@ -51504,10 +54006,10 @@ SLCR_LOCK
 <B>1</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 0 Reference clock control. 0: disable, 1: enable</B>
@@ -51524,10 +54026,10 @@ SLCR_LOCK
 <B>2</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>2</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 1 reference clock active: 0: Clock is disabled 1: Clock is enabled</B>
@@ -51587,7 +54089,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>1402</B>
+<B>1401</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>UART Ref Clock Control</B>
@@ -52333,10 +54835,10 @@ SLCR_LOCK
 <B>100000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>100000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 0 AMBA Clock control 0: disable, 1: enable</B>
@@ -52353,10 +54855,10 @@ SLCR_LOCK
 <B>200000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>200000</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 1 AMBA Clock control 0: disable, 1: enable</B>
@@ -52436,7 +54938,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>1ec044d</B>
+<B>1dc044d</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>AMBA Peripheral Clock Control</B>
@@ -77375,10 +79877,10 @@ SLCR_LOCK
 <B>1</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Operates the same as MIO_PIN_00[TRI_ENABLE]</B>
@@ -77455,10 +79957,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>e0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 000: GPIO 10 (bank 0) 001: CAN 0 Rx 010: I2C 0 Serial Clock 011: PJTAG TDI 100: SDIO 1 IO Bit 0 101: SPI 1 MOSI 110: reserved 111: UART 0 RxD</B>
@@ -77558,7 +80060,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>600</B>
+<B>6e1</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Pin 10 Control</B>
@@ -77722,10 +80224,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>e0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 000: GPIO 11 (bank 0) 001: CAN 0 Tx 010: I2C Serial Data 011: PJTAG TDO 100: SDIO 1 Command 101: SPI 1 MISO 110: reserved 111: UART 0 TxD</B>
@@ -77825,7 +80327,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>600</B>
+<B>6e0</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Pin 11 Control</B>
@@ -87441,10 +89943,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>7</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>e0</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 000: GPIO 48 (bank 1) 001: CAN 1 Tx 010: I2C 1 Serial Clock 011: PJTAG TCK 100: SDIO 1 Clock 101: SPI 1 Serial Clock 110: reserved 111: UART 1 TxD</B>
@@ -87544,7 +90046,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>2e0</B>
+<B>200</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Pin 48 Control</B>
@@ -87628,10 +90130,10 @@ SLCR_LOCK
 <B>1</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Operates the same as MIO_PIN_00[TRI_ENABLE]</B>
@@ -87708,10 +90210,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>7</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>e0</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 000: GPIO 49 (bank 1) 001: CAN 1 Rx 010: I2C Serial Data 011: PJTAG TMS 100: SDIO 1 IO Bit 1 101: SPI 1 Select 0 110: reserved 111: UART 1 RxD</B>
@@ -87811,7 +90313,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>2e1</B>
+<B>200</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Pin 49 Control</B>
@@ -89285,7 +91787,7 @@ Baud_rate_divider_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001034</B>
+<B>0XE0000034</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -89307,7 +91809,7 @@ Baud_rate_gen_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001018</B>
+<B>0XE0000018</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -89329,7 +91831,7 @@ Control_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001000</B>
+<B>0XE0000000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -89351,7 +91853,7 @@ mode_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001004</B>
+<B>0XE0000004</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -90188,7 +92690,7 @@ CTRL
 <B>Baud_rate_divider_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001034</B>
+<B>0XE0000034</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -90248,7 +92750,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>Baud_rate_divider_reg0@0XE0001034</B>
+<B>Baud_rate_divider_reg0@0XE0000034</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -90295,7 +92797,7 @@ CTRL
 <B>Baud_rate_gen_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001018</B>
+<B>0XE0000018</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -90355,7 +92857,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>Baud_rate_gen_reg0@0XE0001018</B>
+<B>Baud_rate_gen_reg0@0XE0000018</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -90402,7 +92904,7 @@ CTRL
 <B>Control_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001000</B>
+<B>0XE0000000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -90622,7 +93124,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>Control_reg0@0XE0001000</B>
+<B>Control_reg0@0XE0000000</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -90669,7 +93171,7 @@ CTRL
 <B>mode_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001004</B>
+<B>0XE0000004</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -90849,7 +93351,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>mode_reg0@0XE0001004</B>
+<B>mode_reg0@0XE0000004</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -92293,6 +94795,402 @@ LAR
 <B>Lock Access Register</B>
 </TD>
 </TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTICONTROL">
+CTICONTROL
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTICONTROL">
+CTICONTROL
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTICONTROL">
+CTICONTROL
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIGATE">
+CTIGATE
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIGATE">
+CTIGATE
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIGATE">
+CTIGATE
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN0">
+CTIINEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN0">
+CTIINEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN0">
+CTIOUTEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88980A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN0">
+CTIOUTEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88990A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN0">
+CTIINEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN1">
+CTIINEN1
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809024</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 1 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN2">
+CTIINEN2
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809028</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 2 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN3">
+CTIINEN3
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF880902C</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 3 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN0">
+CTIOUTEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN1">
+CTIOUTEN1
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 1 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN2">
+CTIOUTEN2
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 2 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN3">
+CTIOUTEN3
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090AC</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 3 Register</B>
+</TD>
+</TR>
 </TABLE>
 <P>
 <H2><a name="ps7_debug_2_0">ps7_debug_2_0</a></H2>
@@ -92641,7 +95539,2113 @@ LAR
 </TABLE>
 <P>
 <H1>ENABLING CTI MODULES AND CHANNELS</H1>
+<H2><a name="CTICONTROL">Register (<A href=#mod___slcr> slcr </A>)CTICONTROL</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTICONTROL</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>GLBEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables or disables the ECT. When disabled, all cross triggering mapping logic functionality is disabled for this processor.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTICONTROL@0XF8898000</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTICONTROL">Register (<A href=#mod___slcr> slcr </A>)CTICONTROL</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTICONTROL</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>GLBEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables or disables the ECT. When disabled, all cross triggering mapping logic functionality is disabled for this processor.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTICONTROL@0XF8899000</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTICONTROL">Register (<A href=#mod___slcr> slcr </A>)CTICONTROL</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTICONTROL</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>GLBEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables or disables the ECT. When disabled, all cross triggering mapping logic functionality is disabled for this processor.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTICONTROL@0XF8809000</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIGATE">Register (<A href=#mod___slcr> slcr </A>)CTIGATE</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATE</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:3</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT3.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2:2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT2.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1:1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT1.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT0.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIGATE@0XF8898140</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>3</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIGATE">Register (<A href=#mod___slcr> slcr </A>)CTIGATE</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATE</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:3</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT3.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2:2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT2.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1:1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT1.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT0.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIGATE@0XF8899140</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>c</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIGATE">Register (<A href=#mod___slcr> slcr </A>)CTIGATE</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATE</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:3</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT3.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2:2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT2.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1:1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT1.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT0.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIGATE@0XF8809140</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
 <H1>MAPPING CPU0, CPU1 AND FTM EVENTS TO CTM CHANNELS</H1>
+<H2><a name="CTIINEN0">Register (<A href=#mod___slcr> slcr </A>)CTIINEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN0@0XF8898020</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN0">Register (<A href=#mod___slcr> slcr </A>)CTIINEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN0@0XF8899020</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN0">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88980A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN0@0XF88980A0</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN0">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88990A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN0@0XF88990A0</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN0">Register (<A href=#mod___slcr> slcr </A>)CTIINEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN0@0XF8809020</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN1">Register (<A href=#mod___slcr> slcr </A>)CTIINEN1</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809024</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN1@0XF8809024</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 1 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN2">Register (<A href=#mod___slcr> slcr </A>)CTIINEN2</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809028</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN2@0XF8809028</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 2 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN3">Register (<A href=#mod___slcr> slcr </A>)CTIINEN3</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF880902C</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN3@0XF880902C</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 3 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN0">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN0@0XF88090A0</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN1">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN1</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN1@0XF88090A4</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 1 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN2">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN2</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN2@0XF88090A8</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 2 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN3">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN3</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090AC</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN3@0XF88090AC</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 3 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
 </TABLE>
 <P>
 </body>
@@ -97429,10 +102433,10 @@ SLCR_LOCK
 <B>1</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 0 reference clock active. 0 - Clock is disabled. 1 - Clock is enabled.</B>
@@ -97449,10 +102453,10 @@ SLCR_LOCK
 <B>2</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>2</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 1 reference clock active. 0 - Clock is disabled. 1 - Clock is enabled.</B>
@@ -97512,7 +102516,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>1402</B>
+<B>1401</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>UART Reference Clock Control</B>
@@ -98258,10 +103262,10 @@ SLCR_LOCK
 <B>100000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>100000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 0 AMBA Clock active. 0 - Clock is disabled. 1 - Clock is enabled.</B>
@@ -98278,10 +103282,10 @@ SLCR_LOCK
 <B>200000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>200000</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>UART 1 AMBA Clock active. 0 - Clock is disabled. 1 - Clock is enabled.</B>
@@ -98361,7 +103365,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>1ec044d</B>
+<B>1dc044d</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>AMBA Peripheral Clock Control</B>
@@ -122662,10 +127666,10 @@ SLCR_LOCK
 <B>1</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>1</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Tri-state enable, active high.</B>
@@ -122742,10 +127746,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>e0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[10]- (GPIO bank 0) 0= gpio0, Output, gpio_0_pin_out[10]- (GPIO bank 0) 1= can0, Input, can0_phy_rx- (Can RX signal) 2= i2c0, Input, i2c0_scl_input- (SCL signal) 2= i2c0, Output, i2c0_scl_out- (SCL signal) 3= Not Used 4= sd1, Input, sd1_data_in[0]- (4-bit Data bus) 4= sd1, Output, sd1_data_out[0]- (4-bit Data bus) 5= spi1, Output, spi1_mo- (MOSI signal) 5= spi1, Input, spi1_si- (MOSI signal) 6= Not Used 7= ua0, Input, ua0_rxd- (UART receiver serial input)</B>
@@ -122845,7 +127849,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>600</B>
+<B>6e1</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Control for Pin 10</B>
@@ -123009,10 +128013,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0</B>
+<B>e0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 0= gpio0, Input, gpio_0_pin_in[11]- (GPIO bank 0) 0= gpio0, Output, gpio_0_pin_out[11]- (GPIO bank 0) 1= can0, Output, can0_phy_tx- (Can TX signal) 2= i2c0, Input, i2c0_sda_input- (SDA signal) 2= i2c0, Output, i2c0_sda_out- (SDA signal) 3= Not Used 4= sd1, Input, sd1_cmd_in- (Command Indicator) 4= sd1, Output, sd1_cmd_out- (Command Indicator) 5= spi1, Input, spi1_mi- (MISO signal) 5= spi1, Output, spi1_so- (MISO signal) 6= Not Used 7= ua0, Output, ua0_txd- (UART transmitter serial output)</B>
@@ -123112,7 +128116,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>600</B>
+<B>6e0</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Control for Pin 11</B>
@@ -132728,10 +137732,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>7</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>e0</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 0= gpio1, Input, gpio_1_pin_in[16]- (GPIO bank 1) 0= gpio1, Output, gpio_1_pin_out[16]- (GPIO bank 1) 1= can1, Output, can1_phy_tx- (Can TX signal) 2= i2c1, Input, i2c1_scl_input- (SCL signal) 2= i2c1, Output, i2c1_scl_out- (SCL signal) 3= Not Used 4= sd1, Input, sd1_clk_in- (SDSDIO clock) 4= sd1, Output, sd1_clk_out- (SDSDIO clock) 5= spi1, Input, spi1_sclk_in- (SPI Clock) 5= spi1, Output, spi1_sclk_out- (SPI Clock) 6= Not Used 7= ua1, Output, ua1_txd- (UART transmitter serial output)</B>
@@ -132831,7 +137835,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>2e0</B>
+<B>200</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Control for Pin 48</B>
@@ -132915,10 +137919,10 @@ SLCR_LOCK
 <B>1</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Tri-state enable, active high.</B>
@@ -132995,10 +137999,10 @@ SLCR_LOCK
 <B>e0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>7</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>e0</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Level 3 Mux Select 0= gpio1, Input, gpio_1_pin_in[17]- (GPIO bank 1) 0= gpio1, Output, gpio_1_pin_out[17]- (GPIO bank 1) 1= can1, Input, can1_phy_rx- (Can RX signal) 2= i2c1, Input, i2c1_sda_input- (SDA signal) 2= i2c1, Output, i2c1_sda_out- (SDA signal) 3= Not Used 4= sd1, Input, sd1_data_in[1]- (4-bit Data bus) 4= sd1, Output, sd1_data_out[1]- (4-bit Data bus) 5= spi1, Input, spi1_n_ss_in- (SPI Master Selects) 5= spi1, Output, spi1_n_ss_out[0]- (SPI Master Selects) 6= Not Used 7= ua1, Input, ua1_rxd- (UART receiver serial input)</B>
@@ -133098,7 +138102,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>2e1</B>
+<B>200</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>MIO Control for Pin 49</B>
@@ -134572,7 +139576,7 @@ Baud_rate_divider_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001034</B>
+<B>0XE0000034</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -134594,7 +139598,7 @@ Baud_rate_gen_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001018</B>
+<B>0XE0000018</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -134616,7 +139620,7 @@ Control_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001000</B>
+<B>0XE0000000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -134638,7 +139642,7 @@ mode_reg0
 </A>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001004</B>
+<B>0XE0000004</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -135475,7 +140479,7 @@ CTRL
 <B>Baud_rate_divider_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001034</B>
+<B>0XE0000034</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -135535,7 +140539,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>Baud_rate_divider_reg0@0XE0001034</B>
+<B>Baud_rate_divider_reg0@0XE0000034</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -135582,7 +140586,7 @@ CTRL
 <B>Baud_rate_gen_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001018</B>
+<B>0XE0000018</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -135642,7 +140646,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>Baud_rate_gen_reg0@0XE0001018</B>
+<B>Baud_rate_gen_reg0@0XE0000018</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -135689,7 +140693,7 @@ CTRL
 <B>Control_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001000</B>
+<B>0XE0000000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -135909,7 +140913,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>Control_reg0@0XE0001000</B>
+<B>Control_reg0@0XE0000000</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -135956,7 +140960,7 @@ CTRL
 <B>mode_reg0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>0XE0001004</B>
+<B>0XE0000004</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 <B>32</B>
@@ -136136,7 +141140,7 @@ CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>mode_reg0@0XE0001004</B>
+<B>mode_reg0@0XE0000004</B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>31:0</B>
@@ -137580,6 +142584,402 @@ LAR
 <B>Lock Access Register</B>
 </TD>
 </TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTICONTROL">
+CTICONTROL
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTICONTROL">
+CTICONTROL
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTICONTROL">
+CTICONTROL
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIGATE">
+CTIGATE
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIGATE">
+CTIGATE
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIGATE">
+CTIGATE
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN0">
+CTIINEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN0">
+CTIINEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN0">
+CTIOUTEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88980A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN0">
+CTIOUTEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88990A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN0">
+CTIINEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN1">
+CTIINEN1
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809024</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 1 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN2">
+CTIINEN2
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809028</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 2 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIINEN3">
+CTIINEN3
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF880902C</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Trigger to Channel Enable 3 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN0">
+CTIOUTEN0
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN1">
+CTIOUTEN1
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 1 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN2">
+CTIOUTEN2
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 2 Register</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<A href="#CTIOUTEN3">
+CTIOUTEN3
+</A>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090AC</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>RW</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>CTI Channel to Trigger Enable 3 Register</B>
+</TD>
+</TR>
 </TABLE>
 <P>
 <H2><a name="ps7_debug_1_0">ps7_debug_1_0</a></H2>
@@ -137928,7 +143328,2113 @@ LAR
 </TABLE>
 <P>
 <H1>ENABLING CTI MODULES AND CHANNELS</H1>
+<H2><a name="CTICONTROL">Register (<A href=#mod___slcr> slcr </A>)CTICONTROL</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTICONTROL</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>GLBEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables or disables the ECT. When disabled, all cross triggering mapping logic functionality is disabled for this processor.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTICONTROL@0XF8898000</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTICONTROL">Register (<A href=#mod___slcr> slcr </A>)CTICONTROL</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTICONTROL</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>GLBEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables or disables the ECT. When disabled, all cross triggering mapping logic functionality is disabled for this processor.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTICONTROL@0XF8899000</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTICONTROL">Register (<A href=#mod___slcr> slcr </A>)CTICONTROL</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTICONTROL</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809000</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>GLBEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables or disables the ECT. When disabled, all cross triggering mapping logic functionality is disabled for this processor.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTICONTROL@0XF8809000</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Control Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIGATE">Register (<A href=#mod___slcr> slcr </A>)CTIGATE</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATE</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:3</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT3.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2:2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT2.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1:1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT1.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT0.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIGATE@0XF8898140</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>3</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIGATE">Register (<A href=#mod___slcr> slcr </A>)CTIGATE</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATE</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:3</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT3.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2:2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT2.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1:1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT1.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT0.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIGATE@0XF8899140</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>c</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIGATE">Register (<A href=#mod___slcr> slcr </A>)CTIGATE</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATE</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809140</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:3</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT3.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2:2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT2.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1:1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT1.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIGATEEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enable CTICHOUT0.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIGATE@0XF8809140</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>Enable CTI Channel Gate Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
 <H1>MAPPING CPU0, CPU1 AND FTM EVENTS TO CTM CHANNELS</H1>
+<H2><a name="CTIINEN0">Register (<A href=#mod___slcr> slcr </A>)CTIINEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8898020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN0@0XF8898020</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>1</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN0">Register (<A href=#mod___slcr> slcr </A>)CTIINEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8899020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN0@0XF8899020</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>4</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN0">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88980A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN0@0XF88980A0</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>2</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN0">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88990A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN0@0XF88990A0</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN0">Register (<A href=#mod___slcr> slcr </A>)CTIINEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809020</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN0@0XF8809020</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN1">Register (<A href=#mod___slcr> slcr </A>)CTIINEN1</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809024</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN1@0XF8809024</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 1 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN2">Register (<A href=#mod___slcr> slcr </A>)CTIINEN2</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF8809028</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN2@0XF8809028</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 2 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIINEN3">Register (<A href=#mod___slcr> slcr </A>)CTIINEN3</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIINEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF880902C</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGINEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Enables a cross trigger event to the corresponding channel when an CTITRIGIN is activated. 1 = enables the CTITRIGIN signal to generate an event on the respective channel of the CTM. There is one bit of the register for each of the four channels. For example in register CTIINEN0, TRIGINEN[0] set to 1 enables CTITRIGIN onto channel 0. 0 = disables the CTITRIGIN signal from generating an event on the respective channel of the CTM.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIINEN3@0XF880902C</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Trigger to Channel Enable 3 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN0">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN0</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN0@0XF88090A0</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 0 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN1">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN1</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A4</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN1@0XF88090A4</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 1 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN2">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN2</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN2</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090A8</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN2@0XF88090A8</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 2 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<H2><a name="CTIOUTEN3">Register (<A href=#mod___slcr> slcr </A>)CTIOUTEN3</a></H2>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Register Name</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Address</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Width</B>
+</TD>
+<TD width=10% BGCOLOR=#FFFF00>
+<B>Type</B>
+</TD>
+<TD width=15% BGCOLOR=#FFFF00>
+<B>Reset Value</B>
+</TD>
+<TD width=35% BGCOLOR=#FFFF00>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>CTIOUTEN3</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0XF88090AC</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>32</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>rw</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0x00000000</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>--</B>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Field Name</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Bits</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Mask</B>
+</TD>
+<TD width=10% BGCOLOR=#C0FFC0>
+<B>Value</B>
+</TD>
+<TD width=15% BGCOLOR=#C0FFC0>
+<B>Shifted Value</B>
+</TD>
+<TD width=35% BGCOLOR=#C0FFC0>
+<B>Description</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>TRIGOUTEN</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>3:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Changing the value of this bit from a 0 to a 1 enables a channel event for the corresponding channel to generate an CTITRIGOUT output: 0 = the channel input (CTICHIN) from the CTM is not routed to the CTITRIGOUT output 1 = the channel input (CTICHIN) from the CTM is routed to the CTITRIGOUT output. There is one bit for each of the four channels. For example in register CTIOUTEN0, enabling bit 0 enables CTICHIN[0] to cause a trigger event on the CTITRIGOUT[0] output.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>CTIOUTEN3@0XF88090AC</B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>31:0</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B>f</B>
+</TD>
+<TD width=10% BGCOLOR=#C0C0C0>
+<B></B>
+</TD>
+<TD width=15% BGCOLOR=#C0C0C0>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#C0C0C0>
+<B>CTI Channel to Trigger Enable 3 Register</B>
+</TD>
+</TR>
+</TABLE>
+<P>
 </TABLE>
 <P>
 </body>

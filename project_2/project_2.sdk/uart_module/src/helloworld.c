@@ -47,9 +47,10 @@
 
 #include <stdio.h>
 #include "platform.h"
-#include "xil_printf.h"
-#include "xparameters.h"
-#include "xiicps.h"
+//#include "xil_printf.h"
+//#include "xparameters.h"
+//#include "xiicps.h"
+//#include "xiomodule.h"
 
 /************************** Constant Definitions ******************************/
 
@@ -71,6 +72,14 @@ int IicPsSelfTestExample(u16 DeviceId);
 
 XIicPs Iic;			/* Instance of the IIC Device */
 
+typedef enum
+{
+	DELAY = 0,
+	TX_COMMAND = 1,
+	RX_DATA = 2,
+	POLL_SEND = 3,	// for debug purposes only
+}UART_STATE;
+
 
 int main()
 {
@@ -78,7 +87,7 @@ int main()
 
 	int Status;
 
-	xil_printf("IIC Self Test Example \r\n");
+//	xil_printf("IIC Self Test Example \r\n");
 
 	/*
 	 * Run the Iic Self Test example, specify the Device ID that is
@@ -90,46 +99,190 @@ int main()
 		return XST_FAILURE;
 	}
 
-	xil_printf("Successfully ran IIC Self Test Example Test\r\n");
+//	xil_printf("Successfully ran IIC Self Test Example Test\r\n");
 
-//    u32 data;
+    char echo[11];
+    char status[6];
+    char data[66][24];
+    char linefeed[4];
+	int delay_counter = 0;
 
-//    XIOModule iomodule;	// iomodule for gpi, gpo, and uart
+    UART_STATE STATE = DELAY;
 
-    u8 rx_buf[1577];	// receive buffer using XIOModule_Recv
-    u8 data_block[1577] = {};	// fifo for one block of rangefinder data
-
-    int i = 0;
-    int count = 0;
-
-//    data = XIOModule_Initialize(&iomodule, XPAR_IOMODULE_0_DEVICE_ID);
-//    data = XIOModule_Start(&iomodule);
-
-//    data = XIOModule_CfgInitialize(&iomodule, NULL, 1);
-
-    print("G00076801\n");
-/*
-    if (i == 0 && count == 0)
+    while(1)
     {
-    	print("G00076801\n\r");
-    }
+		switch(STATE)
+		{
+			case DELAY:
+			{
+				while(delay_counter < 400)
+				{
+					delay_counter++;
+				}
 
-    rx_buf[i] = inbyte();
+				delay_counter = 0;
+				STATE = TX_COMMAND;
+				break;
+			}
 
-    if(i >= 0 && i <= 1575)
-    {
-    	i++;
-    }
-    else if(i == 1576)
-    {
-    	i = 0;
-    	count++;
-    	memcpy(data_block, rx_buf, 1577);
-    }
+			case TX_COMMAND:
+			{
+				print("L0\n");
+				STATE = RX_DATA;
+				break;
+			}
+
+/*			case RX_DATA:
+			{
+				int rx_line = 0;	// counts which data line is being received
+
+				// receives echo
+				echo[0] = inbyte();	// blocking - inbyte is polled
+				xil_printf("received echo");
+
+				// receives status
+				status[0] = inbyte();	// blocking - inbyte is polled
+				xil_printf("received status");
+
+				// receives 24 data blocks
+				for(rx_line = 0; rx_line < 24; rx_line++)
+				{
+					data[0][rx_line] = inbyte();	// blocking - inbyte is polled
+				}
+
+				linefeed[0] = inbyte();	// blocking - inbyte is polled
+
+			    echo[10] = '\0';
+			    status[5] = '\0';
+
+			    for(rx_line = 0; rx_line < 24; rx_line++)
+			    {
+			    	data[65][rx_line] = '\0';	// blocking - inbyte is polled
+			    }
+
+			    linefeed[3] = '\0';
+
+				STATE = POLL_SEND;
+				break;
+			}
+
+			case POLL_SEND:
+			{
+				int rx_line = 0;	// counts which data line is being received
+
+				inbyte();
+
+				xil_printf("sending data\n");
+
+				xil_printf("%s",echo);
+				xil_printf("%s",status);
+				for(rx_line = 0; rx_line < 24; rx_line++)
+				{
+					xil_printf("%s",data[rx_line]);
+				}
+				xil_printf("%s",linefeed);
+
+				STATE = DELAY;
+				break;
+			}
 */
-//    while
-//    	((data = XIOModule_Recv(&iomodule, rx_buf, 1)) == 0);
 
+			case RX_DATA:
+			{
+				int rx_index = 0;	// indexes across arrays
+				int rx_line = 0;	// counts which data line is being received
+
+				// receives echo
+				for(rx_index = 0; rx_index < 10; rx_index++)
+				{
+					echo[rx_index] = inbyte();	// blocking - inbyte is polled
+				}
+
+				// receives status
+				for(rx_index = 0; rx_index < 5; rx_index++)
+				{
+					status[rx_index] = inbyte();	// blocking - inbyte is polled
+				}
+
+				// receives 24 data blocks
+				for(rx_line = 0; rx_line < 24; rx_line++)
+				{
+					for(rx_index = 0; rx_index < 65; rx_index++)
+					{
+						data[rx_index][rx_line] = inbyte();	// blocking - inbyte is polled
+					}
+				}
+
+				for(rx_index = 0; rx_index < 3; rx_index++)
+				{
+					linefeed[rx_index] = inbyte();	// blocking - inbyte is polled
+				}
+
+				STATE = POLL_SEND;
+				break;
+			}
+
+			case POLL_SEND:
+			{
+				int rx_line = 0;	// counts which data line is being received
+
+				inbyte();
+
+				xil_printf("sending data\n");
+
+			    echo[10] = '\0';
+			    status[5] = '\0';
+
+			    for(rx_line = 0; rx_line < 24; rx_line++)
+			    {
+			    	data[65][rx_line] = '\0';	// blocking - inbyte is polled
+			    }
+
+			    linefeed[3] = '\0';
+
+
+				printf("%s", echo);
+				printf("%s",status);
+			    for(rx_line = 0; rx_line < 24; rx_line++)
+			    {
+			    	printf("%s",data[rx_line]);
+			    }
+			    printf("%s", linefeed);
+
+
+/*				// transmits echo
+				for(tx_index = 0; tx_index < 10; tx_index++)
+				{
+					print(&echo[tx_index]);
+				}
+
+				// transmits status
+				for(tx_index = 0; tx_index < 5; tx_index++)
+				{
+					print(&status[tx_index]);
+				}
+
+				// transmits data blocks
+				for(tx_line = 0; tx_line < 24; tx_line++)
+				{
+					for(tx_index = 0; tx_index < 65; tx_index++)
+					{
+						print(&data[tx_index][tx_line]);
+					}
+				}
+
+				// transmits line feed
+				for(tx_index = 0; tx_index < 3; tx_index++)
+				{
+					print(&linefeed[tx_index]);
+				}
+*/
+				STATE = DELAY;
+				break;
+			}
+
+		}
+    }
 
     cleanup_platform();
     return 0;

@@ -71,6 +71,8 @@ module design_1_processing_system7_0_0 (
   USB0_VBUS_PWRFAULT,
   FCLK_CLK0,
   FCLK_RESET0_N,
+  FTMT_F2P_DEBUG,
+  FTMT_P2F_DEBUG,
   MIO,
   DDR_CAS_n,
   DDR_CKE,
@@ -119,6 +121,8 @@ input wire USB0_VBUS_PWRFAULT;
 output wire FCLK_CLK0;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 FCLK_RESET0_N RST" *)
 output wire FCLK_RESET0_N;
+input wire [31 : 0] FTMT_F2P_DEBUG;
+output wire [31 : 0] FTMT_P2F_DEBUG;
 (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO" *)
 inout wire [53 : 0] MIO;
 (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *)
@@ -852,7 +856,7 @@ inout wire PS_PORB;
     .FTMT_F2P_TRIGACK_2(),
     .FTMT_F2P_TRIG_3(1'B0),
     .FTMT_F2P_TRIGACK_3(),
-    .FTMT_F2P_DEBUG(32'B0),
+    .FTMT_F2P_DEBUG(FTMT_F2P_DEBUG),
     .FTMT_P2F_TRIGACK_0(1'B0),
     .FTMT_P2F_TRIG_0(),
     .FTMT_P2F_TRIGACK_1(1'B0),
@@ -861,7 +865,7 @@ inout wire PS_PORB;
     .FTMT_P2F_TRIG_2(),
     .FTMT_P2F_TRIGACK_3(1'B0),
     .FTMT_P2F_TRIG_3(),
-    .FTMT_P2F_DEBUG(),
+    .FTMT_P2F_DEBUG(FTMT_P2F_DEBUG),
     .FPGA_IDLE_N(1'B0),
     .EVENT_EVENTO(),
     .EVENT_STANDBYWFE(),

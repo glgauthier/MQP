@@ -1,4 +1,4 @@
-!SESSION 2016-09-12 11:26:54.987 -----------------------------------------------
+!SESSION 2016-09-26 14:23:38.387 -----------------------------------------------
 eclipse.buildId=2016.2
 java.version=1.8.0_66
 java.vendor=Oracle Corporation
@@ -6,1001 +6,9 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk
 
 This is a continuation of log file C:\Users\John\Documents\GitHub\MQP\project_2\project_2.sdk\.metadata\.bak_0.log
-Created Time: 2016-09-12 11:32:00.253
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:32:00.253
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:32:00.269
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"ps7_afi_0": {"name": "ps7_afi_0",
-"base": "0xF8008000",
-"high": "0xF8008FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_afi_1": {"name": "ps7_afi_1",
-"base": "0xF8009000",
-"high": "0xF8009FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_afi_2": {"name": "ps7_afi_2",
-"base": "0xF800A000",
-"high": "0xF800AFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_afi_3": {"name": "ps7_afi_3",
-"base": "0xF800B000",
-"high": "0xF800BFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_coresight_comp_0": {"name": "ps7_coresight_comp_0",
-"base": "0xF8800000",
-"high": "0xF88FFFFF",
-"size": "1048576",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ddrc_0": {"name": "ps7_ddrc_0",
-"base": "0xF8006000",
-"high": "0xF8006FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_dev_cfg_0": {"name": "ps7_dev_cfg_0",
-"base": "0xF8007000",
-"high": "0xF80070FF",
-"size": "256",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_dma_ns": {"name": "ps7_dma_ns",
-"base": "0xF8004000",
-"high": "0xF8004FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_dma_s": {"name": "ps7_dma_s",
-"base": "0xF8003000",
-"high": "0xF8003FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ethernet_0": {"name": "ps7_ethernet_0",
-"base": "0xE000B000",
-"high": "0xE000BFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_globaltimer_0": {"name": "ps7_globaltimer_0",
-"base": "0xF8F00200",
-"high": "0xF8F002FF",
-"size": "256",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_gpio_0": {"name": "ps7_gpio_0",
-"base": "0xE000A000",
-"high": "0xE000AFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_gpv_0": {"name": "ps7_gpv_0",
-"base": "0xF8900000",
-"high": "0xF89FFFFF",
-"size": "1048576",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_intc_dist_0": {"name": "ps7_intc_dist_0",
-"base": "0xF8F01000",
-"high": "0xF8F01FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_iop_bus_config_0": {"name": "ps7_iop_bus_config_0",
-"base": "0xE0200000",
-"high": "0xE0200FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_l2cachec_0": {"name": "ps7_l2cachec_0",
-"base": "0xF8F02000",
-"high": "0xF8F02FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ocmc_0": {"name": "ps7_ocmc_0",
-"base": "0xF800C000",
-"high": "0xF800CFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_pl310_0": {"name": "ps7_pl310_0",
-"base": "0xF8F02000",
-"high": "0xF8F02FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_pmu_0": {"name": "ps7_pmu_0",
-"base": "0xF8893000",
-"high": "0xF8893FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_qspi_0": {"name": "ps7_qspi_0",
-"base": "0xE000D000",
-"high": "0xE000DFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scuc_0": {"name": "ps7_scuc_0",
-"base": "0xF8F00000",
-"high": "0xF8F000FC",
-"size": "253",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scugic_0": {"name": "ps7_scugic_0",
-"base": "0xF8F00100",
-"high": "0xF8F001FF",
-"size": "256",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scutimer_0": {"name": "ps7_scutimer_0",
-"base": "0xF8F00600",
-"high": "0xF8F0061F",
-"size": "32",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scuwdt_0": {"name": "ps7_scuwdt_0",
-"base": "0xF8F00620",
-"high": "0xF8F006FF",
-"size": "224",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_sd_0": {"name": "ps7_sd_0",
-"base": "0xE0100000",
-"high": "0xE0100FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_slcr_0": {"name": "ps7_slcr_0",
-"base": "0xF8000000",
-"high": "0xF8000FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ttc_0": {"name": "ps7_ttc_0",
-"base": "0xF8001000",
-"high": "0xF8001FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_uart_1": {"name": "ps7_uart_1",
-"base": "0xE0001000",
-"high": "0xE0001FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_usb_0": {"name": "ps7_usb_0",
-"base": "0xE0002000",
-"high": "0xE0002FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_xadc_0": {"name": "ps7_xadc_0",
-"base": "0xF8007100",
-"high": "0xF8007120",
-"size": "33",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_qspi_linear_0": {"name": "ps7_qspi_linear_0",
-"base": "0xFC000000",
-"high": "0xFCFFFFFF",
-"size": "16777216",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "5",
-},
-"ps7_ddr_0": {"name": "ps7_ddr_0",
-"base": "0x00100000",
-"high": "0x1FFFFFFF",
-"size": "535822336",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "7",
-},
-"ps7_ram_0": {"name": "ps7_ram_0",
-"base": "0x00000000",
-"high": "0x0002FFFF",
-"size": "196608",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "7",
-},
-"ps7_ram_1": {"name": "ps7_ram_1",
-"base": "0xFFFF0000",
-"high": "0xFFFFFDFF",
-"size": "65024",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "7",
-},
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:32:00.331
-!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:32:00.347
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"ps7_afi_0": {},
-"ps7_afi_1": {},
-"ps7_afi_2": {},
-"ps7_afi_3": {},
-"ps7_coresight_comp_0": {},
-"ps7_ddr_0": {},
-"ps7_ddrc_0": {},
-"ps7_dev_cfg_0": {},
-"ps7_dma_ns": {},
-"ps7_dma_s": {},
-"ps7_ethernet_0": {},
-"ps7_globaltimer_0": {},
-"ps7_gpio_0": {},
-"ps7_gpv_0": {},
-"ps7_intc_dist_0": {},
-"ps7_iop_bus_config_0": {},
-"ps7_l2cachec_0": {},
-"ps7_ocmc_0": {},
-"ps7_pl310_0": {},
-"ps7_pmu_0": {},
-"ps7_qspi_0": {},
-"ps7_qspi_linear_0": {},
-"ps7_ram_0": {},
-"ps7_ram_1": {},
-"ps7_scuc_0": {},
-"ps7_scugic_0": {},
-"ps7_scutimer_0": {},
-"ps7_scuwdt_0": {},
-"ps7_sd_0": {},
-"ps7_slcr_0": {},
-"ps7_ttc_0": {},
-"ps7_uart_1": {},
-"ps7_usb_0": {},
-"ps7_xadc_0": {},
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:32:00.347
-!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:32:00.363
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"ps7_afi_0": {},
-"ps7_afi_1": {},
-"ps7_afi_2": {},
-"ps7_afi_3": {},
-"ps7_coresight_comp_0": {},
-"ps7_ddr_0": {},
-"ps7_ddrc_0": {},
-"ps7_dev_cfg_0": {},
-"ps7_dma_ns": {},
-"ps7_dma_s": {},
-"ps7_ethernet_0": {},
-"ps7_globaltimer_0": {},
-"ps7_gpio_0": {},
-"ps7_gpv_0": {},
-"ps7_intc_dist_0": {},
-"ps7_iop_bus_config_0": {},
-"ps7_l2cachec_0": {},
-"ps7_ocmc_0": {},
-"ps7_pl310_0": {},
-"ps7_pmu_0": {},
-"ps7_qspi_0": {},
-"ps7_qspi_linear_0": {},
-"ps7_ram_0": {},
-"ps7_ram_1": {},
-"ps7_scuc_0": {},
-"ps7_scugic_0": {},
-"ps7_scutimer_0": {},
-"ps7_scuwdt_0": {},
-"ps7_sd_0": {},
-"ps7_slcr_0": {},
-"ps7_ttc_0": {},
-"ps7_uart_1": {},
-"ps7_usb_0": {},
-"ps7_xadc_0": {},
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:07.936
-!MESSAGE XSDB Command: [::hsi::utils::closehw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:07.983
-!MESSAGE XSDB command with result: [::hsi::utils::closehw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:07.998
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:15.330
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:15.346
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/AppData/Local/Temp/system806996107937948738.hdf], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:22.384
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/AppData/Local/Temp/system806996107937948738.hdf], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:22.400
-!MESSAGE XSDB Command: [::hsi::utils::get_all_periphs -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:22.416
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_periphs -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"processing_system7_0": {"hier_name": "processing_system7_0",
-"type": "processing_system7",
-"version": "5.5",
-"ip_type": "",
-},
-"ps7_clockc_0": {"hier_name": "ps7_clockc_0",
-"type": "ps7_clockc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_uart_1": {"hier_name": "ps7_uart_1",
-"type": "ps7_uart",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_pl310_0": {"hier_name": "ps7_pl310_0",
-"type": "ps7_pl310",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_pmu_0": {"hier_name": "ps7_pmu_0",
-"type": "ps7_pmu",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_qspi_0": {"hier_name": "ps7_qspi_0",
-"type": "ps7_qspi",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_qspi_linear_0": {"hier_name": "ps7_qspi_linear_0",
-"type": "ps7_qspi_linear",
-"version": "1.00.a",
-"ip_type": "MEMORY_CNTLR",
-},
-"ps7_axi_interconnect_0": {"hier_name": "ps7_axi_interconnect_0",
-"type": "ps7_axi_interconnect",
-"version": "1.00.a",
-"ip_type": "BUS",
-},
-"ps7_cortexa9_0": {"hier_name": "ps7_cortexa9_0",
-"type": "ps7_cortexa9",
-"version": "5.2",
-"ip_type": "PROCESSOR",
-},
-"ps7_cortexa9_1": {"hier_name": "ps7_cortexa9_1",
-"type": "ps7_cortexa9",
-"version": "5.2",
-"ip_type": "PROCESSOR",
-},
-"ps7_ddr_0": {"hier_name": "ps7_ddr_0",
-"type": "ps7_ddr",
-"version": "1.00.a",
-"ip_type": "MEMORY_CNTLR",
-},
-"ps7_ethernet_0": {"hier_name": "ps7_ethernet_0",
-"type": "ps7_ethernet",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_usb_0": {"hier_name": "ps7_usb_0",
-"type": "ps7_usb",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_sd_0": {"hier_name": "ps7_sd_0",
-"type": "ps7_sdio",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_i2c_1": {"hier_name": "ps7_i2c_1",
-"type": "ps7_i2c",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_ttc_0": {"hier_name": "ps7_ttc_0",
-"type": "ps7_ttc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_gpio_0": {"hier_name": "ps7_gpio_0",
-"type": "ps7_gpio",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_ddrc_0": {"hier_name": "ps7_ddrc_0",
-"type": "ps7_ddrc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_dev_cfg_0": {"hier_name": "ps7_dev_cfg_0",
-"type": "ps7_dev_cfg",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_xadc_0": {"hier_name": "ps7_xadc_0",
-"type": "ps7_xadc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_ocmc_0": {"hier_name": "ps7_ocmc_0",
-"type": "ps7_ocmc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_coresight_comp_0": {"hier_name": "ps7_coresight_comp_0",
-"type": "ps7_coresight_comp",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_gpv_0": {"hier_name": "ps7_gpv_0",
-"type": "ps7_gpv",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_scuc_0": {"hier_name": "ps7_scuc_0",
-"type": "ps7_scuc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_globaltimer_0": {"hier_name": "ps7_globaltimer_0",
-"type": "ps7_globaltimer",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_intc_dist_0": {"hier_name": "ps7_intc_dist_0",
-"type": "ps7_intc_dist",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_l2cachec_0": {"hier_name": "ps7_l2cachec_0",
-"type": "ps7_l2cachec",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_dma_s": {"hier_name": "ps7_dma_s",
-"type": "ps7_dma",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_iop_bus_config_0": {"hier_name": "ps7_iop_bus_config_0",
-"type": "ps7_iop_bus_config",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_ram_0": {"hier_name": "ps7_ram_0",
-"type": "ps7_ram",
-"version": "1.00.a",
-"ip_type": "MEMORY_CNTLR",
-},
-"ps7_ram_1": {"hier_name": "ps7_ram_1",
-"type": "ps7_ram",
-"version": "1.00.a",
-"ip_type": "MEMORY_CNTLR",
-},
-"ps7_scugic_0": {"hier_name": "ps7_scugic_0",
-"type": "ps7_scugic",
-"version": "1.00.a",
-"ip_type": "INTERRUPT_CNTLR",
-},
-"ps7_scutimer_0": {"hier_name": "ps7_scutimer_0",
-"type": "ps7_scutimer",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_scuwdt_0": {"hier_name": "ps7_scuwdt_0",
-"type": "ps7_scuwdt",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_slcr_0": {"hier_name": "ps7_slcr_0",
-"type": "ps7_slcr",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_dma_ns": {"hier_name": "ps7_dma_ns",
-"type": "ps7_dma",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_afi_0": {"hier_name": "ps7_afi_0",
-"type": "ps7_afi",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_afi_1": {"hier_name": "ps7_afi_1",
-"type": "ps7_afi",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_afi_2": {"hier_name": "ps7_afi_2",
-"type": "ps7_afi",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_afi_3": {"hier_name": "ps7_afi_3",
-"type": "ps7_afi",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:22.416
-!MESSAGE XSDB Command: [::hsi::utils::get_all_periphs -json C:/Users/John/AppData/Local/Temp/system806996107937948738.hdf], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:22.447
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_periphs -json C:/Users/John/AppData/Local/Temp/system806996107937948738.hdf], Result: [null, {"processing_system7_0": {"hier_name": "processing_system7_0",
-"type": "processing_system7",
-"version": "5.5",
-"ip_type": "",
-},
-"ps7_clockc_0": {"hier_name": "ps7_clockc_0",
-"type": "ps7_clockc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_uart_1": {"hier_name": "ps7_uart_1",
-"type": "ps7_uart",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_pl310_0": {"hier_name": "ps7_pl310_0",
-"type": "ps7_pl310",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_pmu_0": {"hier_name": "ps7_pmu_0",
-"type": "ps7_pmu",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_qspi_0": {"hier_name": "ps7_qspi_0",
-"type": "ps7_qspi",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_qspi_linear_0": {"hier_name": "ps7_qspi_linear_0",
-"type": "ps7_qspi_linear",
-"version": "1.00.a",
-"ip_type": "MEMORY_CNTLR",
-},
-"ps7_axi_interconnect_0": {"hier_name": "ps7_axi_interconnect_0",
-"type": "ps7_axi_interconnect",
-"version": "1.00.a",
-"ip_type": "BUS",
-},
-"ps7_cortexa9_0": {"hier_name": "ps7_cortexa9_0",
-"type": "ps7_cortexa9",
-"version": "5.2",
-"ip_type": "PROCESSOR",
-},
-"ps7_cortexa9_1": {"hier_name": "ps7_cortexa9_1",
-"type": "ps7_cortexa9",
-"version": "5.2",
-"ip_type": "PROCESSOR",
-},
-"ps7_ddr_0": {"hier_name": "ps7_ddr_0",
-"type": "ps7_ddr",
-"version": "1.00.a",
-"ip_type": "MEMORY_CNTLR",
-},
-"ps7_ethernet_0": {"hier_name": "ps7_ethernet_0",
-"type": "ps7_ethernet",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_usb_0": {"hier_name": "ps7_usb_0",
-"type": "ps7_usb",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_sd_0": {"hier_name": "ps7_sd_0",
-"type": "ps7_sdio",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_ttc_0": {"hier_name": "ps7_ttc_0",
-"type": "ps7_ttc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_gpio_0": {"hier_name": "ps7_gpio_0",
-"type": "ps7_gpio",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_ddrc_0": {"hier_name": "ps7_ddrc_0",
-"type": "ps7_ddrc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_dev_cfg_0": {"hier_name": "ps7_dev_cfg_0",
-"type": "ps7_dev_cfg",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_xadc_0": {"hier_name": "ps7_xadc_0",
-"type": "ps7_xadc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_ocmc_0": {"hier_name": "ps7_ocmc_0",
-"type": "ps7_ocmc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_coresight_comp_0": {"hier_name": "ps7_coresight_comp_0",
-"type": "ps7_coresight_comp",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_gpv_0": {"hier_name": "ps7_gpv_0",
-"type": "ps7_gpv",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_scuc_0": {"hier_name": "ps7_scuc_0",
-"type": "ps7_scuc",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_globaltimer_0": {"hier_name": "ps7_globaltimer_0",
-"type": "ps7_globaltimer",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_intc_dist_0": {"hier_name": "ps7_intc_dist_0",
-"type": "ps7_intc_dist",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_l2cachec_0": {"hier_name": "ps7_l2cachec_0",
-"type": "ps7_l2cachec",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_dma_s": {"hier_name": "ps7_dma_s",
-"type": "ps7_dma",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_iop_bus_config_0": {"hier_name": "ps7_iop_bus_config_0",
-"type": "ps7_iop_bus_config",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_ram_0": {"hier_name": "ps7_ram_0",
-"type": "ps7_ram",
-"version": "1.00.a",
-"ip_type": "MEMORY_CNTLR",
-},
-"ps7_ram_1": {"hier_name": "ps7_ram_1",
-"type": "ps7_ram",
-"version": "1.00.a",
-"ip_type": "MEMORY_CNTLR",
-},
-"ps7_scugic_0": {"hier_name": "ps7_scugic_0",
-"type": "ps7_scugic",
-"version": "1.00.a",
-"ip_type": "INTERRUPT_CNTLR",
-},
-"ps7_scutimer_0": {"hier_name": "ps7_scutimer_0",
-"type": "ps7_scutimer",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_scuwdt_0": {"hier_name": "ps7_scuwdt_0",
-"type": "ps7_scuwdt",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_slcr_0": {"hier_name": "ps7_slcr_0",
-"type": "ps7_slcr",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_dma_ns": {"hier_name": "ps7_dma_ns",
-"type": "ps7_dma",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_afi_0": {"hier_name": "ps7_afi_0",
-"type": "ps7_afi",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_afi_1": {"hier_name": "ps7_afi_1",
-"type": "ps7_afi",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_afi_2": {"hier_name": "ps7_afi_2",
-"type": "ps7_afi",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-"ps7_afi_3": {"hier_name": "ps7_afi_3",
-"type": "ps7_afi",
-"version": "1.00.a",
-"ip_type": "PERIPHERAL",
-},
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:23.227
-!MESSAGE XSDB Command: [::hsi::utils::sync_sw_with_hw_changes -newhw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf -oldhw C:/Users/John/AppData/Local/Temp/system806996107937948738.hdf -sw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module_bsp/system.mss -dir C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module_bsp], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:36:28.254
-!MESSAGE XSDB command with result: [::hsi::utils::sync_sw_with_hw_changes -newhw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf -oldhw C:/Users/John/AppData/Local/Temp/system806996107937948738.hdf -sw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module_bsp/system.mss -dir C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module_bsp], Result: [null, ]. Thread: ModalContext
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.141
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.core.CommandLauncher.printCommandLine(CommandLauncher.java:287)
-	at org.eclipse.cdt.core.CommandLauncher.waitAndRead(CommandLauncher.java:250)
-	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:273)
-	at org.eclipse.cdt.make.core.MakeBuilder.invokeMake(MakeBuilder.java:219)
-	at org.eclipse.cdt.make.core.MakeBuilder.build(MakeBuilder.java:108)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:205)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:245)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:300)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:359)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:382)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.219
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.235
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.406
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.406
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.531
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.547
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.672
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.672
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.781
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.796
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.937
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:31.952
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:32.264
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:32.280
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:33.044
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:33.060
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.processLine(ConsoleOutputSniffer.java:178)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.access$0(ConsoleOutputSniffer.java:174)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.checkLine(ConsoleOutputSniffer.java:99)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
-	at java.io.OutputStream.write(OutputStream.java:75)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
+Created Time: 2016-09-26 14:32:10.960
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:33.419
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:10.961
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1011,7 +19,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:33.434
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:10.978
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1022,7 +30,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:33.684
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:11.054
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1033,7 +41,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:33.700
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:11.068
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1044,7 +52,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:33.918
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:11.170
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1055,7 +63,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:33.918
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:11.191
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1066,7 +74,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:34.074
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:11.416
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1077,7 +85,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:34.121
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:11.432
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1088,7 +96,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:34.355
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:11.547
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1099,7 +107,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:34.433
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:11.564
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1110,7 +118,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:34.682
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:11.646
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1121,7 +129,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:34.714
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:11.660
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1132,7 +140,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:36.320
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:11.994
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1143,7 +151,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:36.336
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:12.011
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1154,7 +162,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:36.414
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:12.215
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1165,7 +173,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:36.430
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:12.232
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1176,7 +184,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:36.554
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:12.466
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1187,7 +195,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:36.570
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:12.485
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1198,7 +206,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:36.695
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:12.640
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1209,7 +217,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:36.695
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:12.659
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1220,7 +228,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:36.788
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:12.776
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1231,7 +239,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:36.804
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:12.782
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1242,7 +250,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:36.866
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:12.849
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1253,7 +261,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:39.347
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:13.350
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1264,7 +272,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:39.409
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:13.486
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1275,7 +283,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:39.409
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:13.503
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1286,7 +294,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:39.472
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:13.594
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1297,7 +305,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:39.503
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:13.645
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1308,7 +316,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:39.518
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:13.663
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1319,7 +327,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:39.581
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:13.719
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1330,7 +338,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:39.659
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:13.782
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1341,7 +349,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:39.674
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:13.801
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1352,7 +360,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:39.752
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:13.859
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1363,7 +371,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:41.562
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:15.041
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1374,7 +382,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:41.578
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:15.064
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1385,7 +393,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:41.640
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:15.138
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1396,7 +404,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:43.184
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:16.395
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1407,7 +415,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:43.184
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:16.414
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1418,7 +426,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:43.247
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:16.485
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1429,7 +437,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:45.056
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:18.324
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1440,7 +448,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:45.088
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:18.341
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1451,7 +459,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:45.134
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:18.397
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1462,7 +470,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:46.585
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:19.858
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1473,7 +481,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:46.616
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:19.879
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1484,7 +492,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:46.663
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:19.947
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1495,7 +503,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:48.504
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:21.840
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1506,7 +514,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:48.520
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:21.858
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1517,7 +525,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:48.644
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:21.921
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1528,7 +536,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:49.986
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:23.370
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1539,7 +547,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:49.986
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:23.388
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1550,7 +558,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:50.048
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:23.445
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1561,7 +569,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:51.187
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:24.628
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1572,7 +580,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:51.203
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:24.644
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1583,7 +591,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:51.265
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:24.708
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1594,7 +602,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:51.998
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:25.410
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1605,7 +613,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:52.014
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:25.444
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1616,7 +624,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:52.076
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:25.530
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1627,7 +635,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:52.841
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:26.187
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1638,7 +646,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:52.841
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:26.204
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1649,7 +657,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:52.903
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:26.289
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1660,7 +668,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:54.182
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:27.507
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1671,7 +679,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:54.182
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:27.529
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1682,7 +690,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:36:54.292
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:27.658
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1693,7 +701,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:00.079
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:32.803
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1704,7 +712,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:00.095
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:32.816
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1715,7 +723,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:00.157
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:32.917
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1726,7 +734,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:01.046
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:33.821
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1737,7 +745,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:01.046
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:33.843
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1748,7 +756,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:01.109
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:33.909
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1759,7 +767,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:02.903
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:35.325
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1770,7 +778,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:02.918
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:35.342
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1781,7 +789,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:02.981
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:35.409
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1792,7 +800,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:04.603
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:36.872
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1803,7 +811,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:04.619
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:36.890
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1814,7 +822,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:04.697
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:36.953
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1825,7 +833,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:06.023
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:38.356
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1836,7 +844,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-09-12 11:37:06.085
+!ENTRY org.eclipse.cdt.core 4 0 2016-09-26 14:32:38.399
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1861,693 +869,5 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:40.156
-!MESSAGE XSDB Command: [::hsi::utils::get_design_properties -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:40.187
-!MESSAGE XSDB command with result: [::hsi::utils::get_design_properties -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"device": "7z020",
-"family": "zynq",
-"timestamp": "Mon Sep 12 11:12:30 2016",
-"vivado_version": "2016.2",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:40.187
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:40.249
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"ps7_afi_0": {"name": "ps7_afi_0",
-"base": "0xF8008000",
-"high": "0xF8008FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_afi_1": {"name": "ps7_afi_1",
-"base": "0xF8009000",
-"high": "0xF8009FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_afi_2": {"name": "ps7_afi_2",
-"base": "0xF800A000",
-"high": "0xF800AFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_afi_3": {"name": "ps7_afi_3",
-"base": "0xF800B000",
-"high": "0xF800BFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_coresight_comp_0": {"name": "ps7_coresight_comp_0",
-"base": "0xF8800000",
-"high": "0xF88FFFFF",
-"size": "1048576",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ddrc_0": {"name": "ps7_ddrc_0",
-"base": "0xF8006000",
-"high": "0xF8006FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_dev_cfg_0": {"name": "ps7_dev_cfg_0",
-"base": "0xF8007000",
-"high": "0xF80070FF",
-"size": "256",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_dma_ns": {"name": "ps7_dma_ns",
-"base": "0xF8004000",
-"high": "0xF8004FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_dma_s": {"name": "ps7_dma_s",
-"base": "0xF8003000",
-"high": "0xF8003FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ethernet_0": {"name": "ps7_ethernet_0",
-"base": "0xE000B000",
-"high": "0xE000BFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_globaltimer_0": {"name": "ps7_globaltimer_0",
-"base": "0xF8F00200",
-"high": "0xF8F002FF",
-"size": "256",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_gpio_0": {"name": "ps7_gpio_0",
-"base": "0xE000A000",
-"high": "0xE000AFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_gpv_0": {"name": "ps7_gpv_0",
-"base": "0xF8900000",
-"high": "0xF89FFFFF",
-"size": "1048576",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_i2c_1": {"name": "ps7_i2c_1",
-"base": "0xE0005000",
-"high": "0xE0005FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_intc_dist_0": {"name": "ps7_intc_dist_0",
-"base": "0xF8F01000",
-"high": "0xF8F01FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_iop_bus_config_0": {"name": "ps7_iop_bus_config_0",
-"base": "0xE0200000",
-"high": "0xE0200FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_l2cachec_0": {"name": "ps7_l2cachec_0",
-"base": "0xF8F02000",
-"high": "0xF8F02FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ocmc_0": {"name": "ps7_ocmc_0",
-"base": "0xF800C000",
-"high": "0xF800CFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_pl310_0": {"name": "ps7_pl310_0",
-"base": "0xF8F02000",
-"high": "0xF8F02FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_pmu_0": {"name": "ps7_pmu_0",
-"base": "0xF8893000",
-"high": "0xF8893FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_qspi_0": {"name": "ps7_qspi_0",
-"base": "0xE000D000",
-"high": "0xE000DFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scuc_0": {"name": "ps7_scuc_0",
-"base": "0xF8F00000",
-"high": "0xF8F000FC",
-"size": "253",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scugic_0": {"name": "ps7_scugic_0",
-"base": "0xF8F00100",
-"high": "0xF8F001FF",
-"size": "256",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scutimer_0": {"name": "ps7_scutimer_0",
-"base": "0xF8F00600",
-"high": "0xF8F0061F",
-"size": "32",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scuwdt_0": {"name": "ps7_scuwdt_0",
-"base": "0xF8F00620",
-"high": "0xF8F006FF",
-"size": "224",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_sd_0": {"name": "ps7_sd_0",
-"base": "0xE0100000",
-"high": "0xE0100FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_slcr_0": {"name": "ps7_slcr_0",
-"base": "0xF8000000",
-"high": "0xF8000FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ttc_0": {"name": "ps7_ttc_0",
-"base": "0xF8001000",
-"high": "0xF8001FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_uart_1": {"name": "ps7_uart_1",
-"base": "0xE0001000",
-"high": "0xE0001FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_usb_0": {"name": "ps7_usb_0",
-"base": "0xE0002000",
-"high": "0xE0002FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_xadc_0": {"name": "ps7_xadc_0",
-"base": "0xF8007100",
-"high": "0xF8007120",
-"size": "33",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_qspi_linear_0": {"name": "ps7_qspi_linear_0",
-"base": "0xFC000000",
-"high": "0xFCFFFFFF",
-"size": "16777216",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "5",
-},
-"ps7_ddr_0": {"name": "ps7_ddr_0",
-"base": "0x00100000",
-"high": "0x1FFFFFFF",
-"size": "535822336",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "7",
-},
-"ps7_ram_0": {"name": "ps7_ram_0",
-"base": "0x00000000",
-"high": "0x0002FFFF",
-"size": "196608",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "7",
-},
-"ps7_ram_1": {"name": "ps7_ram_1",
-"base": "0xFFFF0000",
-"high": "0xFFFFFDFF",
-"size": "65024",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "7",
-},
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:40.327
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:40.343
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"ps7_afi_0": {"name": "ps7_afi_0",
-"base": "0xF8008000",
-"high": "0xF8008FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_afi_1": {"name": "ps7_afi_1",
-"base": "0xF8009000",
-"high": "0xF8009FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_afi_2": {"name": "ps7_afi_2",
-"base": "0xF800A000",
-"high": "0xF800AFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_afi_3": {"name": "ps7_afi_3",
-"base": "0xF800B000",
-"high": "0xF800BFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_coresight_comp_0": {"name": "ps7_coresight_comp_0",
-"base": "0xF8800000",
-"high": "0xF88FFFFF",
-"size": "1048576",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ddrc_0": {"name": "ps7_ddrc_0",
-"base": "0xF8006000",
-"high": "0xF8006FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_dev_cfg_0": {"name": "ps7_dev_cfg_0",
-"base": "0xF8007000",
-"high": "0xF80070FF",
-"size": "256",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_dma_ns": {"name": "ps7_dma_ns",
-"base": "0xF8004000",
-"high": "0xF8004FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_dma_s": {"name": "ps7_dma_s",
-"base": "0xF8003000",
-"high": "0xF8003FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ethernet_0": {"name": "ps7_ethernet_0",
-"base": "0xE000B000",
-"high": "0xE000BFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_globaltimer_0": {"name": "ps7_globaltimer_0",
-"base": "0xF8F00200",
-"high": "0xF8F002FF",
-"size": "256",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_gpio_0": {"name": "ps7_gpio_0",
-"base": "0xE000A000",
-"high": "0xE000AFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_gpv_0": {"name": "ps7_gpv_0",
-"base": "0xF8900000",
-"high": "0xF89FFFFF",
-"size": "1048576",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_i2c_1": {"name": "ps7_i2c_1",
-"base": "0xE0005000",
-"high": "0xE0005FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_intc_dist_0": {"name": "ps7_intc_dist_0",
-"base": "0xF8F01000",
-"high": "0xF8F01FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_iop_bus_config_0": {"name": "ps7_iop_bus_config_0",
-"base": "0xE0200000",
-"high": "0xE0200FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_l2cachec_0": {"name": "ps7_l2cachec_0",
-"base": "0xF8F02000",
-"high": "0xF8F02FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ocmc_0": {"name": "ps7_ocmc_0",
-"base": "0xF800C000",
-"high": "0xF800CFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_pl310_0": {"name": "ps7_pl310_0",
-"base": "0xF8F02000",
-"high": "0xF8F02FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_pmu_0": {"name": "ps7_pmu_0",
-"base": "0xF8893000",
-"high": "0xF8893FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_qspi_0": {"name": "ps7_qspi_0",
-"base": "0xE000D000",
-"high": "0xE000DFFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scuc_0": {"name": "ps7_scuc_0",
-"base": "0xF8F00000",
-"high": "0xF8F000FC",
-"size": "253",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scugic_0": {"name": "ps7_scugic_0",
-"base": "0xF8F00100",
-"high": "0xF8F001FF",
-"size": "256",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scutimer_0": {"name": "ps7_scutimer_0",
-"base": "0xF8F00600",
-"high": "0xF8F0061F",
-"size": "32",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_scuwdt_0": {"name": "ps7_scuwdt_0",
-"base": "0xF8F00620",
-"high": "0xF8F006FF",
-"size": "224",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_sd_0": {"name": "ps7_sd_0",
-"base": "0xE0100000",
-"high": "0xE0100FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_slcr_0": {"name": "ps7_slcr_0",
-"base": "0xF8000000",
-"high": "0xF8000FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_ttc_0": {"name": "ps7_ttc_0",
-"base": "0xF8001000",
-"high": "0xF8001FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_uart_1": {"name": "ps7_uart_1",
-"base": "0xE0001000",
-"high": "0xE0001FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_usb_0": {"name": "ps7_usb_0",
-"base": "0xE0002000",
-"high": "0xE0002FFF",
-"size": "4096",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_xadc_0": {"name": "ps7_xadc_0",
-"base": "0xF8007100",
-"high": "0xF8007120",
-"size": "33",
-"slaveintf": "",
-"type": "REGISTER",
-"flags": "3",
-},
-"ps7_qspi_linear_0": {"name": "ps7_qspi_linear_0",
-"base": "0xFC000000",
-"high": "0xFCFFFFFF",
-"size": "16777216",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "5",
-},
-"ps7_ddr_0": {"name": "ps7_ddr_0",
-"base": "0x00100000",
-"high": "0x1FFFFFFF",
-"size": "535822336",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "7",
-},
-"ps7_ram_0": {"name": "ps7_ram_0",
-"base": "0x00000000",
-"high": "0x0002FFFF",
-"size": "196608",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "7",
-},
-"ps7_ram_1": {"name": "ps7_ram_1",
-"base": "0xFFFF0000",
-"high": "0xFFFFFDFF",
-"size": "65024",
-"slaveintf": "",
-"type": "MEMORY",
-"flags": "7",
-},
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:40.405
-!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:40.421
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"ps7_afi_0": {},
-"ps7_afi_1": {},
-"ps7_afi_2": {},
-"ps7_afi_3": {},
-"ps7_coresight_comp_0": {},
-"ps7_ddr_0": {},
-"ps7_ddrc_0": {},
-"ps7_dev_cfg_0": {},
-"ps7_dma_ns": {},
-"ps7_dma_s": {},
-"ps7_ethernet_0": {},
-"ps7_globaltimer_0": {},
-"ps7_gpio_0": {},
-"ps7_gpv_0": {},
-"ps7_i2c_1": {},
-"ps7_intc_dist_0": {},
-"ps7_iop_bus_config_0": {},
-"ps7_l2cachec_0": {},
-"ps7_ocmc_0": {},
-"ps7_pl310_0": {},
-"ps7_pmu_0": {},
-"ps7_qspi_0": {},
-"ps7_qspi_linear_0": {},
-"ps7_ram_0": {},
-"ps7_ram_1": {},
-"ps7_scuc_0": {},
-"ps7_scugic_0": {},
-"ps7_scutimer_0": {},
-"ps7_scuwdt_0": {},
-"ps7_sd_0": {},
-"ps7_slcr_0": {},
-"ps7_ttc_0": {},
-"ps7_uart_1": {},
-"ps7_usb_0": {},
-"ps7_xadc_0": {},
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:40.421
-!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:40.421
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"ps7_afi_0": {},
-"ps7_afi_1": {},
-"ps7_afi_2": {},
-"ps7_afi_3": {},
-"ps7_coresight_comp_0": {},
-"ps7_ddr_0": {},
-"ps7_ddrc_0": {},
-"ps7_dev_cfg_0": {},
-"ps7_dma_ns": {},
-"ps7_dma_s": {},
-"ps7_ethernet_0": {},
-"ps7_globaltimer_0": {},
-"ps7_gpio_0": {},
-"ps7_gpv_0": {},
-"ps7_i2c_1": {},
-"ps7_intc_dist_0": {},
-"ps7_iop_bus_config_0": {},
-"ps7_l2cachec_0": {},
-"ps7_ocmc_0": {},
-"ps7_pl310_0": {},
-"ps7_pmu_0": {},
-"ps7_qspi_0": {},
-"ps7_qspi_linear_0": {},
-"ps7_ram_0": {},
-"ps7_ram_1": {},
-"ps7_scuc_0": {},
-"ps7_scugic_0": {},
-"ps7_scutimer_0": {},
-"ps7_scuwdt_0": {},
-"ps7_sd_0": {},
-"ps7_slcr_0": {},
-"ps7_ttc_0": {},
-"ps7_uart_1": {},
-"ps7_usb_0": {},
-"ps7_xadc_0": {},
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:55.023
-!MESSAGE XSDB Command: [::hsi::utils::closehw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_1/system.hdf], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:37:55.038
-!MESSAGE XSDB command with result: [::hsi::utils::closehw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_1/system.hdf], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:50:14.393
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module_bsp/system.mss ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:50:14.440
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module_bsp/system.mss ], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:50:14.440
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:50:14.471
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
-"osname": "standalone",
-"osver": "5.5",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:50:14.471
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-09-12 11:50:14.486
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/project_2/project_2.sdk/uart_module_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY org.eclipse.cdt.core 1 0 2016-09-26 14:32:42.386
+!MESSAGE Indexed 'uart_rangefinder_bsp' (124 sources, 142 headers) in 3.72 sec: 6,236 declarations; 33,073 references; 69 unresolved inclusions; 5 syntax errors; 62 unresolved names (0.16%)
