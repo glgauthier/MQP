@@ -2,32 +2,4 @@
 **** Build of configuration Debug for project fifo_reader ****
 
 make all 
-Building file: ../src/helloworld.c
-Invoking: MicroBlaze gcc compiler
-mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -Wl,--no-relax -I../../hello_world_bsp_1/microblaze_mcs/include -mno-xl-reorder -mlittle-endian -mcpu=v8.30.a -mxl-soft-mul -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.d" -o"src/helloworld.o" "../src/helloworld.c"
-Finished building: ../src/helloworld.c
-' '
-Building target: fifo_reader.elf
-Invoking: MicroBlaze gcc linker
-mb-gcc -Wl,--no-relax -Wl,-T -Wl,../src/lscript.ld -L../../hello_world_bsp_1/microblaze_mcs/lib -mlittle-endian -mcpu=v8.30.a -mxl-soft-mul -o"fifo_reader.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-Finished building target: fifo_reader.elf
-' '
-Invoking: MicroBlaze Print Size
-mb-size fifo_reader.elf  |tee "fifo_reader.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  13878	    416	   2120	  16414	   401e	fifo_reader.elf
-Finished building: fifo_reader.elf.size
-' '
-Invoking: Xilinx ELF Check
-elfcheck fifo_reader.elf -hw ../../hw_platform_0/system.xml -pe microblaze_mcs  |tee "fifo_reader.elf.elfcheck"
-elfcheck
-Xilinx EDK 14.1 Build EDK_P.15xf
-Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
-
-Command Line: elfcheck -hw ../../hw_platform_0/system.xml -pe microblaze_mcs
-fifo_reader.elf 
-
-ELF file	: fifo_reader.elf
-elfcheck passed.
-Finished building: fifo_reader.elf.elfcheck
-' '
+make: Nothing to be done for `all'.

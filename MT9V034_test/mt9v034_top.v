@@ -161,6 +161,7 @@ wire fifo_rrst;
 //assign FIFO_RRST1 = 1'b1;
 
 // assign camera output based on the position of the cam_sel switch (SW0)
+// could try changing to posedge RCK
 always @(cam_sel)
 begin
 	if (cam_sel == 1'b0)
