@@ -23,7 +23,6 @@ parameter [1:0] ready = 2'b00;
 parameter [1:0] read = 2'b01;
 parameter [1:0] done = 2'b10;  
 parameter [1:0] init = 2'b11;
-reg buffer_ready;
 
 reg [1:0] state = ready;
 reg [1:0] prev_state, next_state = ready;
