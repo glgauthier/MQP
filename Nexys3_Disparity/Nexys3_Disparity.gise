@@ -34,9 +34,13 @@
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="disparity_envsettings.html"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="disparity_summary.html"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="disparity_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="top_module.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="top_module.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="top_module.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="top_module.ngr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="top_module.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="top_module.stx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="top_module.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="top_module.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="top_module_envsettings.html"/>
@@ -55,9 +59,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1475867708" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="7000872088676196348" xil_pn:start_ts="1475867708">
+    <transform xil_pn:end_ts="1476249972" xil_pn:in_ck="2640053031620637457" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="7000872088676196348" xil_pn:start_ts="1476249972">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ipcore_dir/mmcm.v"/>
+      <outfile xil_pn:name="ipcore_dir/mmcm/example_design/mmcm_exdes.v"/>
     </transform>
     <transform xil_pn:end_ts="1475867708" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1475867708">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -75,13 +81,16 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1475867755" xil_pn:in_ck="1780977270130693893" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-6493865939299664053" xil_pn:start_ts="1475867748">
-      <status xil_pn:value="FailedRun"/>
+    <transform xil_pn:end_ts="1476250120" xil_pn:in_ck="-8036471193659932443" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-6493865939299664053" xil_pn:start_ts="1476250112">
+      <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="top_module.lso"/>
+      <outfile xil_pn:name="top_module.ngc"/>
+      <outfile xil_pn:name="top_module.ngr"/>
       <outfile xil_pn:name="top_module.prj"/>
+      <outfile xil_pn:name="top_module.stx"/>
       <outfile xil_pn:name="top_module.syr"/>
       <outfile xil_pn:name="top_module.xst"/>
       <outfile xil_pn:name="top_module_xst.xrpt"/>
