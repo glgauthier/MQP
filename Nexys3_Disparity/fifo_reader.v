@@ -34,8 +34,11 @@ reg [1:0] prev_state, next_state = ready;
 reg [1:0] read_done;
 
 // left and right image buffers (BRAM)
+// NOTE: Index value(s) does not match array range for signal warnings
+//		are due to the fact that the compiler doesn't know that my calculated
+//		array indexes will fall in the right range.
 reg [7:0] left_image [0:29][0:45]; 
-reg [7:0] right_image [0:29][0:45]; 
+reg [7:0] right_image [0:29][0:45];
 
 // windowing constraints
 parameter xmin = 329, xmax = 421;
