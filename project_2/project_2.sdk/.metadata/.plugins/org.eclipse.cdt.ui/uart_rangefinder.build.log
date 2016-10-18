@@ -1,8 +1,15 @@
-14:35:02 **** Incremental Build of configuration Debug for project uart_rangefinder ****
+13:31:47 **** Auto Build of configuration Debug for project uart_rangefinder ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-make: Nothing to be done for `main-build'.
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+../src/platform.c:33:25: fatal error: xparameters.h: No such file or directory
+ #include "xparameters.h"
+                         ^
+compilation terminated.
+make: *** [src/platform.o] Error 1
 
-14:35:03 Build Finished (took 422ms)
+13:31:47 Build Finished (took 546ms)
 

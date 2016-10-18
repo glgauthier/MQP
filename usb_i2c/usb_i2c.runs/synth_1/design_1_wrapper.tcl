@@ -17,6 +17,13 @@ set_property target_language Verilog [current_project]
 set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
 add_files C:/Users/John/Documents/GitHub/MQP/usb_i2c/usb_i2c.srcs/sources_1/bd/design_1/design_1.bd
 set_property used_in_implementation false [get_files -all c:/Users/John/Documents/GitHub/MQP/usb_i2c/usb_i2c.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Documents/GitHub/MQP/usb_i2c/usb_i2c.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_1/design_1_axi_gpio_0_1_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Documents/GitHub/MQP/usb_i2c/usb_i2c.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_1/design_1_axi_gpio_0_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Documents/GitHub/MQP/usb_i2c/usb_i2c.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_1/design_1_axi_gpio_0_1.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Documents/GitHub/MQP/usb_i2c/usb_i2c.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/design_1_rst_processing_system7_0_100M_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Documents/GitHub/MQP/usb_i2c/usb_i2c.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/design_1_rst_processing_system7_0_100M_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Documents/GitHub/MQP/usb_i2c/usb_i2c.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/design_1_rst_processing_system7_0_100M_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/John/Documents/GitHub/MQP/usb_i2c/usb_i2c.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all C:/Users/John/Documents/GitHub/MQP/usb_i2c/usb_i2c.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 set_property is_locked true [get_files C:/Users/John/Documents/GitHub/MQP/usb_i2c/usb_i2c.srcs/sources_1/bd/design_1/design_1.bd]
 
