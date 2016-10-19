@@ -28,6 +28,7 @@ parameter BLOCK_SIZE = (2*HALF_BLOCK) + 1;
 reg [9:0] col_count = 0;  // number of cols iterated through (m in matlab code)
 reg [9:0] row_count = 0; // number of rows iterated through (n in matlab code)
 wire [9:0] minr = 0, maxr = 0, minc = 0, maxc = 0; // current search block borders
+reg [9:0] rcnt = 0, ccnt = 0; // temporary counters based on above wires for template block
 wire [9:0] mind = 0, maxd = 0; // min/max disparity search bounds
 wire [9:0] numBlocks = 0; // number of blocks within current search bounds
 
@@ -35,6 +36,7 @@ wire [9:0] numBlocks = 0; // number of blocks within current search bounds
 reg [7:0] resultant [1:WIDTH][1:HEIGHT];
 reg [7:0] left_frame [1:WIDTH][1:HEIGHT];
 reg [7:0] right_frame [1:WIDTH][1:HEIGHT];
+reg [7:0] template [1:BLOCK_SIZE][1:BLOCK_SIZE];
 reg [7:0] SAD_vector [1:SEARCH_RANGE]; // dynamic size in matlab implementation
 
 // ~~~~~~~~~~~~~~~ Disparity FSM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -45,7 +47,7 @@ parameter [2:0] READ = 3'b000, // read data from FIFO
 					 IDLE = 3'b101; // wait for next read sequence
 
 reg [2:0] current_state, next_state;
-reg ns_enable = 1'b0;
+reg ns_enable = 1'b0, ps_enable = 1'b0;
 
 // state-machine flip-flops
 always @ (posedge clk, posedge reset)
@@ -75,7 +77,9 @@ always @(current_state,enable,ns_enable)
 		else
 			next_state = SEPARATE;
 	SAD:
-		if(ns_enable)
+		if(ps_enable)
+			next_state = SEPARATE;
+		else if(ns_enable)
 			next_state = FINALIZE;
 		else
 			next_state = SAD;
@@ -90,12 +94,14 @@ always @(current_state,enable,ns_enable)
 // FSM Implementation
 always @(posedge clk)
 	case(current_state)
+	
 	IDLE: // wait for next read sequence
 	begin
 		row_count <= 10'b0;
 		col_count <= 10'b0;
 		image_sel <= 1'b0;
 	end
+	
 	READ: // read in image data from buffers
 	begin
 		// read in image buffer data at current address
@@ -123,22 +129,41 @@ always @(posedge clk)
 		else 
 			ns_enable = 1'b1;
 	end
-	SEPARATE: 
+	
+	SEPARATE: // reset for next search along disparity range
 	begin
+		rcnt <= minr;
+		ccnt <= minc;
+		
+		// read in template block set by (minc:maxc,minr:maxr)
+		while(ccnt <= maxc) begin
+			while (rcnt <= maxr) begin
+			template[ccnt-minc][rcnt-minr] <= right_frame[ccnt][rcnt];
+			rcnt <= rcnt + 1'b1;
+			end
+			ccnt <= ccnt + 1'b1;
+		end
+		
 		ns_enable <= 1'b1;
+	
 	end
+	
 	SAD:
 	begin
 		if (col_count <= HEIGHT) begin
 			while (row_count <= WIDTH) begin
 			end
 		end
+		
+		// reset for another separation/repeat cycle
 		else begin
-			ns_enable <= 1'b1;
+			ns_enable <= 1'b1; // if done with disparity
+			ps_enable <= 1'b1; // if it's time for a new search
 			col_count <= 10'b0;
 			row_count <= 10'b0;
 		end
 	end
+	
 	FINALIZE:
 	begin
 		ns_enable <= 1'b1;
