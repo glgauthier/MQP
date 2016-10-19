@@ -8,8 +8,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 module clk_divs(
 	 input reset, // synchronous reset
-    input clk_fpga, // 24MHz clock signal
+    input clk_fpga, // 100MHz clock signal
 	 output clk_vga,
+	 output clk_cam,
 	 output clk_fifo,
     output clk_debounce // 20Hz clock pulse
     );
@@ -23,6 +24,8 @@ mmcm clkgen
 	 .CLK_OUT2(clk_24M), // 24 MHz
 	 .CLK_OUT3(clk_fifo) // 5 MHz
 	 );  
+	 
+assign clk_cam = clk_24M;
 
 // counter with room to count from 0 past 1,200,000 (24M/1.2M = 20Hz; 50mS debounce)
 reg [20:0] bounce_count; 

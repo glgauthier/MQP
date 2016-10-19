@@ -1,0 +1,50 @@
+NET "clk_fpga" LOC = V10; #Nexys3 100MHz fpga_clk
+NET "clk_fpga" PERIOD = 10ns HIGH 50%;
+
+#Nexys3 Buttons and Switches
+NET "master_reset" LOC = B8; 	#Nexys3 Center button
+
+# Outputs to camera module
+NET "cam_trigger" LOC = K1;  #PmodB1
+NET "cam_sysclk" LOC = L3; #PmodB10
+NET "cam_reset" LOC = L4; #PmodB9
+
+# I/O to FIFO
+NET "fifo_rden1" LOC = K3;
+NET "fifo_rrst1" LOC = K2;
+NET "fifo_rden2" LOC = J1;
+NET "fifo_rrst2" LOC = J3;
+NET "fifo_rck" LOC = K5;
+NET "fifo_data[0]" LOC = H3;
+NET "fifo_data[1]" LOC = L7;
+NET "fifo_data[2]" LOC = K6;
+NET "fifo_data[3]" LOC = G3;
+NET "fifo_data[4]" LOC = G1;
+NET "fifo_data[5]" LOC = J7;
+NET "fifo_data[6]" LOC = J6;
+NET "fifo_data[7]" LOC = F2;
+
+#VGA port
+NET "HS" LOC = N6;
+NET "VS" LOC = P7;
+NET "rgb[0]" LOC = U7; #r
+NET "rgb[1]" LOC = V7; #r
+NET "rgb[2]" LOC = N7; #r
+NET "rgb[3]" LOC = P8; #g
+NET "rgb[4]" LOC = T6; #g
+NET "rgb[5]" LOC = V6; #g
+NET "rgb[6]" LOC = R7; #b
+NET "rgb[7]" LOC = T7; #b
+
+# seven segment display
+#NET "cathodes[0]" LOC = L14;
+#NET "cathodes[1]" LOC = N14;
+#NET "cathodes[2]" LOC = M14;
+#NET "cathodes[3]" LOC = U18;
+#NET "cathodes[4]" LOC = U17;
+#NET "cathodes[5]" LOC = T18;
+#NET "cathodes[6]" LOC = T17;
+#NET "anodes[0]" LOC = N16;
+#NET "anodes[1]" LOC = N15;
+#NET "anodes[2]" LOC = P18;
+#NET "anodes[3]" LOC = P17;

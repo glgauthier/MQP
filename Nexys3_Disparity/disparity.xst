@@ -1,9 +1,6 @@
-set -tmpdir "xst/projnav.tmp"
-set -xsthdpdir "xst"
-run
--ifn disparity.prj
--ofn disparity
--ofmt NGC
+set -tmpdir "C:/Users/georges/Documents/GitHub/MQP/Nexys3_Disparity/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/georges/Documents/GitHub/MQP/Nexys3_Disparity/xst"
+run -compileonly yes
 -p xc6slx16-3-csg324
 -top disparity
 -opt_mode Speed
@@ -15,6 +12,7 @@ run
 -rtlview Yes
 -glob_opt AllClockNets
 -read_cores YES
+-sd {"ipcore_dir"  }
 -write_timing_constraints NO
 -cross_clock_analysis NO
 -hierarchy_separator /
@@ -50,3 +48,4 @@ run
 -iob Auto
 -equivalent_register_removal YES
 -slice_utilization_ratio_maxmargin 5
+-ifn disparity.prj

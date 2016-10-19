@@ -6,20 +6,23 @@
 module dual_image_buffer(
 	input [10:0] href, // 0->(xmax-xmin), ideally 0-751
 	input [10:0] vref, // 0->(ymax-ymin), ideally 0-479
+	input blank,
 	input [7:0] fifo_data, // 8 bit data in from fifo
 	input fifo_rck, // Fifo read clock signal (1-5MHz for VGA/MCS)
-	input get_data, // enable a new read sequence (trigger)
+	//input get_data, // enable a new read sequence (trigger)
 	input image_sel, // left/right image data out
    output buffer_ready, // indicate that buffer has been filled
 	output fifo_rrst1, // fifo read reset (reset read addr pointer to 0)
 	output fifo_rden1, // fifo output enable (allow for addr pointer to increment)
 	output fifo_rrst2, // fifo read reset (reset read addr pointer to 0)
 	output fifo_rden2, // fifo output enable (allow for addr pointer to increment)
-	output [7:0] pixel_value, // 8-bit value from internal buffer
+	output reg [7:0] pixel_value, // 8-bit value from internal buffer
 	output reg trigger
    );
 
-// control lines connected to both camera rrst and rden lines based on image_sel
+reg get_data; //internalized for VGA test, remove later and make input
+
+// control lines connected to both camera rrst and rden lines based FSM sequence
 reg fifo_rrst, fifo_rden;
 
 // FSM states and controls
@@ -136,8 +139,23 @@ end
 // indicate that the buffer is ready to be read from once both images have been stored
 assign buffer_ready = (read_done >= 2'b10);
 
-// allow for input to read stored pixel line at given addr if state==ready
-assign pixel_value [7:0] = left_image[vref][href];
+// allow for MCS to read stored pixel line at given addr if state==ready
+always @ (buffer_ready, href, vref, blank, pixel_value)
+begin
+	if(blank)
+		pixel_value [7:0] = 8'h00;
+	else if ((274 <= href && href <= 319) && (209 <= vref && vref <= 239)) // && buffer_ready
+		pixel_value [7:0] = left_image[vref-209][href-274]; // [vref-209][href-274]
+	else if ((320 <= href && href <= 366) && (209 <= vref && vref <= 239)) // && buffer_ready
+		pixel_value [7:0] = right_image[vref-209][href-320];
+	else 
+		pixel_value [7:0] = 8'h00;
+		
+	if (href == 600 && vref == 300)
+		get_data = 1'b1;
+	else 
+		get_data = 1'b0;
+end
 
 // select the proper camera output based on the current sequence of the FSM
 assign fifo_rrst1 = (read_done == 2'b00 ? fifo_rrst : 1'b1);
