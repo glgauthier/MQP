@@ -41,18 +41,15 @@ TABLE OF CONTENTS
 =========================================================================
 Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\disparity_top.v" into library work
 Parsing module <disparity>.
-Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\ipcore_dir\mmcm\example_design\mmcm_exdes.v" into library work
-Parsing module <mmcm_exdes>.
-
-
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 3.51 secs
- 
+ERROR:HDLCompiler:1660 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\disparity_top.v" Line 181: Procedural assignment to a non-register blockIndex is not permitted, left-hand side should be reg/integer/time/genvar
+ERROR:HDLCompiler:1660 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\disparity_top.v" Line 181: Procedural assignment to a non-register blockIndex is not permitted, left-hand side should be reg/integer/time/genvar
+ERROR:HDLCompiler:598 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\disparity_top.v" Line 5: Module <disparity> ignored due to previous errors.
+Verilog file C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\disparity_top.v ignored due to errors
 --> 
 
 Total memory usage is 239308 kilobytes
 
-Number of errors   :    0 (   0 filtered)
+Number of errors   :    3 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 
