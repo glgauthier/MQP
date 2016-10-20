@@ -28,7 +28,7 @@ parameter BLOCK_SIZE = (2*HALF_BLOCK) + 1;
 reg [9:0] col_count = 0;  // number of cols iterated through (m in matlab code)
 reg [9:0] row_count = 0; // number of rows iterated through (n in matlab code)
 wire [9:0] minr = 0, maxr = 0, minc = 0, maxc = 0; // current search block borders
-reg [9:0] rcnt = 0, ccnt = 0; // temporary counters based on above wires for template block
+reg [9:0] rcnt = 0, ccnt = 0, dcnt; // temporary counters based on above wires for template block
 wire [9:0] mind = 0, maxd = 0; // min/max disparity search bounds
 wire [9:0] numBlocks = 0; // number of blocks within current search bounds
 
@@ -37,6 +37,7 @@ reg [7:0] resultant [1:WIDTH][1:HEIGHT];
 reg [7:0] left_frame [1:WIDTH][1:HEIGHT];
 reg [7:0] right_frame [1:WIDTH][1:HEIGHT];
 reg [7:0] template [1:BLOCK_SIZE][1:BLOCK_SIZE];
+reg [7:0] block [1:BLOCK_SIZE][1:BLOCK_SIZE];
 reg [7:0] SAD_vector [1:SEARCH_RANGE]; // dynamic size in matlab implementation
 
 // ~~~~~~~~~~~~~~~ Disparity FSM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -136,11 +137,12 @@ always @(posedge clk)
 		ccnt <= minc;
 		
 		// read in template block set by (minc:maxc,minr:maxr)
-		while(ccnt <= maxc) begin
+		while (ccnt <= maxc) begin
 			while (rcnt <= maxr) begin
 			template[ccnt-minc][rcnt-minr] <= right_frame[ccnt][rcnt];
 			rcnt <= rcnt + 1'b1;
 			end
+			
 			ccnt <= ccnt + 1'b1;
 		end
 		
@@ -150,18 +152,23 @@ always @(posedge clk)
 	
 	SAD:
 	begin
-		if (col_count <= HEIGHT) begin
-			while (row_count <= WIDTH) begin
-			end
+		dcnt <= mind;
+		
+		while(dcnt <= maxd) begin
+			dcnt <= dcnt + 1'b1;
 		end
 		
+//		if (col_count <= HEIGHT) begin
+//			while (row_count <= WIDTH) begin
+//			end
+//		end
+		
 		// reset for another separation/repeat cycle
-		else begin
-			ns_enable <= 1'b1; // if done with disparity
-			ps_enable <= 1'b1; // if it's time for a new search
-			col_count <= 10'b0;
-			row_count <= 10'b0;
-		end
+		ns_enable <= 1'b1; // if done with disparity
+		ps_enable <= 1'b1; // if it's time for a new search
+		col_count <= 10'b0;
+		row_count <= 10'b0;
+		
 	end
 	
 	FINALIZE:
