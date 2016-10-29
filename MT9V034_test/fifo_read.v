@@ -65,15 +65,15 @@ always @(state,get_data,pixel)
 
 always @(posedge fifo_rck)
 begin
-		if(reset_pointer) 
+		if(reset_pointer)
 			begin
-			fifo_rrst <= 1'b0;
-			num_lines <= 16'h0000;
+				num_lines <= 16'h0000;
+				fifo_rrst <= 1'b0;
 			end
 		else if(state==ready) // allow for MCS to read from pixel_line
 			begin
-			//pixel_value [7:0] <= pixel_line[pixel_addr];
-			fifo_rrst <= 1'b1; // make sure read addr doesn't get reset
+				//pixel_value [7:0] <= pixel_line[pixel_addr];
+				fifo_rrst <= 1'b1; // make sure read addr doesn't get reset
 			end
 		else if(state == init) // prepare to read new data from the AL422 into pixel_line
 			begin

@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Tue Oct 04 20:05:01 2016
+// Written by: Map P.15xf on Wed Oct 26 22:31:32 2016
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -15,8 +15,6 @@ COMP "anodes<3>" LOCATE = SITE "P17" LEVEL 1;
 COMP "cam_sysclk" LOCATE = SITE "L3" LEVEL 1;
 COMP "cam_rst" LOCATE = SITE "C4" LEVEL 1;
 COMP "reset" LOCATE = SITE "B8" LEVEL 1;
-COMP "FIFO_RRST1" LOCATE = SITE "K2" LEVEL 1;
-COMP "FIFO_RRST2" LOCATE = SITE "J3" LEVEL 1;
 COMP "trigger" LOCATE = SITE "D9" LEVEL 1;
 COMP "mcs_reset" LOCATE = SITE "A8" LEVEL 1;
 COMP "SW_cam_oe" LOCATE = SITE "T10" LEVEL 1;
@@ -29,7 +27,11 @@ COMP "FIFO_DATA<4>" LOCATE = SITE "G1" LEVEL 1;
 COMP "FIFO_DATA<5>" LOCATE = SITE "J7" LEVEL 1;
 COMP "FIFO_DATA<6>" LOCATE = SITE "J6" LEVEL 1;
 COMP "FIFO_DATA<7>" LOCATE = SITE "F2" LEVEL 1;
+COMP "FIFO_OE1" LOCATE = SITE "K3" LEVEL 1;
+COMP "FIFO_OE2" LOCATE = SITE "J1" LEVEL 1;
 COMP "cam_trigger" LOCATE = SITE "K1" LEVEL 1;
+COMP "FIFO_RRST1" LOCATE = SITE "K2" LEVEL 1;
+COMP "FIFO_RRST2" LOCATE = SITE "J3" LEVEL 1;
 COMP "i2c_ready" LOCATE = SITE "U16" LEVEL 1;
 COMP "MICRO_LED0" LOCATE = SITE "V16" LEVEL 1;
 COMP "cathodes<0>" LOCATE = SITE "L14" LEVEL 1;
@@ -40,8 +42,6 @@ COMP "cathodes<4>" LOCATE = SITE "U17" LEVEL 1;
 COMP "cathodes<5>" LOCATE = SITE "T18" LEVEL 1;
 COMP "cathodes<6>" LOCATE = SITE "T17" LEVEL 1;
 COMP "sysclk" LOCATE = SITE "V10" LEVEL 1;
-COMP "FIFO_OE1" LOCATE = SITE "K3" LEVEL 1;
-COMP "FIFO_OE2" LOCATE = SITE "J1" LEVEL 1;
 COMP "FIFO_RCK" LOCATE = SITE "K5" LEVEL 1;
 COMP "MICRO_SW" LOCATE = SITE "T9" LEVEL 1;
 NET "CLK_24MHz/clkin1" PERIOD = 10 ns HIGH 50%;

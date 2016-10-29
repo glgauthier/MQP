@@ -207,7 +207,7 @@ always @(posedge clk)
 		end
 		// sum(abs(template-block))
 		else if (scnt <= ) begin 
-			for(i=0;i<numBlocks;i=i+1) begin
+			for(i=;i<numBlocks;i=i+1) begin
 			end
 		end
 		// sum(sum(abs(template-block)))

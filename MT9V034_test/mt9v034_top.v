@@ -59,7 +59,7 @@ dcm CLK_24MHz
 clk_div clks(
 	 .reset(reset), // synchronous reset
     .clk_24M(clk_24MHz), // 24MHz camera SCLK
-	 .clk_fifo(clk_1MHz_unbuf), // 1MHz FIFO RCK
+	 .clk_fifo(clk_1MHz_unbuf), // 1MHz FIFO RCK // UPPED TO 10MHz
     .clk_debounce(clk_20Hz_unbuf), // 20Hz clock pulse for debouncing stuff
 	 .anodes(clk_10kHz) // 10k 7Seg anode driver
     );
@@ -161,22 +161,21 @@ wire fifo_rrst;
 //assign FIFO_RRST1 = 1'b1;
 
 // assign camera output based on the position of the cam_sel switch (SW0)
-// could try changing to posedge RCK
-always @(cam_sel)
+always @(posedge clk_24MHz) // changed from always@cam_sel
 begin
 	if (cam_sel == 1'b0)
 		begin
-		FIFO_OE2 = fifo_rden;
-		FIFO_RRST2 = fifo_rrst;
-		FIFO_OE1 = 1'b1;
-		FIFO_RRST1 = 1'b1;
+		FIFO_OE2 <= fifo_rden;
+		FIFO_RRST2 <= fifo_rrst;
+		FIFO_OE1 <= 1'b1;
+		FIFO_RRST1 <= 1'b1;
 		end
 	else
 		begin 
-		FIFO_OE1 = fifo_rden;
-		FIFO_RRST1 = fifo_rrst;
-		FIFO_OE2 = 1'b1;
-		FIFO_RRST2 = 1'b1;
+		FIFO_OE1 <= fifo_rden;
+		FIFO_RRST1 <= fifo_rrst;
+		FIFO_OE2 <= 1'b1;
+		FIFO_RRST2 <= 1'b1;
 		end
 end
 
