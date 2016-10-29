@@ -67,7 +67,7 @@ After modifying the state of this register, a button was attached to the camera'
 	\label{camInTrigMode}
 \end{figure}
 \par
-In order to prevent accidental modification of the camera module's configuration registers, the register lock feature of the camera I$^2$C bus is also used. By writing 0xDEAD to register 0xFE, it is possible to disable the I$^2$C bus. This feature is disabled when the power of the camera module is cycled, or by writing 0xBEEF to the register lock register.
+In order to prevent accidental modification of the camera module's configuration registers, the register lock feature of the camera I$^2$C bus is also used. By writing 0xDEAD to register 0xFE, it is possible to disable the I$^2$C bus from being written to. This feature is disabled when the power of the camera module is cycled, or by writing 0xBEEF to the register lock register.
 \subsubsection{Data Management}
 After successfully creating a camera control interface and placing the MT9V034 camera module in trigger mode, it was then possible to begin viewing images from the module. Since each image contains 752x480 pixels with 10 bits of resolution per pixel, a full camera image will consume 3,609,600 bits, or 440.6kB, as shown in Equation \ref{imagesize}.
 \begin{equation} \label{imagesize}

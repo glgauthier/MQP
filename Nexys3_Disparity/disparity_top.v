@@ -16,7 +16,7 @@ module disparity(
     );
 
 // user-defined constants (image search parameters)
-parameter SEARCH_RANGE = 50; // 50 
+parameter SEARCH_RANGE = 46; // 50 
 parameter HALF_BLOCK = 3; // 3 
 parameter WIDTH = 46; // output image width (scale down by 16)
 parameter HEIGHT = 30; // output image height (scale down by 16)
