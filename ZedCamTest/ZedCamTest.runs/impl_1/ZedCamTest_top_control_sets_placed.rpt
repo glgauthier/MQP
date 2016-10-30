@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Sun Oct 30 13:30:33 2016
+| Date         : Sun Oct 30 13:58:16 2016
 | Host         : Georges-T460p running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file ZedCamTest_top_control_sets_placed.rpt
 | Design       : ZedCamTest_top
@@ -36,9 +36,9 @@ Table of Contents
 | No           | No                    | No                     |              13 |            6 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              34 |           15 |
-| Yes          | No                    | No                     |              17 |            6 |
+| Yes          | No                    | No                     |              17 |            7 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              48 |           15 |
+| Yes          | Yes                   | No                     |              48 |           16 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -48,18 +48,18 @@ Table of Contents
 +---------------------+-----------------------------------+-----------------------------------+------------------+----------------+
 |     Clock Signal    |           Enable Signal           |          Set/Reset Signal         | Slice Load Count | Bel Load Count |
 +---------------------+-----------------------------------+-----------------------------------+------------------+----------------+
+|  mmcm/inst/clk_out3 | fifo_buffer/trigger_i_1_n_0       |                                   |                1 |              1 |
 |  mmcm/inst/clk_out1 |                                   |                                   |                1 |              1 |
 |  mmcm/inst/clk_out1 |                                   | vgaOut/HS0                        |                1 |              1 |
 |  mmcm/inst/clk_out1 |                                   | vgaOut/VS0                        |                1 |              1 |
-|  mmcm/inst/clk_out3 | fifo_buffer/trigger_i_1_n_0       |                                   |                1 |              1 |
-|  clks/count_reg[0]  |                                   |                                   |                1 |              6 |
-|  mmcm/inst/clk_out3 |                                   |                                   |                4 |              6 |
-|  mmcm/inst/clk_out3 | fifo_buffer/state[0]              | fifo_buffer/pixel[9]_i_1_n_0      |                4 |              9 |
+|  clks/count_reg[0]  |                                   |                                   |                2 |              6 |
+|  mmcm/inst/clk_out3 |                                   |                                   |                3 |              6 |
+|  mmcm/inst/clk_out3 | fifo_buffer/state[0]              | fifo_buffer/pixel[9]_i_1_n_0      |                5 |              9 |
 |  mmcm/inst/clk_out1 |                                   | vgaOut/SR[0]                      |                4 |             11 |
 |  mmcm/inst/clk_out1 | vgaOut/E[0]                       | vgaOut/vcounter_reg[0]_0[0]       |                3 |             11 |
 |  mmcm/inst/clk_out2 | sel                               | cam_rst_IBUF                      |                3 |             12 |
-|  mmcm/inst/clk_out1 | vgaOut/enb                        |                                   |                5 |             16 |
 |  mmcm/inst/clk_out3 | fifo_buffer/num_lines[15]_i_2_n_0 | fifo_buffer/num_lines[15]_i_1_n_0 |                5 |             16 |
+|  mmcm/inst/clk_out1 | vgaOut/enb                        |                                   |                6 |             16 |
 |  mmcm/inst/clk_out2 |                                   | reset_IBUF                        |                9 |             21 |
 +---------------------+-----------------------------------+-----------------------------------+------------------+----------------+
 

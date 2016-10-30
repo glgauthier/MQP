@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Sun Oct 30 13:31:07 2016
+| Date             : Sun Oct 30 13:58:49 2016
 | Host             : Georges-T460p running 64-bit major release  (build 9200)
 | Command          : report_power -file ZedCamTest_top_power_routed.rpt -pb ZedCamTest_top_power_summary_routed.pb -rpx ZedCamTest_top_power_routed.rpx
 | Design           : ZedCamTest_top
@@ -50,13 +50,13 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.002 |       12 |       --- |             --- |
-| Slice Logic    |    <0.001 |     1102 |       --- |             --- |
+| Slice Logic    |    <0.001 |     1111 |       --- |             --- |
 |   LUT as Logic |    <0.001 |      628 |     53200 |            1.18 |
 |   Register     |    <0.001 |      112 |    106400 |            0.11 |
 |   CARRY4       |    <0.001 |       12 |     13300 |            0.09 |
 |   Others       |     0.000 |      194 |       --- |             --- |
 |   F7/F8 Muxes  |     0.000 |      136 |     53200 |            0.26 |
-| Signals        |    <0.001 |     1386 |       --- |             --- |
+| Signals        |    <0.001 |     1397 |       --- |             --- |
 | Block RAM      |    <0.001 |     88.5 |       140 |           63.21 |
 | MMCM           |     0.085 |        1 |         4 |           25.00 |
 | DSPs           |    <0.001 |        2 |       220 |            0.91 |
@@ -161,11 +161,11 @@ Table of Contents
 |   camSelector                                  |    <0.001 |
 |   clks                                         |    <0.001 |
 |   fifo_buffer                                  |     0.002 |
-|     bram                                       |     0.001 |
-|       U0                                       |     0.001 |
-|         inst_blk_mem_gen                       |     0.001 |
-|           gnbram.gnativebmg.native_blk_mem_gen |     0.001 |
-|             valid.cstr                         |     0.001 |
+|     bram                                       |    <0.001 |
+|       U0                                       |    <0.001 |
+|         inst_blk_mem_gen                       |    <0.001 |
+|           gnbram.gnativebmg.native_blk_mem_gen |    <0.001 |
+|             valid.cstr                         |    <0.001 |
 |               has_mux_b.B                      |    <0.001 |
 |               ramloop[0].ram.r                 |    <0.001 |
 |                 prim_noinit.ram                |    <0.001 |
