@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1477850219">
-  <File Type="OPT-DCP" Name="ZedCamTest_top_opt.dcp"/>
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1477975186">
   <File Type="ROUTE-STATUS-PB" Name="ZedCamTest_top_route_status.pb"/>
   <File Type="PA-TCL" Name="ZedCamTest_top.tcl"/>
+  <File Type="OPT-DCP" Name="ZedCamTest_top_opt.dcp"/>
+  <File Type="INIT-TIMING" Name="ZedCamTest_top_timing_summary_init.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="ZedCamTest_top_methodology_drc_opted.rpt"/>
   <File Type="RDI-RDI" Name="ZedCamTest_top.vdi"/>
   <File Type="PWROPT-DRC" Name="ZedCamTest_top_drc_pwropted.rpt"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="ZedCamTest_top_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="ZedCamTest_top_timing_summary_init.rpt"/>
   <File Type="OPT-DRC" Name="ZedCamTest_top_drc_opted.rpt"/>
   <File Type="PWROPT-DCP" Name="ZedCamTest_top_pwropt.dcp"/>
   <File Type="OPT-HWDEF" Name="ZedCamTest_top.hwdef"/>
@@ -31,8 +31,8 @@
   <File Type="ROUTE-DRC" Name="ZedCamTest_top_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="ZedCamTest_top_drc_routed.pb"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="ZedCamTest_top_methodology_drc_routed.rpt"/>
-  <File Type="BG-BIT" Name="ZedCamTest_top.bit"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="ZedCamTest_top_methodology_drc_routed.pb"/>
+  <File Type="BG-BIT" Name="ZedCamTest_top.bit"/>
   <File Type="ROUTE-PWR" Name="ZedCamTest_top_power_routed.rpt"/>
   <File Type="ROUTE-PWR-SUM" Name="ZedCamTest_top_power_summary_routed.pb"/>
   <File Type="ROUTE-PWR-RPX" Name="ZedCamTest_top_power_routed.rpx"/>
@@ -65,6 +65,20 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/ip/processing_system7_0/processing_system7_0.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/imgbuf.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/debounce.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -73,13 +87,6 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/clk_divs.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/imgbuf.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -100,6 +107,9 @@
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/component.xml">
+      <FileInfo SFType="IPXACT"/>
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>

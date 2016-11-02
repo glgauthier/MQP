@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Sun Oct 30 13:58:16 2016
+| Date         : Tue Nov 01 00:41:20 2016
 | Host         : Georges-T460p running 64-bit major release  (build 9200)
 | Command      : report_utilization -file ZedCamTest_top_utilization_placed.rpt -pb ZedCamTest_top_utilization_placed.pb
 | Design       : ZedCamTest_top
@@ -122,7 +122,7 @@ Table of Contents
 |   IOB Master Pads           |   18 |       |           |       |
 |   IOB Slave Pads            |   14 |       |           |       |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
-| Bonded IOPADs               |    0 |     0 |       130 |  0.00 |
+| Bonded IOPADs               |   56 |    56 |       130 | 43.08 |
 | PHY_CONTROL                 |    0 |     0 |         4 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         4 |  0.00 |
 | OUT_FIFO                    |    0 |     0 |        16 |  0.00 |
@@ -173,27 +173,29 @@ Table of Contents
 8. Primitives
 -------------
 
-+------------+------+---------------------+
-|  Ref Name  | Used | Functional Category |
-+------------+------+---------------------+
-| LUT6       |  296 |                 LUT |
-| LUT4       |  132 |                 LUT |
-| LUT2       |  132 |                 LUT |
-| FDRE       |  112 |        Flop & Latch |
-| MUXF7      |   96 |               MuxFx |
-| RAMB36E1   |   88 |        Block Memory |
-| LUT3       |   53 |                 LUT |
-| MUXF8      |   40 |               MuxFx |
-| LUT5       |   38 |                 LUT |
-| OBUF       |   19 |                  IO |
-| IBUF       |   13 |                  IO |
-| CARRY4     |   12 |          CarryLogic |
-| LUT1       |    6 |                 LUT |
-| BUFG       |    4 |               Clock |
-| DSP48E1    |    2 |    Block Arithmetic |
-| RAMB18E1   |    1 |        Block Memory |
-| MMCME2_ADV |    1 |               Clock |
-+------------+------+---------------------+
++------------+------+----------------------+
+|  Ref Name  | Used |  Functional Category |
++------------+------+----------------------+
+| LUT6       |  296 |                  LUT |
+| LUT4       |  132 |                  LUT |
+| LUT2       |  132 |                  LUT |
+| BIBUF      |  130 |                   IO |
+| FDRE       |  112 |         Flop & Latch |
+| MUXF7      |   96 |                MuxFx |
+| RAMB36E1   |   88 |         Block Memory |
+| LUT3       |   53 |                  LUT |
+| MUXF8      |   40 |                MuxFx |
+| LUT5       |   38 |                  LUT |
+| OBUF       |   19 |                   IO |
+| IBUF       |   13 |                   IO |
+| CARRY4     |   12 |           CarryLogic |
+| LUT1       |    6 |                  LUT |
+| BUFG       |    4 |                Clock |
+| DSP48E1    |    2 |     Block Arithmetic |
+| RAMB18E1   |    1 |         Block Memory |
+| PS7        |    1 | Specialized Resource |
+| MMCME2_ADV |    1 |                Clock |
++------------+------+----------------------+
 
 
 9. Black Boxes

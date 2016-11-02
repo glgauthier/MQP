@@ -1,7 +1,7 @@
 onbreak {quit -f}
 onerror {quit -f}
 
-vsim -t 1ps -lib xil_defaultlib clk_wiz_0_opt
+vsim -t 1ps -pli "C:/Xilinx/Vivado/2016.2/lib/win64.o/libxil_vsim.dll" -lib xil_defaultlib clk_wiz_0_opt
 
 do {wave.do}
 

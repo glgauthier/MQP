@@ -44,24 +44,33 @@ proc step_failed { step } {
 
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {HDL-1065} -limit 10000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 
 start_step init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param project.hsv.suppressChildGraphs 0
   create_project -in_memory -part xc7z020clg484-1
   set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.cache/wt [current_project]
   set_property parent.project_path C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.xpr [current_project]
-  set_property ip_repo_paths c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.cache/ip [current_project]
+  set_property ip_repo_paths {
+  c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.cache/ip
+  c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs
+} [current_project]
   set_property ip_output_repo c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.cache/ip [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   add_files -quiet C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/synth_1/ZedCamTest_top.dcp
-  add_files -quiet c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
-  set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp]
-  add_files -quiet c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp
-  set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp]
+  add_files -quiet C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
+  set_property netlist_only true [get_files C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp]
+  add_files -quiet C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp
+  set_property netlist_only true [get_files C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp]
+  read_xdc -ref processing_system7_0 -cells inst c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc
+  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc]
   read_xdc -mode out_of_context -ref clk_wiz_0 -cells inst c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc
   set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
   read_xdc -prop_thru_buffers -ref clk_wiz_0 -cells inst c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc

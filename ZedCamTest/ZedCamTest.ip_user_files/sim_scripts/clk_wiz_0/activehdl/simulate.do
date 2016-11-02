@@ -1,7 +1,7 @@
 onbreak {quit -force}
 onerror {quit -force}
 
-asim -t 1ps +access +r +m+clk_wiz_0 -L unisims_ver -L unimacro_ver -L secureip -L xil_defaultlib -L xpm -O5 xil_defaultlib.clk_wiz_0 xil_defaultlib.glbl
+asim -t 1ps +access +r +m+clk_wiz_0 -pli "C:/Xilinx/Vivado/2016.2/lib/win64.o/libxil_vsim.dll" -L unisims_ver -L unimacro_ver -L secureip -L xil_defaultlib -L xpm -O5 xil_defaultlib.clk_wiz_0 xil_defaultlib.glbl
 
 do {wave.do}
 

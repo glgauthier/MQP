@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Sun Oct 30 13:57:37 2016
-# Process ID: 11192
+# Start of session at: Tue Nov 01 00:40:34 2016
+# Process ID: 2740
 # Current directory: C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/impl_1
 # Command line: vivado.exe -log ZedCamTest_top.vdi -applog -messageDb vivado.pb -mode batch -source ZedCamTest_top.tcl -notrace
 # Log file: C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/impl_1/ZedCamTest_top.vdi
@@ -12,29 +12,244 @@
 source ZedCamTest_top.tcl -notrace
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
-INFO: [Project 1-454] Reading design checkpoint 'c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'mmcm'
-INFO: [Project 1-454] Reading design checkpoint 'c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp' for cell 'fifo_buffer/bram'
+INFO: [Project 1-454] Reading design checkpoint 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'mmcm'
+INFO: [Project 1-454] Reading design checkpoint 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp' for cell 'fifo_buffer/bram'
 INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2016.2
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc] for cell 'ps/inst'
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:400]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:401]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:402]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:403]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:404]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:405]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:406]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:407]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:408]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:409]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:410]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:411]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:412]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:413]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:414]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:415]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:416]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:417]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:418]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:419]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:420]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:421]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:422]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:423]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:424]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:425]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:426]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:427]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:428]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:429]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:430]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:431]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:432]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:433]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:434]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:435]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:436]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:437]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:438]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:439]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:440]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:441]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:442]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:443]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:444]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:445]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:446]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:447]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:448]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:449]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:450]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:451]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:452]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:453]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:454]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:455]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:456]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:457]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:458]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:459]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:460]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:461]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:462]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:463]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:464]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:465]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:466]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:467]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:468]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:469]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:470]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:471]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:472]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:473]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:474]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:475]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:476]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:477]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:478]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:479]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:480]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:481]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:482]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:483]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:484]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:485]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:486]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:487]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:488]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:489]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:490]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:491]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:492]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:493]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:494]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:495]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'iostandard', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:496]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PACKAGE_PIN', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:497]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'slew', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:498]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+CRITICAL WARNING: [Netlist 29-160] Cannot set property 'PIO_DIRECTION', because the property does not exist for objects of type 'pin'. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:499]
+Resolution: Modify the set_property command to apply the property on the correct object type. Since the property is being applied as a scoped constraint, ensure the proper connectivity of the object port objects can be translated into pin objects. This could be due to the insertion of IO Buffers between the top level terminal and cell pin. If the goal is to apply constraints that will migrate to top level ports it is required that IO Buffers manually be instanced.
+INFO: [Common 17-14] Message 'Netlist 29-160' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc:499]
+Finished Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/processing_system7_0/processing_system7_0.xdc] for cell 'ps/inst'
 Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'mmcm/inst'
 Finished Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'mmcm/inst'
 Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'mmcm/inst'
 INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
 INFO: [Timing 38-2] Deriving generated clocks [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
-get_clocks: Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 949.695 ; gain = 456.227
+get_clocks: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 954.750 ; gain = 457.352
 Finished Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'mmcm/inst'
 Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc]
+WARNING: [Vivado 12-584] No ports matched 'PS_SRSTB'. [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc:97]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc:97]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'PS_SRSTB'. [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc:98]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc:98]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'PS_SRSTB'. [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc:99]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc:99]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'PS_SRSTB'. [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc]
-INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp'
-INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp'
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp'
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-link_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 949.719 ; gain = 743.031
+link_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 954.750 ; gain = 747.605
 INFO: [Vivado_Tcl 4-424] Cannot write hardware definition file as there are no IPI block design hardware handoff files present
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
@@ -46,40 +261,40 @@ INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.140 . Memory (MB): peak = 949.719 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.153 . Memory (MB): peak = 954.750 ; gain = 0.000
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-2] Deriving generated clocks
 
 Starting Logic Optimization Task
-Implement Debug Cores | Checksum: 123678103
+Implement Debug Cores | Checksum: 1d8cdd309
 
 Phase 1 Retarget
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 37 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 214ce025d
+Phase 1 Retarget | Checksum: 218278f19
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.453 . Memory (MB): peak = 953.820 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.554 . Memory (MB): peak = 959.551 ; gain = 0.000
 
 Phase 2 Constant Propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Opt 31-10] Eliminated 0 cells.
-Phase 2 Constant Propagation | Checksum: 214ce025d
+Phase 2 Constant Propagation | Checksum: 218278f19
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.516 . Memory (MB): peak = 953.820 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.638 . Memory (MB): peak = 959.551 ; gain = 0.000
 
 Phase 3 Sweep
-INFO: [Opt 31-12] Eliminated 126 unconnected nets.
-INFO: [Opt 31-11] Eliminated 2 unconnected cells.
-Phase 3 Sweep | Checksum: 1decec3db
+INFO: [Opt 31-12] Eliminated 144 unconnected nets.
+INFO: [Opt 31-11] Eliminated 91 unconnected cells.
+Phase 3 Sweep | Checksum: 1448796b5
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.703 . Memory (MB): peak = 953.820 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 959.551 ; gain = 0.000
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 953.820 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 1decec3db
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 959.551 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 1448796b5
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.719 . Memory (MB): peak = 953.820 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 959.551 ; gain = 0.000
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
@@ -95,21 +310,21 @@ Starting PowerOpt Patch Enables Task
 INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 89 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
 Number of BRAM Ports augmented: 89 newly gated: 0 Total Ports: 178
-Ending PowerOpt Patch Enables Task | Checksum: 17b4016e6
+Ending PowerOpt Patch Enables Task | Checksum: 1ef8a840b
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Ending Power Optimization Task | Checksum: 17b4016e6
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.093 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 1ef8a840b
 
-Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 1195.789 ; gain = 241.969
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1201.113 ; gain = 241.563
 INFO: [Common 17-83] Releasing license: Implementation
-33 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+34 Infos, 4 Warnings, 104 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 1195.789 ; gain = 246.070
+opt_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1201.113 ; gain = 246.363
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.116 . Memory (MB): peak = 1201.113 ; gain = 0.000
 INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Coretcl 2-168] The results of DRC are in file C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/impl_1/ZedCamTest_top_drc_opted.rpt.
 INFO: [Chipscope 16-241] No debug cores found in the current design.
@@ -130,24 +345,24 @@ Starting Placer Task
 INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
 
 Phase 1 Placer Initialization
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1201.113 ; gain = 0.000
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 92 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 1.1 IO Placement/ Clock Placement/ Build Placer Device
 
 Phase 1.1.1 ParallelPlaceIOClockAndInitTop
 
 Phase 1.1.1.1 Pre-Place Cells
-Phase 1.1.1.1 Pre-Place Cells | Checksum: 6309e2a3
+Phase 1.1.1.1 Pre-Place Cells | Checksum: caab9406
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.547 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.627 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 1.1.1.2 Constructing HAPIClkRuleMgr
-Phase 1.1.1.2 Constructing HAPIClkRuleMgr | Checksum: 6309e2a3
+Phase 1.1.1.2 Constructing HAPIClkRuleMgr | Checksum: caab9406
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.594 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.987 . Memory (MB): peak = 1201.113 ; gain = 0.000
 WARNING: [Place 30-568] A LUT 'clks/count[1]_i_2' is driving clock pin of 6 registers. This could lead to large hold time violations. First few involved registers are:
 	camSelector/btn_val_reg {FDRE}
 	camSelector/count_reg[0] {FDRE}
@@ -160,116 +375,116 @@ INFO: [Timing 38-35] Done setting XDC timing constraints.
 Phase 1.1.1.3 IO and Clk Clean Up
 
 Phase 1.1.1.3.1 Constructing HAPIClkRuleMgr
-Phase 1.1.1.3.1 Constructing HAPIClkRuleMgr | Checksum: 6309e2a3
+Phase 1.1.1.3.1 Constructing HAPIClkRuleMgr | Checksum: caab9406
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 1.1.1.3 IO and Clk Clean Up | Checksum: 6309e2a3
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 1.1.1.3 IO and Clk Clean Up | Checksum: caab9406
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 1.1.1.4 Implementation Feasibility check On IDelay
-Phase 1.1.1.4 Implementation Feasibility check On IDelay | Checksum: 6309e2a3
+Phase 1.1.1.4 Implementation Feasibility check On IDelay | Checksum: caab9406
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 1.1.1.5 Commit IO Placement
-Phase 1.1.1.5 Commit IO Placement | Checksum: 7ddc5bef
+Phase 1.1.1.5 Commit IO Placement | Checksum: 18e3249b
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 1.1.1 ParallelPlaceIOClockAndInitTop | Checksum: 7ddc5bef
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 1.1.1 ParallelPlaceIOClockAndInitTop | Checksum: 18e3249b
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 1.1 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 93d09e0a
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 1.1 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 431dc7a6
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 1.2 Build Placer Netlist Model
 
 Phase 1.2.1 Place Init Design
 
 Phase 1.2.1.1 Make Others
-Phase 1.2.1.1 Make Others | Checksum: 1870c2bf3
+Phase 1.2.1.1 Make Others | Checksum: af016d68
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 1.2.1.2 Init Lut Pin Assignment
-Phase 1.2.1.2 Init Lut Pin Assignment | Checksum: 1870c2bf3
+Phase 1.2.1.2 Init Lut Pin Assignment | Checksum: af016d68
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 1.2.1 Place Init Design | Checksum: 1172cc528
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 1.2.1 Place Init Design | Checksum: 13d21548b
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 1.2 Build Placer Netlist Model | Checksum: 1172cc528
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 1.2 Build Placer Netlist Model | Checksum: 13d21548b
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 1.3 Constrain Clocks/Macros
-Phase 1.3 Constrain Clocks/Macros | Checksum: 1172cc528
+Phase 1.3 Constrain Clocks/Macros | Checksum: 13d21548b
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: 1172cc528
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 13d21548b
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 2 Global Placement
-Phase 2 Global Placement | Checksum: e8a657c0
+Phase 2 Global Placement | Checksum: 129d06527
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: e8a657c0
+Phase 3.1 Commit Multi Column Macros | Checksum: 129d06527
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:04 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1e207f2f8
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 12ba81aa6
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 21190423b
+Phase 3.3 Area Swap Optimization | Checksum: 1d1deab5d
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 3.4 updateClock Trees: DP
-Phase 3.4 updateClock Trees: DP | Checksum: 21190423b
+Phase 3.4 updateClock Trees: DP | Checksum: 1d1deab5d
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 3.5 Timing Path Optimizer
-Phase 3.5 Timing Path Optimizer | Checksum: 20ca47d9f
+Phase 3.5 Timing Path Optimizer | Checksum: 1661d50eb
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 3.6 Fast Optimization
-Phase 3.6 Fast Optimization | Checksum: 20ca47d9f
+Phase 3.6 Fast Optimization | Checksum: 1661d50eb
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 3.7 Small Shape Detail Placement
-Phase 3.7 Small Shape Detail Placement | Checksum: 13947a521
+Phase 3.7 Small Shape Detail Placement | Checksum: 15326a0d6
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 3.8 Re-assign LUT pins
-Phase 3.8 Re-assign LUT pins | Checksum: d8927cf8
+Phase 3.8 Re-assign LUT pins | Checksum: b3b398af
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 3.9 Pipeline Register Optimization
-Phase 3.9 Pipeline Register Optimization | Checksum: d8927cf8
+Phase 3.9 Pipeline Register Optimization | Checksum: b3b398af
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 3.10 Fast Optimization
-Phase 3.10 Fast Optimization | Checksum: d8927cf8
+Phase 3.10 Fast Optimization | Checksum: b3b398af
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: d8927cf8
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: b3b398af
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -277,61 +492,61 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 updateClock Trees: PCOPT
-Phase 4.1.1 updateClock Trees: PCOPT | Checksum: 105b99cbf
+Phase 4.1.1 updateClock Trees: PCOPT | Checksum: d0e94f33
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 4.1.2 Post Placement Optimization
 INFO: [Place 30-746] Post Placement Timing Summary WNS=29.116. For the most accurate timing information please run report_timing.
-Phase 4.1.2 Post Placement Optimization | Checksum: 12b9df0cd
+Phase 4.1.2 Post Placement Optimization | Checksum: 12228cf65
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 4.1 Post Commit Optimization | Checksum: 12b9df0cd
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 12228cf65
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 4.2 Sweep Clock Roots: Post-Placement
-Phase 4.2 Sweep Clock Roots: Post-Placement | Checksum: 12b9df0cd
+Phase 4.2 Sweep Clock Roots: Post-Placement | Checksum: 12228cf65
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 4.3 Uram Pipeline Register Optimization
-Phase 4.3 Uram Pipeline Register Optimization | Checksum: 12b9df0cd
+Phase 4.3 Uram Pipeline Register Optimization | Checksum: 12228cf65
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 4.4 Post Placement Cleanup
-Phase 4.4 Post Placement Cleanup | Checksum: 12b9df0cd
+Phase 4.4 Post Placement Cleanup | Checksum: 12228cf65
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 4.5 Placer Reporting
-Phase 4.5 Placer Reporting | Checksum: 12b9df0cd
+Phase 4.5 Placer Reporting | Checksum: 12228cf65
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 4.6 Final Placement Cleanup
-Phase 4.6 Final Placement Cleanup | Checksum: 167bdd715
+Phase 4.6 Final Placement Cleanup | Checksum: 1568c855f
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 167bdd715
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1568c855f
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Ending Placer Task | Checksum: bbd9a167
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Ending Placer Task | Checksum: f7e5e981
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1201.113 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-50 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+51 Infos, 6 Warnings, 104 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1195.789 ; gain = 0.000
+place_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 1201.113 ; gain = 0.000
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.249 . Memory (MB): peak = 1195.789 ; gain = 0.000
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.094 . Memory (MB): peak = 1195.789 ; gain = 0.000
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1195.789 ; gain = 0.000
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.270 . Memory (MB): peak = 1201.113 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 1201.113 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 1201.113 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1201.113 ; gain = 0.000
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
@@ -343,109 +558,109 @@ INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more in
 
 Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
-Checksum: PlaceDB: 5969af2b ConstDB: 0 ShapeSum: 626ff23c RouteDB: 0
+Checksum: PlaceDB: 2e8abe2c ConstDB: 0 ShapeSum: c95b2b55 RouteDB: 0
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: 17e93a3cb
+Phase 1 Build RT Design | Checksum: 1aa2e6d3a
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:24 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:25 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 17e93a3cb
+Phase 2.1 Create Timer | Checksum: 1aa2e6d3a
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:24 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:25 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 17e93a3cb
+Phase 2.2 Fix Topology Constraints | Checksum: 1aa2e6d3a
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:24 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:25 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 17e93a3cb
+Phase 2.3 Pre Route Cleanup | Checksum: 1aa2e6d3a
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:24 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:25 . Memory (MB): peak = 1201.113 ; gain = 0.000
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: 11ba5f834
+Phase 2.4 Update Timing | Checksum: 14ea3fcbd
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:26 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:28 . Memory (MB): peak = 1201.113 ; gain = 0.000
 INFO: [Route 35-416] Intermediate Timing Summary | WNS=29.236 | TNS=0.000  | WHS=-0.218 | THS=-8.558 |
 
-Phase 2 Router Initialization | Checksum: 185cd3c6e
+Phase 2 Router Initialization | Checksum: 1b8cb40f7
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:26 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:28 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 124eb7ac5
+Phase 3 Initial Routing | Checksum: 11a9dedde
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:27 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:34 ; elapsed = 00:00:29 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 113
+ Number of Nodes with overlaps = 132
  Number of Nodes with overlaps = 0
 
 Phase 4.1.1 Update Timing
-Phase 4.1.1 Update Timing | Checksum: 1a5153819
+Phase 4.1.1 Update Timing | Checksum: 1f04895f6
 
-Time (s): cpu = 00:00:34 ; elapsed = 00:00:28 . Memory (MB): peak = 1195.789 ; gain = 0.000
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=22.359 | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:30 . Memory (MB): peak = 1201.113 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=22.574 | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 164613707
+Phase 4.1 Global Iteration 0 | Checksum: 227c943a8
 
-Time (s): cpu = 00:00:34 ; elapsed = 00:00:28 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 4 Rip-up And Reroute | Checksum: 164613707
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:30 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 4 Rip-up And Reroute | Checksum: 227c943a8
 
-Time (s): cpu = 00:00:34 ; elapsed = 00:00:28 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:30 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
 
 Phase 5.1.1 Update Timing
-Phase 5.1.1 Update Timing | Checksum: 14e60c00f
+Phase 5.1.1 Update Timing | Checksum: 1c47dc107
 
-Time (s): cpu = 00:00:34 ; elapsed = 00:00:28 . Memory (MB): peak = 1195.789 ; gain = 0.000
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=22.474 | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:30 . Memory (MB): peak = 1201.113 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=22.689 | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 5.1 Delay CleanUp | Checksum: 14e60c00f
+Phase 5.1 Delay CleanUp | Checksum: 1c47dc107
 
-Time (s): cpu = 00:00:34 ; elapsed = 00:00:28 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:30 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 14e60c00f
+Phase 5.2 Clock Skew Optimization | Checksum: 1c47dc107
 
-Time (s): cpu = 00:00:34 ; elapsed = 00:00:28 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 5 Delay and Skew Optimization | Checksum: 14e60c00f
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:30 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 5 Delay and Skew Optimization | Checksum: 1c47dc107
 
-Time (s): cpu = 00:00:34 ; elapsed = 00:00:28 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:30 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 16f6baa7d
+Phase 6.1.1 Update Timing | Checksum: 255035ec6
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:29 . Memory (MB): peak = 1195.789 ; gain = 0.000
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=22.474 | TNS=0.000  | WHS=0.106  | THS=0.000  |
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:30 . Memory (MB): peak = 1201.113 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=22.689 | TNS=0.000  | WHS=0.098  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: 1dc9b3a44
+Phase 6.1 Hold Fix Iter | Checksum: 1bab30e97
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:29 . Memory (MB): peak = 1195.789 ; gain = 0.000
-Phase 6 Post Hold Fix | Checksum: 1dc9b3a44
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:31 . Memory (MB): peak = 1201.113 ; gain = 0.000
+Phase 6 Post Hold Fix | Checksum: 1bab30e97
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:29 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:31 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 1.03567 %
-  Global Horizontal Routing Utilization  = 1.13024 %
+  Global Vertical Routing Utilization    = 1.03655 %
+  Global Horizontal Routing Utilization  = 1.13362 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -454,43 +669,43 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 16fc0bd56
+Phase 7 Route finalize | Checksum: 1cf711fd6
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:29 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:31 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 16fc0bd56
+Phase 8 Verifying routed nets | Checksum: 1cf711fd6
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:29 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:31 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 1836de85c
+Phase 9 Depositing Routes | Checksum: 102efc614
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:29 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:31 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=22.474 | TNS=0.000  | WHS=0.106  | THS=0.000  |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=22.689 | TNS=0.000  | WHS=0.098  | THS=0.000  |
 
 INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: 1836de85c
+Phase 10 Post Router Timing | Checksum: 102efc614
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:29 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:31 . Memory (MB): peak = 1201.113 ; gain = 0.000
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:29 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:31 . Memory (MB): peak = 1201.113 ; gain = 0.000
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-63 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+64 Infos, 6 Warnings, 104 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:29 . Memory (MB): peak = 1195.789 ; gain = 0.000
+route_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:31 . Memory (MB): peak = 1201.113 ; gain = 0.000
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.375 . Memory (MB): peak = 1195.789 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.424 . Memory (MB): peak = 1201.113 ; gain = 0.000
 INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Coretcl 2-168] The results of DRC are in file C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/impl_1/ZedCamTest_top_drc_routed.rpt.
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
@@ -514,8 +729,7 @@ WARNING: [DRC 23-20] Rule violation (PLHOLDVIO-2) Non-Optimal connections which 
     trig/btn_val_reg {FDRE}
     trig/count_reg[0] {FDRE}
 
-WARNING: [DRC 23-20] Rule violation (ZPS7-1) PS7 block required - The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
-INFO: [Vivado 12-3199] DRC finished with 0 Errors, 7 Warnings
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 6 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
 Loading data files...
@@ -527,8 +741,8 @@ Creating bitstream...
 Writing bitstream ./ZedCamTest_top.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
-INFO: [Common 17-186] 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Sun Oct 30 13:59:11 2016. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2016.2/doc/webtalk_introduction.html.
+INFO: [Common 17-186] 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Tue Nov 01 00:42:19 2016. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2016.2/doc/webtalk_introduction.html.
 INFO: [Common 17-83] Releasing license: Implementation
-write_bitstream: Time (s): cpu = 00:00:26 ; elapsed = 00:00:21 . Memory (MB): peak = 1478.695 ; gain = 282.906
+write_bitstream: Time (s): cpu = 00:00:28 ; elapsed = 00:00:23 . Memory (MB): peak = 1506.008 ; gain = 304.895
 INFO: [Vivado_Tcl 4-395] Unable to parse hwdef file ZedCamTest_top.hwdef
-INFO: [Common 17-206] Exiting Vivado at Sun Oct 30 13:59:11 2016...
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 01 00:42:19 2016...
