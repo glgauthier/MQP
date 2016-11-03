@@ -27,8 +27,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports {cam_reset}]
 set_property PACKAGE_PIN AA11 [get_ports {cam_trigger}]
 set_property IOSTANDARD LVCMOS33 [get_ports {cam_trigger}]
 #output i2c_ready, // LED indicator for i2c bus ready
-set_property PACKAGE_PIN T22 [get_ports {i2c_ready}]
-set_property IOSTANDARD LVCMOS33 [get_ports {i2c_ready}]
+#set_property PACKAGE_PIN T22 [get_ports {i2c_ready}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {i2c_ready}]
 #input [7:0] FIFO_DATA, // DO[7:0] from AL422b fifo
 set_property PACKAGE_PIN V8 [get_ports {FIFO_DATA[7]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {FIFO_DATA[7]}]

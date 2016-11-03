@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Tue Nov 01 00:59:04 2016">
+<application name="pa" timeStamp="Wed Nov 02 21:09:40 2016">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="b34ad8a70b284108a340c451cea7e241" type="ProjectID"/>
-<property name="ProjectIteration" value="20" type="ProjectIteration"/>
+<property name="ProjectIteration" value="24" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -18,19 +18,20 @@ This means code written to parse this file will need to be revisited each subseq
 </item>
 <item name="Java Command Handlers">
 <property name="AddSources" value="13" type="JavaHandler"/>
+<property name="AutoConnectPort" value="55" type="JavaHandler"/>
 <property name="AutoConnectTarget" value="3" type="JavaHandler"/>
 <property name="CoreView" value="7" type="JavaHandler"/>
-<property name="CreateBlockDesign" value="3" type="JavaHandler"/>
-<property name="CreateTopHDL" value="1" type="JavaHandler"/>
+<property name="CreateBlockDesign" value="4" type="JavaHandler"/>
+<property name="CreateTopHDL" value="2" type="JavaHandler"/>
 <property name="CustomizeCore" value="3" type="JavaHandler"/>
-<property name="CustomizeRSBBlock" value="1" type="JavaHandler"/>
-<property name="EditDelete" value="8" type="JavaHandler"/>
+<property name="CustomizeRSBBlock" value="5" type="JavaHandler"/>
+<property name="EditDelete" value="18" type="JavaHandler"/>
 <property name="EditPaste" value="1" type="JavaHandler"/>
-<property name="EditUndo" value="3" type="JavaHandler"/>
+<property name="EditUndo" value="18" type="JavaHandler"/>
 <property name="IPPackagerHandler" value="1" type="JavaHandler"/>
 <property name="IPPackagerWizardHandler" value="2" type="JavaHandler"/>
 <property name="LaunchProgramFpga" value="9" type="JavaHandler"/>
-<property name="ManageCompositeTargets" value="3" type="JavaHandler"/>
+<property name="ManageCompositeTargets" value="4" type="JavaHandler"/>
 <property name="NewExportHardware" value="15" type="JavaHandler"/>
 <property name="NewFile" value="1" type="JavaHandler"/>
 <property name="NewLaunchHardware" value="3" type="JavaHandler"/>
@@ -38,69 +39,30 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="OpenHardwareManager" value="7" type="JavaHandler"/>
 <property name="OpenRecentTarget" value="2" type="JavaHandler"/>
 <property name="ProgramDevice" value="4" type="JavaHandler"/>
-<property name="ProjectSettingsCmdHandler" value="6" type="JavaHandler"/>
+<property name="ProjectSettingsCmdHandler" value="7" type="JavaHandler"/>
 <property name="RecustomizeCore" value="18" type="JavaHandler"/>
-<property name="RunBitgen" value="12" type="JavaHandler"/>
+<property name="RegenerateRSBLayout" value="3" type="JavaHandler"/>
+<property name="RunBitgen" value="16" type="JavaHandler"/>
 <property name="RunImplementation" value="7" type="JavaHandler"/>
 <property name="RunSchematic" value="1" type="JavaHandler"/>
 <property name="RunSynthesis" value="7" type="JavaHandler"/>
 <property name="SaveFileProxyHandler" value="1" type="JavaHandler"/>
-<property name="SaveRSBDesign" value="3" type="JavaHandler"/>
-<property name="SetTopNode" value="1" type="JavaHandler"/>
+<property name="SaveRSBDesign" value="5" type="JavaHandler"/>
+<property name="SetTopNode" value="2" type="JavaHandler"/>
 <property name="ShowView" value="3" type="JavaHandler"/>
-<property name="ToggleSelectAreaMode" value="1" type="JavaHandler"/>
-<property name="ValidateRSBDesign" value="2" type="JavaHandler"/>
+<property name="ToggleAutoFitSelection" value="4" type="JavaHandler"/>
+<property name="ToggleSelectAreaMode" value="8" type="JavaHandler"/>
+<property name="UpgradeIP" value="1" type="JavaHandler"/>
+<property name="ValidateRSBDesign" value="9" type="JavaHandler"/>
 <property name="ViewInstTempl" value="1" type="JavaHandler"/>
 <property name="ViewTaskImplementation" value="1" type="JavaHandler"/>
 <property name="ViewTaskProgramandDebug" value="1" type="JavaHandler"/>
-<property name="ViewTaskProjectManager" value="7" type="JavaHandler"/>
+<property name="ViewTaskProjectManager" value="8" type="JavaHandler"/>
 <property name="ViewTaskRTLAnalysis" value="1" type="JavaHandler"/>
 <property name="ViewTaskSynthesis" value="1" type="JavaHandler"/>
-</item>
-<item name="Gui Resources Info">
-<property name="Bitstream, Bitstream" value="2" type="GuiResourceData"/>
-<property name="CANCEL, Cancel" value="1" type="GuiResourceData"/>
-<property name="Elaboration, Elaboration" value="1" type="GuiResourceData"/>
-<property name="General, General" value="1" type="GuiResourceData"/>
-<property name="IP, IP" value="1" type="GuiResourceData"/>
-<property name="Implementation, Implementation" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, Hierarchy Update" value="3" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_GENERAL_SETTINGS, ZedBoard Zynq Evaluation and Development Kit (xc7z020clg484-1" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, IP-XACT], 11" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, IP-XACT], 11, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Unreferenced], 8" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, ZedCamTest_top (ZedCamTest_top.v" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, seven_seg (seven_seg.v" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources], 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources], 2" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, null, -1, false, false, false, true, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MsgView_INFORMATION_MESSAGES, (String" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, [Root, Check Timing], 4, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, [Root, General Information], 0, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.NetlistTreeView_NETLIST_TREE, [ZedCamTest_top, camSelector (debounce" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_DEVICE, Device" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_ADVANCED, Advanced, 4" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_COMPILATION, Compilation, 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_ELABORATION, Elaboration, 1" value="2" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_NETLIST, Netlist, 3" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_SIMULATION, Simulation, 2" value="2" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSummaryPowerPanel_OPEN_POWER_REPORT, Implemented Power Report" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSummaryUtilizationGadget_PROJECT_SUMMARY_UTILIZATION_GADGET_TABBED, PAResourceOtoP.ProjectSummaryUtilizationGadget_POST_IMPLEMENTATION, Post-Implementation, 1" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSummaryUtilizationGadget_PROJECT_SUMMARY_UTILIZATION_GADGET_TABBED, PAResourceOtoP.ProjectSummaryUtilizationGadget_POST_SYNTHESIS, Post-Synthesis, 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSummaryUtilizationPanel_PROJECT_SUMMARY_UTILIZATION_PANEL_TABBED, PAResourceOtoP.ProjectSummaryUtilizationPanel_GRAPH, Graph, 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSummaryUtilizationPanel_PROJECT_SUMMARY_UTILIZATION_PANEL_TABBED, PAResourceOtoP.ProjectSummaryUtilizationPanel_TABLE, Table, 1" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.RunGadget_RUN_GADGET_TABBED_PANE, PAResourceQtoS.RunGadget_ROUTE_STATUS, Route Status, 1" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.RunGadget_RUN_GADGET_TABBED_PANE, PAResourceQtoS.RunGadget_SUMMARY, Summary, 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcMenu_IP_HIERARCHY, IP Hierarchy" value="3" type="GuiResourceData"/>
-<property name="RDIResource.BaseDialog_OK, OK" value="1" type="GuiResourceData"/>
-<property name="RDIResourceCommand.RDICommands_DELETE, Remove File from Project..." value="1" type="GuiResourceData"/>
-<property name="Simulation, Simulation" value="1" type="GuiResourceData"/>
-<property name="Synthesis, Synthesis" value="1" type="GuiResourceData"/>
-</item>
-<item name="Other">
-<property name="GuiMode" value="26" type="GuiMode"/>
-<property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="21" type="TclMode"/>
+<property name="ZoomFit" value="15" type="JavaHandler"/>
+<property name="ZoomIn" value="2" type="JavaHandler"/>
+<property name="ZoomOut" value="9" type="JavaHandler"/>
 </item>
 </section>
 </application>

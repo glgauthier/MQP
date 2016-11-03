@@ -42,6 +42,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log ZedCamTest_top.vdi -applog -m64 -messageDb vivado.pb -mode batch -source ZedCamTest_top.tcl -notrace
+EAStep vivado -log bd_wrapper.vdi -applog -m64 -messageDb vivado.pb -mode batch -source bd_wrapper.tcl -notrace
 
 

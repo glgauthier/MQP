@@ -25,7 +25,7 @@ eval( EAInclude(ISEJScriptLib) );
 // pre-commands:
 ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
-         "-log ZedCamTest_top.vdi -applog -m64 -messageDb vivado.pb -mode batch -source ZedCamTest_top.tcl -notrace" );
+         "-log bd_wrapper.vdi -applog -m64 -messageDb vivado.pb -mode batch -source bd_wrapper.tcl -notrace" );
 
 
 

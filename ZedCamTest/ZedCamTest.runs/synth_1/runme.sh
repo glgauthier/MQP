@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log ZedCamTest_top.vds -m64 -mode batch -messageDb vivado.pb -notrace -source ZedCamTest_top.tcl
+EAStep vivado -log bd_wrapper.vds -m64 -mode batch -messageDb vivado.pb -notrace -source bd_wrapper.tcl
