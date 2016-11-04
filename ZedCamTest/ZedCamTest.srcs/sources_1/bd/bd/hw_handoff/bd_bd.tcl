@@ -806,6 +806,7 @@ CONFIG.PCW_USB_RESET_SELECT {<Select>} \
 CONFIG.PCW_USE_CROSS_TRIGGER {0} \
 CONFIG.PCW_USE_S_AXI_GP0 {0} \
 CONFIG.PCW_USE_S_AXI_GP1 {0} \
+CONFIG.PCW_USE_S_AXI_HP0 {0} \
 CONFIG.PCW_WDT_PERIPHERAL_CLKSRC {CPU_1X} \
 CONFIG.PCW_WDT_PERIPHERAL_DIVISOR0 {1} \
 CONFIG.PCW_WDT_PERIPHERAL_ENABLE {0} \
@@ -1440,7 +1441,7 @@ CONFIG.PCW_WDT_WDT_IO.VALUE_SRC {DEFAULT} \
   # Create instance: processing_system7_0_axi_periph, and set properties
   set processing_system7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 processing_system7_0_axi_periph ]
   set_property -dict [ list \
-CONFIG.NUM_MI {1} \
+CONFIG.NUM_MI {2} \
  ] $processing_system7_0_axi_periph
 
   # Create instance: rst_processing_system7_0_100M, and set properties
@@ -1468,11 +1469,11 @@ CONFIG.NUM_MI {1} \
   connect_bd_net -net ZedCamAXI_0_cam_trigger [get_bd_ports cam_trigger] [get_bd_pins ZedCamAXI_0/cam_trigger]
   connect_bd_net -net ZedCamAXI_0_rgb [get_bd_ports rgb] [get_bd_pins ZedCamAXI_0/rgb]
   connect_bd_net -net cam_rst_1 [get_bd_ports cam_rst] [get_bd_pins ZedCamAXI_0/cam_rst]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins ZedCamAXI_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0_axi_periph/ACLK] [get_bd_pins processing_system7_0_axi_periph/M00_ACLK] [get_bd_pins processing_system7_0_axi_periph/S00_ACLK] [get_bd_pins rst_processing_system7_0_100M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins ZedCamAXI_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0_axi_periph/ACLK] [get_bd_pins processing_system7_0_axi_periph/M00_ACLK] [get_bd_pins processing_system7_0_axi_periph/M01_ACLK] [get_bd_pins processing_system7_0_axi_periph/S00_ACLK] [get_bd_pins rst_processing_system7_0_100M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_processing_system7_0_100M/ext_reset_in]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins ZedCamAXI_0/reset]
   connect_bd_net -net rst_processing_system7_0_100M_interconnect_aresetn [get_bd_pins processing_system7_0_axi_periph/ARESETN] [get_bd_pins rst_processing_system7_0_100M/interconnect_aresetn]
-  connect_bd_net -net rst_processing_system7_0_100M_peripheral_aresetn [get_bd_pins ZedCamAXI_0/s_axi_aresetn] [get_bd_pins processing_system7_0_axi_periph/M00_ARESETN] [get_bd_pins processing_system7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_processing_system7_0_100M/peripheral_aresetn]
+  connect_bd_net -net rst_processing_system7_0_100M_peripheral_aresetn [get_bd_pins ZedCamAXI_0/s_axi_aresetn] [get_bd_pins processing_system7_0_axi_periph/M00_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M01_ARESETN] [get_bd_pins processing_system7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_processing_system7_0_100M/peripheral_aresetn]
   connect_bd_net -net sysclk_1 [get_bd_ports sysclk] [get_bd_pins ZedCamAXI_0/sysclk]
   connect_bd_net -net trigger_1 [get_bd_ports trigger] [get_bd_pins ZedCamAXI_0/trigger]
 
@@ -1505,14 +1506,14 @@ preplace portBus FIFO_DATA -pg 1 -y 530 -defaultsOSRD
 preplace portBus rgb -pg 1 -y 540 -defaultsOSRD
 preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 330 -defaultsOSRD
 preplace inst ZedCamAXI_0 -pg 1 -lvl 3 -y 480 -defaultsOSRD
-preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 290 -defaultsOSRD
+preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 270 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -y 110 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 1 3 NJ 40 NJ 40 NJ
 preplace netloc ZedCamAXI_0_cam_trigger 1 3 1 NJ
 preplace netloc trigger_1 1 0 3 NJ 470 NJ 470 NJ
 preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 740
 preplace netloc SW_read_fifo_1 1 0 3 NJ 510 NJ 510 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 440
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 430
 preplace netloc ZedCamAXI_0_HS 1 3 1 NJ
 preplace netloc ZedCamAXI_0_FIFO_RRST1 1 3 1 NJ
 preplace netloc ZedCamAXI_0_FIFO_OE1 1 3 1 NJ

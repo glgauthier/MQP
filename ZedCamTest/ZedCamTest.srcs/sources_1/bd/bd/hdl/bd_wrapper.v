@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Wed Nov 02 21:08:26 2016
+//Date        : Thu Nov 03 22:54:09 2016
 //Host        : Georges-T460p running 64-bit major release  (build 9200)
 //Command     : generate_target bd_wrapper.bd
 //Design      : bd_wrapper

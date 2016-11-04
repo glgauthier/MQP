@@ -15,11 +15,11 @@
 	)
 	(
 		// Users to add ports here
-        input wire [10:0] xLoc,
-        input wire [10:0] yLoc,
-        input wire output_sel,
-        output wire i2c_ready,
-        output wire [7:0] pixel_out,
+        output reg [10:0] xLoc,
+        output reg [10:0] yLoc,
+        output reg output_sel,
+        input wire i2c_ready,
+        input wire [7:0] pixel_out,
         
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -367,8 +367,8 @@
 	begin
 	      // Address decoding for reading registers
 	      case ( axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
-	        2'h0   : reg_data_out <= {pixel_out[7:0],yLoc[10:0],xLoc[10:0],i2c_ready,output_sel};
-	        2'h1   : reg_data_out <= slv_reg1;
+	        2'h0   : reg_data_out <= slv_reg0; //{pixel_out[7:0],yLoc[10:0],xLoc[10:0],i2c_ready,output_sel};
+	        2'h1   : reg_data_out <= {23'b0,pixel_out[7:0],i2c_ready};
 	        2'h2   : reg_data_out <= slv_reg2;
 	        2'h3   : reg_data_out <= slv_reg3;
 	        default : reg_data_out <= 0;
@@ -395,7 +395,13 @@
 	end    
 
 	// Add user logic here
-
+    // slv_reg0 = {pixel_out[7:0],yLoc[10:0],xLoc[10:0],i2c_ready,output_sel}
+    always @(slv_reg0, pixel_out, i2c_ready)
+    begin
+        yLoc = slv_reg0[23:13];
+        xLoc = slv_reg0[12:2];
+        output_sel = slv_reg0[0];
+    end
 	// User logic ends
 
 	endmodule

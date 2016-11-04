@@ -24,8 +24,14 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==blk_mem_gen_0 |
 # IP: bd/bd/ip/bd_ZedCamAXI_0_0/src/clk_wiz_0/clk_wiz_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==clk_wiz_0 || ORIG_REF_NAME==clk_wiz_0}]
 
+# IP: bd/bd/ip/bd_xbar_1/bd_xbar_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==bd_xbar_1 || ORIG_REF_NAME==bd_xbar_1}]
+
 # IP: bd/bd/ip/bd_auto_pc_0/bd_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==bd_auto_pc_0 || ORIG_REF_NAME==bd_auto_pc_0}]
+
+# IP: bd/bd/ip/bd_auto_pc_1/bd_auto_pc_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==bd_auto_pc_1 || ORIG_REF_NAME==bd_auto_pc_1}]
 
 # XDC: bd/bd/ip/bd_processing_system7_0_0_1/bd_processing_system7_0_0.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==bd_processing_system7_0_0 || ORIG_REF_NAME==bd_processing_system7_0_0}] {/inst }]/inst ]]
@@ -45,6 +51,10 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 
 # XDC: bd/bd/ip/bd_ZedCamAXI_0_0/src/clk_wiz_0/clk_wiz_0_ooc.xdc
 
+# XDC: bd/bd/ip/bd_xbar_1/bd_xbar_1_ooc.xdc
+
 # XDC: bd/bd/ip/bd_auto_pc_0/bd_auto_pc_0_ooc.xdc
+
+# XDC: bd/bd/ip/bd_auto_pc_1/bd_auto_pc_1_ooc.xdc
 
 # XDC: bd/bd/bd_ooc.xdc

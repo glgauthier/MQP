@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:ZedCamAXI:0.1
-// IP Revision: 4
+// IP Revision: 8
 
 (* X_CORE_INFO = "ZedCamAXI_v0_1,Vivado 2016.2" *)
 (* CHECK_LICENSE_TYPE = "bd_ZedCamAXI_0_0,ZedCamAXI_v0_1,{}" *)
-(* CORE_GENERATION_INFO = "bd_ZedCamAXI_0_0,ZedCamAXI_v0_1,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=ZedCamAXI,x_ipVersion=0.1,x_ipCoreRevision=4,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S_AXI_DATA_WIDTH=32,C_S_AXI_ADDR_WIDTH=4}" *)
+(* CORE_GENERATION_INFO = "bd_ZedCamAXI_0_0,ZedCamAXI_v0_1,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=ZedCamAXI,x_ipVersion=0.1,x_ipCoreRevision=8,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S_AXI_DATA_WIDTH=32,C_S_AXI_ADDR_WIDTH=4}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module bd_ZedCamAXI_0_0 (
   sysclk,

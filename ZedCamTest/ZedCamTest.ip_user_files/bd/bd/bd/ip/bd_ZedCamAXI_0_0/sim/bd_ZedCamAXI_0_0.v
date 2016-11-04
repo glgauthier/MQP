@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:user:ZedCamAXI:0.1
-// IP Revision: 4
+// IP Revision: 8
 
 `timescale 1ns/1ps
 

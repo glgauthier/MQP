@@ -65,11 +65,20 @@
 		output wire  s_axi_rvalid,
 		input wire  s_axi_rready
 	);
+	
+	wire [10:0] xLoc, yLoc; 
+	wire [7:0] pixel_out;
+	wire i2c_ready, output_sel;
 // Instantiation of Axi Bus Interface S_AXI
 	ZedCamAXI_v0_1_S_AXI # ( 
 		.C_S_AXI_DATA_WIDTH(C_S_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S_AXI_ADDR_WIDTH)
 	) ZedCamAXI_v0_1_S_AXI_inst (
+	    .xLoc(xLoc),
+        .yLoc(yLoc),
+        .output_sel(output_sel),
+        .i2c_ready(i2c_ready),
+        .pixel_out(pixel_out),
 		.S_AXI_ACLK(s_axi_aclk),
 		.S_AXI_ARESETN(s_axi_aresetn),
 		.S_AXI_AWADDR(s_axi_awaddr),

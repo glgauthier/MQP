@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Wed Nov 02 21:14:34 2016
+| Date         : Thu Nov 03 23:04:07 2016
 | Host         : Georges-T460p running 64-bit major release  (build 9200)
 | Command      : report_drc -file bd_wrapper_drc_routed.rpt -pb bd_wrapper_drc_routed.pb
 | Design       : bd_wrapper
@@ -23,10 +23,20 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 7
+             Violations found: 9
 
 2. REPORT DETAILS
 -----------------
+DPIP-1#1 Warning
+Input pipelining  
+DSP bd_i/ZedCamAXI_0/inst/custom_code/fifo_buffer/addrb0 input bd_i/ZedCamAXI_0/inst/custom_code/fifo_buffer/addrb0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#2 Warning
+Input pipelining  
+DSP bd_i/ZedCamAXI_0/inst/custom_code/fifo_buffer/addrb0 input bd_i/ZedCamAXI_0/inst/custom_code/fifo_buffer/addrb0/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
 DPOP-1#1 Warning
 PREG Output pipelining  
 DSP bd_i/ZedCamAXI_0/inst/custom_code/fifo_buffer/addra0 output bd_i/ZedCamAXI_0/inst/custom_code/fifo_buffer/addra0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.

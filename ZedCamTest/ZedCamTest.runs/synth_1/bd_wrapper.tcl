@@ -4,7 +4,6 @@
 
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
-set_msg_config -id {HDL-1065} -limit 10000
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -29,7 +28,9 @@ set_property used_in_implementation false [get_files -all c:/Users/georges/Docum
 set_property used_in_implementation false [get_files -all c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/ip/bd_ZedCamAXI_0_0/src/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/ip/bd_ZedCamAXI_0_0/src/clk_wiz_0/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/ip/bd_ZedCamAXI_0_0/src/clk_wiz_0/clk_wiz_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/ip/bd_xbar_1/bd_xbar_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/ip/bd_auto_pc_0/bd_auto_pc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/ip/bd_auto_pc_1/bd_auto_pc_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/bd_ooc.xdc]
 set_property is_locked true [get_files C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/bd.bd]
 
