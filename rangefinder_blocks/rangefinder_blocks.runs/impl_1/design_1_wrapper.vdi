@@ -1,0 +1,58 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Mon Nov 07 19:37:40 2016
+# Process ID: 6856
+# Current directory: C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.runs/impl_1
+# Command line: vivado.exe -log design_1_wrapper.vdi -applog -messageDb vivado.pb -mode batch -source design_1_wrapper.tcl -notrace
+# Log file: C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.runs/impl_1/design_1_wrapper.vdi
+# Journal file: C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source design_1_wrapper.tcl -notrace
+Command: open_checkpoint design_1_wrapper_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 207.016 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2016.2
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.runs/impl_1/.Xil/Vivado-6856-JOHN-HP/dcp/design_1_wrapper_early.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 931.648 ; gain = 449.762
+Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.runs/impl_1/.Xil/Vivado-6856-JOHN-HP/dcp/design_1_wrapper_early.xdc]
+Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.runs/impl_1/.Xil/Vivado-6856-JOHN-HP/dcp/design_1_wrapper.xdc]
+Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.runs/impl_1/.Xil/Vivado-6856-JOHN-HP/dcp/design_1_wrapper.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 932.719 ; gain = 1.070
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 932.719 ; gain = 1.070
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2016.2 (64-bit) build 1577090
+open_checkpoint: Time (s): cpu = 00:00:47 ; elapsed = 00:00:54 . Memory (MB): peak = 932.719 ; gain = 725.703
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command write_bitstream
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./design_1_wrapper.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Common 17-83] Releasing license: Implementation
+write_bitstream: Time (s): cpu = 00:00:45 ; elapsed = 00:00:43 . Memory (MB): peak = 1312.465 ; gain = 379.746
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 07 19:39:27 2016...

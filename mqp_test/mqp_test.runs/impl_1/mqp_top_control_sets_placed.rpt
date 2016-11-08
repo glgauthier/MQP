@@ -1,0 +1,60 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 02 18:35:32 2016
+| Host         : JOHN-HP running 64-bit major release  (build 7600)
+| Command      : report_control_sets -verbose -file mqp_top_control_sets_placed.rpt
+| Design       : mqp_top
+| Device       : xc7z020
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |     7 |
+| Unused register locations in slices containing registers |    32 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               4 |            4 |
+| No           | No                    | Yes                    |               6 |            2 |
+| No           | Yes                   | No                     |              13 |            6 |
+| Yes          | No                    | No                     |               6 |            2 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              11 |            3 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++---------------------+----------------------------------+-------------------------------------+------------------+----------------+
+|     Clock Signal    |           Enable Signal          |           Set/Reset Signal          | Slice Load Count | Bel Load Count |
++---------------------+----------------------------------+-------------------------------------+------------------+----------------+
+|  mmcm/inst/clk_25M  |                                  | vga_controller/HS0                  |                1 |              1 |
+|  mmcm/inst/clk_25M  |                                  | vga_controller/VS0                  |                1 |              1 |
+|  mmcm/inst/clk_100M |                                  |                                     |                4 |              4 |
+|  mmcm/inst/clk_100M |                                  | reset_IBUF                          |                2 |              6 |
+|  mmcm/inst/clk_100M | rangefinder/xlocation[7]_i_1_n_0 |                                     |                2 |              6 |
+|  mmcm/inst/clk_25M  |                                  | vga_controller/hcounter[10]_i_1_n_0 |                4 |             11 |
+|  mmcm/inst/clk_25M  | vga_controller/eqOp              | vga_controller/vcounter[10]_i_1_n_0 |                3 |             11 |
++---------------------+----------------------------------+-------------------------------------+------------------+----------------+
+
+

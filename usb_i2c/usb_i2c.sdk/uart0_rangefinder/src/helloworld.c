@@ -74,7 +74,7 @@
 
 typedef enum
 {
-	DELAY = 0,
+	WAIT = 0,
 	TX_COMMAND = 1,
 	RX_DATA = 2,
 //	POLL_SEND = 3,	// for debug purposes only
@@ -106,37 +106,49 @@ int main()
     char databuf[65][24];
     char databufbuf[2];
     char linefeed[3];
-	int delay_counter = 0;
-	int write;
-	int stepbuf;
+//	int delay_counter = 0;
+	u32 write;
+	u32 stepbuf;
 
-	XGpio data;
-	XGpio_Initialize(&data, XPAR_PS7_GPIO_0_DEVICE_ID);
-	XGpio_SetDataDirection(&data, 1, 0x00000000);
+	XGpio gpi;
+	XGpio gpo;
 
-	XGpio enable;
-	XGpio_Initialize(&enable, XPAR_PS7_GPIO_0_DEVICE_ID);
-	XGpio_SetDataDirection(&enable, 2, 0x00000000);
+	u32 data;
+	XGpio_Initialize(&gpi, XPAR_PS7_GPIO_0_DEVICE_ID);
+//	XGpio_Start(&gpi);
+//	XGpio_SetDataDirection(&data, 1, 0x00000000);
+//
+//	XGpio enable;
+//	XGpio_Initialize(&enable, XPAR_PS7_GPIO_0_DEVICE_ID);
+//	XGpio_SetDataDirection(&enable, 2, 0x00000000);
+//
+//	XGpio step;
+//	XGpio_Initialize(&step, XPAR_PS7_GPIO_0_DEVICE_ID);
+//	XGpio_SetDataDirection(&step, 3, 0x00000000);
 
-	XGpio step;
-	XGpio_Initialize(&step, XPAR_PS7_GPIO_0_DEVICE_ID);
-	XGpio_SetDataDirection(&step, 3, 0x00000000);
+	u32 transmit;
+	XGpio_Initialize(&gpo, XPAR_PS7_GPIO_0_DEVICE_ID);
+//	XGpio_Start(&gpo);
+//	XGpio_SetDataDirection(&transmit, 1, 0xFFFFFFFF);
 
-    UART_STATE STATE = DELAY;
+    UART_STATE STATE = WAIT;
 
     while(1)
     {
 		switch(STATE)
 		{
-			case DELAY:
+			case WAIT:
 			{
-				while(delay_counter < 400)
+//				while(delay_counter < 400)
+//				{
+//					delay_counter++;
+//				}
+//
+//				delay_counter = 0;
+				if(XGpio_DiscreteRead(&gpo, 1) > 0)
 				{
-					delay_counter++;
+					STATE = TX_COMMAND;
 				}
-
-				delay_counter = 0;
-				STATE = TX_COMMAND;
 				break;
 			}
 
@@ -196,10 +208,10 @@ int main()
 							write = 1;
 							stepbuf++;
 
-							//sends information to the programmable logic
-							XGpio_DiscreteWrite(&data, 1, *databufbuf);
-							XGpio_DiscreteWrite(&enable, 2, write);
-							XGpio_DiscreteWrite(&step, 3, stepbuf);
+							//sends information to the programmable logic for each data point (2 chars)
+							XGpio_DiscreteWrite(&gpo, 1, ((*databufbuf << 12) + (write << 11) + (stepbuf)));
+//							XGpio_DiscreteWrite(&enable, 2, write);
+//							XGpio_DiscreteWrite(&step, 3, stepbuf);
 						}
 					}
 				}
@@ -213,7 +225,7 @@ int main()
 
 				echo[0] = '\0';
 
-//				STATE = POLL_SEND;
+				STATE = WAIT;
 				break;
 			}
 
