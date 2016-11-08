@@ -126,11 +126,13 @@ int main()
 						pixel_position++;
 						pixelsRead ++;
     				}
+    				// moved up from after GPO1 write to add a slight delay
+    				pixel_position = 0;
+    				row++;
     				// signal to the FPGA that we want more data!
     				GPO1 |= (GETDATA);
     				XIOModule_DiscreteWrite(&gpo,1,GPO1);
-    				pixel_position = 0;
-    				row++;
+
     				//xil_printf("Row: %d",row);
 
     			}

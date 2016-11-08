@@ -1,0 +1,30 @@
+23:28:05 **** Auto Build of configuration Debug for project ZedCameraController ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../ZedCameraController_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../src/helloworld.c:54:0:
+../../ZedCameraController_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^
+../../ZedCameraController_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: ZedCameraController.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../ZedCameraController_bsp/ps7_cortexa9_0/lib -o "ZedCameraController.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: ZedCameraController.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size ZedCameraController.elf  |tee "ZedCameraController.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25528	   1152	  22580	  49260	   c06c	ZedCameraController.elf
+'Finished building: ZedCameraController.elf.size'
+' '
+
+23:28:06 Build Finished (took 1s.152ms)
+

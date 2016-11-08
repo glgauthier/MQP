@@ -1,0 +1,1889 @@
+Release 14.1 - xst P.15xf (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Reading design: top_module.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top_module.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top_module"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : top_module
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\ipcore_dir\mmcm.v" into library work
+Parsing module <mmcm>.
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\ipcore_dir\mmcm\example_design\mmcm_exdes.v" into library work
+Parsing module <mmcm_exdes>.
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\fifo_reader.v" into library work
+Parsing module <dual_image_buffer>.
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\clk_divs.v" into library work
+Parsing module <clk_divs>.
+Analyzing Verilog file "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\top_module.v" into library work
+Parsing module <top_module>.
+Parsing VHDL file "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\vga.vhd" into library work
+Parsing entity <vga_controller_640_60>.
+Parsing architecture <Behavioral> of entity <vga_controller_640_60>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <top_module>.
+
+Elaborating module <dual_image_buffer>.
+WARNING:HDLCompiler:91 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\fifo_reader.v" Line 148: Signal <left_image> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+WARNING:HDLCompiler:91 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\fifo_reader.v" Line 150: Signal <right_image> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+Going to vhdl side to elaborate module vga_controller_640_60
+
+Elaborating entity <vga_controller_640_60> (architecture <Behavioral>) from library <work>.
+Back to verilog to continue elaboration
+
+Elaborating module <clk_divs>.
+
+Elaborating module <mmcm>.
+
+Elaborating module <IBUFG>.
+
+Elaborating module <PLL_BASE(BANDWIDTH="OPTIMIZED",CLK_FEEDBACK="CLKFBOUT",COMPENSATION="SYSTEM_SYNCHRONOUS",DIVCLK_DIVIDE=1,CLKFBOUT_MULT=6,CLKFBOUT_PHASE=0.0,CLKOUT0_DIVIDE=24,CLKOUT0_PHASE=0.0,CLKOUT0_DUTY_CYCLE=0.5,CLKOUT1_DIVIDE=25,CLKOUT1_PHASE=0.0,CLKOUT1_DUTY_CYCLE=0.5,CLKOUT2_DIVIDE=120,CLKOUT2_PHASE=0.0,CLKOUT2_DUTY_CYCLE=0.5,CLKIN_PERIOD=10.0,REF_JITTER=0.01)>.
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\ipcore_dir\mmcm.v" Line 124: Assignment to clkout3_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\ipcore_dir\mmcm.v" Line 125: Assignment to clkout4_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\ipcore_dir\mmcm.v" Line 126: Assignment to clkout5_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\ipcore_dir\mmcm.v" Line 127: Assignment to locked_unused ignored, since the identifier is never used
+
+Elaborating module <BUFG>.
+WARNING:HDLCompiler:1127 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\top_module.v" Line 88: Assignment to clk_20Hz ignored, since the identifier is never used
+
+Elaborating module <ODDR2(DDR_ALIGNMENT="NONE",INIT=1'b0,SRTYPE="SYNC")>.
+WARNING:HDLCompiler:634 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\top_module.v" Line 26: Net <image_sel> does not have a driver.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <top_module>.
+    Related source file is "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\top_module.v".
+INFO:Xst:3210 - "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\top_module.v" line 82: Output port <clk_debounce> of the instance <clks> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <image_sel> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 12-bit register for signal <init_count>.
+    Found 12-bit adder for signal <init_count[11]_GND_1_o_add_2_OUT> created at line 52.
+    Found 12-bit comparator greater for signal <init_count[11]_PWR_1_o_LessThan_2_o> created at line 51
+    Found 12-bit comparator lessequal for signal <n0003> created at line 55
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  12 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <top_module> synthesized.
+
+Synthesizing Unit <dual_image_buffer>.
+    Related source file is "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\fifo_reader.v".
+        ready = 2'b00
+        read = 2'b01
+        done = 2'b10
+        init = 2'b11
+        xmin = 329
+        xmax = 421
+        ymin = 209
+        ymax = 269
+WARNING:Xst:647 - Input <image_sel> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_0>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_0> for signal <right_image_0>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_12>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_12> for signal <left_image_12>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_11>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_11> for signal <left_image_11>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_26>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_26> for signal <left_image_26>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_25>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_25> for signal <left_image_25>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_24>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_24> for signal <left_image_24>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_23>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_23> for signal <left_image_23>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_22>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_22> for signal <left_image_22>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_21>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_21> for signal <left_image_21>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_20>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_20> for signal <left_image_20>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_19>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_19> for signal <left_image_19>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_18>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_18> for signal <left_image_18>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_17>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_17> for signal <left_image_17>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_16>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_16> for signal <left_image_16>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_9>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_9> for signal <left_image_9>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_8>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_8> for signal <left_image_8>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_7>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_7> for signal <left_image_7>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_6>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_6> for signal <left_image_6>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_5>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_5> for signal <left_image_5>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_4>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_4> for signal <left_image_4>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_3>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_3> for signal <left_image_3>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_2>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_2> for signal <left_image_2>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_1>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_1> for signal <left_image_1>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_0>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_0> for signal <left_image_0>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_10>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_10> for signal <left_image_10>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_15>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_15> for signal <left_image_15>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_14>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_14> for signal <left_image_14>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_13>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_13> for signal <left_image_13>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_29>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_29> for signal <left_image_29>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_28>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_28> for signal <left_image_28>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <left_image_27>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_left_image_27> for signal <left_image_27>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_8>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_8> for signal <right_image_8>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_7>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_7> for signal <right_image_7>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_6>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_6> for signal <right_image_6>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_5>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_5> for signal <right_image_5>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_4>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_4> for signal <right_image_4>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_3>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_3> for signal <right_image_3>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_2>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_2> for signal <right_image_2>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_1>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_1> for signal <right_image_1>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_9>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_9> for signal <right_image_9>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_10>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_10> for signal <right_image_10>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_11>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_11> for signal <right_image_11>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_12>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_12> for signal <right_image_12>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_13>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_13> for signal <right_image_13>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_14>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_14> for signal <right_image_14>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_15>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_15> for signal <right_image_15>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_16>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_16> for signal <right_image_16>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_17>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_17> for signal <right_image_17>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_18>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_18> for signal <right_image_18>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_19>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_19> for signal <right_image_19>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_20>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_20> for signal <right_image_20>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_21>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_21> for signal <right_image_21>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_22>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_22> for signal <right_image_22>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_23>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_23> for signal <right_image_23>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_24>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_24> for signal <right_image_24>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_25>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_25> for signal <right_image_25>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_26>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_26> for signal <right_image_26>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_27>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_27> for signal <right_image_27>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_28>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_28> for signal <right_image_28>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <right_image_29>, simulation mismatch.
+    Found 46x8-bit dual-port RAM <Mram_right_image_29> for signal <right_image_29>.
+    Found 1-bit register for signal <fifo_rrst>.
+    Found 2-bit register for signal <read_done>.
+    Found 10-bit register for signal <pixel>.
+    Found 1-bit register for signal <fifo_rden>.
+    Found 16-bit register for signal <num_lines>.
+    Found 2-bit register for signal <state>.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 8                                              |
+    | Clock              | fifo_rck (rising_edge)                         |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 10-bit adder for signal <pixel[9]_GND_2_o_add_32_OUT> created at line 124.
+    Found 16-bit adder for signal <num_lines[15]_GND_2_o_add_35_OUT> created at line 128.
+    Found 2-bit adder for signal <read_done[1]_GND_2_o_add_41_OUT> created at line 135.
+    Found 5-bit subtractor for signal <GND_2_o_GND_2_o_sub_29_OUT<4:0>> created at line 119.
+    Found 6-bit subtractor for signal <GND_2_o_GND_2_o_sub_30_OUT<5:0>> created at line 119.
+    Found 6-bit subtractor for signal <GND_2_o_GND_2_o_sub_63_OUT<5:0>> created at line 148.
+    Found 5-bit subtractor for signal <GND_2_o_GND_2_o_sub_69_OUT<4:0>> created at line 150.
+WARNING:Xst:737 - Found 1-bit latch for signal <trigger>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 2-bit comparator greater for signal <read_done[1]_PWR_2_o_LessThan_3_o> created at line 62
+    Found 10-bit comparator greater for signal <pixel[9]_PWR_2_o_LessThan_20_o> created at line 112
+    Found 10-bit comparator lessequal for signal <n0025> created at line 114
+    Found 10-bit comparator lessequal for signal <n0027> created at line 114
+    Found 16-bit comparator lessequal for signal <n0030> created at line 114
+    Found 16-bit comparator lessequal for signal <n0032> created at line 114
+    Found 11-bit comparator lessequal for signal <n0085> created at line 147
+    Found 11-bit comparator lessequal for signal <n0087> created at line 147
+    Found 11-bit comparator lessequal for signal <n0094> created at line 149
+    Found 11-bit comparator lessequal for signal <n0096> created at line 149
+    Found 11-bit comparator lessequal for signal <n0099> created at line 149
+    Found 11-bit comparator lessequal for signal <n0101> created at line 149
+    Summary:
+	inferred  60 RAM(s).
+	inferred   7 Adder/Subtractor(s).
+	inferred  30 D-type flip-flop(s).
+	inferred   1 Latch(s).
+	inferred  12 Comparator(s).
+	inferred  17 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <dual_image_buffer> synthesized.
+
+Synthesizing Unit <vga_controller_640_60>.
+    Related source file is "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\vga.vhd".
+    Found 11-bit register for signal <hcounter>.
+    Found 11-bit register for signal <vcounter>.
+    Found 1-bit register for signal <HS>.
+    Found 1-bit register for signal <VS>.
+    Found 1-bit register for signal <blank>.
+    Found 11-bit adder for signal <hcounter[10]_GND_9_o_add_3_OUT> created at line 107.
+    Found 11-bit adder for signal <vcounter[10]_GND_9_o_add_9_OUT> created at line 124.
+    Found 11-bit comparator lessequal for signal <n0015> created at line 137
+    Found 11-bit comparator greater for signal <hcounter[10]_GND_9_o_LessThan_16_o> created at line 137
+    Found 11-bit comparator lessequal for signal <n0021> created at line 153
+    Found 11-bit comparator greater for signal <vcounter[10]_GND_9_o_LessThan_18_o> created at line 153
+    Found 11-bit comparator greater for signal <hcounter[10]_GND_9_o_LessThan_19_o> created at line 162
+    Found 11-bit comparator greater for signal <vcounter[10]_GND_9_o_LessThan_20_o> created at line 162
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  25 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+	inferred   2 Multiplexer(s).
+Unit <vga_controller_640_60> synthesized.
+
+Synthesizing Unit <clk_divs>.
+    Related source file is "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\clk_divs.v".
+    Found 21-bit register for signal <bounce_count>.
+    Found 21-bit adder for signal <bounce_count[20]_GND_10_o_add_2_OUT> created at line 38.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  21 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <clk_divs> synthesized.
+
+Synthesizing Unit <mmcm>.
+    Related source file is "C:\Users\georges\Documents\GitHub\MQP\Nexys3_Disparity\ipcore_dir\mmcm.v".
+    Summary:
+	no macro.
+Unit <mmcm> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 60
+ 46x8-bit dual-port RAM                                : 60
+# Adders/Subtractors                                   : 11
+ 10-bit adder                                          : 1
+ 11-bit adder                                          : 2
+ 12-bit adder                                          : 1
+ 16-bit adder                                          : 1
+ 2-bit adder                                           : 1
+ 21-bit adder                                          : 1
+ 5-bit subtractor                                      : 2
+ 6-bit subtractor                                      : 2
+# Registers                                            : 12
+ 1-bit register                                        : 5
+ 10-bit register                                       : 1
+ 11-bit register                                       : 2
+ 12-bit register                                       : 1
+ 16-bit register                                       : 1
+ 2-bit register                                        : 1
+ 21-bit register                                       : 1
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 20
+ 10-bit comparator greater                             : 1
+ 10-bit comparator lessequal                           : 2
+ 11-bit comparator greater                             : 4
+ 11-bit comparator lessequal                           : 8
+ 12-bit comparator greater                             : 1
+ 12-bit comparator lessequal                           : 1
+ 16-bit comparator lessequal                           : 2
+ 2-bit comparator greater                              : 1
+# Multiplexers                                         : 20
+ 1-bit 2-to-1 multiplexer                              : 10
+ 10-bit 2-to-1 multiplexer                             : 2
+ 11-bit 2-to-1 multiplexer                             : 2
+ 16-bit 2-to-1 multiplexer                             : 1
+ 2-bit 2-to-1 multiplexer                              : 1
+ 21-bit 2-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 3
+# FSMs                                                 : 1
+# Xors                                                 : 284
+ 1-bit xor2                                            : 284
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <clk_divs>.
+The following registers are absorbed into counter <bounce_count>: 1 register on signal <bounce_count>.
+Unit <clk_divs> synthesized (advanced).
+
+Synthesizing (advanced) Unit <dual_image_buffer>.
+The following registers are absorbed into counter <read_done>: 1 register on signal <read_done>.
+The following registers are absorbed into counter <num_lines>: 1 register on signal <num_lines>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_0> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_12> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_11> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_26> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_25> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_24> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_23> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_22> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_21> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_20> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_19> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_18> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_17> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_16> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_9> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_8> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_7> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_6> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_5> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_4> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_3> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_2> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_1> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_0> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_10> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_15> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_14> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_13> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_29> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_28> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_left_image_27> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <GND_2_o_GND_2_o_sub_63_OUT> |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_8> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_7> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_6> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_5> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_4> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_3> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_2> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_1> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_9> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_10> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_11> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_12> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_13> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_14> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_15> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_16> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_17> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_18> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_19> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_20> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_21> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_22> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_23> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_24> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_25> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_26> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_27> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_28> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_right_image_29> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     clkA           | connected to signal <fifo_rck>      | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <GND_2_o_GND_2_o_sub_30_OUT> |          |
+    |     diA            | connected to signal <fifo_data>     |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 46-word x 8-bit                     |          |
+    |     addrB          | connected to signal <href<5:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <dual_image_buffer> synthesized (advanced).
+
+Synthesizing (advanced) Unit <top_module>.
+The following registers are absorbed into counter <init_count>: 1 register on signal <init_count>.
+Unit <top_module> synthesized (advanced).
+
+Synthesizing (advanced) Unit <vga_controller_640_60>.
+The following registers are absorbed into counter <hcounter>: 1 register on signal <hcounter>.
+The following registers are absorbed into counter <vcounter>: 1 register on signal <vcounter>.
+Unit <vga_controller_640_60> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 60
+ 46x8-bit dual-port distributed RAM                    : 60
+# Adders/Subtractors                                   : 5
+ 10-bit adder                                          : 1
+ 5-bit subtractor                                      : 2
+ 6-bit subtractor                                      : 2
+# Counters                                             : 6
+ 11-bit up counter                                     : 2
+ 12-bit up counter                                     : 1
+ 16-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
+ 21-bit up counter                                     : 1
+# Registers                                            : 15
+ Flip-Flops                                            : 15
+# Comparators                                          : 20
+ 10-bit comparator greater                             : 1
+ 10-bit comparator lessequal                           : 2
+ 11-bit comparator greater                             : 4
+ 11-bit comparator lessequal                           : 8
+ 12-bit comparator greater                             : 1
+ 12-bit comparator lessequal                           : 1
+ 16-bit comparator lessequal                           : 2
+ 2-bit comparator greater                              : 1
+# Multiplexers                                         : 15
+ 1-bit 2-to-1 multiplexer                              : 10
+ 10-bit 2-to-1 multiplexer                             : 2
+ 8-bit 2-to-1 multiplexer                              : 3
+# FSMs                                                 : 1
+# Xors                                                 : 284
+ 1-bit xor2                                            : 284
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <imgbuf/FSM_0> on signal <state[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 11    | 11
+ 01    | 01
+ 10    | 10
+-------------------
+INFO:Xst:1901 - Instance clks/clkgen/pll_base_inst in unit clks/clkgen/pll_base_inst of type PLL_BASE has been replaced by PLL_ADV
+
+Optimizing unit <top_module> ...
+
+Optimizing unit <dual_image_buffer> ...
+
+Optimizing unit <vga_controller_640_60> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top_module, actual ratio is 17.
+FlipFlop imgbuf/num_lines_0 has been replicated 2 time(s)
+FlipFlop imgbuf/num_lines_1 has been replicated 3 time(s)
+FlipFlop imgbuf/num_lines_2 has been replicated 2 time(s)
+FlipFlop imgbuf/num_lines_3 has been replicated 1 time(s)
+FlipFlop imgbuf/num_lines_4 has been replicated 1 time(s)
+FlipFlop imgbuf/num_lines_8 has been replicated 1 time(s)
+FlipFlop imgbuf/read_done_0 has been replicated 1 time(s)
+FlipFlop imgbuf/read_done_1 has been replicated 1 time(s)
+FlipFlop vga/hcounter_0 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 82
+ Flip-Flops                                            : 82
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : top_module.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 602
+#      GND                         : 1
+#      INV                         : 7
+#      LUT1                        : 17
+#      LUT2                        : 13
+#      LUT3                        : 64
+#      LUT4                        : 37
+#      LUT5                        : 50
+#      LUT6                        : 316
+#      MUXCY                       : 46
+#      VCC                         : 1
+#      XORCY                       : 50
+# FlipFlops/Latches                : 85
+#      FD                          : 29
+#      FDE                         : 27
+#      FDR                         : 15
+#      FDRE                        : 11
+#      LD                          : 1
+#      ODDR2                       : 2
+# RAMS                             : 240
+#      RAM64M                      : 120
+#      RAM64X1D                    : 120
+# Clock Buffers                    : 4
+#      BUFG                        : 4
+# IO Buffers                       : 29
+#      IBUF                        : 9
+#      IBUFG                       : 1
+#      OBUF                        : 19
+# Others                           : 1
+#      PLL_ADV                     : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              84  out of  18224     0%  
+ Number of Slice LUTs:                 1224  out of   9112    13%  
+    Number used as Logic:               504  out of   9112     5%  
+    Number used as Memory:              720  out of   2176    33%  
+       Number used as RAM:              720
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   1239
+   Number with an unused Flip Flop:    1155  out of   1239    93%  
+   Number with an unused LUT:            15  out of   1239     1%  
+   Number of fully used LUT-FF pairs:    69  out of   1239     5%  
+   Number of unique control sets:        12
+
+IO Utilization: 
+ Number of IOs:                          29
+ Number of bonded IOBs:                  29  out of    232    12%  
+    IOB Flip Flops/Latches:               1
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                4  out of     16    25%  
+ Number of PLL_ADVs:                      1  out of      2    50%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+---------------------------------------------------------------------+------------------------+-------+
+Clock Signal                                                         | Clock buffer(FF name)  | Load  |
+---------------------------------------------------------------------+------------------------+-------+
+clks/clkgen/pll_base_inst/CLKOUT1                                    | BUFG                   | 14    |
+clks/clkgen/pll_base_inst/CLKOUT2                                    | BUFG                   | 286   |
+imgbuf/state[1]_GND_3_o_Mux_10_o(imgbuf/state[1]_GND_3_o_Mux_10_o1:O)| NONE(*)(imgbuf/trigger)| 1     |
+clks/clkgen/pll_base_inst/CLKOUT0                                    | BUFG                   | 26    |
+---------------------------------------------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 5.141ns (Maximum Frequency: 194.524MHz)
+   Minimum input arrival time before clock: 3.138ns
+   Maximum output required time after clock: 11.668ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clks/clkgen/pll_base_inst/CLKOUT1'
+  Clock period: 3.782ns (frequency: 264.417MHz)
+  Total number of paths / destination ports: 198 / 24
+-------------------------------------------------------------------------
+Delay:               3.782ns (Levels of Logic = 2)
+  Source:            init_count_4 (FF)
+  Destination:       init_count_0 (FF)
+  Source Clock:      clks/clkgen/pll_base_inst/CLKOUT1 rising
+  Destination Clock: clks/clkgen/pll_base_inst/CLKOUT1 rising
+
+  Data Path: init_count_4 to init_count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.447   1.015  init_count_4 (init_count_4)
+     LUT6:I0->O            1   0.203   0.684  init_count[11]_PWR_1_o_LessThan_2_o11 (init_count[11]_PWR_1_o_LessThan_2_o1)
+     LUT5:I3->O           12   0.203   0.908  init_count[11]_PWR_1_o_LessThan_2_o12 (init_count[11]_PWR_1_o_LessThan_2_o)
+     FDE:CE                    0.322          init_count_0
+    ----------------------------------------
+    Total                      3.782ns (1.175ns logic, 2.607ns route)
+                                       (31.1% logic, 68.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clks/clkgen/pll_base_inst/CLKOUT2'
+  Clock period: 5.141ns (frequency: 194.524MHz)
+  Total number of paths / destination ports: 18501 / 1739
+-------------------------------------------------------------------------
+Delay:               5.141ns (Levels of Logic = 3)
+  Source:            imgbuf/pixel_4 (FF)
+  Destination:       imgbuf/Mram_right_image_2531 (RAM)
+  Source Clock:      clks/clkgen/pll_base_inst/CLKOUT2 rising
+  Destination Clock: clks/clkgen/pll_base_inst/CLKOUT2 rising
+
+  Data Path: imgbuf/pixel_4 to imgbuf/Mram_right_image_2531
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q             11   0.447   1.227  imgbuf/pixel_4 (imgbuf/pixel_4)
+     LUT6:I1->O            5   0.203   0.819  imgbuf/Mmux_BUS_0001113 (imgbuf/Mmux_BUS_0001113)
+     LUT5:I3->O           18   0.203   1.050  imgbuf/Mmux_BUS_00011110_SW0_2 (imgbuf/Mmux_BUS_00011110_SW01)
+     LUT6:I5->O            4   0.205   0.683  imgbuf/PWR_21_o_BUS_0002_AND_346_o1 (imgbuf/PWR_21_o_BUS_0002_AND_346_o)
+     RAM64M:WE                 0.304          imgbuf/Mram_right_image_261
+    ----------------------------------------
+    Total                      5.141ns (1.362ns logic, 3.779ns route)
+                                       (26.5% logic, 73.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clks/clkgen/pll_base_inst/CLKOUT0'
+  Clock period: 4.685ns (frequency: 213.433MHz)
+  Total number of paths / destination ports: 1414 / 37
+-------------------------------------------------------------------------
+Delay:               4.685ns (Levels of Logic = 14)
+  Source:            vga/vcounter_6 (FF)
+  Destination:       vga/vcounter_10 (FF)
+  Source Clock:      clks/clkgen/pll_base_inst/CLKOUT0 rising
+  Destination Clock: clks/clkgen/pll_base_inst/CLKOUT0 rising
+
+  Data Path: vga/vcounter_6 to vga/vcounter_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             7   0.447   1.138  vga/vcounter_6 (vga/vcounter_6)
+     LUT6:I0->O           10   0.203   0.857  vga/vcounter[10]_GND_9_o_equal_9_o<10>_SW0 (N27)
+     LUT6:I5->O            1   0.205   0.579  vga/vcounter[10]_GND_9_o_equal_9_o_inv1 (vga/vcounter[10]_GND_9_o_equal_9_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  vga/Mcount_vcounter_cy<0> (vga/Mcount_vcounter_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  vga/Mcount_vcounter_cy<1> (vga/Mcount_vcounter_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  vga/Mcount_vcounter_cy<2> (vga/Mcount_vcounter_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  vga/Mcount_vcounter_cy<3> (vga/Mcount_vcounter_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  vga/Mcount_vcounter_cy<4> (vga/Mcount_vcounter_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  vga/Mcount_vcounter_cy<5> (vga/Mcount_vcounter_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  vga/Mcount_vcounter_cy<6> (vga/Mcount_vcounter_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  vga/Mcount_vcounter_cy<7> (vga/Mcount_vcounter_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  vga/Mcount_vcounter_cy<8> (vga/Mcount_vcounter_cy<8>)
+     MUXCY:CI->O           0   0.019   0.000  vga/Mcount_vcounter_cy<9> (vga/Mcount_vcounter_cy<9>)
+     XORCY:CI->O           1   0.180   0.580  vga/Mcount_vcounter_xor<10> (vga/Mcount_vcounter10)
+     LUT3:I2->O            1   0.205   0.000  vga/vcounter_10_dpot (vga/vcounter_10_dpot)
+     FDRE:D                    0.102          vga/vcounter_10
+    ----------------------------------------
+    Total                      4.685ns (1.532ns logic, 3.153ns route)
+                                       (32.7% logic, 67.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clks/clkgen/pll_base_inst/CLKOUT2'
+  Total number of paths / destination ports: 480 / 480
+-------------------------------------------------------------------------
+Offset:              3.138ns (Levels of Logic = 1)
+  Source:            fifo_data<3> (PAD)
+  Destination:       imgbuf/Mram_right_image_282 (RAM)
+  Destination Clock: clks/clkgen/pll_base_inst/CLKOUT2 rising
+
+  Data Path: fifo_data<3> to imgbuf/Mram_right_image_282
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            60   1.222   1.613  fifo_data_3_IBUF (fifo_data_3_IBUF)
+     RAM64M:DIA                0.303          imgbuf/Mram_left_image_112
+    ----------------------------------------
+    Total                      3.138ns (1.525ns logic, 1.613ns route)
+                                       (48.6% logic, 51.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clks/clkgen/pll_base_inst/CLKOUT0'
+  Total number of paths / destination ports: 23 / 23
+-------------------------------------------------------------------------
+Offset:              2.805ns (Levels of Logic = 1)
+  Source:            master_reset (PAD)
+  Destination:       vga/vcounter_10 (FF)
+  Destination Clock: clks/clkgen/pll_base_inst/CLKOUT0 rising
+
+  Data Path: master_reset to vga/vcounter_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            23   1.222   1.153  master_reset_IBUF (master_reset_IBUF)
+     FDR:R                     0.430          vga/hcounter_0
+    ----------------------------------------
+    Total                      2.805ns (1.652ns logic, 1.153ns route)
+                                       (58.9% logic, 41.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clks/clkgen/pll_base_inst/CLKOUT0'
+  Total number of paths / destination ports: 3446 / 10
+-------------------------------------------------------------------------
+Offset:              11.668ns (Levels of Logic = 6)
+  Source:            vga/hcounter_5 (FF)
+  Destination:       rgb<7> (PAD)
+  Source Clock:      clks/clkgen/pll_base_inst/CLKOUT0 rising
+
+  Data Path: vga/hcounter_5 to rgb<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q            255   0.447   2.411  vga/hcounter_5 (vga/hcounter_5)
+     LUT5:I0->O          240   0.203   2.063  imgbuf/Msub_GND_2_o_GND_2_o_sub_63_OUT<5:0>_xor<5>11 (imgbuf/GND_2_o_GND_2_o_sub_63_OUT<5>)
+     RAM64X1D:DPRA5->DPO    1   0.205   0.944  imgbuf/Mram_left_image_2431 (imgbuf/_n2384<6>)
+     LUT6:I0->O            1   0.203   0.808  imgbuf/Mmux_pixel_value722 (imgbuf/Mmux_pixel_value721)
+     LUT4:I1->O            1   0.205   0.827  imgbuf/Mmux_pixel_value724 (imgbuf/Mmux_pixel_value723)
+     LUT6:I2->O            1   0.203   0.579  imgbuf/Mmux_pixel_value729 (rgb_6_OBUF)
+     OBUF:I->O                 2.571          rgb_6_OBUF (rgb<6>)
+    ----------------------------------------
+    Total                     11.668ns (4.037ns logic, 7.631ns route)
+                                       (34.6% logic, 65.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clks/clkgen/pll_base_inst/CLKOUT2'
+  Total number of paths / destination ports: 493 / 13
+-------------------------------------------------------------------------
+Offset:              8.520ns (Levels of Logic = 5)
+  Source:            imgbuf/Mram_left_image_212 (RAM)
+  Destination:       rgb<4> (PAD)
+  Source Clock:      clks/clkgen/pll_base_inst/CLKOUT2 rising
+
+  Data Path: imgbuf/Mram_left_image_212 to rgb<4>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAM64M:WCLK->DOB      1   0.920   0.944  imgbuf/Mram_left_image_212 (imgbuf/_n2387<4>)
+     LUT6:I0->O            1   0.203   0.944  imgbuf/Mmux_pixel_value521 (imgbuf/Mmux_pixel_value520)
+     LUT6:I0->O            1   0.203   0.827  imgbuf/Mmux_pixel_value522 (imgbuf/Mmux_pixel_value521)
+     LUT6:I2->O            1   0.203   0.924  imgbuf/Mmux_pixel_value526 (imgbuf/Mmux_pixel_value525)
+     LUT5:I0->O            1   0.203   0.579  imgbuf/Mmux_pixel_value527 (rgb_4_OBUF)
+     OBUF:I->O                 2.571          rgb_4_OBUF (rgb<4>)
+    ----------------------------------------
+    Total                      8.520ns (4.303ns logic, 4.217ns route)
+                                       (50.5% logic, 49.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'imgbuf/state[1]_GND_3_o_Mux_10_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              3.648ns (Levels of Logic = 1)
+  Source:            imgbuf/trigger (LATCH)
+  Destination:       cam_trigger (PAD)
+  Source Clock:      imgbuf/state[1]_GND_3_o_Mux_10_o falling
+
+  Data Path: imgbuf/trigger to cam_trigger
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.498   0.579  imgbuf/trigger (imgbuf/trigger)
+     OBUF:I->O                 2.571          cam_trigger_OBUF (cam_trigger)
+    ----------------------------------------
+    Total                      3.648ns (3.069ns logic, 0.579ns route)
+                                       (84.1% logic, 15.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clks/clkgen/pll_base_inst/CLKOUT1'
+  Total number of paths / destination ports: 10 / 1
+-------------------------------------------------------------------------
+Offset:              5.580ns (Levels of Logic = 3)
+  Source:            init_count_7 (FF)
+  Destination:       cam_reset (PAD)
+  Source Clock:      clks/clkgen/pll_base_inst/CLKOUT1 rising
+
+  Data Path: init_count_7 to cam_reset
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.447   0.995  init_count_7 (init_count_7)
+     LUT5:I0->O            1   0.203   0.580  cam_reset1_SW0 (N3)
+     LUT6:I5->O            1   0.205   0.579  cam_reset1 (cam_reset_OBUF)
+     OBUF:I->O                 2.571          cam_reset_OBUF (cam_reset)
+    ----------------------------------------
+    Total                      5.580ns (3.426ns logic, 2.154ns route)
+                                       (61.4% logic, 38.6% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clks/clkgen/pll_base_inst/CLKOUT0
+---------------------------------+---------+---------+---------+---------+
+                                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                     |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------------------+---------+---------+---------+---------+
+clks/clkgen/pll_base_inst/CLKOUT0|    4.685|         |         |         |
+---------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clks/clkgen/pll_base_inst/CLKOUT1
+---------------------------------+---------+---------+---------+---------+
+                                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                     |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------------------+---------+---------+---------+---------+
+clks/clkgen/pll_base_inst/CLKOUT1|    3.782|         |         |         |
+---------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clks/clkgen/pll_base_inst/CLKOUT2
+---------------------------------+---------+---------+---------+---------+
+                                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                     |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------------------+---------+---------+---------+---------+
+clks/clkgen/pll_base_inst/CLKOUT0|    5.670|         |         |         |
+clks/clkgen/pll_base_inst/CLKOUT2|    5.141|         |         |         |
+---------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock imgbuf/state[1]_GND_3_o_Mux_10_o
+---------------------------------+---------+---------+---------+---------+
+                                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                     |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------------------+---------+---------+---------+---------+
+clks/clkgen/pll_base_inst/CLKOUT2|         |         |    2.095|         |
+---------------------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 12.44 secs
+ 
+--> 
+
+Total memory usage is 307976 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   71 (   0 filtered)
+Number of infos    :   63 (   0 filtered)
+

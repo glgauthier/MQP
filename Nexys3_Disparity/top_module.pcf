@@ -1,0 +1,36 @@
+//! **************************************************************************
+// Written by: Map P.15xf on Wed Oct 12 19:10:32 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "HS" LOCATE = SITE "N6" LEVEL 1;
+COMP "VS" LOCATE = SITE "P7" LEVEL 1;
+COMP "cam_reset" LOCATE = SITE "L4" LEVEL 1;
+COMP "fifo_data<0>" LOCATE = SITE "H3" LEVEL 1;
+COMP "fifo_data<1>" LOCATE = SITE "L7" LEVEL 1;
+COMP "fifo_data<2>" LOCATE = SITE "K6" LEVEL 1;
+COMP "fifo_data<3>" LOCATE = SITE "G3" LEVEL 1;
+COMP "fifo_data<4>" LOCATE = SITE "G1" LEVEL 1;
+COMP "fifo_data<5>" LOCATE = SITE "J7" LEVEL 1;
+COMP "fifo_data<6>" LOCATE = SITE "J6" LEVEL 1;
+COMP "fifo_data<7>" LOCATE = SITE "F2" LEVEL 1;
+COMP "cam_sysclk" LOCATE = SITE "L3" LEVEL 1;
+COMP "cam_trigger" LOCATE = SITE "K1" LEVEL 1;
+COMP "fifo_rden1" LOCATE = SITE "K3" LEVEL 1;
+COMP "fifo_rden2" LOCATE = SITE "J1" LEVEL 1;
+COMP "fifo_rrst1" LOCATE = SITE "K2" LEVEL 1;
+COMP "fifo_rrst2" LOCATE = SITE "J3" LEVEL 1;
+COMP "clk_fpga" LOCATE = SITE "V10" LEVEL 1;
+COMP "fifo_rck" LOCATE = SITE "K5" LEVEL 1;
+COMP "rgb<0>" LOCATE = SITE "U7" LEVEL 1;
+COMP "rgb<1>" LOCATE = SITE "V7" LEVEL 1;
+COMP "rgb<2>" LOCATE = SITE "N7" LEVEL 1;
+COMP "rgb<3>" LOCATE = SITE "P8" LEVEL 1;
+COMP "rgb<4>" LOCATE = SITE "T6" LEVEL 1;
+COMP "rgb<5>" LOCATE = SITE "V6" LEVEL 1;
+COMP "rgb<6>" LOCATE = SITE "R7" LEVEL 1;
+COMP "rgb<7>" LOCATE = SITE "T7" LEVEL 1;
+COMP "master_reset" LOCATE = SITE "B8" LEVEL 1;
+NET "clks/clkgen/clkin1" PERIOD = 10 ns HIGH 50%;
+SCHEMATIC END;
+
