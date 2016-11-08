@@ -16,7 +16,7 @@ module mqp_top
     input reset,
     output hsync,
     output vsync,
-    output [11:0] rgb,
+    output reg [11:0] rgb,
     
     //processing system
     input [27:0] data_enable_step,
@@ -46,13 +46,20 @@ module mqp_top
     wire clk_100M;   
     wire clk_25M;
     
+    //clocks to BRAM
     assign clk_100M1 = clk_100M;
     assign clk_100M2 = clk_100M;
     assign clk_100M3 = clk_100M;
     assign clk_25M1 = clk_25M;
     
+    //enables for BRAM
     assign ena = 1'b1;
     assign enb = 1'b1;
+    
+    //splitting up data, enable, and step data
+    assign data = data_enable_step[27:12];
+    assign enable = data_enable_step[11];
+    assign step = data_enable_step[10:0];
      
     //for rangefinder logic
     wire [15:0] data;
@@ -61,28 +68,45 @@ module mqp_top
     wire [8:0] xlocation;
      
     // for vga logic
-    wire [10:0] hcount, vcount;    // horizontal location on screen
+    wire [10:0] hcount, vcount;    // horizontal, vertical location on screen
     assign vcount_9b = vcount[8:0];   // this could cause problems
     wire blank;
-      
+    reg [1:0] vga_count;
+
+    
+    //writing location to vga BRAM
+    //look into this logic*****************  
     always @ (posedge clk_100M)
     begin
         if(write)
         begin
-            dina = dina || (5'b11111 << (638 - xlocation)); // this might give me problems because I am reading and writing
+            dina = dina || (5'b11111 << (638 - xlocation));
             wea = 1'b1;
         end
         else
             wea = 1'b0;
     end
+       
+    //rgb vga logic                  
+    always @ (hcount, vcount, blank)
+    begin
+        if(blank)
+            rgb = 12'h000;
+        else if(x_vga[hcount] == 1'b1 && vga_count == 2)
+            rgb = 12'hF0F;
+        else
+            rgb = 12'h088;
+    end
     
-//    assign rgb = (x_vga[hcount] == 1'b1) ? 12'h000 : 12'h088;
-    assign rgb = (blank == 1'b0) ? 12'h000 : 
-                 (vcount < 255 ) ? 12'hF0F : 12'hFFF;
-    
-    assign data = data_enable_step[27:12];
-    assign enable = data_enable_step[11];
-    assign step = data_enable_step[10:0];
+    // delays vga logic by two 100M clock cycles
+    // for the BRAM read delay    
+    always @ (posedge clk_100M)
+    begin
+        if(reset || blank)
+            vga_count <= 2'b00;
+        else if(!blank && vga_count < 2)
+            vga_count <= vga_count + 1'b1;
+    end
    
    rangefinder rangefinder
    (

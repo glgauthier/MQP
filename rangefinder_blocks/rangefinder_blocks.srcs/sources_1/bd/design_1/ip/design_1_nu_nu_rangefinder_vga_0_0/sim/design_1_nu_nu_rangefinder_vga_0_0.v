@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:user:nu_nu_rangefinder_vga:1.0
-// IP Revision: 24
+// IP Revision: 29
 
 `timescale 1ns/1ps
 

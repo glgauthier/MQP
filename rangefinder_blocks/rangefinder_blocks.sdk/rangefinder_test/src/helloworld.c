@@ -52,7 +52,7 @@
 
 typedef enum
 {
-//	WAIT = 0,
+	WAIT = 0,
 	TX_COMMAND = 1,
 	RX_DATA = 2,
 //	POLL_SEND = 3,	// for debug purposes only
@@ -77,14 +77,18 @@ int main()
     {
 		switch(STATE)
 		{
-//			case WAIT:
-//			{
+			case WAIT:
+			{
+				int i = 0;
+				if(i<100)
+					i++;
+				STATE = TX_COMMAND;
 //				if(Xil_In32(0x43C00000) == 1)
 //				{
 //					STATE = TX_COMMAND;
 //				}
 //				break;
-//			}
+			}
 
 			case TX_COMMAND:
 			{
@@ -158,7 +162,7 @@ int main()
 
 				echo[0] = '\0';
 
-				STATE = TX_COMMAND;
+				STATE = WAIT;
 				break;
 			}
 

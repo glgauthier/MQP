@@ -40,12 +40,12 @@
   "../../../bd/design_1/ip/design_1_processing_system7_0_0/sim/design_1_processing_system7_0_0.v" \
   "../../../bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" \
   "../../../bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0.v" \
+  "../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/rangefinder.v" \
 -endlib
 -makelib ies/xil_defaultlib \
   "../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/vga_controller_640_60.vhd" \
 -endlib
 -makelib ies/xil_defaultlib \
-  "../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/rangefinder.v" \
   "../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/mqp_top.v" \
   "../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/hdl/nu_nu_rangefinder_vga_v1_0_S00_AXI.v" \
   "../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/hdl/nu_nu_rangefinder_vga_v1_0.v" \

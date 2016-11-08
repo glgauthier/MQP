@@ -1,3 +1,39 @@
-20:10:02 INFO  : Launching XSDB server: xsdb.bat -interactive C:\Users\John\Documents\GitHub\MQP\rangefinder_blocks\rangefinder_blocks.sdk\temp_xsdb_launch_script.tcl
-20:10:11 INFO  : XSDB server has started successfully.
-20:10:12 INFO  : Processing command line option -hwspec C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.sdk/design_1_wrapper.hdf.
+13:00:13 INFO  : Launching XSDB server: xsdb.bat -interactive C:\Users\John\Documents\GitHub\MQP\rangefinder_blocks\rangefinder_blocks.sdk\temp_xsdb_launch_script.tcl
+13:00:24 INFO  : XSDB server has started successfully.
+13:00:25 INFO  : Processing command line option -hwspec C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.sdk/design_1_wrapper.hdf.
+13:10:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:10:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+13:10:30 INFO  : FPGA configured successfully with bitstream "C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+13:11:24 INFO  : ps7_init is completed.
+13:11:25 INFO  : ps7_post_config is completed.
+13:11:25 INFO  : Processor reset is completed for ps7_cortexa9_0
+13:13:10 INFO  : Processor reset is completed for ps7_cortexa9_0
+13:13:53 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+13:13:56 INFO  : Processor reset is completed for ps7_cortexa9_0
+13:15:55 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+13:15:59 INFO  : Processor reset is completed for ps7_cortexa9_0
+13:17:44 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+13:17:47 INFO  : Processor reset is completed for ps7_cortexa9_0
+13:19:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:19:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+13:19:42 INFO  : FPGA configured successfully with bitstream "C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+13:19:55 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+13:20:00 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Error while running ps7_init method.
+Cannot write to target
+
+
+    AP transaction timeout: ACK = 0x01, expected=0x02)
+    Error Address = 0xf8000008
+
+
+	at com.xilinx.sdk.targetmanager.internal.TM.run_ps7_init(TM.java:1089)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runTargetSetup(XilinxAppLaunchConfigurationDelegate.java:514)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:616)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)

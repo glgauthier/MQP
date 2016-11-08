@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Mon Nov 07 19:12:23 2016
-# Process ID: 7528
+# Start of session at: Tue Nov 08 12:31:27 2016
+# Process ID: 1328
 # Current directory: C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.runs/synth_1
 # Command line: vivado.exe -log design_1_wrapper.vds -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file: C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.runs/synth_1/design_1_wrapper.vds
@@ -18,15 +18,18 @@ INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Documents/GitHu
 WARNING: [IP_Flow 19-2207] Repository 'c:/Users/John/Documents/GitHub/MQP/ip_repo/rangefinder_vga_1.0' already exists; ignoring attempt to add it again.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Documents/GitHub/MQP/ip_repo/rangefinder_vga_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.2/data/ip'.
-add_files: Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 245.469 ; gain = 39.117
+add_files: Time (s): cpu = 00:00:09 ; elapsed = 00:00:19 . Memory (MB): peak = 244.789 ; gain = 37.629
 Command: synth_design -top design_1_wrapper -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6484 
+INFO: Helper process launched with PID 5744 
+WARNING: [Synth 8-992] data is already implicitly declared earlier [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/mqp_top.v:65]
+WARNING: [Synth 8-992] enable is already implicitly declared earlier [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/mqp_top.v:66]
+WARNING: [Synth 8-992] step is already implicitly declared earlier [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/mqp_top.v:67]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:27 ; elapsed = 00:00:38 . Memory (MB): peak = 337.410 ; gain = 131.059
+Starting RTL Elaboration : Time (s): cpu = 00:00:30 ; elapsed = 00:00:53 . Memory (MB): peak = 342.789 ; gain = 135.629
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 INFO: [Synth 8-638] synthesizing module 'design_1' [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/hdl/design_1.v:13]
@@ -6793,6 +6796,8 @@ INFO: [Synth 8-226] default block is never used [c:/Users/John/Documents/GitHub/
 INFO: [Synth 8-226] default block is never used [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/hdl/nu_nu_rangefinder_vga_v1_0_S00_AXI.v:367]
 INFO: [Synth 8-256] done synthesizing module 'nu_nu_rangefinder_vga_v1_0_S00_AXI' (12#1) [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/hdl/nu_nu_rangefinder_vga_v1_0_S00_AXI.v:4]
 INFO: [Synth 8-638] synthesizing module 'mqp_top' [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/mqp_top.v:12]
+WARNING: [Synth 8-567] referenced signal 'x_vga' should be on the sensitivity list [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/mqp_top.v:91]
+WARNING: [Synth 8-567] referenced signal 'vga_count' should be on the sensitivity list [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/mqp_top.v:91]
 INFO: [Synth 8-638] synthesizing module 'rangefinder' [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/rangefinder.v:22]
 INFO: [Synth 8-256] done synthesizing module 'rangefinder' (13#1) [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/rangefinder.v:22]
 INFO: [Synth 8-638] synthesizing module 'vga_controller_640_60' [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/vga_controller_640_60.vhd:88]
@@ -6926,9 +6931,9 @@ INFO: [Synth 8-256] done synthesizing module 'BIBUF' (23#1) [C:/Xilinx/Vivado/20
 INFO: [Synth 8-638] synthesizing module 'PS7' [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:33164]
 INFO: [Synth 8-256] done synthesizing module 'PS7' (24#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:33164]
 INFO: [Synth 8-256] done synthesizing module 'processing_system7_v5_5_processing_system7' (25#1) [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:156]
-WARNING: [Synth 8-350] instance 'inst' of module 'processing_system7_v5_5_processing_system7' requires 685 connections, but only 672 given [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:318]
+WARNING: [Synth 8-350] instance 'inst' of module 'processing_system7_v5_5_processing_system7' requires 685 connections, but only 672 given [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:315]
 INFO: [Synth 8-256] done synthesizing module 'design_1_processing_system7_0_0' (26#1) [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:59]
-WARNING: [Synth 8-350] instance 'processing_system7_0' of module 'design_1_processing_system7_0_0' requires 68 connections, but only 63 given [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/hdl/design_1.v:237]
+WARNING: [Synth 8-350] instance 'processing_system7_0' of module 'design_1_processing_system7_0_0' requires 67 connections, but only 63 given [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/hdl/design_1.v:237]
 INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_axi_periph_0' [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/hdl/design_1.v:375]
 INFO: [Synth 8-638] synthesizing module 's00_couplers_imp_1CFO1MB' [C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/hdl/design_1.v:690]
 INFO: [Synth 8-638] synthesizing module 'design_1_auto_pc_0' [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/synth/design_1_auto_pc_0.v:58]
@@ -7833,7 +7838,7 @@ WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_9_b2s_rd_cmd_fsm has 
 WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_9_b2s_rd_cmd_fsm has unconnected port s_arlen[2]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:08:13 ; elapsed = 00:08:38 . Memory (MB): peak = 554.820 ; gain = 348.469
+Finished RTL Elaboration : Time (s): cpu = 00:08:19 ; elapsed = 00:08:57 . Memory (MB): peak = 555.383 ; gain = 348.223
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -7843,7 +7848,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:08:14 ; elapsed = 00:08:40 . Memory (MB): peak = 554.820 ; gain = 348.469
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:08:20 ; elapsed = 00:08:59 . Memory (MB): peak = 555.383 ; gain = 348.223
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 35 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -7881,16 +7886,16 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   FDR => FDRE: 12 instances
   SRL16 => SRL16E: 1 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.068 . Memory (MB): peak = 749.035 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.117 . Memory (MB): peak = 748.813 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:08:51 ; elapsed = 00:09:32 . Memory (MB): peak = 749.035 ; gain = 542.684
+Finished Constraint Validation : Time (s): cpu = 00:08:57 ; elapsed = 00:10:03 . Memory (MB): peak = 748.813 ; gain = 541.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:08:51 ; elapsed = 00:09:33 . Memory (MB): peak = 749.035 ; gain = 542.684
+Finished Loading Part and Timing Information : Time (s): cpu = 00:08:57 ; elapsed = 00:10:03 . Memory (MB): peak = 748.813 ; gain = 541.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -7909,7 +7914,7 @@ Applied set_property DONT_TOUCH = true for design_1_i/processing_system7_0_axi_p
 Applied set_property DONT_TOUCH = true for design_1_i/processing_system7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/rst_processing_system7_0_100M. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:08:52 ; elapsed = 00:09:34 . Memory (MB): peak = 749.035 ; gain = 542.684
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:08:59 ; elapsed = 00:10:05 . Memory (MB): peak = 748.813 ; gain = 541.652
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3936] Found unconnected internal register 'decoded_reg' and it is trimmed from '16' to '14' bits. [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/rangefinder.v:110]
 INFO: [Synth 8-5546] ROM "location" won't be mapped to RAM because it is too sparse
@@ -7922,7 +7927,7 @@ INFO: [Synth 8-5546] ROM "xlocation" won't be mapped to RAM because it is too sp
 INFO: [Synth 8-5546] ROM "write" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-4471] merging register 'seq_cnt_en_reg' into 'from_sys_reg' [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/sequence_psr.vhd:222]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:08:59 ; elapsed = 00:09:42 . Memory (MB): peak = 749.035 ; gain = 542.684
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:09:08 ; elapsed = 00:10:16 . Memory (MB): peak = 748.813 ; gain = 541.652
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -7943,7 +7948,7 @@ Detailed RTL Component Info :
 	   2 Input      6 Bit       Adders := 5     
 	   2 Input      5 Bit       Adders := 4     
 	   2 Input      4 Bit       Adders := 4     
-	   2 Input      2 Bit       Adders := 2     
+	   2 Input      2 Bit       Adders := 3     
 +---Registers : 
 	               66 Bit    Registers := 4     
 	               47 Bit    Registers := 2     
@@ -7958,7 +7963,7 @@ Detailed RTL Component Info :
 	                5 Bit    Registers := 4     
 	                4 Bit    Registers := 8     
 	                3 Bit    Registers := 3     
-	                2 Bit    Registers := 11    
+	                2 Bit    Registers := 12    
 	                1 Bit    Registers := 54    
 +---Muxes : 
 	   2 Input     66 Bit        Muxes := 4     
@@ -7979,6 +7984,7 @@ Detailed RTL Component Info :
 	   4 Input      2 Bit        Muxes := 1     
 	   5 Input      2 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 37    
+	   4 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -8029,10 +8035,13 @@ Module mqp_top
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     11 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
+	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 2     
 +---Muxes : 
 	   3 Input     12 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
 Module axi_protocol_converter_v2_1_9_b2s_incr_cmd 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -8202,7 +8211,7 @@ BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:09:00 ; elapsed = 00:09:43 . Memory (MB): peak = 749.035 ; gain = 542.684
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:09:09 ; elapsed = 00:10:17 . Memory (MB): peak = 748.813 ; gain = 541.652
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -8222,9 +8231,9 @@ DSP Report: operator inst/mqp_top/rangefinder/xmult0 is absorbed into DSP inst/m
 INFO: [Synth 8-3936] Found unconnected internal register 'inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/m_payload_i_reg' and it is trimmed from '66' to '62' bits. [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:318]
 INFO: [Synth 8-3936] Found unconnected internal register 'inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/m_payload_i_reg' and it is trimmed from '66' to '62' bits. [c:/Users/John/Documents/GitHub/MQP/rangefinder_blocks/rangefinder_blocks.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:318]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:09:02 ; elapsed = 00:09:45 . Memory (MB): peak = 749.035 ; gain = 542.684
+Finished Cross Boundary Optimization : Time (s): cpu = 00:09:11 ; elapsed = 00:10:19 . Memory (MB): peak = 748.813 ; gain = 541.652
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:09:02 ; elapsed = 00:09:45 . Memory (MB): peak = 749.035 ; gain = 542.684
+Finished Parallel Reinference  : Time (s): cpu = 00:09:11 ; elapsed = 00:10:19 . Memory (MB): peak = 748.813 ; gain = 541.652
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -8397,9 +8406,9 @@ INFO: [Synth 8-3332] Sequential element (inst/mqp_top/rangefinder/xlocation_reg[
 INFO: [Synth 8-3332] Sequential element (inst/mqp_top/rangefinder/xlocation_reg[6]) is unused and will be removed from module design_1_nu_nu_rangefinder_vga_0_0.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:09:08 ; elapsed = 00:09:52 . Memory (MB): peak = 749.035 ; gain = 542.684
+Finished Area Optimization : Time (s): cpu = 00:09:20 ; elapsed = 00:10:30 . Memory (MB): peak = 748.813 ; gain = 541.652
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:09:08 ; elapsed = 00:09:52 . Memory (MB): peak = 749.035 ; gain = 542.684
+Finished Parallel Area Optimization  : Time (s): cpu = 00:09:20 ; elapsed = 00:10:30 . Memory (MB): peak = 748.813 ; gain = 541.652
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -8413,10 +8422,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:09:44 ; elapsed = 00:10:33 . Memory (MB): peak = 894.199 ; gain = 687.848
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:09:56 ; elapsed = 00:11:10 . Memory (MB): peak = 901.063 ; gain = 693.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:09:45 ; elapsed = 00:10:36 . Memory (MB): peak = 917.539 ; gain = 711.188
+Finished Timing Optimization : Time (s): cpu = 00:09:58 ; elapsed = 00:11:14 . Memory (MB): peak = 925.336 ; gain = 718.176
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -8428,16 +8437,16 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:09:52 ; elapsed = 00:10:44 . Memory (MB): peak = 929.398 ; gain = 723.047
+Finished Technology Mapping : Time (s): cpu = 00:10:05 ; elapsed = 00:11:23 . Memory (MB): peak = 936.848 ; gain = 729.688
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:09:52 ; elapsed = 00:10:44 . Memory (MB): peak = 929.398 ; gain = 723.047
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:10:05 ; elapsed = 00:11:23 . Memory (MB): peak = 936.848 ; gain = 729.688
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:09:52 ; elapsed = 00:10:44 . Memory (MB): peak = 929.398 ; gain = 723.047
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:10:05 ; elapsed = 00:11:23 . Memory (MB): peak = 936.848 ; gain = 729.688
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -8471,7 +8480,7 @@ INFO: [Synth 8-4618] Found max_fanout attribute set to 20 on net \inst/gen_axili
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:09:57 ; elapsed = 00:10:49 . Memory (MB): peak = 929.398 ; gain = 723.047
+Finished IO Insertion : Time (s): cpu = 00:10:10 ; elapsed = 00:11:28 . Memory (MB): peak = 936.848 ; gain = 729.688
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -8484,7 +8493,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:09:57 ; elapsed = 00:10:49 . Memory (MB): peak = 929.398 ; gain = 723.047
+Finished Renaming Generated Instances : Time (s): cpu = 00:10:10 ; elapsed = 00:11:28 . Memory (MB): peak = 936.848 ; gain = 729.688
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -8496,25 +8505,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:09:58 ; elapsed = 00:10:50 . Memory (MB): peak = 929.398 ; gain = 723.047
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:10:11 ; elapsed = 00:11:29 . Memory (MB): peak = 936.848 ; gain = 729.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:09:58 ; elapsed = 00:10:50 . Memory (MB): peak = 929.398 ; gain = 723.047
+Finished Renaming Generated Ports : Time (s): cpu = 00:10:11 ; elapsed = 00:11:29 . Memory (MB): peak = 936.848 ; gain = 729.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:09:58 ; elapsed = 00:10:51 . Memory (MB): peak = 929.398 ; gain = 723.047
+Finished Handling Custom Attributes : Time (s): cpu = 00:10:11 ; elapsed = 00:11:30 . Memory (MB): peak = 936.848 ; gain = 729.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:09:58 ; elapsed = 00:10:51 . Memory (MB): peak = 929.398 ; gain = 723.047
+Finished Renaming Generated Nets : Time (s): cpu = 00:10:11 ; elapsed = 00:11:30 . Memory (MB): peak = 936.848 ; gain = 729.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -8551,34 +8560,36 @@ Report Cell Usage:
 |2     |BUFG       |     4|
 |3     |CARRY4     |    20|
 |4     |DSP48E1    |     1|
-|5     |LUT1       |   162|
+|5     |LUT1       |   163|
 |6     |LUT2       |    41|
-|7     |LUT3       |   246|
-|8     |LUT4       |    95|
+|7     |LUT3       |   244|
+|8     |LUT4       |    97|
 |9     |LUT5       |    93|
-|10    |LUT6       |   152|
+|10    |LUT6       |   324|
 |11    |MMCME2_ADV |     1|
-|12    |PS7        |     1|
-|13    |RAMB18E1   |     1|
-|14    |RAMB18E1_1 |     1|
-|15    |RAMB36E1   |    18|
-|16    |SRL16      |     1|
-|17    |SRL16E     |    22|
-|18    |SRLC32E    |    47|
-|19    |FDCE       |     7|
-|20    |FDR        |     8|
-|21    |FDRE       |   759|
-|22    |FDSE       |    55|
-|23    |IBUF       |     2|
-|24    |OBUF       |    14|
+|12    |MUXF7      |    84|
+|13    |MUXF8      |    40|
+|14    |PS7        |     1|
+|15    |RAMB18E1   |     1|
+|16    |RAMB18E1_1 |     1|
+|17    |RAMB36E1   |    18|
+|18    |SRL16      |     1|
+|19    |SRL16E     |    22|
+|20    |SRLC32E    |    47|
+|21    |FDCE       |     7|
+|22    |FDR        |     8|
+|23    |FDRE       |   761|
+|24    |FDSE       |    55|
+|25    |IBUF       |     2|
+|26    |OBUF       |    14|
 +------+-----------+------+
 
 Report Instance Areas: 
 +------+---------------------------------------------------+--------------------------------------------------------------+------+
 |      |Instance                                           |Module                                                        |Cells |
 +------+---------------------------------------------------+--------------------------------------------------------------+------+
-|1     |top                                                |                                                              |  1881|
-|2     |  design_1_i                                       |design_1                                                      |  1866|
+|1     |top                                                |                                                              |  2180|
+|2     |  design_1_i                                       |design_1                                                      |  2165|
 |3     |    blk_mem_gen_0                                  |design_1_blk_mem_gen_0_1                                      |     1|
 |4     |      U0                                           |blk_mem_gen_v8_3_3                                            |     1|
 |5     |        inst_blk_mem_gen                           |blk_mem_gen_v8_3_3_synth                                      |     1|
@@ -8634,13 +8645,13 @@ Report Instance Areas:
 |55    |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized9                 |     1|
 |56    |              \ramloop[9].ram.r                    |blk_mem_gen_prim_width__parameterized10                       |     1|
 |57    |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized10                |     1|
-|58    |    nu_nu_rangefinder_vga_0                        |design_1_nu_nu_rangefinder_vga_0_0                            |   345|
-|59    |      inst                                         |nu_nu_rangefinder_vga_v1_0                                    |   345|
-|60    |        mqp_top                                    |mqp_top                                                       |   134|
+|58    |    nu_nu_rangefinder_vga_0                        |design_1_nu_nu_rangefinder_vga_0_0                            |   644|
+|59    |      inst                                         |nu_nu_rangefinder_vga_v1_0                                    |   644|
+|60    |        mqp_top                                    |mqp_top                                                       |   433|
 |61    |          mmcm                                     |clk_wiz_0                                                     |     5|
 |62    |            inst                                   |clk_wiz_0_clk_wiz                                             |     5|
 |63    |          rangefinder                              |rangefinder                                                   |    62|
-|64    |          vga_controller                           |vga_controller_640_60                                         |    66|
+|64    |          vga_controller                           |vga_controller_640_60                                         |   361|
 |65    |        nu_nu_rangefinder_vga_v1_0_S00_AXI_inst    |nu_nu_rangefinder_vga_v1_0_S00_AXI                            |   211|
 |66    |    processing_system7_0                           |design_1_processing_system7_0_0                               |   244|
 |67    |      inst                                         |processing_system7_v5_5_processing_system7                    |   244|
@@ -8679,11 +8690,11 @@ Report Instance Areas:
 |100   |          SEQ_COUNTER                              |upcnt_n                                                       |    13|
 +------+---------------------------------------------------+--------------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:09:58 ; elapsed = 00:10:51 . Memory (MB): peak = 929.398 ; gain = 723.047
+Finished Writing Synthesis Report : Time (s): cpu = 00:10:12 ; elapsed = 00:11:30 . Memory (MB): peak = 936.848 ; gain = 729.688
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1870 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:17 ; elapsed = 00:09:46 . Memory (MB): peak = 929.398 ; gain = 487.598
-Synthesis Optimization Complete : Time (s): cpu = 00:09:59 ; elapsed = 00:10:51 . Memory (MB): peak = 929.398 ; gain = 723.047
+Synthesis finished with 0 errors, 0 critical warnings and 1230 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:24 ; elapsed = 00:10:05 . Memory (MB): peak = 936.848 ; gain = 496.754
+Synthesis Optimization Complete : Time (s): cpu = 00:10:12 ; elapsed = 00:11:31 . Memory (MB): peak = 936.848 ; gain = 729.688
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 53 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -8695,8 +8706,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   SRL16 => SRL16E: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-333 Infos, 112 Warnings, 0 Critical Warnings and 0 Errors encountered.
+333 Infos, 117 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:09:53 ; elapsed = 00:10:41 . Memory (MB): peak = 929.398 ; gain = 683.930
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.516 . Memory (MB): peak = 929.398 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 07 19:23:35 2016...
+synth_design: Time (s): cpu = 00:10:05 ; elapsed = 00:11:08 . Memory (MB): peak = 936.848 ; gain = 692.059
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.505 . Memory (MB): peak = 936.848 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 08 12:43:32 2016...

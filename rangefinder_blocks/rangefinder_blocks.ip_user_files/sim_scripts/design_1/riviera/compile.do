@@ -69,12 +69,12 @@ vlog -work xil_defaultlib -v2k5 "+incdir+../../../../rangefinder_blocks.srcs/sou
 "../../../bd/design_1/ip/design_1_processing_system7_0_0/sim/design_1_processing_system7_0_0.v" \
 "../../../bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" \
 "../../../bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0.v" \
+"../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/rangefinder.v" \
 
 vcom -work xil_defaultlib -93 \
 "../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/vga_controller_640_60.vhd" \
 
 vlog -work xil_defaultlib -v2k5 "+incdir+../../../../rangefinder_blocks.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../rangefinder_blocks.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/rangefinder.v" \
 "../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/src/mqp_top.v" \
 "../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/hdl/nu_nu_rangefinder_vga_v1_0_S00_AXI.v" \
 "../../../bd/design_1/ipshared/xilinx.com/nu_nu_rangefinder_vga_v1_0/hdl/nu_nu_rangefinder_vga_v1_0.v" \
