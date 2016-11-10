@@ -18,10 +18,10 @@ EXAMPLE_DATA = 1;
 
 % Load the stereo images.
 if (EXAMPLE_DATA == 0)
-    load('I1Rect.mat');
-    leftI = I1Rect;
     load('I2Rect.mat');
-    rightI = I2Rect;
+    leftI = I2Rect;
+    load('I1Rect.mat');
+    rightI = I1Rect;
 else
     left = imread('left.png');
     right = imread('right.png');
@@ -39,7 +39,7 @@ DbasicSubpixel = zeros(size(leftI), 'single');
 disparityRange = 50;
 
 % Define the size of the blocks for block matching.
-halfBlockSize = 5;
+halfBlockSize = 3;
 blockSize = 2 * halfBlockSize + 1;
 
 % Get the image dimensions.
