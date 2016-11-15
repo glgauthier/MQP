@@ -1,6 +1,9 @@
-set -tmpdir "C:/Users/georges/Documents/GitHub/MQP/Nexys3_Disparity/xst/projnav.tmp"
-set -xsthdpdir "C:/Users/georges/Documents/GitHub/MQP/Nexys3_Disparity/xst"
-run -compileonly yes
+set -tmpdir "xst/projnav.tmp"
+set -xsthdpdir "xst"
+run
+-ifn disparity.prj
+-ofn disparity
+-ofmt NGC
 -p xc6slx16-3-csg324
 -top disparity
 -opt_mode Speed
@@ -48,4 +51,3 @@ run -compileonly yes
 -iob Auto
 -equivalent_register_removal YES
 -slice_utilization_ratio_maxmargin 5
--ifn disparity.prj

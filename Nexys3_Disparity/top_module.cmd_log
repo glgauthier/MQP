@@ -100,3 +100,12 @@ ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc disparity_top.u
 map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o top_module_map.ncd top_module.ngd top_module.pcf 
 par -w -intstyle ise -ol high -mt off top_module_map.ncd top_module.ncd top_module.pcf 
 trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml top_module.twx top_module.ncd -o top_module.twr top_module.pcf -ucf disparity_top.ucf 
+xst -intstyle ise -ifn "C:/Users/georges/Documents/GitHub/MQP/Nexys3_Disparity/top_module.xst" -ofn "C:/Users/georges/Documents/GitHub/MQP/Nexys3_Disparity/top_module.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc disparity_top.ucf -p xc6slx16-csg324-3 top_module.ngc top_module.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o top_module_map.ncd top_module.ngd top_module.pcf 
+par -w -intstyle ise -ol high -mt off top_module_map.ncd top_module.ncd top_module.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml top_module.twx top_module.ncd -o top_module.twr top_module.pcf -ucf disparity_top.ucf 
+xst -intstyle ise -ifn "C:/Users/georges/Documents/GitHub/MQP/Nexys3_Disparity/top_module.xst" -ofn "C:/Users/georges/Documents/GitHub/MQP/Nexys3_Disparity/top_module.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc disparity_top.ucf -p xc6slx16-csg324-3 top_module.ngc top_module.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o top_module_map.ncd top_module.ngd top_module.pcf 
+par -w -intstyle ise -ol high -mt off top_module_map.ncd top_module.ncd top_module.pcf 

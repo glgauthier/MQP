@@ -7,24 +7,25 @@ module disparity(
 	 input enable, // enable new disparity calculation 
 	 input reset, // reset disparity FSM
 	 input [7:0] image_data, // FIFO data in
-	 input buffer_ready,
-	 input [9:0] disp_href,
-	 input [9:0] disp_vref,
-	 output [7:0] new_image,
-	 output reg [9:0] buffer_href,
-	 output reg [9:0] buffer_vref,
+	 input buffer_ready, // input images ready to be processed
+	 input [9:0] disp_href, // output image href
+	 input [9:0] disp_vref, // output image vref
+	 output reg [7:0] new_image, // output image data
+	 output reg [9:0] buffer_href, // current template href
+	 output reg [9:0] buffer_vref, // current template vref
 	 output reg image_sel = 0, // left/right frame select
 	 output idle, // LED indicator signify end of process
-	 output [2:0] state_LED,
-	 output reg [9:0] minr, maxr,t_minc,t_maxc,b_minc=0,b_maxc=0,mind,maxd,numBlocks,
-	 output reg [9:0] rcnt, ccnt, dcnt = 0, cdcnt,rdcnt,scnt = 0
+	 output [2:0] state_LED, // current state indicator
+	 // ~~~~~~~~ internal registers brought to output for simulation ~~~~~~~~~~~~~~
+	 output reg [9:0] minr, maxr,t_minc,t_maxc,b_minc,b_maxc,mind,maxd,numBlocks,
+	 output reg [9:0] rcnt=0, ccnt=0, dcnt = 0, cdcnt,rdcnt,scnt = 0
     );
 
 // user-defined constants (image search parameters)
-parameter WIDTH = 20 - 1; // output image width (scale down by 16)
-parameter HEIGHT = 7 - 1; // output image height (scale down by 16)
-parameter SEARCH_RANGE = 15-1; // 50 
-parameter HALF_BLOCK = 3-1; // 3 
+parameter WIDTH = 20 - 1; // output image width (0-indexed)
+parameter HEIGHT = 7 - 1; // output image height (0-indexed)
+parameter SEARCH_RANGE = 15-1; // disparity block comparison search range (0-indexed)
+parameter HALF_BLOCK = 2; // half block size
 
 // calculated constants
 parameter BLOCK_SIZE = (2*HALF_BLOCK) + 1;
@@ -37,19 +38,22 @@ reg [9:0] row_count = 0; // number of rows iterated through (n in matlab code)
 //wire [9:0] mind = 0, maxd = 0; // min/max disparity search bounds
 //wire [9:0] numBlocks = 0; // number of blocks within current search bounds
 reg [9:0] blockIndex = 0; // current block being searched in numBlocks
+reg [7:0] max, index; // index and value of max number in disparity vector (this should be switched to min)
+reg [1:0] pipe=2'b00; // pipeline control for FSM
+reg done; //col_count == (WIDTH-(HALF_BLOCK+1'b1)) && row_count == HEIGHT (will be 1 if disparity is 100% done)
+
+// counting variables for various loops
 integer i,j,c;
-reg [7:0] max, index;
-reg [1:0] pipe=2'b00;
 
 // temporary memory
-reg [7:0] resultant [0:WIDTH][0:HEIGHT];
-reg [7:0] left_frame [0:WIDTH][0:HEIGHT];
-reg [7:0] right_frame [0:WIDTH][0:HEIGHT];
-reg [7:0] template [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1];
-reg [7:0] block [0:BLOCK_SIZE][0:BLOCK_SIZE];
-reg [7:0] SAD_diffs [0:BLOCK_SIZE][0:BLOCK_SIZE];
-reg [(SEARCH_RANGE*8)-1:0] SAD_vector [0:SEARCH_RANGE]; // dynamic size in matlab implementation
-reg [(SEARCH_RANGE*8)-1:0] temp; // sum pre-sad vector
+reg [7:0] resultant [0:WIDTH][0:HEIGHT]; // final disparity image
+reg [7:0] left_frame [0:WIDTH][0:HEIGHT]; // left image
+reg [7:0] right_frame [0:WIDTH][0:HEIGHT]; // right image
+reg [7:0] template [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // template block
+reg [7:0] block [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // search block
+reg [7:0] SAD_diffs [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // block for holding abs(template-block)
+reg [(SEARCH_RANGE*8)-1:0] temp; // block for holding sum(abs(template-block))
+reg [(SEARCH_RANGE*8)-1:0] SAD_vector [0:SEARCH_RANGE]; // block for holding sum(sum(abs(template-block)))
 
 // ~~~~~~~~~~~~~~~ Disparity FSM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 parameter [2:0] READ = 3'b001, // read data from FIFO
@@ -71,7 +75,7 @@ always @ (posedge clk, posedge reset)
 // next state logic
 // starts a new sequence on "enable" transition,
 // otherwise progresses based on ns_enable
-always @(current_state,enable,row_count,col_count,image_sel,ccnt,cdcnt,t_maxc,b_maxc,dcnt,ns_enable,ps_enable,pipe)
+always @(current_state,enable,row_count,col_count,image_sel,ccnt,cdcnt,t_maxc,b_maxc,dcnt,ns_enable,ps_enable,pipe,done)
 	case(current_state)
 	IDLE: 
 		if(enable) begin
@@ -92,7 +96,8 @@ always @(current_state,enable,row_count,col_count,image_sel,ccnt,cdcnt,t_maxc,b_
 			prev_state = READ;
 		end
 	SEPARATE:
-		if((ccnt == t_maxc) && (cdcnt == b_maxc)) begin
+		//if((ccnt == t_maxc) && (cdcnt == b_maxc)) begin
+		if(ccnt == BLOCK_SIZE && rcnt == BLOCK_SIZE) begin
 			next_state = SAD;
 			prev_state = SEPARATE;
 		end
@@ -114,11 +119,15 @@ always @(current_state,enable,row_count,col_count,image_sel,ccnt,cdcnt,t_maxc,b_
 			prev_state = SAD;
 		end
 	FINALIZE: 
-		if(t_maxc<WIDTH && maxr<HEIGHT && pipe == 2'b11) begin
+		// both were maxr<HEIGHT && maxr == HEIGHT
+		//if(t_maxc<(WIDTH-1) && minr<=(HEIGHT-HALF_BLOCK) && pipe == 2'b11) begin
+		//if(b_maxc<WIDTH && minr<=(HEIGHT-HALF_BLOCK) && pipe == 2'b11) begin
+		if(~done && pipe == 2'b11) begin
 			next_state = SEPARATE;
 			prev_state = FINALIZE;
 		end
-		else if(t_maxc==WIDTH && maxr==HEIGHT && pipe == 2'b11) begin
+		else if(done && pipe == 2'b11) begin
+		//else if (blockIndex == 1'b1 && pipe == 2'b11)
 			next_state = IDLE;
 			prev_state = FINALIZE;
 		end
@@ -168,28 +177,36 @@ always @(posedge clk)
 		else begin
 			row_count <= 10'b0;
 			col_count <= 10'b0;
+			pipe <= 2'b00;
 		end
 	end
 	
 	SEPARATE: // reset for next search along disparity range
 	begin
-		// read in search block set by (dcnt+t_minc,dcnt+t_maxc,minr:maxr)
-		for(cdcnt = (b_minc); cdcnt < (b_maxc); cdcnt = cdcnt + 1'b1)
-			for (rdcnt = minr; rdcnt < maxr; rdcnt = rdcnt + 1'b1)
-				block[cdcnt-b_minc][rdcnt-minr] <= right_frame[cdcnt][rdcnt];
-		
-		// read in template block set by (t_minc:t_maxc,minr:maxr)
-		for(ccnt = t_minc; ccnt<t_maxc; ccnt = ccnt + 1'b1)
-			for(rcnt = minr; rcnt<maxr; rcnt = rcnt + 1'b1)
-				template[ccnt-t_minc][rcnt-minr] <= left_frame[ccnt][rcnt];
-			
+		// read in the template and search blocks set by the following
+		// template:     (t_minc:t_maxc,minr:maxr)
+		// search block: (b_minc:b_maxc,minr:maxr)
+		for(ccnt = 10'd0; ccnt<BLOCK_SIZE; ccnt = ccnt + 1'b1)
+			for(rcnt = 10'd0; rcnt<BLOCK_SIZE; rcnt = rcnt + 1'b1) begin
+				// read in template image block
+				if(ccnt <= (t_maxc-t_minc) && rcnt <= (maxr-minr)) // fully within template search bounds
+					template[ccnt][rcnt] <= left_frame[t_minc+ccnt][minr+rcnt];
+				else // outside tempate bounds
+					template[ccnt][rcnt] <= 8'h00;
+					
+				// read in search image block
+				if(ccnt <= (b_maxc-b_minc) && rcnt <= (maxr-minr)) // fully within template search bounds
+					block[ccnt][rcnt] <= right_frame[b_minc+ccnt][minr+rcnt];
+				else // outside tempate bounds
+					block[ccnt][rcnt] <= 8'h00;
+			end
+				
 		if(next_state == SAD)
 			pipe <= 2'b00;
 	end
 	
 	SAD:
 	begin
-		
     	// abs(template-block)
 		if (pipe == 2'b00) begin
 			for(ccnt = t_minc; ccnt<t_maxc; ccnt = ccnt + 1'b1)
@@ -226,7 +243,7 @@ always @(posedge clk)
 					pipe <= 2'b11;
 				end
 			end
-
+		
       // update SAD vector index (when full, proceed to finalization)	
 		if(dcnt < maxd && pipe == 2'b11) begin
 			dcnt <= dcnt + 10'b1;
@@ -243,6 +260,11 @@ always @(posedge clk)
 					row_count <= row_count + 1'b1;
 					col_count <= 0;
 			end
+			if(col_count == (WIDTH-(HALF_BLOCK+1'b1)) && row_count == HEIGHT)
+				done <= 1'b1;
+			else
+				done <= 1'b0;
+			
 		end
 			
 		
@@ -274,6 +296,8 @@ always @(posedge clk)
 			resultant[t_minc+HALF_BLOCK][minr+HALF_BLOCK] <= index;
 			pipe <= 2'b11;
 		end
+			
+			
 	end
 	endcase
 	
@@ -315,10 +339,11 @@ begin
 	end
 end
 
+//SAD_vector[blockIndex]
 //always @ (disp_href, disp_vref)
-//begin
-assign new_image = resultant[disp_vref][disp_href];
-//end
+//	new_image = template[disp_vref][disp_href];
+always @(posedge clk)
+	new_image = template[0][0];
 
 assign state_LED = current_state;
 

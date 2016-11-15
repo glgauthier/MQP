@@ -12,8 +12,8 @@ left(6,17) = 127;
 right(6,19) = 127;
 % plot both images for reference
 figure
-subplot(1,2,1), imshow(left)
-subplot(1,2,2), imshow(right)
+subplot(1,2,1), imshow(left), title('Left Image')
+subplot(1,2,2), imshow(right), title('Right Image')
 % convert to format that can be read by test bench
 left = dec2base(left',2,8)
 right = dec2base(right',2,8)
