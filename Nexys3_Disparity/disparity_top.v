@@ -10,7 +10,7 @@ module disparity(
 	 input buffer_ready, // input images ready to be processed
 	 input [9:0] disp_href, // output image href
 	 input [9:0] disp_vref, // output image vref
-	 output reg [7:0] new_image, // output image data
+	 output [40:0] new_image, // output image data
 	 output reg [9:0] buffer_href, // current template href
 	 output reg [9:0] buffer_vref, // current template vref
 	 output reg image_sel = 0, // left/right frame select
@@ -38,7 +38,7 @@ reg [9:0] row_count = 0; // number of rows iterated through (n in matlab code)
 //wire [9:0] mind = 0, maxd = 0; // min/max disparity search bounds
 //wire [9:0] numBlocks = 0; // number of blocks within current search bounds
 reg [9:0] blockIndex = 0; // current block being searched in numBlocks
-reg [7:0] max, index; // index and value of max number in disparity vector (this should be switched to min)
+reg [7:0] min, index; // index and value of max number in disparity vector (this should be switched to min)
 reg [1:0] pipe=2'b00; // pipeline control for FSM
 reg done; //col_count == (WIDTH-(HALF_BLOCK+1'b1)) && row_count == HEIGHT (will be 1 if disparity is 100% done)
 
@@ -52,7 +52,7 @@ reg [7:0] right_frame [0:WIDTH][0:HEIGHT]; // right image
 reg [7:0] template [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // template block
 reg [7:0] block [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // search block
 reg [7:0] SAD_diffs [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // block for holding abs(template-block)
-reg [(SEARCH_RANGE*8)-1:0] temp; // block for holding sum(abs(template-block))
+reg [(SEARCH_RANGE*8)-1:0] temp [0:BLOCK_SIZE-1]; // block for holding sum(abs(template-block))
 reg [(SEARCH_RANGE*8)-1:0] SAD_vector [0:SEARCH_RANGE]; // block for holding sum(sum(abs(template-block)))
 
 // ~~~~~~~~~~~~~~~ Disparity FSM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -97,7 +97,7 @@ always @(current_state,enable,row_count,col_count,image_sel,ccnt,cdcnt,t_maxc,b_
 		end
 	SEPARATE:
 		//if((ccnt == t_maxc) && (cdcnt == b_maxc)) begin
-		if(ccnt == BLOCK_SIZE && rcnt == BLOCK_SIZE) begin
+		if(ccnt == (BLOCK_SIZE-1) && rcnt == (BLOCK_SIZE-1)) begin
 			next_state = SAD;
 			prev_state = SEPARATE;
 		end
@@ -148,6 +148,7 @@ always @(posedge clk)
 		col_count <= 10'b0;
 		image_sel <= 1'b0;
 		dcnt <= 10'b0;
+		pipe <= 2'b00;
 	end
 	
 	READ: // read in image data from buffers
@@ -159,11 +160,9 @@ always @(posedge clk)
 			right_frame[col_count][row_count] <= image_data;
 		
 		// update address for next FSM cycle
-		// increment accross by pixel index
-		if(col_count < WIDTH) 
+		if(col_count < WIDTH) // increment accross by pixel index
 			col_count <= col_count + 1'b1;
-		// after reaching last pixel, go to next row
-		else if (row_count < HEIGHT) begin 
+		else if (row_count < HEIGHT) begin // after reaching last pixel, go to next row
 			col_count <= 10'b0;
 			row_count <= row_count + 1'b1;
 		end
@@ -181,68 +180,105 @@ always @(posedge clk)
 		end
 	end
 	
-	SEPARATE: // reset for next search along disparity range
+	SEPARATE: // Read in new block data for next comparison
 	begin
-		// read in the template and search blocks set by the following
-		// template:     (t_minc:t_maxc,minr:maxr)
+		// read in the template and search blocks IN PARALLEL as set by the following:
+		// template block: (t_minc:t_maxc,minr:maxr)
 		// search block: (b_minc:b_maxc,minr:maxr)
-		for(ccnt = 10'd0; ccnt<BLOCK_SIZE; ccnt = ccnt + 1'b1)
-			for(rcnt = 10'd0; rcnt<BLOCK_SIZE; rcnt = rcnt + 1'b1) begin
-				// read in template image block
-				if(ccnt <= (t_maxc-t_minc) && rcnt <= (maxr-minr)) // fully within template search bounds
-					template[ccnt][rcnt] <= left_frame[t_minc+ccnt][minr+rcnt];
-				else // outside tempate bounds
-					template[ccnt][rcnt] <= 8'h00;
-					
-				// read in search image block
-				if(ccnt <= (b_maxc-b_minc) && rcnt <= (maxr-minr)) // fully within template search bounds
-					block[ccnt][rcnt] <= right_frame[b_minc+ccnt][minr+rcnt];
-				else // outside tempate bounds
-					block[ccnt][rcnt] <= 8'h00;
-			end
-				
-		if(next_state == SAD)
+		
+		// read in template image block
+		if(ccnt <= (t_maxc-t_minc) && rcnt <= (maxr-minr)) // fully within template search bounds
+			template[ccnt][rcnt] <= left_frame[t_minc+ccnt][minr+rcnt];
+		else // outside tempate bounds
+			template[ccnt][rcnt] <= 8'h00;
+			
+		// read in search image block
+		if(ccnt <= (b_maxc-b_minc) && rcnt <= (maxr-minr)) // fully within template search bounds
+			block[ccnt][rcnt] <= right_frame[b_minc+ccnt][minr+rcnt];
+		else // outside tempate bounds
+			block[ccnt][rcnt] <= 8'h00;
+
+		// increment ccnt and rcnt to iterate through all pixels within blocks
+		if(ccnt<(BLOCK_SIZE-1))
+			ccnt<=ccnt+1'b1;
+		else if(rcnt<(BLOCK_SIZE-1) && ccnt==(BLOCK_SIZE-1)) begin
+			rcnt <= rcnt+1'b1;
+			ccnt <= 10'b0;
+		end
+		
+		// make sure pipe is clear for SAD
+		if(next_state == SAD)begin
 			pipe <= 2'b00;
+			ccnt <= 0;
+			rcnt <= 0;
+			cdcnt <= 0;
+			rdcnt <= 0;
+			blockIndex <= 0;
+		end
 	end
 	
 	SAD:
 	begin
-    	// abs(template-block)
+    	// ~~~~~~~~~~~~~~~~ abs(template-block) ~~~~~~~~~~~~~~~~ 
 		if (pipe == 2'b00) begin
-			for(ccnt = t_minc; ccnt<t_maxc; ccnt = ccnt + 1'b1)
-			begin
-				for(rcnt = minr; rcnt<maxr; rcnt = rcnt + 1'b1)
-					if(template[ccnt][rcnt]>block[ccnt][rcnt])
-						SAD_diffs[ccnt-t_minc][rcnt-minr] <= template[ccnt][rcnt] - block[ccnt][rcnt];
+			if(template[ccnt][rcnt]>block[ccnt][rcnt])
+				SAD_diffs[ccnt][rcnt] <= template[ccnt][rcnt] - block[ccnt][rcnt];
+			else
+				SAD_diffs[ccnt][rcnt] <= block[ccnt][rcnt] - template[ccnt][rcnt];
+
+			if(ccnt<(BLOCK_SIZE-1))
+				ccnt<=ccnt+1'b1;
+			else if(rcnt <(BLOCK_SIZE-1) && ccnt==(BLOCK_SIZE-1)) begin
+				rcnt <= rcnt+1'b1;
+				ccnt <= 10'b0;
+			end
+			else begin // ccnt == (BLOCK_SIZE-1) && rcnt == (BLOCK_SIZE-1)
+				pipe <= 2'b01;
+			end
+			
+		end
+		
+		// ~~~~~~~~~~~~~~~~ sum(abs(template-block)) ~~~~~~~~~~~~~~~~ 
+		if (rcnt>1 && pipe < 2'b10) begin // pipeline things
+			if(cdcnt < BLOCK_SIZE) // 0..block_size-1
+					if(cdcnt == 0)
+						temp[rdcnt] <= SAD_diffs[0][rdcnt];
 					else
-						SAD_diffs[ccnt-t_minc][rcnt-minr] <= block[ccnt][rcnt] - template[ccnt][rcnt];
-				if(ccnt == (t_maxc-1)) pipe <= 2'b01;
+						temp[rdcnt] <= temp[rdcnt] + SAD_diffs[cdcnt][rdcnt];	
+			else// avg accross block width when one sum is done 
+					temp[rdcnt] <= (temp[rdcnt]/BLOCK_SIZE);
+			
+			if(cdcnt<BLOCK_SIZE)
+				cdcnt<=cdcnt+1'b1;
+			else if(rdcnt <(BLOCK_SIZE-1) && cdcnt==(BLOCK_SIZE)) begin
+				rdcnt <= rdcnt+1'b1;
+				cdcnt <= 10'b0;
 			end
+			else begin// ccnt == (BLOCK_SIZE) && rcnt == (BLOCK_SIZE-1)
+				pipe <= 2'b10;
+				ccnt <= 10'b0;
+				rcnt <= 10'b0;
+				cdcnt <= 10'b0;
+				rdcnt <= 10'b0;
+			end
+		
 		end
 		
-		// sum(abs(template-block))
-		else if (pipe == 2'b01) begin
-			scnt <= scnt + 1'b1; // number of blocks processed for the vector (SUMcount = scnt)		
-			for(i = t_minc; i <= t_maxc; i = i + 1) begin // increment accross
-				for(j = minr; j<= maxr; j = j + 1) begin // increment down
-					temp[i] <= temp[i] + SAD_diffs[i-t_minc][j-minr];
-					if(j == maxr) 
-						temp[i] <= temp[i] / (maxr-minr);
-				end
-				if (i == t_maxc) pipe <= 2'b10;
+		// ~~~~~~~~~~~~~~~~ sum(sum(abs(template-block))) ~~~~~~~~~~~~~~~~ 
+		if (pipe == 2'b10) begin // pipe = 2'b10
+			if(ccnt<BLOCK_SIZE-1) begin
+				if(ccnt == 0)
+					SAD_vector[blockIndex] <= temp[0];
+				else
+					SAD_vector[blockIndex] <= SAD_vector[blockIndex] + temp[ccnt];
+				ccnt <= ccnt + 1'b1;
 			end
-		end
-		
-		// sum(sum(abs(template-block)))
-		else
-			for(i = t_minc; i <= t_maxc; i = i + 1)
-			begin
-				SAD_vector[blockIndex] <= SAD_vector[blockIndex] + temp[i-t_minc];
-				if (i == t_maxc) begin
-					SAD_vector[blockIndex] <= SAD_vector[blockIndex]/(t_maxc-t_minc);
-					pipe <= 2'b11;
-				end
+			else begin
+				SAD_vector[blockIndex] <= SAD_vector[blockIndex]/(BLOCK_SIZE);
+				ccnt <= 0;
+				pipe <= 2'b11;
 			end
+		end 
 		
       // update SAD vector index (when full, proceed to finalization)	
 		if(dcnt < maxd && pipe == 2'b11) begin
@@ -264,7 +300,13 @@ always @(posedge clk)
 				done <= 1'b1;
 			else
 				done <= 1'b0;
-			
+		end 
+		if (next_state == SEPARATE) begin
+			ccnt <= 0;
+			rcnt <= 0;
+			cdcnt <= 0;
+			rdcnt <= 0;
+			pipe <= 2'b00;
 		end
 			
 		
@@ -274,22 +316,33 @@ always @(posedge clk)
 	begin
 		dcnt <= 10'b0;
 		// search for index of max valye in SAD_vector
-		if(pipe == 2'b00)
-		begin
-			for(c = 0; c <= SEARCH_RANGE; c = c + 1)
-			begin
-				if (c == 0) begin
-					max <= SAD_vector[0];
-					index <= 0;
+//		if(pipe == 2'b00)
+//		begin
+//			for(c = 0; c <= numBlocks; c = c + 1)
+//			begin
+//				if (c == 0) begin
+//					min <= SAD_vector[0];
+//					index <= 0;
+//				end
+//				else if(SAD_vector[c]<min)
+//				begin
+//					min <= SAD_vector[c];
+//					index <= c;
+//				end
+//				
+//				if (c == numBlocks) pipe <= 2'b01;
+//			end
+//		end
+		if(scnt<=numBlocks) begin
+			if(scnt == 0) begin
+				min <= SAD_vector[0];
+				index <= 0;
 				end
-				else if(SAD_vector[c]>max)
-				begin
-					max <= SAD_vector[c];
-					index <= c;
+			else if(SAD_vector[scnt]<min) begin
+				min <= SAD_vector[scnt];
+				index <= scnt;
 				end
-				
-				if (c == SEARCH_RANGE) pipe <= 2'b01;
-			end
+			scnt <= scnt + 1'b1;
 		end
 		// place disparity value in output image array
 		else begin
@@ -331,7 +384,6 @@ begin
 		if (current_state == READ)
 			maxd = SEARCH_RANGE;
 		else if(current_state == FINALIZE)
-			//maxd = (SEARCH_RANGE < ((WIDTH) - t_maxc + HALF_BLOCK)) ? SEARCH_RANGE : ((WIDTH) - t_maxc + HALF_BLOCK);
 			maxd = (SEARCH_RANGE < ((WIDTH) - t_maxc)) ? SEARCH_RANGE : ((WIDTH) - t_maxc);
 		numBlocks = maxd - mind;
 		buffer_href = col_count;
@@ -339,11 +391,17 @@ begin
 	end
 end
 
-//SAD_vector[blockIndex]
-//always @ (disp_href, disp_vref)
-//	new_image = template[disp_vref][disp_href];
-always @(posedge clk)
-	new_image = template[0][0];
+// ~~~~ Check template & block output (tested working) ~~~~
+//assign new_image = block[ccnt][rcnt];
+//assign new_image = template[ccnt][rcnt];
+// ~~~~ Check abs(template-block) [tested working] ~~~~
+//assign new_image = SAD_diffs[ccnt][rcnt];
+// ~~~~ Check sum(abs(template-block)) [tested working] ~~~~
+//assign new_image = temp[ccnt];
+// ~~~~ Check sum(sum(abs(template-block))) [tested working] ~~~~
+//assign new_image = SAD_vector[blockIndex];
+// ~~~~ Check index ~~~~
+assign new_image = min; 
 
 assign state_LED = current_state;
 

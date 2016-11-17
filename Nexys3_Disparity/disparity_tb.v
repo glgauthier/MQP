@@ -32,7 +32,6 @@ module disparity_tb;
 					 FINALIZE = 3'b100, // search for max vector values, store in disparity matrix
 					 IDLE = 3'b000; // wait for next read sequence
 	reg [2:0] prev_state = IDLE;
-	reg [7:0] count = 0;
 	reg [7:0] left_vec [0:(WIDTH*HEIGHT)];
 	reg [7:0] right_vec [0:(WIDTH*HEIGHT)];
 	
@@ -45,7 +44,7 @@ module disparity_tb;
 	reg [9:0] disp_href, disp_vref;
 
 	// Outputs
-	wire [7:0] new_image;
+	wire [40:0] new_image;
 	wire [9:0] buffer_href;
 	wire [9:0] buffer_vref;
 	wire image_sel;
@@ -80,42 +79,56 @@ module disparity_tb;
 		clk = 1;
 		#5;
 	end
+
+	integer i=0;
 	
 	always @(buffer_href, buffer_vref, image_sel)
 	begin
-		if(image_sel) // right image
+		// these vals are 0 at start, so this is skipping left_vec[0]
+		if(buffer_href == 0 && buffer_vref == 0 && ~image_sel)
+			image_data = 8'hff;
+		else if(~image_sel) // right image 
+		begin
 			image_data = left_vec[{(WIDTH*buffer_vref)+buffer_href}];
+			//$display("sending left_img [%10d] with value %10d",{(WIDTH*buffer_vref)+buffer_href},image_data);
+		end
 		else // left image
 			image_data = right_vec[{(WIDTH*buffer_vref)+buffer_href}];
 	end
-	
+	   
 	always @ (state_LED)
 	begin
 		case(state_LED)
 		IDLE:begin
 			if(prev_state == FINALIZE)
-				$stop;
+			$stop;
 		end
 		READ:begin
 			prev_state = state_LED;
-			$display("Read");
+			//$display("Read");
 		end
 		SEPARATE:begin
 			disp_href = 0;
 			disp_vref = 2;
 			prev_state = state_LED;
-			$display("Separate #%10d of %10d",dcnt,maxd);
+			//$display("Separate #%10d of %10d",dcnt,maxd);
 		end
 		SAD:begin
 			disp_href = 2;
 			disp_vref = 0;
 			prev_state = state_LED;
-			$display("SAD for block (x,y) = (%10d:%10d,%10d:%10d)",b_minc,b_maxc,minr,maxr);
+			//$display("SAD for block (x,y) = (%10d:%10d,%10d:%10d)",b_minc,b_maxc,minr,maxr);
 		end
 		FINALIZE:begin
-			count = count + 1'b1;
-			$display("FINALIZE #%10d",count);
+			//$display("FINALIZE #%10d",count);
 		   prev_state = state_LED;
+//			repeat(14) begin
+//				#100;
+//				i = i + 1'b1;
+//			end
+//			$display("SAD_value [%10d][%10d]= %10d",buffer_href,buffer_vref,image_data);
+//			i = 0;
+			//$stop;
 		end
 		endcase
 	end

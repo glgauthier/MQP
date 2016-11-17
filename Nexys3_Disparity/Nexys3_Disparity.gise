@@ -42,7 +42,7 @@
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="disparity_envsettings.html"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="disparity_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="disparity_summary.html"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="disparity_tb_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="disparity_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="disparity_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="disparity_tb_isim_beh.wdb"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="disparity_tb_stx_beh.prj"/>
@@ -99,11 +99,11 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1479179339" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1479179339">
+    <transform xil_pn:end_ts="1479350676" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1479350676">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1479180671" xil_pn:in_ck="-4238618744227577224" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1479180671">
+    <transform xil_pn:end_ts="1479355188" xil_pn:in_ck="-4238618744227577224" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1479355188">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="clk_divs.v"/>
@@ -113,21 +113,21 @@
       <outfile xil_pn:name="top_module.v"/>
       <outfile xil_pn:name="vga.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1479179339" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-6051730876437127131" xil_pn:start_ts="1479179339">
+    <transform xil_pn:end_ts="1479350676" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-6051730876437127131" xil_pn:start_ts="1479350676">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1479179339" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="8878747087637537251" xil_pn:start_ts="1479179339">
+    <transform xil_pn:end_ts="1479350676" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="8878747087637537251" xil_pn:start_ts="1479350676">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1479179339" xil_pn:in_ck="2640053031620637457" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="2769736019162906749" xil_pn:start_ts="1479179339">
+    <transform xil_pn:end_ts="1479350676" xil_pn:in_ck="2640053031620637457" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="2769736019162906749" xil_pn:start_ts="1479350676">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/mmcm.v"/>
       <outfile xil_pn:name="ipcore_dir/mmcm/example_design/mmcm_exdes.v"/>
     </transform>
-    <transform xil_pn:end_ts="1479180671" xil_pn:in_ck="-4238618744227577224" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1479180671">
+    <transform xil_pn:end_ts="1479355188" xil_pn:in_ck="-4238618744227577224" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1479355188">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="clk_divs.v"/>
@@ -137,9 +137,11 @@
       <outfile xil_pn:name="top_module.v"/>
       <outfile xil_pn:name="vga.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1479180674" xil_pn:in_ck="2568451281791748503" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1500489996016886409" xil_pn:start_ts="1479180671">
+    <transform xil_pn:end_ts="1479355190" xil_pn:in_ck="2568451281791748503" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1500489996016886409" xil_pn:start_ts="1479355188">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="disparity_tb_beh.prj"/>
       <outfile xil_pn:name="disparity_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
@@ -147,9 +149,11 @@
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1479180674" xil_pn:in_ck="-8862964095421344443" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="3896696369962563788" xil_pn:start_ts="1479180674">
+    <transform xil_pn:end_ts="1479355190" xil_pn:in_ck="-8862964095421344443" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="3896696369962563788" xil_pn:start_ts="1479355190">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="disparity_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
@@ -190,13 +194,13 @@
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="disparity.lso"/>
       <outfile xil_pn:name="disparity.ngc"/>
       <outfile xil_pn:name="disparity.prj"/>
       <outfile xil_pn:name="disparity.syr"/>
       <outfile xil_pn:name="disparity.xst"/>
-      <outfile xil_pn:name="disparity_tb_beh.prj"/>
       <outfile xil_pn:name="disparity_tb_stx_beh.prj"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
