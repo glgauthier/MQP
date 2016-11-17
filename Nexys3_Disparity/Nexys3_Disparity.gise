@@ -99,13 +99,17 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1479350676" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1479350676">
+    <transform xil_pn:end_ts="1479406236" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1479406236">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1479358581" xil_pn:in_ck="-4238618744227577224" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1479358581">
+    <transform xil_pn:end_ts="1479407823" xil_pn:in_ck="-4238618744227577224" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1479407823">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="clk_divs.v"/>
       <outfile xil_pn:name="disparity_tb.v"/>
       <outfile xil_pn:name="disparity_top.v"/>
@@ -113,23 +117,28 @@
       <outfile xil_pn:name="top_module.v"/>
       <outfile xil_pn:name="vga.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1479350676" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-6051730876437127131" xil_pn:start_ts="1479350676">
+    <transform xil_pn:end_ts="1479406236" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-6051730876437127131" xil_pn:start_ts="1479406236">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1479350676" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="8878747087637537251" xil_pn:start_ts="1479350676">
+    <transform xil_pn:end_ts="1479406236" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="8878747087637537251" xil_pn:start_ts="1479406236">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1479350676" xil_pn:in_ck="2640053031620637457" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="2769736019162906749" xil_pn:start_ts="1479350676">
+    <transform xil_pn:end_ts="1479406236" xil_pn:in_ck="2640053031620637457" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="2769736019162906749" xil_pn:start_ts="1479406236">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/mmcm.v"/>
       <outfile xil_pn:name="ipcore_dir/mmcm/example_design/mmcm_exdes.v"/>
     </transform>
-    <transform xil_pn:end_ts="1479358581" xil_pn:in_ck="-4238618744227577224" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1479358581">
+    <transform xil_pn:end_ts="1479407823" xil_pn:in_ck="-4238618744227577224" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1479407823">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="clk_divs.v"/>
       <outfile xil_pn:name="disparity_tb.v"/>
       <outfile xil_pn:name="disparity_top.v"/>
@@ -137,10 +146,13 @@
       <outfile xil_pn:name="top_module.v"/>
       <outfile xil_pn:name="vga.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1479358584" xil_pn:in_ck="2568451281791748503" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1500489996016886409" xil_pn:start_ts="1479358581">
+    <transform xil_pn:end_ts="1479407826" xil_pn:in_ck="2568451281791748503" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1500489996016886409" xil_pn:start_ts="1479407823">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="disparity_tb_beh.prj"/>
       <outfile xil_pn:name="disparity_tb_isim_beh.exe"/>
@@ -149,9 +161,10 @@
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1479358584" xil_pn:in_ck="-8862964095421344443" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="3896696369962563788" xil_pn:start_ts="1479358584">
+    <transform xil_pn:end_ts="1479407826" xil_pn:in_ck="-8862964095421344443" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="3896696369962563788" xil_pn:start_ts="1479407826">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="disparity_tb_isim_beh.wdb"/>

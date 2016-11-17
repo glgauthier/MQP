@@ -12,8 +12,13 @@ left(6,17) = 127;
 right(6,19) = 127;
 % plot both images for reference
 figure
-subplot(1,2,1), imshow(left), title('Left Image')
-subplot(1,2,2), imshow(right), title('Right Image')
+subplot(1,3,1), imagesc(left), title('Left Image'), axis image
+subplot(1,3,2), imagesc(right), title('Right Image'), axis image
+
+% add in resultant from test bench
+resultant = [0,5,3,1,1,1,1,1,1,0,0,0,0,0,0,0,0; 0,5,3,1,1,1,1,1,1,0,0,0,0,0,0,0,0; 0,5,3,1,1,1,1,1,1,0,0,0,0,0,0,0,0; 0,5,3,1,1,1,1,1,1,0,0,0,0,0,0,0,0; 0,5,3,1,1,1,1,1,1,0,0,0,0,0,0,1,1; 4,5,3,1,1,1,1,1,1,0,0,0,0,0,0,1,1; 4,5,3,1,1,1,1,1,1,0,0,0,0,0,0,1,0];
+subplot(1,3,3), imagesc(resultant), title('Test Bench Result'), axis image
 % convert to format that can be read by test bench
-left = dec2base(left',2,8)
-right = dec2base(right',2,8)
+%left = dec2base(left',2,8)
+%right = dec2base(right',2,8)
+ 

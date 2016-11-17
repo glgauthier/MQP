@@ -2736,26 +2736,18 @@ LAB496:    xsi_set_current_line(348, ng0);
     t24 = (t0 + 8728);
     t25 = (t24 + 64U);
     t31 = *((char **)t25);
-    t32 = (t0 + 5048);
+    t32 = (t0 + 4248);
     t35 = (t32 + 56U);
     t36 = *((char **)t35);
-    t37 = (t0 + 880);
-    t38 = *((char **)t37);
-    memset(t34, 0, 8);
-    xsi_vlog_unsigned_add(t34, 32, t36, 10, t38, 32);
-    t37 = (t0 + 4728);
-    t39 = (t37 + 56U);
-    t40 = *((char **)t39);
-    t41 = (t0 + 880);
-    t42 = *((char **)t41);
-    memset(t69, 0, 8);
-    xsi_vlog_unsigned_add(t69, 32, t40, 10, t42, 32);
-    xsi_vlog_generic_convert_array_indices(t11, t33, t10, t31, 2, 2, t34, 32, 2, t69, 32, 2);
-    t41 = (t11 + 4);
-    t12 = *((unsigned int *)t41);
+    t37 = (t0 + 4408);
+    t38 = (t37 + 56U);
+    t39 = *((char **)t38);
+    xsi_vlog_generic_convert_array_indices(t11, t33, t10, t31, 2, 2, t36, 10, 2, t39, 10, 2);
+    t40 = (t11 + 4);
+    t12 = *((unsigned int *)t40);
     t8 = (!(t12));
-    t43 = (t33 + 4);
-    t13 = *((unsigned int *)t43);
+    t41 = (t33 + 4);
+    t13 = *((unsigned int *)t41);
     t49 = (!(t13));
     t52 = (t8 && t49);
     if (t52 == 1)
@@ -6722,20 +6714,29 @@ LAB137:    memcpy(t32, t55, 8);
 
 }
 
-static void Cont_405_5(char *t0)
+static void Cont_407_5(char *t0)
 {
-    char t5[16];
+    char t3[16];
+    char t6[8];
     char *t1;
     char *t2;
-    char *t3;
     char *t4;
-    char *t6;
+    char *t5;
     char *t7;
     char *t8;
     char *t9;
     char *t10;
     char *t11;
     char *t12;
+    char *t13;
+    char *t14;
+    char *t15;
+    char *t16;
+    char *t17;
+    char *t18;
+    char *t19;
+    char *t20;
+    char *t21;
 
 LAB0:    t1 = (t0 + 12808U);
     t2 = *((char **)t1);
@@ -6744,27 +6745,37 @@ LAB0:    t1 = (t0 + 12808U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(405, ng0);
-    t2 = (t0 + 7768);
-    t3 = (t2 + 56U);
-    t4 = *((char **)t3);
-    memcpy(t5, t4, 8);
-    t6 = (t5 + 8);
-    memset(t6, 0, 8);
-    t7 = (t0 + 13616);
-    t8 = (t7 + 56U);
+LAB2:    xsi_set_current_line(407, ng0);
+    t2 = (t0 + 8728);
+    t4 = (t2 + 56U);
+    t5 = *((char **)t4);
+    t7 = (t0 + 8728);
+    t8 = (t7 + 72U);
     t9 = *((char **)t8);
-    t10 = (t9 + 56U);
-    t11 = *((char **)t10);
-    xsi_vlog_bit_copy(t11, 0, t5, 0, 41);
-    xsi_driver_vfirst_trans(t7, 0, 40);
-    t12 = (t0 + 13456);
-    *((int *)t12) = 1;
+    t10 = (t0 + 8728);
+    t11 = (t10 + 64U);
+    t12 = *((char **)t11);
+    t13 = (t0 + 3208U);
+    t14 = *((char **)t13);
+    t13 = (t0 + 3368U);
+    t15 = *((char **)t13);
+    xsi_vlog_generic_get_array_select_value(t6, 8, t5, t9, t12, 2, 2, t14, 10, 2, t15, 10, 2);
+    t13 = ((char*)((ng1)));
+    xsi_vlogtype_concat(t3, 41, 40, 2U, t13, 32, t6, 8);
+    t16 = (t0 + 13616);
+    t17 = (t16 + 56U);
+    t18 = *((char **)t17);
+    t19 = (t18 + 56U);
+    t20 = *((char **)t19);
+    xsi_vlog_bit_copy(t20, 0, t3, 0, 41);
+    xsi_driver_vfirst_trans(t16, 0, 40);
+    t21 = (t0 + 13456);
+    *((int *)t21) = 1;
 
 LAB1:    return;
 }
 
-static void Cont_407_6(char *t0)
+static void Cont_409_6(char *t0)
 {
     char *t1;
     char *t2;
@@ -6792,7 +6803,7 @@ LAB0:    t1 = (t0 + 13056U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(407, ng0);
+LAB2:    xsi_set_current_line(409, ng0);
     t2 = (t0 + 10008);
     t3 = (t2 + 56U);
     t4 = *((char **)t3);
@@ -6824,7 +6835,7 @@ LAB1:    return;
 
 extern void work_m_00000000003995870423_3900012700_init()
 {
-	static char *pe[] = {(void *)Always_69_0,(void *)Always_78_1,(void *)Always_142_2,(void *)Cont_357_3,(void *)Always_360_4,(void *)Cont_405_5,(void *)Cont_407_6};
+	static char *pe[] = {(void *)Always_69_0,(void *)Always_78_1,(void *)Always_142_2,(void *)Cont_357_3,(void *)Always_360_4,(void *)Cont_407_5,(void *)Cont_409_6};
 	xsi_register_didat("work_m_00000000003995870423_3900012700", "isim/disparity_tb_isim_beh.exe.sim/work/m_00000000003995870423_3900012700.didat");
 	xsi_register_executes(pe);
 }

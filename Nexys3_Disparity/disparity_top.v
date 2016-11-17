@@ -345,7 +345,7 @@ always @(posedge clk)
 		end
 		// place disparity value in output image array
 		else begin
-			resultant[t_minc+HALF_BLOCK][minr+HALF_BLOCK] <= index;
+			resultant[buffer_href][buffer_vref] <= index;
 			pipe <= 2'b11;
 		end
 			
@@ -401,8 +401,10 @@ end
 //assign new_image = SAD_vector[blockIndex];
 // ~~~~ Check each block index analysed by the FINALIZE state (working) ~~~~
 //assign new_image = SAD_vector[scnt]; 
+// ~~~~ Check the resultant index found by the FINALIZE state (working) ~~~~
+//assign new_image = index;
 
-assign new_image = index;
+assign new_image = {32'b0,resultant[disp_href][disp_vref]};
 
 assign state_LED = current_state;
 

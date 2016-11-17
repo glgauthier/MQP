@@ -96,26 +96,43 @@ module disparity_tb;
 			image_data = right_vec[{(WIDTH*buffer_vref)+buffer_href}];
 	end
 	   
-	always @ (state_LED)
+	always @ (state_LED, disp_href, disp_vref)
 	begin
 		case(state_LED)
 		IDLE:begin
-			if(prev_state == FINALIZE)
-			$stop;
+			if(prev_state == FINALIZE) begin
+				disp_href = 0;
+				disp_vref = 0;
+				$write("resultant = [");
+				repeat(WIDTH*HEIGHT) begin
+					#100;
+					$write("%10d",new_image);
+					
+					disp_href = disp_href + 1'b1;
+					if (disp_href == (WIDTH-3) && disp_vref < (HEIGHT-1)) begin
+						disp_href = 0;
+						disp_vref = disp_vref + 1'b1;
+						$write("; ");
+					end
+					else if(disp_href > 0)
+						$write(",");
+					
+					if (disp_href == (WIDTH-3) && disp_vref == (HEIGHT-1))begin
+						$write("]\n\r");
+						$stop;
+						end
+					end
+				end
 		end
 		READ:begin
 			prev_state = state_LED;
 			//$display("Read");
 		end
 		SEPARATE:begin
-			disp_href = 0;
-			disp_vref = 2;
 			prev_state = state_LED;
 			//$display("Separate #%10d of %10d",dcnt,maxd);
 		end
 		SAD:begin
-			disp_href = 2;
-			disp_vref = 0;
 			prev_state = state_LED;
 			//$display("SAD for block (x,y) = (%10d:%10d,%10d:%10d)",b_minc,b_maxc,minr,maxr);
 		end
