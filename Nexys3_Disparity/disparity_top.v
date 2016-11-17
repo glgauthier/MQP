@@ -213,7 +213,6 @@ always @(posedge clk)
 			rcnt <= 0;
 			cdcnt <= 0;
 			rdcnt <= 0;
-			blockIndex <= 0;
 		end
 	end
 	
@@ -400,8 +399,10 @@ end
 //assign new_image = temp[ccnt];
 // ~~~~ Check sum(sum(abs(template-block))) [tested working] ~~~~
 //assign new_image = SAD_vector[blockIndex];
-// ~~~~ Check index ~~~~
-assign new_image = min; 
+// ~~~~ Check each block index analysed by the FINALIZE state (working) ~~~~
+//assign new_image = SAD_vector[scnt]; 
+
+assign new_image = index;
 
 assign state_LED = current_state;
 
