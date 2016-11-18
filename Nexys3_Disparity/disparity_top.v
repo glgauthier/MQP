@@ -10,7 +10,7 @@ module disparity(
 	 input buffer_ready, // input images ready to be processed
 	 input [9:0] disp_href, // output image href
 	 input [9:0] disp_vref, // output image vref
-	 output [40:0] new_image, // output image data
+	 output [7:0] new_image, // output image data
 	 output reg [9:0] buffer_href, // current template href
 	 output reg [9:0] buffer_vref, // current template vref
 	 output reg image_sel = 0, // left/right frame select
@@ -408,7 +408,7 @@ end
 // ~~~~ Check the resultant index found by the FINALIZE state (working) ~~~~
 //assign new_image = index;
 
-assign new_image = {32'b0,resultant[disp_href][disp_vref]};
+assign new_image = resultant[disp_href][disp_vref];
 
 assign state_LED = current_state;
 
