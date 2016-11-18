@@ -15,17 +15,21 @@ module disparity(
 	 output reg [9:0] buffer_vref, // current template vref
 	 output reg image_sel = 0, // left/right frame select
 	 output idle, // LED indicator signify end of process
-	 output [2:0] state_LED, // current state indicator
+	 output [2:0] state_LED // current state indicator
 	 // ~~~~~~~~ internal registers brought to output for simulation ~~~~~~~~~~~~~~
-	 output reg [9:0] minr, maxr,t_minc,t_maxc,b_minc,b_maxc,mind,maxd,numBlocks,
-	 output reg [9:0] rcnt=0, ccnt=0, dcnt = 0, cdcnt,rdcnt,scnt = 0
+	 //output reg [9:0] minr, maxr,t_minc,t_maxc,b_minc,b_maxc,mind,maxd,numBlocks,
+	 //output reg [9:0] rcnt=0, ccnt=0, dcnt = 0, cdcnt,rdcnt,scnt = 0
     );
 
 // user-defined constants (image search parameters)
-parameter WIDTH = 20 - 1; // output image width (0-indexed)
-parameter HEIGHT = 7 - 1; // output image height (0-indexed)
-parameter SEARCH_RANGE = 15-1; // disparity block comparison search range (0-indexed)
-parameter HALF_BLOCK = 2; // half block size
+//parameter WIDTH = 20 - 1; // output image width (0-indexed)
+//parameter HEIGHT = 7 - 1; // output image height (0-indexed)
+parameter WIDTH = 450 - 1;
+parameter HEIGHT = 375 - 1;
+//parameter SEARCH_RANGE = 15-1; // disparity block comparison search range (0-indexed)
+//parameter HALF_BLOCK = 2; // half block size
+parameter SEARCH_RANGE = 25-1;
+parameter HALF_BLOCK = 2;
 
 // calculated constants
 parameter BLOCK_SIZE = (2*HALF_BLOCK) + 1;
@@ -33,10 +37,10 @@ parameter BLOCK_SIZE = (2*HALF_BLOCK) + 1;
 // search variables
 reg [9:0] col_count = 0;  // number of cols iterated through (m in matlab code)
 reg [9:0] row_count = 0; // number of rows iterated through (n in matlab code)
-//wire [9:0] minr = 0, maxr = 0, t_minc = 0, t_maxc = 0; // current search block borders
-//reg [9:0] rcnt = 0, ccnt = 0, dcnt=0, cdcnt = 0,rdcnt = 0,scnt = 0; // temporary counters based on above wires for template block
-//wire [9:0] mind = 0, maxd = 0; // min/max disparity search bounds
-//wire [9:0] numBlocks = 0; // number of blocks within current search bounds
+reg [9:0] minr = 10'b0, maxr = 10'b0, t_minc = 10'b0, t_maxc = 10'b0, b_minc = 10'b0, b_maxc = 10'b0; // current search block borders
+reg [9:0] rcnt = 10'b0, ccnt = 10'b0, dcnt=10'b0, cdcnt = 10'b0,rdcnt = 10'b0,scnt = 10'b0; // temporary counters based on above wires for template block
+reg [9:0] mind = 10'b0, maxd = 10'b0; // min/max disparity search bounds
+reg [9:0] numBlocks = 10'b0; // number of blocks within current search bounds
 reg [9:0] blockIndex = 0; // current block being searched in numBlocks
 reg [7:0] min, index; // index and value of max number in disparity vector (this should be switched to min)
 reg [1:0] pipe=2'b00; // pipeline control for FSM

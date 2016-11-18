@@ -24,8 +24,8 @@
 
 module disparity_tb;
 
-	parameter WIDTH = 20;
-	parameter HEIGHT = 7;
+	parameter WIDTH = 450;
+	parameter HEIGHT = 375;
 	parameter [2:0] READ = 3'b001, // read data from FIFO
 					 SEPARATE = 3'b010, // separate search image into rows
 					 SAD = 3'b011, // perfom sum of absolute diff's
@@ -50,8 +50,8 @@ module disparity_tb;
 	wire image_sel;
 	wire idle;
 	wire [2:0] state_LED;
-	wire [9:0] minr, maxr, t_minc, t_maxc, b_minc, b_maxc, mind,maxd,numBlocks;
-	wire [9:0] rcnt, ccnt, dcnt, cdcnt,rdcnt,scnt;
+	//wire [9:0] minr, maxr, t_minc, t_maxc, b_minc, b_maxc, mind,maxd,numBlocks;
+	//wire [9:0] rcnt, ccnt, dcnt, cdcnt,rdcnt,scnt;
 
 	// Instantiate the Unit Under Test (UUT)
 	disparity uut (
@@ -67,9 +67,9 @@ module disparity_tb;
 		.buffer_vref(buffer_vref), 
 		.image_sel(image_sel), 
 		.idle(idle),
-		.state_LED(state_LED),
-		.minr(minr), .maxr(maxr), .t_minc(t_minc), .t_maxc(t_maxc), .b_minc(b_minc),.b_maxc(b_maxc),.mind(mind),.maxd(maxd),.numBlocks(numBlocks),
-		.rcnt(rcnt), .ccnt(ccnt), .dcnt(dcnt), .cdcnt(cdcnt),.rdcnt(rdcnt),.scnt(scnt)
+		.state_LED(state_LED)
+		//.minr(minr), .maxr(maxr), .t_minc(t_minc), .t_maxc(t_maxc), .b_minc(b_minc),.b_maxc(b_maxc),.mind(mind),.maxd(maxd),.numBlocks(numBlocks),
+		//.rcnt(rcnt), .ccnt(ccnt), .dcnt(dcnt), .cdcnt(cdcnt),.rdcnt(rdcnt),.scnt(scnt)
 		);
 
 	always
@@ -157,15 +157,17 @@ module disparity_tb;
 		image_data = 0;
 		buffer_ready = 1;
 		disp_href = 0;
-		disp_vref = 2;
+		disp_vref = 0;
 		
 		// Wait 100 ns for global reset to finish
 		#100;
 		
 		// setup input files
 		$display("Reading files...");
-      $readmemb("left_test.txt",left_vec);
-		$readmemb("right_test.txt",right_vec);
+      //$readmemb("left_test.txt",left_vec);
+		//$readmemb("right_test.txt",right_vec);
+		$readmemb("left_cones.txt",left_vec);
+		$readmemb("right_cones.txt",right_vec);
 		#100
 		
 		// Add stimulus here
