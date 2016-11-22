@@ -24,12 +24,12 @@ module disparity(
 // user-defined constants (image search parameters)
 //parameter WIDTH = 20 - 1; // output image width (0-indexed)
 //parameter HEIGHT = 7 - 1; // output image height (0-indexed)
-parameter WIDTH = 450 - 1;
-parameter HEIGHT = 375 - 1;
+parameter WIDTH = 250 - 1;
+parameter HEIGHT = 125 - 1;
 //parameter SEARCH_RANGE = 15-1; // disparity block comparison search range (0-indexed)
 //parameter HALF_BLOCK = 2; // half block size
-parameter SEARCH_RANGE = 25-1;
-parameter HALF_BLOCK = 2;
+parameter SEARCH_RANGE = 50-1;
+parameter HALF_BLOCK = 3;
 
 // calculated constants
 parameter BLOCK_SIZE = (2*HALF_BLOCK) + 1;

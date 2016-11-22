@@ -592,3 +592,460 @@ con
 17:58:03 INFO  : XSDB server has started successfully.
 17:58:05 INFO  : Processing command line option -hwspec C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper.hdf.
 17:58:05 INFO  : Checking for hwspec changes in the project bd_wrapper_hw_platform_0.
+18:31:11 INFO  : Launching XSDB server: xsdb.bat -interactive C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\temp_xsdb_launch_script.tcl
+18:31:13 INFO  : XSDB server has started successfully.
+18:31:14 INFO  : Processing command line option -hwspec C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper.hdf.
+18:31:14 INFO  : Checking for hwspec changes in the project bd_wrapper_hw_platform_0.
+18:31:18 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1479164996964,  Project:1478187939033
+18:31:18 INFO  : The hardware specification for project 'bd_wrapper_hw_platform_0' is different from C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper.hdf.
+18:31:18 INFO  : Copied contents of C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper.hdf into \bd_wrapper_hw_platform_0\system.hdf.
+18:31:40 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+18:31:42 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Access is denied: "C:/Users/georges/AppData/Local/Temp\msdtadmin"
+
+18:31:42 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::status: Access is denied: "C:/Users/georges/AppData/Local/Temp\notif1161013-11012-17djbnh.twj6ecdi.jpg"
+
+18:31:42 ERROR : Failed to call sync_sw_with_hw_change
+Reason: ERROR: [Common 17-39] 'hsi::open_sw_design' failed due to earlier errors.
+
+18:31:42 ERROR : Error updating BSP project MSS files.
+18:31:42 INFO  : Updating hardware inferred compiler options for ZedCameraController.
+18:31:42 INFO  : Clearing existing target manager status.
+18:55:05 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:55:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:55:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+18:55:23 INFO  : FPGA configured successfully with bitstream "C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+18:55:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+18:55:27 INFO  : 'fpga -state' command is executed.
+18:55:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:55:27 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+18:55:27 INFO  : 'jtag frequency' command is executed.
+18:55:27 INFO  : Sourcing of 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:55:28 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+18:55:28 INFO  : Hardware design information is loaded from 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+18:55:28 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+18:55:29 INFO  : 'stop' command is executed.
+18:56:03 INFO  : 'ps7_init' command is executed.
+18:56:03 INFO  : 'ps7_post_config' command is executed.
+18:56:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:56:05 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:56:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+18:56:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:56:08 INFO  : 'fpga -state' command is executed.
+18:56:11 INFO  : The application 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:56:11 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+loadhw C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+dow C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf
+----------------End of Script----------------
+
+18:56:11 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:56:12 INFO  : Memory regions updated for context APU
+18:56:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:56:13 INFO  : 'con' command is executed.
+18:56:13 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+con
+----------------End of Script----------------
+
+18:56:13 INFO  : Launch script is exported to file 'C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local_zedcameracontroller.elf.tcl'
+18:56:13 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+18:56:13 INFO  : 'jtag frequency' command is executed.
+18:56:13 INFO  : Sourcing of 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:56:14 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+18:56:14 INFO  : Hardware design information is loaded from 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+18:56:15 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+18:56:17 INFO  : 'stop' command is executed.
+18:57:01 INFO  : 'ps7_init' command is executed.
+18:57:01 INFO  : 'ps7_post_config' command is executed.
+18:57:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:57:04 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:57:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:57:08 INFO  : The application 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:57:08 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+loadhw C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+dow C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf
+----------------End of Script----------------
+
+18:57:09 INFO  : Memory regions updated for context APU
+18:57:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:57:10 INFO  : 'con' command is executed.
+18:57:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+con
+----------------End of Script----------------
+
+18:57:10 INFO  : Launch script is exported to file 'C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local_zedcameracontroller.elf.tcl'
+18:58:28 INFO  : Disconnected from the channel tcfchan#1.
+18:58:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+18:58:33 INFO  : 'fpga -state' command is executed.
+18:58:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:58:34 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+18:58:34 INFO  : 'jtag frequency' command is executed.
+18:58:34 INFO  : Sourcing of 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:58:34 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+18:58:36 INFO  : Hardware design information is loaded from 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+18:58:36 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+18:58:36 INFO  : 'stop' command is executed.
+18:59:12 INFO  : 'ps7_init' command is executed.
+18:59:14 INFO  : 'ps7_post_config' command is executed.
+18:59:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:59:15 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:59:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:59:17 INFO  : The application 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:59:17 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+loadhw C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+dow C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf
+----------------End of Script----------------
+
+18:59:18 INFO  : Memory regions updated for context APU
+18:59:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:59:19 INFO  : 'con' command is executed.
+18:59:19 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+con
+----------------End of Script----------------
+
+18:59:19 INFO  : Launch script is exported to file 'C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local_zedcameracontroller.elf.tcl'
+19:01:52 INFO  : Disconnected from the channel tcfchan#2.
+19:01:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:01:54 INFO  : 'fpga -state' command is executed.
+19:02:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:02:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:02:19 INFO  : FPGA configured successfully with bitstream "C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+19:02:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:02:28 INFO  : 'fpga -state' command is executed.
+19:02:28 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:02:28 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+19:02:28 INFO  : 'jtag frequency' command is executed.
+19:02:28 INFO  : Sourcing of 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:02:28 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:02:30 INFO  : Hardware design information is loaded from 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+19:02:30 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:02:30 INFO  : 'stop' command is executed.
+19:02:51 INFO  : 'ps7_init' command is executed.
+19:02:51 INFO  : 'ps7_post_config' command is executed.
+19:02:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:02:53 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+19:02:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:02:58 INFO  : The application 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:02:58 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+loadhw C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+dow C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf
+----------------End of Script----------------
+
+19:03:00 INFO  : Memory regions updated for context APU
+19:03:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:03:01 INFO  : 'con' command is executed.
+19:03:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+con
+----------------End of Script----------------
+
+19:03:01 INFO  : Launch script is exported to file 'C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local_zedcameracontroller.elf.tcl'
+19:06:17 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:06:18 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:06:24 INFO  : FPGA configured successfully with bitstream "C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+19:07:28 INFO  : Disconnected from the channel tcfchan#3.
+19:07:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:07:32 INFO  : 'fpga -state' command is executed.
+19:07:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:07:32 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+19:07:33 INFO  : 'jtag frequency' command is executed.
+19:07:33 INFO  : Sourcing of 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:07:33 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:07:34 INFO  : Hardware design information is loaded from 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+19:07:34 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:07:36 INFO  : 'stop' command is executed.
+19:08:33 INFO  : 'ps7_init' command is executed.
+19:08:34 INFO  : 'ps7_post_config' command is executed.
+19:08:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:08:36 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+19:08:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:08:40 INFO  : The application 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:08:40 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+loadhw C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+dow C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf
+----------------End of Script----------------
+
+19:08:40 INFO  : Memory regions updated for context APU
+19:08:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:08:41 INFO  : 'con' command is executed.
+19:08:41 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+con
+----------------End of Script----------------
+
+19:08:41 INFO  : Launch script is exported to file 'C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local_zedcameracontroller.elf.tcl'
+19:17:12 INFO  : Disconnected from the channel tcfchan#4.
+19:17:13 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:17:13 INFO  : 'fpga -state' command is executed.
+19:17:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:17:14 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+19:17:14 INFO  : 'jtag frequency' command is executed.
+19:17:14 INFO  : Sourcing of 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:17:14 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:17:14 INFO  : Hardware design information is loaded from 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+19:17:14 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:17:16 INFO  : 'stop' command is executed.
+19:17:42 INFO  : 'ps7_init' command is executed.
+19:17:43 INFO  : 'ps7_post_config' command is executed.
+19:17:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:17:45 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+19:17:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:17:51 INFO  : The application 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:17:51 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+loadhw C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+dow C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf
+----------------End of Script----------------
+
+19:17:52 INFO  : Memory regions updated for context APU
+19:17:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:17:53 INFO  : 'con' command is executed.
+19:17:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+con
+----------------End of Script----------------
+
+19:17:53 INFO  : Launch script is exported to file 'C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local_zedcameracontroller.elf.tcl'
+19:21:05 INFO  : Disconnected from the channel tcfchan#5.
+19:21:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:21:09 INFO  : 'fpga -state' command is executed.
+19:21:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:21:09 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+19:21:09 INFO  : 'jtag frequency' command is executed.
+19:21:09 INFO  : Sourcing of 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:21:09 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:21:09 INFO  : Hardware design information is loaded from 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+19:21:09 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:21:09 INFO  : 'stop' command is executed.
+19:21:41 INFO  : 'ps7_init' command is executed.
+19:21:41 INFO  : 'ps7_post_config' command is executed.
+19:21:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:21:43 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+19:21:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:21:47 INFO  : The application 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:21:47 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+loadhw C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+dow C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController/Debug/ZedCameraController.elf
+----------------End of Script----------------
+
+19:21:47 INFO  : Memory regions updated for context APU
+19:21:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:21:48 INFO  : 'con' command is executed.
+19:21:48 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+con
+----------------End of Script----------------
+
+19:21:48 INFO  : Launch script is exported to file 'C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local_zedcameracontroller.elf.tcl'
+19:24:36 ERROR : (XSDB Server)ERROR: [Hsi 55-1558] Software Design system system is not found
+
+19:24:36 ERROR :  [Common 17-39] 'hsi::current_sw_design' failed due to earlier errors.
+19:24:36 ERROR : (XSDB Server)ERROR: [Hsi 55-1558] Software Design system system is not found
+
+19:24:36 INFO  : Unable to read in MSS file C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\ZedCameraController_bsp\system.mss : null
+19:24:37 ERROR : (XSDB Server)ERROR: [Hsi 55-1558] Software Design system system is not found
+
+19:24:37 ERROR : (XSDB Server)ERROR: [Hsi 55-1558] Software Design system system is not found
+
+19:24:38 ERROR : (XSDB Server)ERROR: [Hsi 55-1558] Software Design system system is not found
+
+19:24:38 ERROR :  [Common 17-39] 'hsi::current_sw_design' failed due to earlier errors.
+19:24:38 ERROR : (XSDB Server)ERROR: [Hsi 55-1558] Software Design system system is not found
+
+19:24:38 INFO  : Unable to read in MSS file C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\ZedCameraController_bsp\system.mss : null
+19:24:38 ERROR : (XSDB Server)ERROR: [Hsi 55-1558] Software Design system system is not found
+
+19:24:38 ERROR : Failed to closesw "C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController_bsp/system.mss"
+Reason: Cannot close sw design 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/ZedCameraController_bsp/system.mss'.
+Design is not opened in the current session.
+
+
+19:25:10 ERROR : (XSDB Server)ERROR: [Hsi 55-1558] Software Design system system is not found
+
+19:25:10 ERROR :  [Common 17-39] 'hsi::current_sw_design' failed due to earlier errors.
+19:25:10 ERROR : (XSDB Server)ERROR: [Hsi 55-1558] Software Design system system is not found
+
+19:25:10 INFO  : Unable to read in MSS file C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\ZedCameraController_bsp\system.mss : null
+19:25:10 ERROR : (XSDB Server)ERROR: [Hsi 55-1558] Software Design system system is not found
+
+19:25:10 ERROR : (XSDB Server)ERROR: [Hsi 55-1558] Software Design system system is not found
+
+19:25:10 ERROR : Failed to get_connected_periphs
+Reason: ERROR: [Common 17-55] 'get_property' expects at least one object.
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+
+19:27:02 INFO  : Disconnected from the channel tcfchan#6.
+19:27:05 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+19:27:17 INFO  : Launching XSDB server: xsdb.bat -interactive C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\temp_xsdb_launch_script.tcl
+19:27:20 INFO  : XSDB server has started successfully.
+19:27:20 INFO  : Processing command line option -hwspec C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper.hdf.
+19:27:20 INFO  : Checking for hwspec changes in the project bd_wrapper_hw_platform_0.
+19:27:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:27:51 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:27:55 INFO  : FPGA configured successfully with bitstream "C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+19:28:17 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:28:18 INFO  : 'fpga -state' command is executed.
+19:28:18 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:28:20 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+19:28:20 INFO  : 'jtag frequency' command is executed.
+19:28:20 INFO  : Sourcing of 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:28:20 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:28:20 INFO  : Hardware design information is loaded from 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+19:28:20 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:28:23 INFO  : 'stop' command is executed.
+19:30:28 ERROR : 'ps7_init' is cancelled.
+19:30:28 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+loadhw C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+19:30:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:30:35 INFO  : 'fpga -state' command is executed.
+19:30:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:30:38 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+19:30:39 INFO  : 'jtag frequency' command is executed.
+19:30:39 INFO  : Sourcing of 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:30:41 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:30:41 INFO  : Hardware design information is loaded from 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+19:30:42 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:30:46 INFO  : 'stop' command is executed.
+19:33:10 INFO  : Launching XSDB server: xsdb.bat -interactive C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\temp_xsdb_launch_script.tcl
+19:33:11 INFO  : XSDB server has started successfully.
+19:33:11 INFO  : Processing command line option -hwspec C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper.hdf.
+19:33:11 INFO  : Checking for hwspec changes in the project bd_wrapper_hw_platform_0.
+19:33:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:33:44 INFO  : 'fpga -state' command is executed.
+19:33:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:33:45 INFO  : Jtag cable 'Digilent Zed 210248447864' is selected.
+19:33:46 INFO  : 'jtag frequency' command is executed.
+19:33:46 INFO  : Sourcing of 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:33:46 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:33:47 INFO  : Hardware design information is loaded from 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf'.
+19:33:47 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0' command is executed.
+19:33:48 INFO  : 'stop' command is executed.
+19:34:04 ERROR : 'ps7_init' is cancelled.
+19:34:04 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+loadhw C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zed 210248447864"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+19:34:34 INFO  : Launching XSDB server: xsdb.bat -interactive C:\Users\georges\Documents\GitHub\MQP\ZedCamTest\ZedCamTest.sdk\temp_xsdb_launch_script.tcl
+19:34:35 INFO  : XSDB server has started successfully.
+19:34:35 INFO  : Processing command line option -hwspec C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper.hdf.
+19:34:35 INFO  : Checking for hwspec changes in the project bd_wrapper_hw_platform_0.
+19:34:57 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Error while running ps7_init method.
+Debug Operation Not Supported on the Target, Current Processor State is not "Stopped"
+
+	at com.xilinx.sdk.targetmanager.internal.TM.run_ps7_init(TM.java:1089)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runTargetSetup(XilinxAppLaunchConfigurationDelegate.java:514)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:616)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+19:35:36 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:35:38 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:35:42 INFO  : FPGA configured successfully with bitstream "C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+19:36:13 INFO  : ps7_init is completed.
+19:36:13 INFO  : ps7_post_config is completed.
+19:36:13 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:37:03 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+19:37:06 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:37:29 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+19:37:32 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:38:31 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:38:41 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+19:38:47 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:39:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:39:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:39:47 INFO  : FPGA configured successfully with bitstream "C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.sdk/bd_wrapper_hw_platform_0/bd_wrapper.bit"
+19:40:02 INFO  : ps7_init is completed.
+19:40:02 INFO  : ps7_post_config is completed.
+19:40:02 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:40:50 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+19:40:53 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:42:21 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 

@@ -24,8 +24,8 @@
 
 module disparity_tb;
 
-	parameter WIDTH = 450;
-	parameter HEIGHT = 375;
+	parameter WIDTH = 250;
+	parameter HEIGHT = 125;
 	parameter [2:0] READ = 3'b001, // read data from FIFO
 					 SEPARATE = 3'b010, // separate search image into rows
 					 SAD = 3'b011, // perfom sum of absolute diff's
@@ -44,7 +44,7 @@ module disparity_tb;
 	reg [9:0] disp_href, disp_vref;
 
 	// Outputs
-	wire [40:0] new_image;
+	wire [7:0] new_image;
 	wire [9:0] buffer_href;
 	wire [9:0] buffer_vref;
 	wire image_sel;
@@ -109,7 +109,7 @@ module disparity_tb;
 					$write("%10d",new_image);
 					
 					disp_href = disp_href + 1'b1;
-					if (disp_href == (WIDTH-3) && disp_vref < (HEIGHT-1)) begin
+					if (disp_href == (WIDTH-4) && disp_vref < (HEIGHT-1)) begin
 						disp_href = 0;
 						disp_vref = disp_vref + 1'b1;
 						$write("; ");
@@ -117,7 +117,7 @@ module disparity_tb;
 					else if(disp_href > 0)
 						$write(",");
 					
-					if (disp_href == (WIDTH-3) && disp_vref == (HEIGHT-1))begin
+					if (disp_href == (WIDTH-4) && disp_vref == (HEIGHT-1))begin
 						$write("]\n\r");
 						$stop;
 						end
@@ -166,8 +166,8 @@ module disparity_tb;
 		$display("Reading files...");
       //$readmemb("left_test.txt",left_vec);
 		//$readmemb("right_test.txt",right_vec);
-		$readmemb("left_cones.txt",left_vec);
-		$readmemb("right_cones.txt",right_vec);
+		$readmemb("left_cones2.txt",left_vec);
+		$readmemb("right_cones2.txt",right_vec);
 		#100
 		
 		// Add stimulus here

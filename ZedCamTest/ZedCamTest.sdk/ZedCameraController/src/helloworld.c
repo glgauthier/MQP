@@ -54,10 +54,12 @@
 #include "xbasic_types.h"
 
 
-#define REGISTER_1_OFFSET 0x00
-#define REGISTER_2_OFFSET 0x04
+#define REGISTER_0_OFFSET 0x00
+#define REGISTER_1_OFFSET 0x01
 
-
+Xuint32 *CAM_AXI0 = (Xuint32 *)(XPAR_ZEDCAMAXI_0_S_AXI_BASEADDR+REGISTER_0_OFFSET);
+Xuint32 *CAM_AXI1 = (Xuint32 *)(XPAR_ZEDCAMAXI_0_S_AXI_BASEADDR+REGISTER_1_OFFSET);
+Xuint32 regVal;
 int main()
 {
     init_platform();
@@ -66,26 +68,26 @@ int main()
     xil_printf("Camera AXI interface test\n\r");
 
     // Read from camera AXI registers
-    temp = Xil_In32(XPAR_ZEDCAMAXI_0_S_AXI_BASEADDR+REGISTER_1_OFFSET);
+    temp = Xil_In32(CAM_AXI0);
+    xil_printf("Read R0 : 0x%08x \n\r", temp);
+    temp = Xil_In32(CAM_AXI1);
     xil_printf("Read R1 : 0x%08x \n\r", temp);
-    temp = Xil_In32(XPAR_ZEDCAMAXI_0_S_AXI_BASEADDR+REGISTER_2_OFFSET);
-    xil_printf("Read R2 : 0x%08x \n\r", temp);
 
     // Write to camera AXI registers
 	// output_sel == 1'b0 ? VGA : ARM;
-    Xil_Out32(XPAR_ZEDCAMAXI_0_S_AXI_BASEADDR+REGISTER_1_OFFSET,0x00000001);
-    xil_printf("Wrote R1 : 0x00000001 \n\r");
+    regVal = 1+(24<<12)+(12<<2);
+    *(CAM_AXI0) = regVal;
+    xil_printf("Wrote R0 : %h \n\r",regVal);
 
     // Read from camera AXI registers
-	temp = Xil_In32(XPAR_ZEDCAMAXI_0_S_AXI_BASEADDR+REGISTER_1_OFFSET);
+	temp = Xil_In32(CAM_AXI0);
+	xil_printf("Read R0 : 0x%08x \n\r", temp);
+	temp = Xil_In32(CAM_AXI1);
 	xil_printf("Read R1 : 0x%08x \n\r", temp);
-	temp = Xil_In32(XPAR_ZEDCAMAXI_0_S_AXI_BASEADDR+REGISTER_2_OFFSET);
-	xil_printf("Read R2 : 0x%08x \n\r", temp);
-
 
     while(1){
-		temp = Xil_In32(XPAR_ZEDCAMAXI_0_S_AXI_BASEADDR+REGISTER_2_OFFSET);
-		if(temp > 1) xil_printf("I2C is ready");
+		temp = Xil_In32(CAM_AXI1);
+		xil_printf("R1 = %h \n\r",temp);
     }
 
     cleanup_platform();
