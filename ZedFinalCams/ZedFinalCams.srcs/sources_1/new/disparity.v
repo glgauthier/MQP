@@ -4,16 +4,20 @@
 //////////////////////////////////////////////////////////////////////////////////
 module disparity(
 	 input clk, // Read clk signal
-	 //input rck,
 	 input enable, // enable new disparity calculation 
-	 input reset, // reset disparity FSM
-	 input [7:0] left_data, // FIFO data in
-	 input [7:0] right_data, // FIFO data in
-	 input [9:0] disp_href, // output image href
-	 input [9:0] disp_vref, // output image vref
-	 output reg [7:0] new_image, // output image data
-	 output reg get_data,
+	 //output reg get_data,
 	 input buffer_ready,
+	 input reset, // reset disparity FSM
+	 input [7:0] ldata, // FIFO data in
+	 input [7:0] rdata, // FIFO data in
+	 output [18:0] laddr,
+	 output [18:0] raddr,
+	 output [18:0] result_addr,
+	 output reg [7:0] result_data,
+	 output result_wea,
+	 //input [9:0] disp_href, // output image href
+	 //input [9:0] disp_vref, // output image vref
+	 // output reg [7:0] new_image, // output image data
 	 //output reg [9:0] buffer_href, // current template href
 	 //output reg [9:0] buffer_vref, // current template vref
 	 //output reg image_sel = 0, // left/right frame select
@@ -22,8 +26,8 @@ module disparity(
     );
 
 // user-defined constants (image search parameters)
-parameter WIDTH = 640 - 1; // output image width (0-indexed)
-parameter HEIGHT = 480 - 1; // output image height (0-indexed)
+parameter WIDTH = 384 - 1; // output image width (0-indexed)
+parameter HEIGHT = 288 - 1; // output image height (0-indexed)
 parameter SEARCH_RANGE = 20-1; // disparity block comparison search range (0-indexed)
 parameter HALF_BLOCK = 3; // half block size
 
@@ -31,21 +35,18 @@ parameter HALF_BLOCK = 3; // half block size
 parameter BLOCK_SIZE = (2*HALF_BLOCK) + 1;
 
 // search variables (incremented automatically)
-reg [9:0] col_count = 0, buffer_cols = 0;  // number of cols iterated through (m in matlab code)
-reg [9:0] row_count = 0, buffer_rows = 0; // number of rows iterated through (n in matlab code)
+reg [9:0] col_count = 10'b0;  // number of cols iterated through (m in matlab code)
+reg [9:0] row_count = 10'b0; // number of rows iterated through (n in matlab code)
 reg [9:0] minr = 10'b0, maxr = 10'b0, t_minc = 10'b0, t_maxc = 10'b0, b_minc = 10'b0, b_maxc = 10'b0; // current search block borders
 reg [9:0] rcnt = 10'b0, ccnt = 10'b0, dcnt=10'b0, cdcnt = 10'b0,rdcnt = 10'b0,scnt = 10'b0; // temporary counters based on above wires for template block
 reg [9:0] mind = 10'b0, maxd = 10'b0; // min/max disparity search bounds
 reg [9:0] numBlocks = 10'b0; // number of blocks within current search bounds
-reg [9:0] blockIndex = 0; // current block being searched in numBlocks
+reg [9:0] blockIndex = 10'b0; // current block being searched in numBlocks
 reg [7:0] min, index; // index and value of max number in disparity vector (this should be switched to min)
 reg [1:0] pipe=2'b00; // pipeline control for FSM
 reg done; // will be 1 if disparity is 100% done, 0 otherwise (used for next_state == IDLE)
 
 // temporary memory
-//reg [7:0] resultant [0:WIDTH][0:HEIGHT]; // final disparity image
-//reg [7:0] left_frame [0:WIDTH][0:HEIGHT]; // left image
-//reg [7:0] right_frame [0:WIDTH][0:HEIGHT]; // right image
 reg [7:0] template [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // template block
 reg [7:0] block [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // search block
 reg [7:0] SAD_diffs [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // block for holding abs(template-block)
@@ -72,7 +73,7 @@ always @ (posedge clk, posedge reset)
 		current_state <= next_state;
 
 // next state logic
-always @(current_state,enable,row_count,col_count,ccnt,cdcnt,t_maxc,b_maxc,dcnt,ns_enable,ps_enable,pipe,done,buffer_ready)
+always @(current_state,enable,row_count,col_count,ccnt,cdcnt,t_maxc,b_maxc,dcnt,ns_enable,ps_enable,pipe,done,buffer_ready,rcnt)
 	case(current_state)
 	IDLE: 
 		if(enable) begin
@@ -131,66 +132,6 @@ always @(current_state,enable,row_count,col_count,ccnt,cdcnt,t_maxc,b_maxc,dcnt,
 		end
 	default: next_state = IDLE;
 	endcase
-// FSM buffer controller Implementation
-//always @(posedge rck)
-//case(current_state)
-//    IDLE:begin
-//        if (next_state == READ)begin
-//          trigger <= 1'b1;
-//          fifo_oe <= 1'b0;
-//          buffer_cols <= 10'b0;
-//          buffer_rows <= 10'b0;
-//          fifo_rrst <= 1'b1; // make sure read addr doesn't get reset
-//          wen <= 1'b1;
-//        end else begin
-//          trigger <= 1'b0;
-//          fifo_oe <= 1'b1;
-//          wen <= 1'b0;
-//        end
-//    end
-//    READ: begin
-//        trigger <= 1'b0;
-//        fifo_rrst <= 1'b0; // allow for read addr to increment
-//        fifo_oe <= 1'b0;
-//        wen <= 1'b1;
-        
-//        // update address for next FSM cycle
-//        if(buffer_cols < 752) // increment accross by pixel index
-//            buffer_cols <= buffer_cols + 1'b1;
-//        else if (buffer_rows < HEIGHT) begin // after reaching last pixel, go to next row
-//            buffer_cols <= 10'b0;
-//            buffer_rows <= buffer_rows + 1'b1;
-//        end
-//        // if all indices have been accessed in the left image, reset for the right
-//        else if (buffer_rows == (HEIGHT) && buffer_cols == (752) && image_sel == 1'b0) begin
-//            image_sel <= 1'b1;
-//            fifo_rrst <= 1'b1; // reset the second fifo's read pointer
-//            buffer_rows <= 10'b0;
-//            buffer_cols <= 10'b0;
-//        end
-//        // go to next state if both images have been read in
-//        else begin
-//            buffer_rows <= 10'b0;
-//            buffer_cols <= 10'b0;
-//        end
-//    end
-//    default: begin
-//        trigger <= 1'b0;
-//        fifo_oe <= 1'b1;
-//        fifo_rrst <= 1'b1;
-//        image_sel <= 1'b0;
-//        wen <= 1'b0;
-//    end
-//endcase
-
-//always @ (buffer_rows, buffer_cols)
-//    // reduce width from 752px to 640px (addr 0-639)
-//    if (buffer_cols >= 55 && buffer_cols <=694) begin
-//        fifo_waddr = {(640*buffer_rows)+(buffer_cols-55)};
-//    end else begin
-//        fifo_waddr = 18'd0;
-//    end
-    
     
 // FSM disparity Implementation
 always @(posedge clk)
@@ -205,10 +146,6 @@ case(current_state)
 	
 	READ: // read in image data from buffers
 	begin		
-	    if(prev_state != READ)
-	       get_data = 1'b1;
-	    else
-	       get_data = 1'b0;
 		pipe <= 2'b00;
 	end
 	
@@ -219,14 +156,16 @@ case(current_state)
 		// search block: (b_minc:b_maxc,minr:maxr)
 		
 		// read in template image block
-		if(ccnt <= (t_maxc-t_minc) && rcnt <= (maxr-minr)) // fully within template search bounds
-			template[ccnt][rcnt] <= left_data;//left_frame[t_minc+ccnt][minr+rcnt];
+		if(ccnt <= (t_maxc-t_minc) && rcnt <= (maxr-minr)) begin// fully within template search bounds
+			template[ccnt][rcnt] <= ldata;//left_frame[t_minc+ccnt][minr+rcnt];
+			end
 		else // outside tempate bounds
 			template[ccnt][rcnt] <= 8'h00;
 			
 		// read in search image block
-		if(ccnt <= (b_maxc-b_minc) && rcnt <= (maxr-minr)) // fully within template search bounds
-			block[ccnt][rcnt] <= right_data;//right_frame[b_minc+ccnt][minr+rcnt];
+		if(ccnt <= (b_maxc-b_minc) && rcnt <= (maxr-minr)) begin// fully within template search bounds
+			block[ccnt][rcnt] <= rdata;//right_frame[b_minc+ccnt][minr+rcnt];
+			end
 		else // outside tempate bounds
 			block[ccnt][rcnt] <= 8'h00;
 
@@ -357,12 +296,18 @@ case(current_state)
 		// place disparity value in output image array
 		else begin
 		    // PUT THIS LINE BACK IN WHEN DONE
-		    new_image <= index;
+		    result_data <= index;
 			//resultant[buffer_href][buffer_vref] <= index;
 			pipe <= 2'b11;
 		end
 	end
 endcase
+
+assign result_wea = (current_state == FINALIZE && scnt == numBlocks) ? 1'b1 : 1'b0;
+assign result_addr = ((WIDTH+1'b1)*row_count)+col_count;
+assign laddr = ((WIDTH+1'b1)*(minr+rcnt))+(t_minc+ccnt);
+assign raddr = ((WIDTH+1'b1)*(minr+rcnt))+(b_minc+ccnt);
+
 
 // assign block search bounds
 always @(row_count,col_count,t_maxc,maxd,mind,dcnt,next_state,current_state,prev_state)
@@ -377,8 +322,6 @@ begin
 		mind = 0; // or = max(-SEARCH_RANGE, 1-t_minc)
 		maxd = 0;
 		numBlocks = 0;
-		//buffer_href = 0;
-		//buffer_vref = 0;
 		end
 	else begin
 		minr = (0 > $signed(row_count - HALF_BLOCK)) ? 10'b0 : (row_count - HALF_BLOCK);
@@ -393,14 +336,8 @@ begin
 		else if(current_state == FINALIZE)
 			maxd = (SEARCH_RANGE < ((WIDTH) - t_maxc)) ? SEARCH_RANGE : ((WIDTH) - t_maxc);
 		numBlocks = maxd - mind;
-		//buffer_href = col_count;
-		//buffer_vref = row_count;
 	end
 end
-
-// output image pixel data [8 bit]
-// TOOK OUT FOR MODDED IMPLEMENTATION
-//assign new_image = resultant[disp_href][disp_vref];
 
 // done after finalize is finished
 assign idle = (current_state == IDLE); 
