@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 // Top module for future custom stereo camera IP package
 module noip_top(
+   input sw0,
    input sysclk,
    input reset, // reset 
    input cam_rst, // button for camera RESET_BAR
@@ -20,7 +21,7 @@ module noip_top(
    output [3:0] LEDs
    );
     
-wire clk_200MHz, clk_50MHz, clk_25MHz;
+wire clk_200MHz, clk_50MHz, clk_25MHz, clk_24MHz, clk_5MHz;
 clk_wiz_0 clkgen
    (
    // Clock in ports
@@ -29,80 +30,27 @@ clk_wiz_0 clkgen
     .clk_200MHz(clk_200MHz),     // output clk_200MHz
     .clk_50MHz(clk_50MHz),     // output clk_50MHz
     .clk_25MHz(clk_25MHz),     // output clk_25MHz
+    .clk_24MHz(clk_24MHz),
+    .clk_5MHz(clk_5MHz),
     // Status and control signals
     .reset(reset)
 );
-assign FIFO_RCK = clk_50MHz;
+
+wire clk_1MHz, clk_20Hz;
+clk_divs clks(
+	.reset(reset), // synchronous reset
+    .clk_24M(clk_24MHz), // 24MHz clock signal
+	.clk_1MHz(clk_1MHz),
+    .clk_20Hz(clk_20Hz) // 20Hz clock pulse
+    );
 
 // ~~~~~~~~~~ disparity code ~~~~~~~~~~~~~~
-wire idle,image_sel;
-wire [2:0] state_LED;
-wire [18:0] left_radr,left_wadr,right_radr,right_wadr,result_addr;
-wire [7:0] left_data,right_data,result_data;
-wire [9:0] buffer_href,buffer_vref;
-disparity disp(
- .clk(clk_200MHz), // Read clk signal
- .enable(trigger), // enable new disparity calculation 
- .reset(reset), // reset disparity FSM
- .image_data(FIFO_DATA), // FIFO data in [7:0]
- .buffer_ready(), // input images ready to be processed
- .disp_href(), // output image href [9:0]
- .disp_vref(), // output image vref [9:0]
- .new_image(), // output image data [7:0]
- .buffer_href(buffer_href), // current template href [9:0]
- .buffer_vref(buffer_vref), // current template vref [9:0]
- .image_sel(), // left/right frame select
- .idle(idle), // LED indicator signify end of process
- .state_LED(state_LED) // current state indicator [2:0]
-);
-
-assign LEDs = {idle,state_LED[2:0]}; 
-
-// ~~~~~~~~~~~~~~~~ Left, right, resultant image buffers ~~~~~~~~~~~~~~~~ 
-// logic for controlling buffer reads and writes
-reg left_we, right_we, resultant_we;
-wire [18:0] left_wadr, right_wadr;
-wire [7:0] left_din, right_din;
-assign left_din = (image_sel == 1'b0) ? FIFO_DATA : 8'h00;
-assign right_din = (image_sel == 1'b0) ? 8'h00 : FIFO_DATA;
-
-blk_mem_640_480 left_img (
-  .clka(clk_50MHz),    // input wire clka
-  .wea(wea),      // input wire [0 : 0] wea
-  .addra(left_wadr),  // input wire [18 : 0] addra
-  .dina(left_din),    // input wire [7 : 0] dina
-  .clkb(clk_200MHz),    // input wire clkb
-  .enb(1'b1),
-  .addrb(left_radr),  // input wire [18 : 0] addrb
-  .doutb(left_data)  // output wire [7 : 0] doutb
-);
-
-blk_mem_640_480 right_img (
-  .clka(clk_50MHz),    // input wire clka
-  .wea(wea),      // input wire [0 : 0] wea
-  .addra(right_wadr),  // input wire [18 : 0] addra
-  .dina(right_din),    // input wire [7 : 0] dina
-  .clkb(clk_200MHz),    // input wire clkb
-  .enb(1'b1),
-  .addrb(right_radr),  // input wire [18 : 0] addrb
-  .doutb(right_data)  // output wire [7 : 0] doutb
-);
-
-blk_mem_640_480 resultant (
-  .clka(clk_200MHz),    // input wire clka
-  .wea(wea),      // input wire [0 : 0] wea
-  .addra(result_addr),  // input wire [18 : 0] addra
-  .dina(result_data),    // input wire [7 : 0] dina
-  .clkb(clk_25MHz),    // input wire clkb
-  .enb(~blank),
-  .addrb({(752*vcount)+hcount}),  // input wire [18 : 0] addrb
-  .doutb(rgb)  // output wire [7 : 0] doutb
-);
-// ~~~~~~~~~~~~~~~~ End of image buffers ~~~~~~~~~~~~~~~~
+wire buffer_ready;
 
 // ~~~~~~~~~~~~~~~~ VGA controller ~~~~~~~~~~~~~~~~~~~~~~
 wire [10:0] hcount, vcount;
 wire blank;
+
 vga_controller_640_60 vga(
     .rst(reset),
     .pixel_clk(clk_25MHz),
@@ -112,5 +60,55 @@ vga_controller_640_60 vga(
     .vcount(vcount),
     .blank(blank)
     );
+
+// ~~~~~~~~~~~~~~~~ Left, right, resultant image buffers ~~~~~~~~~~~~~~~~ 
+wire trig_db;
+debounce deb(
+    .clk(clk_20Hz),
+    .btn(trigger),
+    .btn_val(trig_db)
+    );
+    
+assign FIFO_RCK = clk_5MHz;
+assign cam_sysclk = clk_24MHz;
+
+// camera initialization sequence
+reg [11:0] init_count = 12'h000;
+always @(posedge clk_24MHz) // cam sysclk before ODDR2
+begin
+	if (cam_rst) // if cam_rst is pressed, redo the initialization sequence
+		init_count <= 12'h000;
+	else if(init_count < 2500) // keep cam_rst asserted for at least 20 cam_sysclk cycles - I use 30 since it's the minimum time for the i2c bus to be ready
+		init_count <= init_count + 1'b1;
+end
+assign cam_reset = (init_count >= 20);
+
+wire fifo_oe, fifo_rrst;
+wire image_sel;
+assign FIFO_OE1 = (image_sel == 1'b0) ? fifo_oe : 1'b1;
+assign FIFO_OE2 = (image_sel == 1'b1) ? fifo_oe : 1'b1;
+assign FIFO_RRST1 = (image_sel == 1'b0) ? fifo_rrst : 1'b1;
+assign FIFO_RRST2 = (image_sel == 1'b1) ? fifo_rrst : 1'b1;
+
+// state indicator LEDs
+assign LEDs = {1'b0,buffer_ready,trigger,image_sel};//{idle,state_LED[2:0]}; 
+
+imgbuf2 fifo_buffer(
+    .output_sel(sw0),
+    .get_data(trig_db),
+	.href(hcount),
+	.vref(vcount),
+	.blank(blank),
+	.fifo_data(FIFO_DATA), // 8 bit data in from fifo
+	.fifo_rck(clk_5MHz), // 1MHz clock signal generated by FPGA
+	.vga_clk(clk_25MHz),
+	.image_sel(image_sel),
+	.fifo_rrst(fifo_rrst), // fifo read reset (reset read addr pointer to 0)
+	.fifo_oe(fifo_oe), // fifo output enable (allow for addr pointer to increment)
+	.pixel_value(rgb), // 8-bit pixel value from internal buffer
+	.trigger(cam_trigger),
+	.buffer_ready(buffer_ready)
+   );
+// ~~~~~~~~~~~~~~~~ End of image buffers ~~~~~~~~~~~~~~~~
 
 endmodule

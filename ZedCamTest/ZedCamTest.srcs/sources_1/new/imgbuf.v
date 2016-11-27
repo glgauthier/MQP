@@ -31,22 +31,27 @@ reg buffer_ready;
 
 reg [1:0] state = ready;
 reg [1:0] prev_state, next_state = ready;
-
-//reg [7:0] pixel_array [0:59][0:91]; // implemented in BRAM
-
 reg [9:0] pixel = 10'b00_0000_0000;
 reg [15:0] num_lines = 16'h0000;
 
-//wire enb;
-//assign enb = (~blank && href >=0 && vref >= 0 && href <480 && vref <640);
+wire enb;
+assign enb = ~blank;
+reg [18:0] addra;
+always @(href,vref)
+    begin
+    if(href >= 55 && href <694)
+        addra = (640*vref)+(href-55);
+    else
+        addra = 18'd0;
+    end
 blk_mem_gen_0 bram(
     .clka(fifo_rck),
     .wea(write_en),
-    .addra({(752*num_lines)+pixel}), // 19 bits
+    .addra(addra), // 19 bits
     .dina(fifo_data), // 8 bits
     .clkb(vga_clk), 
-    .enb(~blank),
-    .addrb({(752*vref)+href}), // 19 bits
+    .enb(enb),
+    .addrb({(640*vref)+href}), // 19 bits
     .doutb(output_val) // 8 bits
 );
 
@@ -116,13 +121,6 @@ begin
 				fifo_oe <= 1'b1; // turn off read enable
 			
 			if((prev_state != init) && (pixel < 751)) // one cycle delay between init and valid data
-				
-///				if((pixel>=329 && pixel <= 421) && (num_lines >= 209 && num_lines <= 269)) // read in top left corner of image
-//				begin
-//					pixel_array[(num_lines-209)][(pixel-329)] <= fifo_data;
-//					pixel <= pixel + 1'b1;
-//				end
-///				else
 					pixel <= pixel + 1'b1;
 			else if(prev_state != init)
 				begin
@@ -142,24 +140,11 @@ begin
 		endcase
 end
 
-// display number of lines written on 7seg display
-//assign current_line = (num_lines); 
-
 // allow for VGA controller to read stored pixel line at given addr if state==ready
 always @ (buffer_ready, href, vref, blank, pixel_value)
     // clear output when VGA is blanking
 	if(blank)
 		pixel_value [7:0] = 8'h00;
-//	// transmit valid image data if href and vref are in the correct location
-//	else if ((274 <= href && href <= 366) && (209 <= vref && vref <= 269)) // && buffer_ready
-//		pixel_value [7:0] = pixel_array[vref-209][href-274];
-//    // trigger a new read sequence for one clock cycle if the image has been written out
-//	else if (href == 367 && vref == 270)
-//		get_data = 1'b1;
-//    // turn off the read sequence enable after one clock cycle
-//	else if (href == 368 && vref == 271)
-//		get_data = 1'b0;
-//	// draw all other pixels as blank (used when windowing)
     else 
 		pixel_value = output_val;
 

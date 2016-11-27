@@ -1,0 +1,66 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Sun Nov 27 01:35:03 2016
+| Host         : Georges-T460p running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file noip_top_control_sets_placed.rpt
+| Design       : noip_top
+| Device       : xc7z020
+-------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    13 |
+| Unused register locations in slices containing registers |    60 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              33 |           16 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              34 |           12 |
+| Yes          | No                    | No                     |               2 |            2 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              47 |           18 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++------------------------+-----------------------------------+-----------------------------------+------------------+----------------+
+|      Clock Signal      |           Enable Signal           |          Set/Reset Signal         | Slice Load Count | Bel Load Count |
++------------------------+-----------------------------------+-----------------------------------+------------------+----------------+
+|  clkgen/inst/clk_25MHz |                                   | vga/HS0                           |                1 |              1 |
+|  clkgen/inst/clk_25MHz |                                   | vga/VS0                           |                1 |              1 |
+|  clkgen/inst/clk_5MHz  | fifo_buffer/p_0_in                |                                   |                1 |              1 |
+|  clkgen/inst/clk_5MHz  | fifo_buffer/trigger_i_1_n_0       |                                   |                1 |              1 |
+|  clks/count_reg[0]     |                                   |                                   |                1 |              3 |
+|  clkgen/inst/clk_5MHz  | fifo_buffer/CEB2                  | fifo_buffer/pixel[8]_i_1_n_0      |                5 |              8 |
+|  clkgen/inst/clk_5MHz  |                                   |                                   |                6 |              9 |
+|  clkgen/inst/clk_25MHz |                                   | vga/hcounter_reg[0]_0[0]          |                4 |             11 |
+|  clkgen/inst/clk_25MHz | vga/vcounter[10]_i_2_n_0          | vga/vcounter[10]_i_1_n_0          |                6 |             11 |
+|  clkgen/inst/clk_24MHz | sel                               | cam_rst_IBUF                      |                3 |             12 |
+|  clkgen/inst/clk_5MHz  | fifo_buffer/num_lines[15]_i_2_n_0 | fifo_buffer/num_lines[15]_i_1_n_0 |                4 |             16 |
+|  clkgen/inst/clk_24MHz |                                   | reset_IBUF                        |                6 |             21 |
+|  clkgen/inst/clk_25MHz |                                   |                                   |                9 |             21 |
++------------------------+-----------------------------------+-----------------------------------+------------------+----------------+
+
+

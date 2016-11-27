@@ -4,16 +4,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 module disparity(
 	 input clk, // Read clk signal
+	 //input rck,
 	 input enable, // enable new disparity calculation 
 	 input reset, // reset disparity FSM
-	 input [7:0] image_data, // FIFO data in
-	 input buffer_ready, // input images ready to be processed
+	 input [7:0] left_data, // FIFO data in
+	 input [7:0] right_data, // FIFO data in
 	 input [9:0] disp_href, // output image href
 	 input [9:0] disp_vref, // output image vref
-	 output [7:0] new_image, // output image data
-	 output reg [9:0] buffer_href, // current template href
-	 output reg [9:0] buffer_vref, // current template vref
-	 output reg image_sel = 0, // left/right frame select
+	 output reg [7:0] new_image, // output image data
+	 output reg get_data,
+	 input buffer_ready,
+	 //output reg [9:0] buffer_href, // current template href
+	 //output reg [9:0] buffer_vref, // current template vref
+	 //output reg image_sel = 0, // left/right frame select
 	 output idle, // LED indicator signify end of process
 	 output [2:0] state_LED // current state indicator
     );
@@ -28,8 +31,8 @@ parameter HALF_BLOCK = 3; // half block size
 parameter BLOCK_SIZE = (2*HALF_BLOCK) + 1;
 
 // search variables (incremented automatically)
-reg [9:0] col_count = 0;  // number of cols iterated through (m in matlab code)
-reg [9:0] row_count = 0; // number of rows iterated through (n in matlab code)
+reg [9:0] col_count = 0, buffer_cols = 0;  // number of cols iterated through (m in matlab code)
+reg [9:0] row_count = 0, buffer_rows = 0; // number of rows iterated through (n in matlab code)
 reg [9:0] minr = 10'b0, maxr = 10'b0, t_minc = 10'b0, t_maxc = 10'b0, b_minc = 10'b0, b_maxc = 10'b0; // current search block borders
 reg [9:0] rcnt = 10'b0, ccnt = 10'b0, dcnt=10'b0, cdcnt = 10'b0,rdcnt = 10'b0,scnt = 10'b0; // temporary counters based on above wires for template block
 reg [9:0] mind = 10'b0, maxd = 10'b0; // min/max disparity search bounds
@@ -40,9 +43,9 @@ reg [1:0] pipe=2'b00; // pipeline control for FSM
 reg done; // will be 1 if disparity is 100% done, 0 otherwise (used for next_state == IDLE)
 
 // temporary memory
-reg [7:0] resultant [0:WIDTH][0:HEIGHT]; // final disparity image
-reg [7:0] left_frame [0:WIDTH][0:HEIGHT]; // left image
-reg [7:0] right_frame [0:WIDTH][0:HEIGHT]; // right image
+//reg [7:0] resultant [0:WIDTH][0:HEIGHT]; // final disparity image
+//reg [7:0] left_frame [0:WIDTH][0:HEIGHT]; // left image
+//reg [7:0] right_frame [0:WIDTH][0:HEIGHT]; // right image
 reg [7:0] template [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // template block
 reg [7:0] block [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // search block
 reg [7:0] SAD_diffs [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // block for holding abs(template-block)
@@ -69,7 +72,7 @@ always @ (posedge clk, posedge reset)
 		current_state <= next_state;
 
 // next state logic
-always @(current_state,enable,row_count,col_count,image_sel,ccnt,cdcnt,t_maxc,b_maxc,dcnt,ns_enable,ps_enable,pipe,done)
+always @(current_state,enable,row_count,col_count,ccnt,cdcnt,t_maxc,b_maxc,dcnt,ns_enable,ps_enable,pipe,done,buffer_ready)
 	case(current_state)
 	IDLE: 
 		if(enable) begin
@@ -81,7 +84,9 @@ always @(current_state,enable,row_count,col_count,image_sel,ccnt,cdcnt,t_maxc,b_
 			prev_state = IDLE;
 		end
 	READ: 
-		if (row_count == HEIGHT && col_count == WIDTH && image_sel == 1'b1) begin
+	    // was col_count == WIDTH, adjusted for FIFO image size 
+		//if (row_count == HEIGHT && col_count == 752 && image_sel == 1'b1) begin
+		if(buffer_ready) begin
 			next_state = SEPARATE;
 			prev_state = READ;
 		end
@@ -126,47 +131,85 @@ always @(current_state,enable,row_count,col_count,image_sel,ccnt,cdcnt,t_maxc,b_
 		end
 	default: next_state = IDLE;
 	endcase
+// FSM buffer controller Implementation
+//always @(posedge rck)
+//case(current_state)
+//    IDLE:begin
+//        if (next_state == READ)begin
+//          trigger <= 1'b1;
+//          fifo_oe <= 1'b0;
+//          buffer_cols <= 10'b0;
+//          buffer_rows <= 10'b0;
+//          fifo_rrst <= 1'b1; // make sure read addr doesn't get reset
+//          wen <= 1'b1;
+//        end else begin
+//          trigger <= 1'b0;
+//          fifo_oe <= 1'b1;
+//          wen <= 1'b0;
+//        end
+//    end
+//    READ: begin
+//        trigger <= 1'b0;
+//        fifo_rrst <= 1'b0; // allow for read addr to increment
+//        fifo_oe <= 1'b0;
+//        wen <= 1'b1;
+        
+//        // update address for next FSM cycle
+//        if(buffer_cols < 752) // increment accross by pixel index
+//            buffer_cols <= buffer_cols + 1'b1;
+//        else if (buffer_rows < HEIGHT) begin // after reaching last pixel, go to next row
+//            buffer_cols <= 10'b0;
+//            buffer_rows <= buffer_rows + 1'b1;
+//        end
+//        // if all indices have been accessed in the left image, reset for the right
+//        else if (buffer_rows == (HEIGHT) && buffer_cols == (752) && image_sel == 1'b0) begin
+//            image_sel <= 1'b1;
+//            fifo_rrst <= 1'b1; // reset the second fifo's read pointer
+//            buffer_rows <= 10'b0;
+//            buffer_cols <= 10'b0;
+//        end
+//        // go to next state if both images have been read in
+//        else begin
+//            buffer_rows <= 10'b0;
+//            buffer_cols <= 10'b0;
+//        end
+//    end
+//    default: begin
+//        trigger <= 1'b0;
+//        fifo_oe <= 1'b1;
+//        fifo_rrst <= 1'b1;
+//        image_sel <= 1'b0;
+//        wen <= 1'b0;
+//    end
+//endcase
 
-// FSM Implementation
+//always @ (buffer_rows, buffer_cols)
+//    // reduce width from 752px to 640px (addr 0-639)
+//    if (buffer_cols >= 55 && buffer_cols <=694) begin
+//        fifo_waddr = {(640*buffer_rows)+(buffer_cols-55)};
+//    end else begin
+//        fifo_waddr = 18'd0;
+//    end
+    
+    
+// FSM disparity Implementation
 always @(posedge clk)
-	case(current_state)
-	
+case(current_state)
 	IDLE: // wait for next read sequence
 	begin
 		row_count <= 10'b0;
 		col_count <= 10'b0;
-		image_sel <= 1'b0;
 		dcnt <= 10'b0;
 		pipe <= 2'b00;
 	end
 	
 	READ: // read in image data from buffers
 	begin		
-		// read in image buffer data at current address
-		if (image_sel == 1'b0)
-			left_frame[col_count][row_count] <= image_data;
-		else
-			right_frame[col_count][row_count] <= image_data;
-		
-		// update address for next FSM cycle
-		if(col_count < WIDTH) // increment accross by pixel index
-			col_count <= col_count + 1'b1;
-		else if (row_count < HEIGHT) begin // after reaching last pixel, go to next row
-			col_count <= 10'b0;
-			row_count <= row_count + 1'b1;
-		end
-		// if all indices have been accessed in the left image, reset for the right
-		else if (row_count == (HEIGHT) && col_count == (WIDTH) && image_sel == 1'b0) begin
-			image_sel <= 1'b1;
-			row_count <= 10'b0;
-			col_count <= 10'b0;
-		end
-		// go to next state if both images have been read in
-		else begin
-			row_count <= 10'b0;
-			col_count <= 10'b0;
-			pipe <= 2'b00;
-		end
+	    if(prev_state != READ)
+	       get_data = 1'b1;
+	    else
+	       get_data = 1'b0;
+		pipe <= 2'b00;
 	end
 	
 	SEPARATE: // Read in new block data for next comparison
@@ -177,13 +220,13 @@ always @(posedge clk)
 		
 		// read in template image block
 		if(ccnt <= (t_maxc-t_minc) && rcnt <= (maxr-minr)) // fully within template search bounds
-			template[ccnt][rcnt] <= left_frame[t_minc+ccnt][minr+rcnt];
+			template[ccnt][rcnt] <= left_data;//left_frame[t_minc+ccnt][minr+rcnt];
 		else // outside tempate bounds
 			template[ccnt][rcnt] <= 8'h00;
 			
 		// read in search image block
 		if(ccnt <= (b_maxc-b_minc) && rcnt <= (maxr-minr)) // fully within template search bounds
-			block[ccnt][rcnt] <= right_frame[b_minc+ccnt][minr+rcnt];
+			block[ccnt][rcnt] <= right_data;//right_frame[b_minc+ccnt][minr+rcnt];
 		else // outside tempate bounds
 			block[ccnt][rcnt] <= 8'h00;
 
@@ -313,11 +356,13 @@ always @(posedge clk)
 		end
 		// place disparity value in output image array
 		else begin
-			resultant[buffer_href][buffer_vref] <= index;
+		    // PUT THIS LINE BACK IN WHEN DONE
+		    new_image <= index;
+			//resultant[buffer_href][buffer_vref] <= index;
 			pipe <= 2'b11;
 		end
 	end
-	endcase
+endcase
 
 // assign block search bounds
 always @(row_count,col_count,t_maxc,maxd,mind,dcnt,next_state,current_state,prev_state)
@@ -332,8 +377,8 @@ begin
 		mind = 0; // or = max(-SEARCH_RANGE, 1-t_minc)
 		maxd = 0;
 		numBlocks = 0;
-		buffer_href = 0;
-		buffer_vref = 0;
+		//buffer_href = 0;
+		//buffer_vref = 0;
 		end
 	else begin
 		minr = (0 > $signed(row_count - HALF_BLOCK)) ? 10'b0 : (row_count - HALF_BLOCK);
@@ -348,13 +393,15 @@ begin
 		else if(current_state == FINALIZE)
 			maxd = (SEARCH_RANGE < ((WIDTH) - t_maxc)) ? SEARCH_RANGE : ((WIDTH) - t_maxc);
 		numBlocks = maxd - mind;
-		buffer_href = col_count;
-		buffer_vref = row_count;
+		//buffer_href = col_count;
+		//buffer_vref = row_count;
 	end
 end
 
 // output image pixel data [8 bit]
-assign new_image = resultant[disp_href][disp_vref];
+// TOOK OUT FOR MODDED IMPLEMENTATION
+//assign new_image = resultant[disp_href][disp_vref];
+
 // done after finalize is finished
 assign idle = (current_state == IDLE); 
 // current state indicator LED

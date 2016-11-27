@@ -1,5 +1,342 @@
 
 *** Running vivado
+    with args -log ZedCamTest_top.vdi -applog -m64 -messageDb vivado.pb -mode batch -source ZedCamTest_top.tcl -notrace
+
+
+****** Vivado v2016.2 (64-bit)
+  **** SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+  **** IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source ZedCamTest_top.tcl -notrace
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Project 1-454] Reading design checkpoint 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'mmcm'
+INFO: [Project 1-454] Reading design checkpoint 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp' for cell 'fifo_buffer/bram'
+INFO: [Netlist 29-17] Analyzing 51 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2016.2
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'mmcm/inst'
+Finished Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'mmcm/inst'
+Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'mmcm/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 943.684 ; gain = 450.676
+Finished Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'mmcm/inst'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc]
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc]
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp'
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+link_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 943.695 ; gain = 736.480
+INFO: [Vivado_Tcl 4-424] Cannot write hardware definition file as there are no IPI block design hardware handoff files present
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.113 . Memory (MB): peak = 943.695 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-2] Deriving generated clocks
+
+Starting Logic Optimization Task
+Implement Debug Cores | Checksum: 135b68754
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 37 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 7f2131a8
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.521 . Memory (MB): peak = 948.301 ; gain = 0.000
+
+Phase 2 Constant Propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-10] Eliminated 0 cells.
+Phase 2 Constant Propagation | Checksum: 7f2131a8
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.590 . Memory (MB): peak = 948.301 ; gain = 0.000
+
+Phase 3 Sweep
+INFO: [Opt 31-12] Eliminated 147 unconnected nets.
+INFO: [Opt 31-11] Eliminated 2 unconnected cells.
+Phase 3 Sweep | Checksum: 1df6fa114
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.798 . Memory (MB): peak = 948.301 ; gain = 0.000
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 948.301 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 1df6fa114
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.824 . Memory (MB): peak = 948.301 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 89 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 89 newly gated: 0 Total Ports: 178
+Ending PowerOpt Patch Enables Task | Checksum: 143154182
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.088 . Memory (MB): peak = 1189.184 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 143154182
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 1189.184 ; gain = 240.883
+INFO: [Common 17-83] Releasing license: Implementation
+33 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:14 . Memory (MB): peak = 1189.184 ; gain = 245.488
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 1189.184 ; gain = 0.000
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/impl_1/ZedCamTest_top_drc_opted.rpt.
+INFO: [Chipscope 16-241] No debug cores found in the current design.
+Before running the implement_debug_core command, either use the Set Up Debug wizard (GUI mode)
+or use the create_debug_core and connect_debug_core Tcl commands to insert debug cores into the design.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Phase 1 Placer Initialization
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1189.184 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 92 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1189.184 ; gain = 0.000
+
+Phase 1.1 IO Placement/ Clock Placement/ Build Placer Device
+
+Phase 1.1.1 ParallelPlaceIOClockAndInitTop
+
+Phase 1.1.1.1 Pre-Place Cells
+Phase 1.1.1.1 Pre-Place Cells | Checksum: 05c8dd43
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.601 . Memory (MB): peak = 1189.184 ; gain = 0.000
+
+Phase 1.1.1.2 Constructing HAPIClkRuleMgr
+Phase 1.1.1.2 Constructing HAPIClkRuleMgr | Checksum: 05c8dd43
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.667 . Memory (MB): peak = 1189.184 ; gain = 0.000
+WARNING: [Place 30-568] A LUT 'clks/count[1]_i_2' is driving clock pin of 6 registers. This could lead to large hold time violations. First few involved registers are:
+	camSelector/btn_val_reg {FDRE}
+	camSelector/count_reg[0] {FDRE}
+	camSelector/count_reg[1] {FDRE}
+	trig/btn_val_reg {FDRE}
+	trig/count_reg[0] {FDRE}
+WARNING: [Place 30-879] Found overlapping PBlocks. The use of overlapping PBlocks is not recommended as it may lead to legalization errors or unplaced instances.
+ERROR: [Place 30-58] IO placement is infeasible. Number of unplaced terminals (9) is greater than number of available sites (0).
+The following Groups of I/O terminals have not sufficient capacity: 
+ IO Group: 0 with : SioStd: LVCMOS18   VCCO = 1.8 Termination: 0  TermDir:  Out  RangeId: 1 Drv: 12  has only 0 sites available on device, but needs 9 sites.
+	Term: pixel_out[0]
+	Term: pixel_out[1]
+	Term: pixel_out[2]
+	Term: pixel_out[3]
+	Term: pixel_out[4]
+	Term: pixel_out[5]
+	Term: pixel_out[6]
+	Term: pixel_out[7]
+	Term: i2c_ready
+
+
+ERROR: [Place 30-58] IO placement is infeasible. Number of unplaced terminals (23) is greater than number of available sites (0).
+The following Groups of I/O terminals have not sufficient capacity: 
+ IO Group: 0 with : SioStd: LVCMOS18   VCCO = 1.8 Termination: 0  TermDir:  Out  RangeId: 1 Drv: 12  has only 0 sites available on device, but needs 9 sites.
+	Term: pixel_out[0]
+	Term: pixel_out[1]
+	Term: pixel_out[2]
+	Term: pixel_out[3]
+	Term: pixel_out[4]
+	Term: pixel_out[5]
+	Term: pixel_out[6]
+	Term: pixel_out[7]
+	Term: i2c_ready
+
+
+ IO Group: 1 with : SioStd: LVCMOS18   VCCO = 1.8 Termination: 0  TermDir:  In   RangeId: 1  has only 0 sites available on device, but needs 23 sites.
+	Term: xLoc[0]
+	Term: xLoc[1]
+	Term: xLoc[2]
+	Term: xLoc[3]
+	Term: xLoc[4]
+	Term: xLoc[5]
+	Term: xLoc[6]
+	Term: xLoc[7]
+	Term: xLoc[8]
+	Term: xLoc[9]
+	Term: xLoc[10]
+	Term: yLoc[0]
+	Term: yLoc[1]
+	Term: yLoc[2]
+	Term: yLoc[3]
+	Term: yLoc[4]
+	Term: yLoc[5]
+	Term: yLoc[6]
+	Term: yLoc[7]
+	Term: yLoc[8]
+	Term: yLoc[9]
+	Term: yLoc[10]
+	Term: output_sel
+
+
+ERROR: [Place 30-58] IO placement is infeasible. Number of unplaced terminals (32) is greater than number of available sites (0).
+The following Groups of I/O terminals have not sufficient capacity: 
+ IO Group: 0 with : SioStd: LVCMOS18   VCCO = 1.8 Termination: 0  TermDir:  Out  RangeId: 1 Drv: 12  has only 0 sites available on device, but needs 9 sites.
+	Term: pixel_out[0]
+	Term: pixel_out[1]
+	Term: pixel_out[2]
+	Term: pixel_out[3]
+	Term: pixel_out[4]
+	Term: pixel_out[5]
+	Term: pixel_out[6]
+	Term: pixel_out[7]
+	Term: i2c_ready
+
+
+ IO Group: 1 with : SioStd: LVCMOS18   VCCO = 1.8 Termination: 0  TermDir:  In   RangeId: 1  has only 0 sites available on device, but needs 23 sites.
+	Term: xLoc[0]
+	Term: xLoc[1]
+	Term: xLoc[2]
+	Term: xLoc[3]
+	Term: xLoc[4]
+	Term: xLoc[5]
+	Term: xLoc[6]
+	Term: xLoc[7]
+	Term: xLoc[8]
+	Term: xLoc[9]
+	Term: xLoc[10]
+	Term: yLoc[0]
+	Term: yLoc[1]
+	Term: yLoc[2]
+	Term: yLoc[3]
+	Term: yLoc[4]
+	Term: yLoc[5]
+	Term: yLoc[6]
+	Term: yLoc[7]
+	Term: yLoc[8]
+	Term: yLoc[9]
+	Term: yLoc[10]
+	Term: output_sel
+
+
+ERROR: [Place 30-374] IO placer failed to find a solution
+Below is the partial placement that can be analyzed to see if any constraint modifications will make the IO placement problem easier to solve.
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                                     IO Placement : Bank Stats                                                                           |
++----+-------+-------+------------------------------------------------------------------------+------------------------------------------+--------+--------+--------+-----+
+| Id | Pins  | Terms |                               Standards                                |                IDelayCtrls               |  VREF  |  VCCO  |   VR   | DCI |
++----+-------+-------+------------------------------------------------------------------------+------------------------------------------+--------+--------+--------+-----+
+|  0 |     0 |     0 |                                                                        |                                          |        |        |        |     |
+| 13 |    50 |    17 | LVCMOS33(17)                                                           |                                          |        |  +3.30 |    YES |     |
+| 33 |    50 |    10 | LVCMOS33(10)                                                           |                                          |        |  +3.30 |    YES |     |
+| 34 |    50 |     3 | LVCMOS33(3)                                                            |                                          |        |  +3.30 |    YES |     |
+| 35 |    50 |     1 | LVCMOS33(1)                                                            |                                          |        |  +3.30 |    YES |     |
++----+-------+-------+------------------------------------------------------------------------+------------------------------------------+--------+--------+--------+-----+
+|    |   200 |    31 |                                                                        |                                          |        |        |        |     |
++----+-------+-------+------------------------------------------------------------------------+------------------------------------------+--------+--------+--------+-----+
+
+IO Placement:
++--------+----------------------+-----------------+----------------------+----------------------+----------------------+
+| BankId |             Terminal | Standard        | Site                 | Pin                  | Attributes           |
++--------+----------------------+-----------------+----------------------+----------------------+----------------------+
+| 13     | FIFO_DATA[0]         | LVCMOS33        | IOB_X0Y41            | W12                  |                      |
+|        | FIFO_DATA[1]         | LVCMOS33        | IOB_X0Y44            | W11                  |                      |
+|        | FIFO_DATA[2]         | LVCMOS33        | IOB_X0Y48            | V10                  |                      |
+|        | FIFO_DATA[3]         | LVCMOS33        | IOB_X0Y45            | W8                   |                      |
+|        | FIFO_DATA[4]         | LVCMOS33        | IOB_X0Y42            | V12                  |                      |
+|        | FIFO_DATA[5]         | LVCMOS33        | IOB_X0Y43            | W10                  |                      |
+|        | FIFO_DATA[6]         | LVCMOS33        | IOB_X0Y47            | V9                   |                      |
+|        | FIFO_DATA[7]         | LVCMOS33        | IOB_X0Y46            | V8                   |                      |
+|        | FIFO_OE1             | LVCMOS33        | IOB_X0Y31            | AB9                  |                      |
+|        | FIFO_OE2             | LVCMOS33        | IOB_X0Y32            | AB10                 |                      |
+|        | FIFO_RCK             | LVCMOS33        | IOB_X0Y27            | AA8                  |                      |
+|        | FIFO_RRST1           | LVCMOS33        | IOB_X0Y30            | Y11                  |                      |
+|        | FIFO_RRST2           | LVCMOS33        | IOB_X0Y33            | AB11                 |                      |
+|        | cam_reset            | LVCMOS33        | IOB_X0Y29            | Y10                  |                      |
+|        | cam_sysclk           | LVCMOS33        | IOB_X0Y28            | AA9                  |                      |
+|        | cam_trigger          | LVCMOS33        | IOB_X0Y34            | AA11                 |                      |
+|        | sysclk               | LVCMOS33        | IOB_X0Y26            | Y9                   |                      |
++--------+----------------------+-----------------+----------------------+----------------------+----------------------+
+| 33     | HS                   | LVCMOS33        | IOB_X1Y27            | AA19                 |                      |
+|        | VS                   | LVCMOS33        | IOB_X1Y28            | Y19                  |                      |
+|        | rgb[0]               | LVCMOS33        | IOB_X1Y31            | Y21                  |                      |
+|        | rgb[1]               | LVCMOS33        | IOB_X1Y32            | Y20                  |                      |
+|        | rgb[2]               | LVCMOS33        | IOB_X1Y29            | AB20                 |                      |
+|        | rgb[3]               | LVCMOS33        | IOB_X1Y30            | AB19                 |                      |
+|        | rgb[4]               | LVCMOS33        | IOB_X1Y35            | AB22                 |                      |
+|        | rgb[5]               | LVCMOS33        | IOB_X1Y36            | AA22                 |                      |
+|        | rgb[6]               | LVCMOS33        | IOB_X1Y33            | AB21                 |                      |
+|        | rgb[7]               | LVCMOS33        | IOB_X1Y34            | AA21                 |                      |
++--------+----------------------+-----------------+----------------------+----------------------+----------------------+
+| 34     | cam_rst              | LVCMOS33        | IOB_X1Y62            | N15                  |                      |
+|        | reset                | LVCMOS33        | IOB_X1Y52            | P16                  |                      |
+|        | trigger              | LVCMOS33        | IOB_X1Y54            | R18                  |                      |
++--------+----------------------+-----------------+----------------------+----------------------+----------------------+
+| 35     | SW_camSelect         | LVCMOS33        | IOB_X1Y103           | F22                  |                      |
++--------+----------------------+-----------------+----------------------+----------------------+----------------------+
+
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 1.1.1.3 IO and Clk Clean Up
+
+Phase 1.1.1.3.1 Constructing HAPIClkRuleMgr
+Phase 1.1.1.3.1 Constructing HAPIClkRuleMgr | Checksum: 05c8dd43
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1189.184 ; gain = 0.000
+Phase 1.1.1.3 IO and Clk Clean Up | Checksum: 05c8dd43
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1189.184 ; gain = 0.000
+Phase 1.1.1 ParallelPlaceIOClockAndInitTop | Checksum: 05c8dd43
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1189.184 ; gain = 0.000
+Phase 1.1 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 2dd32b0a
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1189.184 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 2dd32b0a
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1189.184 ; gain = 0.000
+ERROR: [Place 30-99] Placer failed with error: 'IO Clock Placer failed'
+Please review all ERROR, CRITICAL WARNING, and WARNING messages during placement to understand the cause for failure.
+Ending Placer Task | Checksum: 2dd32b0a
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1189.184 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+48 Infos, 2 Warnings, 0 Critical Warnings and 6 Errors encountered.
+place_design failed
+ERROR: [Common 17-69] Command failed: Placer could not place all instances
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 26 12:36:02 2016...
+
+*** Running vivado
     with args -log bd_wrapper.vdi -applog -m64 -messageDb vivado.pb -mode batch -source bd_wrapper.tcl -notrace
 
 
@@ -25,7 +362,7 @@ Finished Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedC
 Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/ip/bd_ZedCamAXI_0_0/src/clk_wiz_0/clk_wiz_0.xdc] for cell 'bd_i/ZedCamAXI_0/inst/custom_code/mmcm/inst'
 INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/ip/bd_ZedCamAXI_0_0/src/clk_wiz_0/clk_wiz_0.xdc:57]
 INFO: [Timing 38-2] Deriving generated clocks [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/ip/bd_ZedCamAXI_0_0/src/clk_wiz_0/clk_wiz_0.xdc:57]
-get_clocks: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 956.938 ; gain = 459.180
+get_clocks: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 956.879 ; gain = 459.402
 Finished Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/sources_1/bd/bd/ip/bd_ZedCamAXI_0_0/src/clk_wiz_0/clk_wiz_0.xdc] for cell 'bd_i/ZedCamAXI_0/inst/custom_code/mmcm/inst'
 Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc]
 Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.srcs/constrs_1/new/ZedCamTest.xdc]
@@ -33,7 +370,7 @@ INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-link_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 956.969 ; gain = 750.555
+link_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 956.910 ; gain = 749.598
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
@@ -44,7 +381,7 @@ INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.161 . Memory (MB): peak = 956.969 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.137 . Memory (MB): peak = 956.910 ; gain = 0.000
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-2] Deriving generated clocks
 
@@ -56,28 +393,28 @@ INFO: [Opt 31-138] Pushed 1 inverter(s) to 37 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
 Phase 1 Retarget | Checksum: 21cc46169
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.839 . Memory (MB): peak = 959.434 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.887 . Memory (MB): peak = 958.887 ; gain = 0.000
 
 Phase 2 Constant Propagation
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
 INFO: [Opt 31-10] Eliminated 300 cells.
 Phase 2 Constant Propagation | Checksum: 21c461214
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 959.434 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 958.887 ; gain = 0.000
 
 Phase 3 Sweep
 INFO: [Opt 31-12] Eliminated 722 unconnected nets.
 INFO: [Opt 31-11] Eliminated 501 unconnected cells.
 Phase 3 Sweep | Checksum: 10c7dc62e
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 959.434 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 958.887 ; gain = 0.000
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 959.434 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 958.887 ; gain = 0.000
 Ending Logic Optimization Task | Checksum: 10c7dc62e
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 959.434 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 958.887 ; gain = 0.000
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
@@ -95,19 +432,19 @@ INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
 Number of BRAM Ports augmented: 89 newly gated: 0 Total Ports: 178
 Ending PowerOpt Patch Enables Task | Checksum: bfc88650
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.106 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.109 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Ending Power Optimization Task | Checksum: bfc88650
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 1207.023 ; gain = 247.590
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:13 . Memory (MB): peak = 1206.664 ; gain = 247.777
 INFO: [Common 17-83] Releasing license: Implementation
 28 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:15 . Memory (MB): peak = 1207.023 ; gain = 250.055
+opt_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:16 . Memory (MB): peak = 1206.664 ; gain = 249.754
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.076 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.086 . Memory (MB): peak = 1206.664 ; gain = 0.000
 INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Coretcl 2-168] The results of DRC are in file C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/impl_1/bd_wrapper_drc_opted.rpt.
 INFO: [Chipscope 16-241] No debug cores found in the current design.
@@ -128,10 +465,10 @@ Starting Placer Task
 INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
 
 Phase 1 Placer Initialization
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 1206.664 ; gain = 0.000
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 92 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 1.1 IO Placement/ Clock Placement/ Build Placer Device
 
@@ -140,12 +477,12 @@ Phase 1.1.1 ParallelPlaceIOClockAndInitTop
 Phase 1.1.1.1 Pre-Place Cells
 Phase 1.1.1.1 Pre-Place Cells | Checksum: 0cca03b4
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.879 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.893 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 1.1.1.2 Constructing HAPIClkRuleMgr
 Phase 1.1.1.2 Constructing HAPIClkRuleMgr | Checksum: 0cca03b4
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1206.664 ; gain = 0.000
 WARNING: [Place 30-568] A LUT 'bd_i/ZedCamAXI_0/inst/custom_code/clks/count[1]_i_2' is driving clock pin of 6 registers. This could lead to large hold time violations. First few involved registers are:
 	bd_i/ZedCamAXI_0/inst/custom_code/camSelector/btn_val_reg {FDRE}
 	bd_i/ZedCamAXI_0/inst/custom_code/camSelector/count_reg[0] {FDRE}
@@ -215,26 +552,26 @@ Phase 1.1.1.3 IO and Clk Clean Up
 Phase 1.1.1.3.1 Constructing HAPIClkRuleMgr
 Phase 1.1.1.3.1 Constructing HAPIClkRuleMgr | Checksum: 0cca03b4
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Phase 1.1.1.3 IO and Clk Clean Up | Checksum: 0cca03b4
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 1.1.1.4 Implementation Feasibility check On IDelay
 Phase 1.1.1.4 Implementation Feasibility check On IDelay | Checksum: 0cca03b4
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 1.1.1.5 Commit IO Placement
 Phase 1.1.1.5 Commit IO Placement | Checksum: 680a6a0c
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Phase 1.1.1 ParallelPlaceIOClockAndInitTop | Checksum: 680a6a0c
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Phase 1.1 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 6d077564
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 1.2 Build Placer Netlist Model
 
@@ -243,86 +580,86 @@ Phase 1.2.1 Place Init Design
 Phase 1.2.1.1 Make Others
 Phase 1.2.1.1 Make Others | Checksum: 15f0b97a9
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 1.2.1.2 Init Lut Pin Assignment
 Phase 1.2.1.2 Init Lut Pin Assignment | Checksum: 15f0b97a9
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Phase 1.2.1 Place Init Design | Checksum: 1ec439d0f
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Phase 1.2 Build Placer Netlist Model | Checksum: 1ec439d0f
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 1.3 Constrain Clocks/Macros
 Phase 1.3 Constrain Clocks/Macros | Checksum: 1ec439d0f
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Phase 1 Placer Initialization | Checksum: 1ec439d0f
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 2 Global Placement
 Phase 2 Global Placement | Checksum: efadfb1d
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
 Phase 3.1 Commit Multi Column Macros | Checksum: efadfb1d
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
 Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 92d1f7e7
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:10 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
 Phase 3.3 Area Swap Optimization | Checksum: a7aef49c
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 3.4 updateClock Trees: DP
 Phase 3.4 updateClock Trees: DP | Checksum: a7aef49c
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 3.5 Timing Path Optimizer
 Phase 3.5 Timing Path Optimizer | Checksum: 114ea9c49
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:00:10 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 3.6 Fast Optimization
 Phase 3.6 Fast Optimization | Checksum: 1045b32fb
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:00:10 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 3.7 Small Shape Detail Placement
 Phase 3.7 Small Shape Detail Placement | Checksum: 212f69066
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:12 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:12 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 3.8 Re-assign LUT pins
 Phase 3.8 Re-assign LUT pins | Checksum: 17d93cc69
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:12 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:12 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 3.9 Pipeline Register Optimization
 Phase 3.9 Pipeline Register Optimization | Checksum: 17d93cc69
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:12 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:12 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 3.10 Fast Optimization
 Phase 3.10 Fast Optimization | Checksum: c0edd53a
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Phase 3 Detail Placement | Checksum: c0edd53a
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -332,59 +669,59 @@ INFO: [Timing 38-35] Done setting XDC timing constraints.
 Phase 4.1.1 updateClock Trees: PCOPT
 Phase 4.1.1 updateClock Trees: PCOPT | Checksum: d5348670
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:15 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:15 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 4.1.2 Post Placement Optimization
 INFO: [Place 30-746] Post Placement Timing Summary WNS=-4.948. For the most accurate timing information please run report_timing.
 Phase 4.1.2 Post Placement Optimization | Checksum: 10bf595f4
 
-Time (s): cpu = 00:00:56 ; elapsed = 00:00:51 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:54 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Phase 4.1 Post Commit Optimization | Checksum: 10bf595f4
 
-Time (s): cpu = 00:00:56 ; elapsed = 00:00:51 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:54 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 4.2 Sweep Clock Roots: Post-Placement
 Phase 4.2 Sweep Clock Roots: Post-Placement | Checksum: 10bf595f4
 
-Time (s): cpu = 00:00:57 ; elapsed = 00:00:51 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:54 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 4.3 Uram Pipeline Register Optimization
 Phase 4.3 Uram Pipeline Register Optimization | Checksum: 10bf595f4
 
-Time (s): cpu = 00:00:57 ; elapsed = 00:00:51 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:54 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 4.4 Post Placement Cleanup
 Phase 4.4 Post Placement Cleanup | Checksum: 10bf595f4
 
-Time (s): cpu = 00:00:57 ; elapsed = 00:00:51 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:54 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 4.5 Placer Reporting
 Phase 4.5 Placer Reporting | Checksum: 10bf595f4
 
-Time (s): cpu = 00:00:57 ; elapsed = 00:00:51 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:54 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 4.6 Final Placement Cleanup
 Phase 4.6 Final Placement Cleanup | Checksum: 780177a0
 
-Time (s): cpu = 00:00:57 ; elapsed = 00:00:51 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:54 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Phase 4 Post Placement Optimization and Clean-Up | Checksum: 780177a0
 
-Time (s): cpu = 00:00:57 ; elapsed = 00:00:51 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:54 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Ending Placer Task | Checksum: 3aaa3046
 
-Time (s): cpu = 00:00:57 ; elapsed = 00:00:51 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:54 . Memory (MB): peak = 1206.664 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
 45 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:59 ; elapsed = 00:00:52 . Memory (MB): peak = 1207.023 ; gain = 0.000
+place_design: Time (s): cpu = 00:01:02 ; elapsed = 00:00:55 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.523 . Memory (MB): peak = 1207.023 ; gain = 0.000
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.085 . Memory (MB): peak = 1207.023 ; gain = 0.000
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 1207.023 ; gain = 0.000
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.535 . Memory (MB): peak = 1206.664 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.068 . Memory (MB): peak = 1206.664 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 1206.664 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1206.664 ; gain = 0.000
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
@@ -402,40 +739,40 @@ Checksum: PlaceDB: 14e02f8c ConstDB: 0 ShapeSum: 25ca00ba RouteDB: 0
 Phase 1 Build RT Design
 Phase 1 Build RT Design | Checksum: 19c57c1e3
 
-Time (s): cpu = 00:00:31 ; elapsed = 00:00:27 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:27 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
 Phase 2.1 Create Timer | Checksum: 19c57c1e3
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:27 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:27 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 2.2 Fix Topology Constraints
 Phase 2.2 Fix Topology Constraints | Checksum: 19c57c1e3
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:27 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:27 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 2.3 Pre Route Cleanup
 Phase 2.3 Pre Route Cleanup | Checksum: 19c57c1e3
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:27 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:27 . Memory (MB): peak = 1206.664 ; gain = 0.000
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
 Phase 2.4 Update Timing | Checksum: 1642fdc75
 
-Time (s): cpu = 00:00:35 ; elapsed = 00:00:30 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:30 . Memory (MB): peak = 1206.664 ; gain = 0.000
 INFO: [Route 35-416] Intermediate Timing Summary | WNS=-4.744 | TNS=-3386.867| WHS=-1.559 | THS=-42.855|
 
 Phase 2 Router Initialization | Checksum: 20ab48fee
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:31 . Memory (MB): peak = 1207.023 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:31 . Memory (MB): peak = 1206.664 ; gain = 0.000
 
 Phase 3 Initial Routing
 Phase 3 Initial Routing | Checksum: 1d3e26ceb
 
-Time (s): cpu = 00:02:00 ; elapsed = 00:01:16 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:02:07 ; elapsed = 00:01:20 . Memory (MB): peak = 1315.543 ; gain = 108.879
 
 Phase 4 Rip-up And Reroute
 
@@ -448,7 +785,7 @@ Phase 4.1 Global Iteration 0
 Phase 4.1.1 Update Timing
 Phase 4.1.1 Update Timing | Checksum: 1f46191c7
 
-Time (s): cpu = 00:02:59 ; elapsed = 00:01:56 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:03:11 ; elapsed = 00:02:04 . Memory (MB): peak = 1315.543 ; gain = 108.879
 INFO: [Route 35-416] Intermediate Timing Summary | WNS=-5.224 | TNS=-3802.875| WHS=N/A    | THS=N/A    |
 
 
@@ -457,18 +794,18 @@ Phase 4.1.2 GlobIterForTiming
 Phase 4.1.2.1 Update Timing
 Phase 4.1.2.1 Update Timing | Checksum: ed7c0115
 
-Time (s): cpu = 00:03:00 ; elapsed = 00:01:57 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:03:11 ; elapsed = 00:02:04 . Memory (MB): peak = 1315.543 ; gain = 108.879
 
 Phase 4.1.2.2 Fast Budgeting
 Phase 4.1.2.2 Fast Budgeting | Checksum: e0858b1e
 
-Time (s): cpu = 00:03:00 ; elapsed = 00:01:57 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:03:12 ; elapsed = 00:02:04 . Memory (MB): peak = 1315.543 ; gain = 108.879
 Phase 4.1.2 GlobIterForTiming | Checksum: 21c6abee1
 
-Time (s): cpu = 00:03:02 ; elapsed = 00:01:59 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:03:14 ; elapsed = 00:02:07 . Memory (MB): peak = 1315.543 ; gain = 108.879
 Phase 4.1 Global Iteration 0 | Checksum: 21c6abee1
 
-Time (s): cpu = 00:03:02 ; elapsed = 00:01:59 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:03:14 ; elapsed = 00:02:07 . Memory (MB): peak = 1315.543 ; gain = 108.879
 
 Phase 4.2 Global Iteration 1
  Number of Nodes with overlaps = 55
@@ -480,15 +817,15 @@ Phase 4.2 Global Iteration 1
 Phase 4.2.1 Update Timing
 Phase 4.2.1 Update Timing | Checksum: 1542f74a0
 
-Time (s): cpu = 00:04:03 ; elapsed = 00:02:57 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:04:18 ; elapsed = 00:03:07 . Memory (MB): peak = 1315.543 ; gain = 108.879
 INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.054 | TNS=-4146.630| WHS=N/A    | THS=N/A    |
 
 Phase 4.2 Global Iteration 1 | Checksum: 29f488b7c
 
-Time (s): cpu = 00:04:03 ; elapsed = 00:02:57 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:04:18 ; elapsed = 00:03:07 . Memory (MB): peak = 1315.543 ; gain = 108.879
 Phase 4 Rip-up And Reroute | Checksum: 29f488b7c
 
-Time (s): cpu = 00:04:03 ; elapsed = 00:02:57 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:04:18 ; elapsed = 00:03:07 . Memory (MB): peak = 1315.543 ; gain = 108.879
 
 Phase 5 Delay and Skew Optimization
 
@@ -497,21 +834,21 @@ Phase 5.1 Delay CleanUp
 Phase 5.1.1 Update Timing
 Phase 5.1.1 Update Timing | Checksum: 2a78c99ce
 
-Time (s): cpu = 00:04:04 ; elapsed = 00:02:57 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:04:19 ; elapsed = 00:03:08 . Memory (MB): peak = 1315.543 ; gain = 108.879
 INFO: [Route 35-416] Intermediate Timing Summary | WNS=-5.224 | TNS=-3802.872| WHS=N/A    | THS=N/A    |
 
  Number of Nodes with overlaps = 0
 Phase 5.1 Delay CleanUp | Checksum: e07a2cba
 
-Time (s): cpu = 00:04:38 ; elapsed = 00:03:15 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:04:56 ; elapsed = 00:03:27 . Memory (MB): peak = 1315.543 ; gain = 108.879
 
 Phase 5.2 Clock Skew Optimization
 Phase 5.2 Clock Skew Optimization | Checksum: e07a2cba
 
-Time (s): cpu = 00:04:38 ; elapsed = 00:03:15 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:04:56 ; elapsed = 00:03:27 . Memory (MB): peak = 1315.543 ; gain = 108.879
 Phase 5 Delay and Skew Optimization | Checksum: e07a2cba
 
-Time (s): cpu = 00:04:38 ; elapsed = 00:03:15 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:04:56 ; elapsed = 00:03:27 . Memory (MB): peak = 1315.543 ; gain = 108.879
 
 Phase 6 Post Hold Fix
 
@@ -520,24 +857,24 @@ Phase 6.1 Hold Fix Iter
 Phase 6.1.1 Update Timing
 Phase 6.1.1 Update Timing | Checksum: 44b2fe5b
 
-Time (s): cpu = 00:04:39 ; elapsed = 00:03:15 . Memory (MB): peak = 1316.977 ; gain = 109.953
+Time (s): cpu = 00:04:57 ; elapsed = 00:03:27 . Memory (MB): peak = 1315.543 ; gain = 108.879
 INFO: [Route 35-416] Intermediate Timing Summary | WNS=-5.229 | TNS=-3795.450| WHS=-0.439 | THS=-0.439 |
 
 
 Phase 6.1.2 Lut RouteThru Assignment for hold
 Phase 6.1.2 Lut RouteThru Assignment for hold | Checksum: 1aef7ae12
 
-Time (s): cpu = 00:05:14 ; elapsed = 00:03:37 . Memory (MB): peak = 1641.590 ; gain = 434.566
+Time (s): cpu = 00:05:34 ; elapsed = 00:03:50 . Memory (MB): peak = 1642.242 ; gain = 435.578
 Phase 6.1 Hold Fix Iter | Checksum: 1aef7ae12
 
-Time (s): cpu = 00:05:14 ; elapsed = 00:03:37 . Memory (MB): peak = 1641.590 ; gain = 434.566
+Time (s): cpu = 00:05:34 ; elapsed = 00:03:50 . Memory (MB): peak = 1642.242 ; gain = 435.578
 
 Phase 6.2 Additional Hold Fix
 INFO: [Route 35-416] Intermediate Timing Summary | WNS=-5.229 | TNS=-3795.450| WHS=-0.439 | THS=-0.439 |
 
 Phase 6.2 Additional Hold Fix | Checksum: cde14ac1
 
-Time (s): cpu = 00:05:15 ; elapsed = 00:03:38 . Memory (MB): peak = 1641.590 ; gain = 434.566
+Time (s): cpu = 00:05:35 ; elapsed = 00:03:51 . Memory (MB): peak = 1642.242 ; gain = 435.578
 WARNING: [Route 35-468] The router encountered 13 pins that are both setup-critical and hold-critical and tried to fix hold violations at the expense of setup slack. Such pins are:
 	bd_i/ZedCamAXI_0/inst/custom_code/cam_reset_INST_0_i_1/I5
 	bd_i/ZedCamAXI_0/inst/custom_code/cam_reset_INST_0_i_2/I1
@@ -553,7 +890,7 @@ WARNING: [Route 35-468] The router encountered 13 pins that are both setup-criti
 
 Phase 6 Post Hold Fix | Checksum: cde14ac1
 
-Time (s): cpu = 00:05:15 ; elapsed = 00:03:38 . Memory (MB): peak = 1641.590 ; gain = 434.566
+Time (s): cpu = 00:05:35 ; elapsed = 00:03:51 . Memory (MB): peak = 1642.242 ; gain = 435.578
 
 Phase 7 Route finalize
 
@@ -576,33 +913,33 @@ West Dir 1x1 Area, Max Cong = 86.7647%, Congestion bounded by tiles (Lower Left 
    INT_R_X25Y36 -> INT_R_X25Y36
 Phase 7 Route finalize | Checksum: 17daca6cc
 
-Time (s): cpu = 00:05:16 ; elapsed = 00:03:38 . Memory (MB): peak = 1641.590 ; gain = 434.566
+Time (s): cpu = 00:05:35 ; elapsed = 00:03:51 . Memory (MB): peak = 1642.242 ; gain = 435.578
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
 Phase 8 Verifying routed nets | Checksum: 17daca6cc
 
-Time (s): cpu = 00:05:16 ; elapsed = 00:03:38 . Memory (MB): peak = 1641.590 ; gain = 434.566
+Time (s): cpu = 00:05:35 ; elapsed = 00:03:51 . Memory (MB): peak = 1642.242 ; gain = 435.578
 
 Phase 9 Depositing Routes
 Phase 9 Depositing Routes | Checksum: 24c9da308
 
-Time (s): cpu = 00:05:16 ; elapsed = 00:03:38 . Memory (MB): peak = 1641.590 ; gain = 434.566
+Time (s): cpu = 00:05:36 ; elapsed = 00:03:51 . Memory (MB): peak = 1642.242 ; gain = 435.578
 
 Phase 10 Post Router Timing
 
 Phase 10.1 Update Timing
 Phase 10.1 Update Timing | Checksum: 247658651
 
-Time (s): cpu = 00:05:17 ; elapsed = 00:03:39 . Memory (MB): peak = 1641.590 ; gain = 434.566
+Time (s): cpu = 00:05:36 ; elapsed = 00:03:52 . Memory (MB): peak = 1642.242 ; gain = 435.578
 INFO: [Route 35-57] Estimated Timing Summary | WNS=-5.229 | TNS=-3795.450| WHS=-0.439 | THS=-0.439 |
 
 WARNING: [Route 35-328] Router estimated timing not met.
 Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
 Phase 10 Post Router Timing | Checksum: 247658651
 
-Time (s): cpu = 00:05:17 ; elapsed = 00:03:39 . Memory (MB): peak = 1641.590 ; gain = 434.566
+Time (s): cpu = 00:05:36 ; elapsed = 00:03:52 . Memory (MB): peak = 1642.242 ; gain = 435.578
 WARNING: [Route 35-456] Router was unable to fix hold violation on 3 pins because of tight setup and hold constraints. Such pins are:
 	bd_i/ZedCamAXI_0/inst/custom_code/axi_rdata[0]_i_3/I1
 	bd_i/ZedCamAXI_0/inst/custom_code/cam_reset_INST_0_i_1/I0
@@ -620,18 +957,18 @@ WARNING: [Route 35-459] Router was unable to fix hold violation on 2 pins. This 
 Resolution: You may try high effort hold fixing by turning on param route.enableGlobalHoldIter.
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:05:17 ; elapsed = 00:03:39 . Memory (MB): peak = 1641.590 ; gain = 434.566
+Time (s): cpu = 00:05:36 ; elapsed = 00:03:52 . Memory (MB): peak = 1642.242 ; gain = 435.578
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
 59 Infos, 9 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:05:18 ; elapsed = 00:03:40 . Memory (MB): peak = 1641.590 ; gain = 434.566
+route_design: Time (s): cpu = 00:05:39 ; elapsed = 00:03:53 . Memory (MB): peak = 1642.242 ; gain = 435.578
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.682 . Memory (MB): peak = 1641.590 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.743 . Memory (MB): peak = 1642.242 ; gain = 0.000
 INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Coretcl 2-168] The results of DRC are in file C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/impl_1/bd_wrapper_drc_routed.rpt.
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
@@ -670,7 +1007,7 @@ Creating bitstream...
 Writing bitstream ./bd_wrapper.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
-INFO: [Common 17-186] 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Mon Nov 14 18:09:56 2016. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2016.2/doc/webtalk_introduction.html.
+INFO: [Common 17-186] 'C:/Users/georges/Documents/GitHub/MQP/ZedCamTest/ZedCamTest.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Sat Nov 26 14:30:31 2016. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2016.2/doc/webtalk_introduction.html.
 INFO: [Common 17-83] Releasing license: Implementation
-write_bitstream: Time (s): cpu = 00:00:31 ; elapsed = 00:00:25 . Memory (MB): peak = 1641.590 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 14 18:09:56 2016...
+write_bitstream: Time (s): cpu = 00:00:33 ; elapsed = 00:00:26 . Memory (MB): peak = 1642.242 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 26 14:30:31 2016...
