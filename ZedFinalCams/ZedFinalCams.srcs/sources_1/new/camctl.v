@@ -28,6 +28,7 @@ module imgbuf(
 	output reg buffer_ready
    );
 
+//parameter [3:0] CALIBRATION_OFFSET = 4'b1100;
 //reg image_sel = 1'b0; 
 reg wen_l, wen_r; 
 
@@ -42,12 +43,19 @@ reg [1:0] prev_state, next_state = ready;
 reg [9:0] pixel = 10'b00_0000_0000;
 reg [15:0] num_lines = 16'h0000;
 
-reg [18:0] addra;
+reg [18:0] lwrite;
 always @(num_lines,pixel)
-    if(128<=pixel && pixel <= 512 && num_lines >= 96 && num_lines <= 384)
-        addra = (384*(num_lines-96))+(pixel-128);
+    if(128 <= pixel && pixel <= 512 && num_lines >= 108 && num_lines <= 396) // added calibration offset
+        lwrite = (384*(num_lines-108))+(pixel-128);
     else
-        addra = 19'd0;
+        lwrite = 19'd0;
+
+reg [18:0] rwrite;
+always @(num_lines,pixel)
+    if(128 <= pixel && pixel <= 512 && num_lines >= 96 && num_lines <= 384)
+        rwrite = (384*(num_lines-96))+(pixel-128);
+    else
+        rwrite = 19'd0;
 
 //reg [18:0] addrb;
 //always @(vref,href)
@@ -60,7 +68,7 @@ wire [7:0] left_dout;
 blk_mem_640_480 left(
     .clka(fifo_rck),
     .wea(wen_l),
-    .addra(addra), // 19 bits
+    .addra(lwrite), // 19 bits
     .dina(fifo_data), // 8 bits
     .clkb(bram_rck), 
     .enb(1'b1),
@@ -72,7 +80,7 @@ wire [7:0] right_dout;
 blk_mem_640_480 right(
     .clka(fifo_rck),
     .wea(wen_r),
-    .addra(addra), // 19 bits
+    .addra(rwrite), // 19 bits
     .dina(fifo_data), // 8 bits
     .clkb(bram_rck), 
     .enb(1'b1),

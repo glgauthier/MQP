@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Sun Nov 27 16:11:50 2016
+| Date         : Sun Nov 27 20:10:36 2016
 | Host         : Georges-T460p running 64-bit major release  (build 9200)
 | Command      : report_utilization -file noip_top_utilization_synth.rpt -pb noip_top_utilization_synth.pb
 | Design       : noip_top
@@ -81,8 +81,8 @@ Table of Contents
 +----------------+------+-------+-----------+-------+
 |    Site Type   | Used | Fixed | Available | Util% |
 +----------------+------+-------+-----------+-------+
-| DSPs           |    6 |     0 |       220 |  2.73 |
-|   DSP48E1 only |    6 |       |           |       |
+| DSPs           |    8 |     0 |       220 |  3.64 |
+|   DSP48E1 only |    8 |       |           |       |
 +----------------+------+-------+-----------+-------+
 
 
@@ -115,7 +115,7 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| BUFGCTRL   |    6 |     0 |        32 | 18.75 |
+| BUFGCTRL   |    5 |     0 |        32 | 15.63 |
 | BUFIO      |    0 |     0 |        16 |  0.00 |
 | MMCME2_ADV |    1 |     0 |         4 | 25.00 |
 | PLLE2_ADV  |    0 |     0 |         4 |  0.00 |
@@ -148,22 +148,22 @@ Table of Contents
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| LUT4       | 5853 |                 LUT |
-| LUT6       | 5797 |                 LUT |
+| LUT4       | 5854 |                 LUT |
+| LUT6       | 5801 |                 LUT |
 | FDRE       | 5531 |        Flop & Latch |
-| LUT3       | 2659 |                 LUT |
-| CARRY4     | 2425 |          CarryLogic |
-| LUT2       | 1550 |                 LUT |
-| LUT5       | 1276 |                 LUT |
+| LUT3       | 2662 |                 LUT |
+| CARRY4     | 2429 |          CarryLogic |
+| LUT2       | 1535 |                 LUT |
+| LUT5       | 1275 |                 LUT |
 | MUXF7      |  766 |               MuxFx |
 | MUXF8      |  182 |               MuxFx |
 | RAMB36E1   |  129 |        Block Memory |
-| LUT1       |   48 |                 LUT |
+| LUT1       |   57 |                 LUT |
 | LDCE       |   24 |        Flop & Latch |
 | OBUF       |   22 |                  IO |
 | IBUF       |   13 |                  IO |
-| DSP48E1    |    6 |    Block Arithmetic |
-| BUFG       |    6 |               Clock |
+| DSP48E1    |    8 |    Block Arithmetic |
+| BUFG       |    5 |               Clock |
 | FDCE       |    3 |        Flop & Latch |
 | MMCME2_ADV |    1 |               Clock |
 +------------+------+---------------------+
