@@ -21,14 +21,14 @@ module noip_top(
    output [3:0] LEDs
    );
     
-wire clk_200MHz, clk_50MHz, clk_25MHz, clk_24MHz, clk_5MHz;
+wire clk_50MHz, clk_25MHz, clk_24MHz, clk_5MHz;
 clk_wiz_0 clkgen
    (
    // Clock in ports
-    .clk_100MHz(sysclk),      // input clk_100MHz
+    .clkin_100MHz(sysclk),      // input clk_100MHz
     // Clock out ports
    // .clk_200MHz(clk_200MHz),     // output clk_200MHz
-    .clk_50MHz(clk_50MHz),     // output clk_50MHz
+    .clk_100MHz(clk_50MHz),     // output clk_50MHz
     .clk_25MHz(clk_25MHz),     // output clk_25MHz
     .clk_24MHz(clk_24MHz),
     .clk_5MHz(clk_5MHz),
@@ -53,16 +53,16 @@ debounce deb(
     .btn(trigger),
     .btn_val(trig_db)
     );
-    
-//wire get_data;
 wire buffer_ready, idle, result_wea;
 wire [2:0] current_state;
-wire [18:0] laddr, raddr, result_addr;
+wire [16:0] laddr, raddr; 
+wire [18:0] result_addr;
 wire [7:0] ldata, rdata, result_data;
+
 disparity disp(
 	 .clk(clk_50MHz), // Read clk signal
+	 .sw0(sw0),
 	 .enable(trig_db), // enable new disparity calculation 
-	 //.get_data(get_data),
 	 .buffer_ready(buffer_ready),
 	 .reset(reset), // reset disparity FSM
 	 .ldata(ldata), // FIFO data in
@@ -78,7 +78,7 @@ disparity disp(
     
 // state indicator LEDs
 //assign LEDs = {1'b0,buffer_ready,trigger,image_sel};
-assign LEDs = {current_state[2:0],sw0};
+assign LEDs = {idle,current_state[2:0]};
 
 // ~~~~~~~~~~~~~~~~ VGA controller ~~~~~~~~~~~~~~~~~~~~~~
 wire [10:0] hcount, vcount;
@@ -95,15 +95,15 @@ vga_controller_640_60 vga(
 
 // ~~~~~~~~~~~~~~~~ Left, right, resultant image buffers ~~~~~~~~~~~~~~~~     
 // camera initialization sequence
-reg [11:0] init_count = 12'h000;
-always @(posedge clk_24MHz) // cam sysclk before ODDR2
+reg [4:0] init_count = 5'd0;
+always @(posedge clk_24MHz) // cam sysclk
 begin
 	if (cam_rst) // if cam_rst is pressed, redo the initialization sequence
-		init_count <= 12'h000;
-	else if(init_count < 2500) // keep cam_rst asserted for at least 20 cam_sysclk cycles - I use 30 since it's the minimum time for the i2c bus to be ready
+		init_count <= 5'd0;
+	else if(init_count < 5'd25) // keep cam_rst asserted for at least 20 cam_sysclk cycles - I use 30 since it's the minimum time for the i2c bus to be ready
 		init_count <= init_count + 1'b1;
 end
-assign cam_reset = (init_count >= 20);
+assign cam_reset = (init_count >= 5'd20);
 
 wire fifo_oe, fifo_rrst, image_sel;
 assign FIFO_OE1 = (image_sel == 1'b0) ? fifo_oe : 1'b1;
@@ -112,7 +112,7 @@ assign FIFO_RRST1 = (image_sel == 1'b0) ? fifo_rrst : 1'b1;
 assign FIFO_RRST2 = (image_sel == 1'b1) ? fifo_rrst : 1'b1;
 
 // shifts = 2x12, 1x9, 1x14 - avg~=12
-imgbuf fifo_buffer(
+imgbuf camctl(
     //.output_sel(sw0),
     .get_data(trig_db),
 	//.href(hcount),
@@ -134,10 +134,11 @@ imgbuf fifo_buffer(
    );
 
 wire [7:0] vga_data;
-reg [18:0] vga_addr;       
+reg [18:0] vga_addr;     
+
 blk_mem_resultant resultant (
   .clka(clk_50MHz),    // input wire clka
-  .wea(result_wea),      // input wire [0 : 0] wea
+  .wea(1'b1),      // input wire [0 : 0] wea
   .addra(result_addr),  // input wire [18 : 0] addra
   .dina(result_data),    // input wire [7 : 0] dina
   .clkb(clk_25MHz),    // input wire clkb
@@ -147,19 +148,14 @@ blk_mem_resultant resultant (
 // ~~~~~~~~~~~~~~~~ End of image buffers ~~~~~~~~~~~~~~~~
 
 // allow for VGA controller to read resultant image data
-always @ (hcount,vcount,blank)
+always @ (hcount,vcount,blank,vga_data) begin
+    vga_addr = (384*vcount)+hcount;
 	if(blank)
 		rgb = 8'h00;
-	else if(128<=hcount && hcount <= 512 && vcount >= 96 && vcount <= 384 && sw0)
-        rgb = vga_data;
-    else if(~sw0 && hcount<384 && vcount <= 288)
+    else if( hcount<384 && vcount <= 288)
         rgb = vga_data;
     else
-        rgb = 8'h00;
- 
-always @(vcount,hcount)
-    if(128<=hcount && hcount <= 512 && vcount >= 96 && vcount <= 384 && sw0)
-        vga_addr = (384*(vcount-96))+(hcount-128);
-    else if(~sw0)
-        vga_addr = (384*vcount)+hcount;
+        rgb = 8'hF0;
+end
+
 endmodule

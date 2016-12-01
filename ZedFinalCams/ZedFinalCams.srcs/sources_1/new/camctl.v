@@ -11,8 +11,8 @@ module imgbuf(
 	//input [10:0] vref,
 	//input blank,
 	//
-	input [18:0] laddr,
-	input [18:0] raddr,
+	input [16:0] laddr,
+	input [16:0] raddr,
 	output [7:0] ldata,
 	output [7:0] rdata,
 	input [7:0] fifo_data, // 8 bit data in from fifo
@@ -43,19 +43,19 @@ reg [1:0] prev_state, next_state = ready;
 reg [9:0] pixel = 10'b00_0000_0000;
 reg [15:0] num_lines = 16'h0000;
 
-reg [18:0] lwrite;
+reg [16:0] lwrite;
 always @(num_lines,pixel)
     if(128 <= pixel && pixel <= 512 && num_lines >= 108 && num_lines <= 396) // added calibration offset
         lwrite = (384*(num_lines-108))+(pixel-128);
     else
-        lwrite = 19'd0;
+        lwrite = 17'd0;
 
-reg [18:0] rwrite;
+reg [16:0] rwrite;
 always @(num_lines,pixel)
     if(128 <= pixel && pixel <= 512 && num_lines >= 96 && num_lines <= 384)
         rwrite = (384*(num_lines-96))+(pixel-128);
     else
-        rwrite = 19'd0;
+        rwrite = 17'd0;
 
 //reg [18:0] addrb;
 //always @(vref,href)
@@ -91,7 +91,7 @@ blk_mem_640_480 right(
 always @(posedge fifo_rck)
 	state <= next_state;
 	
-always @(state,get_data,num_lines,pixel)	
+always @(state,get_data,num_lines,image_sel)	
 	case(state)
 		ready: 
 			begin

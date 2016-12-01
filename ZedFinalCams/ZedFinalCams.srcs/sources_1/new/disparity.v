@@ -4,23 +4,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 module disparity(
 	 input clk, // Read clk signal
+	 input sw0,
 	 input enable, // enable new disparity calculation 
-	 //output reg get_data,
 	 input buffer_ready,
 	 input reset, // reset disparity FSM
 	 input [7:0] ldata, // FIFO data in
 	 input [7:0] rdata, // FIFO data in
-	 output [18:0] laddr,
-	 output [18:0] raddr,
-	 output [18:0] result_addr,
+	 output reg [16:0] laddr,
+	 output reg [16:0] raddr,
+	 output reg [18:0] result_addr,
 	 output reg [7:0] result_data,
 	 output result_wea,
-	 //input [9:0] disp_href, // output image href
-	 //input [9:0] disp_vref, // output image vref
-	 // output reg [7:0] new_image, // output image data
-	 //output reg [9:0] buffer_href, // current template href
-	 //output reg [9:0] buffer_vref, // current template vref
-	 //output reg image_sel = 0, // left/right frame select
 	 output idle, // LED indicator signify end of process
 	 output [2:0] state_LED // current state indicator
     );
@@ -28,8 +22,8 @@ module disparity(
 // user-defined constants (image search parameters)
 parameter WIDTH = 384 - 1; // output image width (0-indexed)
 parameter HEIGHT = 288 - 1; // output image height (0-indexed)
-parameter SEARCH_RANGE = 20-1; // disparity block comparison search range (0-indexed)
-parameter HALF_BLOCK = 3; // half block size
+parameter SEARCH_RANGE = 25-1; // disparity block comparison search range (0-indexed)
+parameter HALF_BLOCK = 4; // half block size
 
 // calculated constants
 parameter BLOCK_SIZE = (2*HALF_BLOCK) + 1;
@@ -50,8 +44,8 @@ reg done; // will be 1 if disparity is 100% done, 0 otherwise (used for next_sta
 reg [7:0] template [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // template block
 reg [7:0] block [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // search block
 reg [7:0] SAD_diffs [0:BLOCK_SIZE-1][0:BLOCK_SIZE-1]; // block for holding abs(template-block)
-reg [(SEARCH_RANGE*8)-1:0] temp [0:BLOCK_SIZE-1]; // block for holding sum(abs(template-block))
-reg [(SEARCH_RANGE*8)-1:0] SAD_vector [0:SEARCH_RANGE]; // block for holding sum(sum(abs(template-block)))
+reg [15:0] temp [0:BLOCK_SIZE-1]; // block for holding sum(abs(template-block))
+reg [15:0] SAD_vector [0:SEARCH_RANGE]; // block for holding sum(sum(abs(template-block)))
 
 // ~~~~~~~~~~~~~~~ Disparity FSM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 parameter [2:0] READ = 3'b001, // read data from FIFO
@@ -62,8 +56,6 @@ parameter [2:0] READ = 3'b001, // read data from FIFO
 reg [2:0] current_state = IDLE, 
           next_state = IDLE, 
           prev_state = IDLE;
-          
-reg ns_enable = 1'b0, ps_enable = 1'b0;
 
 // state-machine flip-flops
 always @ (posedge clk, posedge reset)
@@ -73,7 +65,7 @@ always @ (posedge clk, posedge reset)
 		current_state <= next_state;
 
 // next state logic
-always @(current_state,enable,row_count,col_count,ccnt,cdcnt,t_maxc,b_maxc,dcnt,ns_enable,ps_enable,pipe,done,buffer_ready,rcnt)
+always @(current_state,enable,ccnt,dcnt,pipe,done,buffer_ready,rcnt,maxd)
 	case(current_state)
 	IDLE: 
 		if(enable) begin
@@ -296,32 +288,42 @@ case(current_state)
 		// place disparity value in output image array
 		else begin
 		    // PUT THIS LINE BACK IN WHEN DONE
-		    result_data <= index;
+		    if(sw0)
+		      result_data <= index;
+		    else
+		      result_data <= template[3][3];
 			//resultant[buffer_href][buffer_vref] <= index;
 			pipe <= 2'b11;
 		end
 	end
 endcase
 
-assign result_wea = (current_state == FINALIZE && scnt == numBlocks) ? 1'b1 : 1'b0;
-assign result_addr = ((WIDTH+1'b1)*row_count)+col_count;
-assign laddr = ((WIDTH+1'b1)*(minr+rcnt))+(t_minc+ccnt);
-assign raddr = ((WIDTH+1'b1)*(minr+rcnt))+(b_minc+ccnt);
+assign result_wea = (current_state == FINALIZE && scnt == (numBlocks+1'b1)) ? 1'b1 : 1'b0; // && scnt == numBlocks
+//assign result_addr = ((WIDTH+1'b1)*row_count)+col_count;
+always @(row_count, col_count)
+    result_addr = ((WIDTH+1'b1)*row_count)+col_count;
+    
+//always @(posedge clk)
+always @(negedge clk)
+    laddr = ((WIDTH+1'b1)*(minr+rcnt))+(t_minc+ccnt);
+//always@(posedge clk)
+always @(negedge clk)
+    raddr = ((WIDTH+1'b1)*(minr+rcnt))+(b_minc+ccnt);
 
 
 // assign block search bounds
 always @(row_count,col_count,t_maxc,maxd,mind,dcnt,next_state,current_state,prev_state)
 begin
 	if (current_state == IDLE) begin
-		minr = 0;
-		maxr = 0;
-		t_minc = 0;
-		t_maxc = 0;
+		minr = 10'b0;
+		maxr = 10'b0;
+		t_minc = 10'b0;
+		t_maxc = 10'b0;
 		b_minc = 10'b0;
 		b_maxc = 10'b0;
-		mind = 0; // or = max(-SEARCH_RANGE, 1-t_minc)
-		maxd = 0;
-		numBlocks = 0;
+		mind = 10'b0; // or = max(-SEARCH_RANGE, 1-t_minc)
+		maxd = 10'b0;
+		numBlocks = 10'b0;
 		end
 	else begin
 		minr = (0 > $signed(row_count - HALF_BLOCK)) ? 10'b0 : (row_count - HALF_BLOCK);
@@ -331,6 +333,7 @@ begin
 		b_minc =(0 > $signed(dcnt - HALF_BLOCK+col_count)) ? 10'b0 : (dcnt - HALF_BLOCK + col_count);
 		b_maxc = ((WIDTH) < (dcnt + HALF_BLOCK)) ? WIDTH : (dcnt + col_count + HALF_BLOCK);
 		mind = 10'b0; // or = max(-SEARCH_RANGE, 1-t_minc)
+		
 		if (current_state == READ)
 			maxd = SEARCH_RANGE;
 		else if(current_state == FINALIZE)

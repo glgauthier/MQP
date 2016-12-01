@@ -31,8 +31,8 @@ set_property used_in_implementation false [get_files -all c:/Users/georges/Docum
 set_property is_locked true [get_files C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_resultant/blk_mem_resultant.xci]
 
 read_verilog -library xil_defaultlib {
-  C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/disparity.v
   C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/debounce.v
+  C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/disparity.v
   C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/clkdivs.v
   C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/camctl.v
   C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/noip_top.v

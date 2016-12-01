@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Sun Nov 27 21:07:27 2016
+| Date             : Mon Nov 28 19:32:38 2016
 | Host             : Georges-T460p running 64-bit major release  (build 9200)
 | Command          : report_power -file noip_top_power_routed.rpt -pb noip_top_power_summary_routed.pb -rpx noip_top_power_routed.rpx
 | Design           : noip_top
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.268 |
-| Dynamic (W)              | 0.138 |
+| Total On-Chip Power (W)  | 0.274 |
+| Dynamic (W)              | 0.144 |
 | Device Static (W)        | 0.130 |
 | Effective TJA (C/W)      | 11.5  |
-| Max Ambient (C)          | 81.9  |
-| Junction Temperature (C) | 28.1  |
+| Max Ambient (C)          | 81.8  |
+| Junction Temperature (C) | 28.2  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -49,20 +49,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.009 |       14 |       --- |             --- |
-| Slice Logic    |     0.010 |    26437 |       --- |             --- |
-|   LUT as Logic |     0.009 |    14936 |     53200 |           28.08 |
-|   CARRY4       |     0.001 |     2429 |     13300 |           18.26 |
-|   F7/F8 Muxes  |    <0.001 |      948 |     53200 |            1.78 |
-|   Register     |    <0.001 |     5558 |    106400 |            5.22 |
-|   Others       |     0.000 |      288 |       --- |             --- |
-| Signals        |     0.026 |    24240 |       --- |             --- |
-| Block RAM      |     0.002 |      129 |       140 |           92.14 |
+| Clocks         |     0.011 |       14 |       --- |             --- |
+| Slice Logic    |     0.007 |     6303 |       --- |             --- |
+|   LUT as Logic |     0.007 |     2601 |     53200 |            4.89 |
+|   F7/F8 Muxes  |    <0.001 |      415 |     53200 |            0.78 |
+|   CARRY4       |    <0.001 |       68 |     13300 |            0.51 |
+|   Register     |    <0.001 |     2765 |    106400 |            2.60 |
+|   Others       |     0.000 |      285 |       --- |             --- |
+| Signals        |     0.028 |     6180 |       --- |             --- |
+| Block RAM      |     0.005 |      129 |       140 |           92.14 |
 | MMCM           |     0.085 |        1 |         4 |           25.00 |
-| DSPs           |    <0.001 |        8 |       220 |            3.64 |
-| I/O            |     0.005 |       35 |       200 |           17.50 |
+| DSPs           |     0.001 |        7 |       220 |            3.18 |
+| I/O            |     0.006 |       35 |       200 |           17.50 |
 | Static Power   |     0.130 |          |           |                 |
-| Total          |     0.268 |          |           |                 |
+| Total          |     0.274 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.058 |       0.048 |      0.010 |
+| Vccint    |       1.000 |     0.063 |       0.053 |      0.010 |
 | Vccaux    |       1.800 |     0.066 |       0.047 |      0.019 |
 | Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -81,7 +81,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.005 |       0.000 |      0.005 |
+| Vccbram   |       1.000 |     0.006 |       0.000 |      0.005 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
@@ -132,22 +132,22 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+-----------------------+---------------------------------+-----------------+
-| Clock                 | Domain                          | Constraint (ns) |
-+-----------------------+---------------------------------+-----------------+
-| clk_24MHz_clk_wiz_0   | clkgen/inst/clk_24MHz_clk_wiz_0 |            41.7 |
-| clk_24MHz_clk_wiz_0_1 | clkgen/inst/clk_24MHz_clk_wiz_0 |            41.7 |
-| clk_25MHz_clk_wiz_0   | clkgen/inst/clk_25MHz_clk_wiz_0 |            40.0 |
-| clk_25MHz_clk_wiz_0_1 | clkgen/inst/clk_25MHz_clk_wiz_0 |            40.0 |
-| clk_50MHz_clk_wiz_0   | clkgen/inst/clk_50MHz_clk_wiz_0 |            20.0 |
-| clk_50MHz_clk_wiz_0_1 | clkgen/inst/clk_50MHz_clk_wiz_0 |            20.0 |
-| clk_5MHz_clk_wiz_0    | clkgen/inst/clk_5MHz_clk_wiz_0  |           200.0 |
-| clk_5MHz_clk_wiz_0_1  | clkgen/inst/clk_5MHz_clk_wiz_0  |           200.0 |
-| clkfbout_clk_wiz_0    | clkgen/inst/clkfbout_clk_wiz_0  |            10.0 |
-| clkfbout_clk_wiz_0_1  | clkgen/inst/clkfbout_clk_wiz_0  |            10.0 |
-| clock                 | sysclk                          |            10.0 |
-| sysclk                | sysclk                          |            10.0 |
-+-----------------------+---------------------------------+-----------------+
++------------------------+----------------------------------+-----------------+
+| Clock                  | Domain                           | Constraint (ns) |
++------------------------+----------------------------------+-----------------+
+| clk_100MHz_clk_wiz_0   | clkgen/inst/clk_100MHz_clk_wiz_0 |            10.0 |
+| clk_100MHz_clk_wiz_0_1 | clkgen/inst/clk_100MHz_clk_wiz_0 |            10.0 |
+| clk_24MHz_clk_wiz_0    | clkgen/inst/clk_24MHz_clk_wiz_0  |            41.7 |
+| clk_24MHz_clk_wiz_0_1  | clkgen/inst/clk_24MHz_clk_wiz_0  |            41.7 |
+| clk_25MHz_clk_wiz_0    | clkgen/inst/clk_25MHz_clk_wiz_0  |            40.0 |
+| clk_25MHz_clk_wiz_0_1  | clkgen/inst/clk_25MHz_clk_wiz_0  |            40.0 |
+| clk_5MHz_clk_wiz_0     | clkgen/inst/clk_5MHz_clk_wiz_0   |           200.0 |
+| clk_5MHz_clk_wiz_0_1   | clkgen/inst/clk_5MHz_clk_wiz_0   |           200.0 |
+| clkfbout_clk_wiz_0     | clkgen/inst/clkfbout_clk_wiz_0   |            10.0 |
+| clkfbout_clk_wiz_0_1   | clkgen/inst/clkfbout_clk_wiz_0   |            10.0 |
+| clock                  | sysclk                           |            10.0 |
+| sysclk                 | sysclk                           |            10.0 |
++------------------------+----------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -159,24 +159,23 @@ Table of Contents
 +------------------------------------------------+-----------+
 | Name                                           | Power (W) |
 +------------------------------------------------+-----------+
-| noip_top                                       |     0.138 |
-|   clkgen                                       |     0.085 |
-|     inst                                       |     0.085 |
+| noip_top                                       |     0.144 |
+|   clkgen                                       |     0.086 |
+|     inst                                       |     0.086 |
 |   clks                                         |    <0.001 |
 |   deb                                          |    <0.001 |
-|   disp                                         |     0.037 |
-|     maxd_reg[0]                                |    <0.001 |
-|     maxd_reg[1]                                |    <0.001 |
+|   disp                                         |     0.030 |
+|     maxd_reg[3]                                |    <0.001 |
 |     maxd_reg[4]                                |    <0.001 |
-|   fifo_buffer                                  |     0.007 |
-|     left                                       |     0.004 |
-|       U0                                       |     0.004 |
-|         inst_blk_mem_gen                       |     0.004 |
-|           gnbram.gnativebmg.native_blk_mem_gen |     0.004 |
-|             valid.cstr                         |     0.004 |
+|   fifo_buffer                                  |     0.018 |
+|     left                                       |     0.009 |
+|       U0                                       |     0.009 |
+|         inst_blk_mem_gen                       |     0.009 |
+|           gnbram.gnativebmg.native_blk_mem_gen |     0.009 |
+|             valid.cstr                         |     0.009 |
 |               bindec_a.bindec_inst_a           |     0.000 |
 |               bindec_b.bindec_inst_b           |    <0.001 |
-|               has_mux_b.B                      |     0.003 |
+|               has_mux_b.B                      |     0.007 |
 |               ramloop[0].ram.r                 |    <0.001 |
 |                 prim_noinit.ram                |    <0.001 |
 |               ramloop[10].ram.r                |    <0.001 |
@@ -231,14 +230,14 @@ Table of Contents
 |                 prim_noinit.ram                |    <0.001 |
 |               ramloop[9].ram.r                 |    <0.001 |
 |                 prim_noinit.ram                |    <0.001 |
-|     right                                      |     0.003 |
-|       U0                                       |     0.003 |
-|         inst_blk_mem_gen                       |     0.003 |
-|           gnbram.gnativebmg.native_blk_mem_gen |     0.003 |
-|             valid.cstr                         |     0.003 |
+|     right                                      |     0.009 |
+|       U0                                       |     0.009 |
+|         inst_blk_mem_gen                       |     0.009 |
+|           gnbram.gnativebmg.native_blk_mem_gen |     0.009 |
+|             valid.cstr                         |     0.009 |
 |               bindec_a.bindec_inst_a           |     0.000 |
 |               bindec_b.bindec_inst_b           |    <0.001 |
-|               has_mux_b.B                      |     0.002 |
+|               has_mux_b.B                      |     0.006 |
 |               ramloop[0].ram.r                 |    <0.001 |
 |                 prim_noinit.ram                |    <0.001 |
 |               ramloop[10].ram.r                |    <0.001 |
@@ -293,11 +292,11 @@ Table of Contents
 |                 prim_noinit.ram                |    <0.001 |
 |               ramloop[9].ram.r                 |    <0.001 |
 |                 prim_noinit.ram                |    <0.001 |
-|   resultant                                    |     0.002 |
-|     U0                                         |     0.002 |
-|       inst_blk_mem_gen                         |     0.002 |
-|         gnbram.gnativebmg.native_blk_mem_gen   |     0.002 |
-|           valid.cstr                           |     0.002 |
+|   resultant                                    |     0.004 |
+|     U0                                         |     0.004 |
+|       inst_blk_mem_gen                         |     0.004 |
+|         gnbram.gnativebmg.native_blk_mem_gen   |     0.004 |
+|           valid.cstr                           |     0.004 |
 |             has_mux_b.B                        |    <0.001 |
 |             ramloop[0].ram.r                   |    <0.001 |
 |               prim_noinit.ram                  |    <0.001 |
