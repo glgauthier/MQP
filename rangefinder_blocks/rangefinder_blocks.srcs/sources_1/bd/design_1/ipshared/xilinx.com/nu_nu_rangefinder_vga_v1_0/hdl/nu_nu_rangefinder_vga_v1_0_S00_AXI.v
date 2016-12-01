@@ -15,7 +15,7 @@
 	)
 	(
 		// Users to add ports here
-		output wire [27:0] data_enable_step,
+		output reg [27:0] data_enable_step,
         input wire transmit,
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -393,9 +393,11 @@
 	end    
 
 	// Add user logic here
-
-    assign data_enable_step = extra_data_enable_step[27:0];
-
+    always @( posedge S_AXI_ACLK )
+    begin
+        data_enable_step = extra_data_enable_step[27:0];
+    end
+    
 	// User logic ends
 
 	endmodule

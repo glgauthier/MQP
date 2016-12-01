@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Tue Nov 08 14:56:17 2016
+//Date        : Sun Nov 20 13:54:07 2016
 //Host        : JOHN-HP running 64-bit major release  (build 7600)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=9,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=9,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_ps7_cnt=1,synth_mode=OOC_per_BD}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (DDR_addr,
     DDR_ba,
@@ -32,8 +32,10 @@ module design_1
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
+    button,
     fpga_clk,
     hsync,
+    leds,
     reset,
     rgb,
     vsync);
@@ -58,15 +60,18 @@ module design_1
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
+  input button;
   input fpga_clk;
   output hsync;
+  output [7:0]leds;
   input reset;
   output [11:0]rgb;
   output vsync;
 
   wire [12:0]blk_mem_gen_0_douta;
   wire [12:0]blk_mem_gen_1_douta;
-  wire [639:0]blk_mem_gen_2_doutb;
+  wire [7:0]blk_mem_gen_2_doutb;
+  wire button_1;
   wire fpga_clk_1;
   wire [7:0]nu_nu_rangefinder_vga_0_addra1;
   wire [7:0]nu_nu_rangefinder_vga_0_addra2;
@@ -74,15 +79,16 @@ module design_1
   wire nu_nu_rangefinder_vga_0_clk_100M2;
   wire nu_nu_rangefinder_vga_0_clk_100M3;
   wire nu_nu_rangefinder_vga_0_clk_25M1;
-  wire [639:0]nu_nu_rangefinder_vga_0_dina;
+  wire [7:0]nu_nu_rangefinder_vga_0_dina;
   wire nu_nu_rangefinder_vga_0_ena;
   wire nu_nu_rangefinder_vga_0_enb;
   wire nu_nu_rangefinder_vga_0_hsync;
+  wire [7:0]nu_nu_rangefinder_vga_0_leds;
   wire [11:0]nu_nu_rangefinder_vga_0_rgb;
-  wire [8:0]nu_nu_rangefinder_vga_0_vcount_9b;
+  wire [18:0]nu_nu_rangefinder_vga_0_vga_raddr;
+  wire [18:0]nu_nu_rangefinder_vga_0_vga_waddr;
   wire nu_nu_rangefinder_vga_0_vsync;
   wire nu_nu_rangefinder_vga_0_wea;
-  wire [8:0]nu_nu_rangefinder_vga_0_ylocation;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -167,8 +173,10 @@ module design_1
   wire [0:0]rst_processing_system7_0_100M_interconnect_aresetn;
   wire [0:0]rst_processing_system7_0_100M_peripheral_aresetn;
 
+  assign button_1 = button;
   assign fpga_clk_1 = fpga_clk;
   assign hsync = nu_nu_rangefinder_vga_0_hsync;
+  assign leds[7:0] = nu_nu_rangefinder_vga_0_leds;
   assign reset_1 = reset;
   assign rgb[11:0] = nu_nu_rangefinder_vga_0_rgb;
   assign vsync = nu_nu_rangefinder_vga_0_vsync;
@@ -181,12 +189,12 @@ module design_1
         .clka(nu_nu_rangefinder_vga_0_clk_100M2),
         .douta(blk_mem_gen_1_douta));
   design_1_blk_mem_gen_2_0 blk_mem_gen_2
-       (.addra(nu_nu_rangefinder_vga_0_ylocation),
-        .addrb(nu_nu_rangefinder_vga_0_vcount_9b),
+       (.addra(nu_nu_rangefinder_vga_0_vga_waddr),
+        .addrb(nu_nu_rangefinder_vga_0_vga_raddr),
         .clka(nu_nu_rangefinder_vga_0_clk_100M3),
         .clkb(nu_nu_rangefinder_vga_0_clk_25M1),
         .dina(nu_nu_rangefinder_vga_0_dina),
-        .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .doutb(blk_mem_gen_2_doutb),
         .ena(nu_nu_rangefinder_vga_0_ena),
         .enb(nu_nu_rangefinder_vga_0_enb),
@@ -195,6 +203,7 @@ module design_1
   design_1_nu_nu_rangefinder_vga_0_0 nu_nu_rangefinder_vga_0
        (.addra1(nu_nu_rangefinder_vga_0_addra1),
         .addra2(nu_nu_rangefinder_vga_0_addra2),
+        .button(button_1),
         .clk_100M1(nu_nu_rangefinder_vga_0_clk_100M1),
         .clk_100M2(nu_nu_rangefinder_vga_0_clk_100M2),
         .clk_100M3(nu_nu_rangefinder_vga_0_clk_100M3),
@@ -206,6 +215,7 @@ module design_1
         .enb(nu_nu_rangefinder_vga_0_enb),
         .fpga_clk(fpga_clk_1),
         .hsync(nu_nu_rangefinder_vga_0_hsync),
+        .leds(nu_nu_rangefinder_vga_0_leds),
         .reset(reset_1),
         .rgb(nu_nu_rangefinder_vga_0_rgb),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
@@ -229,11 +239,11 @@ module design_1
         .s00_axi_wready(processing_system7_0_axi_periph_M00_AXI_WREADY),
         .s00_axi_wstrb(processing_system7_0_axi_periph_M00_AXI_WSTRB),
         .s00_axi_wvalid(processing_system7_0_axi_periph_M00_AXI_WVALID),
-        .vcount_9b(nu_nu_rangefinder_vga_0_vcount_9b),
+        .vga_raddr(nu_nu_rangefinder_vga_0_vga_raddr),
+        .vga_waddr(nu_nu_rangefinder_vga_0_vga_waddr),
         .vsync(nu_nu_rangefinder_vga_0_vsync),
         .wea(nu_nu_rangefinder_vga_0_wea),
-        .x_vga(blk_mem_gen_2_doutb),
-        .ylocation(nu_nu_rangefinder_vga_0_ylocation));
+        .x_vga(blk_mem_gen_2_doutb));
   design_1_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr[14:0]),
         .DDR_BankAddr(DDR_ba[2:0]),
@@ -296,8 +306,7 @@ module design_1
         .M_AXI_GP0_WVALID(processing_system7_0_M_AXI_GP0_WVALID),
         .PS_CLK(FIXED_IO_ps_clk),
         .PS_PORB(FIXED_IO_ps_porb),
-        .PS_SRSTB(FIXED_IO_ps_srstb),
-        .UART1_RX(1'b1));
+        .PS_SRSTB(FIXED_IO_ps_srstb));
   design_1_processing_system7_0_axi_periph_0 processing_system7_0_axi_periph
        (.ACLK(processing_system7_0_FCLK_CLK0),
         .ARESETN(rst_processing_system7_0_100M_interconnect_aresetn),

@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Tue Nov 08 14:56:19 2016
+//Date        : Sun Nov 20 13:54:08 2016
 //Host        : JOHN-HP running 64-bit major release  (build 7600)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -31,8 +31,10 @@ module design_1_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
+    button,
     fpga_clk,
     hsync,
+    leds,
     reset,
     rgb,
     vsync);
@@ -57,8 +59,10 @@ module design_1_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
+  input button;
   input fpga_clk;
   output hsync;
+  output [7:0]leds;
   input reset;
   output [11:0]rgb;
   output vsync;
@@ -84,8 +88,10 @@ module design_1_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
+  wire button;
   wire fpga_clk;
   wire hsync;
+  wire [7:0]leds;
   wire reset;
   wire [11:0]rgb;
   wire vsync;
@@ -112,8 +118,10 @@ module design_1_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
+        .button(button),
         .fpga_clk(fpga_clk),
         .hsync(hsync),
+        .leds(leds),
         .reset(reset),
         .rgb(rgb),
         .vsync(vsync));

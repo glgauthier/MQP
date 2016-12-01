@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date              : Tue Nov 08 15:14:17 2016
+| Date              : Wed Nov 16 22:30:22 2016
 | Host              : JOHN-HP running 64-bit major release  (build 7600)
 | Command           : report_clock_utilization -file design_1_wrapper_clock_utilization_routed.rpt
 | Design            : design_1_wrapper
@@ -21,14 +21,15 @@ Table of Contents
 5. Clock Regions: Key Resource Utilization
 6. Clock Regions : Global Clock Summary
 7. Cell Type Counts per Global Clock: Region X0Y0
-8. Cell Type Counts per Global Clock: Region X0Y1
-9. Cell Type Counts per Global Clock: Region X1Y1
-10. Cell Type Counts per Global Clock: Region X0Y2
-11. Cell Type Counts per Global Clock: Region X1Y2
-12. Load Cell Placement Summary for Global Clock g0
-13. Load Cell Placement Summary for Global Clock g1
-14. Load Cell Placement Summary for Global Clock g2
-15. Load Cell Placement Summary for Global Clock g3
+8. Cell Type Counts per Global Clock: Region X1Y0
+9. Cell Type Counts per Global Clock: Region X0Y1
+10. Cell Type Counts per Global Clock: Region X1Y1
+11. Cell Type Counts per Global Clock: Region X0Y2
+12. Cell Type Counts per Global Clock: Region X1Y2
+13. Load Cell Placement Summary for Global Clock g0
+14. Load Cell Placement Summary for Global Clock g1
+15. Load Cell Placement Summary for Global Clock g2
+16. Load Cell Placement Summary for Global Clock g3
 
 1. Clock Primitive Utilization
 ------------------------------
@@ -52,9 +53,9 @@ Table of Contents
 +-------+-------+-----------------+------------+----------------+--------------+------+-------------------+---------------+-------------+-----------------+--------------+------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------+
 | GlbID | SrcId | Driver Type/Pin | Constraint | Site           | Clock Region | Root | Clock Delay Group | Clock Regions | Clock Loads | Non-Clock Loads | Clock Period | Clock      | Driver Pin                                                               | Net                                                                              |
 +-------+-------+-----------------+------------+----------------+--------------+------+-------------------+---------------+-------------+-----------------+--------------+------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| g0    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |      |                   |             3 |         666 |               0 |       10.000 | clk_fpga_0 | design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O | design_1_i/processing_system7_0/inst/FCLK_CLK0                                   |
-| g1    | src1  | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |      |                   |             4 |          60 |               0 |       10.000 | Multiple   | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout1_buf/O  | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M               |
-| g2    | src1  | BUFG/O          | None       | BUFGCTRL_X0Y1  | n/a          |      |                   |             4 |          43 |               0 |       40.000 | Multiple   | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout2_buf/O  | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M                |
+| g0    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |      |                   |             2 |         690 |               0 |       10.000 | clk_fpga_0 | design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O | design_1_i/processing_system7_0/inst/FCLK_CLK0                                   |
+| g1    | src1  | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |      |                   |             6 |         115 |               0 |       40.000 | Multiple   | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout2_buf/O  | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M                |
+| g2    | src1  | BUFG/O          | None       | BUFGCTRL_X0Y1  | n/a          |      |                   |             6 |         108 |               0 |       10.000 | Multiple   | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout1_buf/O  | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M               |
 | g3    | src1  | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |      |                   |             1 |           1 |               0 |       10.000 | Multiple   | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkf_buf/O     | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkfbout_buf_clk_wiz_0 |
 +-------+-------+-----------------+------------+----------------+--------------+------+-------------------+---------------+-------------+-----------------+--------------+------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
@@ -67,8 +68,8 @@ Table of Contents
 | SrcID | GlbIDs | Driver Type/Pin     | Constraint | Site            | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock | Driver Pin                                                                       | Net                                                                          |
 +-------+--------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+--------------+----------------------------------------------------------------------------------+------------------------------------------------------------------------------+
 | src0  | g0     | PS7/FCLKCLK[0]      | PS7_X0Y0   | PS7_X0Y0        | X0Y2         |           0 |               1 |              10.000 | clk_fpga_0   | design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]                            | design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]                  |
-| src1  | g1     | MMCME2_ADV/CLKOUT0  | None       | MMCME2_ADV_X0Y0 | X0Y0         |           0 |               1 |              10.000 | Multiple     | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/mmcm_adv_inst/CLKOUT0  | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M_clk_wiz_0 |
-| src1  | g2     | MMCME2_ADV/CLKOUT1  | None       | MMCME2_ADV_X0Y0 | X0Y0         |           0 |               1 |              40.000 | Multiple     | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/mmcm_adv_inst/CLKOUT1  | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M_clk_wiz_0  |
+| src1  | g2     | MMCME2_ADV/CLKOUT0  | None       | MMCME2_ADV_X0Y0 | X0Y0         |           0 |               1 |              10.000 | Multiple     | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/mmcm_adv_inst/CLKOUT0  | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M_clk_wiz_0 |
+| src1  | g1     | MMCME2_ADV/CLKOUT1  | None       | MMCME2_ADV_X0Y0 | X0Y0         |           0 |               1 |              40.000 | Multiple     | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/mmcm_adv_inst/CLKOUT1  | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M_clk_wiz_0  |
 | src1  | g3     | MMCME2_ADV/CLKFBOUT | None       | MMCME2_ADV_X0Y0 | X0Y0         |           0 |               1 |              10.000 | Multiple     | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/mmcm_adv_inst/CLKFBOUT | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkfbout_clk_wiz_0 |
 +-------+--------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+--------------+----------------------------------------------------------------------------------+------------------------------------------------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
@@ -91,12 +92,12 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   22 | 20000 |    3 |  4000 |    0 |     0 |    0 |    30 |    0 |    60 |
-| X1Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 25600 |    0 |  3400 |    0 |     0 |    0 |    30 |    0 |    40 |
-| X0Y1              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |  363 |  9600 |   19 |  1600 |    0 |     0 |    5 |    10 |    0 |    20 |
-| X1Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    9 | 20800 |    1 |  3400 |    0 |     0 |    9 |    30 |    0 |    40 |
-| X0Y2              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |   88 |  9600 |    7 |  1600 |    0 |     0 |    3 |    10 |    0 |    20 |
-| X1Y2              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20800 |    0 |  3400 |    0 |     0 |    1 |    30 |    0 |    40 |
+| X0Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20000 |    0 |  4000 |    0 |     0 |    7 |    30 |    0 |    60 |
+| X1Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 25600 |    0 |  3400 |    0 |     0 |    8 |    30 |    0 |    40 |
+| X0Y1              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |  402 |  9600 |   20 |  1600 |    0 |     0 |    9 |    10 |    1 |    20 |
+| X1Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   11 | 20800 |    1 |  3400 |    0 |     0 |   30 |    30 |    0 |    40 |
+| X0Y2              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |   76 |  9600 |    9 |  1600 |    0 |     0 |    4 |    10 |    0 |    20 |
+| X1Y2              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20800 |    0 |  3400 |    0 |     0 |   17 |    30 |    0 |    40 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 * Used Global Clocks includes only global clock resources based on load placement but does not consider global clock resources used to traverse a clock region. Therefore the actual total of Used Global Clocks may be higher.
 ** RAMB36 site can be used as two RAMB18/FIFO18 sites.
@@ -110,7 +111,7 @@ Table of Contents
 +----+----+----+
 | Y2 |  3 |  2 |
 | Y1 |  3 |  2 |
-| Y0 |  2 |  0 |
+| Y0 |  3 |  2 |
 +----+----+----+
 * Used Global Clocks includes only global clock resources based on load placement but does not consider global clock resources used to traverse a clock region. Therefore the actual total of Used Global Clocks may be higher.
 
@@ -121,120 +122,133 @@ Table of Contents
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                              |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |              22 | 22 |      3 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/processing_system7_0/inst/FCLK_CLK0                                   |
+| g1    | n/a   | BUFG/O          | None       |           0 |               7 |  0 |      0 |    7 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M                |
+| g2    | n/a   | BUFG/O          | None       |           0 |               7 |  0 |      0 |    7 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M               |
 | g3    | n/a   | BUFG/O          | None       |           1 |               0 |  0 |      0 |    0 |   0 |  0 |    1 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkfbout_buf_clk_wiz_0 |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
 
-8. Cell Type Counts per Global Clock: Region X0Y1
+8. Cell Type Counts per Global Clock: Region X1Y0
+-------------------------------------------------
+
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
+| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                |
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
+| g1    | n/a   | BUFG/O          | None       |           0 |               8 |  0 |      0 |    8 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M  |
+| g2    | n/a   | BUFG/O          | None       |           0 |               8 |  0 |      0 |    8 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M |
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
+* Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
+
+
+9. Cell Type Counts per Global Clock: Region X0Y1
 -------------------------------------------------
 
 +-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                |
 +-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |             336 | 336 |     17 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/processing_system7_0/inst/FCLK_CLK0                     |
-| g1    | n/a   | BUFG/O          | None       |           0 |              23 |  16 |      2 |    6 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M |
-| g2    | n/a   | BUFG/O          | None       |           0 |              16 |  11 |      0 |    5 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M  |
+| g0    | n/a   | BUFG/O          | None       |           0 |             380 | 380 |     17 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/processing_system7_0/inst/FCLK_CLK0                     |
+| g1    | n/a   | BUFG/O          | None       |           0 |              23 |  13 |      1 |    9 |   1 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M  |
+| g2    | n/a   | BUFG/O          | None       |           0 |              20 |   9 |      2 |   10 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M |
 +-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
 
-9. Cell Type Counts per Global Clock: Region X1Y1
--------------------------------------------------
-
-+-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
-| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                |
-+-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
-| g1    | n/a   | BUFG/O          | None       |           0 |              11 |  2 |      0 |    9 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M |
-| g2    | n/a   | BUFG/O          | None       |           0 |              16 |  7 |      1 |    9 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M  |
-+-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
-* Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
-
-
-10. Cell Type Counts per Global Clock: Region X0Y2
+10. Cell Type Counts per Global Clock: Region X1Y1
 --------------------------------------------------
 
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |              89 | 88 |      7 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/processing_system7_0/inst/FCLK_CLK0                     |
-| g1    | n/a   | BUFG/O          | None       |           0 |               3 |  0 |      0 |    3 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M |
-| g2    | n/a   | BUFG/O          | None       |           0 |               3 |  0 |      0 |    3 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M  |
+| g1    | n/a   | BUFG/O          | None       |           0 |              41 | 11 |      1 |   30 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M  |
+| g2    | n/a   | BUFG/O          | None       |           0 |              30 |  0 |      0 |   30 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
 
-11. Cell Type Counts per Global Clock: Region X1Y2
+11. Cell Type Counts per Global Clock: Region X0Y2
 --------------------------------------------------
 
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
-| g1    | n/a   | BUFG/O          | None       |           0 |               1 |  0 |      0 |    1 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M |
-| g2    | n/a   | BUFG/O          | None       |           0 |               1 |  0 |      0 |    1 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M  |
+| g0    | n/a   | BUFG/O          | None       |           0 |              77 | 76 |      9 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/processing_system7_0/inst/FCLK_CLK0                     |
+| g1    | n/a   | BUFG/O          | None       |           0 |               4 |  0 |      0 |    4 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M  |
+| g2    | n/a   | BUFG/O          | None       |           0 |               4 |  0 |      0 |    4 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
 
-12. Load Cell Placement Summary for Global Clock g0
+12. Cell Type Counts per Global Clock: Region X1Y2
+--------------------------------------------------
+
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
+| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                |
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
+| g1    | n/a   | BUFG/O          | None       |           0 |              17 |  0 |      0 |   17 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M  |
+| g2    | n/a   | BUFG/O          | None       |           0 |              17 |  0 |      0 |   17 |   0 |  0 |    0 |   0 |       0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M |
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------+
+* Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
+
+
+13. Load Cell Placement Summary for Global Clock g0
 ---------------------------------------------------
 
 +-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+------------------------------------------------+
 | GlbID | Driver Type/Pin | Driver Region (D) | Clock      | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                            |
 +-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+------------------------------------------------+
-| g0    | BUFG/O          | n/a               | clk_fpga_0 |      10.000 | {0.000 5.000} |          |         447 |        0 |           0 |  0 | design_1_i/processing_system7_0/inst/FCLK_CLK0 |
+| g0    | BUFG/O          | n/a               | clk_fpga_0 |      10.000 | {0.000 5.000} |          |         457 |        0 |           0 |  0 | design_1_i/processing_system7_0/inst/FCLK_CLK0 |
 +-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+------------------------------------------------+
 
 
 +----+------+----+
 |    | X0   | X1 |
 +----+------+----+
-| Y2 |   89 |  0 |
-| Y1 |  336 |  0 |
-| Y0 |   22 |  0 |
+| Y2 |   77 |  0 |
+| Y1 |  380 |  0 |
+| Y0 |    0 |  0 |
 +----+------+----+
 
 
-13. Load Cell Placement Summary for Global Clock g1
----------------------------------------------------
-
-+-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+--------------------------------------------------------------------+
-| GlbID | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                                                |
-+-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+--------------------------------------------------------------------+
-| g1    | BUFG/O          | n/a               | Multiple |      10.000 | {0.000 5.000} |          |          38 |        0 |           0 |  0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M |
-+-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+--------------------------------------------------------------------+
-
-
-+----+-----+-----+
-|    | X0  | X1  |
-+----+-----+-----+
-| Y2 |   3 |   1 |
-| Y1 |  23 |  11 |
-| Y0 |   0 |   0 |
-+----+-----+-----+
-
-
-14. Load Cell Placement Summary for Global Clock g2
+14. Load Cell Placement Summary for Global Clock g1
 ---------------------------------------------------
 
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+-------------------------------------------------------------------+
 | GlbID | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                                               |
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+-------------------------------------------------------------------+
-| g2    | BUFG/O          | n/a               | Multiple |      40.000 | {0.000 20.000} |          |          36 |        0 |           0 |  0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M |
+| g1    | BUFG/O          | n/a               | Multiple |      40.000 | {0.000 20.000} |          |         100 |        0 |           0 |  0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M |
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+-------------------------------------------------------------------+
 
 
 +----+-----+-----+
 |    | X0  | X1  |
 +----+-----+-----+
-| Y2 |   3 |   1 |
-| Y1 |  16 |  16 |
-| Y0 |   0 |   0 |
+| Y2 |   4 |  17 |
+| Y1 |  23 |  41 |
+| Y0 |   7 |   8 |
 +----+-----+-----+
 
 
-15. Load Cell Placement Summary for Global Clock g3
+15. Load Cell Placement Summary for Global Clock g2
+---------------------------------------------------
+
++-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+--------------------------------------------------------------------+
+| GlbID | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                                                |
++-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+--------------------------------------------------------------------+
+| g2    | BUFG/O          | n/a               | Multiple |      10.000 | {0.000 5.000} |          |          86 |        0 |           0 |  0 | design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M |
++-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+--------------------------------------------------------------------+
+
+
++----+-----+-----+
+|    | X0  | X1  |
++----+-----+-----+
+| Y2 |   4 |  17 |
+| Y1 |  20 |  30 |
+| Y0 |   7 |   8 |
++----+-----+-----+
+
+
+16. Load Cell Placement Summary for Global Clock g3
 ---------------------------------------------------
 
 +-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------------------------------------------+
@@ -257,8 +271,8 @@ Table of Contents
 # Location of BUFG Primitives 
 set_property LOC BUFGCTRL_X0Y16 [get_cells design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG]
 set_property LOC BUFGCTRL_X0Y2 [get_cells design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkf_buf]
-set_property LOC BUFGCTRL_X0Y1 [get_cells design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout2_buf]
-set_property LOC BUFGCTRL_X0Y0 [get_cells design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout1_buf]
+set_property LOC BUFGCTRL_X0Y0 [get_cells design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout2_buf]
+set_property LOC BUFGCTRL_X0Y1 [get_cells design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout1_buf]
 
 # Location of IO Primitives which is load of clock spine
 
@@ -269,19 +283,19 @@ set_property LOC IOB_X0Y26 [get_ports fpga_clk]
 #startgroup
 create_pblock {CLKAG_design_1_i/processing_system7_0/inst/FCLK_CLK0}
 add_cells_to_pblock [get_pblocks  {CLKAG_design_1_i/processing_system7_0/inst/FCLK_CLK0}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="design_1_i/processing_system7_0/inst/FCLK_CLK0"}]]]
-resize_pblock [get_pblocks {CLKAG_design_1_i/processing_system7_0/inst/FCLK_CLK0}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2}
+resize_pblock [get_pblocks {CLKAG_design_1_i/processing_system7_0/inst/FCLK_CLK0}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2}
 #endgroup
 
-# Clock net "design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M" driven by instance "design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout2_buf" located at site "BUFGCTRL_X0Y1"
+# Clock net "design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M" driven by instance "design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout2_buf" located at site "BUFGCTRL_X0Y0"
 #startgroup
 create_pblock {CLKAG_design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M}
 add_cells_to_pblock [get_pblocks  {CLKAG_design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M"}]]]
-resize_pblock [get_pblocks {CLKAG_design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+resize_pblock [get_pblocks {CLKAG_design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_25M}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup
 
-# Clock net "design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M" driven by instance "design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout1_buf" located at site "BUFGCTRL_X0Y0"
+# Clock net "design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M" driven by instance "design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clkout1_buf" located at site "BUFGCTRL_X0Y1"
 #startgroup
 create_pblock {CLKAG_design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M}
 add_cells_to_pblock [get_pblocks  {CLKAG_design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M"}]]]
-resize_pblock [get_pblocks {CLKAG_design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+resize_pblock [get_pblocks {CLKAG_design_1_i/nu_nu_rangefinder_vga_0/inst/mqp_top/mmcm/inst/clk_100M}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup

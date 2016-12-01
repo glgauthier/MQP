@@ -19,6 +19,8 @@
         //physical pins
         input wire fpga_clk,
         input wire reset,
+        input wire button,
+        output wire [7:0] leds,
         output wire hsync,
         output wire vsync,
         output wire [11:0] rgb,
@@ -32,15 +34,15 @@
         output wire clk_100M2,
         
         //vga map BRAM
-        output wire [8:0] ylocation,
+        output wire [18:0] vga_waddr,
         output wire clk_100M3,
-        output wire [639:0] dina,
+        output wire [7:0] dina,
         output wire ena,
         output wire wea,
         
-        output wire [8:0] vcount_9b,
+        output wire [18:0] vga_raddr,
         output wire clk_25M1,
-        input wire [639:0] x_vga,
+        input wire [7:0] x_vga,
         output wire enb,
 
 		// User ports ends
@@ -106,13 +108,13 @@
 
 	// Add user logic here
 
-//    assign data_step_enable = (s00_axi_awaddr == 2'h0) && (s00_axi_wvalid && s00_axi_awvalid) ? s00_axi_wdata[27:0] : 28'b0;
-
     mqp_top mqp_top
     (
         //physical pins
         .fpga_clk(fpga_clk),
         .reset(reset),
+        .button(button),
+        .leds(leds),
         .hsync(hsync),
         .vsync(vsync),
         .rgb(rgb),
@@ -130,12 +132,12 @@
         .clk_100M2(clk_100M2),
         
         //vga BRAM controller
-        .ylocation(ylocation),
+        .vga_waddr(vga_waddr),
         .clk_100M3(clk_100M3),
         .dina(dina),
         .ena(ena),
         .wea(wea),
-        .vcount_9b(vcount_9b), // check size on this 
+        .vga_raddr(vga_raddr), // check size on this 
         .clk_25M1(clk_25M1),
         .x_vga(x_vga),
         .enb(enb)

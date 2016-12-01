@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:isValidated="true" bd:synthFlowMode="None" bd:tool_version="2016.2" bd:top="design_1" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:isValidated="true" bd:synthFlowMode="Singular" bd:tool_version="2016.2" bd:top="design_1" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -170,6 +170,22 @@
             </spirit:vector>
           </spirit:wire>
         </spirit:port>
+        <spirit:port>
+          <spirit:name>button</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>leds</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+            <spirit:vector>
+              <spirit:left>7</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
       </spirit:ports>
     </spirit:model>
   </spirit:component>
@@ -185,12 +201,13 @@
         <spirit:componentRef spirit:library="ip" spirit:name="processing_system7" spirit:vendor="xilinx.com" spirit:version="5.5"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_processing_system7_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_UART0_BAUD_RATE">19200</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_QSPI_GRP_SINGLE_SS_ENABLE">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_ENET0_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_SD0_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_UART0_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_UART1_PERIPHERAL_ENABLE">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_UART1_UART1_IO">EMIO</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_UART0_PERIPHERAL_ENABLE">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_UART0_UART0_IO">MIO 10 .. 11</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_UART1_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_USB0_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="preset">ZedBoard</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -255,16 +272,16 @@
           <spirit:configurableElementValue spirit:referenceId="Memory_Type">True_Dual_Port_RAM</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">640</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">480</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Read_Width_A">640</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Write_Width_B">640</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Read_Width_B">640</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">307200</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Read_Width_A">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_B">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Read_Width_B">8</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Enable_B">Use_ENB_Pin</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Register_PortA_Output_of_Memory_Primitives">true</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Register_PortB_Output_of_Memory_Primitives">true</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Load_Init_File">true</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Coe_File">../../../../../../../../../../Desktop/MQP/backups/vga_map.coe</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Load_Init_File">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Fill_Remaining_Memory_Locations">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Use_RSTA_Pin">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Port_B_Clock">100</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Port_B_Write_Rate">50</spirit:configurableElementValue>
@@ -366,11 +383,6 @@
         <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="coord2_data"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>nu_nu_rangefinder_vga_0_ylocation</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="ylocation"/>
-        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="addra"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_clk_100M3</spirit:name>
         <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="clk_100M3"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="clka"/>
@@ -389,11 +401,6 @@
         <spirit:name>nu_nu_rangefinder_vga_0_wea</spirit:name>
         <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="wea"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="wea"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>nu_nu_rangefinder_vga_0_vcount_9b</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="vcount_9b"/>
-        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="addrb"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>blk_mem_gen_2_doutb</spirit:name>
@@ -419,6 +426,26 @@
         <spirit:name>nu_nu_rangefinder_vga_0_rgb</spirit:name>
         <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="rgb"/>
         <spirit:externalPortReference spirit:portRef="rgb"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>button_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="button"/>
+        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="button"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>nu_nu_rangefinder_vga_0_leds</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="leds"/>
+        <spirit:externalPortReference spirit:portRef="leds"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>nu_nu_rangefinder_vga_0_vga_waddr</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="vga_waddr"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="addra"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>nu_nu_rangefinder_vga_0_vga_raddr</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="vga_raddr"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="addrb"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>

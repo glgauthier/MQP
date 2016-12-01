@@ -1,0 +1,61 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Tue Nov 29 14:41:32 2016
+# Process ID: 3428
+# Current directory: C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/impl_1
+# Command line: vivado.exe -log IMU_top.vdi -applog -messageDb vivado.pb -mode batch -source IMU_top.tcl -notrace
+# Log file: C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/impl_1/IMU_top.vdi
+# Journal file: C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source IMU_top.tcl -notrace
+Command: open_checkpoint IMU_top_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.063 . Memory (MB): peak = 206.938 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2016.2
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/impl_1/.Xil/Vivado-3428-JOHN-HP/dcp/IMU_top_early.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 909.977 ; gain = 435.770
+Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/impl_1/.Xil/Vivado-3428-JOHN-HP/dcp/IMU_top_early.xdc]
+Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/impl_1/.Xil/Vivado-3428-JOHN-HP/dcp/IMU_top.xdc]
+Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/impl_1/.Xil/Vivado-3428-JOHN-HP/dcp/IMU_top.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.187 . Memory (MB): peak = 909.977 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.203 . Memory (MB): peak = 909.977 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2016.2 (64-bit) build 1577090
+open_checkpoint: Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 909.977 ; gain = 703.039
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command write_bitstream
+INFO: [DRC 23-27] Running DRC with 2 threads
+WARNING: [DRC 23-20] Rule violation (PDRC-153) Gated clock check - Net cs_n_reg_i_1_n_0 is a gated clock net sourced by a combinational pin cs_n_reg_i_1/O, cell cs_n_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC 23-20] Rule violation (ZPS7-1) PS7 block required - The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 2 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./IMU_top.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Common 17-83] Releasing license: Implementation
+write_bitstream: Time (s): cpu = 00:00:41 ; elapsed = 00:00:39 . Memory (MB): peak = 1287.207 ; gain = 377.230
+INFO: [Vivado_Tcl 4-395] Unable to parse hwdef file IMU_top.hwdef
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 29 14:43:06 2016...

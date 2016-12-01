@@ -1,12 +1,3 @@
-//Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
-//--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Tue Nov 01 20:42:35 2016
-//Host        : JOHN-HP running 64-bit major release  (build 7600)
-//Command     : generate_target design_1_wrapper.bd
-//Design      : design_1_wrapper
-//Purpose     : IP block netlist
-//--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
 module mqp_top
@@ -14,6 +5,8 @@ module mqp_top
     //physical pins
     input fpga_clk,
     input reset,
+    input button,
+    output [7:0] leds,
     output hsync,
     output vsync,
     output reg [11:0] rgb,
@@ -31,19 +24,19 @@ module mqp_top
     output clk_100M2,
     
     //vga map BRAM
-    output [8:0] ylocation,
+    output [18:0] vga_waddr,
     output clk_100M3,
-    output reg [639:0] dina,
+    output [7:0] dina,
     output ena,
-    output reg wea,
+    output wea,
     
-    output [8:0] vcount_9b,
+    output [18:0] vga_raddr,
     output clk_25M1,
-    input [639:0] x_vga,
+    input [7:0] x_vga,
     output enb
 );
     
-    wire clk_100M;   
+    wire clk_100M;
     wire clk_25M;
     
     //clocks to BRAM
@@ -60,65 +53,58 @@ module mqp_top
     assign data = data_enable_step[27:12];
     assign enable = data_enable_step[11];
     assign step = data_enable_step[10:0];
-     
+         
     //for rangefinder logic
     wire [15:0] data;
     wire enable;
     wire [10:0] step;
-    wire [8:0] xlocation;
-     
+    wire [5:0] count;
+    
+    wire [8:0] device_x;
+    wire [8:0] device_y;
+    
+    assign device_x = 321;
+    assign device_y = 300;
+         
     // for vga logic
     wire [10:0] hcount, vcount;    // horizontal, vertical location on screen
-    assign vcount_9b = vcount[8:0];   // this could cause problems
     wire blank;
-    reg [1:0] vga_count;
-
     
-    //writing location to vga BRAM
-    //look into this logic*****************  
-    always @ (posedge clk_100M)
-    begin
-        if(write)
-        begin
-            dina = dina || (5'b11111 << (638 - xlocation));
-            wea = 1'b1;
-        end
-        else
-            wea = 1'b0;
-    end
-       
+    //address for read from vga BRAM 
+    assign vga_raddr = (640*vcount) + hcount;
+    
     //rgb vga logic                  
     always @ (hcount, vcount, blank)
     begin
         if(blank)
             rgb = 12'h000;
-        else if(x_vga[hcount] == 1'b1 && vga_count == 2)
-            rgb = 12'hF0F;
+        else if (hcount == device_x && vcount == device_y)
+            rgb = 12'h0F0;
+        else if(x_vga > 0)
+            rgb = 12'h000;
         else
-            rgb = 12'h088;
-    end
-    
-    // delays vga logic by two 100M clock cycles
-    // for the BRAM read delay    
-    always @ (posedge clk_100M)
-    begin
-        if(reset || blank)
-            vga_count <= 2'b00;
-        else if(!blank && vga_count < 2)
-            vga_count <= vga_count + 1'b1;
+            rgb = 12'hFFF;
     end
    
+//----------------------------------------------------------------------------
+//module instantiations
+
    rangefinder rangefinder
    (
        .clk(clk_100M),
        .reset(reset),
+       .button(button),
+       .device_x(device_x),
+       .device_y(device_y),
+       .leds(leds),
        .data(data),
        .enable(enable),
        .step(step),
-       .xlocation(xlocation),
-       .ylocation(ylocation),
+       .vga_waddr(vga_waddr),
        .write(write),
        .transmit(transmit),
+       .dina(dina),
+       .wea(wea),
        
        .addra1(addra1),
        .coord1_data(coord1_data),

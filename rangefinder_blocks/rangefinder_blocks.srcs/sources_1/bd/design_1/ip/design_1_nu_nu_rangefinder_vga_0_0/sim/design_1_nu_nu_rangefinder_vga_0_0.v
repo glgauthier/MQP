@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:user:nu_nu_rangefinder_vga:1.0
-// IP Revision: 29
+// IP Revision: 71
 
 `timescale 1ns/1ps
 
@@ -56,6 +56,8 @@
 module design_1_nu_nu_rangefinder_vga_0_0 (
   fpga_clk,
   reset,
+  button,
+  leds,
   hsync,
   vsync,
   rgb,
@@ -65,12 +67,12 @@ module design_1_nu_nu_rangefinder_vga_0_0 (
   addra2,
   coord2_data,
   clk_100M2,
-  ylocation,
+  vga_waddr,
   clk_100M3,
   dina,
   ena,
   wea,
-  vcount_9b,
+  vga_raddr,
   clk_25M1,
   x_vga,
   enb,
@@ -99,6 +101,8 @@ module design_1_nu_nu_rangefinder_vga_0_0 (
 
 input wire fpga_clk;
 input wire reset;
+input wire button;
+output wire [7 : 0] leds;
 output wire hsync;
 output wire vsync;
 output wire [11 : 0] rgb;
@@ -108,14 +112,14 @@ output wire clk_100M1;
 output wire [7 : 0] addra2;
 input wire [12 : 0] coord2_data;
 output wire clk_100M2;
-output wire [8 : 0] ylocation;
+output wire [18 : 0] vga_waddr;
 output wire clk_100M3;
-output wire [639 : 0] dina;
+output wire [7 : 0] dina;
 output wire ena;
 output wire wea;
-output wire [8 : 0] vcount_9b;
+output wire [18 : 0] vga_raddr;
 output wire clk_25M1;
-input wire [639 : 0] x_vga;
+input wire [7 : 0] x_vga;
 output wire enb;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR" *)
 input wire [3 : 0] s00_axi_awaddr;
@@ -166,6 +170,8 @@ input wire s00_axi_aresetn;
   ) inst (
     .fpga_clk(fpga_clk),
     .reset(reset),
+    .button(button),
+    .leds(leds),
     .hsync(hsync),
     .vsync(vsync),
     .rgb(rgb),
@@ -175,12 +181,12 @@ input wire s00_axi_aresetn;
     .addra2(addra2),
     .coord2_data(coord2_data),
     .clk_100M2(clk_100M2),
-    .ylocation(ylocation),
+    .vga_waddr(vga_waddr),
     .clk_100M3(clk_100M3),
     .dina(dina),
     .ena(ena),
     .wea(wea),
-    .vcount_9b(vcount_9b),
+    .vga_raddr(vga_raddr),
     .clk_25M1(clk_25M1),
     .x_vga(x_vga),
     .enb(enb),

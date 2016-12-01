@@ -158,8 +158,10 @@ proc create_root_design { parentCell } {
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
 
   # Create ports
+  set button [ create_bd_port -dir I button ]
   set fpga_clk [ create_bd_port -dir I fpga_clk ]
   set hsync [ create_bd_port -dir O hsync ]
+  set leds [ create_bd_port -dir O -from 7 -to 0 leds ]
   set reset [ create_bd_port -dir I reset ]
   set rgb [ create_bd_port -dir O -from 11 -to 0 rgb ]
   set vsync [ create_bd_port -dir O vsync ]
@@ -210,23 +212,24 @@ CONFIG.use_bram_block {Stand_Alone} \
   set blk_mem_gen_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.3 blk_mem_gen_2 ]
   set_property -dict [ list \
 CONFIG.Byte_Size {9} \
-CONFIG.Coe_File {../../../../../../../../../../Desktop/MQP/backups/vga_map.coe} \
+CONFIG.Coe_File {no_coe_file_loaded} \
 CONFIG.Enable_32bit_Address {false} \
 CONFIG.Enable_B {Use_ENB_Pin} \
-CONFIG.Load_Init_File {true} \
+CONFIG.Fill_Remaining_Memory_Locations {false} \
+CONFIG.Load_Init_File {false} \
 CONFIG.Memory_Type {True_Dual_Port_RAM} \
 CONFIG.Port_B_Clock {100} \
 CONFIG.Port_B_Enable_Rate {100} \
 CONFIG.Port_B_Write_Rate {50} \
-CONFIG.Read_Width_A {640} \
-CONFIG.Read_Width_B {640} \
+CONFIG.Read_Width_A {8} \
+CONFIG.Read_Width_B {8} \
 CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
 CONFIG.Register_PortB_Output_of_Memory_Primitives {true} \
 CONFIG.Use_Byte_Write_Enable {false} \
 CONFIG.Use_RSTA_Pin {false} \
-CONFIG.Write_Depth_A {480} \
-CONFIG.Write_Width_A {640} \
-CONFIG.Write_Width_B {640} \
+CONFIG.Write_Depth_A {307200} \
+CONFIG.Write_Width_A {8} \
+CONFIG.Write_Width_B {8} \
 CONFIG.use_bram_block {Stand_Alone} \
  ] $blk_mem_gen_2
 
@@ -327,10 +330,9 @@ CONFIG.PCW_ENET_RESET_POLARITY {Active Low} \
 CONFIG.PCW_ENET_RESET_SELECT {<Select>} \
 CONFIG.PCW_EN_4K_TIMER {0} \
 CONFIG.PCW_EN_EMIO_TTC0 {1} \
-CONFIG.PCW_EN_EMIO_UART1 {1} \
 CONFIG.PCW_EN_QSPI {1} \
 CONFIG.PCW_EN_TTC0 {1} \
-CONFIG.PCW_EN_UART1 {1} \
+CONFIG.PCW_EN_UART0 {1} \
 CONFIG.PCW_FCLK0_PERIPHERAL_CLKSRC {IO PLL} \
 CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {4} \
 CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {4} \
@@ -376,11 +378,11 @@ CONFIG.PCW_MIO_0_DIRECTION {inout} \
 CONFIG.PCW_MIO_0_IOTYPE {LVCMOS 3.3V} \
 CONFIG.PCW_MIO_0_PULLUP {disabled} \
 CONFIG.PCW_MIO_0_SLEW {slow} \
-CONFIG.PCW_MIO_10_DIRECTION {inout} \
+CONFIG.PCW_MIO_10_DIRECTION {in} \
 CONFIG.PCW_MIO_10_IOTYPE {LVCMOS 3.3V} \
 CONFIG.PCW_MIO_10_PULLUP {disabled} \
 CONFIG.PCW_MIO_10_SLEW {slow} \
-CONFIG.PCW_MIO_11_DIRECTION {inout} \
+CONFIG.PCW_MIO_11_DIRECTION {out} \
 CONFIG.PCW_MIO_11_IOTYPE {LVCMOS 3.3V} \
 CONFIG.PCW_MIO_11_PULLUP {disabled} \
 CONFIG.PCW_MIO_11_SLEW {slow} \
@@ -588,8 +590,8 @@ CONFIG.PCW_MIO_9_DIRECTION {inout} \
 CONFIG.PCW_MIO_9_IOTYPE {LVCMOS 3.3V} \
 CONFIG.PCW_MIO_9_PULLUP {disabled} \
 CONFIG.PCW_MIO_9_SLEW {slow} \
-CONFIG.PCW_MIO_TREE_PERIPHERALS {GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO} \
-CONFIG.PCW_MIO_TREE_SIGNALS {gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]#qspi0_sclk#gpio[7]#gpio[8]#gpio[9]#gpio[10]#gpio[11]#gpio[12]#gpio[13]#gpio[14]#gpio[15]#gpio[16]#gpio[17]#gpio[18]#gpio[19]#gpio[20]#gpio[21]#gpio[22]#gpio[23]#gpio[24]#gpio[25]#gpio[26]#gpio[27]#gpio[28]#gpio[29]#gpio[30]#gpio[31]#gpio[32]#gpio[33]#gpio[34]#gpio[35]#gpio[36]#gpio[37]#gpio[38]#gpio[39]#gpio[40]#gpio[41]#gpio[42]#gpio[43]#gpio[44]#gpio[45]#gpio[46]#gpio[47]#gpio[48]#gpio[49]#gpio[50]#gpio[51]#gpio[52]#gpio[53]} \
+CONFIG.PCW_MIO_TREE_PERIPHERALS {GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO#GPIO#GPIO#UART 0#UART 0#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO} \
+CONFIG.PCW_MIO_TREE_SIGNALS {gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]#qspi0_sclk#gpio[7]#gpio[8]#gpio[9]#rx#tx#gpio[12]#gpio[13]#gpio[14]#gpio[15]#gpio[16]#gpio[17]#gpio[18]#gpio[19]#gpio[20]#gpio[21]#gpio[22]#gpio[23]#gpio[24]#gpio[25]#gpio[26]#gpio[27]#gpio[28]#gpio[29]#gpio[30]#gpio[31]#gpio[32]#gpio[33]#gpio[34]#gpio[35]#gpio[36]#gpio[37]#gpio[38]#gpio[39]#gpio[40]#gpio[41]#gpio[42]#gpio[43]#gpio[44]#gpio[45]#gpio[46]#gpio[47]#gpio[48]#gpio[49]#gpio[50]#gpio[51]#gpio[52]#gpio[53]} \
 CONFIG.PCW_NAND_CYCLES_T_AR {1} \
 CONFIG.PCW_NAND_CYCLES_T_CLR {1} \
 CONFIG.PCW_NAND_CYCLES_T_RC {11} \
@@ -760,13 +762,13 @@ CONFIG.PCW_TTC_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_UART0_BAUD_RATE {19200} \
 CONFIG.PCW_UART0_GRP_FULL_ENABLE {0} \
 CONFIG.PCW_UART0_GRP_FULL_IO {<Select>} \
-CONFIG.PCW_UART0_PERIPHERAL_ENABLE {0} \
-CONFIG.PCW_UART0_UART0_IO {<Select>} \
-CONFIG.PCW_UART1_BAUD_RATE {115200} \
+CONFIG.PCW_UART0_PERIPHERAL_ENABLE {1} \
+CONFIG.PCW_UART0_UART0_IO {MIO 10 .. 11} \
+CONFIG.PCW_UART1_BAUD_RATE {19200} \
 CONFIG.PCW_UART1_GRP_FULL_ENABLE {0} \
 CONFIG.PCW_UART1_GRP_FULL_IO {<Select>} \
-CONFIG.PCW_UART1_PERIPHERAL_ENABLE {1} \
-CONFIG.PCW_UART1_UART1_IO {EMIO} \
+CONFIG.PCW_UART1_PERIPHERAL_ENABLE {0} \
+CONFIG.PCW_UART1_UART1_IO {<Select>} \
 CONFIG.PCW_UART_PERIPHERAL_CLKSRC {IO PLL} \
 CONFIG.PCW_UART_PERIPHERAL_DIVISOR0 {32} \
 CONFIG.PCW_UART_PERIPHERAL_FREQMHZ {50} \
@@ -957,10 +959,9 @@ CONFIG.PCW_ENET_RESET_POLARITY.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_ENET_RESET_SELECT.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_4K_TIMER.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_EMIO_TTC0.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_EN_EMIO_UART1.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_QSPI.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_TTC0.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_EN_UART1.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_EN_UART0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FCLK0_PERIPHERAL_CLKSRC.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1.VALUE_SRC {DEFAULT} \
@@ -1387,7 +1388,6 @@ CONFIG.PCW_TTC1_TTC1_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_TTC_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_UART0_GRP_FULL_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_UART0_GRP_FULL_IO.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_UART1_BAUD_RATE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_UART1_GRP_FULL_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_UART1_GRP_FULL_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_UART_PERIPHERAL_CLKSRC.VALUE_SRC {DEFAULT} \
@@ -1505,6 +1505,7 @@ CONFIG.NUM_MI {1} \
   connect_bd_net -net blk_mem_gen_0_douta [get_bd_pins blk_mem_gen_0/douta] [get_bd_pins nu_nu_rangefinder_vga_0/coord1_data]
   connect_bd_net -net blk_mem_gen_1_douta [get_bd_pins blk_mem_gen_1/douta] [get_bd_pins nu_nu_rangefinder_vga_0/coord2_data]
   connect_bd_net -net blk_mem_gen_2_doutb [get_bd_pins blk_mem_gen_2/doutb] [get_bd_pins nu_nu_rangefinder_vga_0/x_vga]
+  connect_bd_net -net button_1 [get_bd_ports button] [get_bd_pins nu_nu_rangefinder_vga_0/button]
   connect_bd_net -net fpga_clk_1 [get_bd_ports fpga_clk] [get_bd_pins nu_nu_rangefinder_vga_0/fpga_clk]
   connect_bd_net -net nu_nu_rangefinder_vga_0_addra1 [get_bd_pins blk_mem_gen_0/addra] [get_bd_pins nu_nu_rangefinder_vga_0/addra1]
   connect_bd_net -net nu_nu_rangefinder_vga_0_addra2 [get_bd_pins blk_mem_gen_1/addra] [get_bd_pins nu_nu_rangefinder_vga_0/addra2]
@@ -1516,11 +1517,12 @@ CONFIG.NUM_MI {1} \
   connect_bd_net -net nu_nu_rangefinder_vga_0_ena [get_bd_pins blk_mem_gen_2/ena] [get_bd_pins nu_nu_rangefinder_vga_0/ena]
   connect_bd_net -net nu_nu_rangefinder_vga_0_enb [get_bd_pins blk_mem_gen_2/enb] [get_bd_pins nu_nu_rangefinder_vga_0/enb]
   connect_bd_net -net nu_nu_rangefinder_vga_0_hsync [get_bd_ports hsync] [get_bd_pins nu_nu_rangefinder_vga_0/hsync]
+  connect_bd_net -net nu_nu_rangefinder_vga_0_leds [get_bd_ports leds] [get_bd_pins nu_nu_rangefinder_vga_0/leds]
   connect_bd_net -net nu_nu_rangefinder_vga_0_rgb [get_bd_ports rgb] [get_bd_pins nu_nu_rangefinder_vga_0/rgb]
-  connect_bd_net -net nu_nu_rangefinder_vga_0_vcount_9b [get_bd_pins blk_mem_gen_2/addrb] [get_bd_pins nu_nu_rangefinder_vga_0/vcount_9b]
+  connect_bd_net -net nu_nu_rangefinder_vga_0_vga_raddr [get_bd_pins blk_mem_gen_2/addrb] [get_bd_pins nu_nu_rangefinder_vga_0/vga_raddr]
+  connect_bd_net -net nu_nu_rangefinder_vga_0_vga_waddr [get_bd_pins blk_mem_gen_2/addra] [get_bd_pins nu_nu_rangefinder_vga_0/vga_waddr]
   connect_bd_net -net nu_nu_rangefinder_vga_0_vsync [get_bd_ports vsync] [get_bd_pins nu_nu_rangefinder_vga_0/vsync]
   connect_bd_net -net nu_nu_rangefinder_vga_0_wea [get_bd_pins blk_mem_gen_2/wea] [get_bd_pins nu_nu_rangefinder_vga_0/wea]
-  connect_bd_net -net nu_nu_rangefinder_vga_0_ylocation [get_bd_pins blk_mem_gen_2/addra] [get_bd_pins nu_nu_rangefinder_vga_0/ylocation]
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins nu_nu_rangefinder_vga_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0_axi_periph/ACLK] [get_bd_pins processing_system7_0_axi_periph/M00_ACLK] [get_bd_pins processing_system7_0_axi_periph/S00_ACLK] [get_bd_pins rst_processing_system7_0_100M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_processing_system7_0_100M/ext_reset_in]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins nu_nu_rangefinder_vga_0/reset]
@@ -1534,49 +1536,53 @@ CONFIG.NUM_MI {1} \
   regenerate_bd_layout -layout_string {
    guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port fpga_clk -pg 1 -y 340 -defaultsOSRD
-preplace port vsync -pg 1 -y 320 -defaultsOSRD
-preplace port DDR -pg 1 -y 610 -defaultsOSRD
-preplace port hsync -pg 1 -y 280 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 630 -defaultsOSRD
-preplace port reset -pg 1 -y 360 -defaultsOSRD
-preplace portBus rgb -pg 1 -y 300 -defaultsOSRD
-preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 490 -defaultsOSRD
-preplace inst nu_nu_rangefinder_vga_0 -pg 1 -lvl 3 -y 420 -defaultsOSRD
-preplace inst blk_mem_gen_0 -pg 1 -lvl 4 -y 720 -defaultsOSRD
-preplace inst blk_mem_gen_1 -pg 1 -lvl 4 -y 400 -defaultsOSRD
-preplace inst blk_mem_gen_2 -pg 1 -lvl 4 -y 140 -defaultsOSRD
-preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 480 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -y 690 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 1 4 NJ 610 NJ 610 NJ 610 NJ
-preplace netloc nu_nu_rangefinder_vga_0_rgb 1 3 2 NJ 300 NJ
-preplace netloc nu_nu_rangefinder_vga_0_vcount_9b 1 3 1 1130
-preplace netloc nu_nu_rangefinder_vga_0_dina 1 3 1 1080
-preplace netloc nu_nu_rangefinder_vga_0_vsync 1 3 2 NJ 310 NJ
-preplace netloc blk_mem_gen_1_douta 1 2 2 800 620 NJ
-preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 750
-preplace netloc nu_nu_rangefinder_vga_0_hsync 1 3 2 NJ 290 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 430
-preplace netloc nu_nu_rangefinder_vga_0_clk_25M1 1 3 1 1150
-preplace netloc blk_mem_gen_2_doutb 1 2 2 790 220 NJ
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 400 410
+preplace port fpga_clk -pg 1 -y 590 -defaultsOSRD
+preplace port vsync -pg 1 -y 440 -defaultsOSRD
+preplace port DDR -pg 1 -y 330 -defaultsOSRD
+preplace port button -pg 1 -y 630 -defaultsOSRD
+preplace port hsync -pg 1 -y 420 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 350 -defaultsOSRD
+preplace port reset -pg 1 -y 610 -defaultsOSRD
+preplace portBus rgb -pg 1 -y 460 -defaultsOSRD
+preplace portBus leds -pg 1 -y 400 -defaultsOSRD
+preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 720 -defaultsOSRD
+preplace inst nu_nu_rangefinder_vga_0 -pg 1 -lvl 3 -y 550 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 4 -y 240 -defaultsOSRD
+preplace inst blk_mem_gen_1 -pg 1 -lvl 4 -y 80 -defaultsOSRD
+preplace inst blk_mem_gen_2 -pg 1 -lvl 4 -y 640 -defaultsOSRD
+preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 470 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -y 400 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 1 4 NJ 330 NJ 330 NJ 330 NJ
+preplace netloc nu_nu_rangefinder_vga_0_rgb 1 3 2 NJ 460 NJ
+preplace netloc nu_nu_rangefinder_vga_0_dina 1 3 1 N
+preplace netloc nu_nu_rangefinder_vga_0_vsync 1 3 2 NJ 440 NJ
+preplace netloc blk_mem_gen_1_douta 1 2 2 780 100 NJ
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 N
+preplace netloc nu_nu_rangefinder_vga_0_hsync 1 3 2 NJ 420 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 420
+preplace netloc nu_nu_rangefinder_vga_0_vga_raddr 1 3 1 1090
+preplace netloc nu_nu_rangefinder_vga_0_clk_25M1 1 3 1 1080
+preplace netloc blk_mem_gen_2_doutb 1 2 2 790 750 NJ
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 40 610 420
 preplace netloc nu_nu_rangefinder_vga_0_clk_100M1 1 3 1 1090
-preplace netloc fpga_clk_1 1 0 3 NJ 340 NJ 340 NJ
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 450 600 770
-preplace netloc nu_nu_rangefinder_vga_0_clk_100M2 1 3 1 N
-preplace netloc nu_nu_rangefinder_vga_0_addra1 1 3 1 1110
-preplace netloc processing_system7_0_FIXED_IO 1 1 4 NJ 630 NJ 630 NJ 630 NJ
-preplace netloc nu_nu_rangefinder_vga_0_clk_100M3 1 3 1 1070
-preplace netloc nu_nu_rangefinder_vga_0_addra2 1 3 1 N
-preplace netloc nu_nu_rangefinder_vga_0_wea 1 3 1 1120
-preplace netloc nu_nu_rangefinder_vga_0_ena 1 3 1 1100
-preplace netloc blk_mem_gen_0_douta 1 2 2 780 740 NJ
-preplace netloc nu_nu_rangefinder_vga_0_enb 1 3 1 1160
-preplace netloc nu_nu_rangefinder_vga_0_ylocation 1 3 1 1060
+preplace netloc fpga_clk_1 1 0 3 NJ 590 NJ 590 NJ
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 450 640 780
+preplace netloc nu_nu_rangefinder_vga_0_clk_100M2 1 3 1 1080
+preplace netloc nu_nu_rangefinder_vga_0_addra1 1 3 1 1070
+preplace netloc processing_system7_0_FIXED_IO 1 1 4 NJ 350 NJ 350 NJ 350 NJ
+preplace netloc nu_nu_rangefinder_vga_0_vga_waddr 1 3 1 N
+preplace netloc nu_nu_rangefinder_vga_0_clk_100M3 1 3 1 N
+preplace netloc nu_nu_rangefinder_vga_0_addra2 1 3 1 1060
+preplace netloc nu_nu_rangefinder_vga_0_wea 1 3 1 N
+preplace netloc nu_nu_rangefinder_vga_0_ena 1 3 1 N
+preplace netloc blk_mem_gen_0_douta 1 2 2 790 260 NJ
+preplace netloc nu_nu_rangefinder_vga_0_enb 1 3 1 1060
 preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 440
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 390 420 620 760
-preplace netloc reset_1 1 0 3 NJ 360 NJ 360 NJ
-levelinfo -pg 1 0 220 600 930 1290 1410 -top 0 -bot 820
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 30 520 430 610 N
+preplace netloc nu_nu_rangefinder_vga_0_leds 1 3 2 NJ 400 NJ
+preplace netloc button_1 1 0 3 NJ 630 NJ 630 NJ
+preplace netloc reset_1 1 0 3 NJ 620 NJ 620 NJ
+levelinfo -pg 1 0 230 600 930 1200 1320 -top 0 -bot 810
 ",
 }
 
