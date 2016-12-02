@@ -45,14 +45,14 @@ reg [15:0] num_lines = 16'h0000;
 
 reg [16:0] lwrite;
 always @(num_lines,pixel)
-    if(128 <= pixel && pixel <= 512 && num_lines >= 108 && num_lines <= 396) // added calibration offset
-        lwrite = (384*(num_lines-108))+(pixel-128);
+    if(128 <= pixel && pixel <= 512 && num_lines >= 96 && num_lines <= 384) // num_lines = 108-396 w/ 12px offset
+        lwrite = (384*(num_lines-96))+(pixel-128); // change -96 to -108 w/ 12px offset
     else
         lwrite = 17'd0;
 
 reg [16:0] rwrite;
 always @(num_lines,pixel)
-    if(128 <= pixel && pixel <= 512 && num_lines >= 96 && num_lines <= 384)
+    if(128 <= pixel && pixel <= 512 && num_lines >= 96 && num_lines <= 384) 
         rwrite = (384*(num_lines-96))+(pixel-128);
     else
         rwrite = 17'd0;

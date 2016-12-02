@@ -1,7 +1,6 @@
 `timescale 1ns / 1ps
 // Top module for future custom stereo camera IP package
 module noip_top(
-   input sw0,
    input sysclk,
    input reset, // reset 
    input cam_rst, // button for camera RESET_BAR
@@ -53,6 +52,7 @@ debounce deb(
     .btn(trigger),
     .btn_val(trig_db)
     );
+
 wire buffer_ready, idle, result_wea;
 wire [2:0] current_state;
 wire [16:0] laddr, raddr; 
@@ -61,9 +61,8 @@ wire [7:0] ldata, rdata, result_data;
 
 disparity disp(
 	 .clk(clk_50MHz), // Read clk signal
-	 .sw0(sw0),
 	 .enable(trig_db), // enable new disparity calculation 
-	 .buffer_ready(buffer_ready),
+	 .buffer_ready({buffer_ready && ~trig_db}),
 	 .reset(reset), // reset disparity FSM
 	 .ldata(ldata), // FIFO data in
 	 .rdata(rdata), // FIFO data in
@@ -77,7 +76,6 @@ disparity disp(
     );
     
 // state indicator LEDs
-//assign LEDs = {1'b0,buffer_ready,trigger,image_sel};
 assign LEDs = {idle,current_state[2:0]};
 
 // ~~~~~~~~~~~~~~~~ VGA controller ~~~~~~~~~~~~~~~~~~~~~~
@@ -111,9 +109,7 @@ assign FIFO_OE2 = (image_sel == 1'b1) ? fifo_oe : 1'b1;
 assign FIFO_RRST1 = (image_sel == 1'b0) ? fifo_rrst : 1'b1;
 assign FIFO_RRST2 = (image_sel == 1'b1) ? fifo_rrst : 1'b1;
 
-// shifts = 2x12, 1x9, 1x14 - avg~=12
 imgbuf camctl(
-    //.output_sel(sw0),
     .get_data(trig_db),
 	//.href(hcount),
 	//.vref(vcount),
@@ -135,9 +131,9 @@ imgbuf camctl(
 
 wire [7:0] vga_data;
 reg [18:0] vga_addr;     
-
 blk_mem_resultant resultant (
   .clka(clk_50MHz),    // input wire clka
+  .ena(result_wea),
   .wea(1'b1),      // input wire [0 : 0] wea
   .addra(result_addr),  // input wire [18 : 0] addra
   .dina(result_data),    // input wire [7 : 0] dina
@@ -148,14 +144,16 @@ blk_mem_resultant resultant (
 // ~~~~~~~~~~~~~~~~ End of image buffers ~~~~~~~~~~~~~~~~
 
 // allow for VGA controller to read resultant image data
-always @ (hcount,vcount,blank,vga_data) begin
-    vga_addr = (384*vcount)+hcount;
+always @ (hcount,vcount,blank,vga_data)
 	if(blank)
 		rgb = 8'h00;
     else if( hcount<384 && vcount <= 288)
         rgb = vga_data;
     else
-        rgb = 8'hF0;
-end
+        rgb = 8'h00;
+        
+// set VGA read address to show disparity
+always @ (hcount,vcount)
+    vga_addr = (384*vcount)+hcount;
 
 endmodule

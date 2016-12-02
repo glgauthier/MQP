@@ -48,6 +48,7 @@ set_msg_config -id {HDL 9-1654} -limit 100000
 start_step init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7z020clg484-1
   set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
   set_property design_mode GateLvl [current_fileset]
@@ -58,10 +59,22 @@ set rc [catch {
   set_property ip_output_repo c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.cache/ip [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   add_files -quiet C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/noip_top.dcp
+  add_files -quiet c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
+  set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp]
+  add_files -quiet c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_resultant/blk_mem_resultant.dcp
+  set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_resultant/blk_mem_resultant.dcp]
+  add_files -quiet c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_640_480/blk_mem_640_480.dcp
+  set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_640_480/blk_mem_640_480.dcp]
+  read_xdc -mode out_of_context -ref clk_wiz_0 -cells inst c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
   read_xdc -prop_thru_buffers -ref clk_wiz_0 -cells inst c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc
   set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
   read_xdc -ref clk_wiz_0 -cells inst c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc
   set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
+  read_xdc -mode out_of_context -ref blk_mem_resultant -cells U0 c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_resultant/blk_mem_resultant_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_resultant/blk_mem_resultant_ooc.xdc]
+  read_xdc -mode out_of_context -ref blk_mem_640_480 -cells U0 c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_640_480/blk_mem_640_480_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_640_480/blk_mem_640_480_ooc.xdc]
   read_xdc C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/constrs_1/new/top.xdc
   link_design -top noip_top -part xc7z020clg484-1
   write_hwdef -file noip_top.hwdef

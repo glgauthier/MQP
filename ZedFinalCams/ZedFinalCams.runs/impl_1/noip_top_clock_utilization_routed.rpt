@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date              : Mon Nov 28 19:32:39 2016
+| Date              : Thu Dec 01 21:52:41 2016
 | Host              : Georges-T460p running 64-bit major release  (build 9200)
 | Command           : report_clock_utilization -file noip_top_clock_utilization_routed.rpt
 | Design            : noip_top
@@ -54,10 +54,10 @@ Table of Contents
 +-------+-------+-----------------+------------+---------------+--------------+------+-------------------+---------------+-------------+-----------------+--------------+----------+---------------------------+------------------------------------+
 | GlbID | SrcId | Driver Type/Pin | Constraint | Site          | Clock Region | Root | Clock Delay Group | Clock Regions | Clock Loads | Non-Clock Loads | Clock Period | Clock    | Driver Pin                | Net                                |
 +-------+-------+-----------------+------------+---------------+--------------+------+-------------------+---------------+-------------+-----------------+--------------+----------+---------------------------+------------------------------------+
-| g0    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y2 | n/a          |      |                   |             6 |        2788 |               0 |       10.000 | Multiple | clkgen/inst/clkout1_buf/O | clkgen/inst/clk_100MHz             |
+| g0    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y2 | n/a          |      |                   |             6 |        1853 |               0 |       10.000 | Multiple | clkgen/inst/clkout1_buf/O | clkgen/inst/clk_100MHz             |
 | g1    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y3 | n/a          |      |                   |             4 |         115 |               0 |       40.000 | Multiple | clkgen/inst/clkout2_buf/O | clkgen/inst/clk_25MHz              |
-| g2    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y0 | n/a          |      |                   |             5 |          91 |               1 |      200.000 | Multiple | clkgen/inst/clkout4_buf/O | clkgen/inst/clk_5MHz               |
-| g3    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y1 | n/a          |      |                   |             3 |          26 |               1 |       41.667 | Multiple | clkgen/inst/clkout3_buf/O | clkgen/inst/clk_24MHz              |
+| g2    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y0 | n/a          |      |                   |             5 |          90 |               1 |      200.000 | Multiple | clkgen/inst/clkout4_buf/O | clkgen/inst/clk_5MHz               |
+| g3    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y1 | n/a          |      |                   |             2 |          26 |               1 |       41.667 | Multiple | clkgen/inst/clkout3_buf/O | clkgen/inst/clk_24MHz              |
 | g4    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y4 | n/a          |      |                   |             1 |           1 |               0 |       10.000 | Multiple | clkgen/inst/clkf_buf/O    | clkgen/inst/clkfbout_buf_clk_wiz_0 |
 +-------+-------+-----------------+------------+---------------+--------------+------+-------------------+---------------+-------------+-----------------+--------------+----------+---------------------------+------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
@@ -95,12 +95,12 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   33 | 20000 |    2 |  4000 |    0 |     0 |   27 |    30 |    1 |    60 |
-| X1Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  196 | 25600 |    2 |  3400 |    0 |     0 |   29 |    30 |    0 |    40 |
-| X0Y1              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |  189 |  9600 |    2 |  1600 |    0 |     0 |   10 |    10 |    0 |    20 |
-| X1Y1              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1595 | 20800 |    3 |  3400 |    0 |     0 |   28 |    30 |    0 |    40 |
-| X0Y2              |    2 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    2 |  9600 |    0 |  1600 |    0 |     0 |   10 |    10 |    0 |    20 |
-| X1Y2              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    3 | 20800 |    2 |  3400 |    0 |     0 |   25 |    30 |    0 |    40 |
+| X0Y0              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    9 | 20000 |    1 |  4000 |    0 |     0 |   29 |    30 |    1 |    60 |
+| X1Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   10 | 25600 |    1 |  3400 |    0 |     0 |   29 |    30 |    0 |    40 |
+| X0Y1              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |   28 |  9600 |    1 |  1600 |    0 |     0 |    7 |    10 |    1 |    20 |
+| X1Y1              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1138 | 20800 |    4 |  3400 |    0 |     0 |   27 |    30 |    0 |    40 |
+| X0Y2              |    2 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    3 |  9600 |    0 |  1600 |    0 |     0 |   10 |    10 |    0 |    20 |
+| X1Y2              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    4 | 20800 |    2 |  3400 |    0 |     0 |   27 |    30 |    0 |    40 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 * Used Global Clocks includes only global clock resources based on load placement but does not consider global clock resources used to traverse a clock region. Therefore the actual total of Used Global Clocks may be higher.
 ** RAMB36 site can be used as two RAMB18/FIFO18 sites.
@@ -114,7 +114,7 @@ Table of Contents
 +----+----+----+
 | Y2 |  2 |  2 |
 | Y1 |  3 |  4 |
-| Y0 |  5 |  3 |
+| Y0 |  5 |  2 |
 +----+----+----+
 * Used Global Clocks includes only global clock resources based on load placement but does not consider global clock resources used to traverse a clock region. Therefore the actual total of Used Global Clocks may be higher.
 
@@ -125,8 +125,8 @@ Table of Contents
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |              49 | 22 |      1 |   27 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz             |
-| g1    | n/a   | BUFG/O          | None       |           0 |              39 | 11 |      1 |   27 |   1 |  0 |    0 |   0 |       0 | clkgen/inst/clk_25MHz              |
+| g0    | n/a   | BUFG/O          | None       |           0 |              29 |  0 |      0 |   29 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz             |
+| g1    | n/a   | BUFG/O          | None       |           0 |              39 |  9 |      1 |   29 |   1 |  0 |    0 |   0 |       0 | clkgen/inst/clk_25MHz              |
 | g2    | n/a   | BUFG/O          | None       |           0 |               1 |  0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_5MHz               |
 | g3    | n/a   | BUFG/O          | None       |           0 |               1 |  0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_24MHz              |
 | g4    | n/a   | BUFG/O          | None       |           1 |               0 |  0 |      0 |    0 |   0 |  0 |    1 |   0 |       0 | clkgen/inst/clkfbout_buf_clk_wiz_0 |
@@ -137,26 +137,25 @@ Table of Contents
 8. Cell Type Counts per Global Clock: Region X1Y0
 -------------------------------------------------
 
-+-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------+
-| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
-+-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |             195 | 166 |      1 |   29 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz |
-| g1    | n/a   | BUFG/O          | None       |           0 |              38 |   9 |      1 |   29 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_25MHz  |
-| g3    | n/a   | BUFG/O          | None       |           0 |              21 |  21 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_24MHz  |
-+-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------+
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
+| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
+| g0    | n/a   | BUFG/O          | None       |           0 |              29 |  0 |      0 |   29 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz |
+| g1    | n/a   | BUFG/O          | None       |           0 |              39 | 10 |      1 |   29 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_25MHz  |
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
 
 9. Cell Type Counts per Global Clock: Region X0Y1
 -------------------------------------------------
 
-+-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------+
-| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
-+-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |             170 | 160 |      1 |   10 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz |
-| g1    | n/a   | BUFG/O          | None       |           0 |               6 |   0 |      0 |    6 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_25MHz  |
-| g2    | n/a   | BUFG/O          | None       |           0 |              33 |  29 |      1 |    4 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_5MHz   |
-+-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+------------------------+
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
+| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
+| g0    | n/a   | BUFG/O          | None       |           0 |               9 |  1 |      0 |    7 |   1 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz |
+| g1    | n/a   | BUFG/O          | None       |           0 |               5 |  0 |      0 |    5 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_25MHz  |
+| g2    | n/a   | BUFG/O          | None       |           0 |              29 | 27 |      1 |    2 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_5MHz   |
++-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
 
@@ -166,10 +165,10 @@ Table of Contents
 +-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
 +-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |            1622 | 1594 |      2 |   28 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz |
-| g1    | n/a   | BUFG/O          | None       |           0 |              13 |    0 |      0 |   13 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_25MHz  |
-| g2    | n/a   | BUFG/O          | None       |           0 |              15 |    0 |      0 |   15 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_5MHz   |
-| g3    | n/a   | BUFG/O          | None       |           0 |               1 |    1 |      1 |    0 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_24MHz  |
+| g0    | n/a   | BUFG/O          | None       |           0 |            1155 | 1128 |      2 |   27 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz |
+| g1    | n/a   | BUFG/O          | None       |           0 |              12 |    0 |      0 |   12 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_25MHz  |
+| g2    | n/a   | BUFG/O          | None       |           0 |              16 |    1 |      0 |   15 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_5MHz   |
+| g3    | n/a   | BUFG/O          | None       |           0 |               9 |    9 |      2 |    0 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_24MHz  |
 +-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
@@ -180,7 +179,7 @@ Table of Contents
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |              12 |  2 |      0 |   10 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz |
+| g0    | n/a   | BUFG/O          | None       |           0 |              13 |  3 |      0 |   10 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz |
 | g2    | n/a   | BUFG/O          | None       |           0 |              10 |  0 |      0 |   10 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_5MHz   |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
@@ -192,8 +191,8 @@ Table of Contents
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |              28 |  3 |      2 |   25 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz |
-| g2    | n/a   | BUFG/O          | None       |           0 |              25 |  0 |      0 |   25 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_5MHz   |
+| g0    | n/a   | BUFG/O          | None       |           0 |              31 |  4 |      2 |   27 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_100MHz |
+| g2    | n/a   | BUFG/O          | None       |           0 |              27 |  0 |      0 |   27 |   0 |  0 |    0 |   0 |       0 | clkgen/inst/clk_5MHz   |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
@@ -204,17 +203,17 @@ Table of Contents
 +-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+------------------------+
 | GlbID | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                    |
 +-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+------------------------+
-| g0    | BUFG/O          | n/a               | Multiple |      10.000 | {0.000 5.000} |          |        2076 |        0 |           0 |  0 | clkgen/inst/clk_100MHz |
+| g0    | BUFG/O          | n/a               | Multiple |      10.000 | {0.000 5.000} |          |        1266 |        0 |           0 |  0 | clkgen/inst/clk_100MHz |
 +-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+------------------------+
 
 
-+----+------+-------+
-|    | X0   | X1    |
-+----+------+-------+
-| Y2 |   12 |    28 |
-| Y1 |  170 |  1622 |
-| Y0 |   49 |   195 |
-+----+------+-------+
++----+-----+-------+
+|    | X0  | X1    |
++----+-----+-------+
+| Y2 |  13 |    31 |
+| Y1 |   9 |  1155 |
+| Y0 |  29 |    29 |
++----+-----+-------+
 
 
 14. Load Cell Placement Summary for Global Clock g1
@@ -223,7 +222,7 @@ Table of Contents
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+-----------------------+
 | GlbID | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                   |
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+-----------------------+
-| g1    | BUFG/O          | n/a               | Multiple |      40.000 | {0.000 20.000} |          |          96 |        0 |           0 |  0 | clkgen/inst/clk_25MHz |
+| g1    | BUFG/O          | n/a               | Multiple |      40.000 | {0.000 20.000} |          |          95 |        0 |           0 |  0 | clkgen/inst/clk_25MHz |
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+-----------------------+
 
 
@@ -231,8 +230,8 @@ Table of Contents
 |    | X0  | X1  |
 +----+-----+-----+
 | Y2 |   0 |   0 |
-| Y1 |   6 |  13 |
-| Y0 |  39 |  38 |
+| Y1 |   5 |  12 |
+| Y0 |  39 |  39 |
 +----+-----+-----+
 
 
@@ -242,15 +241,15 @@ Table of Contents
 +-------+-----------------+-------------------+----------+-------------+-----------------+----------+-------------+----------+-------------+----+----------------------+
 | GlbID | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns)   | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                  |
 +-------+-----------------+-------------------+----------+-------------+-----------------+----------+-------------+----------+-------------+----+----------------------+
-| g2    | BUFG/O          | n/a               | Multiple |     200.000 | {0.000 100.000} |          |          83 |        1 |           0 |  0 | clkgen/inst/clk_5MHz |
+| g2    | BUFG/O          | n/a               | Multiple |     200.000 | {0.000 100.000} |          |          82 |        1 |           0 |  0 | clkgen/inst/clk_5MHz |
 +-------+-----------------+-------------------+----------+-------------+-----------------+----------+-------------+----------+-------------+----+----------------------+
 
 
 +----+-----+-----+
 |    | X0  | X1  |
 +----+-----+-----+
-| Y2 |  10 |  25 |
-| Y1 |  33 |  15 |
+| Y2 |  10 |  27 |
+| Y1 |  29 |  16 |
 | Y0 |   1 |   0 |
 +----+-----+-----+
 
@@ -261,17 +260,17 @@ Table of Contents
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+-----------------------+
 | GlbID | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                   |
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+-----------------------+
-| g3    | BUFG/O          | n/a               | Multiple |      41.667 | {0.000 20.833} |          |          22 |        1 |           0 |  0 | clkgen/inst/clk_24MHz |
+| g3    | BUFG/O          | n/a               | Multiple |      41.667 | {0.000 20.833} |          |           9 |        1 |           0 |  0 | clkgen/inst/clk_24MHz |
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+-----------------------+
 
 
-+----+----+-----+
-|    | X0 | X1  |
-+----+----+-----+
-| Y2 |  0 |   0 |
-| Y1 |  0 |   1 |
-| Y0 |  1 |  21 |
-+----+----+-----+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y2 |  0 |  0 |
+| Y1 |  0 |  9 |
+| Y0 |  1 |  0 |
++----+----+----+
 
 
 17. Load Cell Placement Summary for Global Clock g4
@@ -302,8 +301,8 @@ set_property LOC BUFGCTRL_X0Y1 [get_cells clkgen/inst/clkout3_buf]
 set_property LOC BUFGCTRL_X0Y2 [get_cells clkgen/inst/clkout1_buf]
 
 # Location of IO Primitives which is load of clock spine
-set_property LOC IOB_X0Y28 [get_cells cam_sysclk_OBUF_inst]
 set_property LOC IOB_X0Y27 [get_cells FIFO_RCK_OBUF_inst]
+set_property LOC IOB_X0Y28 [get_cells cam_sysclk_OBUF_inst]
 
 # Location of clock ports
 set_property LOC IOB_X0Y26 [get_ports sysclk]
@@ -326,7 +325,7 @@ resize_pblock [get_pblocks {CLKAG_clkgen/inst/clk_25MHz}] -add {CLOCKREGION_X0Y0
 #startgroup
 create_pblock {CLKAG_clkgen/inst/clk_24MHz}
 add_cells_to_pblock [get_pblocks  {CLKAG_clkgen/inst/clk_24MHz}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=cam_sysclk_OBUF_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="clkgen/inst/clk_24MHz"}]]]
-resize_pblock [get_pblocks {CLKAG_clkgen/inst/clk_24MHz}] -add {CLOCKREGION_X1Y0:CLOCKREGION_X1Y0}
+resize_pblock [get_pblocks {CLKAG_clkgen/inst/clk_24MHz}] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
 #endgroup
 
 # Clock net "clkgen/inst/clk_100MHz" driven by instance "clkgen/inst/clkout1_buf" located at site "BUFGCTRL_X0Y2"
