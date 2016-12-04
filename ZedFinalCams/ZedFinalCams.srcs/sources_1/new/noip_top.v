@@ -26,7 +26,6 @@ clk_wiz_0 clkgen
    // Clock in ports
     .clkin_100MHz(sysclk),      // input clk_100MHz
     // Clock out ports
-   // .clk_200MHz(clk_200MHz),     // output clk_200MHz
     .clk_100MHz(clk_50MHz),     // output clk_50MHz
     .clk_25MHz(clk_25MHz),     // output clk_25MHz
     .clk_24MHz(clk_24MHz),
@@ -38,7 +37,7 @@ clk_wiz_0 clkgen
 wire clk_20Hz;
 clk_divs clks(
 	.reset(reset), // synchronous reset
-    .clk_24M(clk_24MHz), // 24MHz clock signal
+    .clk_5MHz(clk_5MHz), // 24MHz clock signal
     .clk_20Hz(clk_20Hz) // 20Hz clock pulse
     );
     
@@ -47,13 +46,14 @@ assign cam_sysclk = clk_24MHz;
 
 // ~~~~~~~~~~ disparity code ~~~~~~~~~~~~~~
 wire trig_db;
-debounce deb(
-    .clk(clk_20Hz),
-    .btn(trigger),
-    .btn_val(trig_db)
-    );
+//debounce deb(
+//    .clk(clk_20Hz),
+//    .btn(trigger),
+//    .btn_val(trig_db)
+//    );
+assign trig_db = current_state == 2'b00; // trigger a new sequence when disparity is idling
 
-wire buffer_ready, idle, result_wea;
+wire buffer_ready, result_wea;
 wire [2:0] current_state;
 wire [16:0] laddr, raddr; 
 wire [18:0] result_addr;
@@ -61,8 +61,8 @@ wire [7:0] ldata, rdata, result_data;
 
 disparity disp(
 	 .clk(clk_50MHz), // Read clk signal
-	 .enable(trig_db), // enable new disparity calculation 
-	 .buffer_ready({buffer_ready && ~trig_db}),
+	 .enable(buffer_ready), // enable new disparity calculation 
+	 //.buffer_ready(buffer_ready), // was buffer_ready && ~ trig_db
 	 .reset(reset), // reset disparity FSM
 	 .ldata(ldata), // FIFO data in
 	 .rdata(rdata), // FIFO data in
@@ -71,12 +71,11 @@ disparity disp(
 	 .result_addr(result_addr),
 	 .result_data(result_data),
 	 .result_wea(result_wea),
-	 .idle(idle), // LED indicator signify end of process
 	 .state_LED(current_state) // current state indicator
     );
     
 // state indicator LEDs
-assign LEDs = {idle,current_state[2:0]};
+assign LEDs = {trig_db,current_state[2:0]};
 
 // ~~~~~~~~~~~~~~~~ VGA controller ~~~~~~~~~~~~~~~~~~~~~~
 wire [10:0] hcount, vcount;
@@ -111,9 +110,6 @@ assign FIFO_RRST2 = (image_sel == 1'b1) ? fifo_rrst : 1'b1;
 
 imgbuf camctl(
     .get_data(trig_db),
-	//.href(hcount),
-	//.vref(vcount),
-	//.blank(blank),
 	.laddr(laddr),
     .raddr(raddr),
     .ldata(ldata), 
@@ -124,7 +120,6 @@ imgbuf camctl(
 	.image_sel(image_sel),
 	.fifo_rrst(fifo_rrst), // fifo read reset (reset read addr pointer to 0)
 	.fifo_oe(fifo_oe), // fifo output enable (allow for addr pointer to increment)
-	//.pixel_value(rgb), // 8-bit pixel value from internal buffer
 	.trigger(cam_trigger),
 	.buffer_ready(buffer_ready)
    );
@@ -147,13 +142,14 @@ blk_mem_resultant resultant (
 always @ (hcount,vcount,blank,vga_data)
 	if(blank)
 		rgb = 8'h00;
-    else if( hcount<384 && vcount <= 288)
+	// center 384x288 output in the middle of the screen
+    else if( hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384)
         rgb = vga_data;
     else
         rgb = 8'h00;
         
 // set VGA read address to show disparity
 always @ (hcount,vcount)
-    vga_addr = (384*vcount)+hcount;
+    vga_addr = (384*(vcount-96))+(hcount-184);
 
 endmodule

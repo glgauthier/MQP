@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Thu Dec 01 21:51:39 2016
+| Date         : Sun Dec 04 15:17:10 2016
 | Host         : Georges-T460p running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file noip_top_control_sets_placed.rpt
 | Design       : noip_top
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |   196 |
-| Unused register locations in slices containing registers |   114 |
+| Number of unique control sets                            |   194 |
+| Unused register locations in slices containing registers |   131 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             101 |           48 |
+| No           | No                    | No                     |             120 |           51 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              39 |           15 |
-| Yes          | No                    | No                     |             824 |          307 |
+| No           | Yes                   | No                     |              18 |            9 |
+| Yes          | No                    | No                     |             796 |          274 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             866 |          246 |
+| Yes          | Yes                   | No                     |             863 |          214 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -48,202 +48,200 @@ Table of Contents
 +---------------------------+---------------------------------+--------------------------------+------------------+----------------+
 |        Clock Signal       |          Enable Signal          |        Set/Reset Signal        | Slice Load Count | Bel Load Count |
 +---------------------------+---------------------------------+--------------------------------+------------------+----------------+
-|  clkgen/inst/clk_5MHz     | camctl/trigger_i_1_n_0          |                                |                1 |              1 |
+|  clkgen/inst/clk_5MHz     | disp/trigger_reg                |                                |                1 |              1 |
 |  clkgen/inst/clk_25MHz    |                                 | vga/VS0                        |                1 |              1 |
 |  clkgen/inst/clk_25MHz    |                                 | vga/HS0                        |                1 |              1 |
-|  clks/count_reg[0]        |                                 |                                |                1 |              3 |
 |  disp/maxd_reg[4]_i_2_n_0 |                                 | disp/maxd_reg[4]_i_3_n_0       |                2 |              5 |
 |  clkgen/inst/clk_24MHz    | sel                             | cam_rst_IBUF                   |                2 |              5 |
-|  clkgen/inst/clk_100MHz   | disp/scnt[5]_i_2_n_0            | disp/scnt[5]_i_1_n_0           |                3 |              5 |
-|  clkgen/inst/clk_100MHz   | disp/result_data[5]_i_1_n_0     |                                |                1 |              6 |
+|  clkgen/inst/clk_100MHz   | disp/scnt[5]_i_2_n_0            | disp/scnt[5]_i_1_n_0           |                2 |              5 |
 |  clkgen/inst/clk_100MHz   | disp/blockIndex[5]_i_1_n_0      |                                |                3 |              6 |
-|  clkgen/inst/clk_100MHz   | disp/dcnt[9]_i_2_n_0            | disp/dcnt[9]_i_1_n_0           |                5 |              7 |
-|  clkgen/inst/clk_5MHz     |                                 |                                |                5 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[5][6][7]_i_2_n_0     | disp/block[5][6][7]_i_1_n_0    |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[5][6][7]_i_2_n_0     | disp/template[5][6][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[6][0][7]_i_2_n_0     | disp/block[6][0][7]_i_1_n_0    |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/result_data[5]_i_1_n_0     |                                |                1 |              6 |
+|  clkgen/inst/clk_100MHz   | disp/row_count[8]_i_2_n_0       | disp/row_count[8]_i_1_n_0      |                4 |              7 |
+|  clkgen/inst/clk_100MHz   | disp/block[6][0][7]_i_2_n_0     | disp/block[6][0][7]_i_1_n_0    |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[0][0][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[0][1][7]_i_1_n_0 |                                |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[0][2][7]_i_1_n_0 |                                |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[0][3][7]_i_1_n_0 |                                |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[0][4][7]_i_1_n_0 |                                |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[0][2][7]_i_1_n_0 |                                |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[0][3][7]_i_1_n_0 |                                |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[0][4][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[0][5][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[0][6][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[1][0][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[1][1][7]_i_1_n_0 |                                |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[1][2][7]_i_1_n_0 |                                |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[1][2][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[1][3][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[1][4][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[1][5][7]_i_1_n_0 |                                |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[1][6][7]_i_1_n_0 |                                |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[1][6][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[2][0][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[2][1][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[2][2][7]_i_1_n_0 |                                |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[2][3][7]_i_1_n_0 |                                |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[2][4][7]_i_1_n_0 |                                |                4 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[2][5][7]_i_1_n_0 |                                |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[2][6][7]_i_1_n_0 |                                |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[2][4][7]_i_1_n_0 |                                |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[2][5][7]_i_1_n_0 |                                |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[2][6][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[3][0][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[3][1][7]_i_1_n_0 |                                |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[3][2][7]_i_1_n_0 |                                |                4 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[3][2][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[3][3][7]_i_1_n_0 |                                |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[3][4][7]_i_1_n_0 |                                |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[3][5][7]_i_1_n_0 |                                |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[3][6][7]_i_1_n_0 |                                |                4 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[3][4][7]_i_1_n_0 |                                |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[3][5][7]_i_1_n_0 |                                |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[3][6][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[4][0][7]_i_1_n_0 |                                |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[4][1][7]_i_1_n_0 |                                |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[4][2][7]_i_1_n_0 |                                |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[4][3][7]_i_1_n_0 |                                |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[4][4][7]_i_1_n_0 |                                |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[4][5][7]_i_1_n_0 |                                |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[4][4][7]_i_1_n_0 |                                |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[4][5][7]_i_1_n_0 |                                |                3 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[4][6][7]_i_1_n_0 |                                |                3 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[5][0][7]_i_1_n_0 |                                |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[5][1][7]_i_1_n_0 |                                |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[5][2][7]_i_1_n_0 |                                |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[5][3][7]_i_1_n_0 |                                |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[5][4][7]_i_1_n_0 |                                |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[5][5][7]_i_1_n_0 |                                |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[5][2][7]_i_1_n_0 |                                |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[5][3][7]_i_1_n_0 |                                |                4 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[5][4][7]_i_1_n_0 |                                |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[5][5][7]_i_1_n_0 |                                |                4 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[5][6][7]_i_1_n_0 |                                |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][0][7]_i_1_n_0 |                                |                4 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][0][7]_i_1_n_0 |                                |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][1][7]_i_1_n_0 |                                |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][2][7]_i_1_n_0 |                                |                5 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][3][7]_i_1_n_0 |                                |                4 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][4][7]_i_1_n_0 |                                |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][5][7]_i_1_n_0 |                                |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][2][7]_i_1_n_0 |                                |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][3][7]_i_1_n_0 |                                |                7 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][4][7]_i_1_n_0 |                                |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][5][7]_i_1_n_0 |                                |                4 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs[6][6][7]_i_1_n_0 |                                |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[6][0][7]_i_2_n_0     | disp/template[6][0][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[6][1][7]_i_2_n_0     | disp/block[6][1][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[6][0][7]_i_2_n_0     | disp/template[6][0][7]_i_1_n_0 |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[6][1][7]_i_2_n_0     | disp/block[6][1][7]_i_1_n_0    |                5 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[6][1][7]_i_2_n_0     | disp/template[6][1][7]_i_1_n_0 |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[6][2][7]_i_2_n_0     | disp/block[6][2][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[6][2][7]_i_2_n_0     | disp/template[6][2][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[6][3][7]_i_2_n_0     | disp/block[6][3][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[6][3][7]_i_2_n_0     | disp/template[6][3][7]_i_1_n_0 |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[6][4][7]_i_2_n_0     | disp/block[6][4][7]_i_1_n_0    |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[6][2][7]_i_2_n_0     | disp/block[6][2][7]_i_1_n_0    |                5 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[6][2][7]_i_2_n_0     | disp/template[6][2][7]_i_1_n_0 |                4 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[6][3][7]_i_2_n_0     | disp/block[6][3][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[6][3][7]_i_2_n_0     | disp/template[6][3][7]_i_1_n_0 |                5 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[6][4][7]_i_2_n_0     | disp/block[6][4][7]_i_1_n_0    |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[6][4][7]_i_2_n_0     | disp/template[6][4][7]_i_1_n_0 |                3 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[6][5][7]_i_2_n_0     | disp/block[6][5][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[6][5][7]_i_2_n_0     | disp/template[6][5][7]_i_1_n_0 |                4 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[6][6][7]_i_2_n_0     | disp/block[6][6][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[6][6][7]_i_2_n_0     | disp/template[6][6][7]_i_1_n_0 |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[1][3][7]_i_2_n_0     | disp/template[1][3][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[0][0][7]_i_2_n_0     | disp/block[0][0][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[0][0][7]_i_2_n_0     | disp/template[0][0][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[0][1][7]_i_2_n_0     | disp/block[0][1][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[6][5][7]_i_2_n_0     | disp/template[6][5][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[6][6][7]_i_2_n_0     | disp/block[6][6][7]_i_1_n_0    |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[6][6][7]_i_2_n_0     | disp/template[6][6][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/dcnt[8]_i_2_n_0            | disp/dcnt[8]_i_1_n_0           |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[0][0][7]_i_2_n_0     | disp/block[0][0][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[0][0][7]_i_2_n_0     | disp/template[0][0][7]_i_1_n_0 |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[0][1][7]_i_2_n_0     | disp/block[0][1][7]_i_1_n_0    |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[0][1][7]_i_2_n_0     | disp/template[0][1][7]_i_1_n_0 |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[0][2][7]_i_2_n_0     | disp/block[0][2][7]_i_1_n_0    |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[0][2][7]_i_2_n_0     | disp/template[0][2][7]_i_1_n_0 |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[0][3][7]_i_2_n_0     | disp/block[0][3][7]_i_1_n_0    |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[0][3][7]_i_2_n_0     | disp/template[0][3][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[0][4][7]_i_2_n_0     | disp/block[0][4][7]_i_1_n_0    |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[0][4][7]_i_2_n_0     | disp/template[0][4][7]_i_1_n_0 |                4 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[0][2][7]_i_2_n_0     | disp/block[0][2][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[0][2][7]_i_2_n_0     | disp/template[0][2][7]_i_1_n_0 |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[0][3][7]_i_2_n_0     | disp/block[0][3][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[0][3][7]_i_2_n_0     | disp/template[0][3][7]_i_1_n_0 |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[0][4][7]_i_2_n_0     | disp/block[0][4][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[0][4][7]_i_2_n_0     | disp/template[0][4][7]_i_1_n_0 |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[0][5][7]_i_2_n_0     | disp/block[0][5][7]_i_1_n_0    |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[0][5][7]_i_2_n_0     | disp/template[0][5][7]_i_1_n_0 |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[0][6][7]_i_2_n_0     | disp/block[0][6][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[0][6][7]_i_2_n_0     | disp/template[0][6][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[1][0][7]_i_2_n_0     | disp/block[1][0][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[0][6][7]_i_2_n_0     | disp/block[0][6][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[0][6][7]_i_2_n_0     | disp/template[0][6][7]_i_1_n_0 |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[1][0][7]_i_2_n_0     | disp/block[1][0][7]_i_1_n_0    |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[1][0][7]_i_2_n_0     | disp/template[1][0][7]_i_1_n_0 |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[1][1][7]_i_2_n_0     | disp/block[1][1][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[1][1][7]_i_2_n_0     | disp/block[1][1][7]_i_1_n_0    |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[1][1][7]_i_2_n_0     | disp/template[1][1][7]_i_1_n_0 |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[1][2][7]_i_2_n_0     | disp/block[1][2][7]_i_1_n_0    |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[1][2][7]_i_2_n_0     | disp/template[1][2][7]_i_1_n_0 |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[1][3][7]_i_2_n_0     | disp/block[1][3][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[3][1][7]_i_2_n_0     | disp/template[3][1][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[1][4][7]_i_2_n_0     | disp/block[1][4][7]_i_1_n_0    |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[1][2][7]_i_2_n_0     | disp/template[1][2][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[1][3][7]_i_2_n_0     | disp/block[1][3][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[1][3][7]_i_2_n_0     | disp/template[1][3][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[1][4][7]_i_2_n_0     | disp/block[1][4][7]_i_1_n_0    |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[1][4][7]_i_2_n_0     | disp/template[1][4][7]_i_1_n_0 |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[1][5][7]_i_2_n_0     | disp/block[1][5][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[1][5][7]_i_2_n_0     | disp/block[1][5][7]_i_1_n_0    |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[1][5][7]_i_2_n_0     | disp/template[1][5][7]_i_1_n_0 |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[1][6][7]_i_2_n_0     | disp/block[1][6][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[1][6][7]_i_2_n_0     | disp/template[1][6][7]_i_1_n_0 |                4 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[2][0][7]_i_2_n_0     | disp/block[2][0][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[1][6][7]_i_2_n_0     | disp/template[1][6][7]_i_1_n_0 |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[2][0][7]_i_2_n_0     | disp/block[2][0][7]_i_1_n_0    |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[2][0][7]_i_2_n_0     | disp/template[2][0][7]_i_1_n_0 |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[2][1][7]_i_2_n_0     | disp/block[2][1][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[2][1][7]_i_2_n_0     | disp/template[2][1][7]_i_1_n_0 |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[2][1][7]_i_2_n_0     | disp/template[2][1][7]_i_1_n_0 |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[2][2][7]_i_2_n_0     | disp/block[2][2][7]_i_1_n_0    |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[2][2][7]_i_2_n_0     | disp/template[2][2][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[2][3][7]_i_2_n_0     | disp/block[2][3][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[2][3][7]_i_2_n_0     | disp/block[2][3][7]_i_1_n_0    |                3 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[2][3][7]_i_2_n_0     | disp/template[2][3][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[2][4][7]_i_2_n_0     | disp/block[2][4][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[2][4][7]_i_2_n_0     | disp/block[2][4][7]_i_1_n_0    |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[2][4][7]_i_2_n_0     | disp/template[2][4][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[2][5][7]_i_2_n_0     | disp/block[2][5][7]_i_1_n_0    |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[2][5][7]_i_2_n_0     | disp/block[2][5][7]_i_1_n_0    |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[2][5][7]_i_2_n_0     | disp/template[2][5][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[2][6][7]_i_2_n_0     | disp/block[2][6][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[2][6][7]_i_2_n_0     | disp/template[2][6][7]_i_1_n_0 |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[3][0][7]_i_2_n_0     | disp/block[3][0][7]_i_1_n_0    |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[3][0][7]_i_2_n_0     | disp/template[3][0][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[2][6][7]_i_2_n_0     | disp/block[2][6][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[2][6][7]_i_2_n_0     | disp/template[2][6][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[3][0][7]_i_2_n_0     | disp/block[3][0][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[3][0][7]_i_2_n_0     | disp/template[3][0][7]_i_1_n_0 |                3 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[3][1][7]_i_2_n_0     | disp/block[3][1][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[3][2][7]_i_2_n_0     | disp/block[3][2][7]_i_1_n_0    |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[3][2][7]_i_2_n_0     | disp/template[3][2][7]_i_1_n_0 |                4 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[3][3][7]_i_2_n_0     | disp/block[3][3][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[3][1][7]_i_2_n_0     | disp/template[3][1][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[3][2][7]_i_2_n_0     | disp/block[3][2][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[3][2][7]_i_2_n_0     | disp/template[3][2][7]_i_1_n_0 |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[3][3][7]_i_2_n_0     | disp/block[3][3][7]_i_1_n_0    |                4 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[3][3][7]_i_2_n_0     | disp/template[3][3][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[3][4][7]_i_2_n_0     | disp/block[3][4][7]_i_1_n_0    |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[3][4][7]_i_2_n_0     | disp/block[3][4][7]_i_1_n_0    |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[3][4][7]_i_2_n_0     | disp/template[3][4][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[3][5][7]_i_2_n_0     | disp/block[3][5][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[3][5][7]_i_2_n_0     | disp/template[3][5][7]_i_1_n_0 |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[3][6][7]_i_2_n_0     | disp/block[3][6][7]_i_1_n_0    |                4 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[3][6][7]_i_2_n_0     | disp/template[3][6][7]_i_1_n_0 |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[3][5][7]_i_2_n_0     | disp/block[3][5][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[3][5][7]_i_2_n_0     | disp/template[3][5][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[3][6][7]_i_2_n_0     | disp/block[3][6][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[3][6][7]_i_2_n_0     | disp/template[3][6][7]_i_1_n_0 |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[4][0][7]_i_2_n_0     | disp/block[4][0][7]_i_1_n_0    |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[4][0][7]_i_2_n_0     | disp/template[4][0][7]_i_1_n_0 |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[4][1][7]_i_2_n_0     | disp/block[4][1][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[4][1][7]_i_2_n_0     | disp/block[4][1][7]_i_1_n_0    |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[4][1][7]_i_2_n_0     | disp/template[4][1][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[4][2][7]_i_2_n_0     | disp/block[4][2][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[4][2][7]_i_2_n_0     | disp/template[4][2][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[4][2][7]_i_2_n_0     | disp/block[4][2][7]_i_1_n_0    |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[4][2][7]_i_2_n_0     | disp/template[4][2][7]_i_1_n_0 |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[4][3][7]_i_2_n_0     | disp/block[4][3][7]_i_1_n_0    |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[4][3][7]_i_2_n_0     | disp/template[4][3][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[4][4][7]_i_2_n_0     | disp/block[4][4][7]_i_1_n_0    |                1 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[4][4][7]_i_2_n_0     | disp/template[4][4][7]_i_1_n_0 |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[4][3][7]_i_2_n_0     | disp/template[4][3][7]_i_1_n_0 |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[4][4][7]_i_2_n_0     | disp/block[4][4][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[4][4][7]_i_2_n_0     | disp/template[4][4][7]_i_1_n_0 |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[4][5][7]_i_2_n_0     | disp/block[4][5][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[4][5][7]_i_2_n_0     | disp/template[4][5][7]_i_1_n_0 |                3 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[4][5][7]_i_2_n_0     | disp/template[4][5][7]_i_1_n_0 |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[4][6][7]_i_2_n_0     | disp/block[4][6][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[4][6][7]_i_2_n_0     | disp/template[4][6][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[5][0][7]_i_2_n_0     | disp/block[5][0][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[5][0][7]_i_2_n_0     | disp/template[5][0][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[4][6][7]_i_2_n_0     | disp/template[4][6][7]_i_1_n_0 |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[5][0][7]_i_2_n_0     | disp/block[5][0][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[5][0][7]_i_2_n_0     | disp/template[5][0][7]_i_1_n_0 |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[5][1][7]_i_2_n_0     | disp/block[5][1][7]_i_1_n_0    |                1 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[5][1][7]_i_2_n_0     | disp/template[5][1][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[5][2][7]_i_2_n_0     | disp/block[5][2][7]_i_1_n_0    |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[5][2][7]_i_2_n_0     | disp/template[5][2][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[5][3][7]_i_2_n_0     | disp/block[5][3][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[5][3][7]_i_2_n_0     | disp/template[5][3][7]_i_1_n_0 |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[5][4][7]_i_2_n_0     | disp/block[5][4][7]_i_1_n_0    |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[5][2][7]_i_2_n_0     | disp/block[5][2][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[5][2][7]_i_2_n_0     | disp/template[5][2][7]_i_1_n_0 |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[5][3][7]_i_2_n_0     | disp/block[5][3][7]_i_1_n_0    |                5 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[5][3][7]_i_2_n_0     | disp/template[5][3][7]_i_1_n_0 |                1 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[5][4][7]_i_2_n_0     | disp/block[5][4][7]_i_1_n_0    |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[5][4][7]_i_2_n_0     | disp/template[5][4][7]_i_1_n_0 |                2 |              8 |
 |  clkgen/inst/clk_100MHz   | disp/block[5][5][7]_i_2_n_0     | disp/block[5][5][7]_i_1_n_0    |                2 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/block[5][5][7]_i_2_n_0     | disp/template[5][5][7]_i_1_n_0 |                3 |              8 |
-|  clkgen/inst/clk_100MHz   | disp/row_count[9]_i_2_n_0       | disp/row_count[9]_i_1_n_0      |                6 |              9 |
-|  clkgen/inst/clk_100MHz   | disp/col_count[8]_i_2_n_0       | disp/col_count[8]_i_1_n_0      |                6 |              9 |
-|  clkgen/inst/clk_5MHz     | camctl/pixel[9]_i_2_n_0         | camctl/pixel[9]_i_1_n_0        |                5 |             10 |
-|  clkgen/inst/clk_100MHz   | disp/rcnt[9]_i_2_n_0            | disp/rcnt[9]_i_1_n_0           |                3 |             10 |
-|  clkgen/inst/clk_25MHz    | vga/E[0]                        | vga/vcounter_reg[10]_0[0]      |                5 |             11 |
-|  clkgen/inst/clk_25MHz    |                                 | vga/SR[0]                      |                4 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/block[5][5][7]_i_2_n_0     | disp/template[5][5][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[5][6][7]_i_2_n_0     | disp/block[5][6][7]_i_1_n_0    |                2 |              8 |
+|  clkgen/inst/clk_100MHz   | disp/block[5][6][7]_i_2_n_0     | disp/template[5][6][7]_i_1_n_0 |                2 |              8 |
+|  clkgen/inst/clk_5MHz     | camctl/pixel[8]_i_2_n_0         | camctl/pixel[8]_i_1_n_0        |                5 |              9 |
+|  clkgen/inst/clk_100MHz   | disp/rcnt[8]_i_2_n_0            | disp/rcnt[8]_i_1_n_0           |                4 |              9 |
+|  clkgen/inst/clk_100MHz   | disp/col_count[8]_i_2_n_0       | disp/col_count[8]_i_1_n_0      |                4 |              9 |
+|  clkgen/inst/clk_5MHz     |                                 |                                |                5 |              9 |
+|  clkgen/inst/clk_100MHz   | disp/temp[0][10]_i_1_n_0        |                                |                2 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp[1][10]_i_1_n_0        |                                |                4 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp[2][10]_i_1_n_0        |                                |                3 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp[3][10]_i_1_n_0        |                                |                6 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp[4][10]_i_1_n_0        |                                |                5 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp[5][10]_i_1_n_0        |                                |                5 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp[6][10]_i_1_n_0        |                                |                4 |             11 |
+|  clkgen/inst/clk_25MHz    |                                 | vga/SR[0]                      |                5 |             11 |
+|  clkgen/inst/clk_25MHz    | vga/vcounter[10]_i_2_n_0        | vga/vcounter[10]_i_1_n_0       |                4 |             11 |
 |  clkgen/inst/clk_100MHz   | disp/min[7]_i_1_n_0             |                                |                2 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[0][14]_i_1_n_0  |                                |                8 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[10][14]_i_1_n_0 |                                |                8 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[11][14]_i_1_n_0 |                                |                8 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[12][14]_i_1_n_0 |                                |                7 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[13][14]_i_1_n_0 |                                |                9 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[14][14]_i_1_n_0 |                                |                7 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[15][14]_i_1_n_0 |                                |                7 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[16][14]_i_1_n_0 |                                |                4 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[17][14]_i_1_n_0 |                                |                5 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[18][14]_i_1_n_0 |                                |                5 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[19][14]_i_1_n_0 |                                |                9 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[1][14]_i_1_n_0  |                                |                4 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[9][14]_i_1_n_0  |                                |               11 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[7][14]_i_1_n_0  |                                |                9 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[8][14]_i_1_n_0  |                                |                7 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[19][14]_i_1_n_0 |                                |                8 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[1][14]_i_1_n_0  |                                |                3 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[2][14]_i_1_n_0  |                                |                6 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[3][14]_i_1_n_0  |                                |                9 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[9][14]_i_1_n_0  |                                |               12 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[8][14]_i_1_n_0  |                                |                8 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[7][14]_i_1_n_0  |                                |                6 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[0][14]_i_1_n_0  |                                |                7 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[10][14]_i_1_n_0 |                                |                6 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[11][14]_i_1_n_0 |                                |               10 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[12][14]_i_1_n_0 |                                |                4 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[13][14]_i_1_n_0 |                                |                8 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[14][14]_i_1_n_0 |                                |                6 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[15][14]_i_1_n_0 |                                |               10 |             15 |
+|  clkgen/inst/clk_25MHz    |                                 |                                |                6 |             15 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_vector[6][14]_i_1_n_0  |                                |                6 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/temp[0][14]_i_1_n_0        |                                |                6 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/temp[1][14]_i_1_n_0        |                                |                5 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/temp[2][14]_i_1_n_0        |                                |                5 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/temp[3][14]_i_1_n_0        |                                |                8 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/temp[4][14]_i_1_n_0        |                                |                4 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/temp[5][14]_i_1_n_0        |                                |                4 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/temp[6][14]_i_1_n_0        |                                |                6 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[5][14]_i_1_n_0  |                                |                6 |             15 |
-|  clkgen/inst/clk_25MHz    |                                 |                                |                7 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[4][14]_i_1_n_0  |                                |               10 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[3][14]_i_1_n_0  |                                |                7 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[2][14]_i_1_n_0  |                                |                9 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[5][14]_i_1_n_0  |                                |                4 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[16][14]_i_1_n_0 |                                |                4 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[17][14]_i_1_n_0 |                                |                6 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[18][14]_i_1_n_0 |                                |                4 |             15 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[4][14]_i_1_n_0  |                                |                6 |             15 |
 |  clkgen/inst/clk_5MHz     | camctl/num_lines[15]_i_2_n_0    | camctl/num_lines[15]_i_1_n_0   |                5 |             16 |
-|  clkgen/inst/clk_24MHz    |                                 | reset_IBUF                     |                7 |             21 |
-|  clkgen/inst/clk_100MHz   |                                 |                                |               35 |             75 |
+|  clkgen/inst/clk_100MHz   |                                 |                                |               40 |             96 |
 +---------------------------+---------------------------------+--------------------------------+------------------+----------------+
 
 

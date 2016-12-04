@@ -4,13 +4,7 @@
 // local buffer.
 //////////////////////////////////////////////////////////////////////////////////
 module imgbuf(
-    //input output_sel,
     input get_data, // trigger a new image capture
-    // this stuff should be removed sometime soon
-	//input [10:0] href, // from microblaze, 0-751
-	//input [10:0] vref,
-	//input blank,
-	//
 	input [16:0] laddr,
 	input [16:0] raddr,
 	output [7:0] ldata,
@@ -21,15 +15,10 @@ module imgbuf(
     output reg image_sel,
 	output reg fifo_rrst, // fifo read reset (reset read addr pointer to 0)
 	output reg fifo_oe, // fifo output enable (allow for addr pointer to increment)
-	// pixel_value should be removed soon
-	//output reg [7:0] pixel_value, // 8-bit value from internal buffer
-	// 
 	output reg trigger,
 	output reg buffer_ready
    );
 
-//parameter [3:0] CALIBRATION_OFFSET = 4'b1100;
-//reg image_sel = 1'b0; 
 reg wen_l, wen_r; 
 
 parameter [1:0] ready = 2'b00;
@@ -56,13 +45,6 @@ always @(num_lines,pixel)
         rwrite = (384*(num_lines-96))+(pixel-128);
     else
         rwrite = 17'd0;
-
-//reg [18:0] addrb;
-//always @(vref,href)
-//    if(128<=href && href <= 512 && vref >= 96 && vref <= 384)
-//        addrb = (384*(vref-96))+(href-128);
-//    else
-//        addrb = 19'd0;
         
 wire [7:0] left_dout;
 blk_mem_640_480 left(
@@ -129,6 +111,7 @@ begin
         // allow for VGA controller to read from pixel_line
 		ready:
 		    begin 
+		    buffer_ready <= 1'b0;
 		    wen_l <= 1'b0;
 		    wen_r <= 1'b0;
 		    pixel <= 10'b00_0000_000;
@@ -197,20 +180,6 @@ begin
 			buffer_ready <= 1'b1;
 			end
 		endcase
-end 
-
-// allow for VGA controller to read stored pixel line at given addr if state==ready
-//always @ (buffer_ready, href, vref, blank, pixel_value,output_sel)
-//    // clear output when VGA is blanking
-//	if(blank)
-//		pixel_value [7:0] = 8'h00;
-//	else if(128<=href && href <= 512 && vref >= 96 && vref <= 384)
-//        if(~output_sel)
-//            pixel_value = left_dout;
-//        else
-//            pixel_value = right_dout;
-//    else
-//        pixel_value <= 8'h00;
-		
+end 	
 		
 endmodule

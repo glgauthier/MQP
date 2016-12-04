@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Thu Dec 01 21:49:58 2016
+| Date         : Sun Dec 04 15:15:37 2016
 | Host         : Georges-T460p running 64-bit major release  (build 9200)
 | Command      : report_utilization -file noip_top_utilization_synth.rpt -pb noip_top_utilization_synth.pb
 | Design       : noip_top
@@ -30,14 +30,14 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             | 1450 |     0 |     53200 |  2.73 |
-|   LUT as Logic          | 1450 |     0 |     53200 |  2.73 |
+| Slice LUTs*             | 1340 |     0 |     53200 |  2.52 |
+|   LUT as Logic          | 1340 |     0 |     53200 |  2.52 |
 |   LUT as Memory         |    0 |     0 |     17400 |  0.00 |
-| Slice Registers         | 1796 |     0 |    106400 |  1.69 |
-|   Register as Flip Flop | 1791 |     0 |    106400 |  1.68 |
+| Slice Registers         | 1763 |     0 |    106400 |  1.66 |
+|   Register as Flip Flop | 1758 |     0 |    106400 |  1.65 |
 |   Register as Latch     |    5 |     0 |    106400 | <0.01 |
-| F7 Muxes                |   57 |     0 |     26600 |  0.21 |
-| F8 Muxes                |   14 |     0 |     13300 |  0.11 |
+| F7 Muxes                |   92 |     0 |     26600 |  0.35 |
+| F8 Muxes                |   30 |     0 |     13300 |  0.23 |
 +-------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -57,7 +57,7 @@ Table of Contents
 | 3     |          Yes |           - |          Set |
 | 2     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 1791  |          Yes |       Reset |            - |
+| 1758  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -91,7 +91,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   33 |     0 |       200 | 16.50 |
+| Bonded IOB                  |   32 |     0 |       200 | 16.00 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | Bonded IOPADs               |    0 |     0 |       130 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         4 |  0.00 |
@@ -147,18 +147,18 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 1791 |        Flop & Latch |
-| LUT6     |  856 |                 LUT |
-| LUT5     |  207 |                 LUT |
-| LUT3     |  201 |                 LUT |
-| LUT4     |  186 |                 LUT |
-| LUT2     |  155 |                 LUT |
+| FDRE     | 1758 |        Flop & Latch |
+| LUT6     |  804 |                 LUT |
+| LUT3     |  199 |                 LUT |
+| LUT5     |  172 |                 LUT |
+| LUT2     |  149 |                 LUT |
+| LUT4     |  141 |                 LUT |
+| MUXF7    |   92 |               MuxFx |
 | CARRY4   |   62 |          CarryLogic |
-| MUXF7    |   57 |               MuxFx |
-| LUT1     |   38 |                 LUT |
+| LUT1     |   41 |                 LUT |
+| MUXF8    |   30 |               MuxFx |
 | OBUF     |   22 |                  IO |
-| MUXF8    |   14 |               MuxFx |
-| IBUF     |   11 |                  IO |
+| IBUF     |   10 |                  IO |
 | DSP48E1  |    5 |    Block Arithmetic |
 | LDPE     |    3 |        Flop & Latch |
 | LDCE     |    2 |        Flop & Latch |
