@@ -3,6 +3,7 @@
 module noip_top(
    input sysclk,
    input reset, // reset 
+   input sw,
    input cam_rst, // button for camera RESET_BAR
    input trigger, // button for camera trigger
    output cam_sysclk, // sysclk out to camera
@@ -59,10 +60,11 @@ wire [16:0] laddr, raddr;
 wire [18:0] result_addr;
 wire [7:0] ldata, rdata, result_data;
 
-disparity disp(
+parallel_disparity disp(
 	 .clk(clk_50MHz), // Read clk signal
 	 .enable(buffer_ready), // enable new disparity calculation 
 	 //.buffer_ready(buffer_ready), // was buffer_ready && ~ trig_db
+	 .sw(sw), // added in to parallel module
 	 .reset(reset), // reset disparity FSM
 	 .ldata(ldata), // FIFO data in
 	 .rdata(rdata), // FIFO data in

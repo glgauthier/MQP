@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Sun Dec 04 15:18:04 2016
+| Date             : Mon Dec 05 00:42:20 2016
 | Host             : Georges-T460p running 64-bit major release  (build 9200)
 | Command          : report_power -file noip_top_power_routed.rpt -pb noip_top_power_summary_routed.pb -rpx noip_top_power_routed.rpx
 | Design           : noip_top
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.258 |
-| Dynamic (W)              | 0.128 |
+| Total On-Chip Power (W)  | 0.254 |
+| Dynamic (W)              | 0.124 |
 | Device Static (W)        | 0.130 |
 | Effective TJA (C/W)      | 11.5  |
-| Max Ambient (C)          | 82.0  |
-| Junction Temperature (C) | 28.0  |
+| Max Ambient (C)          | 82.1  |
+| Junction Temperature (C) | 27.9  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -46,24 +46,25 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+----------------+-----------+----------+-----------+-----------------+
-| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
-+----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.009 |       14 |       --- |             --- |
-| Slice Logic    |     0.005 |     4525 |       --- |             --- |
-|   LUT as Logic |     0.005 |     1956 |     53200 |            3.68 |
-|   CARRY4       |    <0.001 |       62 |     13300 |            0.47 |
-|   F7/F8 Muxes  |    <0.001 |      282 |     53200 |            0.53 |
-|   Register     |    <0.001 |     1797 |    106400 |            1.69 |
-|   Others       |     0.000 |      277 |       --- |             --- |
-| Signals        |     0.019 |     4640 |       --- |             --- |
-| Block RAM      |     0.003 |      129 |       140 |           92.14 |
-| MMCM           |     0.085 |        1 |         4 |           25.00 |
-| DSPs           |    <0.001 |        5 |       220 |            2.27 |
-| I/O            |     0.006 |       33 |       200 |           16.50 |
-| Static Power   |     0.130 |          |           |                 |
-| Total          |     0.258 |          |           |                 |
-+----------------+-----------+----------+-----------+-----------------+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Clocks                   |     0.008 |       14 |       --- |             --- |
+| Slice Logic              |     0.006 |     3254 |       --- |             --- |
+|   LUT as Logic           |     0.005 |     1572 |     53200 |            2.95 |
+|   LUT as Distributed RAM |    <0.001 |      168 |     17400 |            0.97 |
+|   CARRY4                 |    <0.001 |       94 |     13300 |            0.71 |
+|   Register               |    <0.001 |      597 |    106400 |            0.56 |
+|   F7/F8 Muxes            |    <0.001 |      201 |     53200 |            0.38 |
+|   Others                 |     0.000 |      278 |       --- |             --- |
+| Signals                  |     0.014 |     3322 |       --- |             --- |
+| Block RAM                |     0.003 |      129 |       140 |           92.14 |
+| MMCM                     |     0.085 |        1 |         4 |           25.00 |
+| DSPs                     |    <0.001 |        5 |       220 |            2.27 |
+| I/O                      |     0.007 |       34 |       200 |           17.00 |
+| Static Power             |     0.130 |          |           |                 |
+| Total                    |     0.254 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -72,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.047 |       0.037 |      0.010 |
+| Vccint    |       1.000 |     0.043 |       0.032 |      0.010 |
 | Vccaux    |       1.800 |     0.066 |       0.047 |      0.019 |
 | Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -159,16 +160,16 @@ Table of Contents
 +------------------------------------------------+-----------+
 | Name                                           | Power (W) |
 +------------------------------------------------+-----------+
-| noip_top                                       |     0.128 |
-|   camctl                                       |     0.014 |
-|     left                                       |     0.007 |
-|       U0                                       |     0.007 |
-|         inst_blk_mem_gen                       |     0.007 |
-|           gnbram.gnativebmg.native_blk_mem_gen |     0.007 |
-|             valid.cstr                         |     0.007 |
+| noip_top                                       |     0.124 |
+|   camctl                                       |     0.010 |
+|     left                                       |     0.005 |
+|       U0                                       |     0.005 |
+|         inst_blk_mem_gen                       |     0.005 |
+|           gnbram.gnativebmg.native_blk_mem_gen |     0.005 |
+|             valid.cstr                         |     0.005 |
 |               bindec_a.bindec_inst_a           |    <0.001 |
 |               bindec_b.bindec_inst_b           |    <0.001 |
-|               has_mux_b.B                      |     0.005 |
+|               has_mux_b.B                      |     0.002 |
 |               ramloop[0].ram.r                 |    <0.001 |
 |                 prim_noinit.ram                |    <0.001 |
 |               ramloop[10].ram.r                |    <0.001 |
@@ -223,14 +224,14 @@ Table of Contents
 |                 prim_noinit.ram                |    <0.001 |
 |               ramloop[9].ram.r                 |    <0.001 |
 |                 prim_noinit.ram                |    <0.001 |
-|     right                                      |     0.007 |
-|       U0                                       |     0.007 |
-|         inst_blk_mem_gen                       |     0.007 |
-|           gnbram.gnativebmg.native_blk_mem_gen |     0.007 |
-|             valid.cstr                         |     0.007 |
+|     right                                      |     0.005 |
+|       U0                                       |     0.005 |
+|         inst_blk_mem_gen                       |     0.005 |
+|           gnbram.gnativebmg.native_blk_mem_gen |     0.005 |
+|             valid.cstr                         |     0.005 |
 |               bindec_a.bindec_inst_a           |    <0.001 |
 |               bindec_b.bindec_inst_b           |    <0.001 |
-|               has_mux_b.B                      |     0.004 |
+|               has_mux_b.B                      |     0.002 |
 |               ramloop[0].ram.r                 |    <0.001 |
 |                 prim_noinit.ram                |    <0.001 |
 |               ramloop[10].ram.r                |    <0.001 |
@@ -287,7 +288,133 @@ Table of Contents
 |                 prim_noinit.ram                |    <0.001 |
 |   clkgen                                       |     0.086 |
 |     inst                                       |     0.086 |
-|   disp                                         |     0.020 |
+|   disp                                         |     0.018 |
+|     SAD_diffs0_reg_0_7_0_5                     |    <0.001 |
+|     SAD_diffs0_reg_0_7_6_7                     |    <0.001 |
+|     SAD_diffs1_reg_0_7_0_5                     |    <0.001 |
+|     SAD_diffs1_reg_0_7_6_7                     |    <0.001 |
+|     SAD_diffs2_reg_0_7_0_5                     |    <0.001 |
+|     SAD_diffs2_reg_0_7_6_7                     |    <0.001 |
+|     SAD_diffs3_reg_0_7_0_5                     |    <0.001 |
+|     SAD_diffs3_reg_0_7_6_7                     |    <0.001 |
+|     SAD_diffs4_reg_0_7_0_5                     |    <0.001 |
+|     SAD_diffs4_reg_0_7_6_7                     |    <0.001 |
+|     SAD_diffs5_reg_0_7_0_5                     |    <0.001 |
+|     SAD_diffs5_reg_0_7_6_7                     |    <0.001 |
+|     SAD_diffs6_reg_0_7_0_5                     |    <0.001 |
+|     SAD_diffs6_reg_0_7_6_7                     |    <0.001 |
+|     block0_reg_0_7_0_0                         |    <0.001 |
+|     block0_reg_0_7_1_1                         |    <0.001 |
+|     block0_reg_0_7_2_2                         |    <0.001 |
+|     block0_reg_0_7_3_3                         |    <0.001 |
+|     block0_reg_0_7_4_4                         |    <0.001 |
+|     block0_reg_0_7_5_5                         |    <0.001 |
+|     block0_reg_0_7_6_6                         |    <0.001 |
+|     block0_reg_0_7_7_7                         |    <0.001 |
+|     block1_reg_0_7_0_0                         |    <0.001 |
+|     block1_reg_0_7_1_1                         |    <0.001 |
+|     block1_reg_0_7_2_2                         |    <0.001 |
+|     block1_reg_0_7_3_3                         |    <0.001 |
+|     block1_reg_0_7_4_4                         |    <0.001 |
+|     block1_reg_0_7_5_5                         |    <0.001 |
+|     block1_reg_0_7_6_6                         |    <0.001 |
+|     block1_reg_0_7_7_7                         |    <0.001 |
+|     block2_reg_0_7_0_0                         |    <0.001 |
+|     block2_reg_0_7_1_1                         |    <0.001 |
+|     block2_reg_0_7_2_2                         |    <0.001 |
+|     block2_reg_0_7_3_3                         |    <0.001 |
+|     block2_reg_0_7_4_4                         |    <0.001 |
+|     block2_reg_0_7_5_5                         |    <0.001 |
+|     block2_reg_0_7_6_6                         |    <0.001 |
+|     block2_reg_0_7_7_7                         |    <0.001 |
+|     block3_reg_0_7_0_0                         |    <0.001 |
+|     block3_reg_0_7_1_1                         |    <0.001 |
+|     block3_reg_0_7_2_2                         |    <0.001 |
+|     block3_reg_0_7_3_3                         |    <0.001 |
+|     block3_reg_0_7_4_4                         |    <0.001 |
+|     block3_reg_0_7_5_5                         |    <0.001 |
+|     block3_reg_0_7_6_6                         |    <0.001 |
+|     block3_reg_0_7_7_7                         |    <0.001 |
+|     block4_reg_0_7_0_0                         |    <0.001 |
+|     block4_reg_0_7_1_1                         |    <0.001 |
+|     block4_reg_0_7_2_2                         |    <0.001 |
+|     block4_reg_0_7_3_3                         |    <0.001 |
+|     block4_reg_0_7_4_4                         |    <0.001 |
+|     block4_reg_0_7_5_5                         |    <0.001 |
+|     block4_reg_0_7_6_6                         |    <0.001 |
+|     block4_reg_0_7_7_7                         |    <0.001 |
+|     block5_reg_0_7_0_0                         |    <0.001 |
+|     block5_reg_0_7_1_1                         |    <0.001 |
+|     block5_reg_0_7_2_2                         |    <0.001 |
+|     block5_reg_0_7_3_3                         |    <0.001 |
+|     block5_reg_0_7_4_4                         |    <0.001 |
+|     block5_reg_0_7_5_5                         |    <0.001 |
+|     block5_reg_0_7_6_6                         |    <0.001 |
+|     block5_reg_0_7_7_7                         |    <0.001 |
+|     block6_reg_0_7_0_0                         |    <0.001 |
+|     block6_reg_0_7_1_1                         |    <0.001 |
+|     block6_reg_0_7_2_2                         |    <0.001 |
+|     block6_reg_0_7_3_3                         |    <0.001 |
+|     block6_reg_0_7_4_4                         |    <0.001 |
+|     block6_reg_0_7_5_5                         |    <0.001 |
+|     block6_reg_0_7_6_6                         |    <0.001 |
+|     block6_reg_0_7_7_7                         |    <0.001 |
+|     template0_reg_0_7_0_0                      |    <0.001 |
+|     template0_reg_0_7_1_1                      |    <0.001 |
+|     template0_reg_0_7_2_2                      |    <0.001 |
+|     template0_reg_0_7_3_3                      |    <0.001 |
+|     template0_reg_0_7_4_4                      |    <0.001 |
+|     template0_reg_0_7_5_5                      |    <0.001 |
+|     template0_reg_0_7_6_6                      |    <0.001 |
+|     template0_reg_0_7_7_7                      |    <0.001 |
+|     template1_reg_0_7_0_0                      |    <0.001 |
+|     template1_reg_0_7_1_1                      |    <0.001 |
+|     template1_reg_0_7_2_2                      |    <0.001 |
+|     template1_reg_0_7_3_3                      |    <0.001 |
+|     template1_reg_0_7_4_4                      |    <0.001 |
+|     template1_reg_0_7_5_5                      |    <0.001 |
+|     template1_reg_0_7_6_6                      |    <0.001 |
+|     template1_reg_0_7_7_7                      |    <0.001 |
+|     template2_reg_0_7_0_0                      |    <0.001 |
+|     template2_reg_0_7_1_1                      |    <0.001 |
+|     template2_reg_0_7_2_2                      |    <0.001 |
+|     template2_reg_0_7_3_3                      |    <0.001 |
+|     template2_reg_0_7_4_4                      |    <0.001 |
+|     template2_reg_0_7_5_5                      |    <0.001 |
+|     template2_reg_0_7_6_6                      |    <0.001 |
+|     template2_reg_0_7_7_7                      |    <0.001 |
+|     template3_reg_0_7_0_0                      |    <0.001 |
+|     template3_reg_0_7_1_1                      |    <0.001 |
+|     template3_reg_0_7_2_2                      |    <0.001 |
+|     template3_reg_0_7_3_3                      |    <0.001 |
+|     template3_reg_0_7_4_4                      |    <0.001 |
+|     template3_reg_0_7_5_5                      |    <0.001 |
+|     template3_reg_0_7_6_6                      |    <0.001 |
+|     template3_reg_0_7_7_7                      |    <0.001 |
+|     template4_reg_0_7_0_0                      |    <0.001 |
+|     template4_reg_0_7_1_1                      |    <0.001 |
+|     template4_reg_0_7_2_2                      |    <0.001 |
+|     template4_reg_0_7_3_3                      |    <0.001 |
+|     template4_reg_0_7_4_4                      |    <0.001 |
+|     template4_reg_0_7_5_5                      |    <0.001 |
+|     template4_reg_0_7_6_6                      |    <0.001 |
+|     template4_reg_0_7_7_7                      |    <0.001 |
+|     template5_reg_0_7_0_0                      |    <0.001 |
+|     template5_reg_0_7_1_1                      |    <0.001 |
+|     template5_reg_0_7_2_2                      |    <0.001 |
+|     template5_reg_0_7_3_3                      |    <0.001 |
+|     template5_reg_0_7_4_4                      |    <0.001 |
+|     template5_reg_0_7_5_5                      |    <0.001 |
+|     template5_reg_0_7_6_6                      |    <0.001 |
+|     template5_reg_0_7_7_7                      |    <0.001 |
+|     template6_reg_0_7_0_0                      |    <0.001 |
+|     template6_reg_0_7_1_1                      |    <0.001 |
+|     template6_reg_0_7_2_2                      |    <0.001 |
+|     template6_reg_0_7_3_3                      |    <0.001 |
+|     template6_reg_0_7_4_4                      |    <0.001 |
+|     template6_reg_0_7_5_5                      |    <0.001 |
+|     template6_reg_0_7_6_6                      |    <0.001 |
+|     template6_reg_0_7_7_7                      |    <0.001 |
 |   resultant                                    |     0.002 |
 |     U0                                         |     0.002 |
 |       inst_blk_mem_gen                         |     0.002 |

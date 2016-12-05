@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Sun Dec 04 15:14:35 2016
-# Process ID: 13204
+# Start of session at: Mon Dec 05 00:39:12 2016
+# Process ID: 7888
 # Current directory: C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1
 # Command line: vivado.exe -log noip_top.vds -mode batch -messageDb vivado.pb -notrace -source noip_top.tcl
 # Log file: C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/noip_top.vds
@@ -15,16 +15,16 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16860 
+INFO: Helper process launched with PID 10140 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 274.535 ; gain = 67.969
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 273.875 ; gain = 67.285
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'noip_top' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/noip_top.v:3]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-638] synthesizing module 'clk_divs' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/clkdivs.v:3]
 INFO: [Synth 8-256] done synthesizing module 'clk_divs' (2#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/clkdivs.v:3]
-INFO: [Synth 8-638] synthesizing module 'disparity' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/disparity.v:5]
+INFO: [Synth 8-638] synthesizing module 'parallel_disparity' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:5]
 	Parameter WIDTH bound to: 383 - type: integer 
 	Parameter HEIGHT bound to: 287 - type: integer 
 	Parameter SEARCH_RANGE bound to: 19 - type: integer 
@@ -36,8 +36,14 @@ INFO: [Synth 8-638] synthesizing module 'disparity' [C:/Users/georges/Documents/
 	Parameter SEPARATE bound to: 3'b010 
 	Parameter SAD bound to: 3'b011 
 	Parameter FINALIZE bound to: 3'b100 
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/disparity.v:104]
-INFO: [Synth 8-256] done synthesizing module 'disparity' (3#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/disparity.v:5]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:153]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:163]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:175]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:185]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:268]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:278]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:128]
+INFO: [Synth 8-256] done synthesizing module 'parallel_disparity' (3#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:5]
 INFO: [Synth 8-638] synthesizing module 'vga_controller_640_60' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/vga.vhd:88]
 INFO: [Synth 8-256] done synthesizing module 'vga_controller_640_60' (4#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/vga.vhd:88]
 INFO: [Synth 8-638] synthesizing module 'imgbuf' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/camctl.v:6]
@@ -45,15 +51,15 @@ INFO: [Synth 8-638] synthesizing module 'imgbuf' [C:/Users/georges/Documents/Git
 	Parameter read bound to: 2'b01 
 	Parameter done bound to: 2'b10 
 	Parameter init bound to: 2'b11 
-INFO: [Synth 8-638] synthesizing module 'blk_mem_640_480' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/realtime/blk_mem_640_480_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_640_480' (5#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/realtime/blk_mem_640_480_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_640_480' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/realtime/blk_mem_640_480_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_640_480' (5#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/realtime/blk_mem_640_480_stub.v:6]
 INFO: [Synth 8-256] done synthesizing module 'imgbuf' (6#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/camctl.v:6]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_resultant' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/realtime/blk_mem_resultant_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_resultant' (7#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/realtime/blk_mem_resultant_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_resultant' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/realtime/blk_mem_resultant_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_resultant' (7#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/realtime/blk_mem_resultant_stub.v:6]
 INFO: [Synth 8-256] done synthesizing module 'noip_top' (8#1) [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/noip_top.v:3]
 WARNING: [Synth 8-3331] design noip_top has unconnected port trigger
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 335.605 ; gain = 129.039
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 314.848 ; gain = 108.258
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -63,24 +69,24 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 335.605 ; gain = 129.039
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 314.848 ; gain = 108.258
 ---------------------------------------------------------------------------------
 WARNING: [Project 1-560] Could not resolve non-primitive black box cell 'blk_mem_640_480' instantiated as 'camctl/left'. 2 instances of this cell are unresolved black boxes. [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/camctl.v:50]
-WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'blk_mem_resultant' instantiated as 'resultant' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/noip_top.v:129]
-WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'clkgen' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/noip_top.v:24]
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'blk_mem_resultant' instantiated as 'resultant' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/noip_top.v:131]
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'clkgen' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/noip_top.v:25]
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/dcp/clk_wiz_0_in_context.xdc] for cell 'clkgen'
-Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/dcp/clk_wiz_0_in_context.xdc] for cell 'clkgen'
-Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/dcp_2/blk_mem_resultant_in_context.xdc] for cell 'resultant'
-Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/dcp_2/blk_mem_resultant_in_context.xdc] for cell 'resultant'
-Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/dcp_3/blk_mem_640_480_in_context.xdc] for cell 'camctl/left'
-Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/dcp_3/blk_mem_640_480_in_context.xdc] for cell 'camctl/left'
-Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/dcp_3/blk_mem_640_480_in_context.xdc] for cell 'camctl/right'
-Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/dcp_3/blk_mem_640_480_in_context.xdc] for cell 'camctl/right'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/dcp/clk_wiz_0_in_context.xdc] for cell 'clkgen'
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/dcp/clk_wiz_0_in_context.xdc] for cell 'clkgen'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/dcp_2/blk_mem_resultant_in_context.xdc] for cell 'resultant'
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/dcp_2/blk_mem_resultant_in_context.xdc] for cell 'resultant'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/dcp_3/blk_mem_640_480_in_context.xdc] for cell 'camctl/left'
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/dcp_3/blk_mem_640_480_in_context.xdc] for cell 'camctl/left'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/dcp_3/blk_mem_640_480_in_context.xdc] for cell 'camctl/right'
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/dcp_3/blk_mem_640_480_in_context.xdc] for cell 'camctl/right'
 Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/constrs_1/new/top.xdc]
 Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/constrs_1/new/top.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/constrs_1/new/top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/noip_top_propImpl.xdc].
@@ -90,43 +96,42 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 657.457 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 640.781 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'resultant' at clock pin 'clka' is different from the actual clock period '10.000', this can result in different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'camctl/left' at clock pin 'clkb' is different from the actual clock period '10.000', this can result in different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'camctl/right' at clock pin 'clkb' is different from the actual clock period '10.000', this can result in different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 657.457 ; gain = 450.891
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 640.781 ; gain = 434.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 657.457 ; gain = 450.891
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 640.781 ; gain = 434.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for sysclk. (constraint file  C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/dcp/clk_wiz_0_in_context.xdc, line 6).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for sysclk. (constraint file  C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-13204-Georges-T460p/dcp/clk_wiz_0_in_context.xdc, line 7).
+Applied set_property IO_BUFFER_TYPE = NONE for sysclk. (constraint file  C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/dcp/clk_wiz_0_in_context.xdc, line 6).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for sysclk. (constraint file  C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.runs/synth_1/.Xil/Vivado-7888-Georges-T460p/dcp/clk_wiz_0_in_context.xdc, line 7).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 657.457 ; gain = 450.891
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 640.781 ; gain = 434.191
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/disparity.v:165]
-INFO: [Synth 8-5546] ROM "template_reg[0][0]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][1]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][2]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][3]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][4]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][5]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][6]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "temp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "temp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "temp_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "temp_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "temp_reg[4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "temp_reg[5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "temp_reg[6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:237]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:242]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:247]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:252]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:232]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:227]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:222]
+INFO: [Synth 8-5546] ROM "template0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "template1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "template2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "template3" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "template4" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "template5" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "template6" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "SAD_vector_reg[0]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "SAD_vector_reg[1]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "SAD_vector_reg[2]" won't be mapped to RAM because it is too sparse
@@ -148,14 +153,15 @@ INFO: [Synth 8-5546] ROM "SAD_vector_reg[17]" won't be mapped to RAM because it 
 INFO: [Synth 8-5546] ROM "SAD_vector_reg[18]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "SAD_vector_reg[19]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "cdcnt" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cdcnt" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "scnt" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "maxd" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "maxd" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "trigger" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "fifo_oe" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-WARNING: [Synth 8-327] inferring latch for variable 'maxd_reg' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/disparity.v:277]
+WARNING: [Synth 8-327] inferring latch for variable 'maxd_reg' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:373]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 657.457 ; gain = 450.891
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 640.781 ; gain = 434.191
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -175,12 +181,13 @@ Detailed RTL Component Info :
 	   3 Input     17 Bit       Adders := 2     
 	   2 Input     17 Bit       Adders := 1     
 	   2 Input     16 Bit       Adders := 1     
-	   2 Input     15 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 3     
+	   7 Input     15 Bit       Adders := 1     
+	   7 Input     11 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 2     
 	   2 Input     10 Bit       Adders := 5     
 	   2 Input      9 Bit       Adders := 8     
 	   3 Input      9 Bit       Adders := 5     
-	   3 Input      8 Bit       Adders := 1     
+	   3 Input      8 Bit       Adders := 7     
 	   2 Input      6 Bit       Adders := 1     
 	   2 Input      5 Bit       Adders := 1     
 	   2 Input      3 Bit       Adders := 3     
@@ -193,36 +200,41 @@ Detailed RTL Component Info :
 	               11 Bit    Registers := 9     
 	               10 Bit    Registers := 2     
 	                9 Bit    Registers := 5     
-	                8 Bit    Registers := 150   
+	                8 Bit    Registers := 3     
 	                6 Bit    Registers := 2     
 	                5 Bit    Registers := 1     
-	                3 Bit    Registers := 3     
+	                3 Bit    Registers := 4     
 	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 11    
++---RAMs : 
+	               56 Bit         RAMs := 21    
 +---Muxes : 
 	   2 Input     18 Bit        Muxes := 1     
 	   4 Input     16 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 1     
-	   2 Input     15 Bit        Muxes := 3     
-	   2 Input     11 Bit        Muxes := 3     
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input     11 Bit        Muxes := 7     
 	   4 Input     10 Bit        Muxes := 1     
 	   2 Input     10 Bit        Muxes := 1     
 	   6 Input      9 Bit        Muxes := 4     
-	   2 Input      9 Bit        Muxes := 12    
-	   2 Input      8 Bit        Muxes := 5     
+	   2 Input      9 Bit        Muxes := 8     
+	   2 Input      8 Bit        Muxes := 18    
 	   6 Input      6 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 2     
-	   3 Input      3 Bit        Muxes := 2     
+	   3 Input      3 Bit        Muxes := 3     
 	   6 Input      3 Bit        Muxes := 3     
-	   2 Input      3 Bit        Muxes := 11    
+	   2 Input      3 Bit        Muxes := 10    
 	   6 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 4     
 	   3 Input      2 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
 	   5 Input      2 Bit        Muxes := 1     
-	   6 Input      1 Bit        Muxes := 138   
-	   2 Input      1 Bit        Muxes := 225   
-	   3 Input      1 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 21    
+	   2 Input      1 Bit        Muxes := 52    
+	  13 Input      1 Bit        Muxes := 7     
+	   3 Input      1 Bit        Muxes := 2     
+	   8 Input      1 Bit        Muxes := 19    
+	  14 Input      1 Bit        Muxes := 7     
 	   4 Input      1 Bit        Muxes := 13    
 	   5 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
@@ -250,18 +262,18 @@ Detailed RTL Component Info :
 	               18 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input     18 Bit        Muxes := 1     
-Module disparity 
+Module parallel_disparity 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 2     
 	   3 Input     32 Bit       Adders := 1     
 	   3 Input     17 Bit       Adders := 2     
-	   2 Input     15 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 1     
+	   7 Input     15 Bit       Adders := 1     
+	   7 Input     11 Bit       Adders := 1     
 	   2 Input     10 Bit       Adders := 4     
 	   2 Input      9 Bit       Adders := 8     
 	   3 Input      9 Bit       Adders := 5     
-	   3 Input      8 Bit       Adders := 1     
+	   3 Input      8 Bit       Adders := 7     
 	   2 Input      6 Bit       Adders := 1     
 	   2 Input      3 Bit       Adders := 3     
 	   2 Input      2 Bit       Adders := 1     
@@ -270,29 +282,34 @@ Detailed RTL Component Info :
 	               15 Bit    Registers := 20    
 	               11 Bit    Registers := 7     
 	                9 Bit    Registers := 5     
-	                8 Bit    Registers := 150   
+	                8 Bit    Registers := 3     
 	                6 Bit    Registers := 2     
-	                3 Bit    Registers := 3     
+	                3 Bit    Registers := 4     
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
++---RAMs : 
+	               56 Bit         RAMs := 21    
 +---Muxes : 
-	   2 Input     15 Bit        Muxes := 3     
-	   2 Input     11 Bit        Muxes := 3     
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input     11 Bit        Muxes := 7     
 	   6 Input      9 Bit        Muxes := 4     
-	   2 Input      9 Bit        Muxes := 12    
-	   2 Input      8 Bit        Muxes := 3     
+	   2 Input      9 Bit        Muxes := 8     
+	   2 Input      8 Bit        Muxes := 16    
 	   6 Input      6 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 2     
-	   3 Input      3 Bit        Muxes := 2     
+	   3 Input      3 Bit        Muxes := 3     
 	   6 Input      3 Bit        Muxes := 3     
-	   2 Input      3 Bit        Muxes := 11    
+	   2 Input      3 Bit        Muxes := 10    
 	   6 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 4     
 	   3 Input      2 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
-	   6 Input      1 Bit        Muxes := 138   
-	   2 Input      1 Bit        Muxes := 211   
-	   3 Input      1 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 21    
+	   2 Input      1 Bit        Muxes := 38    
+	  13 Input      1 Bit        Muxes := 7     
+	   3 Input      1 Bit        Muxes := 2     
+	   8 Input      1 Bit        Muxes := 19    
+	  14 Input      1 Bit        Muxes := 7     
 Module vga_controller_640_60 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -334,20 +351,13 @@ BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 657.457 ; gain = 450.891
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 640.781 ; gain = 434.191
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-4471] merging register 'rcnt_reg[8:0]' into 'rcnt_reg[8:0]' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/disparity.v:125]
-INFO: [Synth 8-4471] merging register 'row_count_reg[8:0]' into 'row_count_reg[8:0]' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/disparity.v:107]
-INFO: [Synth 8-4471] merging register 'col_count_reg[8:0]' into 'col_count_reg[8:0]' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/disparity.v:108]
-INFO: [Synth 8-5546] ROM "template_reg[0][0]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][1]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][2]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][3]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][4]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][5]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "template_reg[0][6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-4471] merging register 'rcnt_reg[8:0]' into 'rcnt_reg[8:0]' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:152]
+INFO: [Synth 8-4471] merging register 'row_count_reg[8:0]' into 'row_count_reg[8:0]' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:132]
+INFO: [Synth 8-4471] merging register 'col_count_reg[8:0]' into 'col_count_reg[8:0]' [C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/new/parallel_disparity.v:135]
 DSP Report: Generating DSP laddr1, operation Mode is: (D+A2)*(B:0x180).
 DSP Report: register rcnt_reg is absorbed into DSP laddr1.
 DSP Report: operator laddr1 is absorbed into DSP laddr1.
@@ -365,9 +375,9 @@ DSP Report: register vga/hcounter_reg is absorbed into DSP addrb0.
 DSP Report: operator addrb0 is absorbed into DSP addrb0.
 WARNING: [Synth 8-3331] design noip_top has unconnected port trigger
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 657.457 ; gain = 450.891
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 640.781 ; gain = 434.191
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 657.457 ; gain = 450.891
+Finished Parallel Reinference  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 640.781 ; gain = 434.191
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -378,16 +388,45 @@ Report RTL Partitions:
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
+Distributed RAM: Preliminary Mapping  Report (see note below)
++-------------------+----------------+-----------+----------------------+----------------+
+|Module Name        | RTL Object     | Inference | Size (Depth x Width) | Primitives     | 
++-------------------+----------------+-----------+----------------------+----------------+
+|parallel_disparity | template6_reg  | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | SAD_diffs6_reg | Implied   | 8 x 8                | RAM32M x 2     | 
+|parallel_disparity | block6_reg     | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | block1_reg     | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | template1_reg  | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | SAD_diffs1_reg | Implied   | 8 x 8                | RAM32M x 2     | 
+|parallel_disparity | block2_reg     | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | template2_reg  | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | SAD_diffs2_reg | Implied   | 8 x 8                | RAM32M x 2     | 
+|parallel_disparity | block3_reg     | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | template3_reg  | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | SAD_diffs3_reg | Implied   | 8 x 8                | RAM32M x 2     | 
+|parallel_disparity | block4_reg     | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | template4_reg  | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | SAD_diffs4_reg | Implied   | 8 x 8                | RAM32M x 2     | 
+|parallel_disparity | block5_reg     | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | template5_reg  | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | SAD_diffs5_reg | Implied   | 8 x 8                | RAM32M x 2     | 
+|parallel_disparity | block0_reg     | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | template0_reg  | Implied   | 8 x 8                | RAM16X1S x 8   | 
+|parallel_disparity | SAD_diffs0_reg | Implied   | 8 x 8                | RAM32M x 2     | 
++-------------------+----------------+-----------+----------------------+----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
 DSP: Preliminary Mapping  Report (see note below)
-+------------+------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping                        | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|disparity   | (D+A2)*(B:0x180)                   | 9      | 9      | -      | 9      | 19     | 1    | 0    | -    | 0    | 0     | 0    | 0    | 
-|imgbuf      | A*(B:0x180)                        | 17     | 9      | -      | -      | 26     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|noip_top    | PCIN+(A:0x0):B2+(C:0xffffffffff80) | 30     | 10     | 8      | -      | -1     | 0    | 1    | 0    | -    | -     | 0    | 0    | 
-|noip_top    | A*(B:0x180)                        | 19     | 9      | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|noip_top    | PCIN+(A:0x0):B2+(C:0xffffffffff48) | 30     | 11     | 9      | -      | -1     | 0    | 1    | 0    | -    | -     | 0    | 0    | 
-+------------+------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++-------------------+------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name        | DSP Mapping                        | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------------+------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|parallel_disparity | (D+A2)*(B:0x180)                   | 9      | 9      | -      | 9      | 19     | 1    | 0    | -    | 0    | 0     | 0    | 0    | 
+|imgbuf             | A*(B:0x180)                        | 17     | 9      | -      | -      | 26     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|noip_top           | PCIN+(A:0x0):B2+(C:0xffffffffff80) | 30     | 10     | 8      | -      | -1     | 0    | 1    | 0    | -    | -     | 0    | 0    | 
+|noip_top           | A*(B:0x180)                        | 19     | 9      | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|noip_top           | PCIN+(A:0x0):B2+(C:0xffffffffff48) | 30     | 11     | 9      | -      | -1     | 0    | 1    | 0    | -    | -     | 0    | 0    | 
++-------------------+------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
@@ -400,16 +439,16 @@ INFO: [Synth 8-3886] merging instance 'disp/index_reg[6]' (FDE) to 'disp/index_r
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (disp/\index_reg[7] )
 INFO: [Synth 8-3886] merging instance 'disp/result_data_reg[6]' (FDE) to 'disp/result_data_reg[7]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (disp/\result_data_reg[7] )
-WARNING: [Synth 8-3332] Sequential element (index_reg[7]) is unused and will be removed from module disparity.
-WARNING: [Synth 8-3332] Sequential element (index_reg[6]) is unused and will be removed from module disparity.
-WARNING: [Synth 8-3332] Sequential element (result_data_reg[7]) is unused and will be removed from module disparity.
-WARNING: [Synth 8-3332] Sequential element (result_data_reg[6]) is unused and will be removed from module disparity.
+WARNING: [Synth 8-3332] Sequential element (index_reg[7]) is unused and will be removed from module parallel_disparity.
+WARNING: [Synth 8-3332] Sequential element (index_reg[6]) is unused and will be removed from module parallel_disparity.
+WARNING: [Synth 8-3332] Sequential element (result_data_reg[7]) is unused and will be removed from module parallel_disparity.
+WARNING: [Synth 8-3332] Sequential element (result_data_reg[6]) is unused and will be removed from module parallel_disparity.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (disp/\maxd_reg[5] )
-WARNING: [Synth 8-3332] Sequential element (maxd_reg[5]) is unused and will be removed from module disparity.
+WARNING: [Synth 8-3332] Sequential element (maxd_reg[5]) is unused and will be removed from module parallel_disparity.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 657.457 ; gain = 450.891
+Finished Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 640.781 ; gain = 434.191
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 657.457 ; gain = 450.891
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 640.781 ; gain = 434.191
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -428,10 +467,10 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'clkgen/clk_25MHz' to pin 
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clkgen/clk_5MHz' to pin 'clkgen/bbstub_clk_5MHz/O'
 INFO: [Synth 8-5820] Moved 4 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 703.699 ; gain = 497.133
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 683.984 ; gain = 477.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 851.293 ; gain = 644.727
+Finished Timing Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 782.453 ; gain = 575.863
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -443,16 +482,16 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 851.293 ; gain = 644.727
+Finished Technology Mapping : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 787.023 ; gain = 580.434
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 851.293 ; gain = 644.727
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 787.023 ; gain = 580.434
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 851.293 ; gain = 644.727
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 787.023 ; gain = 580.434
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -469,7 +508,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 851.293 ; gain = 644.727
+Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 787.023 ; gain = 580.434
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -482,7 +521,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 851.293 ; gain = 644.727
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 787.023 ; gain = 580.434
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -494,25 +533,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 851.293 ; gain = 644.727
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 787.023 ; gain = 580.434
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 851.293 ; gain = 644.727
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 787.023 ; gain = 580.434
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 851.293 ; gain = 644.727
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 787.023 ; gain = 580.434
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 851.293 ; gain = 644.727
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 787.023 ; gain = 580.434
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -535,54 +574,58 @@ Report Cell Usage:
 |2     |blk_mem_640_480__1 |     1|
 |3     |blk_mem_resultant  |     1|
 |4     |clk_wiz_0          |     1|
-|5     |CARRY4             |    62|
+|5     |CARRY4             |    94|
 |6     |DSP48E1            |     1|
 |7     |DSP48E1_1          |     2|
 |8     |DSP48E1_2          |     2|
-|9     |LUT1               |    82|
-|10    |LUT2               |   149|
-|11    |LUT3               |   199|
-|12    |LUT4               |   141|
-|13    |LUT5               |   172|
-|14    |LUT6               |   804|
-|15    |MUXF7              |    92|
-|16    |MUXF8              |    30|
-|17    |FDRE               |  1758|
-|18    |LDC                |     2|
-|19    |LDP                |     3|
-|20    |IBUF               |    10|
-|21    |OBUF               |    22|
+|9     |LUT1               |    71|
+|10    |LUT2               |   181|
+|11    |LUT3               |   219|
+|12    |LUT4               |   244|
+|13    |LUT5               |   205|
+|14    |LUT6               |   370|
+|15    |MUXF7              |    35|
+|16    |MUXF8              |     6|
+|17    |RAM16X1S           |   112|
+|18    |RAM32M             |    14|
+|19    |FDRE               |   558|
+|20    |LDC                |     2|
+|21    |LDP                |     3|
+|22    |IBUF               |    11|
+|23    |OBUF               |    22|
 +------+-------------------+------+
 
 Report Instance Areas: 
 +------+---------+----------------------+------+
 |      |Instance |Module                |Cells |
 +------+---------+----------------------+------+
-|1     |top      |                      |  3559|
-|2     |  camctl |imgbuf                |   164|
-|3     |  disp   |disparity             |  3255|
+|1     |top      |                      |  2180|
+|2     |  camctl |imgbuf                |   180|
+|3     |  disp   |parallel_disparity    |  1843|
 |4     |  vga    |vga_controller_640_60 |    81|
 +------+---------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 851.293 ; gain = 644.727
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 787.023 ; gain = 580.434
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 7 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:44 ; elapsed = 00:00:50 . Memory (MB): peak = 851.293 ; gain = 322.875
-Synthesis Optimization Complete : Time (s): cpu = 00:00:57 ; elapsed = 00:00:59 . Memory (MB): peak = 851.293 ; gain = 644.727
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:37 ; elapsed = 00:00:42 . Memory (MB): peak = 787.023 ; gain = 254.500
+Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 787.023 ; gain = 580.434
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 82 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 241 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-WARNING: [Netlist 29-101] Netlist 'noip_top' is not ideal for floorplanning, since the cellview 'disparity' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+WARNING: [Netlist 29-101] Netlist 'noip_top' is not ideal for floorplanning, since the cellview 'parallel_disparity' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 5 instances were transformed.
+  A total of 131 instances were transformed.
   LDC => LDCE: 2 instances
   LDP => LDPE: 3 instances
+  RAM16X1S => RAM32X1S (RAMS32): 112 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 14 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-91 Infos, 15 Warnings, 0 Critical Warnings and 0 Errors encountered.
+90 Infos, 15 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:58 ; elapsed = 00:00:59 . Memory (MB): peak = 851.293 ; gain = 644.727
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 851.293 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun Dec 04 15:15:37 2016...
+synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 787.023 ; gain = 580.434
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 787.023 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 05 00:40:06 2016...
