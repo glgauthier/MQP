@@ -22,10 +22,13 @@ parameter WIDTH = 384 - 1; // output image width (0-indexed)
 parameter HEIGHT = 288 - 1; // output image height (0-indexed)
 parameter SEARCH_RANGE = 20-1; // disparity block comparison search range (0-indexed)
 parameter HALF_BLOCK = 3; // half block size
+parameter FOCAL_LENGTH = 6; // 6mm
+parameter BASELINE = 63; //63mm
 
 // calculated constants
 parameter BLOCK_SIZE = (2*HALF_BLOCK) + 1; // block size
 parameter BLOCK_SIZE0 = (2*HALF_BLOCK); // block size with zero based index
+parameter FB = FOCAL_LENGTH*BASELINE;
 
 // search variables (incremented automatically)
 reg [8:0] col_count = 9'b0;  // number of cols iterated through (m in matlab code)
@@ -71,7 +74,7 @@ reg [10:0] temp4; // block for holding sum(abs(template-block)) - up to 9x9 bloc
 reg [10:0] temp5; // block for holding sum(abs(template-block)) - up to 9x9 block size
 reg [10:0] temp6; // block for holding sum(abs(template-block)) - up to 9x9 block size
 reg [14:0] SAD_vector [0:SEARCH_RANGE]; // block for holding sum(sum(abs(template-block))) - up to 9x9 block size
-
+reg [8:0] depth; // reg for holding (focal_length*baseline)/disparity
 // ~~~~~~~~~~~~~~~ Disparity FSM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 parameter [2:0] IDLE = 3'b000, // wait for next read sequence
                 READ = 3'b001, // read data from FIFO
@@ -130,7 +133,7 @@ case(current_state)
 	begin
 	    if(~sw)
 		  row_count <= 9'b0;
-		else 
+		else
 		  row_count <= 9'd144;
 		col_count <= 9'b0;
 		dcnt <= 9'b0;
@@ -361,15 +364,22 @@ case(current_state)
 			scnt <= scnt + 1'b1;
 		end
 		// place disparity value in output image array
-		else begin
-		    result_data <= index;
-		    // PUT THIS LINE BACK IN WHEN DONE
-			//resultant[buffer_href][buffer_vref] <= index;
-			pipe <= 2'b11;
+		else begin		    
+//            if(sw == 1'b0)
+                result_data <= index;
+//            else
+//                result_data <= template0[0];
+//                  if(index > 0)
+//                    result_data <= FB/index;
+//                  else
+//                    result_data <= 8'h00;
+            
+            pipe <= 2'b11; // was 2'b11, changed to add a little extra time
+      
 		end
 	end
 endcase
-
+        
 assign result_wea = (current_state == FINALIZE && scnt == (numBlocks)) ? 1'b1 : 1'b0; // && scnt == numBlocks    
 
 always @(posedge clk)

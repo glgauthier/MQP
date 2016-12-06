@@ -1,0 +1,8 @@
+create_clock -period 10.000 [get_ports clkin_100MHz]
+create_generated_clock -source [get_ports clkin_100MHz] -edges {1 2 3} -edge_shift {0.000 0.000 0.000} [get_ports -no_traverse clk_100MHz]
+create_generated_clock -source [get_ports clkin_100MHz] -edges {1 2 3} -edge_shift {0.000 15.833 31.667} [get_ports -no_traverse clk_24MHz]
+create_generated_clock -source [get_ports clkin_100MHz] -edges {1 2 3} -edge_shift {0.000 15.000 30.000} [get_ports -no_traverse clk_25MHz]
+create_generated_clock -source [get_ports clkin_100MHz] -edges {1 2 3} -edge_shift {0.000 95.000 190.000} [get_ports -no_traverse clk_5MHz]
+set_property -quiet IO_BUFFER_TYPE NONE [get_ports -quiet clkin_100MHz]
+set_property -quiet CLOCK_BUFFER_TYPE NONE [get_ports -quiet clkin_100MHz]
+set_property -quiet IS_IP_OOC_CELL TRUE [get_cells -of [get_ports -no_traverse -quiet clk_100MHz]]
