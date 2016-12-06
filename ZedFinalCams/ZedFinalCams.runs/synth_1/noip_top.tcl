@@ -16,8 +16,8 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
-add_files -quiet C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
-set_property used_in_implementation false [get_files C:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp]
+add_files -quiet c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
+set_property used_in_implementation false [get_files c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp]
 add_files -quiet c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_resultant/blk_mem_resultant.dcp
 set_property used_in_implementation false [get_files c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_resultant/blk_mem_resultant.dcp]
 add_files -quiet c:/Users/georges/Documents/GitHub/MQP/ZedFinalCams/ZedFinalCams.srcs/sources_1/ip/blk_mem_640_480/blk_mem_640_480.dcp

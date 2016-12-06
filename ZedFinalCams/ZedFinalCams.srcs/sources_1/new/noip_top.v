@@ -58,7 +58,8 @@ wire [2:0] current_state;
 wire [16:0] laddr, raddr; 
 wire [18:0] result_addr;
 wire [7:0] ldata, rdata, result_data;
-
+reg [10:0] lineaddr;
+wire [7:0] lineout;
 assign trig_db = current_state == 2'b00; // trigger a new sequence when disparity is idling
 
 parallel_disparity disp(
@@ -74,7 +75,9 @@ parallel_disparity disp(
 	 .result_addr(result_addr),
 	 .result_data(result_data),
 	 .result_wea(result_wen),
-	 .state_LED(current_state) // current state indicator
+	 .state_LED(current_state), // current state indicator
+	 .lineout(lineout),
+	 .lineaddr(lineaddr)
     );
     
 // state indicator LEDs
@@ -140,18 +143,24 @@ blk_mem_resultant resultant (
   .doutb(vga_data)  // output wire [7 : 0] doutb
 );
 // ~~~~~~~~~~~~~~~~ End of image buffers ~~~~~~~~~~~~~~~~
+always @(hcount)
+    lineaddr = (hcount >= 128 && hcount < 512) ? hcount-128 : 11'd0;
 
 always @ (hcount,vcount,blank,vga_data)
 	if(blank)
 		rgb = 8'h00;
 	// center 384x288 output in the middle of the screen
-    else if(hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384)
+    else if(~sw && hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384)
         rgb = vga_data;
+    else if(sw && hcount >= 128 && hcount < 512)
+        if(vcount == 265-lineout)
+            rgb = lineout;
+        else
+            rgb = 8'h00;
     else
         rgb = 8'h00;
         
 // set VGA read address to show disparity
 always @ (hcount,vcount)
-    vga_addr = (384*(vcount-96))+(hcount-128);
-
+     vga_addr = (384*(vcount-96))+(hcount-128); // was hcount-128, red by 2 for read latency
 endmodule

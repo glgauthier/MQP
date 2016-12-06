@@ -14,7 +14,9 @@ module parallel_disparity(
 	 output reg [18:0] result_addr, // Result bram write address
 	 output reg [7:0] result_data, // Result bram pixel data
 	 output result_wea, // Result bram write enable
-	 output [2:0] state_LED // Current state indicator
+	 output [2:0] state_LED, // Current state indicator
+	 output reg [7:0] lineout,
+	 input [10:0] lineaddr
     );
 
 // user-defined constants (image search parameters)
@@ -75,6 +77,7 @@ reg [10:0] temp5; // block for holding sum(abs(template-block)) - up to 9x9 bloc
 reg [10:0] temp6; // block for holding sum(abs(template-block)) - up to 9x9 block size
 reg [14:0] SAD_vector [0:SEARCH_RANGE]; // block for holding sum(sum(abs(template-block))) - up to 9x9 block size
 reg [8:0] depth; // reg for holding (focal_length*baseline)/disparity
+reg [7:0] line [0:WIDTH];
 // ~~~~~~~~~~~~~~~ Disparity FSM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 parameter [2:0] IDLE = 3'b000, // wait for next read sequence
                 READ = 3'b001, // read data from FIFO
@@ -365,21 +368,22 @@ case(current_state)
 		end
 		// place disparity value in output image array
 		else begin		    
-//            if(sw == 1'b0)
+            if(sw == 1'b0)
                 result_data <= index;
-//            else
-//                result_data <= template0[0];
-//                  if(index > 0)
-//                    result_data <= FB/index;
-//                  else
-//                    result_data <= 8'h00;
+            else
+                if(index > 0)
+                  line[col_count] <= FB/index;
+                else
+                  line[col_count] <= 8'h00;
             
             pipe <= 2'b11; // was 2'b11, changed to add a little extra time
-      
 		end
 	end
 endcase
         
+always @(lineaddr)
+    lineout = line[lineaddr];
+
 assign result_wea = (current_state == FINALIZE && scnt == (numBlocks)) ? 1'b1 : 1'b0; // && scnt == numBlocks    
 
 always @(posedge clk)
