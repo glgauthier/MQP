@@ -35,12 +35,12 @@ clk_wiz_0 clkgen
     .reset(reset)
 );
 
-wire clk_20Hz;
-clk_divs clks(
-	.reset(reset), // synchronous reset
-    .clk_5MHz(clk_5MHz), // 24MHz clock signal
-    .clk_20Hz(clk_20Hz) // 20Hz clock pulse
-    );
+//wire clk_20Hz;
+//clk_divs clks(
+//	.reset(reset), // synchronous reset
+//    .clk_5MHz(clk_5MHz), // 24MHz clock signal
+//    .clk_20Hz(clk_20Hz) // 20Hz clock pulse
+//    );
     
 assign FIFO_RCK = clk_5MHz;
 assign cam_sysclk = clk_24MHz;
@@ -52,13 +52,14 @@ wire trig_db;
 //    .btn(trigger),
 //    .btn_val(trig_db)
 //    );
-assign trig_db = current_state == 2'b00; // trigger a new sequence when disparity is idling
 
-wire buffer_ready, result_wea;
+wire buffer_ready, result_wen;
 wire [2:0] current_state;
 wire [16:0] laddr, raddr; 
 wire [18:0] result_addr;
 wire [7:0] ldata, rdata, result_data;
+
+assign trig_db = current_state == 2'b00; // trigger a new sequence when disparity is idling
 
 parallel_disparity disp(
 	 .clk(clk_50MHz), // Read clk signal
@@ -72,7 +73,7 @@ parallel_disparity disp(
 	 .raddr(raddr),
 	 .result_addr(result_addr),
 	 .result_data(result_data),
-	 .result_wea(result_wea),
+	 .result_wea(result_wen),
 	 .state_LED(current_state) // current state indicator
     );
     
@@ -130,7 +131,7 @@ wire [7:0] vga_data;
 reg [18:0] vga_addr;     
 blk_mem_resultant resultant (
   .clka(clk_50MHz),    // input wire clka
-  .ena(result_wea),
+  .ena(result_wen),
   .wea(1'b1),      // input wire [0 : 0] wea
   .addra(result_addr),  // input wire [18 : 0] addra
   .dina(result_data),    // input wire [7 : 0] dina
@@ -140,18 +141,17 @@ blk_mem_resultant resultant (
 );
 // ~~~~~~~~~~~~~~~~ End of image buffers ~~~~~~~~~~~~~~~~
 
-// allow for VGA controller to read resultant image data
 always @ (hcount,vcount,blank,vga_data)
 	if(blank)
 		rgb = 8'h00;
 	// center 384x288 output in the middle of the screen
-    else if( hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384)
+    else if(hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384)
         rgb = vga_data;
     else
         rgb = 8'h00;
         
 // set VGA read address to show disparity
 always @ (hcount,vcount)
-    vga_addr = (384*(vcount-96))+(hcount-184);
+    vga_addr = (384*(vcount-96))+(hcount-128);
 
 endmodule
