@@ -13,6 +13,9 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_nu_nu_
 # IP: c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==clk_wiz_0 || ORIG_REF_NAME==clk_wiz_0}]
 
+# IP: c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/blk_mem_384_288.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==blk_mem_384_288 || ORIG_REF_NAME==blk_mem_384_288}]
+
 # IP: C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_axi_periph_0/design_1_processing_system7_0_axi_periph_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_processing_system7_0_axi_periph_0 || ORIG_REF_NAME==design_1_processing_system7_0_axi_periph_0}]
 
@@ -38,6 +41,8 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==clk_wiz_0 || ORIG_REF_NAME==clk_wiz_0}] {/inst }]/inst ]]
 
 # XDC: c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0_ooc.xdc
+
+# XDC: c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/blk_mem_384_288_ooc.xdc
 
 # XDC: c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/design_1_rst_processing_system7_0_100M_0_board.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_rst_processing_system7_0_100M_0 || ORIG_REF_NAME==design_1_rst_processing_system7_0_100M_0}] {/U0 }]/U0 ]]
@@ -70,6 +75,9 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 # IP: c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==clk_wiz_0 || ORIG_REF_NAME==clk_wiz_0}]
 
+# IP: c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/blk_mem_384_288.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==blk_mem_384_288 || ORIG_REF_NAME==blk_mem_384_288}]
+
 # IP: C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_axi_periph_0/design_1_processing_system7_0_axi_periph_0.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_processing_system7_0_axi_periph_0 || ORIG_REF_NAME==design_1_processing_system7_0_axi_periph_0}]
 
@@ -95,6 +103,8 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 #dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==clk_wiz_0 || ORIG_REF_NAME==clk_wiz_0}] {/inst }]/inst ]]
 
 # XDC: c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0_ooc.xdc
+
+# XDC: c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/blk_mem_384_288_ooc.xdc
 
 # XDC: c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/design_1_rst_processing_system7_0_100M_0_board.xdc
 #dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_rst_processing_system7_0_100M_0 || ORIG_REF_NAME==design_1_rst_processing_system7_0_100M_0}] {/U0 }]/U0 ]]

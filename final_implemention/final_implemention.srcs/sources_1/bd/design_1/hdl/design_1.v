@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Tue Dec 06 21:09:23 2016
+//Date        : Wed Dec 07 00:39:12 2016
 //Host        : Georges-T460p running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -236,12 +236,10 @@ module design_1
         .clka(nu_nu_rangefinder_vga_0_clk_100M3),
         .clkb(nu_nu_rangefinder_vga_0_clk_25M1),
         .dina(nu_nu_rangefinder_vga_0_dina),
-        .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .doutb(blk_mem_gen_2_doutb),
         .ena(nu_nu_rangefinder_vga_0_ena),
         .enb(nu_nu_rangefinder_vga_0_enb),
-        .wea(nu_nu_rangefinder_vga_0_wea),
-        .web(1'b0));
+        .wea(nu_nu_rangefinder_vga_0_wea));
   design_1_nu_nu_rangefinder_vga_0_0 custom_logic
        (.FIFO_DATA(FIFO_DATA_1),
         .FIFO_OE1(custom_logic_FIFO_OE1),

@@ -152,7 +152,7 @@
         //rangefinder BRAM controllers
         .addra1(addra1),
         .coord1_data(coord1_data),
-        .clk_100M(clk_100M1),   
+        .clk_100M(clk_100M),   
         .addra2(addra2),
         .coord2_data(coord2_data),
         //.clk_100M2(clk_100M2),
@@ -164,7 +164,7 @@
         .ena(ena),
         .wea(wea),
         .vga_raddr(vga_raddr), // check size on this 
-        .clk_25M(clk_25M1),
+        .clk_25M(clk_25M),
         .x_vga(x_vga),
         .enb(enb)
     );

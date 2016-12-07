@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 06 21:09:24 2016" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 07 00:39:13 2016" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.3" DEVICE="7z020" NAME="design_1" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -555,7 +555,7 @@
         <PARAMETER NAME="C_CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
         <PARAMETER NAME="C_AXI_ID_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="C_MEM_TYPE" VALUE="2"/>
+        <PARAMETER NAME="C_MEM_TYPE" VALUE="1"/>
         <PARAMETER NAME="C_BYTE_SIZE" VALUE="9"/>
         <PARAMETER NAME="C_ALGORITHM" VALUE="1"/>
         <PARAMETER NAME="C_PRIM_TYPE" VALUE="1"/>
@@ -592,7 +592,7 @@
         <PARAMETER NAME="C_WRITE_DEPTH_B" VALUE="307200"/>
         <PARAMETER NAME="C_READ_DEPTH_B" VALUE="307200"/>
         <PARAMETER NAME="C_ADDRB_WIDTH" VALUE="19"/>
-        <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_A" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_A" VALUE="0"/>
         <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_B" VALUE="1"/>
         <PARAMETER NAME="C_HAS_MUX_OUTPUT_REGS_A" VALUE="0"/>
         <PARAMETER NAME="C_HAS_MUX_OUTPUT_REGS_B" VALUE="0"/>
@@ -616,14 +616,14 @@
         <PARAMETER NAME="C_DISABLE_WARN_BHV_RANGE" VALUE="0"/>
         <PARAMETER NAME="C_COUNT_36K_BRAM" VALUE="75"/>
         <PARAMETER NAME="C_COUNT_18K_BRAM" VALUE="0"/>
-        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     5.0714 mW"/>
+        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     4.862098 mW"/>
         <PARAMETER NAME="Component_Name" VALUE="design_1_blk_mem_gen_2_0"/>
         <PARAMETER NAME="Interface_Type" VALUE="Native"/>
         <PARAMETER NAME="AXI_Type" VALUE="AXI4_Full"/>
         <PARAMETER NAME="AXI_Slave_Type" VALUE="Memory_Slave"/>
         <PARAMETER NAME="Use_AXI_ID" VALUE="false"/>
         <PARAMETER NAME="AXI_ID_Width" VALUE="4"/>
-        <PARAMETER NAME="Memory_Type" VALUE="True_Dual_Port_RAM"/>
+        <PARAMETER NAME="Memory_Type" VALUE="Simple_Dual_Port_RAM"/>
         <PARAMETER NAME="PRIM_type_to_Implement" VALUE="BRAM"/>
         <PARAMETER NAME="Enable_32bit_Address" VALUE="false"/>
         <PARAMETER NAME="ecctype" VALUE="No_ECC"/>
@@ -651,7 +651,7 @@
         <PARAMETER NAME="Read_Width_B" VALUE="8"/>
         <PARAMETER NAME="Operating_Mode_B" VALUE="WRITE_FIRST"/>
         <PARAMETER NAME="Enable_B" VALUE="Use_ENB_Pin"/>
-        <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="true"/>
+        <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="false"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Core" VALUE="false"/>
         <PARAMETER NAME="Use_REGCEA_Pin" VALUE="false"/>
         <PARAMETER NAME="Register_PortB_Output_of_Memory_Primitives" VALUE="true"/>
@@ -677,7 +677,7 @@
         <PARAMETER NAME="Port_A_Clock" VALUE="100"/>
         <PARAMETER NAME="Port_A_Write_Rate" VALUE="50"/>
         <PARAMETER NAME="Port_B_Clock" VALUE="100"/>
-        <PARAMETER NAME="Port_B_Write_Rate" VALUE="50"/>
+        <PARAMETER NAME="Port_B_Write_Rate" VALUE="0"/>
         <PARAMETER NAME="Port_A_Enable_Rate" VALUE="100"/>
         <PARAMETER NAME="Port_B_Enable_Rate" VALUE="100"/>
         <PARAMETER NAME="Collision_Warnings" VALUE="ALL"/>
@@ -715,7 +715,6 @@
             <CONNECTION INSTANCE="custom_logic" PORT="dina"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="douta" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" NAME="clkb" SIGIS="undef" SIGNAME="custom_logic_clk_25M">
           <CONNECTIONS>
             <CONNECTION INSTANCE="custom_logic" PORT="clk_25M"/>
@@ -726,13 +725,11 @@
             <CONNECTION INSTANCE="custom_logic" PORT="enb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="web" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" LEFT="18" NAME="addrb" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_vga_raddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="custom_logic" PORT="vga_raddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="dinb" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="7" NAME="doutb" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_2_doutb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="custom_logic" PORT="x_vga"/>
@@ -749,7 +746,6 @@
             <PORTMAP LOGICAL="ADDR" PHYSICAL="addra"/>
             <PORTMAP LOGICAL="CLK" PHYSICAL="clka"/>
             <PORTMAP LOGICAL="DIN" PHYSICAL="dina"/>
-            <PORTMAP LOGICAL="DOUT" PHYSICAL="douta"/>
             <PORTMAP LOGICAL="EN" PHYSICAL="ena"/>
             <PORTMAP LOGICAL="WE" PHYSICAL="wea"/>
           </PORTMAPS>
@@ -762,10 +758,8 @@
           <PORTMAPS>
             <PORTMAP LOGICAL="ADDR" PHYSICAL="addrb"/>
             <PORTMAP LOGICAL="CLK" PHYSICAL="clkb"/>
-            <PORTMAP LOGICAL="DIN" PHYSICAL="dinb"/>
             <PORTMAP LOGICAL="DOUT" PHYSICAL="doutb"/>
             <PORTMAP LOGICAL="EN" PHYSICAL="enb"/>
-            <PORTMAP LOGICAL="WE" PHYSICAL="web"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>

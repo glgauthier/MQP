@@ -4,9 +4,9 @@ vlib activehdl
 vlib activehdl/xil_defaultlib
 vlib activehdl/xpm
 vlib activehdl/processing_system7_bfm_v2_0_5
+vlib activehdl/blk_mem_gen_v8_3_3
 vlib activehdl/lib_cdc_v1_0_2
 vlib activehdl/proc_sys_reset_v5_0_9
-vlib activehdl/blk_mem_gen_v8_3_3
 vlib activehdl/generic_baseblocks_v2_1_0
 vlib activehdl/fifo_generator_v13_1_1
 vlib activehdl/axi_data_fifo_v2_1_8
@@ -17,9 +17,9 @@ vlib activehdl/axi_protocol_converter_v2_1_9
 vmap xil_defaultlib activehdl/xil_defaultlib
 vmap xpm activehdl/xpm
 vmap processing_system7_bfm_v2_0_5 activehdl/processing_system7_bfm_v2_0_5
+vmap blk_mem_gen_v8_3_3 activehdl/blk_mem_gen_v8_3_3
 vmap lib_cdc_v1_0_2 activehdl/lib_cdc_v1_0_2
 vmap proc_sys_reset_v5_0_9 activehdl/proc_sys_reset_v5_0_9
-vmap blk_mem_gen_v8_3_3 activehdl/blk_mem_gen_v8_3_3
 vmap generic_baseblocks_v2_1_0 activehdl/generic_baseblocks_v2_1_0
 vmap fifo_generator_v13_1_1 activehdl/fifo_generator_v13_1_1
 vmap axi_data_fifo_v2_1_8 activehdl/axi_data_fifo_v2_1_8
@@ -66,19 +66,27 @@ vlog -work processing_system7_bfm_v2_0_5 -v2k5 "+incdir+../../../../final_implem
 "../../../ipstatic/processing_system7_bfm_v2_0/hdl/processing_system7_bfm_v2_0_processing_system7_bfm.v" \
 
 vlog -work xil_defaultlib -v2k5 "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/design_1/ip/design_1_processing_system7_0_0/sim/design_1_processing_system7_0_0.v" \
-"../../../bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" \
-"../../../bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0.v" \
-"../../../bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/sim/design_1_processing_system7_0_0.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_0.v" \
 
-vcom -work xil_defaultlib -93 \
-"../../../bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/vga_controller_640_60.vhd" \
+vlog -work blk_mem_gen_v8_3_3 -v2k5 "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/blk_mem_gen_v8_3_3/simulation/blk_mem_gen_v8_3.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/sim/blk_mem_384_288.v" \
 
 vlog -work xil_defaultlib -v2k5 "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v" \
-"../../../bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/hdl/nu_nu_rangefinder_vga_v1_0_S00_AXI.v" \
-"../../../bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/hdl/nu_nu_rangefinder_vga_v1_0.v" \
-"../../../bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/sim/design_1_nu_nu_rangefinder_vga_0_0.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v" \
+
+vcom -work xil_defaultlib -93 \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/vga_controller_640_60.vhd" \
+
+vlog -work xil_defaultlib -v2k5 "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/imgbuf.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/hdl/nu_nu_rangefinder_vga_v1_0_S00_AXI.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/hdl/nu_nu_rangefinder_vga_v1_0.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/sim/design_1_nu_nu_rangefinder_vga_0_0.v" \
 
 vcom -work lib_cdc_v1_0_2 -93 \
 "../../../ipstatic/lib_cdc_v1_0/hdl/src/vhdl/cdc_sync.vhd" \
@@ -90,18 +98,13 @@ vcom -work proc_sys_reset_v5_0_9 -93 \
 "../../../ipstatic/proc_sys_reset_v5_0/hdl/src/vhdl/proc_sys_reset.vhd" \
 
 vcom -work xil_defaultlib -93 \
-"../../../bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/sim/design_1_rst_processing_system7_0_100M_0.vhd" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/sim/design_1_rst_processing_system7_0_100M_0.vhd" \
 
 vlog -work xil_defaultlib -v2k5 "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/design_1/hdl/design_1.v" \
-
-vlog -work blk_mem_gen_v8_3_3 -v2k5 "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../ipstatic/blk_mem_gen_v8_3/simulation/blk_mem_gen_v8_3.v" \
-
-vlog -work xil_defaultlib -v2k5 "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/design_1/ip/design_1_blk_mem_gen_0_1/sim/design_1_blk_mem_gen_0_1.v" \
-"../../../bd/design_1/ip/design_1_blk_mem_gen_1_0/sim/design_1_blk_mem_gen_1_0.v" \
-"../../../bd/design_1/ip/design_1_blk_mem_gen_2_0/sim/design_1_blk_mem_gen_2_0.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_1/sim/design_1_blk_mem_gen_0_1.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_1_0/sim/design_1_blk_mem_gen_1_0.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_2_0/sim/design_1_blk_mem_gen_2_0.v" \
 
 vlog -work generic_baseblocks_v2_1_0 -v2k5 "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_carry_and.v" \
@@ -170,7 +173,7 @@ vlog -work axi_protocol_converter_v2_1_9 -v2k5 "+incdir+../../../../final_implem
 "../../../ipstatic/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_axi_protocol_converter.v" \
 
 vlog -work xil_defaultlib -v2k5 "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/design_1/ip/design_1_auto_pc_0/sim/design_1_auto_pc_0.v" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/sim/design_1_auto_pc_0.v" \
 
 vlog -work xil_defaultlib "glbl.v"
 

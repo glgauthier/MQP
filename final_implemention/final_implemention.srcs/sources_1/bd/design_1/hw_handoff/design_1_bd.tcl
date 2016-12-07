@@ -228,13 +228,14 @@ CONFIG.Enable_32bit_Address {false} \
 CONFIG.Enable_B {Use_ENB_Pin} \
 CONFIG.Fill_Remaining_Memory_Locations {false} \
 CONFIG.Load_Init_File {true} \
-CONFIG.Memory_Type {True_Dual_Port_RAM} \
+CONFIG.Memory_Type {Simple_Dual_Port_RAM} \
+CONFIG.Operating_Mode_A {WRITE_FIRST} \
 CONFIG.Port_B_Clock {100} \
 CONFIG.Port_B_Enable_Rate {100} \
-CONFIG.Port_B_Write_Rate {50} \
+CONFIG.Port_B_Write_Rate {0} \
 CONFIG.Read_Width_A {8} \
 CONFIG.Read_Width_B {8} \
-CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
+CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
 CONFIG.Register_PortB_Output_of_Memory_Primitives {true} \
 CONFIG.Use_Byte_Write_Enable {false} \
 CONFIG.Use_RSTA_Pin {false} \
@@ -1580,49 +1581,49 @@ preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 620 -defaultsOSRD
 preplace inst custom_logic -pg 1 -lvl 3 -y 610 -defaultsOSRD
 preplace inst blk_mem_gen_0 -pg 1 -lvl 4 -y 80 -defaultsOSRD
 preplace inst blk_mem_gen_1 -pg 1 -lvl 4 -y 240 -defaultsOSRD
-preplace inst blk_mem_gen_2 -pg 1 -lvl 4 -y 770 -defaultsOSRD
+preplace inst blk_mem_gen_2 -pg 1 -lvl 4 -y 780 -defaultsOSRD
 preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 500 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -y 400 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 1 4 NJ 330 NJ 330 NJ 330 NJ
 preplace netloc custom_logic_FIFO_RCK 1 3 2 NJ 620 NJ
 preplace netloc custom_logic_cam_reset 1 3 2 NJ 500 NJ
 preplace netloc nu_nu_rangefinder_vga_0_rgb 1 3 2 NJ 460 NJ
-preplace netloc nu_nu_rangefinder_vga_0_dina 1 3 1 1080
+preplace netloc nu_nu_rangefinder_vga_0_dina 1 3 1 1090
 preplace netloc nu_nu_rangefinder_vga_0_vsync 1 3 2 NJ 440 NJ
-preplace netloc blk_mem_gen_1_douta 1 2 2 800 260 NJ
+preplace netloc blk_mem_gen_1_douta 1 2 2 780 260 NJ
 preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 N
 preplace netloc custom_logic_cam_trigger 1 3 2 NJ 520 NJ
 preplace netloc nu_nu_rangefinder_vga_0_hsync 1 3 2 NJ 420 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 440
-preplace netloc nu_nu_rangefinder_vga_0_vga_raddr 1 3 1 1090
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 420
+preplace netloc nu_nu_rangefinder_vga_0_vga_raddr 1 3 1 1060
 preplace netloc FIFO_DATA_1 1 0 3 NJ 530 NJ 620 NJ
-preplace netloc nu_nu_rangefinder_vga_0_clk_25M1 1 3 1 1080
-preplace netloc blk_mem_gen_2_doutb 1 2 2 800 870 NJ
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 520 410
+preplace netloc nu_nu_rangefinder_vga_0_clk_25M1 1 3 1 1050
+preplace netloc blk_mem_gen_2_doutb 1 2 2 780 870 NJ
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 10 520 390
 preplace netloc custom_logic_FIFO_RRST1 1 3 2 NJ 560 NJ
 preplace netloc custom_logic_cam_sysclk 1 3 2 NJ 480 NJ
 preplace netloc custom_logic_FIFO_RRST2 1 3 2 NJ 600 NJ
 preplace netloc custom_logic_FIFO_OE1 1 3 2 NJ 540 NJ
 preplace netloc fpga_clk_1 1 0 3 NJ 250 NJ 250 NJ
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 440 660 740
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 420 660 720
 preplace netloc custom_logic_FIFO_OE2 1 3 2 NJ 580 NJ
-preplace netloc nu_nu_rangefinder_vga_0_addra1 1 3 1 1070
+preplace netloc nu_nu_rangefinder_vga_0_addra1 1 3 1 1080
 preplace netloc processing_system7_0_FIXED_IO 1 1 4 NJ 350 NJ 350 NJ 350 NJ
-preplace netloc nu_nu_rangefinder_vga_0_vga_waddr 1 3 1 1070
-preplace netloc nu_nu_rangefinder_vga_0_clk_100M3 1 3 1 1090
-preplace netloc nu_nu_rangefinder_vga_0_addra2 1 3 1 1080
-preplace netloc nu_nu_rangefinder_vga_0_wea 1 3 1 1080
+preplace netloc nu_nu_rangefinder_vga_0_vga_waddr 1 3 1 N
+preplace netloc nu_nu_rangefinder_vga_0_clk_100M3 1 3 1 1100
+preplace netloc nu_nu_rangefinder_vga_0_addra2 1 3 1 1090
+preplace netloc nu_nu_rangefinder_vga_0_wea 1 3 1 1070
 preplace netloc nu_nu_rangefinder_vga_0_ena 1 3 1 1080
-preplace netloc blk_mem_gen_0_douta 1 2 2 790 100 NJ
-preplace netloc sw_1 1 0 3 NJ 270 NJ 270 NJ
-preplace netloc nu_nu_rangefinder_vga_0_enb 1 3 1 1070
-preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 420
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 280 430 630 770
+preplace netloc blk_mem_gen_0_douta 1 2 2 770 100 NJ
+preplace netloc sw_1 1 0 3 NJ 260 NJ 260 NJ
+preplace netloc nu_nu_rangefinder_vga_0_enb 1 3 1 1040
+preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 400
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 0 280 410 630 750
 preplace netloc nu_nu_rangefinder_vga_0_leds 1 3 2 NJ 400 NJ
-preplace netloc button_1 1 0 3 NJ 230 NJ 230 NJ
-preplace netloc reset_1 1 0 3 NJ 260 NJ 260 NJ
+preplace netloc button_1 1 0 3 NJ 220 NJ 220 NJ
+preplace netloc reset_1 1 0 3 NJ 270 NJ 270 NJ
 preplace netloc cam_rst_1 1 0 3 NJ 240 NJ 240 NJ
-levelinfo -pg 1 -30 220 590 930 1190 1310 -top 0 -bot 920
+levelinfo -pg 1 -60 200 570 910 1200 1320 -top 0 -bot 930
 ",
 }
 
