@@ -186,6 +186,80 @@
             </spirit:vector>
           </spirit:wire>
         </spirit:port>
+        <spirit:port>
+          <spirit:name>cam_sysclk</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>cam_reset</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>cam_trigger</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>FIFO_OE1</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>FIFO_RRST1</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>FIFO_OE2</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>FIFO_RRST2</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>FIFO_RCK</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>sw</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+            <spirit:vector>
+              <spirit:left>7</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>cam_rst</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>FIFO_DATA</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+            <spirit:vector>
+              <spirit:left>7</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
       </spirit:ports>
     </spirit:model>
   </spirit:component>
@@ -201,14 +275,16 @@
         <spirit:componentRef spirit:library="ip" spirit:name="processing_system7" spirit:vendor="xilinx.com" spirit:version="5.5"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_processing_system7_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_UART1_BAUD_RATE">19200</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_UART0_BAUD_RATE">19200</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_QSPI_GRP_SINGLE_SS_ENABLE">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_ENET0_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_SD0_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_UART0_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_UART1_PERIPHERAL_ENABLE">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_UART1_UART1_IO">MIO 48 .. 49</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_UART0_PERIPHERAL_ENABLE">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_UART0_UART0_IO">MIO 10 .. 11</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_UART1_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_USB0_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_I2C0_PERIPHERAL_ENABLE">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_I2C0_I2C0_IO">MIO 14 .. 15</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="preset">ZedBoard</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
@@ -291,8 +367,8 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>nu_nu_rangefinder_vga_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="nu_nu_rangefinder_vga" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:instanceName>custom_logic</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="custom_logic" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_nu_nu_rangefinder_vga_0_0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -307,7 +383,7 @@
       <spirit:interconnection>
         <spirit:name>processing_system7_0_axi_periph_M00_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="processing_system7_0_axi_periph"/>
-        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="nu_nu_rangefinder_vga_0"/>
+        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="custom_logic"/>
       </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
@@ -316,10 +392,10 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK0"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="M_AXI_GP0_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="rst_processing_system7_0_100M" spirit:portRef="slowest_sync_clk"/>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M00_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="s00_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_RESET0_N</spirit:name>
@@ -329,9 +405,9 @@
       <spirit:adHocConnection>
         <spirit:name>rst_processing_system7_0_100M_peripheral_aresetn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="rst_processing_system7_0_100M" spirit:portRef="peripheral_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M00_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="s00_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>rst_processing_system7_0_100M_interconnect_aresetn</spirit:name>
@@ -340,113 +416,160 @@
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_hsync</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="hsync"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="hsync"/>
         <spirit:externalPortReference spirit:portRef="hsync"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_vsync</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="vsync"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="vsync"/>
         <spirit:externalPortReference spirit:portRef="vsync"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>fpga_clk_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="fpga_clk"/>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="fpga_clk"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="fpga_clk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>reset_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="reset"/>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="reset"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="reset"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_addra1</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="addra1"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="addra1"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="addra"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>blk_mem_gen_0_douta</spirit:name>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="douta"/>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="coord1_data"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="coord1_data"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_addra2</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="addra2"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="addra2"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_1" spirit:portRef="addra"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>nu_nu_rangefinder_vga_0_clk_100M2</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="clk_100M2"/>
-        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_1" spirit:portRef="clka"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>blk_mem_gen_1_douta</spirit:name>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_1" spirit:portRef="douta"/>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="coord2_data"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="coord2_data"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_clk_100M3</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="clk_100M3"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="clk_100M"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="clka"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="clka"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_1" spirit:portRef="clka"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_dina</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="dina"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="dina"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="dina"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_ena</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="ena"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="ena"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="ena"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_wea</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="wea"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="wea"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="wea"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>blk_mem_gen_2_doutb</spirit:name>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="doutb"/>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="x_vga"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="x_vga"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_enb</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="enb"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="enb"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="enb"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_clk_25M1</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="clk_25M1"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="clk_25M"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="clkb"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>nu_nu_rangefinder_vga_0_clk_100M1</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="clk_100M1"/>
-        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="clka"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_rgb</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="rgb"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="rgb"/>
         <spirit:externalPortReference spirit:portRef="rgb"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>button_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="button"/>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="button"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="button"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_leds</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="leds"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="leds"/>
         <spirit:externalPortReference spirit:portRef="leds"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_vga_waddr</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="vga_waddr"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="vga_waddr"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="addra"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_vga_raddr</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="nu_nu_rangefinder_vga_0" spirit:portRef="vga_raddr"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="vga_raddr"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="addrb"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>custom_logic_cam_sysclk</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="cam_sysclk"/>
+        <spirit:externalPortReference spirit:portRef="cam_sysclk"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>custom_logic_cam_reset</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="cam_reset"/>
+        <spirit:externalPortReference spirit:portRef="cam_reset"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>custom_logic_cam_trigger</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="cam_trigger"/>
+        <spirit:externalPortReference spirit:portRef="cam_trigger"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>custom_logic_FIFO_OE1</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="FIFO_OE1"/>
+        <spirit:externalPortReference spirit:portRef="FIFO_OE1"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>custom_logic_FIFO_RRST1</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="FIFO_RRST1"/>
+        <spirit:externalPortReference spirit:portRef="FIFO_RRST1"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>custom_logic_FIFO_OE2</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="FIFO_OE2"/>
+        <spirit:externalPortReference spirit:portRef="FIFO_OE2"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>custom_logic_FIFO_RRST2</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="FIFO_RRST2"/>
+        <spirit:externalPortReference spirit:portRef="FIFO_RRST2"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>custom_logic_FIFO_RCK</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="FIFO_RCK"/>
+        <spirit:externalPortReference spirit:portRef="FIFO_RCK"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>sw_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="sw"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="sw"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>cam_rst_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="cam_rst"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="cam_rst"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>FIFO_DATA_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="FIFO_DATA"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="FIFO_DATA"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -959,7 +1082,7 @@
         <spirit:segments>
           <spirit:segment>
             <spirit:name>SEG_nu_nu_rangefinder_vga_0_S00_AXI_reg</spirit:name>
-            <spirit:displayName>/nu_nu_rangefinder_vga_0/S00_AXI/S00_AXI_reg</spirit:displayName>
+            <spirit:displayName>/custom_logic/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x43C00000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>

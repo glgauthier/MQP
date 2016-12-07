@@ -47,34 +47,43 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: xilinx.com:user:nu_nu_rangefinder_vga:1.0
-// IP Revision: 73
+// IP VLNV: xilinx.com:user:custom_logic:1.0
+// IP Revision: 2
 
-(* X_CORE_INFO = "nu_nu_rangefinder_vga_v1_0,Vivado 2016.2" *)
-(* CHECK_LICENSE_TYPE = "design_1_nu_nu_rangefinder_vga_0_0,nu_nu_rangefinder_vga_v1_0,{}" *)
-(* CORE_GENERATION_INFO = "design_1_nu_nu_rangefinder_vga_0_0,nu_nu_rangefinder_vga_v1_0,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=nu_nu_rangefinder_vga,x_ipVersion=1.0,x_ipCoreRevision=73,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
+(* X_CORE_INFO = "custom_logic_v1_0,Vivado 2016.2" *)
+(* CHECK_LICENSE_TYPE = "design_1_nu_nu_rangefinder_vga_0_0,custom_logic_v1_0,{}" *)
+(* CORE_GENERATION_INFO = "design_1_nu_nu_rangefinder_vga_0_0,custom_logic_v1_0,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=custom_logic,x_ipVersion=1.0,x_ipCoreRevision=2,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_nu_nu_rangefinder_vga_0_0 (
   fpga_clk,
   reset,
   button,
+  sw,
   leds,
   hsync,
   vsync,
   rgb,
+  cam_rst,
+  cam_sysclk,
+  cam_reset,
+  cam_trigger,
+  FIFO_DATA,
+  FIFO_OE1,
+  FIFO_RRST1,
+  FIFO_OE2,
+  FIFO_RRST2,
+  FIFO_RCK,
   addra1,
   coord1_data,
-  clk_100M1,
+  clk_100M,
   addra2,
   coord2_data,
-  clk_100M2,
   vga_waddr,
-  clk_100M3,
   dina,
   ena,
   wea,
   vga_raddr,
-  clk_25M1,
+  clk_25M,
   x_vga,
   enb,
   s00_axi_awaddr,
@@ -103,23 +112,32 @@ module design_1_nu_nu_rangefinder_vga_0_0 (
 input wire fpga_clk;
 input wire reset;
 input wire button;
+input wire [7 : 0] sw;
 output wire [7 : 0] leds;
 output wire hsync;
 output wire vsync;
 output wire [11 : 0] rgb;
+input wire cam_rst;
+output wire cam_sysclk;
+output wire cam_reset;
+output wire cam_trigger;
+input wire [7 : 0] FIFO_DATA;
+output wire FIFO_OE1;
+output wire FIFO_RRST1;
+output wire FIFO_OE2;
+output wire FIFO_RRST2;
+output wire FIFO_RCK;
 output wire [7 : 0] addra1;
 input wire [12 : 0] coord1_data;
-output wire clk_100M1;
+output wire clk_100M;
 output wire [7 : 0] addra2;
 input wire [12 : 0] coord2_data;
-output wire clk_100M2;
 output wire [18 : 0] vga_waddr;
-output wire clk_100M3;
 output wire [7 : 0] dina;
 output wire ena;
 output wire wea;
 output wire [18 : 0] vga_raddr;
-output wire clk_25M1;
+output wire clk_25M;
 input wire [7 : 0] x_vga;
 output wire enb;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR" *)
@@ -165,30 +183,39 @@ input wire s00_axi_aclk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S00_AXI_RST RST" *)
 input wire s00_axi_aresetn;
 
-  nu_nu_rangefinder_vga_v1_0 #(
+  custom_logic_v1_0 #(
     .C_S00_AXI_DATA_WIDTH(32),  // Width of S_AXI data bus
     .C_S00_AXI_ADDR_WIDTH(4)  // Width of S_AXI address bus
   ) inst (
     .fpga_clk(fpga_clk),
     .reset(reset),
     .button(button),
+    .sw(sw),
     .leds(leds),
     .hsync(hsync),
     .vsync(vsync),
     .rgb(rgb),
+    .cam_rst(cam_rst),
+    .cam_sysclk(cam_sysclk),
+    .cam_reset(cam_reset),
+    .cam_trigger(cam_trigger),
+    .FIFO_DATA(FIFO_DATA),
+    .FIFO_OE1(FIFO_OE1),
+    .FIFO_RRST1(FIFO_RRST1),
+    .FIFO_OE2(FIFO_OE2),
+    .FIFO_RRST2(FIFO_RRST2),
+    .FIFO_RCK(FIFO_RCK),
     .addra1(addra1),
     .coord1_data(coord1_data),
-    .clk_100M1(clk_100M1),
+    .clk_100M(clk_100M),
     .addra2(addra2),
     .coord2_data(coord2_data),
-    .clk_100M2(clk_100M2),
     .vga_waddr(vga_waddr),
-    .clk_100M3(clk_100M3),
     .dina(dina),
     .ena(ena),
     .wea(wea),
     .vga_raddr(vga_raddr),
-    .clk_25M1(clk_25M1),
+    .clk_25M(clk_25M),
     .x_vga(x_vga),
     .enb(enb),
     .s00_axi_awaddr(s00_axi_awaddr),

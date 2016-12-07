@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Nov 30 21:27:53 2016" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 06 21:09:24 2016" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.3" DEVICE="7z020" NAME="design_1" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -25,39 +25,94 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_srstb" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_clk" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
-    <PORT DIR="O" NAME="hsync" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_hsync">
+    <PORT DIR="O" NAME="hsync" SIGIS="undef" SIGNAME="custom_logic_hsync">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="hsync"/>
+        <CONNECTION INSTANCE="custom_logic" PORT="hsync"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="vsync" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_vsync">
+    <PORT DIR="O" NAME="vsync" SIGIS="undef" SIGNAME="custom_logic_vsync">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="vsync"/>
+        <CONNECTION INSTANCE="custom_logic" PORT="vsync"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="fpga_clk" SIGIS="undef" SIGNAME="External_Ports_fpga_clk">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="fpga_clk"/>
+        <CONNECTION INSTANCE="custom_logic" PORT="fpga_clk"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="reset" SIGIS="undef" SIGNAME="External_Ports_reset">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="reset"/>
+        <CONNECTION INSTANCE="custom_logic" PORT="reset"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="11" NAME="rgb" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_rgb">
+    <PORT DIR="O" LEFT="11" NAME="rgb" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_rgb">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="rgb"/>
+        <CONNECTION INSTANCE="custom_logic" PORT="rgb"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="button" SIGIS="undef" SIGNAME="External_Ports_button">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="button"/>
+        <CONNECTION INSTANCE="custom_logic" PORT="button"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="7" NAME="leds" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_leds">
+    <PORT DIR="O" LEFT="7" NAME="leds" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_leds">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="leds"/>
+        <CONNECTION INSTANCE="custom_logic" PORT="leds"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="cam_sysclk" SIGIS="undef" SIGNAME="custom_logic_cam_sysclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="custom_logic" PORT="cam_sysclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="cam_reset" SIGIS="undef" SIGNAME="custom_logic_cam_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="custom_logic" PORT="cam_reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="cam_trigger" SIGIS="undef" SIGNAME="custom_logic_cam_trigger">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="custom_logic" PORT="cam_trigger"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="FIFO_OE1" SIGIS="undef" SIGNAME="custom_logic_FIFO_OE1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="custom_logic" PORT="FIFO_OE1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="FIFO_RRST1" SIGIS="undef" SIGNAME="custom_logic_FIFO_RRST1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="custom_logic" PORT="FIFO_RRST1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="FIFO_OE2" SIGIS="undef" SIGNAME="custom_logic_FIFO_OE2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="custom_logic" PORT="FIFO_OE2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="FIFO_RRST2" SIGIS="undef" SIGNAME="custom_logic_FIFO_RRST2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="custom_logic" PORT="FIFO_RRST2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="FIFO_RCK" SIGIS="undef" SIGNAME="custom_logic_FIFO_RCK">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="custom_logic" PORT="FIFO_RCK"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="sw" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_sw">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="custom_logic" PORT="sw"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="cam_rst" SIGIS="undef" SIGNAME="External_Ports_cam_rst">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="custom_logic" PORT="cam_rst"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="FIFO_DATA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_FIFO_DATA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="custom_logic" PORT="FIFO_DATA"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -259,19 +314,19 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="clka" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_clk_100M1">
+        <PORT DIR="I" NAME="clka" SIGIS="undef" SIGNAME="custom_logic_clk_100M">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="clk_100M1"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="clk_100M"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="addra" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_addra1">
+        <PORT DIR="I" LEFT="7" NAME="addra" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_addra1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="addra1"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="addra1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="12" NAME="douta" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_0_douta">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="coord1_data"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="coord1_data"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -447,19 +502,19 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="clka" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_clk_100M2">
+        <PORT DIR="I" NAME="clka" SIGIS="undef" SIGNAME="custom_logic_clk_100M">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="clk_100M2"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="clk_100M"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="addra" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_addra2">
+        <PORT DIR="I" LEFT="7" NAME="addra" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_addra2">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="addra2"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="addra2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="12" NAME="douta" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_1_douta">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="coord2_data"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="coord2_data"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -635,52 +690,52 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="clka" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_clk_100M3">
+        <PORT DIR="I" NAME="clka" SIGIS="undef" SIGNAME="custom_logic_clk_100M">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="clk_100M3"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="clk_100M"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="ena" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_ena">
+        <PORT DIR="I" NAME="ena" SIGIS="undef" SIGNAME="custom_logic_ena">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="ena"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="ena"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="wea" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_wea">
+        <PORT DIR="I" LEFT="0" NAME="wea" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_wea">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="wea"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="wea"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="18" NAME="addra" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_vga_waddr">
+        <PORT DIR="I" LEFT="18" NAME="addra" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_vga_waddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="vga_waddr"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="vga_waddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="dina" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_dina">
+        <PORT DIR="I" LEFT="7" NAME="dina" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_dina">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="dina"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="dina"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="7" NAME="douta" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" NAME="clkb" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_clk_25M1">
+        <PORT DIR="I" NAME="clkb" SIGIS="undef" SIGNAME="custom_logic_clk_25M">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="clk_25M1"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="clk_25M"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="enb" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_enb">
+        <PORT DIR="I" NAME="enb" SIGIS="undef" SIGNAME="custom_logic_enb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="enb"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="enb"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="0" NAME="web" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" LEFT="18" NAME="addrb" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_vga_raddr">
+        <PORT DIR="I" LEFT="18" NAME="addrb" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_vga_raddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="vga_raddr"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="vga_raddr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="7" NAME="dinb" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="7" NAME="doutb" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_2_doutb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="x_vga"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="x_vga"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -715,7 +770,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/nu_nu_rangefinder_vga_0" HWVERSION="1.0" INSTANCE="nu_nu_rangefinder_vga_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="nu_nu_rangefinder_vga" VLNV="xilinx.com:user:nu_nu_rangefinder_vga:1.0">
+    <MODULE FULLNAME="/custom_logic" HWVERSION="1.0" INSTANCE="custom_logic" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="custom_logic" VLNV="xilinx.com:user:custom_logic:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -744,27 +799,82 @@
             <CONNECTION INSTANCE="External_Ports" PORT="button"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="leds" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_leds">
+        <PORT DIR="I" LEFT="7" NAME="sw" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_sw">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="sw"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="leds" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_leds">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="leds"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="hsync" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_hsync">
+        <PORT DIR="O" NAME="hsync" SIGIS="undef" SIGNAME="custom_logic_hsync">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="hsync"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="vsync" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_vsync">
+        <PORT DIR="O" NAME="vsync" SIGIS="undef" SIGNAME="custom_logic_vsync">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="vsync"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="11" NAME="rgb" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_rgb">
+        <PORT DIR="O" LEFT="11" NAME="rgb" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_rgb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="rgb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="addra1" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_addra1">
+        <PORT DIR="I" NAME="cam_rst" SIGIS="undef" SIGNAME="External_Ports_cam_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="cam_rst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="cam_sysclk" SIGIS="undef" SIGNAME="custom_logic_cam_sysclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="cam_sysclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="cam_reset" SIGIS="undef" SIGNAME="custom_logic_cam_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="cam_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="cam_trigger" SIGIS="undef" SIGNAME="custom_logic_cam_trigger">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="cam_trigger"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="FIFO_DATA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_FIFO_DATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FIFO_DATA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="FIFO_OE1" SIGIS="undef" SIGNAME="custom_logic_FIFO_OE1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FIFO_OE1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="FIFO_RRST1" SIGIS="undef" SIGNAME="custom_logic_FIFO_RRST1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FIFO_RRST1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="FIFO_OE2" SIGIS="undef" SIGNAME="custom_logic_FIFO_OE2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FIFO_OE2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="FIFO_RRST2" SIGIS="undef" SIGNAME="custom_logic_FIFO_RRST2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FIFO_RRST2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="FIFO_RCK" SIGIS="undef" SIGNAME="custom_logic_FIFO_RCK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FIFO_RCK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="addra1" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_addra1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_0" PORT="addra"/>
           </CONNECTIONS>
@@ -774,12 +884,14 @@
             <CONNECTION INSTANCE="blk_mem_gen_0" PORT="douta"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="clk_100M1" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_clk_100M1">
+        <PORT DIR="O" NAME="clk_100M" SIGIS="undef" SIGNAME="custom_logic_clk_100M">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="blk_mem_gen_2" PORT="clka"/>
             <CONNECTION INSTANCE="blk_mem_gen_0" PORT="clka"/>
+            <CONNECTION INSTANCE="blk_mem_gen_1" PORT="clka"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="addra2" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_addra2">
+        <PORT DIR="O" LEFT="7" NAME="addra2" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_addra2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_1" PORT="addra"/>
           </CONNECTIONS>
@@ -789,42 +901,32 @@
             <CONNECTION INSTANCE="blk_mem_gen_1" PORT="douta"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="clk_100M2" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_clk_100M2">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="blk_mem_gen_1" PORT="clka"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="18" NAME="vga_waddr" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_vga_waddr">
+        <PORT DIR="O" LEFT="18" NAME="vga_waddr" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_vga_waddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_2" PORT="addra"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="clk_100M3" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_clk_100M3">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="blk_mem_gen_2" PORT="clka"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="dina" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_dina">
+        <PORT DIR="O" LEFT="7" NAME="dina" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_dina">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_2" PORT="dina"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="ena" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_ena">
+        <PORT DIR="O" NAME="ena" SIGIS="undef" SIGNAME="custom_logic_ena">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_2" PORT="ena"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="wea" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_wea">
+        <PORT DIR="O" NAME="wea" SIGIS="undef" SIGNAME="custom_logic_wea">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_2" PORT="wea"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="18" NAME="vga_raddr" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_vga_raddr">
+        <PORT DIR="O" LEFT="18" NAME="vga_raddr" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_vga_raddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_2" PORT="addrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="clk_25M1" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_clk_25M1">
+        <PORT DIR="O" NAME="clk_25M" SIGIS="undef" SIGNAME="custom_logic_clk_25M">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_2" PORT="clkb"/>
           </CONNECTIONS>
@@ -834,102 +936,102 @@
             <CONNECTION INSTANCE="blk_mem_gen_2" PORT="doutb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="enb" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_enb">
+        <PORT DIR="O" NAME="enb" SIGIS="undef" SIGNAME="custom_logic_enb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_2" PORT="enb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s00_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_awaddr">
+        <PORT DIR="I" LEFT="3" NAME="s00_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="s00_axi_awprot" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_awprot">
+        <PORT DIR="I" LEFT="2" NAME="s00_axi_awprot" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_awprot">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s00_axi_awvalid" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_awvalid">
+        <PORT DIR="I" NAME="s00_axi_awvalid" SIGIS="undef" SIGNAME="custom_logic_s00_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s00_axi_awready" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_awready">
+        <PORT DIR="O" NAME="s00_axi_awready" SIGIS="undef" SIGNAME="custom_logic_s00_axi_awready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="s00_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_wdata">
+        <PORT DIR="I" LEFT="31" NAME="s00_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_wdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s00_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_wstrb">
+        <PORT DIR="I" LEFT="3" NAME="s00_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_wstrb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s00_axi_wvalid" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_wvalid">
+        <PORT DIR="I" NAME="s00_axi_wvalid" SIGIS="undef" SIGNAME="custom_logic_s00_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s00_axi_wready" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_wready">
+        <PORT DIR="O" NAME="s00_axi_wready" SIGIS="undef" SIGNAME="custom_logic_s00_axi_wready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s00_axi_bresp" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_bresp">
+        <PORT DIR="O" LEFT="1" NAME="s00_axi_bresp" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_bresp">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s00_axi_bvalid" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_bvalid">
+        <PORT DIR="O" NAME="s00_axi_bvalid" SIGIS="undef" SIGNAME="custom_logic_s00_axi_bvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s00_axi_bready" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_bready">
+        <PORT DIR="I" NAME="s00_axi_bready" SIGIS="undef" SIGNAME="custom_logic_s00_axi_bready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s00_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_araddr">
+        <PORT DIR="I" LEFT="3" NAME="s00_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_araddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="s00_axi_arprot" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_arprot">
+        <PORT DIR="I" LEFT="2" NAME="s00_axi_arprot" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_arprot">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s00_axi_arvalid" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_arvalid">
+        <PORT DIR="I" NAME="s00_axi_arvalid" SIGIS="undef" SIGNAME="custom_logic_s00_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s00_axi_arready" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_arready">
+        <PORT DIR="O" NAME="s00_axi_arready" SIGIS="undef" SIGNAME="custom_logic_s00_axi_arready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="s00_axi_rdata" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_rdata">
+        <PORT DIR="O" LEFT="31" NAME="s00_axi_rdata" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_rdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s00_axi_rresp" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_rresp">
+        <PORT DIR="O" LEFT="1" NAME="s00_axi_rresp" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_rresp">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s00_axi_rvalid" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_rvalid">
+        <PORT DIR="O" NAME="s00_axi_rvalid" SIGIS="undef" SIGNAME="custom_logic_s00_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s00_axi_rready" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_rready">
+        <PORT DIR="I" NAME="s00_axi_rready" SIGIS="undef" SIGNAME="custom_logic_s00_axi_rready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_AXI_rready"/>
           </CONNECTIONS>
@@ -1175,7 +1277,7 @@
         <PARAMETER NAME="PCW_CAN_PERIPHERAL_FREQMHZ" VALUE="100"/>
         <PARAMETER NAME="PCW_CAN0_PERIPHERAL_FREQMHZ" VALUE="-1"/>
         <PARAMETER NAME="PCW_CAN1_PERIPHERAL_FREQMHZ" VALUE="-1"/>
-        <PARAMETER NAME="PCW_I2C_PERIPHERAL_FREQMHZ" VALUE="25"/>
+        <PARAMETER NAME="PCW_I2C_PERIPHERAL_FREQMHZ" VALUE="111.111115"/>
         <PARAMETER NAME="PCW_WDT_PERIPHERAL_FREQMHZ" VALUE="133.333333"/>
         <PARAMETER NAME="PCW_TTC_PERIPHERAL_FREQMHZ" VALUE="50"/>
         <PARAMETER NAME="PCW_TTC0_CLK0_PERIPHERAL_FREQMHZ" VALUE="133.333333"/>
@@ -1380,15 +1482,15 @@
         <PARAMETER NAME="PCW_EN_ENET0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_ENET1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_GPIO" VALUE="1"/>
-        <PARAMETER NAME="PCW_EN_I2C0" VALUE="0"/>
+        <PARAMETER NAME="PCW_EN_I2C0" VALUE="1"/>
         <PARAMETER NAME="PCW_EN_I2C1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_PJTAG" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_SDIO0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_SDIO1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_SPI0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_SPI1" VALUE="0"/>
-        <PARAMETER NAME="PCW_EN_UART0" VALUE="0"/>
-        <PARAMETER NAME="PCW_EN_UART1" VALUE="1"/>
+        <PARAMETER NAME="PCW_EN_UART0" VALUE="1"/>
+        <PARAMETER NAME="PCW_EN_UART1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_MODEM_UART0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_MODEM_UART1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_TTC0" VALUE="1"/>
@@ -1542,12 +1644,12 @@
         <PARAMETER NAME="PCW_SD1_GRP_WP_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_SD1_GRP_POW_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_SD1_GRP_POW_IO" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_UART0_PERIPHERAL_ENABLE" VALUE="0"/>
-        <PARAMETER NAME="PCW_UART0_UART0_IO" VALUE="&lt;Select>"/>
+        <PARAMETER NAME="PCW_UART0_PERIPHERAL_ENABLE" VALUE="1"/>
+        <PARAMETER NAME="PCW_UART0_UART0_IO" VALUE="MIO 10 .. 11"/>
         <PARAMETER NAME="PCW_UART0_GRP_FULL_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_UART0_GRP_FULL_IO" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_UART1_PERIPHERAL_ENABLE" VALUE="1"/>
-        <PARAMETER NAME="PCW_UART1_UART1_IO" VALUE="MIO 48 .. 49"/>
+        <PARAMETER NAME="PCW_UART1_PERIPHERAL_ENABLE" VALUE="0"/>
+        <PARAMETER NAME="PCW_UART1_UART1_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_UART1_GRP_FULL_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_UART1_GRP_FULL_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_SPI0_PERIPHERAL_ENABLE" VALUE="0"/>
@@ -1605,8 +1707,8 @@
         <PARAMETER NAME="PCW_USB1_USB1_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_USB1_RESET_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_USB1_RESET_IO" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_I2C0_PERIPHERAL_ENABLE" VALUE="0"/>
-        <PARAMETER NAME="PCW_I2C0_I2C0_IO" VALUE="&lt;Select>"/>
+        <PARAMETER NAME="PCW_I2C0_PERIPHERAL_ENABLE" VALUE="1"/>
+        <PARAMETER NAME="PCW_I2C0_I2C0_IO" VALUE="MIO 14 .. 15"/>
         <PARAMETER NAME="PCW_I2C0_GRP_INT_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_I2C0_GRP_INT_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_I2C0_RESET_ENABLE" VALUE="0"/>
@@ -1616,7 +1718,7 @@
         <PARAMETER NAME="PCW_I2C1_GRP_INT_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_I2C1_GRP_INT_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_I2C_RESET_ENABLE" VALUE="1"/>
-        <PARAMETER NAME="PCW_I2C_RESET_SELECT" VALUE="&lt;Select>"/>
+        <PARAMETER NAME="PCW_I2C_RESET_SELECT" VALUE="Share reset pin"/>
         <PARAMETER NAME="PCW_I2C1_RESET_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_I2C1_RESET_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_GPIO_PERIPHERAL_ENABLE" VALUE="0"/>
@@ -1698,11 +1800,11 @@
         <PARAMETER NAME="PCW_MIO_9_SLEW" VALUE="slow"/>
         <PARAMETER NAME="PCW_MIO_10_PULLUP" VALUE="disabled"/>
         <PARAMETER NAME="PCW_MIO_10_IOTYPE" VALUE="LVCMOS 3.3V"/>
-        <PARAMETER NAME="PCW_MIO_10_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_10_DIRECTION" VALUE="in"/>
         <PARAMETER NAME="PCW_MIO_10_SLEW" VALUE="slow"/>
         <PARAMETER NAME="PCW_MIO_11_PULLUP" VALUE="disabled"/>
         <PARAMETER NAME="PCW_MIO_11_IOTYPE" VALUE="LVCMOS 3.3V"/>
-        <PARAMETER NAME="PCW_MIO_11_DIRECTION" VALUE="inout"/>
+        <PARAMETER NAME="PCW_MIO_11_DIRECTION" VALUE="out"/>
         <PARAMETER NAME="PCW_MIO_11_SLEW" VALUE="slow"/>
         <PARAMETER NAME="PCW_MIO_12_PULLUP" VALUE="disabled"/>
         <PARAMETER NAME="PCW_MIO_12_IOTYPE" VALUE="LVCMOS 3.3V"/>
@@ -1850,11 +1952,11 @@
         <PARAMETER NAME="PCW_MIO_47_SLEW" VALUE="slow"/>
         <PARAMETER NAME="PCW_MIO_48_PULLUP" VALUE="disabled"/>
         <PARAMETER NAME="PCW_MIO_48_IOTYPE" VALUE="LVCMOS 1.8V"/>
-        <PARAMETER NAME="PCW_MIO_48_DIRECTION" VALUE="out"/>
+        <PARAMETER NAME="PCW_MIO_48_DIRECTION" VALUE="inout"/>
         <PARAMETER NAME="PCW_MIO_48_SLEW" VALUE="slow"/>
         <PARAMETER NAME="PCW_MIO_49_PULLUP" VALUE="disabled"/>
         <PARAMETER NAME="PCW_MIO_49_IOTYPE" VALUE="LVCMOS 1.8V"/>
-        <PARAMETER NAME="PCW_MIO_49_DIRECTION" VALUE="in"/>
+        <PARAMETER NAME="PCW_MIO_49_DIRECTION" VALUE="inout"/>
         <PARAMETER NAME="PCW_MIO_49_SLEW" VALUE="slow"/>
         <PARAMETER NAME="PCW_MIO_50_PULLUP" VALUE="disabled"/>
         <PARAMETER NAME="PCW_MIO_50_IOTYPE" VALUE="LVCMOS 1.8V"/>
@@ -1874,8 +1976,8 @@
         <PARAMETER NAME="PCW_MIO_53_SLEW" VALUE="slow"/>
         <PARAMETER NAME="preset" VALUE="ZedBoard"/>
         <PARAMETER NAME="PCW_UIPARAM_GENERATE_SUMMARY" VALUE="NA"/>
-        <PARAMETER NAME="PCW_MIO_TREE_PERIPHERALS" VALUE="GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#UART 1#UART 1#GPIO#GPIO#GPIO#GPIO"/>
-        <PARAMETER NAME="PCW_MIO_TREE_SIGNALS" VALUE="gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]#qspi0_sclk#gpio[7]#gpio[8]#gpio[9]#gpio[10]#gpio[11]#gpio[12]#gpio[13]#gpio[14]#gpio[15]#gpio[16]#gpio[17]#gpio[18]#gpio[19]#gpio[20]#gpio[21]#gpio[22]#gpio[23]#gpio[24]#gpio[25]#gpio[26]#gpio[27]#gpio[28]#gpio[29]#gpio[30]#gpio[31]#gpio[32]#gpio[33]#gpio[34]#gpio[35]#gpio[36]#gpio[37]#gpio[38]#gpio[39]#gpio[40]#gpio[41]#gpio[42]#gpio[43]#gpio[44]#gpio[45]#gpio[46]#gpio[47]#tx#rx#gpio[50]#gpio[51]#gpio[52]#gpio[53]"/>
+        <PARAMETER NAME="PCW_MIO_TREE_PERIPHERALS" VALUE="GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO#GPIO#GPIO#UART 0#UART 0#GPIO#GPIO#I2C 0#I2C 0#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO"/>
+        <PARAMETER NAME="PCW_MIO_TREE_SIGNALS" VALUE="gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]#qspi0_sclk#gpio[7]#gpio[8]#gpio[9]#rx#tx#gpio[12]#gpio[13]#scl#sda#gpio[16]#gpio[17]#gpio[18]#gpio[19]#gpio[20]#gpio[21]#gpio[22]#gpio[23]#gpio[24]#gpio[25]#gpio[26]#gpio[27]#gpio[28]#gpio[29]#gpio[30]#gpio[31]#gpio[32]#gpio[33]#gpio[34]#gpio[35]#gpio[36]#gpio[37]#gpio[38]#gpio[39]#gpio[40]#gpio[41]#gpio[42]#gpio[43]#gpio[44]#gpio[45]#gpio[46]#gpio[47]#gpio[48]#gpio[49]#gpio[50]#gpio[51]#gpio[52]#gpio[53]"/>
         <PARAMETER NAME="PCW_PS7_SI_REV" VALUE="PRODUCTION"/>
         <PARAMETER NAME="PCW_FPGA_FCLK0_ENABLE" VALUE="1"/>
         <PARAMETER NAME="PCW_FPGA_FCLK1_ENABLE" VALUE="0"/>
@@ -2131,10 +2233,10 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="slowest_sync_clk"/>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ACLK"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
@@ -2277,10 +2379,10 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
       <MEMORYMAP>
-        <MEMRANGE ADDRESSBLOCK="S00_AXI_reg" BASENAME="C_S00_AXI_BASEADDR" BASEVALUE="0x43C00000" HIGHNAME="C_S00_AXI_HIGHADDR" HIGHVALUE="0x43C0FFFF" INSTANCE="nu_nu_rangefinder_vga_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S00_AXI"/>
+        <MEMRANGE ADDRESSBLOCK="S00_AXI_reg" BASENAME="C_S00_AXI_BASEADDR" BASEVALUE="0x43C00000" HIGHNAME="C_S00_AXI_HIGHADDR" HIGHVALUE="0x43C0FFFF" INSTANCE="custom_logic" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S00_AXI"/>
       </MEMORYMAP>
       <PERIPHERALS>
-        <PERIPHERAL INSTANCE="nu_nu_rangefinder_vga_0"/>
+        <PERIPHERAL INSTANCE="custom_logic"/>
       </PERIPHERALS>
     </MODULE>
     <MODULE FULLNAME="/processing_system7_0_axi_periph" HWVERSION="2.1" INSTANCE="processing_system7_0_axi_periph" IPTYPE="BUS" IS_ENABLE="1" MODCLASS="BUS" MODTYPE="axi_interconnect" VLNV="xilinx.com:ip:axi_interconnect:2.1">
@@ -2826,99 +2928,99 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_RDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_awaddr">
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_awaddr"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M00_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_awprot">
+        <PORT DIR="O" LEFT="2" NAME="M00_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_awprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_awprot"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_awvalid">
+        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="custom_logic_s00_axi_awvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_awvalid"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_awready">
+        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="custom_logic_s00_axi_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_awready"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_wdata">
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_wdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_wdata"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_wstrb">
+        <PORT DIR="O" LEFT="3" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_wstrb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_wstrb"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_wvalid">
+        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="custom_logic_s00_axi_wvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_wvalid"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_wready">
+        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="custom_logic_s00_axi_wready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_wready"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_bresp">
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_bresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_bresp"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_bvalid">
+        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="custom_logic_s00_axi_bvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_bvalid"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_bready">
+        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="custom_logic_s00_axi_bready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_bready"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_araddr">
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_araddr"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M00_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_arprot">
+        <PORT DIR="O" LEFT="2" NAME="M00_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_arprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_arprot"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_arvalid">
+        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="custom_logic_s00_axi_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_arvalid"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_arready">
+        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="custom_logic_s00_axi_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_arready"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_rdata">
+        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_rdata"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_rresp">
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="custom_logic_s00_axi_rresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_rresp"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_rvalid">
+        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="custom_logic_s00_axi_rvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_rvalid"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="nu_nu_rangefinder_vga_0_s00_axi_rready">
+        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="custom_logic_s00_axi_rready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_rready"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_rready"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -3033,9 +3135,9 @@
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="rst_processing_system7_0_100M_peripheral_aresetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="nu_nu_rangefinder_vga_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ARESETN"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

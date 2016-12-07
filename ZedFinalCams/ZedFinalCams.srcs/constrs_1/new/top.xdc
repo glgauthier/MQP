@@ -9,8 +9,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports {reset}]
 set_property PACKAGE_PIN N15 [get_ports {cam_rst}]
 set_property IOSTANDARD LVCMOS33 [get_ports {cam_rst}]
 #input trigger, // button for camera trigger
-set_property PACKAGE_PIN R18 [get_ports {trigger}]
-set_property IOSTANDARD LVCMOS33 [get_ports {trigger}]
+#set_property PACKAGE_PIN R18 [get_ports {trigger}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {trigger}]
 #output cam_sysclk, // sysclk out to camera
 set_property PACKAGE_PIN AA9 [get_ports {cam_sysclk}]
 set_property IOSTANDARD LVCMOS33 [get_ports {cam_sysclk}]

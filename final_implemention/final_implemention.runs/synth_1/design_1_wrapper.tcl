@@ -4,6 +4,7 @@
 
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {HDL-1065} -limit 10000
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -22,11 +23,21 @@ set_property ip_repo_paths {
   c:/Users/georges/Documents/GitHub/MQP/ip_repo/new_rangefinder_vga_1.0
   c:/Users/georges/Documents/GitHub/MQP/ip_repo/rangefinder_vga_1.0
 } [current_project]
-add_files c:/Users/georges/Documents/GitHub/MQP/final_implemention/coord2.coe
-add_files c:/Users/georges/Documents/GitHub/MQP/final_implemention/coord1.coe
-add_files c:/Users/georges/Documents/GitHub/MQP/final_implemention/vga_map.coe
+add_files C:/Users/georges/Documents/GitHub/MQP/final_implemention/coord2.coe
+add_files C:/Users/georges/Documents/GitHub/MQP/final_implemention/coord1.coe
+add_files C:/Users/georges/Documents/GitHub/MQP/final_implemention/vga_map.coe
 add_files -quiet C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/design_1.dcp
 set_property used_in_implementation false [get_files C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/design_1.dcp]
+add_files -quiet C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.dcp
+set_property used_in_implementation false [get_files C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.dcp]
+add_files -quiet C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/design_1_rst_processing_system7_0_100M_0.dcp
+set_property used_in_implementation false [get_files C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/design_1_rst_processing_system7_0_100M_0.dcp]
+add_files -quiet C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_1/design_1_blk_mem_gen_0_1.dcp
+set_property used_in_implementation false [get_files C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_1/design_1_blk_mem_gen_0_1.dcp]
+add_files -quiet C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_1_0/design_1_blk_mem_gen_1_0.dcp
+set_property used_in_implementation false [get_files C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_1_0/design_1_blk_mem_gen_1_0.dcp]
+add_files -quiet C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_2_0/design_1_blk_mem_gen_2_0.dcp
+set_property used_in_implementation false [get_files C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_2_0/design_1_blk_mem_gen_2_0.dcp]
 read_verilog -library xil_defaultlib C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
 foreach dcp [get_files -quiet -all *.dcp] {
   set_property used_in_implementation false $dcp

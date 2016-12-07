@@ -4,6 +4,7 @@
 
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {HDL-1065} -limit 10000
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -24,6 +25,7 @@ set_property ip_repo_paths {
   c:/Users/georges/Documents/GitHub/MQP/ip_repo/rangefinder_vga_1.0
 } [current_project]
 add_files C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/design_1.bd
+set_property is_enabled true [get_files -all C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/synth/design_1_nu_nu_rangefinder_vga_0_0.v]
 set_property is_locked true [get_files C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/design_1.bd]
 
 foreach dcp [get_files -quiet -all *.dcp] {

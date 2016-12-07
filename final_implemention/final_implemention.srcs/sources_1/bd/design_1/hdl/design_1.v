@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Wed Nov 30 21:27:52 2016
+//Date        : Tue Dec 06 21:09:23 2016
 //Host        : Georges-T460p running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -26,6 +26,12 @@ module design_1
     DDR_ras_n,
     DDR_reset_n,
     DDR_we_n,
+    FIFO_DATA,
+    FIFO_OE1,
+    FIFO_OE2,
+    FIFO_RCK,
+    FIFO_RRST1,
+    FIFO_RRST2,
     FIXED_IO_ddr_vrn,
     FIXED_IO_ddr_vrp,
     FIXED_IO_mio,
@@ -33,11 +39,16 @@ module design_1
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
     button,
+    cam_reset,
+    cam_rst,
+    cam_sysclk,
+    cam_trigger,
     fpga_clk,
     hsync,
     leds,
     reset,
     rgb,
+    sw,
     vsync);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
@@ -54,6 +65,12 @@ module design_1
   inout DDR_ras_n;
   inout DDR_reset_n;
   inout DDR_we_n;
+  input [7:0]FIFO_DATA;
+  output FIFO_OE1;
+  output FIFO_OE2;
+  output FIFO_RCK;
+  output FIFO_RRST1;
+  output FIFO_RRST2;
   inout FIXED_IO_ddr_vrn;
   inout FIXED_IO_ddr_vrp;
   inout [53:0]FIXED_IO_mio;
@@ -61,22 +78,35 @@ module design_1
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
   input button;
+  output cam_reset;
+  input cam_rst;
+  output cam_sysclk;
+  output cam_trigger;
   input fpga_clk;
   output hsync;
   output [7:0]leds;
   input reset;
   output [11:0]rgb;
+  input [7:0]sw;
   output vsync;
 
+  wire [7:0]FIFO_DATA_1;
   wire [12:0]blk_mem_gen_0_douta;
   wire [12:0]blk_mem_gen_1_douta;
   wire [7:0]blk_mem_gen_2_doutb;
   wire button_1;
+  wire cam_rst_1;
+  wire custom_logic_FIFO_OE1;
+  wire custom_logic_FIFO_OE2;
+  wire custom_logic_FIFO_RCK;
+  wire custom_logic_FIFO_RRST1;
+  wire custom_logic_FIFO_RRST2;
+  wire custom_logic_cam_reset;
+  wire custom_logic_cam_sysclk;
+  wire custom_logic_cam_trigger;
   wire fpga_clk_1;
   wire [7:0]nu_nu_rangefinder_vga_0_addra1;
   wire [7:0]nu_nu_rangefinder_vga_0_addra2;
-  wire nu_nu_rangefinder_vga_0_clk_100M1;
-  wire nu_nu_rangefinder_vga_0_clk_100M2;
   wire nu_nu_rangefinder_vga_0_clk_100M3;
   wire nu_nu_rangefinder_vga_0_clk_25M1;
   wire [7:0]nu_nu_rangefinder_vga_0_dina;
@@ -172,21 +202,33 @@ module design_1
   wire reset_1;
   wire [0:0]rst_processing_system7_0_100M_interconnect_aresetn;
   wire [0:0]rst_processing_system7_0_100M_peripheral_aresetn;
+  wire [7:0]sw_1;
 
+  assign FIFO_DATA_1 = FIFO_DATA[7:0];
+  assign FIFO_OE1 = custom_logic_FIFO_OE1;
+  assign FIFO_OE2 = custom_logic_FIFO_OE2;
+  assign FIFO_RCK = custom_logic_FIFO_RCK;
+  assign FIFO_RRST1 = custom_logic_FIFO_RRST1;
+  assign FIFO_RRST2 = custom_logic_FIFO_RRST2;
   assign button_1 = button;
+  assign cam_reset = custom_logic_cam_reset;
+  assign cam_rst_1 = cam_rst;
+  assign cam_sysclk = custom_logic_cam_sysclk;
+  assign cam_trigger = custom_logic_cam_trigger;
   assign fpga_clk_1 = fpga_clk;
   assign hsync = nu_nu_rangefinder_vga_0_hsync;
   assign leds[7:0] = nu_nu_rangefinder_vga_0_leds;
   assign reset_1 = reset;
   assign rgb[11:0] = nu_nu_rangefinder_vga_0_rgb;
+  assign sw_1 = sw[7:0];
   assign vsync = nu_nu_rangefinder_vga_0_vsync;
   design_1_blk_mem_gen_0_1 blk_mem_gen_0
        (.addra(nu_nu_rangefinder_vga_0_addra1),
-        .clka(nu_nu_rangefinder_vga_0_clk_100M1),
+        .clka(nu_nu_rangefinder_vga_0_clk_100M3),
         .douta(blk_mem_gen_0_douta));
   design_1_blk_mem_gen_1_0 blk_mem_gen_1
        (.addra(nu_nu_rangefinder_vga_0_addra2),
-        .clka(nu_nu_rangefinder_vga_0_clk_100M2),
+        .clka(nu_nu_rangefinder_vga_0_clk_100M3),
         .douta(blk_mem_gen_1_douta));
   design_1_blk_mem_gen_2_0 blk_mem_gen_2
        (.addra(nu_nu_rangefinder_vga_0_vga_waddr),
@@ -200,14 +242,22 @@ module design_1
         .enb(nu_nu_rangefinder_vga_0_enb),
         .wea(nu_nu_rangefinder_vga_0_wea),
         .web(1'b0));
-  design_1_nu_nu_rangefinder_vga_0_0 nu_nu_rangefinder_vga_0
-       (.addra1(nu_nu_rangefinder_vga_0_addra1),
+  design_1_nu_nu_rangefinder_vga_0_0 custom_logic
+       (.FIFO_DATA(FIFO_DATA_1),
+        .FIFO_OE1(custom_logic_FIFO_OE1),
+        .FIFO_OE2(custom_logic_FIFO_OE2),
+        .FIFO_RCK(custom_logic_FIFO_RCK),
+        .FIFO_RRST1(custom_logic_FIFO_RRST1),
+        .FIFO_RRST2(custom_logic_FIFO_RRST2),
+        .addra1(nu_nu_rangefinder_vga_0_addra1),
         .addra2(nu_nu_rangefinder_vga_0_addra2),
         .button(button_1),
-        .clk_100M1(nu_nu_rangefinder_vga_0_clk_100M1),
-        .clk_100M2(nu_nu_rangefinder_vga_0_clk_100M2),
-        .clk_100M3(nu_nu_rangefinder_vga_0_clk_100M3),
-        .clk_25M1(nu_nu_rangefinder_vga_0_clk_25M1),
+        .cam_reset(custom_logic_cam_reset),
+        .cam_rst(cam_rst_1),
+        .cam_sysclk(custom_logic_cam_sysclk),
+        .cam_trigger(custom_logic_cam_trigger),
+        .clk_100M(nu_nu_rangefinder_vga_0_clk_100M3),
+        .clk_25M(nu_nu_rangefinder_vga_0_clk_25M1),
         .coord1_data(blk_mem_gen_0_douta),
         .coord2_data(blk_mem_gen_1_douta),
         .dina(nu_nu_rangefinder_vga_0_dina),
@@ -239,6 +289,7 @@ module design_1
         .s00_axi_wready(processing_system7_0_axi_periph_M00_AXI_WREADY),
         .s00_axi_wstrb(processing_system7_0_axi_periph_M00_AXI_WSTRB),
         .s00_axi_wvalid(processing_system7_0_axi_periph_M00_AXI_WVALID),
+        .sw(sw_1),
         .vga_raddr(nu_nu_rangefinder_vga_0_vga_raddr),
         .vga_waddr(nu_nu_rangefinder_vga_0_vga_waddr),
         .vsync(nu_nu_rangefinder_vga_0_vsync),

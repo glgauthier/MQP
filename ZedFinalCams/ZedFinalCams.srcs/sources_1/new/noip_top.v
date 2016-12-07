@@ -5,7 +5,6 @@ module noip_top(
    input reset, // reset 
    input sw,
    input cam_rst, // button for camera RESET_BAR
-   input trigger, // button for camera trigger
    output cam_sysclk, // sysclk out to camera
    output cam_reset, // reset_bar out to camera
    output cam_trigger, // trigger out to camera
