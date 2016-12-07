@@ -172,7 +172,7 @@ module mqp_top
         
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VGA Logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // LED outputs
-    assign leds = (sw[0]) ? {result_data[3:0],trig_db,current_state[2:0]} : rangefinder_leds;
+    assign leds = (sw[0]) ? {vga_waddr[3:0],trig_db,current_state[2:0]} : rangefinder_leds;
     
     // VGA output
     wire [10:0] hcount, vcount; // horizontal, vertical location on screen
@@ -192,13 +192,13 @@ module mqp_top
     assign enb = 1'b1;
     
     //address for read from vga BRAM 
-    assign vga_raddr = (sw[0]) ? (384*(vcount-96))+(hcount-128) : (640*vcount) + hcount;
+    assign vga_raddr = (sw[0] == 1'b1) ? (384*(vcount-96))+(hcount-128) : (640*vcount) + hcount;
     // assign vga bram write address
-    assign vga_waddr = (sw[0]) ? result_addr : rangefinder_waddr;
+    assign vga_waddr = (sw[0] == 1'b1) ? result_addr : rangefinder_waddr;
     // assign vga bram write data
-    assign dina = (sw[0]) ? result_data : rangefinder_data;
+    assign dina = (sw[0] == 1'b1) ? result_data : rangefinder_data;
     // assign vga bram write enable
-    assign wen = (sw[0]) ? result_wen : rangefinder_wen;
+    assign wen = (sw[0] == 1'b1) ? result_wen : rangefinder_wen;
     
     // single line out from disparity
     always @(hcount)

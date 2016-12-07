@@ -228,14 +228,15 @@ CONFIG.Enable_32bit_Address {false} \
 CONFIG.Enable_B {Use_ENB_Pin} \
 CONFIG.Fill_Remaining_Memory_Locations {false} \
 CONFIG.Load_Init_File {true} \
-CONFIG.Memory_Type {Simple_Dual_Port_RAM} \
+CONFIG.Memory_Type {True_Dual_Port_RAM} \
 CONFIG.Operating_Mode_A {WRITE_FIRST} \
+CONFIG.Operating_Mode_B {READ_FIRST} \
 CONFIG.Port_B_Clock {100} \
 CONFIG.Port_B_Enable_Rate {100} \
-CONFIG.Port_B_Write_Rate {0} \
+CONFIG.Port_B_Write_Rate {50} \
 CONFIG.Read_Width_A {8} \
 CONFIG.Read_Width_B {8} \
-CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
+CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
 CONFIG.Register_PortB_Output_of_Memory_Primitives {true} \
 CONFIG.Use_Byte_Write_Enable {false} \
 CONFIG.Use_RSTA_Pin {false} \
@@ -1623,7 +1624,7 @@ preplace netloc nu_nu_rangefinder_vga_0_leds 1 3 2 NJ 400 NJ
 preplace netloc button_1 1 0 3 NJ 220 NJ 220 NJ
 preplace netloc reset_1 1 0 3 NJ 270 NJ 270 NJ
 preplace netloc cam_rst_1 1 0 3 NJ 240 NJ 240 NJ
-levelinfo -pg 1 -60 200 570 910 1200 1320 -top 0 -bot 930
+levelinfo -pg 1 -60 200 570 910 1210 1330 -top 0 -bot 930
 ",
 }
 
