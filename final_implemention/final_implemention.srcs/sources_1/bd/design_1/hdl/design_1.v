@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Wed Dec 07 12:02:25 2016
+//Date        : Thu Dec 08 15:35:57 2016
 //Host        : Georges-T460p running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -104,17 +104,16 @@ module design_1
   wire custom_logic_cam_reset;
   wire custom_logic_cam_sysclk;
   wire custom_logic_cam_trigger;
+  wire custom_logic_ena;
+  wire [11:0]custom_logic_rgb;
   wire fpga_clk_1;
   wire [7:0]nu_nu_rangefinder_vga_0_addra1;
   wire [7:0]nu_nu_rangefinder_vga_0_addra2;
   wire nu_nu_rangefinder_vga_0_clk_100M3;
   wire nu_nu_rangefinder_vga_0_clk_25M1;
   wire [7:0]nu_nu_rangefinder_vga_0_dina;
-  wire nu_nu_rangefinder_vga_0_ena;
-  wire nu_nu_rangefinder_vga_0_enb;
   wire nu_nu_rangefinder_vga_0_hsync;
   wire [7:0]nu_nu_rangefinder_vga_0_leds;
-  wire [11:0]nu_nu_rangefinder_vga_0_rgb;
   wire [18:0]nu_nu_rangefinder_vga_0_vga_raddr;
   wire [18:0]nu_nu_rangefinder_vga_0_vga_waddr;
   wire nu_nu_rangefinder_vga_0_vsync;
@@ -219,7 +218,7 @@ module design_1
   assign hsync = nu_nu_rangefinder_vga_0_hsync;
   assign leds[7:0] = nu_nu_rangefinder_vga_0_leds;
   assign reset_1 = reset;
-  assign rgb[11:0] = nu_nu_rangefinder_vga_0_rgb;
+  assign rgb[11:0] = custom_logic_rgb;
   assign sw_1 = sw[7:0];
   assign vsync = nu_nu_rangefinder_vga_0_vsync;
   design_1_blk_mem_gen_0_1 blk_mem_gen_0
@@ -236,12 +235,9 @@ module design_1
         .clka(nu_nu_rangefinder_vga_0_clk_100M3),
         .clkb(nu_nu_rangefinder_vga_0_clk_25M1),
         .dina(nu_nu_rangefinder_vga_0_dina),
-        .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .doutb(blk_mem_gen_2_doutb),
-        .ena(nu_nu_rangefinder_vga_0_ena),
-        .enb(nu_nu_rangefinder_vga_0_enb),
-        .wea(nu_nu_rangefinder_vga_0_wea),
-        .web(1'b0));
+        .ena(custom_logic_ena),
+        .wea(nu_nu_rangefinder_vga_0_wea));
   design_1_nu_nu_rangefinder_vga_0_0 custom_logic
        (.FIFO_DATA(FIFO_DATA_1),
         .FIFO_OE1(custom_logic_FIFO_OE1),
@@ -261,13 +257,12 @@ module design_1
         .coord1_data(blk_mem_gen_0_douta),
         .coord2_data(blk_mem_gen_1_douta),
         .dina(nu_nu_rangefinder_vga_0_dina),
-        .ena(nu_nu_rangefinder_vga_0_ena),
-        .enb(nu_nu_rangefinder_vga_0_enb),
+        .ena(custom_logic_ena),
         .fpga_clk(fpga_clk_1),
         .hsync(nu_nu_rangefinder_vga_0_hsync),
         .leds(nu_nu_rangefinder_vga_0_leds),
         .reset(reset_1),
-        .rgb(nu_nu_rangefinder_vga_0_rgb),
+        .rgb(custom_logic_rgb),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s00_axi_araddr(processing_system7_0_axi_periph_M00_AXI_ARADDR[3:0]),
         .s00_axi_aresetn(rst_processing_system7_0_100M_peripheral_aresetn),

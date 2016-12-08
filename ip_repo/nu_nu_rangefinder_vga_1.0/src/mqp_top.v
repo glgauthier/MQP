@@ -36,12 +36,13 @@ module mqp_top
     input [12:0] coord2_data,
     
     //vga map BRAM
+    // port A
     output [18:0] vga_waddr,
     output [7:0] dina,
     output ena,
     output wea,
-    
-    output [18:0] vga_raddr,
+    // port B
+    output reg [18:0] vga_raddr,
     output clk_25M,
     input [7:0] x_vga,
     output enb
@@ -110,18 +111,20 @@ module mqp_top
             init_count <= init_count + 1'b1;
     end
     // Keep cam_rst asserted for at least 20 cam_sysclk cycles to init cams
-    // I'd 30 since it's the minimum time for the i2c bus to be ready
+    // I'd use 30 since it's the minimum time for the i2c bus to be ready
     assign cam_reset = (init_count >= 5'd20);
     
     // Trigger a new image capture and disparity sequence when disp. idles
-    wire trig_db; // trigger new image capture sequence
+    wire trig_db; // camera controller trigger input
     wire [2:0] current_state; // disparity current state
     assign trig_db = current_state == 2'b00; 
     
     // Stereo camera breakout board AL422B buffer control lines
     wire fifo_oe, fifo_rrst, image_sel;
+    // control output enable for left and right cams based on image_sel
     assign FIFO_OE1 = (image_sel == 1'b0) ? fifo_oe : 1'b1;
     assign FIFO_OE2 = (image_sel == 1'b1) ? fifo_oe : 1'b1;
+    // control read reset for left and right cams based on image_sel
     assign FIFO_RRST1 = (image_sel == 1'b0) ? fifo_rrst : 1'b1;
     assign FIFO_RRST2 = (image_sel == 1'b1) ? fifo_rrst : 1'b1;
     
@@ -149,9 +152,9 @@ module mqp_top
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Disparity ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
     reg [10:0] lineaddr; // depth line address
     wire [7:0] lineout; // depth line data
-    wire [7:0]  result_data;
-    wire result_wen;
-    wire [18:0] result_addr;
+    wire [7:0]  result_data; // output depth data for VGA bram
+    wire result_wen; // VGA bram write enable
+    wire [18:0] result_addr; // VGA bram pixel address
     
     parallel_disparity disp(
          .clk(clk_100M), // Read clk signal
@@ -160,19 +163,19 @@ module mqp_top
          .reset(reset), // reset disparity FSM
          .ldata(ldata), // FIFO data in
          .rdata(rdata), // FIFO data in
-         .laddr(laddr),
-         .raddr(raddr),
-         .result_addr(result_addr),
-         .result_data(result_data),
-         .result_wea(result_wen),
+         .laddr(laddr), // left camera data address (to imgbuf)
+         .raddr(raddr), // right camera data address (to imgbuf)
+         .result_addr(result_addr), // VGA bram write address
+         .result_data(result_data), // VGA bram pixel data (disparity vals)
+         .result_wea(result_wen), // VGA bram write enable
          .state_LED(current_state), // current state indicator
-         .lineout(lineout),
-         .lineaddr(lineaddr)
+         .lineout(lineout), // single line pixel data [7:0]
+         .lineaddr(lineaddr) // single line pixel address
         );
         
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VGA Logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // LED outputs
-    assign leds = (sw[0]) ? {vga_waddr[3:0],trig_db,current_state[2:0]} : rangefinder_leds;
+    // Assign LED outputs for debug based on output mode
+    assign leds = (sw[0]) ? {result_addr[3:0],dina[3:0]} : x_vga[7:0];
     
     // VGA output
     wire [10:0] hcount, vcount; // horizontal, vertical location on screen
@@ -187,30 +190,34 @@ module mqp_top
         .blank(blank)
     );  
     
-    // write and read enable for VGA BRAM
-    assign ena = 1'b1;
-    assign enb = 1'b1;
-    
     //address for read from vga BRAM 
-    assign vga_raddr = (sw[0] == 1'b1) ? (384*(vcount-96))+(hcount-128) : (640*vcount) + hcount;
+    always @(hcount, vcount)
+        if(sw[0])
+            vga_raddr = (384*(vcount-96))+(hcount-128);
+        else
+            vga_raddr = (640*vcount) + hcount;
+    
     // assign vga bram write address
     assign vga_waddr = (sw[0] == 1'b1) ? result_addr : rangefinder_waddr;
     // assign vga bram write data
     assign dina = (sw[0] == 1'b1) ? result_data : rangefinder_data;
-    // assign vga bram write enable
-    assign wen = (sw[0] == 1'b1) ? result_wen : rangefinder_wen;
+    // assign vga bram port A enable
+    assign ena = (sw[0] == 1'b1) ? 1'b1 : rangefinder_wen;
+    // assign vga bram port A write enable
+    assign wea = 1'b1;
+    // assign vga bram port B enable
+    assign enb = 1'b1;
     
-    // single line out from disparity
+    // handle addressing for single-line data from disparity module
     always @(hcount)
         lineaddr = (hcount >= 128 && hcount < 512) ? hcount-128 : 11'd0;
         
-    // vga color logic                  
-    always @ (hcount, vcount, blank)
+    // Modify output color logic based on current mode              
+    always @ (hcount, vcount, blank, sw, device_x, device_y, x_vga, lineout)
     begin
         if(blank)
             rgb = 12'h000;
-        else 
-            case(sw[0])
+        else case(sw[0])
             1'b0: // rangefinder output
             begin
                 if ((hcount >= device_x-1 && hcount <= device_x+1) && (vcount >= device_y-1 && vcount <= device_y+1))
@@ -231,8 +238,9 @@ module mqp_top
                         rgb = {4'h8,lineout};
                     else
                         rgb = 12'h000;
+                // pad screen areas outside the active image
                 else
-                    rgb = 12'h000;
+                    rgb = 12'hF00;
             end
             endcase
     end

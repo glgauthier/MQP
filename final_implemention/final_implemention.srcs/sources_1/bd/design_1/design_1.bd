@@ -345,26 +345,24 @@
         <spirit:componentRef spirit:library="ip" spirit:name="blk_mem_gen" spirit:vendor="xilinx.com" spirit:version="8.3"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_blk_mem_gen_2_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Memory_Type">True_Dual_Port_RAM</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Memory_Type">Simple_Dual_Port_RAM</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Width_A">8</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">307200</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Read_Width_A">8</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Operating_Mode_A">WRITE_FIRST</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_A">Use_ENA_Pin</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Write_Width_B">8</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Read_Width_B">8</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Operating_Mode_B">READ_FIRST</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Enable_B">Use_ENB_Pin</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Register_PortA_Output_of_Memory_Primitives">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_B">Always_Enabled</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Register_PortB_Output_of_Memory_Primitives">true</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Load_Init_File">true</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Coe_File">../../../../../../vga_map.coe</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Fill_Remaining_Memory_Locations">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Use_RSTA_Pin">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Load_Init_File">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Fill_Remaining_Memory_Locations">true</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Port_B_Clock">100</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Port_B_Write_Rate">50</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Port_B_Enable_Rate">100</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Collision_Warnings">NONE</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Disable_Collision_Warnings">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Disable_Out_of_Range_Warnings">true</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
@@ -469,34 +467,14 @@
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="dina"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>nu_nu_rangefinder_vga_0_ena</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="ena"/>
-        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="ena"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_wea</spirit:name>
         <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="wea"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="wea"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>blk_mem_gen_2_doutb</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="doutb"/>
-        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="x_vga"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>nu_nu_rangefinder_vga_0_enb</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="enb"/>
-        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="enb"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>nu_nu_rangefinder_vga_0_clk_25M1</spirit:name>
         <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="clk_25M"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="clkb"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>nu_nu_rangefinder_vga_0_rgb</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="rgb"/>
-        <spirit:externalPortReference spirit:portRef="rgb"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>button_1</spirit:name>
@@ -572,6 +550,21 @@
         <spirit:name>FIFO_DATA_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="FIFO_DATA"/>
         <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="FIFO_DATA"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>custom_logic_rgb</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="rgb"/>
+        <spirit:externalPortReference spirit:portRef="rgb"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>blk_mem_gen_2_doutb</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="doutb"/>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="x_vga"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>custom_logic_ena</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="custom_logic" spirit:portRef="ena"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2" spirit:portRef="ena"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>

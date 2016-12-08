@@ -223,20 +223,24 @@ CONFIG.use_bram_block {Stand_Alone} \
   set blk_mem_gen_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.3 blk_mem_gen_2 ]
   set_property -dict [ list \
 CONFIG.Byte_Size {9} \
-CONFIG.Coe_File {../../../../../../vga_map.coe} \
+CONFIG.Coe_File {no_coe_file_loaded} \
+CONFIG.Collision_Warnings {NONE} \
+CONFIG.Disable_Collision_Warnings {true} \
+CONFIG.Disable_Out_of_Range_Warnings {true} \
 CONFIG.Enable_32bit_Address {false} \
-CONFIG.Enable_B {Use_ENB_Pin} \
-CONFIG.Fill_Remaining_Memory_Locations {false} \
-CONFIG.Load_Init_File {true} \
-CONFIG.Memory_Type {True_Dual_Port_RAM} \
+CONFIG.Enable_A {Use_ENA_Pin} \
+CONFIG.Enable_B {Always_Enabled} \
+CONFIG.Fill_Remaining_Memory_Locations {true} \
+CONFIG.Load_Init_File {false} \
+CONFIG.Memory_Type {Simple_Dual_Port_RAM} \
 CONFIG.Operating_Mode_A {WRITE_FIRST} \
-CONFIG.Operating_Mode_B {READ_FIRST} \
+CONFIG.Operating_Mode_B {WRITE_FIRST} \
 CONFIG.Port_B_Clock {100} \
 CONFIG.Port_B_Enable_Rate {100} \
-CONFIG.Port_B_Write_Rate {50} \
+CONFIG.Port_B_Write_Rate {0} \
 CONFIG.Read_Width_A {8} \
 CONFIG.Read_Width_B {8} \
-CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
+CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
 CONFIG.Register_PortB_Output_of_Memory_Primitives {true} \
 CONFIG.Use_Byte_Write_Enable {false} \
 CONFIG.Use_RSTA_Pin {false} \
@@ -1529,17 +1533,16 @@ CONFIG.NUM_MI {1} \
   connect_bd_net -net custom_logic_cam_reset [get_bd_ports cam_reset] [get_bd_pins custom_logic/cam_reset]
   connect_bd_net -net custom_logic_cam_sysclk [get_bd_ports cam_sysclk] [get_bd_pins custom_logic/cam_sysclk]
   connect_bd_net -net custom_logic_cam_trigger [get_bd_ports cam_trigger] [get_bd_pins custom_logic/cam_trigger]
+  connect_bd_net -net custom_logic_ena [get_bd_pins blk_mem_gen_2/ena] [get_bd_pins custom_logic/ena]
+  connect_bd_net -net custom_logic_rgb [get_bd_ports rgb] [get_bd_pins custom_logic/rgb]
   connect_bd_net -net fpga_clk_1 [get_bd_ports fpga_clk] [get_bd_pins custom_logic/fpga_clk]
   connect_bd_net -net nu_nu_rangefinder_vga_0_addra1 [get_bd_pins blk_mem_gen_0/addra] [get_bd_pins custom_logic/addra1]
   connect_bd_net -net nu_nu_rangefinder_vga_0_addra2 [get_bd_pins blk_mem_gen_1/addra] [get_bd_pins custom_logic/addra2]
   connect_bd_net -net nu_nu_rangefinder_vga_0_clk_100M3 [get_bd_pins blk_mem_gen_0/clka] [get_bd_pins blk_mem_gen_1/clka] [get_bd_pins blk_mem_gen_2/clka] [get_bd_pins custom_logic/clk_100M]
   connect_bd_net -net nu_nu_rangefinder_vga_0_clk_25M1 [get_bd_pins blk_mem_gen_2/clkb] [get_bd_pins custom_logic/clk_25M]
   connect_bd_net -net nu_nu_rangefinder_vga_0_dina [get_bd_pins blk_mem_gen_2/dina] [get_bd_pins custom_logic/dina]
-  connect_bd_net -net nu_nu_rangefinder_vga_0_ena [get_bd_pins blk_mem_gen_2/ena] [get_bd_pins custom_logic/ena]
-  connect_bd_net -net nu_nu_rangefinder_vga_0_enb [get_bd_pins blk_mem_gen_2/enb] [get_bd_pins custom_logic/enb]
   connect_bd_net -net nu_nu_rangefinder_vga_0_hsync [get_bd_ports hsync] [get_bd_pins custom_logic/hsync]
   connect_bd_net -net nu_nu_rangefinder_vga_0_leds [get_bd_ports leds] [get_bd_pins custom_logic/leds]
-  connect_bd_net -net nu_nu_rangefinder_vga_0_rgb [get_bd_ports rgb] [get_bd_pins custom_logic/rgb]
   connect_bd_net -net nu_nu_rangefinder_vga_0_vga_raddr [get_bd_pins blk_mem_gen_2/addrb] [get_bd_pins custom_logic/vga_raddr]
   connect_bd_net -net nu_nu_rangefinder_vga_0_vga_waddr [get_bd_pins blk_mem_gen_2/addra] [get_bd_pins custom_logic/vga_waddr]
   connect_bd_net -net nu_nu_rangefinder_vga_0_vsync [get_bd_ports vsync] [get_bd_pins custom_logic/vsync]
@@ -1559,12 +1562,12 @@ CONFIG.NUM_MI {1} \
    guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
 preplace port cam_trigger -pg 1 -y 520 -defaultsOSRD
-preplace port fpga_clk -pg 1 -y 290 -defaultsOSRD
+preplace port fpga_clk -pg 1 -y 260 -defaultsOSRD
 preplace port vsync -pg 1 -y 440 -defaultsOSRD
 preplace port DDR -pg 1 -y 330 -defaultsOSRD
-preplace port button -pg 1 -y 230 -defaultsOSRD
+preplace port button -pg 1 -y 240 -defaultsOSRD
 preplace port hsync -pg 1 -y 420 -defaultsOSRD
-preplace port cam_rst -pg 1 -y 250 -defaultsOSRD
+preplace port cam_rst -pg 1 -y 720 -defaultsOSRD
 preplace port FIFO_OE1 -pg 1 -y 540 -defaultsOSRD
 preplace port cam_reset -pg 1 -y 500 -defaultsOSRD
 preplace port FIFO_RCK -pg 1 -y 620 -defaultsOSRD
@@ -1573,58 +1576,57 @@ preplace port cam_sysclk -pg 1 -y 480 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -y 350 -defaultsOSRD
 preplace port FIFO_RRST1 -pg 1 -y 560 -defaultsOSRD
 preplace port FIFO_RRST2 -pg 1 -y 600 -defaultsOSRD
-preplace port reset -pg 1 -y 310 -defaultsOSRD
-preplace portBus sw -pg 1 -y 270 -defaultsOSRD
-preplace portBus FIFO_DATA -pg 1 -y 710 -defaultsOSRD
+preplace port reset -pg 1 -y 280 -defaultsOSRD
+preplace portBus sw -pg 1 -y 300 -defaultsOSRD
+preplace portBus FIFO_DATA -pg 1 -y 700 -defaultsOSRD
 preplace portBus rgb -pg 1 -y 460 -defaultsOSRD
 preplace portBus leds -pg 1 -y 400 -defaultsOSRD
 preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 620 -defaultsOSRD
 preplace inst custom_logic -pg 1 -lvl 3 -y 610 -defaultsOSRD
-preplace inst blk_mem_gen_0 -pg 1 -lvl 4 -y 80 -defaultsOSRD
-preplace inst blk_mem_gen_1 -pg 1 -lvl 4 -y 240 -defaultsOSRD
-preplace inst blk_mem_gen_2 -pg 1 -lvl 4 -y 780 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 4 -y 240 -defaultsOSRD
+preplace inst blk_mem_gen_1 -pg 1 -lvl 4 -y 80 -defaultsOSRD
+preplace inst blk_mem_gen_2 -pg 1 -lvl 4 -y 770 -defaultsOSRD
 preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 500 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -y 400 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 1 4 NJ 330 NJ 330 NJ 330 NJ
 preplace netloc custom_logic_FIFO_RCK 1 3 2 NJ 620 NJ
 preplace netloc custom_logic_cam_reset 1 3 2 NJ 500 NJ
-preplace netloc nu_nu_rangefinder_vga_0_rgb 1 3 2 NJ 460 NJ
-preplace netloc nu_nu_rangefinder_vga_0_dina 1 3 1 1090
+preplace netloc nu_nu_rangefinder_vga_0_dina 1 3 1 1110
 preplace netloc nu_nu_rangefinder_vga_0_vsync 1 3 2 NJ 440 NJ
-preplace netloc blk_mem_gen_1_douta 1 2 2 780 260 NJ
+preplace netloc blk_mem_gen_1_douta 1 2 2 800 100 NJ
 preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 N
 preplace netloc custom_logic_cam_trigger 1 3 2 NJ 520 NJ
 preplace netloc nu_nu_rangefinder_vga_0_hsync 1 3 2 NJ 420 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 420
-preplace netloc nu_nu_rangefinder_vga_0_vga_raddr 1 3 1 1060
-preplace netloc FIFO_DATA_1 1 0 3 NJ 530 NJ 620 NJ
-preplace netloc nu_nu_rangefinder_vga_0_clk_25M1 1 3 1 1050
-preplace netloc blk_mem_gen_2_doutb 1 2 2 780 870 NJ
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 10 520 390
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 440
+preplace netloc nu_nu_rangefinder_vga_0_vga_raddr 1 3 1 1080
+preplace netloc blk_mem_gen_2_doutb 1 2 2 810 870 NJ
+preplace netloc FIFO_DATA_1 1 0 3 NJ 710 NJ 710 NJ
+preplace netloc nu_nu_rangefinder_vga_0_clk_25M1 1 3 1 1070
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 520 410
 preplace netloc custom_logic_FIFO_RRST1 1 3 2 NJ 560 NJ
 preplace netloc custom_logic_cam_sysclk 1 3 2 NJ 480 NJ
+preplace netloc custom_logic_rgb 1 3 2 NJ 460 NJ
 preplace netloc custom_logic_FIFO_RRST2 1 3 2 NJ 600 NJ
 preplace netloc custom_logic_FIFO_OE1 1 3 2 NJ 540 NJ
-preplace netloc fpga_clk_1 1 0 3 NJ 250 NJ 250 NJ
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 420 660 720
+preplace netloc fpga_clk_1 1 0 3 NJ 240 NJ 240 NJ
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 440 660 760
 preplace netloc custom_logic_FIFO_OE2 1 3 2 NJ 580 NJ
-preplace netloc nu_nu_rangefinder_vga_0_addra1 1 3 1 1080
+preplace netloc nu_nu_rangefinder_vga_0_addra1 1 3 1 1110
 preplace netloc processing_system7_0_FIXED_IO 1 1 4 NJ 350 NJ 350 NJ 350 NJ
 preplace netloc nu_nu_rangefinder_vga_0_vga_waddr 1 3 1 N
-preplace netloc nu_nu_rangefinder_vga_0_clk_100M3 1 3 1 1100
-preplace netloc nu_nu_rangefinder_vga_0_addra2 1 3 1 1090
-preplace netloc nu_nu_rangefinder_vga_0_wea 1 3 1 1070
-preplace netloc nu_nu_rangefinder_vga_0_ena 1 3 1 1080
-preplace netloc blk_mem_gen_0_douta 1 2 2 770 100 NJ
+preplace netloc nu_nu_rangefinder_vga_0_clk_100M3 1 3 1 1120
+preplace netloc nu_nu_rangefinder_vga_0_addra2 1 3 1 1100
+preplace netloc nu_nu_rangefinder_vga_0_wea 1 3 1 1090
+preplace netloc blk_mem_gen_0_douta 1 2 2 810 260 NJ
 preplace netloc sw_1 1 0 3 NJ 260 NJ 260 NJ
-preplace netloc nu_nu_rangefinder_vga_0_enb 1 3 1 1040
-preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 400
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 0 280 410 630 750
+preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 420
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 280 430 630 780
+preplace netloc custom_logic_ena 1 3 1 1100
 preplace netloc nu_nu_rangefinder_vga_0_leds 1 3 2 NJ 400 NJ
-preplace netloc button_1 1 0 3 NJ 220 NJ 220 NJ
-preplace netloc reset_1 1 0 3 NJ 270 NJ 270 NJ
-preplace netloc cam_rst_1 1 0 3 NJ 240 NJ 240 NJ
-levelinfo -pg 1 -60 200 570 910 1210 1330 -top 0 -bot 930
+preplace netloc button_1 1 0 3 NJ 230 NJ 230 NJ
+preplace netloc reset_1 1 0 3 NJ 250 NJ 250 NJ
+preplace netloc cam_rst_1 1 0 3 NJ 530 NJ 620 NJ
+levelinfo -pg 1 -40 220 610 940 1220 1340 -top 0 -bot 910
 ",
 }
 
