@@ -175,7 +175,7 @@ module mqp_top
         
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VGA Logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Assign LED outputs for debug based on output mode
-    assign leds = (sw[0]) ? {result_addr[3:0],dina[3:0]} : x_vga[7:0];
+    assign leds = (sw[0]) ? {result_wen,trig_db,buffer_ready,current_state[2:0],sw[1:0]} : x_vga[7:0];
     
     // VGA output
     wire [10:0] hcount, vcount; // horizontal, vertical location on screen
@@ -231,16 +231,16 @@ module mqp_top
             begin
                 // center 384x288 output in the middle of the screen
                 if(~sw[1] && hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384)
-                    rgb = x_vga;
+                    rgb = {x_vga,4'h8};
                 // show single line disparity output
                 else if(sw[1] && hcount >= 128 && hcount < 512)
                     if(vcount == 265-lineout)
                         rgb = {4'h8,lineout};
                     else
                         rgb = 12'h000;
-                // pad screen areas outside the active image
+                // pad screen areas outside the active image black
                 else
-                    rgb = 12'hF00;
+                    rgb = 12'h000;
             end
             endcase
     end

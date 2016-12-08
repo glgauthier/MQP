@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:custom_logic:1.0
-// IP Revision: 14
+// IP Revision: 16
 
 (* X_CORE_INFO = "custom_logic_v1_0,Vivado 2016.2" *)
 (* CHECK_LICENSE_TYPE = "design_1_nu_nu_rangefinder_vga_0_0,custom_logic_v1_0,{}" *)
-(* CORE_GENERATION_INFO = "design_1_nu_nu_rangefinder_vga_0_0,custom_logic_v1_0,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=custom_logic,x_ipVersion=1.0,x_ipCoreRevision=14,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
+(* CORE_GENERATION_INFO = "design_1_nu_nu_rangefinder_vga_0_0,custom_logic_v1_0,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=custom_logic,x_ipVersion=1.0,x_ipCoreRevision=16,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_nu_nu_rangefinder_vga_0_0 (
   fpga_clk,
