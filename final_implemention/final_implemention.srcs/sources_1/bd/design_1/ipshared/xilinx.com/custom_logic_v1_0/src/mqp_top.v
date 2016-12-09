@@ -217,8 +217,8 @@ module mqp_top
     begin
         if(blank)
             rgb = 12'h000;
-        else case(sw[0])
-            1'b0: // rangefinder output
+        else case(sw[7:0])
+            8'h00: // rangefinder output
             begin
                 if ((hcount >= device_x-1 && hcount <= device_x+1) && (vcount >= device_y-1 && vcount <= device_y+1))
                     rgb = 12'hF00;
@@ -227,20 +227,39 @@ module mqp_top
                 else
                     rgb = 12'hFFF;
             end
-            1'b1: // disparity/camera output
+            8'h01: // full disparity output
             begin
                 // center 384x288 output in the middle of the screen
-                if(~sw[1] && hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384)
+                if(hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384)
                     rgb = {x_vga,4'h8};
-                // show single line disparity output
-                else if(sw[1] && hcount >= 128 && hcount < 512)
+                // pad screen areas outside the active image black
+                else
+                    rgb = 12'h000;
+            end
+            8'h02: // single line disparity output
+            begin
+                if(hcount >= 128 && hcount < 512)
                     if(vcount == 265-lineout)
                         rgb = {4'h8,lineout};
                     else
                         rgb = 12'h000;
-                // pad screen areas outside the active image black
+            end
+            default: // combined disparity + rangefinder output
+            begin
+                // central point representing rangefinder location
+                if ((hcount >= device_x-1 && hcount <= device_x+1) && (vcount >= device_y-1 && vcount <= device_y+1))
+                    rgb = 12'hF00;
+                // point from rangefinder data (with or without disparity overlap)
+                else if(x_vga == 8'hFF)
+                    if(hcount >= 128 && hcount < 512 && vcount == 265-lineout)
+                        rgb = {4'h0,lineout};
+                    else
+                        rgb = 12'h000;
+                // point from disparity data without rangefinder overlap
+                else if(hcount >= 128 && hcount < 512 && vcount == 265-lineout)
+                    rgb = {4'h0,lineout};
                 else
-                    rgb = 12'h000;
+                    rgb = 12'hFFF;
             end
             endcase
     end

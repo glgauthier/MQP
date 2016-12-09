@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Thu Dec 08 16:29:48 2016
+| Date             : Fri Dec 09 16:54:50 2016
 | Host             : Georges-T460p running 64-bit major release  (build 9200)
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -31,7 +31,7 @@ Table of Contents
 
 +--------------------------+-------+
 | Total On-Chip Power (W)  | 1.852 |
-| Dynamic (W)              | 1.678 |
+| Dynamic (W)              | 1.677 |
 | Device Static (W)        | 0.174 |
 | Effective TJA (C/W)      | 11.5  |
 | Max Ambient (C)          | 63.6  |
@@ -50,19 +50,19 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.012 |       15 |       --- |             --- |
-| Slice Logic              |     0.009 |     4928 |       --- |             --- |
-|   LUT as Logic           |     0.008 |     2117 |     53200 |            3.98 |
+| Slice Logic              |     0.009 |     4947 |       --- |             --- |
+|   LUT as Logic           |     0.008 |     2132 |     53200 |            4.01 |
 |   LUT as Distributed RAM |    <0.001 |      240 |     17400 |            1.38 |
 |   CARRY4                 |    <0.001 |      124 |     13300 |            0.93 |
-|   Register               |    <0.001 |     1242 |    106400 |            1.17 |
-|   F7/F8 Muxes            |    <0.001 |      203 |     53200 |            0.38 |
+|   Register               |    <0.001 |     1254 |    106400 |            1.18 |
+|   F7/F8 Muxes            |    <0.001 |      200 |     53200 |            0.38 |
 |   LUT as Shift Register  |    <0.001 |       68 |     17400 |            0.39 |
-|   Others                 |     0.000 |      472 |       --- |             --- |
-| Signals                  |     0.023 |     4625 |       --- |             --- |
+|   Others                 |     0.000 |      473 |       --- |             --- |
+| Signals                  |     0.022 |     4654 |       --- |             --- |
 | Block RAM                |     0.004 |      130 |       140 |           92.86 |
 | MMCM                     |     0.085 |        1 |         4 |           25.00 |
 | DSPs                     |     0.005 |        8 |       220 |            3.64 |
-| I/O                      |     0.008 |       44 |       200 |           22.00 |
+| I/O                      |     0.008 |       50 |       200 |           25.00 |
 | PS7                      |     1.532 |        1 |       --- |             --- |
 | Static Power             |     0.174 |          |           |                 |
 | Total                    |     1.852 |          |           |                 |
@@ -163,8 +163,8 @@ Table of Contents
 +--------------------------------------------------------+-----------+
 | Name                                                   | Power (W) |
 +--------------------------------------------------------+-----------+
-| design_1_wrapper                                       |     1.678 |
-|   design_1_i                                           |     1.670 |
+| design_1_wrapper                                       |     1.677 |
+|   design_1_i                                           |     1.669 |
 |     blk_mem_gen_0                                      |    <0.001 |
 |       U0                                               |    <0.001 |
 |         inst_blk_mem_gen                               |    <0.001 |
@@ -339,7 +339,7 @@ Table of Contents
 |       inst                                             |     0.122 |
 |         custom_logic_v1_0_S00_AXI_inst                 |     0.001 |
 |         mqp_top                                        |     0.121 |
-|           camctl                                       |     0.009 |
+|           camctl                                       |     0.010 |
 |             left                                       |     0.004 |
 |               U0                                       |     0.004 |
 |                 inst_blk_mem_gen                       |     0.004 |
@@ -402,11 +402,11 @@ Table of Contents
 |                         prim_noinit.ram                |    <0.001 |
 |                       ramloop[9].ram.r                 |    <0.001 |
 |                         prim_noinit.ram                |    <0.001 |
-|             right                                      |     0.004 |
-|               U0                                       |     0.004 |
-|                 inst_blk_mem_gen                       |     0.004 |
-|                   gnbram.gnativebmg.native_blk_mem_gen |     0.004 |
-|                     valid.cstr                         |     0.004 |
+|             right                                      |     0.005 |
+|               U0                                       |     0.005 |
+|                 inst_blk_mem_gen                       |     0.005 |
+|                   gnbram.gnativebmg.native_blk_mem_gen |     0.005 |
+|                     valid.cstr                         |     0.005 |
 |                       bindec_a.bindec_inst_a           |    <0.001 |
 |                       bindec_b.bindec_inst_b           |    <0.001 |
 |                       has_mux_b.B                      |     0.002 |
