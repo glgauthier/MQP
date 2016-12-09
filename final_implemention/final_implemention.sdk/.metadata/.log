@@ -1,67 +1,37 @@
-!SESSION 2016-11-20 21:34:44.844 -----------------------------------------------
+!SESSION 2016-12-08 21:08:26.987 -----------------------------------------------
 eclipse.buildId=2016.2
 java.version=1.8.0_66
 java.vendor=Oracle Corporation
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk
 
-!ENTRY com.xilinx.sdk.debug.core 4 0 2016-11-20 21:34:48.330
-!MESSAGE FrameworkEvent ERROR
-!STACK 0
-org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.debug.core [388]
-  Another singleton bundle selected: osgi.identity; osgi.identity="com.xilinx.sdk.debug.core"; type="osgi.bundle"; version:Version="1.0.0.201606022303"; singleton:="true"
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:34.359
+!MESSAGE XSDB Command: [::hsi::utils::init_repo], Thread: Worker-2
 
-	at org.eclipse.osgi.container.Module.start(Module.java:434)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
-	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:34.563
+!MESSAGE XSDB command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-2
 
-!ENTRY com.xilinx.sdk.debug.ui 4 0 2016-11-20 21:34:48.330
-!MESSAGE FrameworkEvent ERROR
-!STACK 0
-org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.debug.ui [389]
-  Another singleton bundle selected: osgi.identity; osgi.identity="com.xilinx.sdk.debug.ui"; type="osgi.bundle"; version:Version="1.0.0.201606022303"; singleton:="true"
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:36.098
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-5
 
-	at org.eclipse.osgi.container.Module.start(Module.java:434)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
-	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:38.903
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: Worker-5
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:31.438
-!MESSAGE XSDB Command: [::hsi::utils::init_repo], Thread: Worker-7
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:38.930
+!MESSAGE XSDB Command: [::hsi::utils::get_design_properties -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-5
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:32.221
-!MESSAGE XSDB command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-7
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:32.371
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-3
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:40.773
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: Worker-3
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:40.855
-!MESSAGE XSDB Command: [::hsi::utils::get_design_properties -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-3
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:40.875
-!MESSAGE XSDB command with result: [::hsi::utils::get_design_properties -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"device": "7z020",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:38.942
+!MESSAGE XSDB command with result: [::hsi::utils::get_design_properties -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"device": "7z020",
 "family": "zynq",
-"timestamp": "Sun Nov 20 21:06:53 2016",
+"timestamp": "Thu Dec 08 16:18:40 2016",
 "vivado_version": "2016.2",
-}]. Thread: Worker-3
+}]. Thread: Worker-5
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:40.885
-!MESSAGE XSDB Command: [::hsi::utils::get_all_periphs -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-3
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:38.952
+!MESSAGE XSDB Command: [::hsi::utils::get_all_periphs -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-5
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:40.905
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_periphs -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"blk_mem_gen_0": {"hier_name": "blk_mem_gen_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:38.976
+!MESSAGE XSDB command with result: [::hsi::utils::get_all_periphs -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"blk_mem_gen_0": {"hier_name": "blk_mem_gen_0",
 "type": "blk_mem_gen",
 "version": "8.3",
 "ip_type": "MEMORY",
@@ -76,8 +46,8 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "version": "8.3",
 "ip_type": "MEMORY",
 },
-"nu_nu_rangefinder_vga_0": {"hier_name": "nu_nu_rangefinder_vga_0",
-"type": "nu_nu_rangefinder_vga",
+"custom_logic": {"hier_name": "custom_logic",
+"type": "custom_logic",
 "version": "1.0",
 "ip_type": "PERIPHERAL",
 },
@@ -101,7 +71,7 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "version": "1.00.a",
 "ip_type": "PERIPHERAL",
 },
-"ps7_uart_1": {"hier_name": "ps7_uart_1",
+"ps7_uart_0": {"hier_name": "ps7_uart_0",
 "type": "ps7_uart",
 "version": "1.00.a",
 "ip_type": "PERIPHERAL",
@@ -145,6 +115,11 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "type": "ps7_ddr",
 "version": "1.00.a",
 "ip_type": "MEMORY_CNTLR",
+},
+"ps7_i2c_0": {"hier_name": "ps7_i2c_0",
+"type": "ps7_i2c",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
 },
 "ps7_ttc_0": {"hier_name": "ps7_ttc_0",
 "type": "ps7_ttc",
@@ -276,13 +251,13 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "version": "1.00.a",
 "ip_type": "PERIPHERAL",
 },
-}]. Thread: Worker-3
+}]. Thread: Worker-5
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:44.977
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:39.086
+!MESSAGE XSDB Command: [::hsi::utils::get_addr_ranges -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:45.017
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"nu_nu_rangefinder_vga_0_S00_AXI": {"name": "nu_nu_rangefinder_vga_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:39.101
+!MESSAGE XSDB command with result: [::hsi::utils::get_addr_ranges -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"custom_logic_S00_AXI": {"name": "custom_logic",
 "base": "0x43C00000",
 "high": "0x43C0FFFF",
 "size": "65536",
@@ -382,6 +357,14 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "base": "0xF8900000",
 "high": "0xF89FFFFF",
 "size": "1048576",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+},
+"ps7_i2c_0": {"name": "ps7_i2c_0",
+"base": "0xE0004000",
+"high": "0xE0004FFF",
+"size": "4096",
 "slaveintf": "",
 "type": "REGISTER",
 "flags": "3",
@@ -490,9 +473,9 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "type": "REGISTER",
 "flags": "3",
 },
-"ps7_uart_1": {"name": "ps7_uart_1",
-"base": "0xE0001000",
-"high": "0xE0001FFF",
+"ps7_uart_0": {"name": "ps7_uart_0",
+"base": "0xE0000000",
+"high": "0xE0000FFF",
 "size": "4096",
 "slaveintf": "",
 "type": "REGISTER",
@@ -540,11 +523,11 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:45.117
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:39.164
+!MESSAGE XSDB Command: [::hsi::utils::get_addr_ranges -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:45.147
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"nu_nu_rangefinder_vga_0_S00_AXI": {"name": "nu_nu_rangefinder_vga_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:39.179
+!MESSAGE XSDB command with result: [::hsi::utils::get_addr_ranges -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"custom_logic_S00_AXI": {"name": "custom_logic",
 "base": "0x43C00000",
 "high": "0x43C0FFFF",
 "size": "65536",
@@ -644,6 +627,14 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "base": "0xF8900000",
 "high": "0xF89FFFFF",
 "size": "1048576",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+},
+"ps7_i2c_0": {"name": "ps7_i2c_0",
+"base": "0xE0004000",
+"high": "0xE0004FFF",
+"size": "4096",
 "slaveintf": "",
 "type": "REGISTER",
 "flags": "3",
@@ -752,9 +743,9 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "type": "REGISTER",
 "flags": "3",
 },
-"ps7_uart_1": {"name": "ps7_uart_1",
-"base": "0xE0001000",
-"high": "0xE0001FFF",
+"ps7_uart_0": {"name": "ps7_uart_0",
+"base": "0xE0000000",
+"high": "0xE0000FFF",
 "size": "4096",
 "slaveintf": "",
 "type": "REGISTER",
@@ -802,11 +793,11 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:45.236
-!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:39.218
+!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:45.248
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"nu_nu_rangefinder_vga_0": {},
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:39.228
+!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"custom_logic": {},
 "ps7_afi_0": {},
 "ps7_afi_1": {},
 "ps7_afi_2": {},
@@ -820,6 +811,7 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "ps7_globaltimer_0": {},
 "ps7_gpio_0": {},
 "ps7_gpv_0": {},
+"ps7_i2c_0": {},
 "ps7_intc_dist_0": {},
 "ps7_iop_bus_config_0": {},
 "ps7_l2cachec_0": {},
@@ -836,15 +828,15 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "ps7_scuwdt_0": {},
 "ps7_slcr_0": {},
 "ps7_ttc_0": {},
-"ps7_uart_1": {},
+"ps7_uart_0": {},
 "ps7_xadc_0": {},
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:45.249
-!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:39.232
+!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:35:45.264
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"nu_nu_rangefinder_vga_0": {},
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:39.240
+!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"custom_logic": {},
 "ps7_afi_0": {},
 "ps7_afi_1": {},
 "ps7_afi_2": {},
@@ -858,6 +850,7 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "ps7_globaltimer_0": {},
 "ps7_gpio_0": {},
 "ps7_gpv_0": {},
+"ps7_i2c_0": {},
 "ps7_intc_dist_0": {},
 "ps7_iop_bus_config_0": {},
 "ps7_l2cachec_0": {},
@@ -874,15 +867,15 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 "ps7_scuwdt_0": {},
 "ps7_slcr_0": {},
 "ps7_ttc_0": {},
-"ps7_uart_1": {},
+"ps7_uart_0": {},
 "ps7_xadc_0": {},
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.120
-!MESSAGE XSDB Command: [hsi::utils::get_supported_os -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.483
+!MESSAGE XSDB Command: [hsi::utils::get_supported_os -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.163
-!MESSAGE XSDB command with result: [hsi::utils::get_supported_os -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"ps7_cortexa9_0": {"freertos823_xilinx_v1_1": {"name": "freertos823_xilinx",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.496
+!MESSAGE XSDB command with result: [hsi::utils::get_supported_os -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"ps7_cortexa9_0": {"freertos823_xilinx_v1_1": {"name": "freertos823_xilinx",
 "version": "1.1",
 "desc": "FreeRTOS is a market leading open source RTOS",
 "compilerflags": "",
@@ -914,34 +907,34 @@ org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.deb
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.202
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.511
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.202
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.525
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.212
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.545
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.222
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.556
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.222
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.565
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.222
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.576
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.232
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.601
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.242
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.612
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.242
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.621
 !MESSAGE XSDB Command: [::hsi::utils::get_all_app_details -json], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.343
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.714
 !MESSAGE XSDB command with result: [::hsi::utils::get_all_app_details -json], Result: [null, {"dhrystone": {"userdefname": "Dhrystone",
 "description": "Dhrystone synthetic benchmark program.",
 "supp_proc": "microblaze ps7_cortexa9",
@@ -1104,168 +1097,168 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.354
-!MESSAGE XSDB Command: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.727
+!MESSAGE XSDB Command: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.516
-!MESSAGE XSDB command with result: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Result: [null, 1]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.764
+!MESSAGE XSDB command with result: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Result: [null, 1]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.519
-!MESSAGE XSDB Command: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.769
+!MESSAGE XSDB Command: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:56.566
-!MESSAGE XSDB command with result: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Result: [null, 1]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:50.800
+!MESSAGE XSDB command with result: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Result: [null, 1]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:58.852
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:54.446
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:58.862
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:54.460
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:58.912
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:54.534
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:58.922
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:54.549
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.062
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:54.645
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.072
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:54.651
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.162
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:54.723
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.182
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:54.731
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.234
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:54.843
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.254
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:54.857
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.576
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:55.124
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.596
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:55.139
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.716
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:55.257
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.726
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:55.271
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.786
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:55.379
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.786
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:55.394
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.906
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:55.463
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:37:59.916
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:55.477
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:00.086
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:55.779
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:00.096
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:55.794
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:00.226
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:56.135
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:00.236
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:56.150
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:01.528
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:56.235
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:01.548
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:56.250
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:01.960
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:56.485
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:01.970
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:56.499
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:02.060
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:56.860
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:02.070
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:56.874
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:02.140
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:56.962
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:02.150
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:56.976
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:02.280
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:57.163
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:02.290
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:57.178
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:12.955
-!MESSAGE XSDB Command: [::hsi::utils::write_sw_mss -hw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf -sw rangefinder_test_bsp -dir C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp -processor ps7_cortexa9_0 -os standalone -app hello_world], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:58.060
+!MESSAGE XSDB Command: [::hsi::utils::write_sw_mss -hw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf -sw finalimp_bsp -dir C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp -processor ps7_cortexa9_0 -os standalone -app hello_world], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:13.020
-!MESSAGE XSDB command with result: [::hsi::utils::write_sw_mss -hw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf -sw rangefinder_test_bsp -dir C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp -processor ps7_cortexa9_0 -os standalone -app hello_world], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:58.096
+!MESSAGE XSDB command with result: [::hsi::utils::write_sw_mss -hw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf -sw finalimp_bsp -dir C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp -processor ps7_cortexa9_0 -os standalone -app hello_world], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:13.396
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:58.493
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:13.408
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:58.508
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:13.409
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:58.519
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:13.416
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:58.536
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "5.5",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:13.419
-!MESSAGE XSDB Command: [::hsi::utils::generate_bsp_sources C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:08:58.548
+!MESSAGE XSDB Command: [::hsi::utils::generate_bsp_sources C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:29.244
-!MESSAGE XSDB command with result: [::hsi::utils::generate_bsp_sources C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:03.806
+!MESSAGE XSDB command with result: [::hsi::utils::generate_bsp_sources C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:30.589
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.286
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:30.597
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.291
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:30.598
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.294
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:30.609
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.300
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "5.5",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:30.655
-!MESSAGE XSDB Command: [::hsi::utils::get_connected_periphs C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.312
+!MESSAGE XSDB Command: [::hsi::utils::get_connected_periphs C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:30.655
-!MESSAGE XSDB command with result: [::hsi::utils::get_connected_periphs C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, nu_nu_rangefinder_vga_0 ps7_afi_0 ps7_afi_1 ps7_afi_2 ps7_afi_3 ps7_coresight_comp_0 ps7_ddr_0 ps7_ddrc_0 ps7_dev_cfg_0 ps7_dma_ns ps7_dma_s ps7_globaltimer_0 ps7_gpio_0 ps7_gpv_0 ps7_intc_dist_0 ps7_iop_bus_config_0 ps7_l2cachec_0 ps7_ocmc_0 ps7_pl310_0 ps7_pmu_0 ps7_qspi_0 ps7_qspi_linear_0 ps7_ram_0 ps7_ram_1 ps7_scuc_0 ps7_scugic_0 ps7_scutimer_0 ps7_scuwdt_0 ps7_slcr_0 ps7_ttc_0 ps7_uart_1 ps7_xadc_0]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.317
+!MESSAGE XSDB command with result: [::hsi::utils::get_connected_periphs C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, custom_logic ps7_afi_0 ps7_afi_1 ps7_afi_2 ps7_afi_3 ps7_coresight_comp_0 ps7_ddr_0 ps7_ddrc_0 ps7_dev_cfg_0 ps7_dma_ns ps7_dma_s ps7_globaltimer_0 ps7_gpio_0 ps7_gpv_0 ps7_i2c_0 ps7_intc_dist_0 ps7_iop_bus_config_0 ps7_l2cachec_0 ps7_ocmc_0 ps7_pl310_0 ps7_pmu_0 ps7_qspi_0 ps7_qspi_linear_0 ps7_ram_0 ps7_ram_1 ps7_scuc_0 ps7_scugic_0 ps7_scutimer_0 ps7_scuwdt_0 ps7_slcr_0 ps7_ttc_0 ps7_uart_0 ps7_xadc_0]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:30.655
-!MESSAGE XSDB Command: [::hsi::utils::get_drivers_for_sw -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.321
+!MESSAGE XSDB Command: [::hsi::utils::get_drivers_for_sw -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:30.675
-!MESSAGE XSDB command with result: [::hsi::utils::get_drivers_for_sw -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {"nu_nu_rangefinder_vga_0": {"name": "nu_nu_rangefinder_vga",
-"ver": "1.0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.331
+!MESSAGE XSDB command with result: [::hsi::utils::get_drivers_for_sw -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, {"custom_logic": {"name": "generic",
+"ver": "2.0",
 },
 "ps7_afi_0": {"name": "generic",
 "ver": "2.0",
@@ -1305,6 +1298,9 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 },
 "ps7_gpv_0": {"name": "generic",
 "ver": "2.0",
+},
+"ps7_i2c_0": {"name": "iicps",
+"ver": "3.2",
 },
 "ps7_intc_dist_0": {"name": "generic",
 "ver": "2.0",
@@ -1354,7 +1350,7 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 "ps7_ttc_0": {"name": "ttcps",
 "ver": "3.1",
 },
-"ps7_uart_1": {"name": "uartps",
+"ps7_uart_0": {"name": "uartps",
 "ver": "3.1",
 },
 "ps7_xadc_0": {"name": "xadcps",
@@ -1365,11 +1361,11 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:30.675
-!MESSAGE XSDB Command: [hsi::utils::get_drivers_for_hw -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.335
+!MESSAGE XSDB Command: [hsi::utils::get_drivers_for_hw -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:30.887
-!MESSAGE XSDB command with result: [hsi::utils::get_drivers_for_hw -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"blk_mem_gen_0": {"version": "8.3",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.419
+!MESSAGE XSDB command with result: [hsi::utils::get_drivers_for_hw -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"blk_mem_gen_0": {"version": "8.3",
 "driver_info": {"generic": {"name": "generic",
 "version": "2.0",
 "repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
@@ -1390,14 +1386,10 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 },
 },
 },
-"nu_nu_rangefinder_vga_0": {"version": "1.0",
+"custom_logic": {"version": "1.0",
 "driver_info": {"generic": {"name": "generic",
 "version": "2.0",
 "repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
-},
-"nu_nu_rangefinder_vga_v1_0": {"name": "nu_nu_rangefinder_vga",
-"version": "1.0",
-"repo": "C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/drivers/nu_nu_rangefinder_vga_v1_0",
 },
 },
 },
@@ -1429,7 +1421,7 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 },
 },
 },
-"ps7_uart_1": {"version": "1.00.a",
+"ps7_uart_0": {"version": "1.00.a",
 "driver_info": {"generic": {"name": "generic",
 "version": "2.0",
 "repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
@@ -1509,6 +1501,17 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 "ddrps_v1_0": {"name": "ddrps",
 "version": "1.0",
 "repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/ddrps_v1_0",
+},
+},
+},
+"ps7_i2c_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"iicps_v3_2": {"name": "iicps",
+"version": "3.2",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/iicps_v3_2",
 },
 },
 },
@@ -1736,124 +1739,124 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:31.674
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.477
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:31.680
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.482
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:31.683
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.486
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:31.693
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.492
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "5.5",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:31.704
-!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.505
+!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:31.711
-!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.511
+!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:31.815
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.564
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:31.991
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:04.569
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:34.929
-!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.198
+!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:34.939
-!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.206
+!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:34.949
-!MESSAGE XSDB Command: [::hsi::utils::get_sw_libs -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.210
+!MESSAGE XSDB Command: [::hsi::utils::get_sw_libs -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:34.949
-!MESSAGE XSDB command with result: [::hsi::utils::get_sw_libs -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {}]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.216
+!MESSAGE XSDB command with result: [::hsi::utils::get_sw_libs -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, {}]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:34.961
-!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.220
+!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:34.968
-!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.225
+!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:34.972
-!MESSAGE XSDB Command: [::hsi::utils::get_sw_libs -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.229
+!MESSAGE XSDB Command: [::hsi::utils::get_sw_libs -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:34.980
-!MESSAGE XSDB command with result: [::hsi::utils::get_sw_libs -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {}]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.235
+!MESSAGE XSDB command with result: [::hsi::utils::get_sw_libs -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, {}]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:34.987
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.239
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:34.991
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.244
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:35.071
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.280
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:35.088
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.288
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:35.090
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.292
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:35.099
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.297
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "5.5",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:35.101
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.301
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:35.108
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.306
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:35.110
-!MESSAGE XSDB Command: [::hsi::utils::opensw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.310
+!MESSAGE XSDB Command: [::hsi::utils::opensw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:35.116
-!MESSAGE XSDB command with result: [::hsi::utils::opensw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.315
+!MESSAGE XSDB command with result: [::hsi::utils::opensw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:35.118
-!MESSAGE XSDB Command: [::hsi::utils::generate_app_template -hw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf -sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss -app hello_world -processor ps7_cortexa9_0 -os standalone -dir C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test/src], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.319
+!MESSAGE XSDB Command: [::hsi::utils::generate_app_template -hw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf -sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss -app hello_world -processor ps7_cortexa9_0 -os standalone -dir C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp/src], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:35.375
-!MESSAGE XSDB command with result: [::hsi::utils::generate_app_template -hw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf -sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss -app hello_world -processor ps7_cortexa9_0 -os standalone -dir C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test/src], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.408
+!MESSAGE XSDB command with result: [::hsi::utils::generate_app_template -hw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf -sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss -app hello_world -processor ps7_cortexa9_0 -os standalone -dir C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp/src], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:36.872
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.840
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:36.884
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.846
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:36.888
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.851
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:36.912
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.857
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "5.5",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:36.924
-!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.864
+!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:36.934
-!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.871
+!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:37.015
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.914
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 21:38:37.021
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:09:05.919
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:37.379
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.212
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1880,10 +1883,7 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY org.eclipse.cdt.core 1 0 2016-11-20 21:38:40.779
-!MESSAGE Indexed 'rangefinder_test' (2 sources, 35 headers) in 3.41 sec: 1,220 declarations; 1,956 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:41.053
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.282
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1894,7 +1894,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:41.083
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.294
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1905,7 +1905,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:41.425
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.362
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1916,7 +1916,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:41.445
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.373
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1927,7 +1927,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:41.537
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.443
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1938,7 +1938,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:41.547
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.454
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1949,7 +1949,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:41.670
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.521
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1960,7 +1960,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:41.689
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.529
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1971,7 +1971,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:41.859
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.616
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1982,7 +1982,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:41.891
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.628
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1993,7 +1993,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:42.001
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.718
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2004,7 +2004,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:42.021
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.729
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2015,7 +2015,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:42.123
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.816
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2026,7 +2026,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:42.147
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.828
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2037,7 +2037,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:42.225
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.934
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2048,7 +2048,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:42.235
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:06.946
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2059,7 +2059,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:45.395
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.042
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2070,7 +2070,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:45.405
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.052
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2081,7 +2081,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:45.495
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.135
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2092,7 +2092,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:45.535
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.148
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2103,7 +2103,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:45.657
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.249
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2114,7 +2114,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:45.667
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.262
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2125,7 +2125,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:45.769
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.345
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2136,7 +2136,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:45.779
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.357
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2147,7 +2147,10 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:46.415
+!ENTRY org.eclipse.cdt.core 1 0 2016-12-08 21:09:07.559
+!MESSAGE Indexed 'finalimp_bsp' (107 sources, 63 headers) in 1.51 sec: 3,482 declarations; 21,301 references; 45 unresolved inclusions; 3 syntax errors; 51 unresolved names (0.21%)
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.712
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2158,7 +2161,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:46.415
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.722
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2168,8 +2171,11 @@ java.lang.NullPointerException
 	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-12-08 21:09:07.803
+!MESSAGE Indexed 'finalimp' (2 sources, 35 headers) in 0.201 sec: 1,220 declarations; 1,956 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:46.507
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.809
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2180,7 +2186,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:46.517
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.820
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2191,7 +2197,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:46.857
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.906
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2202,7 +2208,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:46.877
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.914
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2213,7 +2219,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:47.047
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.975
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2224,7 +2230,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:47.077
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:07.981
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2235,7 +2241,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:47.139
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:08.018
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2246,7 +2252,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:48.469
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:08.118
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2257,7 +2263,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:48.629
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:08.152
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2268,7 +2274,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:48.639
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:08.158
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2279,7 +2285,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:48.699
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:08.189
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2290,7 +2296,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:48.739
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:08.212
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2301,7 +2307,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:48.759
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:08.219
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2312,7 +2318,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:48.859
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:08.262
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2323,7 +2329,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:48.967
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:08.306
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2334,7 +2340,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:48.998
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:08.315
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2345,7 +2351,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:49.068
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:08.355
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2356,7 +2362,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:50.457
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:09.078
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2367,7 +2373,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:50.467
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:09.085
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2378,7 +2384,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:50.527
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:09.117
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2389,7 +2395,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:51.851
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:09.911
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2400,7 +2406,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:51.879
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:09.919
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2411,7 +2417,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:51.933
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:10.009
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2422,7 +2428,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:53.349
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:11.094
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2433,7 +2439,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:53.369
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:11.118
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2444,7 +2450,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:53.429
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:11.206
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2455,7 +2461,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:53.773
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:12.590
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2466,7 +2472,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:53.793
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:12.604
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2477,7 +2483,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:53.863
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:12.684
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2488,7 +2494,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:55.321
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:13.638
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2499,7 +2505,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:55.334
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:13.646
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2510,7 +2516,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:55.411
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:13.687
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2521,7 +2527,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:56.581
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:14.494
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2532,7 +2538,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:56.591
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:14.510
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2543,7 +2549,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:56.674
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:14.598
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2554,7 +2560,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:57.327
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:15.218
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2565,7 +2571,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:57.344
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:15.227
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2576,7 +2582,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:57.409
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:15.273
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2587,7 +2593,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:58.077
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:15.838
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2598,7 +2604,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:58.087
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:15.856
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2609,7 +2615,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:38:58.209
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:15.976
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2620,7 +2626,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:39:03.893
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:20.255
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2631,7 +2637,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:39:03.903
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:20.275
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2642,7 +2648,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:39:03.986
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:20.378
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2653,7 +2659,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:39:04.853
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:21.152
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2664,7 +2670,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:39:04.873
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:21.167
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2675,7 +2681,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:39:04.945
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:21.262
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2686,7 +2692,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:39:06.386
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:22.564
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2697,7 +2703,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:39:06.396
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:22.584
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2708,7 +2714,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:39:06.474
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:22.681
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2719,7 +2725,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:39:07.756
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:23.621
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2730,7 +2736,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-11-20 21:39:07.779
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-08 21:09:23.643
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2754,263 +2760,609 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2016-12-08 21:10:49.457 -----------------------------------------------
+eclipse.buildId=2016.2
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk
 
-!ENTRY org.eclipse.cdt.core 1 0 2016-11-20 21:39:12.298
-!MESSAGE Indexed 'rangefinder_test_bsp' (100 sources, 122 headers) in 3.98 sec: 4,343 declarations; 19,267 references; 63 unresolved inclusions; 5 syntax errors; 62 unresolved names (0.26%)
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:10:56.676
+!MESSAGE XSDB Command: [::hsi::utils::init_repo], Thread: Worker-1
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:21.194
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_files_on_hw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf bit], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:10:56.888
+!MESSAGE XSDB command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-1
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:21.376
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_files_on_hw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf bit], Result: [null, design_1_wrapper.bit]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:10:56.918
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-7
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:21.376
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_tag_info -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:10:59.639
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: Worker-7
+!SESSION 2016-12-08 21:12:16.547 -----------------------------------------------
+eclipse.buildId=2016.2
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:21.446
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_tag_info -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Result: [null, {"ps7_cortexa9_0": "",
-"ps7_cortexa9_1": "",
-}]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:23.894
+!MESSAGE XSDB Command: [::hsi::utils::init_repo], Thread: Worker-2
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:23.302
-!MESSAGE XSDB Command: [::hsi::utils::get_bram_blocks C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Thread: ModalContext
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:24.113
+!MESSAGE XSDB command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-2
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:23.322
-!MESSAGE XSDB command with result: [::hsi::utils::get_bram_blocks C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Result: [null, ]. Thread: ModalContext
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:24.149
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-0
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:23.347
-!MESSAGE XSDB Command: [connect -url tcp:127.0.0.1:3121], Thread: ModalContext
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.727
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: Worker-0
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:23.916
-!MESSAGE XSDB command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#1]. Thread: ModalContext
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.749
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:23.916
-!MESSAGE XSDB Command: [jtag targets -filter {level == 0}], Thread: ModalContext
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.756
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:25.422
-!MESSAGE XSDB command with result: [jtag targets -filter {level == 0}], Result: [null, ]. Thread: ModalContext
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.760
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:28.424
-!MESSAGE XSDB Command: [jtag targets -filter {level == 0}], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:28.454
-!MESSAGE XSDB command with result: [jtag targets -filter {level == 0}], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:48.498
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_tag_info -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:48.515
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_tag_info -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Result: [null, {"ps7_cortexa9_0": "",
-"ps7_cortexa9_1": "",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:50.363
-!MESSAGE XSDB Command: [::hsi::utils::get_bram_blocks C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:50.374
-!MESSAGE XSDB command with result: [::hsi::utils::get_bram_blocks C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:50.375
-!MESSAGE XSDB Command: [connect -url tcp:127.0.0.1:3121], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:50.389
-!MESSAGE XSDB command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#1]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:50.393
-!MESSAGE XSDB Command: [jtag targets -filter {level == 0}], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:50.409
-!MESSAGE XSDB command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Zed 210248447864]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:50.410
-!MESSAGE XSDB Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==1}], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:50.454
-!MESSAGE XSDB command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
-     3  xc7z020 (idcode 03727093 irlen 6 fpga)]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:50.464
-!MESSAGE XSDB Command: [targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:50.634
-!MESSAGE XSDB command with result: [targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:50.634
-!MESSAGE XSDB Command: [fpga -file C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:54.391
-!MESSAGE XSDB command with result: [fpga -file C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:55.194
-!MESSAGE XSDB Command: [::hsi::utils::get_bram_blocks C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:32:55.204
-!MESSAGE XSDB command with result: [::hsi::utils::get_bram_blocks C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:33:01.162
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:33:01.252
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:33:01.252
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:33:01.272
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.766
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "5.5",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:33:01.272
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.771
+!MESSAGE XSDB Command: [hsi::utils::get_supported_os -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:33:01.282
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:33:19.383
-!MESSAGE XSDB Command: [::hsi::utils::get_cpu_nr -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-3
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:33:19.383
-!MESSAGE XSDB command with result: [::hsi::utils::get_cpu_nr -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"ps7_cortexa9_0": {"bscan": "",
-"index": "0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.782
+!MESSAGE XSDB command with result: [hsi::utils::get_supported_os -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"ps7_cortexa9_0": {"freertos823_xilinx_v1_1": {"name": "freertos823_xilinx",
+"version": "1.1",
+"desc": "FreeRTOS is a market leading open source RTOS",
+"compilerflags": "",
+"linkerflags": "-Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/ThirdParty/bsp/freertos823_xilinx_v1_1",
 },
-"ps7_cortexa9_1": {"bscan": "",
-"index": "1",
+"standalone_v5_5": {"name": "standalone",
+"version": "5.5",
+"desc": "Standalone is a simple, low-level software layer. It provides access to basic processor features such as caches, interrupts and exceptions as well as the basic features of a hosted environment, such as standard input and output, profiling, abort and exit.",
+"compilerflags": "",
+"linkerflags": "-Wl,--start-group,-lxil,-lgcc,-lc,--end-group",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/lib/bsp/standalone_v5_5",
 },
-}]. Thread: Worker-3
+},
+"ps7_cortexa9_1": {"freertos823_xilinx_v1_1": {"name": "freertos823_xilinx",
+"version": "1.1",
+"desc": "FreeRTOS is a market leading open source RTOS",
+"compilerflags": "",
+"linkerflags": "-Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/ThirdParty/bsp/freertos823_xilinx_v1_1",
+},
+"standalone_v5_5": {"name": "standalone",
+"version": "5.5",
+"desc": "Standalone is a simple, low-level software layer. It provides access to basic processor features such as caches, interrupts and exceptions as well as the basic features of a hosted environment, such as standard input and output, profiling, abort and exit.",
+"compilerflags": "",
+"linkerflags": "-Wl,--start-group,-lxil,-lgcc,-lc,--end-group",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/lib/bsp/standalone_v5_5",
+},
+},
+}]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:20.015
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.795
+!MESSAGE XSDB Command: [::hsi::utils::get_connected_periphs C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:20.025
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.800
+!MESSAGE XSDB command with result: [::hsi::utils::get_connected_periphs C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, custom_logic ps7_afi_0 ps7_afi_1 ps7_afi_2 ps7_afi_3 ps7_coresight_comp_0 ps7_ddr_0 ps7_ddrc_0 ps7_dev_cfg_0 ps7_dma_ns ps7_dma_s ps7_globaltimer_0 ps7_gpio_0 ps7_gpv_0 ps7_i2c_0 ps7_intc_dist_0 ps7_iop_bus_config_0 ps7_l2cachec_0 ps7_ocmc_0 ps7_pl310_0 ps7_pmu_0 ps7_qspi_0 ps7_qspi_linear_0 ps7_ram_0 ps7_ram_1 ps7_scuc_0 ps7_scugic_0 ps7_scutimer_0 ps7_scuwdt_0 ps7_slcr_0 ps7_ttc_0 ps7_uart_0 ps7_xadc_0]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:20.025
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.804
+!MESSAGE XSDB Command: [::hsi::utils::get_drivers_for_sw -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:20.035
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.814
+!MESSAGE XSDB command with result: [::hsi::utils::get_drivers_for_sw -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, {"custom_logic": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_afi_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_afi_1": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_afi_2": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_afi_3": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_coresight_comp_0": {"name": "coresightps_dcc",
+"ver": "1.2",
+},
+"ps7_ddr_0": {"name": "ddrps",
+"ver": "1.0",
+},
+"ps7_ddrc_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_dev_cfg_0": {"name": "devcfg",
+"ver": "3.4",
+},
+"ps7_dma_ns": {"name": "dmaps",
+"ver": "2.1",
+},
+"ps7_dma_s": {"name": "dmaps",
+"ver": "2.1",
+},
+"ps7_globaltimer_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_gpio_0": {"name": "gpiops",
+"ver": "3.1",
+},
+"ps7_gpv_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_i2c_0": {"name": "iicps",
+"ver": "3.2",
+},
+"ps7_intc_dist_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_iop_bus_config_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_l2cachec_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_ocmc_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_pl310_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_pmu_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_qspi_0": {"name": "qspips",
+"ver": "3.3",
+},
+"ps7_qspi_linear_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_ram_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_ram_1": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_scuc_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_scugic_0": {"name": "scugic",
+"ver": "3.3",
+},
+"ps7_scutimer_0": {"name": "scutimer",
+"ver": "2.1",
+},
+"ps7_scuwdt_0": {"name": "scuwdt",
+"ver": "2.1",
+},
+"ps7_slcr_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_ttc_0": {"name": "ttcps",
+"ver": "3.1",
+},
+"ps7_uart_0": {"name": "uartps",
+"ver": "3.1",
+},
+"ps7_xadc_0": {"name": "xadcps",
+"ver": "2.2",
+},
+"ps7_cortexa9_0": {"name": "cpu_cortexa9",
+"ver": "2.2",
+},
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.818
+!MESSAGE XSDB Command: [hsi::utils::get_drivers_for_hw -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:26.901
+!MESSAGE XSDB command with result: [hsi::utils::get_drivers_for_hw -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"blk_mem_gen_0": {"version": "8.3",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"blk_mem_gen_1": {"version": "8.3",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"blk_mem_gen_2": {"version": "8.3",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"custom_logic": {"version": "1.0",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"processing_system7_0": {"version": "5.5",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"processing_system7_0_axi_periph": {"version": "2.1",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"rst_processing_system7_0_100M": {"version": "5.0",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_clockc_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_uart_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"uartps_v3_1": {"name": "uartps",
+"version": "3.1",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/uartps_v3_1",
+},
+},
+},
+"ps7_pl310_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_pmu_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_qspi_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"qspips_v3_3": {"name": "qspips",
+"version": "3.3",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/qspips_v3_3",
+},
+},
+},
+"ps7_qspi_linear_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_axi_interconnect_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_cortexa9_0": {"version": "5.2",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"cpu_cortexa9_v2_2": {"name": "cpu_cortexa9",
+"version": "2.2",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/cpu_cortexa9_v2_2",
+},
+},
+},
+"ps7_cortexa9_1": {"version": "5.2",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"cpu_cortexa9_v2_2": {"name": "cpu_cortexa9",
+"version": "2.2",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/cpu_cortexa9_v2_2",
+},
+},
+},
+"ps7_ddr_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"ddrps_v1_0": {"name": "ddrps",
+"version": "1.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/ddrps_v1_0",
+},
+},
+},
+"ps7_i2c_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"iicps_v3_2": {"name": "iicps",
+"version": "3.2",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/iicps_v3_2",
+},
+},
+},
+"ps7_ttc_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"ttcps_v3_1": {"name": "ttcps",
+"version": "3.1",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/ttcps_v3_1",
+},
+},
+},
+"ps7_gpio_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"gpiops_v3_1": {"name": "gpiops",
+"version": "3.1",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/gpiops_v3_1",
+},
+},
+},
+"ps7_ddrc_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_dev_cfg_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"devcfg_v3_4": {"name": "devcfg",
+"version": "3.4",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/devcfg_v3_4",
+},
+},
+},
+"ps7_xadc_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"xadcps_v2_2": {"name": "xadcps",
+"version": "2.2",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/xadcps_v2_2",
+},
+},
+},
+"ps7_ocmc_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_coresight_comp_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"coresightps_dcc_v1_2": {"name": "coresightps_dcc",
+"version": "1.2",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/coresightps_dcc_v1_2",
+},
+},
+},
+"ps7_gpv_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_scuc_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_globaltimer_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_intc_dist_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_l2cachec_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_dma_s": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"dmaps_v2_1": {"name": "dmaps",
+"version": "2.1",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/dmaps_v2_1",
+},
+},
+},
+"ps7_iop_bus_config_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_ram_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_ram_1": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_scugic_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"scugic_v3_3": {"name": "scugic",
+"version": "3.3",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/scugic_v3_3",
+},
+},
+},
+"ps7_scutimer_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"scutimer_v2_1": {"name": "scutimer",
+"version": "2.1",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/scutimer_v2_1",
+},
+},
+},
+"ps7_scuwdt_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"scuwdt_v2_1": {"name": "scuwdt",
+"version": "2.1",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/scuwdt_v2_1",
+},
+},
+},
+"ps7_slcr_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_dma_ns": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"dmaps_v2_1": {"name": "dmaps",
+"version": "2.1",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/dmaps_v2_1",
+},
+},
+},
+"ps7_afi_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_afi_1": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_afi_2": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_afi_3": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_m_axi_gp0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:27.012
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:27.019
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:27.023
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:27.029
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "5.5",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:20.035
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:27.034
+!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:20.046
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:27.040
+!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:42.115
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:27.045
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:42.217
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:42.220
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:42.311
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
-"osname": "standalone",
-"osver": "5.5",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:42.312
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:36:42.318
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:37:09.292
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:37:09.316
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:37:09.317
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:37:09.325
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
-"osname": "standalone",
-"osver": "5.5",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:37:09.326
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:37:09.331
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:55.372
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_tag_info -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:55.402
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_tag_info -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Result: [null, {"ps7_cortexa9_0": "",
-"ps7_cortexa9_1": "",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:56.996
-!MESSAGE XSDB Command: [::hsi::utils::get_bram_blocks C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:57.006
-!MESSAGE XSDB command with result: [::hsi::utils::get_bram_blocks C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:57.006
-!MESSAGE XSDB Command: [connect -url tcp:127.0.0.1:3121], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:57.026
-!MESSAGE XSDB command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#1]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:57.026
-!MESSAGE XSDB Command: [jtag targets -filter {level == 0}], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:57.106
-!MESSAGE XSDB command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Zed 210248447864]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:57.106
-!MESSAGE XSDB Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==1}], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:57.181
-!MESSAGE XSDB command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
-     3  xc7z020 (idcode 03727093 irlen 6 fpga)]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:57.183
-!MESSAGE XSDB Command: [targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:57.238
-!MESSAGE XSDB command with result: [targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:40:57.238
-!MESSAGE XSDB Command: [fpga -file C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:41:00.045
-!MESSAGE XSDB command with result: [fpga -file C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:41:00.847
-!MESSAGE XSDB Command: [::hsi::utils::get_bram_blocks C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:41:00.857
-!MESSAGE XSDB command with result: [::hsi::utils::get_bram_blocks C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:42:32.389
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:42:32.556
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss ], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:42:32.557
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:42:32.583
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/design_1_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
-"osname": "standalone",
-"osver": "5.5",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:42:32.584
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-11-20 23:42:32.588
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/rangefinder_blocks_test/rangefinder_blocks_test.sdk/rangefinder_test_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-08 21:12:27.050
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.sdk/finalimp_bsp/system.mss], Result: [null, ]. Thread: main
