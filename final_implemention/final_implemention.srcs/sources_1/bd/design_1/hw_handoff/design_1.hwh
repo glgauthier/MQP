@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Dec 11 22:59:56 2016" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Dec 12 13:38:16 2016" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.3" DEVICE="7z020" NAME="design_1" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -2217,10 +2217,10 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="slowest_sync_clk"/>
-            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ACLK"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
@@ -3119,9 +3119,9 @@
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="rst_processing_system7_0_100M_peripheral_aresetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ARESETN"/>
+            <CONNECTION INSTANCE="custom_logic" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

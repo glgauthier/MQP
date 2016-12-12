@@ -375,10 +375,8 @@ case(current_state)
                   line[col_count[8:2]] <= line[col_count[8:2]] + ((FB/index)>>2);
                 else if (index > 0)
                   line[col_count[8:2]] <= (FB/index) >> 2;
-//                else if (index > 0 && col_count[0] > 0)
-//                  avg <= FB/index + avg;
-//                else if (index > 0)
-//                  avg <= FB/index;
+                else if (pipe > 2'b00)
+                  line[col_count[8:2]] <= line[col_count[8:2]] + 8'h00;
                 else
                   line[col_count[8:2]] <= 8'h00;
             
