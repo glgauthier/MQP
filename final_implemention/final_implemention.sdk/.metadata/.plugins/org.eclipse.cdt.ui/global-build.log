@@ -1,4 +1,4 @@
-21:09:06 **** Build of project finalimp_bsp ****
+23:11:43 **** Build of project fin_bsp ****
 make -k all 
 "Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src"
 make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
@@ -77,252 +77,197 @@ make -C ps7_cortexa9_0/libsrc/uartps_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm
 make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
 "Compiling xadcps"
 'Finished building libraries'
-21:09:24 **** Build of configuration Debug for project finalimp ****
+23:11:58 **** Build of configuration Debug for project fin ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 'Building file: ../src/helloworld.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../finalimp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../finalimp_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fin_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../src/helloworld.c:19:0:
+../../fin_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
  #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
   ^
-../../finalimp_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+../../fin_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
  #warning  Please refer the Standalone BSP UG647 for further details
   ^
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:43:38: error: 'XPAR_NU_NU_RANGEFINDER_VGA_0_S00_AXI_BASEADDR' undeclared (first use in this function)
-     Xuint32 *baseaddr_p = (Xuint32 *)XPAR_NU_NU_RANGEFINDER_VGA_0_S00_AXI_BASEADDR;
-                                      ^
-../src/helloworld.c:43:38: note: each undeclared identifier is reported only once for each function it appears in
-../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
+../src/helloworld.c:94:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
      while(Xil_In32(baseaddr_p) == 0);
                     ^
-In file included from ../src/helloworld.c:19:0:
-../../finalimp_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
+In file included from ../src/helloworld.c:18:0:
+../../fin_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
  u32 Xil_In32(UINTPTR Addr);
      ^
-../src/helloworld.c:136:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
+../src/helloworld.c:167:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
         if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
                     ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
+                 from ../src/helloworld.c:15:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:136:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
+../src/helloworld.c:167:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
         if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
                                    ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
+                 from ../src/helloworld.c:15:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:136:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
+../src/helloworld.c:167:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
         if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
                                                        ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
+                 from ../src/helloworld.c:15:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:136:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
+../src/helloworld.c:167:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
         if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
                                                                       ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
+                 from ../src/helloworld.c:15:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
+../src/helloworld.c:62:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
      char linefeed[4];
           ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+../src/helloworld.c:59:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
      char status[2];
           ^
-make: *** [src/helloworld.o] Error 1
-21:10:23 **** Auto Build of configuration Debug for project finalimp ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../finalimp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../finalimp_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../finalimp_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../finalimp_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:136:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                    ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                   ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                       ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                                      ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[4];
-          ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-     char status[2];
-          ^
+../src/helloworld.c: In function 'init_cams':
+../src/helloworld.c:211:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
 'Finished building: ../src/helloworld.c'
 ' '
 'Building file: ../src/platform.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../finalimp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fin_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
 'Finished building: ../src/platform.c'
 ' '
-'Building target: finalimp.elf'
+'Building target: fin.elf'
 'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../finalimp_bsp/ps7_cortexa9_0/lib -o "finalimp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: finalimp.elf'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../fin_bsp/ps7_cortexa9_0/lib -o "fin.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fin.elf'
 ' '
 'Invoking: ARM v7 Print Size'
-arm-none-eabi-size finalimp.elf  |tee "finalimp.elf.size"
+arm-none-eabi-size fin.elf  |tee "fin.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  76560	   2588	  23340	 102488	  19058	finalimp.elf
-'Finished building: finalimp.elf.size'
+  83124	   2596	  23404	 109124	  1aa44	fin.elf
+'Finished building: fin.elf.size'
 ' '
-21:10:25 **** Auto Build of configuration Debug for project finalimp ****
+23:13:42 **** Incremental Build of configuration Debug for project fin ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
-21:11:15 **** Clean-only build of configuration Debug for project finalimp ****
-make clean 
-rm -rf  ./src/helloworld.o ./src/platform.o  ./src/helloworld.d ./src/platform.d  finalimp.elf.size  finalimp.elf
+23:13:55 **** Incremental Build of configuration Debug for project fin ****
+make pre-build main-build 
+a9-linaro-pre-build-step
 ' '
-21:11:15 **** Auto Build of configuration Debug for project finalimp ****
+make: Nothing to be done for `main-build'.
+23:14:25 **** Incremental Build of configuration Debug for project fin ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+23:15:14 **** Incremental Build of configuration Debug for project fin ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+23:17:31 **** Incremental Build of configuration Debug for project fin ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+23:18:27 **** Incremental Build of configuration Debug for project fin ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+23:19:55 **** Auto Build of configuration Debug for project fin ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 'Building file: ../src/helloworld.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../finalimp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../finalimp_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fin_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../src/helloworld.c:19:0:
+../../fin_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
  #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
   ^
-../../finalimp_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c:22:18: fatal error: xiic.h: No such file or directory
- #include "xiic.h"
-                  ^
-compilation terminated.
-make: *** [src/helloworld.o] Error 1
-21:11:23 **** Auto Build of configuration Debug for project finalimp ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../finalimp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../finalimp_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../finalimp_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+../../fin_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
  #warning  Please refer the Standalone BSP UG647 for further details
   ^
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:64:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
+../src/helloworld.c:94:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
      while(Xil_In32(baseaddr_p) == 0);
                     ^
-In file included from ../src/helloworld.c:19:0:
-../../finalimp_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
+In file included from ../src/helloworld.c:18:0:
+../../fin_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
  u32 Xil_In32(UINTPTR Addr);
      ^
-../src/helloworld.c:137:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
+../src/helloworld.c:167:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
         if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
                     ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
+                 from ../src/helloworld.c:15:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:137:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
+../src/helloworld.c:167:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
         if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
                                    ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
+                 from ../src/helloworld.c:15:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:137:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
+../src/helloworld.c:167:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
         if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
                                                        ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
+                 from ../src/helloworld.c:15:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:137:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
+../src/helloworld.c:167:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
         if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
                                                                       ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
+                 from ../src/helloworld.c:15:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:39:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
+../src/helloworld.c:62:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
      char linefeed[4];
           ^
-../src/helloworld.c:36:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+../src/helloworld.c:59:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
      char status[2];
           ^
+../src/helloworld.c: In function 'init_cams':
+../src/helloworld.c:211:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
 'Finished building: ../src/helloworld.c'
 ' '
-'Building file: ../src/platform.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../finalimp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
-'Finished building: ../src/platform.c'
-' '
-'Building target: finalimp.elf'
+'Building target: fin.elf'
 'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../finalimp_bsp/ps7_cortexa9_0/lib -o "finalimp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: finalimp.elf'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../fin_bsp/ps7_cortexa9_0/lib -o "fin.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: fin.elf'
 ' '
 'Invoking: ARM v7 Print Size'
-arm-none-eabi-size finalimp.elf  |tee "finalimp.elf.size"
+arm-none-eabi-size fin.elf  |tee "fin.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  76560	   2588	  23340	 102488	  19058	finalimp.elf
-'Finished building: finalimp.elf.size'
+  90384	   2604	  23436	 116424	  1c6c8	fin.elf
+'Finished building: fin.elf.size'
 ' '
+23:19:57 **** Incremental Build of configuration Debug for project fin ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.

@@ -150,7 +150,7 @@ module mqp_top
        );
        
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Disparity ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
-    reg [10:0] lineaddr; // depth line address
+    reg [6:0] lineaddr; // depth line address
     wire [7:0] lineout; // depth line data
     wire [7:0]  result_data; // output depth data for VGA bram
     wire result_wen; // VGA bram write enable
@@ -210,7 +210,7 @@ module mqp_top
     
     // handle addressing for single-line data from disparity module
     always @(hcount)
-        lineaddr = (hcount >= 128 && hcount < 512) ? hcount-128 : 11'd0;
+        lineaddr = (hcount >= 272 && hcount < 368) ? hcount-272 : 7'd0;
         
     // Modify output color logic based on current mode              
     always @ (hcount, vcount, blank, sw, device_x, device_y, x_vga, lineout)
@@ -238,7 +238,7 @@ module mqp_top
             end
             8'h02: // single line disparity output
             begin
-                if(hcount >= 128 && hcount < 512)
+                if(hcount >= 272 && hcount < 368)
                     if(vcount == 265-lineout)
                         rgb = {4'h8,lineout};
                     else
@@ -251,12 +251,12 @@ module mqp_top
                     rgb = 12'hF00;
                 // point from rangefinder data (with or without disparity overlap)
                 else if(x_vga == 8'hFF)
-                    if(hcount >= 128 && hcount < 512 && vcount == 265-lineout)
+                    if(hcount >= 272 && hcount < 368 && vcount == 265-lineout)
                         rgb = {4'h0,lineout};
                     else
                         rgb = 12'h000;
                 // point from disparity data without rangefinder overlap
-                else if(hcount >= 128 && hcount < 512 && vcount == 265-lineout)
+                else if(hcount >= 272 && hcount < 368 && vcount == 265-lineout)
                     rgb = {4'h0,lineout};
                 else
                     rgb = 12'hFFF;

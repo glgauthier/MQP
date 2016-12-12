@@ -16,7 +16,7 @@ module parallel_disparity(
 	 output result_wea, // Result bram write enable
 	 output [2:0] state_LED, // Current state indicator
 	 output reg [7:0] lineout,
-	 input [10:0] lineaddr
+	 input [7:0] lineaddr
     );
 
 // user-defined constants (image search parameters)
@@ -77,7 +77,7 @@ reg [10:0] temp5; // block for holding sum(abs(template-block)) - up to 9x9 bloc
 reg [10:0] temp6; // block for holding sum(abs(template-block)) - up to 9x9 block size
 reg [14:0] SAD_vector [0:SEARCH_RANGE]; // block for holding sum(sum(abs(template-block))) - up to 9x9 block size
 reg [8:0] depth; // reg for holding (focal_length*baseline)/disparity
-reg [7:0] line [0:WIDTH];
+reg [7:0] line [0:95];
 // ~~~~~~~~~~~~~~~ Disparity FSM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 parameter [2:0] IDLE = 3'b000, // wait for next read sequence
                 READ = 3'b001, // read data from FIFO
@@ -371,12 +371,14 @@ case(current_state)
             if(sw == 1'b0)
                 result_data <= index;
             else
-                if(index > 0)
-                  line[col_count] <= FB/index;
+                if(index > 0 && pipe > 2'b00) // && col_count[1:0] == 2'b00
+                    line[col_count[8:2]] <= line[col_count[8:2]] + ((FB/index)>>2);
+                else if (index > 0)
+                    line[col_count[8:2]] <= (FB/index) >> 2;
                 else
-                  line[col_count] <= 8'h00;
+                    line[col_count[8:2]] <= 8'h00;
             
-            pipe <= 2'b11; // was 2'b11, changed to add a little extra time
+            pipe <= pipe + 1'b1; // was 2'b11, changed to add a little extra time
 		end
 	end
 endcase
