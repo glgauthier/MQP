@@ -143,7 +143,7 @@ blk_mem_resultant resultant (
 );
 // ~~~~~~~~~~~~~~~~ End of image buffers ~~~~~~~~~~~~~~~~
 always @(hcount)
-    lineaddr = (hcount >= 128 && hcount < 512) ? hcount-128 : 11'd0;
+    lineaddr = (hcount >= 272 && hcount < 368) ? hcount-272 : 11'd0;
 
 always @ (hcount,vcount,blank,vga_data)
 	if(blank)
@@ -151,7 +151,7 @@ always @ (hcount,vcount,blank,vga_data)
 	// center 384x288 output in the middle of the screen
     else if(~sw && hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384)
         rgb = vga_data;
-    else if(sw && hcount >= 128 && hcount < 512)
+    else if(sw && hcount >= 272 && hcount < 368)
         if(vcount == 265-lineout)
             rgb = lineout;
         else
