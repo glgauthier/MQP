@@ -372,11 +372,11 @@ case(current_state)
                 result_data <= index;
             else
                 if(index > 0 && pipe > 2'b00) // && col_count[1:0] == 2'b00
-                  line[col_count[8:2]] <= line[col_count[8:2]] + ((FB/index)>>2);
-                else if (index > 0)
-                  line[col_count[8:2]] <= (FB/index) >> 2;
-                else if (pipe > 2'b00)
-                  line[col_count[8:2]] <= line[col_count[8:2]] + 8'h00;
+                  line[col_count[8:2]] <= FB/index; //line[col_count[8:2]] + ((FB/index)>>2);
+//                else if (index > 0)
+//                  line[col_count[8:2]] <= (FB/index) >> 2;
+//                else if (pipe > 2'b00)
+//                  line[col_count[8:2]] <= line[col_count[8:2]] + 8'h00;
                 else
                   line[col_count[8:2]] <= 8'h00;
             

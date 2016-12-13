@@ -155,9 +155,9 @@ always @ (hcount,vcount,blank,vga_data)
         if(vcount == 265-lineout)
             rgb = lineout;
         else
-            rgb = 8'h00;
+            rgb = 8'hF0;
     else
-        rgb = 8'h00;
+        rgb = 8'hF0;
         
 // set VGA read address to show disparity
 always @ (hcount,vcount)

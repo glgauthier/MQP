@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Sun Dec 11 21:14:01 2016
+| Date             : Mon Dec 12 18:00:36 2016
 | Host             : Georges-T460p running 64-bit major release  (build 9200)
 | Command          : report_power -file noip_top_power_routed.rpt -pb noip_top_power_summary_routed.pb -rpx noip_top_power_routed.rpx
 | Design           : noip_top
@@ -50,14 +50,14 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.009 |       14 |       --- |             --- |
-| Slice Logic              |     0.006 |     3401 |       --- |             --- |
-|   LUT as Logic           |     0.005 |     1652 |     53200 |            3.11 |
+| Slice Logic              |     0.006 |     3400 |       --- |             --- |
+|   LUT as Logic           |     0.005 |     1660 |     53200 |            3.12 |
 |   LUT as Distributed RAM |    <0.001 |      192 |     17400 |            1.10 |
-|   CARRY4                 |    <0.001 |      114 |     13300 |            0.86 |
+|   CARRY4                 |    <0.001 |      118 |     13300 |            0.89 |
 |   Register               |    <0.001 |      597 |    106400 |            0.56 |
 |   F7/F8 Muxes            |    <0.001 |      201 |     53200 |            0.38 |
 |   Others                 |     0.000 |      278 |       --- |             --- |
-| Signals                  |     0.013 |     3442 |       --- |             --- |
+| Signals                  |     0.013 |     3443 |       --- |             --- |
 | Block RAM                |     0.003 |      129 |       140 |           92.14 |
 | MMCM                     |     0.085 |        1 |         4 |           25.00 |
 | DSPs                     |    <0.001 |        5 |       220 |            2.27 |
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.043 |       0.033 |      0.010 |
+| Vccint    |       1.000 |     0.043 |       0.032 |      0.010 |
 | Vccaux    |       1.800 |     0.066 |       0.047 |      0.019 |
 | Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -161,12 +161,12 @@ Table of Contents
 | Name                                           | Power (W) |
 +------------------------------------------------+-----------+
 | noip_top                                       |     0.124 |
-|   camctl                                       |     0.010 |
-|     left                                       |     0.005 |
-|       U0                                       |     0.005 |
-|         inst_blk_mem_gen                       |     0.005 |
-|           gnbram.gnativebmg.native_blk_mem_gen |     0.005 |
-|             valid.cstr                         |     0.005 |
+|   camctl                                       |     0.009 |
+|     left                                       |     0.004 |
+|       U0                                       |     0.004 |
+|         inst_blk_mem_gen                       |     0.004 |
+|           gnbram.gnativebmg.native_blk_mem_gen |     0.004 |
+|             valid.cstr                         |     0.004 |
 |               bindec_a.bindec_inst_a           |    <0.001 |
 |               bindec_b.bindec_inst_b           |    <0.001 |
 |               has_mux_b.B                      |     0.002 |
@@ -224,11 +224,11 @@ Table of Contents
 |                 prim_noinit.ram                |    <0.001 |
 |               ramloop[9].ram.r                 |    <0.001 |
 |                 prim_noinit.ram                |    <0.001 |
-|     right                                      |     0.005 |
-|       U0                                       |     0.005 |
-|         inst_blk_mem_gen                       |     0.005 |
-|           gnbram.gnativebmg.native_blk_mem_gen |     0.005 |
-|             valid.cstr                         |     0.005 |
+|     right                                      |     0.004 |
+|       U0                                       |     0.004 |
+|         inst_blk_mem_gen                       |     0.004 |
+|           gnbram.gnativebmg.native_blk_mem_gen |     0.004 |
+|             valid.cstr                         |     0.004 |
 |               bindec_a.bindec_inst_a           |    <0.001 |
 |               bindec_b.bindec_inst_b           |    <0.001 |
 |               has_mux_b.B                      |     0.002 |
@@ -288,7 +288,7 @@ Table of Contents
 |                 prim_noinit.ram                |    <0.001 |
 |   clkgen                                       |     0.086 |
 |     inst                                       |     0.086 |
-|   disp                                         |     0.018 |
+|   disp                                         |     0.019 |
 |     SAD_diffs0_reg_0_7_0_5                     |    <0.001 |
 |     SAD_diffs0_reg_0_7_6_7                     |    <0.001 |
 |     SAD_diffs1_reg_0_7_0_5                     |    <0.001 |
@@ -359,22 +359,14 @@ Table of Contents
 |     block6_reg_0_7_5_5                         |    <0.001 |
 |     block6_reg_0_7_6_6                         |    <0.001 |
 |     block6_reg_0_7_7_7                         |    <0.001 |
-|     line_reg_0_31_0_0                          |    <0.001 |
-|     line_reg_0_31_0_0__0                       |    <0.001 |
-|     line_reg_0_31_0_0__1                       |    <0.001 |
-|     line_reg_0_31_0_0__2                       |    <0.001 |
-|     line_reg_0_31_0_0__3                       |    <0.001 |
-|     line_reg_0_31_0_0__4                       |    <0.001 |
-|     line_reg_0_31_0_0__5                       |    <0.001 |
-|     line_reg_0_31_0_0__6                       |    <0.001 |
-|     line_reg_0_63_0_0                          |    <0.001 |
-|     line_reg_0_63_0_0__0                       |    <0.001 |
-|     line_reg_0_63_0_0__1                       |    <0.001 |
-|     line_reg_0_63_0_0__2                       |    <0.001 |
-|     line_reg_0_63_0_0__3                       |    <0.001 |
-|     line_reg_0_63_0_0__4                       |    <0.001 |
-|     line_reg_0_63_0_0__5                       |    <0.001 |
-|     line_reg_0_63_0_0__6                       |    <0.001 |
+|     line_reg_0_63_0_2                          |    <0.001 |
+|     line_reg_0_63_3_5                          |    <0.001 |
+|     line_reg_0_63_6_6                          |    <0.001 |
+|     line_reg_0_63_7_7                          |    <0.001 |
+|     line_reg_64_127_0_2                        |    <0.001 |
+|     line_reg_64_127_3_5                        |    <0.001 |
+|     line_reg_64_127_6_6                        |    <0.001 |
+|     line_reg_64_127_7_7                        |    <0.001 |
 |     template0_reg_0_7_0_0                      |    <0.001 |
 |     template0_reg_0_7_1_1                      |    <0.001 |
 |     template0_reg_0_7_2_2                      |    <0.001 |
