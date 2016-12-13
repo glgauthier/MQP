@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date              : Mon Dec 12 13:48:05 2016
+| Date              : Mon Dec 12 22:17:52 2016
 | Host              : Georges-T460p running 64-bit major release  (build 9200)
 | Command           : report_clock_utilization -file design_1_wrapper_clock_utilization_routed.rpt
 | Design            : design_1_wrapper
@@ -55,7 +55,7 @@ Table of Contents
 +-------+-------+-----------------+------------+----------------+--------------+------+-------------------+---------------+-------------+-----------------+--------------+------------+--------------------------------------------------------------------------+-----------------------------------------------------------------------+
 | GlbID | SrcId | Driver Type/Pin | Constraint | Site           | Clock Region | Root | Clock Delay Group | Clock Regions | Clock Loads | Non-Clock Loads | Clock Period | Clock      | Driver Pin                                                               | Net                                                                   |
 +-------+-------+-----------------+------------+----------------+--------------+------+-------------------+---------------+-------------+-----------------+--------------+------------+--------------------------------------------------------------------------+-----------------------------------------------------------------------+
-| g0    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |      |                   |             6 |         932 |               0 |       10.000 | Multiple   | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clkout1_buf/O             | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M               |
+| g0    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |      |                   |             6 |        1364 |               0 |       10.000 | Multiple   | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clkout1_buf/O             | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M               |
 | g1    | src1  | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |      |                   |             2 |         690 |               0 |       10.000 | clk_fpga_0 | design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O | design_1_i/processing_system7_0/inst/FCLK_CLK0                        |
 | g2    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y3  | n/a          |      |                   |             4 |         116 |               0 |       40.000 | Multiple   | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clkout2_buf/O             | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_25M                |
 | g3    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |      |                   |             5 |          90 |               1 |      200.000 | Multiple   | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clkout4_buf/O             | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out4               |
@@ -98,12 +98,12 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20000 |    0 |  4000 |    0 |     0 |   29 |    30 |    0 |    60 |
-| X1Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    7 | 25600 |    1 |  3400 |    0 |     0 |   26 |    30 |    0 |    40 |
-| X0Y1              |    4 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |  750 |  9600 |   33 |  1600 |    0 |     0 |    9 |    10 |    0 |    20 |
-| X1Y1              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  193 | 20800 |  139 |  3400 |    0 |     0 |   27 |    30 |    1 |    40 |
-| X0Y2              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |   34 |  9600 |    4 |  1600 |    0 |     0 |   10 |    10 |    0 |    20 |
-| X1Y2              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    3 | 20800 |    2 |  3400 |    0 |     0 |   28 |    30 |    0 |    40 |
+| X0Y0              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20000 |    0 |  4000 |    0 |     0 |   30 |    30 |    0 |    60 |
+| X1Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    5 | 25600 |    1 |  3400 |    0 |     0 |   29 |    30 |    0 |    40 |
+| X0Y1              |    4 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |  947 |  9600 |   27 |  1600 |    0 |     0 |    8 |    10 |    2 |    20 |
+| X1Y1              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  248 | 20800 |  145 |  3400 |    0 |     0 |   27 |    30 |    0 |    40 |
+| X0Y2              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |   69 |  9600 |    5 |  1600 |    0 |     0 |    8 |    10 |    0 |    20 |
+| X1Y2              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    7 | 20800 |    1 |  3400 |    0 |     0 |   27 |    30 |    0 |    40 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 * Used Global Clocks includes only global clock resources based on load placement but does not consider global clock resources used to traverse a clock region. Therefore the actual total of Used Global Clocks may be higher.
 ** RAMB36 site can be used as two RAMB18/FIFO18 sites.
@@ -128,8 +128,8 @@ Table of Contents
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                   |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |              29 |  0 |      0 |   29 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M               |
-| g2    | n/a   | BUFG/O          | None       |           0 |              29 |  0 |      0 |   29 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_25M                |
+| g0    | n/a   | BUFG/O          | None       |           0 |              30 |  0 |      0 |   30 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M               |
+| g2    | n/a   | BUFG/O          | None       |           0 |              30 |  0 |      0 |   30 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_25M                |
 | g3    | n/a   | BUFG/O          | None       |           0 |               1 |  0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out4               |
 | g4    | n/a   | BUFG/O          | None       |           0 |               1 |  0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out3               |
 | g5    | n/a   | BUFG/O          | None       |           1 |               0 |  0 |      0 |    0 |   0 |  0 |    1 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clkfbout_buf_clk_wiz_0 |
@@ -143,8 +143,8 @@ Table of Contents
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                     |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |              26 |  0 |      0 |   26 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
-| g2    | n/a   | BUFG/O          | None       |           0 |              33 |  7 |      1 |   26 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_25M  |
+| g0    | n/a   | BUFG/O          | None       |           0 |              29 |  0 |      0 |   29 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
+| g2    | n/a   | BUFG/O          | None       |           0 |              34 |  5 |      1 |   29 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_25M  |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
@@ -155,10 +155,10 @@ Table of Contents
 +-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                     |
 +-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |             353 | 342 |     11 |   10 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
-| g1    | n/a   | BUFG/O          | None       |           0 |             408 | 408 |     22 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/processing_system7_0/inst/FCLK_CLK0          |
-| g2    | n/a   | BUFG/O          | None       |           0 |               5 |   0 |      0 |    5 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_25M  |
-| g3    | n/a   | BUFG/O          | None       |           0 |               4 |   0 |      0 |    4 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out4 |
+| g0    | n/a   | BUFG/O          | None       |           0 |             557 | 546 |      4 |    9 |   1 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
+| g1    | n/a   | BUFG/O          | None       |           0 |             384 | 384 |     21 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/processing_system7_0/inst/FCLK_CLK0          |
+| g2    | n/a   | BUFG/O          | None       |           0 |              10 |   5 |      1 |    4 |   1 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_25M  |
+| g3    | n/a   | BUFG/O          | None       |           0 |              16 |  12 |      1 |    4 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out4 |
 +-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
@@ -169,10 +169,10 @@ Table of Contents
 +-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                     |
 +-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |             188 | 161 |    137 |   27 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
-| g2    | n/a   | BUFG/O          | None       |           0 |              31 |  15 |      1 |   15 |   1 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_25M  |
-| g3    | n/a   | BUFG/O          | None       |           0 |              24 |  12 |      1 |   12 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out4 |
-| g4    | n/a   | BUFG/O          | None       |           0 |               5 |   5 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out3 |
+| g0    | n/a   | BUFG/O          | None       |           0 |             260 | 233 |    143 |   27 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
+| g2    | n/a   | BUFG/O          | None       |           0 |              25 |  13 |      1 |   12 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_25M  |
+| g3    | n/a   | BUFG/O          | None       |           0 |              15 |   0 |      0 |   15 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out4 |
+| g4    | n/a   | BUFG/O          | None       |           0 |               2 |   2 |      1 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out3 |
 +-------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
@@ -183,9 +183,9 @@ Table of Contents
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                     |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |              10 |  0 |      0 |   10 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
-| g1    | n/a   | BUFG/O          | None       |           0 |              35 | 34 |      4 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/processing_system7_0/inst/FCLK_CLK0          |
-| g3    | n/a   | BUFG/O          | None       |           0 |              10 |  0 |      0 |   10 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out4 |
+| g0    | n/a   | BUFG/O          | None       |           0 |              14 |  6 |      0 |    8 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
+| g1    | n/a   | BUFG/O          | None       |           0 |              64 | 63 |      5 |    0 |   0 |  0 |    0 |   0 |       0 | design_1_i/processing_system7_0/inst/FCLK_CLK0          |
+| g3    | n/a   | BUFG/O          | None       |           0 |               8 |  0 |      0 |    8 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out4 |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
@@ -196,8 +196,8 @@ Table of Contents
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
 | GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                     |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
-| g0    | n/a   | BUFG/O          | None       |           0 |              31 |  3 |      2 |   28 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
-| g3    | n/a   | BUFG/O          | None       |           0 |              28 |  0 |      0 |   28 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out4 |
+| g0    | n/a   | BUFG/O          | None       |           0 |              34 |  7 |      1 |   27 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
+| g3    | n/a   | BUFG/O          | None       |           0 |              27 |  0 |      0 |   27 |   0 |  0 |    0 |   0 |       0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out4 |
 +-------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+---------------------------------------------------------+
 * Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
 
@@ -208,16 +208,16 @@ Table of Contents
 +-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+---------------------------------------------------------+
 | GlbID | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                                     |
 +-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+---------------------------------------------------------+
-| g0    | BUFG/O          | n/a               | Multiple |      10.000 | {0.000 5.000} |          |         637 |        0 |           0 |  0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
+| g0    | BUFG/O          | n/a               | Multiple |      10.000 | {0.000 5.000} |          |         924 |        0 |           0 |  0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_100M |
 +-------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+-------------+----+---------------------------------------------------------+
 
 
 +----+------+------+
 |    | X0   | X1   |
 +----+------+------+
-| Y2 |   10 |   31 |
-| Y1 |  353 |  188 |
-| Y0 |   29 |   26 |
+| Y2 |   14 |   34 |
+| Y1 |  557 |  260 |
+| Y0 |   30 |   29 |
 +----+------+------+
 
 
@@ -227,15 +227,15 @@ Table of Contents
 +-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+------------------------------------------------+
 | GlbID | Driver Type/Pin | Driver Region (D) | Clock      | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                            |
 +-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+------------------------------------------------+
-| g1    | BUFG/O          | n/a               | clk_fpga_0 |      10.000 | {0.000 5.000} |          |         443 |        0 |           0 |  0 | design_1_i/processing_system7_0/inst/FCLK_CLK0 |
+| g1    | BUFG/O          | n/a               | clk_fpga_0 |      10.000 | {0.000 5.000} |          |         448 |        0 |           0 |  0 | design_1_i/processing_system7_0/inst/FCLK_CLK0 |
 +-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+------------------------------------------------+
 
 
 +----+------+----+
 |    | X0   | X1 |
 +----+------+----+
-| Y2 |   35 |  0 |
-| Y1 |  408 |  0 |
+| Y2 |   64 |  0 |
+| Y1 |  384 |  0 |
 | Y0 |    0 |  0 |
 +----+------+----+
 
@@ -246,7 +246,7 @@ Table of Contents
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+--------------------------------------------------------+
 | GlbID | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                                    |
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+--------------------------------------------------------+
-| g2    | BUFG/O          | n/a               | Multiple |      40.000 | {0.000 20.000} |          |          98 |        0 |           0 |  0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_25M |
+| g2    | BUFG/O          | n/a               | Multiple |      40.000 | {0.000 20.000} |          |          99 |        0 |           0 |  0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_25M |
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+--------------------------------------------------------+
 
 
@@ -254,8 +254,8 @@ Table of Contents
 |    | X0  | X1  |
 +----+-----+-----+
 | Y2 |   0 |   0 |
-| Y1 |   5 |  31 |
-| Y0 |  29 |  33 |
+| Y1 |  10 |  25 |
+| Y0 |  30 |  34 |
 +----+-----+-----+
 
 
@@ -272,8 +272,8 @@ Table of Contents
 +----+-----+-----+
 |    | X0  | X1  |
 +----+-----+-----+
-| Y2 |  10 |  28 |
-| Y1 |   4 |  24 |
+| Y2 |   8 |  27 |
+| Y1 |  16 |  15 |
 | Y0 |   1 |   0 |
 +----+-----+-----+
 
@@ -284,7 +284,7 @@ Table of Contents
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+---------------------------------------------------------+
 | GlbID | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                                     |
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+---------------------------------------------------------+
-| g4    | BUFG/O          | n/a               | Multiple |      41.667 | {0.000 20.833} |          |           5 |        1 |           0 |  0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out3 |
+| g4    | BUFG/O          | n/a               | Multiple |      41.667 | {0.000 20.833} |          |           2 |        1 |           0 |  0 | design_1_i/custom_logic/inst/mqp_top/mmcm/inst/clk_out3 |
 +-------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+-------------+----+---------------------------------------------------------+
 
 
@@ -292,7 +292,7 @@ Table of Contents
 |    | X0 | X1 |
 +----+----+----+
 | Y2 |  0 |  0 |
-| Y1 |  0 |  5 |
+| Y1 |  0 |  2 |
 | Y0 |  1 |  0 |
 +----+----+----+
 

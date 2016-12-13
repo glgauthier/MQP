@@ -22,8 +22,8 @@
 #include "xgpiops.h"
 
 //I2C config params
-#define IIC_DEVICE_ID		XPAR_XIICPS_0_DEVICE_ID
-#define IIC_SCLK_RATE		100000
+#define IIC_DEVICE_ID XPAR_XIICPS_0_DEVICE_ID
+#define IIC_SCLK_RATE 100000
 #define PAGE_SIZE 16
 // camera I2C addresses
 #define CAM1_ADDR 0x48
@@ -126,15 +126,6 @@ int main()
 					status[rx_index] = inbyte();	// blocking - inbyte is polled
 				}
 
-				//
-//				if(strcmp(status[0], '0') != 0)
-//				{
-//					STATE = WAIT;
-//					break;
-//				}
-
-//				printf("receiving data blocks\n");
-
 				int iteration = 0;
 
 				// receives 24 data blocks
@@ -160,8 +151,9 @@ int main()
 
 						//sends information to the programmable logic for each data point (2 chars)
 						//in the order of {data, enable, step}
-						data_enable_step = (databufbuf[1] << 20) + (databufbuf[0] << 12) + (write << 11) + stepbuf;
+						data_enable_step = (databufbuf[1] << 20) | (databufbuf[0] << 12) | (write << 11) | stepbuf;
 						*(baseaddr_p+1) = data_enable_step;
+
 					}
 				}
 
@@ -198,7 +190,7 @@ void init_cams()
     XIicPs_Config *ConfigPtr;
     int Status;
 
-    // initialize iicps
+    // Initialize iicps instance
     ConfigPtr = XIicPs_LookupConfig(IIC_DEVICE_ID);
     Status = XIicPs_CfgInitialize(&IicInstance, ConfigPtr, ConfigPtr->BaseAddress);
     Status = XIicPs_SelfTest(&IicInstance);
@@ -209,14 +201,10 @@ void init_cams()
     while(XIicPs_BusIsBusy(&IicInstance));
 
     // Initialize Cam2
-    //XIicPs_Reset(&IicInstance);
     WriteBuffer[0] = (u8) (CAM2_ADDR);
-    WriteBuffer[1] = (u8) (CAMERA_CTL);
-    WriteBuffer[2] = (u8) (MANUAL_TRIG >> 8);
-    WriteBuffer[3] = (u8) (MANUAL_TRIG);
-
     XIicPs_MasterSend(&IicInstance, WriteBuffer, ByteCount,CAM2_ADDR);
     while(XIicPs_BusIsBusy(&IicInstance));
-    // write LED to indicate finished init sequence
+
+    // Write LED to indicate finished init sequence
     XGpioPs_WritePin(&Gpio, 7, 0x01);
 }

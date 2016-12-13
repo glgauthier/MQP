@@ -154,7 +154,7 @@ output wire [7 : 0] doutb;
     .C_DISABLE_WARN_BHV_RANGE(1),
     .C_COUNT_36K_BRAM("27"),
     .C_COUNT_18K_BRAM("0"),
-    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     4.53475 mW")
+    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     4.5347499999999998 mW")
   ) inst (
     .clka(clka),
     .rsta(1'D0),

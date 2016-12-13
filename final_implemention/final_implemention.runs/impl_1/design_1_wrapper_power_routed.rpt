@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Mon Dec 12 13:48:05 2016
+| Date             : Mon Dec 12 22:17:51 2016
 | Host             : Georges-T460p running 64-bit major release  (build 9200)
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 1.853 |
-| Dynamic (W)              | 1.678 |
+| Total On-Chip Power (W)  | 1.851 |
+| Dynamic (W)              | 1.676 |
 | Device Static (W)        | 0.174 |
 | Effective TJA (C/W)      | 11.5  |
-| Max Ambient (C)          | 63.6  |
-| Junction Temperature (C) | 46.4  |
+| Max Ambient (C)          | 63.7  |
+| Junction Temperature (C) | 46.3  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -49,23 +49,23 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.011 |       15 |       --- |             --- |
-| Slice Logic              |     0.009 |     4893 |       --- |             --- |
-|   LUT as Logic           |     0.008 |     2117 |     53200 |            3.98 |
+| Clocks                   |     0.014 |       15 |       --- |             --- |
+| Slice Logic              |     0.011 |     6028 |       --- |             --- |
+|   LUT as Logic           |     0.009 |     2476 |     53200 |            4.65 |
+|   CARRY4                 |    <0.001 |      215 |     13300 |            1.62 |
 |   LUT as Distributed RAM |    <0.001 |      192 |     17400 |            1.10 |
-|   CARRY4                 |    <0.001 |      120 |     13300 |            0.90 |
-|   Register               |    <0.001 |     1254 |    106400 |            1.18 |
+|   Register               |    <0.001 |     1687 |    106400 |            1.59 |
 |   F7/F8 Muxes            |    <0.001 |      205 |     53200 |            0.39 |
 |   LUT as Shift Register  |    <0.001 |       68 |     17400 |            0.39 |
-|   Others                 |     0.000 |      473 |       --- |             --- |
-| Signals                  |     0.024 |     4617 |       --- |             --- |
-| Block RAM                |     0.004 |      130 |       140 |           92.86 |
+|   Others                 |     0.000 |      529 |       --- |             --- |
+| Signals                  |     0.020 |     5130 |       --- |             --- |
+| Block RAM                |     0.005 |      130 |       140 |           92.86 |
 | MMCM                     |     0.085 |        1 |         4 |           25.00 |
-| DSPs                     |     0.005 |        8 |       220 |            3.64 |
-| I/O                      |     0.007 |       50 |       200 |           25.00 |
+| DSPs                     |     0.002 |        7 |       220 |            3.18 |
+| I/O                      |     0.008 |       50 |       200 |           25.00 |
 | PS7                      |     1.532 |        1 |       --- |             --- |
 | Static Power             |     0.174 |          |           |                 |
-| Total                    |     1.853 |          |           |                 |
+| Total                    |     1.851 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.074 |       0.054 |      0.021 |
+| Vccint    |       1.000 |     0.072 |       0.052 |      0.021 |
 | Vccaux    |       1.800 |     0.068 |       0.047 |      0.021 |
 | Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -163,8 +163,8 @@ Table of Contents
 +--------------------------------------------------------+-----------+
 | Name                                                   | Power (W) |
 +--------------------------------------------------------+-----------+
-| design_1_wrapper                                       |     1.678 |
-|   design_1_i                                           |     1.671 |
+| design_1_wrapper                                       |     1.676 |
+|   design_1_i                                           |     1.669 |
 |     blk_mem_gen_0                                      |    <0.001 |
 |       U0                                               |    <0.001 |
 |         inst_blk_mem_gen                               |    <0.001 |
@@ -335,11 +335,11 @@ Table of Contents
 |                 prim_init.ram                          |    <0.001 |
 |               ramloop[9].ram.r                         |    <0.001 |
 |                 prim_init.ram                          |    <0.001 |
-|     custom_logic                                       |     0.128 |
-|       inst                                             |     0.123 |
+|     custom_logic                                       |     0.125 |
+|       inst                                             |     0.120 |
 |         custom_logic_v1_0_S00_AXI_inst                 |     0.001 |
-|         mqp_top                                        |     0.122 |
-|           camctl                                       |     0.010 |
+|         mqp_top                                        |     0.119 |
+|           camctl                                       |     0.009 |
 |             left                                       |     0.004 |
 |               U0                                       |     0.004 |
 |                 inst_blk_mem_gen                       |     0.004 |
@@ -402,11 +402,11 @@ Table of Contents
 |                         prim_noinit.ram                |    <0.001 |
 |                       ramloop[9].ram.r                 |    <0.001 |
 |                         prim_noinit.ram                |    <0.001 |
-|             right                                      |     0.005 |
-|               U0                                       |     0.005 |
-|                 inst_blk_mem_gen                       |     0.005 |
-|                   gnbram.gnativebmg.native_blk_mem_gen |     0.005 |
-|                     valid.cstr                         |     0.005 |
+|             right                                      |     0.004 |
+|               U0                                       |     0.004 |
+|                 inst_blk_mem_gen                       |     0.004 |
+|                   gnbram.gnativebmg.native_blk_mem_gen |     0.004 |
+|                     valid.cstr                         |     0.004 |
 |                       bindec_a.bindec_inst_a           |    <0.001 |
 |                       bindec_b.bindec_inst_b           |    <0.001 |
 |                       has_mux_b.B                      |     0.002 |
@@ -464,7 +464,7 @@ Table of Contents
 |                         prim_noinit.ram                |    <0.001 |
 |                       ramloop[9].ram.r                 |    <0.001 |
 |                         prim_noinit.ram                |    <0.001 |
-|           disp                                         |     0.022 |
+|           disp                                         |     0.017 |
 |             SAD_diffs0_reg_0_7_0_5                     |    <0.001 |
 |             SAD_diffs0_reg_0_7_6_7                     |    <0.001 |
 |             SAD_diffs1_reg_0_7_0_5                     |    <0.001 |
@@ -609,7 +609,20 @@ Table of Contents
 |             template6_reg_0_7_7_7                      |    <0.001 |
 |           mmcm                                         |     0.086 |
 |             inst                                       |     0.086 |
-|           rangefinder                                  |     0.004 |
+|           rangefinder                                  |     0.007 |
+|             trig_mult_1                                |     0.003 |
+|               U0                                       |     0.003 |
+|                 i_mult                                 |     0.003 |
+|                   gLUT.gLUT_speed.iLUT                 |     0.003 |
+|             trig_mult_2                                |     0.003 |
+|               U0                                       |     0.003 |
+|                 i_mult                                 |     0.003 |
+|                   gLUT.gLUT_speed.iLUT                 |     0.003 |
+|             vga_multiplier                             |    <0.001 |
+|               U0                                       |    <0.001 |
+|                 i_mult                                 |    <0.001 |
+|                   gCCM.iCCM                            |    <0.001 |
+|                     emb_mult_ccm.dsp_ccm.dsp48_array   |    <0.001 |
 |           vga_controller                               |    <0.001 |
 |     processing_system7_0                               |     1.533 |
 |       inst                                             |     1.533 |

@@ -45,6 +45,23 @@
   "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/blk_mem_gen_v8_3_3/simulation/blk_mem_gen_v8_3.v" \
   "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/sim/blk_mem_384_288.v" \
 -endlib
+-makelib ies/xbip_utils_v3_0_6 \
+  "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/xbip_utils_v3_0_6/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib ies/xbip_pipe_v3_0_2 \
+  "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/xbip_pipe_v3_0_2/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
+  "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/xbip_pipe_v3_0_2/hdl/xbip_pipe_v3_0.vhd" \
+-endlib
+-makelib ies/xbip_bram18k_v3_0_2 \
+  "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/xbip_bram18k_v3_0_2/hdl/xbip_bram18k_v3_0_vh_rfs.vhd" \
+  "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/xbip_bram18k_v3_0_2/hdl/xbip_bram18k_v3_0.vhd" \
+-endlib
+-makelib ies/mult_gen_v12_0_11 \
+  "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/mult_gen_v12_0_11/hdl/mult_gen_v12_0_vh_rfs.vhd" \
+  "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/mult_gen_v12_0_11/hdl/mult_gen_v12_0.vhd" \
+  "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/sim/mult_gen_0.vhd" \
+  "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_2/sim/mult_gen_2.vhd" \
+-endlib
 -makelib ies/xil_defaultlib \
   "../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v" \
   "../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v" \

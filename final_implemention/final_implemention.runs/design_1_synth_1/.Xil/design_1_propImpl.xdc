@@ -263,4 +263,4 @@ set_property PACKAGE_PIN "C9" [get_ports "PS_SRSTB"]
 set_property src_info {type:SCOPED_XDC file:1 line:656 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN "F7" [get_ports "PS_CLK"]
 set_property src_info {type:SCOPED_XDC file:2 line:57 export:INPUT save:INPUT read:READ} [current_design]
-set_input_jitter [get_clocks -of_objects [get_ports clk_in1]] 0.1
+set_input_jitter [get_clocks -of_objects [get_ports clk_in1]] 0.10000000000000001

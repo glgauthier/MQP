@@ -5,6 +5,10 @@ vlib msim/xil_defaultlib
 vlib msim/xpm
 vlib msim/processing_system7_bfm_v2_0_5
 vlib msim/blk_mem_gen_v8_3_3
+vlib msim/xbip_utils_v3_0_6
+vlib msim/xbip_pipe_v3_0_2
+vlib msim/xbip_bram18k_v3_0_2
+vlib msim/mult_gen_v12_0_11
 vlib msim/lib_cdc_v1_0_2
 vlib msim/proc_sys_reset_v5_0_9
 vlib msim/generic_baseblocks_v2_1_0
@@ -18,6 +22,10 @@ vmap xil_defaultlib msim/xil_defaultlib
 vmap xpm msim/xpm
 vmap processing_system7_bfm_v2_0_5 msim/processing_system7_bfm_v2_0_5
 vmap blk_mem_gen_v8_3_3 msim/blk_mem_gen_v8_3_3
+vmap xbip_utils_v3_0_6 msim/xbip_utils_v3_0_6
+vmap xbip_pipe_v3_0_2 msim/xbip_pipe_v3_0_2
+vmap xbip_bram18k_v3_0_2 msim/xbip_bram18k_v3_0_2
+vmap mult_gen_v12_0_11 msim/mult_gen_v12_0_11
 vmap lib_cdc_v1_0_2 msim/lib_cdc_v1_0_2
 vmap proc_sys_reset_v5_0_9 msim/proc_sys_reset_v5_0_9
 vmap generic_baseblocks_v2_1_0 msim/generic_baseblocks_v2_1_0
@@ -73,6 +81,23 @@ vlog -work xil_defaultlib -64 -incr "+incdir+../../../../final_implemention.srcs
 vlog -work blk_mem_gen_v8_3_3 -64 -incr "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/blk_mem_gen_v8_3_3/simulation/blk_mem_gen_v8_3.v" \
 "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/sim/blk_mem_384_288.v" \
+
+vcom -work xbip_utils_v3_0_6 -64 -93 \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/xbip_utils_v3_0_6/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
+
+vcom -work xbip_pipe_v3_0_2 -64 -93 \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/xbip_pipe_v3_0_2/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/xbip_pipe_v3_0_2/hdl/xbip_pipe_v3_0.vhd" \
+
+vcom -work xbip_bram18k_v3_0_2 -64 -93 \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/xbip_bram18k_v3_0_2/hdl/xbip_bram18k_v3_0_vh_rfs.vhd" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/xbip_bram18k_v3_0_2/hdl/xbip_bram18k_v3_0.vhd" \
+
+vcom -work mult_gen_v12_0_11 -64 -93 \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/mult_gen_v12_0_11/hdl/mult_gen_v12_0_vh_rfs.vhd" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/mult_gen_v12_0_11/hdl/mult_gen_v12_0.vhd" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/sim/mult_gen_0.vhd" \
+"../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_2/sim/mult_gen_2.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/clk_wiz_0_1/clk_wiz_v5_3_1" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v" \

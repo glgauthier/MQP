@@ -91,7 +91,6 @@ module mqp_top
            .enable(enable),
            .step(step),
            .vga_waddr(rangefinder_waddr),
-           .write(write),
            .transmit(transmit),
            .dina(rangefinder_data),
            .wea(rangefinder_wen),
