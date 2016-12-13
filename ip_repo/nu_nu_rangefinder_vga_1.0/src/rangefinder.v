@@ -6,7 +6,7 @@ module rangefinder(
     input button,
     input [8:0] device_x,
     input [8:0] device_y,
-    output reg [7:0] leds,
+    output [7:0] leds,
     input [15:0] data,
     input enable,
     input [10:0] step,
@@ -69,14 +69,14 @@ module rangefinder(
             current_state <= next_state;
     
     //next state logic
-    always @ (current_state, s2_counter, s4_counter, enable, row_count, col_count, button)
+    always @ (current_state, s2_counter, s4_counter, enable, row_count, col_count, button, step)
     begin
         case (current_state)
             // stays in s0 until a new enable pulse
             s0:
                 if(enable)
                     next_state = s2;
-                else if (button)
+                else if (button || step == 768)
                     next_state = s1;
                 else
                     next_state = s0;
@@ -254,8 +254,10 @@ module rangefinder(
     begin
         if(reset || transmit)
             watchdog <= 0;
-        else
+        else if (current_state == s0)
             watchdog <= watchdog + 1'b1;
+        else
+            watchdog <= watchdog;
     end    
     
     //sets flag to initialize another rangefinder data sequence   
@@ -276,5 +278,7 @@ module rangefinder(
         else
             transmit <= 1'b0;
     end
+    
+    assign leds[7:0] = {next_state[2:0],current_state[2:0],enable,button};
         
 endmodule

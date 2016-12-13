@@ -48,7 +48,6 @@ set_msg_config -id {HDL 9-1654} -limit 100000
 start_step init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7z020clg484-1
   set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
   set_property design_mode GateLvl [current_fileset]

@@ -174,7 +174,7 @@ module mqp_top
         
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VGA Logic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Assign LED outputs for debug based on output mode
-    assign leds = (sw[0]) ? {result_wen,trig_db,buffer_ready,current_state[2:0],sw[1:0]} : x_vga[7:0];
+    assign leds = (sw[0]) ? {result_wen,trig_db,buffer_ready,current_state[2:0],sw[1:0]} : rangefinder_leds;
     
     // VGA output
     wire [10:0] hcount, vcount; // horizontal, vertical location on screen
@@ -251,11 +251,11 @@ module mqp_top
                 // point from rangefinder data (with or without disparity overlap)
                 else if(x_vga == 8'hFF)
                     if(hcount >= 272 && hcount < 368 && vcount == 265-lineout)
-                        rgb = {4'h0,lineout};
+                        rgb = {4'hF,lineout};
                     else
                         rgb = 12'h000;
                 // point from disparity data without rangefinder overlap
-                else if(hcount >= 272 && hcount < 368 && vcount == 265-lineout)
+                else if(hcount >= 272 && hcount < 368 && vcount == 265-lineout && lineout > 0)
                     rgb = {4'h0,lineout};
                 else
                     rgb = 12'hFFF;

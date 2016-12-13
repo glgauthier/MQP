@@ -1,7 +1,7 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
--- Date        : Mon Dec 12 22:14:52 2016
+-- Date        : Mon Dec 12 23:46:41 2016
 -- Host        : Georges-T460p running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/design_1_stub.vhdl
