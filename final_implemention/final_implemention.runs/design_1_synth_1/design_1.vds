@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Mon Dec 12 23:40:11 2016
-# Process ID: 2896
+# Start of session at: Tue Dec 13 21:22:46 2016
+# Process ID: 5500
 # Current directory: C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.runs/design_1_synth_1
 # Command line: vivado.exe -log design_1.vds -mode batch -messageDb vivado.pb -notrace -source design_1.tcl
 # Log file: C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.runs/design_1_synth_1/design_1.vds
@@ -23,9 +23,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 5332 
+INFO: Helper process launched with PID 2924 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 332.832 ; gain = 125.883
+Starting RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 333.777 ; gain = 126.535
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1' [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:13]
 INFO: [Synth 8-638] synthesizing module 'design_1_blk_mem_gen_0_1' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_1/synth/design_1_blk_mem_gen_0_1.vhd:67]
@@ -74,33 +74,36 @@ INFO: [Synth 8-3491] module 'blk_mem_gen_v8_3_3' declared at 'c:/Users/georges/D
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_384_288' (31#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/synth/blk_mem_384_288.vhd:72]
 INFO: [Synth 8-256] done synthesizing module 'imgbuf' (32#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/imgbuf.v:6]
 INFO: [Synth 8-638] synthesizing module 'parallel_disparity' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:5]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:159]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:169]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:181]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:191]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:274]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:284]
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:134]
-INFO: [Synth 8-256] done synthesizing module 'parallel_disparity' (33#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:5]
-WARNING: [Synth 8-689] width (7) of port connection 'lineaddr' does not match port width (8) of module 'parallel_disparity' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:172]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:160]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:170]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:182]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:192]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:275]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:285]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:135]
+INFO: [Synth 8-638] synthesizing module 'line_bram' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/line_bram/synth/line_bram.vhd:71]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_3_3' declared at 'c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/blk_mem_384_288/blk_mem_gen_v8_3_3/hdl/blk_mem_gen_v8_3.vhd:71' bound to instance 'U0' of component 'blk_mem_gen_v8_3_3' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/line_bram/synth/line_bram.vhd:234]
+INFO: [Synth 8-256] done synthesizing module 'line_bram' (33#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/line_bram/synth/line_bram.vhd:71]
+WARNING: [Synth 8-689] width (11) of port connection 'dina' does not match port width (8) of module 'line_bram' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:405]
+INFO: [Synth 8-256] done synthesizing module 'parallel_disparity' (34#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:5]
 INFO: [Synth 8-638] synthesizing module 'vga_controller_640_60' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/vga_controller_640_60.vhd:88]
-INFO: [Synth 8-256] done synthesizing module 'vga_controller_640_60' (34#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/vga_controller_640_60.vhd:88]
+INFO: [Synth 8-256] done synthesizing module 'vga_controller_640_60' (35#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/vga_controller_640_60.vhd:88]
 WARNING: [Synth 8-567] referenced signal 'sw' should be on the sensitivity list [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:193]
-INFO: [Synth 8-256] done synthesizing module 'mqp_top' (35#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:3]
-INFO: [Synth 8-256] done synthesizing module 'custom_logic_v1_0' (36#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/hdl/nu_nu_rangefinder_vga_v1_0.v:4]
-INFO: [Synth 8-256] done synthesizing module 'design_1_nu_nu_rangefinder_vga_0_0' (37#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/synth/design_1_nu_nu_rangefinder_vga_0_0.v:57]
+INFO: [Synth 8-256] done synthesizing module 'mqp_top' (36#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:3]
+INFO: [Synth 8-256] done synthesizing module 'custom_logic_v1_0' (37#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/hdl/nu_nu_rangefinder_vga_v1_0.v:4]
+INFO: [Synth 8-256] done synthesizing module 'design_1_nu_nu_rangefinder_vga_0_0' (38#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/synth/design_1_nu_nu_rangefinder_vga_0_0.v:57]
 WARNING: [Synth 8-350] instance 'custom_logic' of module 'design_1_nu_nu_rangefinder_vga_0_0' requires 52 connections, but only 51 given [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:241]
 INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:59]
 INFO: [Synth 8-638] synthesizing module 'processing_system7_v5_5_processing_system7' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:156]
 INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:1338]
 INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:1339]
 INFO: [Synth 8-638] synthesizing module 'BIBUF' [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:268]
-INFO: [Synth 8-256] done synthesizing module 'BIBUF' (38#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:268]
+INFO: [Synth 8-256] done synthesizing module 'BIBUF' (39#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:268]
 INFO: [Synth 8-638] synthesizing module 'PS7' [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:33164]
-INFO: [Synth 8-256] done synthesizing module 'PS7' (39#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:33164]
-INFO: [Synth 8-256] done synthesizing module 'processing_system7_v5_5_processing_system7' (40#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:156]
+INFO: [Synth 8-256] done synthesizing module 'PS7' (40#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:33164]
+INFO: [Synth 8-256] done synthesizing module 'processing_system7_v5_5_processing_system7' (41#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:156]
 WARNING: [Synth 8-350] instance 'inst' of module 'processing_system7_v5_5_processing_system7' requires 685 connections, but only 672 given [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:309]
-INFO: [Synth 8-256] done synthesizing module 'design_1_processing_system7_0_0' (41#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:59]
+INFO: [Synth 8-256] done synthesizing module 'design_1_processing_system7_0_0' (42#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:59]
 WARNING: [Synth 8-350] instance 'processing_system7_0' of module 'design_1_processing_system7_0_0' requires 65 connections, but only 62 given [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:293]
 INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_axi_periph_0' [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:430]
 INFO: [Synth 8-638] synthesizing module 's00_couplers_imp_1CFO1MB' [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:745]
@@ -110,73 +113,73 @@ INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s' [c:/
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_aw_channel' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_aw_channel.v:5]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_cmd_translator' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_cmd_translator.v:17]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_incr_cmd' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_incr_cmd.v:11]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_incr_cmd' (42#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_incr_cmd.v:11]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_incr_cmd' (43#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_incr_cmd.v:11]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_wrap_cmd' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_wrap_cmd.v:11]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_wrap_cmd' (43#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_wrap_cmd.v:11]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_cmd_translator' (44#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_cmd_translator.v:17]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_wrap_cmd' (44#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_wrap_cmd.v:11]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_cmd_translator' (45#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_cmd_translator.v:17]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_wr_cmd_fsm' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_wr_cmd_fsm.v:10]
 INFO: [Synth 8-226] default block is never used [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_wr_cmd_fsm.v:64]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_wr_cmd_fsm' (45#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_wr_cmd_fsm.v:10]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_aw_channel' (46#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_aw_channel.v:5]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_wr_cmd_fsm' (46#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_wr_cmd_fsm.v:10]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_aw_channel' (47#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_aw_channel.v:5]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_b_channel' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_b_channel.v:10]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo' (47#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo' (48#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo__parameterized0' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo__parameterized0' (47#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_b_channel' (48#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_b_channel.v:10]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo__parameterized0' (48#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_b_channel' (49#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_b_channel.v:10]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_ar_channel' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_ar_channel.v:5]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_rd_cmd_fsm' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_rd_cmd_fsm.v:10]
 INFO: [Synth 8-226] default block is never used [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_rd_cmd_fsm.v:72]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_rd_cmd_fsm' (49#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_rd_cmd_fsm.v:10]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_ar_channel' (50#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_ar_channel.v:5]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_rd_cmd_fsm' (50#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_rd_cmd_fsm.v:10]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_ar_channel' (51#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_ar_channel.v:5]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_r_channel' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_r_channel.v:21]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo__parameterized1' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo__parameterized1' (50#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo__parameterized1' (51#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
 INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo__parameterized2' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo__parameterized2' (50#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_r_channel' (51#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_r_channel.v:21]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_simple_fifo__parameterized2' (51#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_simple_fifo.v:9]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s_r_channel' (52#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s_r_channel.v:21]
 INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_9_axi_register_slice' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axi_register_slice.v:64]
 INFO: [Synth 8-638] synthesizing module 'axi_infrastructure_v1_1_0_axi2vector' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_axi2vector.v:60]
-INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_axi2vector' (52#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_axi2vector.v:60]
+INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_axi2vector' (53#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_axi2vector.v:60]
 INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice' (53#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice' (54#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
 INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized0' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized0' (53#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized0' (54#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
 INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized1' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized1' (53#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized1' (54#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
 INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized2' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized2' (53#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized2' (54#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
 INFO: [Synth 8-638] synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_vector2axi.v:60]
-INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' (54#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_vector2axi.v:60]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axi_register_slice' (55#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axi_register_slice.v:64]
+INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' (55#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_vector2axi.v:60]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axi_register_slice' (56#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axi_register_slice.v:64]
 INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_9_axi_register_slice__parameterized0' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axi_register_slice.v:64]
 INFO: [Synth 8-638] synthesizing module 'axi_infrastructure_v1_1_0_axi2vector__parameterized0' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_axi2vector.v:60]
-INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_axi2vector__parameterized0' (55#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_axi2vector.v:60]
+INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_axi2vector__parameterized0' (56#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_axi2vector.v:60]
 INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized3' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized3' (55#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized3' (56#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
 INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized4' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized4' (55#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized4' (56#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
 INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized5' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized5' (55#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized5' (56#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
 INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized6' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized6' (55#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized6' (56#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
 INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized7' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized7' (55#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axic_register_slice__parameterized7' (56#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:85]
 INFO: [Synth 8-638] synthesizing module 'axi_infrastructure_v1_1_0_vector2axi__parameterized0' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_vector2axi.v:60]
-INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_vector2axi__parameterized0' (55#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_vector2axi.v:60]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axi_register_slice__parameterized0' (55#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axi_register_slice.v:64]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s' (56#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s.v:39]
-INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_axi_protocol_converter' (57#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_axi_protocol_converter.v:62]
-INFO: [Synth 8-256] done synthesizing module 'design_1_auto_pc_0' (58#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/synth/design_1_auto_pc_0.v:58]
-INFO: [Synth 8-256] done synthesizing module 's00_couplers_imp_1CFO1MB' (59#1) [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:745]
-INFO: [Synth 8-256] done synthesizing module 'design_1_processing_system7_0_axi_periph_0' (60#1) [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:430]
+INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_vector2axi__parameterized0' (56#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_vector2axi.v:60]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_9_axi_register_slice__parameterized0' (56#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axi_register_slice.v:64]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_b2s' (57#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_b2s.v:39]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_9_axi_protocol_converter' (58#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_axi_protocol_converter.v:62]
+INFO: [Synth 8-256] done synthesizing module 'design_1_auto_pc_0' (59#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/synth/design_1_auto_pc_0.v:58]
+INFO: [Synth 8-256] done synthesizing module 's00_couplers_imp_1CFO1MB' (60#1) [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:745]
+INFO: [Synth 8-256] done synthesizing module 'design_1_processing_system7_0_axi_periph_0' (61#1) [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:430]
 INFO: [Synth 8-638] synthesizing module 'design_1_rst_processing_system7_0_100M_0' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/synth/design_1_rst_processing_system7_0_100M_0.vhd:71]
 INFO: [Synth 8-3491] module 'proc_sys_reset' declared at 'c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/proc_sys_reset.vhd:140' bound to instance 'U0' of component 'proc_sys_reset' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/synth/design_1_rst_processing_system7_0_100M_0.vhd:116]
 INFO: [Synth 8-638] synthesizing module 'proc_sys_reset' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/proc_sys_reset.vhd:199]
 INFO: [Synth 8-638] synthesizing module 'lpf' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/lpf.vhd:138]
 INFO: [Synth 8-3491] module 'SRL16' declared at 'C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:43294' bound to instance 'POR_SRL_I' of component 'SRL16' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/lpf.vhd:190]
 INFO: [Synth 8-638] synthesizing module 'SRL16' [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:43294]
-INFO: [Synth 8-256] done synthesizing module 'SRL16' (61#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:43294]
+INFO: [Synth 8-256] done synthesizing module 'SRL16' (62#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:43294]
 INFO: [Synth 8-638] synthesizing module 'cdc_sync' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/lib_cdc_v1_0/hdl/src/vhdl/cdc_sync.vhd:106]
 INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to' to cell 'FDR' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/lib_cdc_v1_0/hdl/src/vhdl/cdc_sync.vhd:514]
 INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d2' to cell 'FDR' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/lib_cdc_v1_0/hdl/src/vhdl/cdc_sync.vhd:545]
@@ -184,16 +187,16 @@ INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_o
 INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4' to cell 'FDR' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/lib_cdc_v1_0/hdl/src/vhdl/cdc_sync.vhd:564]
 INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5' to cell 'FDR' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/lib_cdc_v1_0/hdl/src/vhdl/cdc_sync.vhd:574]
 INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d6' to cell 'FDR' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/lib_cdc_v1_0/hdl/src/vhdl/cdc_sync.vhd:584]
-INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (62#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/lib_cdc_v1_0/hdl/src/vhdl/cdc_sync.vhd:106]
-INFO: [Synth 8-256] done synthesizing module 'lpf' (63#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/lpf.vhd:138]
+INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (63#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/lib_cdc_v1_0/hdl/src/vhdl/cdc_sync.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'lpf' (64#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/lpf.vhd:138]
 INFO: [Synth 8-638] synthesizing module 'sequence_psr' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/sequence_psr.vhd:146]
 INFO: [Synth 8-638] synthesizing module 'upcnt_n' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/upcnt_n.vhd:125]
-INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (64#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/upcnt_n.vhd:125]
-INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (65#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/sequence_psr.vhd:146]
-INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (66#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/proc_sys_reset.vhd:199]
-INFO: [Synth 8-256] done synthesizing module 'design_1_rst_processing_system7_0_100M_0' (67#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/synth/design_1_rst_processing_system7_0_100M_0.vhd:71]
+INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (65#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/upcnt_n.vhd:125]
+INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (66#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/sequence_psr.vhd:146]
+INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (67#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/proc_sys_reset.vhd:199]
+INFO: [Synth 8-256] done synthesizing module 'design_1_rst_processing_system7_0_100M_0' (68#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/synth/design_1_rst_processing_system7_0_100M_0.vhd:71]
 WARNING: [Synth 8-350] instance 'rst_processing_system7_0_100M' of module 'design_1_rst_processing_system7_0_100M_0' requires 10 connections, but only 7 given [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:420]
-INFO: [Synth 8-256] done synthesizing module 'design_1' (68#1) [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:13]
+INFO: [Synth 8-256] done synthesizing module 'design_1' (69#1) [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:13]
 WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_aclk
 WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_resetn
 WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_vect_in[1]
@@ -296,7 +299,7 @@ WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_9_b2s_rd_cmd_fsm has 
 WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_9_b2s_rd_cmd_fsm has unconnected port s_arlen[2]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:04:52 ; elapsed = 00:05:01 . Memory (MB): peak = 641.961 ; gain = 435.012
+Finished RTL Elaboration : Time (s): cpu = 00:05:51 ; elapsed = 00:06:02 . Memory (MB): peak = 661.535 ; gain = 454.293
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -306,9 +309,9 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:04:53 ; elapsed = 00:05:02 . Memory (MB): peak = 641.961 ; gain = 435.012
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:05:52 ; elapsed = 00:06:03 . Memory (MB): peak = 661.535 ; gain = 454.293
 ---------------------------------------------------------------------------------
-INFO: [Netlist 29-17] Analyzing 662 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 663 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -342,16 +345,16 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   MULT_AND => LUT2: 168 instances
   SRL16 => SRL16E: 1 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.191 . Memory (MB): peak = 825.938 ; gain = 0.301
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.201 . Memory (MB): peak = 833.352 ; gain = 1.453
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:05:10 ; elapsed = 00:05:20 . Memory (MB): peak = 825.938 ; gain = 618.988
+Finished Constraint Validation : Time (s): cpu = 00:06:12 ; elapsed = 00:06:24 . Memory (MB): peak = 833.352 ; gain = 626.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:05:10 ; elapsed = 00:05:20 . Memory (MB): peak = 825.938 ; gain = 618.988
+Finished Loading Part and Timing Information : Time (s): cpu = 00:06:12 ; elapsed = 00:06:24 . Memory (MB): peak = 833.352 ; gain = 626.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -367,6 +370,8 @@ Applied set_property DONT_TOUCH = true for custom_logic/inst/mqp_top/camctl/left
 Applied set_property DONT_TOUCH = true for custom_logic/inst/mqp_top/camctl/left/U0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for custom_logic/inst/mqp_top/camctl/right. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for custom_logic/inst/mqp_top/camctl/right/U0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for custom_logic/inst/mqp_top/disp/linebuf. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for custom_logic/inst/mqp_top/disp/linebuf/U0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for custom_logic/inst/mqp_top/mmcm. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for custom_logic/inst/mqp_top/mmcm/inst. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for custom_logic/inst/mqp_top/rangefinder/trig_mult_1. (constraint file  auto generated constraint, line ).
@@ -380,7 +385,7 @@ Applied set_property DONT_TOUCH = true for processing_system7_0_axi_periph/s00_c
 Applied set_property DONT_TOUCH = true for rst_processing_system7_0_100M. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for rst_processing_system7_0_100M/U0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:05:11 ; elapsed = 00:05:20 . Memory (MB): peak = 825.938 ; gain = 618.988
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:06:12 ; elapsed = 00:06:24 . Memory (MB): peak = 833.352 ; gain = 626.109
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v:198]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v:203]
@@ -402,13 +407,13 @@ INFO: [Synth 8-5544] ROM "vga_waddr" won't be mapped to Block RAM because addres
 INFO: [Synth 8-5544] ROM "xmult" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "trigger" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "fifo_oe" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:243]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:248]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:253]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:258]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:238]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:233]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:228]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:244]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:249]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:254]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:259]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:239]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:234]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:229]
 INFO: [Synth 8-5546] ROM "template0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "template1" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "template2" won't be mapped to RAM because it is too sparse
@@ -445,10 +450,10 @@ INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To p
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:194]
 INFO: [Synth 8-5546] ROM "rgb" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-4471] merging register 'seq_cnt_en_reg' into 'from_sys_reg' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/sequence_psr.vhd:222]
-WARNING: [Synth 8-327] inferring latch for variable 'maxd_reg' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:391]
+WARNING: [Synth 8-327] inferring latch for variable 'maxd_reg' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:414]
 WARNING: [Synth 8-327] inferring latch for variable 'rgb_reg' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:218]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:05:17 ; elapsed = 00:05:28 . Memory (MB): peak = 825.938 ; gain = 618.988
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:06:19 ; elapsed = 00:06:33 . Memory (MB): peak = 833.352 ; gain = 626.109
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -477,21 +482,21 @@ BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:05:17 ; elapsed = 00:05:29 . Memory (MB): peak = 825.938 ; gain = 618.988
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:06:20 ; elapsed = 00:06:34 . Memory (MB): peak = 833.352 ; gain = 626.109
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-4471] merging register 'rcnt_reg[8:0]' into 'rcnt_reg[8:0]' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:158]
-INFO: [Synth 8-4471] merging register 'row_count_reg[8:0]' into 'row_count_reg[8:0]' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:138]
-INFO: [Synth 8-4471] merging register 'col_count_reg[8:0]' into 'col_count_reg[8:0]' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:141]
+INFO: [Synth 8-4471] merging register 'rcnt_reg[8:0]' into 'rcnt_reg[8:0]' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:159]
+INFO: [Synth 8-4471] merging register 'row_count_reg[8:0]' into 'row_count_reg[8:0]' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:139]
+INFO: [Synth 8-4471] merging register 'col_count_reg[8:0]' into 'col_count_reg[8:0]' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:142]
 INFO: [Synth 8-4471] merging register 'inst/mqp_top/camctl/pixel_reg[9:0]' into 'inst/mqp_top/camctl/pixel_reg[9:0]' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/imgbuf.v:117]
 INFO: [Synth 8-4471] merging register 'inst/mqp_top/rangefinder/row_count_reg[10:0]' into 'inst/mqp_top/rangefinder/row_count_reg[10:0]' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v:128]
 INFO: [Synth 8-3936] Found unconnected internal register 'gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/m_payload_i_reg' and it is trimmed from '66' to '62' bits. [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:318]
 INFO: [Synth 8-3936] Found unconnected internal register 'gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/m_payload_i_reg' and it is trimmed from '66' to '62' bits. [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:318]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:05:20 ; elapsed = 00:05:32 . Memory (MB): peak = 825.938 ; gain = 618.988
+Finished Cross Boundary Optimization : Time (s): cpu = 00:06:23 ; elapsed = 00:06:37 . Memory (MB): peak = 833.352 ; gain = 626.109
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:05:20 ; elapsed = 00:05:32 . Memory (MB): peak = 825.938 ; gain = 618.988
+Finished Parallel Reinference  : Time (s): cpu = 00:06:23 ; elapsed = 00:06:37 . Memory (MB): peak = 833.352 ; gain = 626.109
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -559,8 +564,6 @@ INFO: [Synth 8-3886] merging instance 'custom_logic/inst/custom_logic_v1_0_S00_A
 INFO: [Synth 8-3886] merging instance 'custom_logic/inst/custom_logic_v1_0_S00_AXI_inst/slv_reg1_reg[29]' (FDRE) to 'custom_logic/inst/custom_logic_v1_0_S00_AXI_inst/slv_reg1_reg[30]'
 INFO: [Synth 8-3886] merging instance 'custom_logic/inst/custom_logic_v1_0_S00_AXI_inst/slv_reg1_reg[30]' (FDRE) to 'custom_logic/inst/custom_logic_v1_0_S00_AXI_inst/slv_reg1_reg[31]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (custom_logic/\inst/custom_logic_v1_0_S00_AXI_inst/slv_reg1_reg[31] )
-INFO: [Synth 8-3886] merging instance 'custom_logic/inst/mqp_top/disp/index_reg[6]' (FDE) to 'custom_logic/inst/mqp_top/disp/index_reg[7]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (custom_logic/\inst/mqp_top/disp /\index_reg[7] )
 INFO: [Synth 8-3886] merging instance 'custom_logic/inst/custom_logic_v1_0_S00_AXI_inst/axi_rresp_reg[0]' (FDRE) to 'custom_logic/inst/custom_logic_v1_0_S00_AXI_inst/axi_rresp_reg[1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (custom_logic/\inst/custom_logic_v1_0_S00_AXI_inst/axi_rresp_reg[1] )
 INFO: [Synth 8-3886] merging instance 'custom_logic/inst/custom_logic_v1_0_S00_AXI_inst/axi_bresp_reg[0]' (FDRE) to 'custom_logic/inst/custom_logic_v1_0_S00_AXI_inst/axi_bresp_reg[1]'
@@ -571,14 +574,8 @@ INFO: [Synth 8-3886] merging instance 'custom_logic/inst/mqp_top/rangefinder/din
 INFO: [Synth 8-3886] merging instance 'custom_logic/inst/mqp_top/rangefinder/dina_reg[3]' (FDRE) to 'custom_logic/inst/mqp_top/rangefinder/dina_reg[7]'
 INFO: [Synth 8-3886] merging instance 'custom_logic/inst/mqp_top/rangefinder/dina_reg[4]' (FDRE) to 'custom_logic/inst/mqp_top/rangefinder/dina_reg[7]'
 INFO: [Synth 8-3886] merging instance 'custom_logic/inst/mqp_top/rangefinder/dina_reg[5]' (FDRE) to 'custom_logic/inst/mqp_top/rangefinder/dina_reg[7]'
-INFO: [Synth 8-3886] merging instance 'custom_logic/inst/mqp_top/disp/result_data_reg[6]' (FDE) to 'custom_logic/inst/mqp_top/disp/result_data_reg[7]'
 INFO: [Synth 8-3886] merging instance 'custom_logic/inst/mqp_top/rangefinder/dina_reg[6]' (FDRE) to 'custom_logic/inst/mqp_top/rangefinder/dina_reg[7]'
 INFO: [Synth 8-3886] merging instance 'custom_logic/inst/mqp_top/rangefinder/addra2_reg[0]' (FDE) to 'custom_logic/inst/mqp_top/rangefinder/addra1_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (custom_logic/\inst/mqp_top/disp /\result_data_reg[7] )
-WARNING: [Synth 8-3332] Sequential element (index_reg[7]) is unused and will be removed from module parallel_disparity.
-WARNING: [Synth 8-3332] Sequential element (index_reg[6]) is unused and will be removed from module parallel_disparity.
-WARNING: [Synth 8-3332] Sequential element (result_data_reg[7]) is unused and will be removed from module parallel_disparity.
-WARNING: [Synth 8-3332] Sequential element (result_data_reg[6]) is unused and will be removed from module parallel_disparity.
 INFO: [Synth 8-3332] Sequential element (inst/custom_logic_v1_0_S00_AXI_inst/axi_awaddr_reg[1]) is unused and will be removed from module design_1_nu_nu_rangefinder_vga_0_0.
 INFO: [Synth 8-3332] Sequential element (inst/custom_logic_v1_0_S00_AXI_inst/axi_awaddr_reg[0]) is unused and will be removed from module design_1_nu_nu_rangefinder_vga_0_0.
 INFO: [Synth 8-3332] Sequential element (inst/custom_logic_v1_0_S00_AXI_inst/extra_data_enable_step_reg[31]) is unused and will be removed from module design_1_nu_nu_rangefinder_vga_0_0.
@@ -649,6 +646,10 @@ INFO: [Synth 8-3332] Sequential element (inst/mqp_top/rangefinder/ymult_reg[1]) 
 INFO: [Synth 8-3332] Sequential element (inst/mqp_top/rangefinder/ymult_reg[0]) is unused and will be removed from module design_1_nu_nu_rangefinder_vga_0_0.
 INFO: [Synth 8-3332] Sequential element (inst/mqp_top/rangefinder/decoded_reg[7]) is unused and will be removed from module design_1_nu_nu_rangefinder_vga_0_0.
 INFO: [Synth 8-3332] Sequential element (inst/mqp_top/rangefinder/decoded_reg[6]) is unused and will be removed from module design_1_nu_nu_rangefinder_vga_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/mqp_top/rangefinder/xmult_reg[15]) is unused and will be removed from module design_1_nu_nu_rangefinder_vga_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/mqp_top/rangefinder/xmult_reg[14]) is unused and will be removed from module design_1_nu_nu_rangefinder_vga_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/mqp_top/rangefinder/xmult_reg[13]) is unused and will be removed from module design_1_nu_nu_rangefinder_vga_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/mqp_top/rangefinder/xmult_reg[12]) is unused and will be removed from module design_1_nu_nu_rangefinder_vga_0_0.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3886] merging instance 'mult_gen_0:/U0/i_mult/gLUT.gLUT_speed.iLUT/NxM_mult.stage_2_add.stage_2_pipeline.s2_add_out_reg[1][22]' (FDR) to 'mult_gen_0:/U0/i_mult/gLUT.gLUT_speed.iLUT/NxM_mult.stage_1_add.stage_1_pipeline.s1_add_out_reg[0][17]'
 INFO: [Synth 8-3886] merging instance 'mult_gen_0:/U0/i_mult/gLUT.gLUT_speed.iLUT/NxM_mult.stage_2_add.stage_2_pipeline.s2_add_out_reg[1][21]' (FDR) to 'mult_gen_0:/U0/i_mult/gLUT.gLUT_speed.iLUT/NxM_mult.stage_1_add.stage_1_pipeline.s1_add_out_reg[0][17]'
@@ -670,9 +671,9 @@ INFO: [Synth 8-3886] merging instance 'rst_processing_system7_0_100M/U0/SEQ/pr_d
 INFO: [Synth 8-3886] merging instance 'rst_processing_system7_0_100M/U0/SEQ/bsr_dec_reg[1]' (FD) to 'rst_processing_system7_0_100M/U0/SEQ/core_dec_reg[1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (custom_logic/\inst/mqp_top/disp /\maxd_reg[5] )
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:05:35 ; elapsed = 00:05:47 . Memory (MB): peak = 825.938 ; gain = 618.988
+Finished Area Optimization : Time (s): cpu = 00:06:38 ; elapsed = 00:06:53 . Memory (MB): peak = 833.352 ; gain = 626.109
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:05:35 ; elapsed = 00:05:47 . Memory (MB): peak = 825.938 ; gain = 618.988
+Finished Parallel Area Optimization  : Time (s): cpu = 00:06:38 ; elapsed = 00:06:53 . Memory (MB): peak = 833.352 ; gain = 626.109
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -688,10 +689,10 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'processing_system7_0/FCLK_CLK0' to pin 'processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O'
 INFO: [Synth 8-5820] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:05:49 ; elapsed = 00:06:01 . Memory (MB): peak = 1023.219 ; gain = 816.270
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:53 ; elapsed = 00:07:08 . Memory (MB): peak = 1026.754 ; gain = 819.512
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:05:58 ; elapsed = 00:06:10 . Memory (MB): peak = 1140.598 ; gain = 933.648
+Finished Timing Optimization : Time (s): cpu = 00:07:02 ; elapsed = 00:07:17 . Memory (MB): peak = 1152.047 ; gain = 944.805
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -703,16 +704,16 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:06:02 ; elapsed = 00:06:15 . Memory (MB): peak = 1148.184 ; gain = 941.234
+Finished Technology Mapping : Time (s): cpu = 00:07:07 ; elapsed = 00:07:22 . Memory (MB): peak = 1156.039 ; gain = 948.797
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:06:02 ; elapsed = 00:06:15 . Memory (MB): peak = 1148.184 ; gain = 941.234
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:07:07 ; elapsed = 00:07:22 . Memory (MB): peak = 1156.039 ; gain = 948.797
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:06:02 ; elapsed = 00:06:15 . Memory (MB): peak = 1148.184 ; gain = 941.234
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:07:07 ; elapsed = 00:07:22 . Memory (MB): peak = 1156.039 ; gain = 948.797
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -746,7 +747,7 @@ INFO: [Synth 8-4618] Found max_fanout attribute set to 20 on net \gen_axilite.ge
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:06:03 ; elapsed = 00:06:16 . Memory (MB): peak = 1148.184 ; gain = 941.234
+Finished IO Insertion : Time (s): cpu = 00:07:08 ; elapsed = 00:07:24 . Memory (MB): peak = 1156.039 ; gain = 948.797
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -759,7 +760,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:06:04 ; elapsed = 00:06:16 . Memory (MB): peak = 1148.184 ; gain = 941.234
+Finished Renaming Generated Instances : Time (s): cpu = 00:07:08 ; elapsed = 00:07:24 . Memory (MB): peak = 1156.039 ; gain = 948.797
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -771,25 +772,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:05 ; elapsed = 00:06:17 . Memory (MB): peak = 1148.184 ; gain = 941.234
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:07:10 ; elapsed = 00:07:25 . Memory (MB): peak = 1156.039 ; gain = 948.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:06:05 ; elapsed = 00:06:17 . Memory (MB): peak = 1148.184 ; gain = 941.234
+Finished Renaming Generated Ports : Time (s): cpu = 00:07:10 ; elapsed = 00:07:25 . Memory (MB): peak = 1156.039 ; gain = 948.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:06:05 ; elapsed = 00:06:18 . Memory (MB): peak = 1148.184 ; gain = 941.234
+Finished Handling Custom Attributes : Time (s): cpu = 00:07:10 ; elapsed = 00:07:25 . Memory (MB): peak = 1156.039 ; gain = 948.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:06:05 ; elapsed = 00:06:18 . Memory (MB): peak = 1148.184 ; gain = 941.234
+Finished Renaming Generated Nets : Time (s): cpu = 00:07:10 ; elapsed = 00:07:25 . Memory (MB): peak = 1156.039 ; gain = 948.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -814,45 +815,44 @@ Report Cell Usage:
 |7     |DSP48E1_3  |     2|
 |8     |DSP48E1_4  |     1|
 |9     |DSP48E1_5  |     1|
-|10    |LUT1       |   259|
-|11    |LUT2       |   423|
-|12    |LUT3       |   548|
-|13    |LUT4       |   523|
+|10    |LUT1       |   260|
+|11    |LUT2       |   411|
+|12    |LUT3       |   570|
+|13    |LUT4       |   515|
 |14    |LUT5       |   370|
-|15    |LUT6       |  1098|
+|15    |LUT6       |  1099|
 |16    |MMCME2_ADV |     1|
 |17    |MULT_AND   |   168|
 |18    |MUXCY      |   168|
-|19    |MUXF7      |   167|
+|19    |MUXF7      |   156|
 |20    |MUXF8      |    38|
 |21    |PS7        |     1|
 |22    |RAM16X1S   |   112|
 |23    |RAM32M     |    14|
-|24    |RAM32X1D   |     8|
-|25    |RAM64X1D   |     8|
-|26    |RAMB18E1   |     1|
-|27    |RAMB18E1_1 |     1|
-|28    |RAMB36E1   |    75|
-|29    |RAMB36E1_1 |    54|
-|30    |SRL16      |     1|
-|31    |SRL16E     |    26|
-|32    |SRLC32E    |    47|
-|33    |XORCY      |   180|
-|34    |FDR        |     8|
-|35    |FDRE       |  1839|
-|36    |FDSE       |    55|
-|37    |LDC        |    14|
-|38    |LDP        |     3|
-|39    |IBUF       |     1|
+|24    |RAMB18E1   |     1|
+|25    |RAMB18E1_1 |     1|
+|26    |RAMB18E1_2 |     1|
+|27    |RAMB36E1   |    75|
+|28    |RAMB36E1_1 |    54|
+|29    |SRL16      |     1|
+|30    |SRL16E     |    26|
+|31    |SRLC32E    |    47|
+|32    |XORCY      |   180|
+|33    |FDR        |     8|
+|34    |FDRE       |  1850|
+|35    |FDSE       |    55|
+|36    |LDC        |    14|
+|37    |LDP        |     3|
+|38    |IBUF       |     1|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:06:05 ; elapsed = 00:06:18 . Memory (MB): peak = 1148.184 ; gain = 941.234
+Finished Writing Synthesis Report : Time (s): cpu = 00:07:10 ; elapsed = 00:07:25 . Memory (MB): peak = 1156.039 ; gain = 948.797
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1377 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:58 ; elapsed = 00:05:54 . Memory (MB): peak = 1148.184 ; gain = 705.770
-Synthesis Optimization Complete : Time (s): cpu = 00:06:05 ; elapsed = 00:06:18 . Memory (MB): peak = 1148.184 ; gain = 941.234
+Synthesis finished with 0 errors, 0 critical warnings and 1510 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:02 ; elapsed = 00:06:58 . Memory (MB): peak = 1156.039 ; gain = 724.480
+Synthesis Optimization Complete : Time (s): cpu = 00:07:10 ; elapsed = 00:07:26 . Memory (MB): peak = 1156.039 ; gain = 948.797
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 1005 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 990 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
@@ -869,7 +869,7 @@ Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final
 Finished Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/design_1_rst_processing_system7_0_100M_0.xdc] for cell 'rst_processing_system7_0_100M/U0'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 384 instances were transformed.
+  A total of 368 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 48 instances
   FDR => FDRE: 8 instances
   LDC => LDCE: 14 instances
@@ -877,14 +877,12 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   MULT_AND => LUT2: 168 instances
   RAM16X1S => RAM32X1S (RAMS32): 112 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 14 instances
-  RAM32X1D => RAM32X1D (RAMD32, RAMD32): 8 instances
-  RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 8 instances
   SRL16 => SRL16E: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-432 Infos, 122 Warnings, 0 Critical Warnings and 0 Errors encountered.
+435 Infos, 118 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:06:10 ; elapsed = 00:06:22 . Memory (MB): peak = 1491.500 ; gain = 1244.266
-INFO: [Coretcl 2-1174] Renamed 352 cell refs.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1491.500 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Dec 12 23:46:43 2016...
+synth_design: Time (s): cpu = 00:07:16 ; elapsed = 00:07:30 . Memory (MB): peak = 1499.391 ; gain = 1251.934
+INFO: [Coretcl 2-1174] Renamed 359 cell refs.
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1499.391 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 13 21:30:26 2016...

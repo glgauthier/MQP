@@ -62,6 +62,9 @@
   "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_0/sim/mult_gen_0.vhd" \
   "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/mult_gen_2/sim/mult_gen_2.vhd" \
 -endlib
+-makelib ies/blk_mem_gen_v8_3_3 \
+  "../../../../final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/src/line_bram/sim/line_bram.v" \
+-endlib
 -makelib ies/xil_defaultlib \
   "../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v" \
   "../../../../final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v" \
