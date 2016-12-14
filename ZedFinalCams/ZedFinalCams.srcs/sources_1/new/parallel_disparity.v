@@ -15,8 +15,8 @@ module parallel_disparity(
 	 output reg [7:0] result_data, // Result bram pixel data
 	 output result_wea, // Result bram write enable
 	 output [2:0] state_LED, // Current state indicator
-	 output reg [7:0] lineout,
-	 input [10:0] lineaddr
+	 output [7:0] lineout,
+	 input [6:0] lineaddr
     );
 
 // user-defined constants (image search parameters)
@@ -42,8 +42,9 @@ reg [5:0] mind = 6'b0, maxd = 6'b0; // min/max disparity search bounds (limit SE
 reg [5:0] scnt = 6'b0; // number of disparity search comparisons performed
 reg [5:0] numBlocks = 6'b0; // number of blocks within current search bounds
 reg [5:0] blockIndex = 6'b0; // current block being searched in numBlocks
-reg [7:0] min, index; // index and value of max number in disparity vector (this should be switched to min)
-reg [1:0] pipe =2'b00; // pipeline control for FSM
+reg [5:0] index; // index of the min number in the disparity vector (disparity value)
+reg [7:0] min; // value of min number in disparity vector
+reg [1:0] pipe = 2'b00; // pipeline control for FSM
 reg done; // will be 1 if disparity is 100% done, 0 otherwise (used for next_state == IDLE)
 
 // temporary memory
@@ -76,8 +77,8 @@ reg [10:0] temp4; // block for holding sum(abs(template-block)) - up to 9x9 bloc
 reg [10:0] temp5; // block for holding sum(abs(template-block)) - up to 9x9 block size
 reg [10:0] temp6; // block for holding sum(abs(template-block)) - up to 9x9 block size
 reg [14:0] SAD_vector [0:SEARCH_RANGE]; // block for holding sum(sum(abs(template-block))) - up to 9x9 block size
-reg [8:0] depth; // reg for holding (focal_length*baseline)/disparity
-reg [10:0] line [0:95];
+reg [10:0] line; // reg for holding [(focal length)*(baseline)]/index
+
 // ~~~~~~~~~~~~~~~ Disparity FSM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 parameter [2:0] IDLE = 3'b000, // wait for next read sequence
                 READ = 3'b001, // read data from FIFO
@@ -380,25 +381,35 @@ case(current_state)
             else
                 // non-zero pixel value on any col other than 1st
                 if(index > 0 && pipe > 2'b00)
-                  line[col_count[8:2]] <= line[col_count[8:2]] + (FB/index);
+                  line <= line + (FB/index);
                 // non-zero pixel value on first column of pixels
                 else if (index > 0)
-                  line[col_count[8:2]] <= (FB/index);
+                  line <= (FB/index);
                 // zero pixel value on first row of pixels
                 else if (row_count == 9'd144 && pipe <= 2'b00)
-                  line[col_count[8:2]] <= 8'h00;
+                  line <= 8'h00;
                 // zero pixel value in any other location
                 else
-                  line[col_count[8:2]] = line[col_count[8:2]];
+                  line = line;
             
             // count through 4 pixels for each iteration
             pipe <= pipe + 1'b1; //pipe <= 2'b11; // was 2'b11, changed to add a little extra time 
 		end
 	end
 endcase
-        
-always @(lineaddr)
-    lineout = line[lineaddr]>>3;
+
+line_bram linebuf (
+  .clka(clk),    // input wire clka
+  .wea(pipe == 2'b11 && sw && row_count == 9'd144),// input wire [0 : 0] wea
+  .addra(col_count[8:2]),  // input wire [6 : 0] addra
+  .dina(line>>3),    // input wire [7 : 0] dina
+  .clkb(clk),    // input wire clkb
+  .addrb(lineaddr),  // input wire [6 : 0] addrb
+  .doutb(lineout)  // output wire [7 : 0] doutb
+);
+
+//always @(lineaddr)
+//    lineout = line[lineaddr]>>3;
 
 assign result_wea = (current_state == FINALIZE && scnt == (numBlocks)) ? 1'b1 : 1'b0; // && scnt == numBlocks    
 

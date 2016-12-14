@@ -145,7 +145,7 @@ blk_mem_resultant resultant (
 always @(hcount)
     lineaddr = (hcount >= 272 && hcount < 368) ? hcount-272 : 11'd0;
 
-always @ (hcount,vcount,blank,vga_data)
+always @ (hcount,vcount,blank,vga_data,sw)
 	if(blank)
 		rgb = 8'h00;
 	// center 384x288 output in the middle of the screen

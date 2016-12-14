@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Tue Dec 13 19:50:16 2016
+| Date         : Tue Dec 13 21:05:27 2016
 | Host         : Georges-T460p running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file noip_top_control_sets_placed.rpt
 | Design       : noip_top
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    59 |
-| Unused register locations in slices containing registers |   155 |
+| Number of unique control sets                            |    58 |
+| Unused register locations in slices containing registers |   160 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             117 |           51 |
+| No           | No                    | No                     |             118 |           54 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              18 |            8 |
-| Yes          | No                    | No                     |             388 |          272 |
+| Yes          | No                    | No                     |             399 |          204 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              74 |           27 |
+| Yes          | Yes                   | No                     |              73 |           33 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -48,64 +48,63 @@ Table of Contents
 +---------------------------+-------------------------------------+------------------------------+------------------+----------------+
 |        Clock Signal       |            Enable Signal            |       Set/Reset Signal       | Slice Load Count | Bel Load Count |
 +---------------------------+-------------------------------------+------------------------------+------------------+----------------+
-|  clkgen/inst/clk_5MHz     | disp/trigger_reg                    |                              |                1 |              1 |
-|  clkgen/inst/clk_25MHz    |                                     | vga/HS0                      |                1 |              1 |
 |  clkgen/inst/clk_25MHz    |                                     | vga/VS0                      |                1 |              1 |
+|  clkgen/inst/clk_25MHz    |                                     | vga/HS0                      |                1 |              1 |
+|  clkgen/inst/clk_5MHz     | disp/trigger_reg                    |                              |                1 |              1 |
 |  clkgen/inst/clk_100MHz   | disp/rcnt[7]_i_1_n_0                |                              |                2 |              4 |
 |  disp/maxd_reg[4]_i_2_n_0 |                                     | disp/maxd_reg[4]_i_3_n_0     |                2 |              5 |
-|  clkgen/inst/clk_100MHz   | disp/rcnt[7]_i_1_n_0                | disp/rcnt[8]_i_1_n_0         |                2 |              5 |
+|  clkgen/inst/clk_100MHz   | disp/scnt[5]_i_2_n_0                | disp/scnt[5]_i_1_n_0         |                2 |              5 |
 |  clkgen/inst/clk_24MHz    | sel                                 | cam_rst_IBUF                 |                2 |              5 |
-|  clkgen/inst/clk_100MHz   | disp/scnt[5]_i_2_n_0                | disp/scnt[5]_i_1_n_0         |                3 |              5 |
-|  clkgen/inst/clk_100MHz   | disp/result_data[5]_i_1_n_0         |                              |                2 |              6 |
-|  clkgen/inst/clk_100MHz   | disp/blockIndex[5]_i_1_n_0          |                              |                1 |              6 |
+|  clkgen/inst/clk_100MHz   | disp/rcnt[7]_i_1_n_0                | disp/rcnt[8]_i_1_n_0         |                3 |              5 |
 |  clkgen/inst/clk_100MHz   | disp/row_count[6]_i_2_n_0           | disp/row_count[6]_i_1_n_0    |                3 |              6 |
-|  clkgen/inst/clk_100MHz   | disp/dcnt[8]_i_2_n_0                | disp/dcnt[8]_i_1_n_0         |                2 |              8 |
-|  clkgen/inst/clk_5MHz     |                                     |                              |                7 |              9 |
-|  clkgen/inst/clk_5MHz     | camctl/pixel[8]_i_2_n_0             | camctl/pixel[8]_i_1_n_0      |                3 |              9 |
-|  clkgen/inst/clk_100MHz   | disp/col_count[8]_i_2_n_0           | disp/col_count[8]_i_1_n_0    |                3 |              9 |
-|  clkgen/inst/clk_100MHz   | disp/temp00                         |                              |                5 |             11 |
-|  clkgen/inst/clk_100MHz   | disp/temp10                         |                              |                7 |             11 |
-|  clkgen/inst/clk_100MHz   | disp/temp20                         |                              |                6 |             11 |
-|  clkgen/inst/clk_100MHz   | disp/temp30                         |                              |                4 |             11 |
-|  clkgen/inst/clk_100MHz   | disp/temp40                         |                              |                6 |             11 |
-|  clkgen/inst/clk_100MHz   | disp/temp50                         |                              |                6 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/result_data[5]_i_1_n_0         |                              |                2 |              6 |
+|  clkgen/inst/clk_100MHz   | disp/blockIndex[5]_i_1_n_0          |                              |                2 |              6 |
+|  clkgen/inst/clk_100MHz   | disp/dcnt[8]_i_2_n_0                | disp/dcnt[8]_i_1_n_0         |                3 |              7 |
+|  clkgen/inst/clk_100MHz   | disp/col_count[8]_i_2_n_0           | disp/col_count[8]_i_1_n_0    |                7 |              9 |
+|  clkgen/inst/clk_5MHz     |                                     |                              |                8 |              9 |
+|  clkgen/inst/clk_5MHz     | camctl/pixel[8]_i_2_n_0             | camctl/pixel[8]_i_1_n_0      |                4 |              9 |
+|  clkgen/inst/clk_100MHz   | disp/line[10]_i_1_n_0               |                              |                3 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp00                         |                              |                7 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp10                         |                              |                5 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp20                         |                              |                5 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp40                         |                              |                4 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp50                         |                              |                7 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/temp60                         |                              |                6 |             11 |
 |  clkgen/inst/clk_25MHz    |                                     | vga/SR[0]                    |                4 |             11 |
 |  clkgen/inst/clk_25MHz    | vga/eqOp                            | vga/vcounter[10]_i_1_n_0     |                4 |             11 |
-|  clkgen/inst/clk_100MHz   | disp/temp60                         |                              |                6 |             11 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[5]0             |                              |               11 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[6]0             |                              |               13 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[7]0             |                              |               13 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[8]0             |                              |                9 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[9]0             |                              |               11 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[15]0            |                              |                9 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/min[7]_i_1_n_0                 |                              |               10 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector[0][13]_i_1_n_0      |                              |               14 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[10]0            |                              |               10 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[11]0            |                              |               10 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[12]0            |                              |               10 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/temp30                         |                              |                7 |             11 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[5]0             |                              |                7 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[6]0             |                              |                8 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[7]0             |                              |                7 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[9]0             |                              |                7 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[10]0            |                              |                7 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/min[7]_i_1_n_0                 |                              |                5 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[0][13]_i_1_n_0      |                              |                9 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[16][13]_i_1_n_0     |                              |                7 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector[19][13]_i_1_n_0     |                              |                6 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[11]0            |                              |                6 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[12]0            |                              |                7 |             14 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[13]0            |                              |                9 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[14]0            |                              |                9 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[16]0            |                              |               11 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[14]0            |                              |                8 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[15]0            |                              |                7 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[8]0             |                              |                7 |             14 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[17]0            |                              |                8 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[4]0             |                              |               12 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[18]0            |                              |               10 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[19]0            |                              |               11 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[1]0             |                              |               13 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[2]0             |                              |               11 |             14 |
-|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[3]0             |                              |               12 |             14 |
-|  clkgen/inst/clk_25MHz    |                                     |                              |                6 |             15 |
-|  clkgen/inst/clk_100MHz   | disp/block5_reg_0_7_0_0_i_1_n_0     |                              |                4 |             16 |
-|  clkgen/inst/clk_100MHz   | disp/block0_reg_0_7_0_0_i_1_n_0     |                              |                4 |             16 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[18]0            |                              |                6 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[1]0             |                              |                8 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[2]0             |                              |               10 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[3]0             |                              |                7 |             14 |
+|  clkgen/inst/clk_100MHz   | disp/SAD_vector_reg[4]0             |                              |                7 |             14 |
+|  clkgen/inst/clk_25MHz    |                                     |                              |                7 |             15 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs6_reg_0_7_0_5_i_1_n_0 |                              |                2 |             16 |
-|  clkgen/inst/clk_100MHz   | disp/block1_reg_0_7_0_0_i_1_n_0     |                              |                4 |             16 |
-|  clkgen/inst/clk_100MHz   | disp/block2_reg_0_7_0_0_i_1_n_0     |                              |                4 |             16 |
 |  clkgen/inst/clk_100MHz   | disp/template6_reg_0_7_0_0_i_2_n_0  |                              |                4 |             16 |
-|  clkgen/inst/clk_5MHz     | camctl/num_lines[15]_i_2_n_0        | camctl/num_lines[15]_i_1_n_0 |                5 |             16 |
 |  clkgen/inst/clk_100MHz   | disp/block3_reg_0_7_0_0_i_1_n_0     |                              |                4 |             16 |
+|  clkgen/inst/clk_100MHz   | disp/block2_reg_0_7_0_0_i_1_n_0     |                              |                4 |             16 |
+|  clkgen/inst/clk_100MHz   | disp/block1_reg_0_7_0_0_i_1_n_0     |                              |                4 |             16 |
+|  clkgen/inst/clk_5MHz     | camctl/num_lines[15]_i_2_n_0        | camctl/num_lines[15]_i_1_n_0 |                5 |             16 |
 |  clkgen/inst/clk_100MHz   | disp/block4_reg_0_7_0_0_i_1_n_0     |                              |                4 |             16 |
-|  clkgen/inst/clk_100MHz   | disp/line_reg_0_31_0_0_i_1_n_0      |                              |                3 |             19 |
-|  clkgen/inst/clk_100MHz   | disp/line_reg_0_63_0_0_i_2_n_0      |                              |                5 |             19 |
-|  clkgen/inst/clk_100MHz   |                                     |                              |               38 |             93 |
+|  clkgen/inst/clk_100MHz   | disp/block0_reg_0_7_0_0_i_1_n_0     |                              |                4 |             16 |
+|  clkgen/inst/clk_100MHz   | disp/block5_reg_0_7_0_0_i_1_n_0     |                              |                4 |             16 |
+|  clkgen/inst/clk_100MHz   |                                     |                              |               39 |             94 |
 |  clkgen/inst/clk_100MHz   | disp/SAD_diffs1_reg_0_7_0_5_i_1_n_0 |                              |               12 |             96 |
 +---------------------------+-------------------------------------+------------------------------+------------------+----------------+
 
