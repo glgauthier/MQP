@@ -1,7 +1,8 @@
 `timescale 1 ps / 1 ps
-// MQP Top Module
+// MQP custom_logic Top Module
 // contains custom logic for controlling the cameras, AL422B camera FIFOs,
-// rangefinder data manipulation, and disparity algorithm
+// rangefinder data manipulation, and disparity algorithm.
+// This module connects to the PS via AXI, as well as to direct GPIO
 module mqp_top
 (
     // physical pins
@@ -30,10 +31,11 @@ module mqp_top
     input [27:0] data_enable_step, // AXI data from PS
     output transmit, // AXI data to PS (trigger new rangefinder data)
     
-    //rangefinder BRAM
+    // rangefinder lookup table BRAM (0-45 degrees)
     output [7:0] addra1, // lookup table 1 address
     input [12:0] coord1_data, // lookup table 1 data
     output clk_100M, // 100MHZ output clock 
+    // rangefinder lookup table BRAM (45-90 degrees)
     output [7:0] addra2, // lookup table 2 address
     input [12:0] coord2_data, // lookup table 2 data
     
@@ -66,38 +68,41 @@ module mqp_top
     wire [15:0] data;
     wire enable;
     wire [10:0] step;
-    //splitting up data, enable, and step data
-    assign data = data_enable_step[27:12];
-    assign enable = data_enable_step[11];
-    assign step = data_enable_step[10:0];
+    //splitting up data, enable, and step data from AXI/Ps
+    assign data = data_enable_step[27:12];  // distance value (one data point)
+    assign enable = data_enable_step[11];   // new data ready for processing
+    assign step = data_enable_step[10:0];   // current step (0-768)
     
-    wire [8:0] device_x, device_y; // non-constant with IMU
-    assign device_x = 321; // non-constant with IMU
-    assign device_y = 265; // non-constant with IMU
+    // offset for centralized device "location" on VGA display
+    // i.e. show rangefinder in center of display
+    parameter [8:0] X_OFFSET = 321, Y_OFFSET = 265;
     
-    wire [18:0] rangefinder_waddr;
-    wire [7:0] rangefinder_data;
-    wire rangefinder_wen;
+    // VGA display buffer controls from rangefinder controller
+    wire [18:0] rangefinder_waddr; // VGA display logic waddr
+    wire [7:0] rangefinder_data; // VGA display logic data in
+    wire rangefinder_wen; // VGA display logic write enable
+    
+    // LED indicators from rangedinder controller
     wire [7:0] rangefinder_leds;
     
     rangefinder rangefinder(
-           .clk(clk_100M),
-           .reset(reset),
-           .button(button),
-           .device_x(device_x),
-           .device_y(device_y),
-           .leds(rangefinder_leds),
-           .data(data),
-           .enable(enable),
-           .step(step),
-           .vga_waddr(rangefinder_waddr),
-           .transmit(transmit),
-           .dina(rangefinder_data),
-           .wea(rangefinder_wen),
-           .addra1(addra1),
-           .coord1_data(coord1_data),
-           .addra2(addra2),
-           .coord2_data(coord2_data)
+           .clk(clk_100M), // 100MHz input clock
+           .reset(reset), // synchronous reset 
+           .button(button), // trigger for new data capture sequence
+           .device_x(X_OFFSET), // device x offset for display
+           .device_y(Y_OFFSET), // device y offset for display
+           .leds(rangefinder_leds), // current_state LED indicators
+           .data(data), // rangefinder data in (from PS/PL AXI interface)
+           .enable(enable), // PL data processing enable (from PS/PL AXI)
+           .step(step), // current step offset (0-768) [from PS/PL AXI)
+           .vga_waddr(rangefinder_waddr), // write address to VGA logic
+           .transmit(transmit), // enable new data capture (to PS via AXI)
+           .dina(rangefinder_data), // VGA output buffer pixel data
+           .wea(rangefinder_wen), // VGA output buffer write enable
+           .addra1(addra1), // 0-45 degree ROM lookup table address
+           .coord1_data(coord1_data), // 0-45 degree ROM lookup table data
+           .addra2(addra2), // 45-90 degree ROM lookup table address
+           .coord2_data(coord2_data) // 0-45 degree ROM lookup table data
        );   
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Cameras ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Camera Initialization sequence
@@ -212,14 +217,14 @@ module mqp_top
         lineaddr = (hcount >= 272 && hcount < 368) ? hcount-272 : 7'd0;
         
     // Modify output color logic based on current mode              
-    always @ (hcount, vcount, blank, sw, device_x, device_y, x_vga, lineout)
+    always @ (hcount, vcount, blank, sw, x_vga, lineout)
     begin
         if(blank)
             rgb = 12'h000;
         else case(sw[7:0])
             8'h00: // rangefinder output
             begin
-                if ((hcount >= device_x-1 && hcount <= device_x+1) && (vcount >= device_y-1 && vcount <= device_y+1))
+                if ((hcount >= X_OFFSET-1 && hcount <= X_OFFSET+1) && (vcount >= Y_OFFSET-1 && vcount <= Y_OFFSET+1))
                     rgb = 12'hF00;
                 else if(x_vga == 8'hFF)
                     rgb = 12'h000;
@@ -246,7 +251,7 @@ module mqp_top
             default: // combined disparity + rangefinder output
             begin
                 // central point representing rangefinder location
-                if ((hcount >= device_x-1 && hcount <= device_x+1) && (vcount >= device_y-1 && vcount <= device_y+1))
+                if ((hcount >= X_OFFSET-1 && hcount <= X_OFFSET+1) && (vcount >= Y_OFFSET-1 && vcount <= Y_OFFSET+1))
                     rgb = 12'hF00;
                 // point from rangefinder data (with or without disparity overlap)
                 else if(x_vga == 8'hFF)

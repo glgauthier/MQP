@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Wed Dec 14 01:20:15 2016
+| Date             : Wed Dec 14 16:36:01 2016
 | Host             : Georges-T460p running 64-bit major release  (build 9200)
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 1.855 |
+| Total On-Chip Power (W)  | 1.854 |
 | Dynamic (W)              | 1.680 |
 | Device Static (W)        | 0.175 |
 | Effective TJA (C/W)      | 11.5  |
@@ -49,23 +49,23 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.014 |       15 |       --- |             --- |
+| Clocks                   |     0.013 |       15 |       --- |             --- |
 | Slice Logic              |     0.010 |     6028 |       --- |             --- |
-|   LUT as Logic           |     0.009 |     2502 |     53200 |            4.70 |
+|   LUT as Logic           |     0.009 |     2495 |     53200 |            4.69 |
 |   CARRY4                 |    <0.001 |      215 |     13300 |            1.62 |
 |   Register               |    <0.001 |     1698 |    106400 |            1.60 |
 |   LUT as Distributed RAM |    <0.001 |      168 |     17400 |            0.97 |
 |   F7/F8 Muxes            |    <0.001 |      194 |     53200 |            0.36 |
 |   LUT as Shift Register  |    <0.001 |       68 |     17400 |            0.39 |
 |   Others                 |     0.000 |      531 |       --- |             --- |
-| Signals                  |     0.021 |     5138 |       --- |             --- |
+| Signals                  |     0.020 |     5136 |       --- |             --- |
 | Block RAM                |     0.007 |    130.5 |       140 |           93.21 |
 | MMCM                     |     0.085 |        1 |         4 |           25.00 |
 | DSPs                     |     0.002 |        7 |       220 |            3.18 |
 | I/O                      |     0.011 |       50 |       200 |           25.00 |
 | PS7                      |     1.532 |        1 |       --- |             --- |
 | Static Power             |     0.175 |          |           |                 |
-| Total                    |     1.855 |          |           |                 |
+| Total                    |     1.854 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.073 |       0.053 |      0.021 |
+| Vccint    |       1.000 |     0.073 |       0.052 |      0.021 |
 | Vccaux    |       1.800 |     0.068 |       0.047 |      0.021 |
 | Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -164,7 +164,7 @@ Table of Contents
 | Name                                                   | Power (W) |
 +--------------------------------------------------------+-----------+
 | design_1_wrapper                                       |     1.680 |
-|   design_1_i                                           |     1.670 |
+|   design_1_i                                           |     1.669 |
 |     blk_mem_gen_0                                      |    <0.001 |
 |       U0                                               |    <0.001 |
 |         inst_blk_mem_gen                               |    <0.001 |
@@ -179,11 +179,11 @@ Table of Contents
 |             valid.cstr                                 |    <0.001 |
 |               ramloop[0].ram.r                         |    <0.001 |
 |                 prim_init.ram                          |    <0.001 |
-|     blk_mem_gen_2                                      |     0.006 |
-|       U0                                               |     0.006 |
-|         inst_blk_mem_gen                               |     0.006 |
-|           gnbram.gnativebmg.native_blk_mem_gen         |     0.006 |
-|             valid.cstr                                 |     0.006 |
+|     blk_mem_gen_2                                      |     0.005 |
+|       U0                                               |     0.005 |
+|         inst_blk_mem_gen                               |     0.005 |
+|           gnbram.gnativebmg.native_blk_mem_gen         |     0.005 |
+|             valid.cstr                                 |     0.005 |
 |               has_mux_b.B                              |    <0.001 |
 |               ramloop[0].ram.r                         |    <0.001 |
 |                 prim_init.ram                          |    <0.001 |
@@ -402,11 +402,11 @@ Table of Contents
 |                         prim_noinit.ram                |    <0.001 |
 |                       ramloop[9].ram.r                 |    <0.001 |
 |                         prim_noinit.ram                |    <0.001 |
-|             right                                      |     0.005 |
-|               U0                                       |     0.005 |
-|                 inst_blk_mem_gen                       |     0.005 |
-|                   gnbram.gnativebmg.native_blk_mem_gen |     0.005 |
-|                     valid.cstr                         |     0.005 |
+|             right                                      |     0.004 |
+|               U0                                       |     0.004 |
+|                 inst_blk_mem_gen                       |     0.004 |
+|                   gnbram.gnativebmg.native_blk_mem_gen |     0.004 |
+|                     valid.cstr                         |     0.004 |
 |                       bindec_a.bindec_inst_a           |    <0.001 |
 |                       bindec_b.bindec_inst_b           |    <0.001 |
 |                       has_mux_b.B                      |     0.002 |

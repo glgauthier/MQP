@@ -1,50 +1,46 @@
 `timescale 1ns / 1ps
-
+// Rangefinder controller module
+// Communicates with PS via AXI, BRAM lookup tables, GPIO, and VGA display controller
+// Used to convert rangefinder data processed by the PS into a format that can be
+// output for display and storage
 module rangefinder(
-    input clk,
-    input reset,
-    input button,
-    input [8:0] device_x,
-    input [8:0] device_y,
-    output [7:0] leds,
-    input [15:0] data,
-    input enable,
-    input [10:0] step,
-    output reg [18:0] vga_waddr,
-    output reg transmit,
-    output reg [5:0] count,
-    output reg [7:0] dina,
-    output reg wea,
+    input clk, // 100MHz input clock
+    input reset, // synchronous reset
+    input button, // trigger new data capture (no longer used)
+    input [8:0] device_x, // device x offset for display
+    input [8:0] device_y, // device y offset for display
+    output [7:0] leds, // LED indicators for debug
+    input [15:0] data, // rangefinder data in (from PS/PL AXI)
+    input enable, // PL data processing enable (from PS/PL AXI)
+    input [10:0] step, // current step offset (0-768) from PS/PL AXI
+    output reg [18:0] vga_waddr, // write address to VGA logic
+    output reg transmit, // enable new data capture (to PS via AXI)
+    output reg [7:0] dina, // VGA output buffer pixel data
+    output reg wea, // VGA output buffer write enable
     
-    output reg [7:0] addra1,
-    input [12:0] coord1_data,
+    output reg [7:0] addra1, // 0-45 degree ROM lookup table address
+    input [12:0] coord1_data, // 0-45 degree ROM lookup table data
     
-    output reg [7:0] addra2,
-    input [12:0] coord2_data
+    output reg [7:0] addra2, // 45-90 degree ROM lookup table address
+    input [12:0] coord2_data // 45-90 degree ROM lookup table address
     );
     
-    reg [15:0] watchdog;
-    reg [15:0] decoded;
-    reg [11:0] location;
-    reg [24:0] xmult, ymult;
-    wire xneg, yneg;
-    reg was_enabled;
-    reg [5:0] write_count;
+    reg [15:0] watchdog; // timeout to begin new data capture sequence
+    reg [15:0] decoded; // stores 2 bytes of rangefinder data as (MSB -> LSB)-0x30 
+    reg [24:0] xmult, ymult; // rangefinder data point x,y location relative to (0,0)
+    wire xneg, yneg; // flag for indicating if x,y data is positive or negative
+    reg [9:0] xlocation; // rangefinder data point x location relative to device_x
+    reg [8:0] ylocation; // rangefinder data point y location relative to device_y
     
-    reg [9:0] xlocation;
-    reg [8:0] ylocation;
+    reg [2:0] offset_counter; // counter to wait for multiply operation in OFFSET state
+    reg [1:0] address_counter; // counter to wait for multiply operation in ADDRESS state
     
-    reg [18:0] reset_count;
-    reg reset_count_en;
+    wire [18:0] vga_product; // current pixel row for output address
     
-    reg [2:0] s2_counter;
-    reg [1:0] s4_counter;
+    wire [24:0] product1, product2; // x/y offset output from trig lookup / multiplier conversion
     
-    wire [18:0] vga_product;
-    
-    wire [24:0] product1, product2;
-    
-    parameter [2:0] s0 = 0, s1 = 1, s2 = 2, s3 = 3, s4 = 4, s5 = 5, s6 = 6;
+    // FSM states, next state logic
+    parameter [2:0] IDLE = 0, CLEAR = 1, DECODE = 2, OFFSET = 3, SCALE = 4, ADDRESS = 5, WRITE = 6;
     reg [2:0] current_state, next_state;
     
     reg [10:0] row_count; // 0-480
@@ -55,65 +51,69 @@ module rangefinder(
     assign xneg = (step >= 0 && step <= 128)  ? 1'b0 :
                   (step > 128 && step <= 384) ? 1'b0 :
                   (step > 384 && step <= 640) ? 1'b1 : 1'b1;
-
+                  // (step > 640 && step <= 768) ? 1'b1 :
+                  // (step > 768 && step <= 896) ? 1'b1 : 1'b0
+                  
     //sets flag to indicate negative vertical value on circle                 
     assign yneg = (step >= 0 && step <= 128)  ? 1'b1 :
                   (step > 128 && step <= 384) ? 1'b0 :
                   (step > 384 && step <= 640) ? 1'b0 : 1'b1;
+                  // (step > 640 && step <= 768) ? 1'b1 :
+                  // (step > 768 && step <= 896) ? 1'b1 : 1'b1
     
     // State machine overhead control
     always @ (posedge clk)
         if (reset)
-            current_state <= s0;
+            current_state <= IDLE;
         else
             current_state <= next_state;
     
     //next state logic
-    always @ (current_state, s2_counter, s4_counter, enable, row_count, col_count, button, step)
+    always @ (current_state, offset_counter, address_counter, enable, row_count, col_count, button, step)
     begin
         case (current_state)
-            // stays in s0 until a new enable pulse
-            s0:
+            // stays in IDLE until a new enable pulse
+            IDLE:
                 if(enable)
-                    next_state = s2;
+                    next_state = DECODE;
                 else if (button || step == 768)
-                    next_state = s1;
+                    next_state = CLEAR;
                 else
-                    next_state = s0;
+                    next_state = IDLE;
             
-            s1: // clear pixel data from previous run
+            CLEAR: // clear pixel data from previous run
                 if(row_count == 479 && col_count == 639)
-                    next_state = s0;
+                    next_state = IDLE;
                 else
-                    next_state = s1;
-            // stays in s1 for one clock cycle
-            s2:
-                next_state = s3;
+                    next_state = CLEAR;
+            // stays in DECODE for one clock cycle
+            DECODE:
+                next_state = OFFSET;
                     
-            // stays in s2 for a multiply operation
-            s3:
-                if(s2_counter == 4)
-                    next_state = s4;
+            // stays in OFFSET for a multiply operation
+            OFFSET:
+                if(offset_counter == 4)
+                    next_state = SCALE;
                 else
-                    next_state = s3;
+                    next_state = OFFSET;
             
-            // stays in s3 for one clock cycle
-            s4:
-                next_state = s5;
+            // stays in SCALE for one clock cycle
+            SCALE:
+                next_state = ADDRESS;
                 
-            // stays in s4 for a multiply operation
-            s5:
-                if(s4_counter == 3)
-                    next_state = s6;
+            // stays in ADDRESS for a multiply operation
+            ADDRESS:
+                if(address_counter == 3)
+                    next_state = WRITE;
                 else
-                    next_state = s5;
+                    next_state = ADDRESS;
                     
-            // stays in s5 for one clock cycle
-            s6:
-                next_state = s0;
+            // stays in ADDRESS for one clock cycle
+            WRITE:
+                next_state = IDLE;
 
             default:
-                next_state = s0;
+                next_state = IDLE;
         endcase
     end
     
@@ -121,7 +121,7 @@ module rangefinder(
     always @ (posedge clk)
     begin
         //resets registers, waits for data to process
-        if(current_state == s0)
+        if(current_state == IDLE)
         begin
             wea <= 1'b0;
             dina <= 8'h00;
@@ -130,7 +130,7 @@ module rangefinder(
         end
         
         // clear previous set of data from BRAM
-        else if(current_state == s1)
+        else if(current_state == CLEAR)
         begin
             vga_waddr <= (640*row_count) + col_count;
             wea <= 1'b1;
@@ -146,7 +146,7 @@ module rangefinder(
         end
         //calculates adresses for trig LUTs
         //decodes data by substracting 0x30 from both halves of data point
-        else if(current_state == s2)
+        else if(current_state == DECODE)
         begin
             wea <= 1'b0;
 
@@ -155,6 +155,9 @@ module rangefinder(
                       (step > 256 && step <= 384) ? 384-step :  //index 127 to 0  - Q2 - vr
                       (step > 384 && step <= 512) ? step-384 :  //index 0 to 128  - Q3 - vr
                       (step > 512 && step <= 640) ? 640-step :  //index 127 to 0  - Q3 - hz
+                      // (step > 640 && step <= 768) ? step - 640 :
+                      // (step > 768 && step <= 896) ? 896 - step :
+                      // (step > 896 && step <= 1023) ? step - 896 :
                                                     step-640;   //index 0 to 128  - Q4 - hz      
     
             addra2 <= (step >= 0 && step <= 128)  ? step :      //index 128 to 256 - Q1 - vr
@@ -162,6 +165,9 @@ module rangefinder(
                       (step > 256 && step <= 384) ? step-256 :  //index 129 to 256 - Q2 - hz
                       (step > 384 && step <= 512) ? 512-step :  //index 255 to 128 - Q3 - hz
                       (step > 512 && step <= 640) ? step-512 :  //index 129 to 256 - Q3 - vr
+                      // (step > 640 && step <= 768) ? 768 - step :
+                      // (step > 768 && step <= 896) ? step - 168 :
+                      // (step > 896 && step <= 1023) ? 1023 - step :
                                                     768-step;   //index 255 to 128 - Q4 - vr
                                                     
             
@@ -170,9 +176,9 @@ module rangefinder(
         
         //drops upper bit of each data point
         //calculates horizontal and vertical distance for each data point
-        else if(current_state == s3)
+        else if(current_state == OFFSET)
         begin
-            if(s2_counter == 4)
+            if(offset_counter == 4)
             begin
                 if(step > 256 && step <= 512)
                 begin
@@ -187,13 +193,13 @@ module rangefinder(
                 end
             end
             
-            s2_counter <= s2_counter + 1'b1;
+            offset_counter <= offset_counter + 1'b1;
         end
         
         //scales data and localizes to device
-        else if(current_state == s4)
+        else if(current_state == SCALE)
         begin
-            s2_counter <= 3'b0;
+            offset_counter <= 3'b0;
             
             if(xneg)
                 xlocation <= device_x - xmult[23:16];
@@ -207,23 +213,24 @@ module rangefinder(
         end
         
         //calculates address for VGA BRAM
-        else if(current_state == s5)
+        else if(current_state == ADDRESS)
         begin
-            if(s4_counter == 3)
+            if(address_counter == 3)
                 vga_waddr <= vga_product + xlocation;
             
-            s4_counter <= s4_counter + 1'b1;
+            address_counter <= address_counter + 1'b1;
         end
         
         //writes to BRAM
-        else if(current_state == s6)
+        else if(current_state == WRITE)
         begin
-            s4_counter <= 2'b00;
+            address_counter <= 2'b00;
             dina <= 8'hFF;
             wea <= 1'b1;
         end
     end
     
+    // convert data point, trig lookup to x or y offset
     mult_gen_0 trig_mult_1
     (
         .CLK(clk),
@@ -231,7 +238,7 @@ module rangefinder(
         .B(coord1_data),
         .P(product1)
     );
-    
+    // convert data point, trig lookup to x or y offset
     mult_gen_0 trig_mult_2
     (
         .CLK(clk),
@@ -240,6 +247,7 @@ module rangefinder(
         .P(product2)
     );
     
+    // calculates 640*row_count portion of VGA write address
     mult_gen_2 vga_multiplier
     (
         .CLK(clk),
@@ -247,30 +255,18 @@ module rangefinder(
         .P(vga_product)
     );
     
-    //next data transfer logic
-    
     //watchdog counter watches for missed data transfers
     always @(posedge clk, posedge reset)
     begin
         if(reset || transmit)
             watchdog <= 0;
-        else if (current_state == s0)
+        else if (current_state == IDLE)
             watchdog <= watchdog + 1'b1;
         else
             watchdog <= watchdog;
     end    
     
-    //sets flag to initialize another rangefinder data sequence   
-//    always @ (posedge clk, posedge reset)
-//    begin
-//        if(reset)
-//            transmit <= 1'b1;
-//        else if(watchdog <= 38400)
-//            transmit <= 1'b1;
-//        else
-//            transmit <= 1'b0;
-//    end
-    
+    // trigger a new rangefinder data aquisition sequence when the entire screen has been cleared
     always @ (posedge clk)
     begin
         if(row_count == 479 && col_count == 639)
@@ -279,6 +275,7 @@ module rangefinder(
             transmit <= 1'b0;
     end
     
+    // write current_state, next_state, and I/O to LEDs for debug
     assign leds[7:0] = {next_state[2:0],current_state[2:0],enable,button};
         
 endmodule
