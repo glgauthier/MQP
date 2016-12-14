@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Tue Dec 13 21:47:36 2016">
+<application name="pa" timeStamp="Wed Dec 14 01:29:18 2016">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="448321aa0b20428aafba9daf2b5505bc" type="ProjectID"/>
-<property name="ProjectIteration" value="109" type="ProjectIteration"/>
+<property name="ProjectIteration" value="110" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -34,7 +34,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="LaunchProgramFpga" value="12" type="JavaHandler"/>
 <property name="ManageCompositeTargets" value="1" type="JavaHandler"/>
 <property name="NewExportHardware" value="19" type="JavaHandler"/>
-<property name="NewLaunchHardware" value="25" type="JavaHandler"/>
+<property name="NewLaunchHardware" value="26" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
 <property name="OpenBlockDesign" value="5" type="JavaHandler"/>
 <property name="OpenHardwareManager" value="19" type="JavaHandler"/>
@@ -42,8 +42,8 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ProgramDevice" value="10" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="1" type="JavaHandler"/>
 <property name="RegenerateRSBLayout" value="13" type="JavaHandler"/>
-<property name="ReportIPStatus" value="20" type="JavaHandler"/>
-<property name="RunBitgen" value="110" type="JavaHandler"/>
+<property name="ReportIPStatus" value="21" type="JavaHandler"/>
+<property name="RunBitgen" value="111" type="JavaHandler"/>
 <property name="RunImplementation" value="2" type="JavaHandler"/>
 <property name="RunPowerEstimation" value="1" type="JavaHandler"/>
 <property name="SaveDesign" value="1" type="JavaHandler"/>
@@ -55,7 +55,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ToggleAutoFitSelection" value="5" type="JavaHandler"/>
 <property name="ToggleSelectAreaMode" value="4" type="JavaHandler"/>
 <property name="ToggleViewNavigator" value="3" type="JavaHandler"/>
-<property name="UpgradeIP" value="93" type="JavaHandler"/>
+<property name="UpgradeIP" value="94" type="JavaHandler"/>
 <property name="ValidateRSBDesign" value="24" type="JavaHandler"/>
 <property name="ViewTaskIPIntegrator" value="4" type="JavaHandler"/>
 <property name="ViewTaskImplementation" value="1" type="JavaHandler"/>
@@ -64,71 +64,17 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ZoomFit" value="16" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
-<property name="PAResourceAtoD.CmdMsgDialog_OK, OK" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.DeviceView_CELL_DRAG_DROP_MODES, Device_instancedrag" value="2" type="GuiResourceData"/>
-<property name="PAResourceAtoD.DeviceView_SHOW_CELL_CONNECTIONS, Device_showinstanceconnections" value="4" type="GuiResourceData"/>
-<property name="PAResourceAtoD.DeviceView_SHOW_NETS, Device_shownets" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, Auto Connect" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_AUTO_FIT_SELECTION, (String" value="2" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_ENFORCE_LEGAL_IO_PLACEMENT, Device_enforce_io_placement" value="2" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_EXPORT_HARDWARE, Export Hardware..." value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_FED_TOGGLE_ROUTING_RESOURCES, (String" value="4" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_LAUNCH_HARDWARE, Launch SDK" value="3" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SHOW_IO_NETS, Device_show_io_nets" value="5" type="GuiResourceData"/>
-<property name="PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, impl_1 ; constrs_1 ; write_bitstream Complete! ; -6.891377925872803 ; -139.99671936035156 ; 0.027570834383368492 ; 0.0 ; 0.0 ; 0 ; 2738 ; 1681 ; 130 ; 0 ; 7 ; Tue Dec 13 21:31:05 EST 2016 ; 00:02:49 ; Vivado Implementation Defaults (Vivado Implementation 2016" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, IP Integrator], 5, true" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Implementation, Implemented Design, Report Power], 32, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Implementation], 19" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Program and Debug, Open Hardware Manager], 26, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Project Manager], 0, true" value="3" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation], 9, true" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_EDIT, Edit" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_EXPORT, Export" value="5" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_FILE, File" value="8" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_IMPORT, Import" value="4" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_FILE, Open Recent File" value="4" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, Open Recent Project" value="4" type="GuiResourceData"/>
-<property name="PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, [Root, Intra-Clock Paths, clk_100M_clk_wiz_0_1, Setup -6.890 ns], 9, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, [Root, Intra-Clock Paths, clk_100M_clk_wiz_0_1], 8" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, [Root, Intra-Clock Paths, clk_100M_clk_wiz_0_1], 8, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, [Root, Intra-Clock Paths], 5" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.NewExportHardwareDialog_INCLUDE_BITSTREAM, Include bitstream, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAGraphicalViewUtils_SHOW_ALL, Show All" value="2" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAGraphicalViewUtils_SHOW_INPUT_CONNECTIONS, Show Input Connections, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAGraphicalViewUtils_SHOW_INPUT_CONNECTIONS, Show Input Connections, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_CODE, Code" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_DEVICE, -1423511, 1724818" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_DEVICE, -1515096, 1902831" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_DEVICE, -212539, 244666" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_DEVICE, -291403, 269828" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_DEVICE, 213607, 218216" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_DEVICE, 232710, 278464" value="2" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_DEVICE, 232710, 278464, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_DEVICE, 563340, 137395" value="2" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, Open target" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, Program device" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProgramFpgaDialog_PROGRAM, Program" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSummaryUtilizationGadget_PROJECT_SUMMARY_UTILIZATION_GADGET_TABBED, PAResourceOtoP.ProjectSummaryUtilizationGadget_POST_SYNTHESIS, Post-Synthesis, 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSummaryUtilizationPanel_PROJECT_SUMMARY_UTILIZATION_PANEL_TABBED, PAResourceOtoP.ProjectSummaryUtilizationPanel_GRAPH, Graph, 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSummaryUtilizationPanel_PROJECT_SUMMARY_UTILIZATION_PANEL_TABBED, PAResourceOtoP.ProjectSummaryUtilizationPanel_TABLE, Table, 1" value="1" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, Path 21 ; -6.8903203 ; 26 ; 34 ; design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C ; design_1_i/custom_logic/inst/mqp_top/disp/line_reg[9]/D ; 16.841845 ; 8.46 ; 8.381844 ; 10.0 ; clk_100M_clk_wiz_0_1 ; clk_100M_clk_wiz_0_1 ; , 0, (String" value="1" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, Path 21 ; -6.8903203 ; 26 ; 34 ; design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C ; design_1_i/custom_logic/inst/mqp_top/disp/line_reg[9]/D ; 16.841845 ; 8.46 ; 8.381844 ; 10.0 ; clk_100M_clk_wiz_0_1 ; clk_100M_clk_wiz_0_1 ; , 0, design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C, 4" value="1" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, Path 22 ; -6.795321 ; 26 ; 34 ; design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C ; design_1_i/custom_logic/inst/mqp_top/disp/line_reg[10]/D ; 16.746845 ; 8.365 ; 8.381844 ; 10.0 ; clk_100M_clk_wiz_0_1 ; clk_100M_clk_wiz_0_1 ; , 1, (String" value="2" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, Path 23 ; -6.779321 ; 26 ; 34 ; design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C ; design_1_i/custom_logic/inst/mqp_top/disp/line_reg[8]/D ; 16.730844 ; 8.349 ; 8.381844 ; 10.0 ; clk_100M_clk_wiz_0_1 ; clk_100M_clk_wiz_0_1 ; , 2, (String" value="2" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, Path 24 ; -6.7753205 ; 25 ; 34 ; design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C ; design_1_i/custom_logic/inst/mqp_top/disp/line_reg[5]/D ; 16.727846 ; 8.346 ; 8.381844 ; 10.0 ; clk_100M_clk_wiz_0_1 ; clk_100M_clk_wiz_0_1 ; , 3, (String" value="2" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, Path 25 ; -6.7543206 ; 25 ; 34 ; design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C ; design_1_i/custom_logic/inst/mqp_top/disp/line_reg[7]/D ; 16.706846 ; 8.325 ; 8.381844 ; 10.0 ; clk_100M_clk_wiz_0_1 ; clk_100M_clk_wiz_0_1 ; , 4, (String" value="2" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, Path 26 ; -6.680321 ; 25 ; 34 ; design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C ; design_1_i/custom_logic/inst/mqp_top/disp/line_reg[6]/D ; 16.632847 ; 8.250999 ; 8.381844 ; 10.0 ; clk_100M_clk_wiz_0_1 ; clk_100M_clk_wiz_0_1 ; , 5, (String" value="2" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, Path 27 ; -6.6643214 ; 25 ; 34 ; design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C ; design_1_i/custom_logic/inst/mqp_top/disp/line_reg[4]/D ; 16.616844 ; 8.235 ; 8.381844 ; 10.0 ; clk_100M_clk_wiz_0_1 ; clk_100M_clk_wiz_0_1 ; , 6, (String" value="2" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, Path 28 ; -6.5283203 ; 24 ; 34 ; design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C ; design_1_i/custom_logic/inst/mqp_top/disp/line_reg[3]/D ; 16.482843 ; 8.100999 ; 8.381844 ; 10.0 ; clk_100M_clk_wiz_0_1 ; clk_100M_clk_wiz_0_1 ; , 7, (String" value="2" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, Path 29 ; -6.4693203 ; 24 ; 34 ; design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C ; design_1_i/custom_logic/inst/mqp_top/disp/line_reg[2]/D ; 16.423843 ; 8.041999 ; 8.381844 ; 10.0 ; clk_100M_clk_wiz_0_1 ; clk_100M_clk_wiz_0_1 ; , 8, (String" value="2" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, Path 30 ; -6.320321 ; 24 ; 34 ; design_1_i/custom_logic/inst/mqp_top/disp/index_reg[0]/C ; design_1_i/custom_logic/inst/mqp_top/disp/line_reg[1]/D ; 16.274847 ; 7.892999 ; 8.381844 ; 10.0 ; clk_100M_clk_wiz_0_1 ; clk_100M_clk_wiz_0_1 ; , 9, (String" value="4" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.XPowerSettingsDialog_SAVE_THESE_SETTINGS_AND_RUN, OK" value="1" type="GuiResourceData"/>
-<property name="RDIResource.BaseDialog_OK, OK" value="4" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_LAUNCH_HARDWARE, Launch SDK" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_EXPORT, Export" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_FILE, File" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_FILE, Open Recent File" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, Open Recent Project" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="96" type="GuiMode"/>
+<property name="GuiMode" value="97" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="83" type="TclMode"/>
+<property name="TclMode" value="84" type="TclMode"/>
 </item>
 </section>
 </application>

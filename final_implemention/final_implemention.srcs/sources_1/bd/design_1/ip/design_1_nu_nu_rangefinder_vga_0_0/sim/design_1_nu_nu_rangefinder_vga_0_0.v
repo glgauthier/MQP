@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:user:custom_logic:1.0
-// IP Revision: 30
+// IP Revision: 31
 
 `timescale 1ns/1ps
 

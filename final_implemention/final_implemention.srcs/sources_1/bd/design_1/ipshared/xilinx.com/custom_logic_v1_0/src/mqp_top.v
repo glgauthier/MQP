@@ -1,16 +1,18 @@
 `timescale 1 ps / 1 ps
-
+// MQP Top Module
+// contains custom logic for controlling the cameras, AL422B camera FIFOs,
+// rangefinder data manipulation, and disparity algorithm
 module mqp_top
 (
     // physical pins
-    input fpga_clk,
-    input reset,
+    input fpga_clk, // 100MHz input clock
+    input reset, // reset button
     input button, // trigger rangefinder data sequence
-    input [7:0] sw, 
-    output [7:0] leds,
-    output hsync,
-    output vsync,
-    output reg [11:0] rgb,
+    input [7:0] sw, // user switches
+    output [7:0] leds, // output LEDs
+    output hsync, // VGA HS
+    output vsync, // VGA VS
+    output reg [11:0] rgb, // VGA color logic
     
     // cameras
     input cam_rst, // button for camera RESET_BAR
@@ -25,27 +27,25 @@ module mqp_top
     output FIFO_RCK, // rck to fifo (1MHz)
        
     //processing system
-    input [27:0] data_enable_step,
-    output transmit,
+    input [27:0] data_enable_step, // AXI data from PS
+    output transmit, // AXI data to PS (trigger new rangefinder data)
     
     //rangefinder BRAM
-    output [7:0] addra1,
-    input [12:0] coord1_data,
-    output clk_100M,
-    output [7:0] addra2,
-    input [12:0] coord2_data,
+    output [7:0] addra1, // lookup table 1 address
+    input [12:0] coord1_data, // lookup table 1 data
+    output clk_100M, // 100MHZ output clock 
+    output [7:0] addra2, // lookup table 2 address
+    input [12:0] coord2_data, // lookup table 2 data
     
-    //vga map BRAM
-    // port A
-    output [18:0] vga_waddr,
-    output [7:0] dina,
-    output ena,
-    output wea,
-    // port B
-    output reg [18:0] vga_raddr,
-    output clk_25M,
-    input [7:0] x_vga,
-    output enb
+    // VGA output pixel value BRAM
+    output [18:0] vga_waddr, // pixel write address (640*vcount)+hcount
+    output [7:0] dina, // pixel write data
+    output ena, // write port enable
+    output wea, // pixel write enable
+    output reg [18:0] vga_raddr, // pixel read address
+    output clk_25M, // pixel read clock (VGA clock)
+    input [7:0] x_vga, // pixel read data (to VGA color logic)
+    output enb // read port enable
 );
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Clocking ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -110,10 +110,10 @@ module mqp_top
             init_count <= init_count + 1'b1;
     end
     // Keep cam_rst asserted for at least 20 cam_sysclk cycles to init cams
-    // I'd use 30 since it's the minimum time for the i2c bus to be ready
     assign cam_reset = (init_count >= 5'd20);
     
-    // Trigger a new image capture and disparity sequence when disp. idles
+    // Trigger a new image capture and disparity sequence when disparity idles
+    // this allows for continuous disparity data capture
     wire trig_db; // camera controller trigger input
     wire [2:0] current_state; // disparity current state
     assign trig_db = current_state == 2'b00; 

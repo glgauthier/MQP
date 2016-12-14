@@ -15,8 +15,8 @@ module parallel_disparity(
 	 output reg [7:0] result_data, // Result bram pixel data
 	 output result_wea, // Result bram write enable
 	 output [2:0] state_LED, // Current state indicator
-	 output [7:0] lineout,
-	 input [6:0] lineaddr
+	 output [7:0] lineout, // Single line pixel data out
+	 input [6:0] lineaddr // Single line pixel data address
     );
 
 // user-defined constants (image search parameters)
@@ -30,7 +30,7 @@ parameter BASELINE = 63; //63mm
 // calculated constants
 parameter BLOCK_SIZE = (2*HALF_BLOCK) + 1; // block size
 parameter BLOCK_SIZE0 = (2*HALF_BLOCK); // block size with zero based index
-parameter FB = FOCAL_LENGTH*BASELINE;
+parameter FB = FOCAL_LENGTH*BASELINE; // focal length * baseline (done here to save computation space)
 
 // search variables (incremented automatically)
 reg [8:0] col_count = 9'b0;  // number of cols iterated through (m in matlab code)
@@ -47,35 +47,41 @@ reg [7:0] min; // value of min number in disparity vector
 reg [1:0] pipe = 2'b00; // pipeline control for FSM
 reg done; // will be 1 if disparity is 100% done, 0 otherwise (used for next_state == IDLE)
 
-// temporary memory
-reg [7:0] template0 [0:BLOCK_SIZE0]; // template block
-reg [7:0] template1 [0:BLOCK_SIZE0]; // template block
-reg [7:0] template2 [0:BLOCK_SIZE0]; // template block
-reg [7:0] template3 [0:BLOCK_SIZE0]; // template block
-reg [7:0] template4 [0:BLOCK_SIZE0]; // template block
-reg [7:0] template5 [0:BLOCK_SIZE0]; // template block
-reg [7:0] template6 [0:BLOCK_SIZE0]; // template block
-reg [7:0] block0 [0:BLOCK_SIZE0]; // search block
-reg [7:0] block1 [0:BLOCK_SIZE0]; // search block
-reg [7:0] block2 [0:BLOCK_SIZE0]; // search block
-reg [7:0] block3 [0:BLOCK_SIZE0]; // search block
-reg [7:0] block4 [0:BLOCK_SIZE0]; // search block
-reg [7:0] block5 [0:BLOCK_SIZE0]; // search block
-reg [7:0] block6 [0:BLOCK_SIZE0]; // search block
-reg [7:0] SAD_diffs0 [0:BLOCK_SIZE0]; // block for holding abs(template-block)
-reg [7:0] SAD_diffs1 [0:BLOCK_SIZE0]; // block for holding abs(template-block)
-reg [7:0] SAD_diffs2 [0:BLOCK_SIZE0]; // block for holding abs(template-block)
-reg [7:0] SAD_diffs3 [0:BLOCK_SIZE0]; // block for holding abs(template-block)
-reg [7:0] SAD_diffs4 [0:BLOCK_SIZE0]; // block for holding abs(template-block)
-reg [7:0] SAD_diffs5 [0:BLOCK_SIZE0]; // block for holding abs(template-block)
-reg [7:0] SAD_diffs6 [0:BLOCK_SIZE0]; // block for holding abs(template-block)
-reg [10:0] temp0; // block for holding sum(abs(template-block)) - up to 9x9 block size
-reg [10:0] temp1; // block for holding sum(abs(template-block)) - up to 9x9 block size
-reg [10:0] temp2; // block for holding sum(abs(template-block)) - up to 9x9 block size
-reg [10:0] temp3; // block for holding sum(abs(template-block)) - up to 9x9 block size
-reg [10:0] temp4; // block for holding sum(abs(template-block)) - up to 9x9 block size
-reg [10:0] temp5; // block for holding sum(abs(template-block)) - up to 9x9 block size
-reg [10:0] temp6; // block for holding sum(abs(template-block)) - up to 9x9 block size
+// temporary memory for template block, search block, and computational storage
+// note that these blocks are broken down by row to allow for faster summations
+// 7x7 template block 
+reg [7:0] template0 [0:BLOCK_SIZE0]; // template block row 0
+reg [7:0] template1 [0:BLOCK_SIZE0]; // template block row 1
+reg [7:0] template2 [0:BLOCK_SIZE0]; // template block row 2
+reg [7:0] template3 [0:BLOCK_SIZE0]; // template block row 3
+reg [7:0] template4 [0:BLOCK_SIZE0]; // template block row 4
+reg [7:0] template5 [0:BLOCK_SIZE0]; // template block row 5
+reg [7:0] template6 [0:BLOCK_SIZE0]; // template block row 6
+// 7x7 search block
+reg [7:0] block0 [0:BLOCK_SIZE0]; // search block row 0 
+reg [7:0] block1 [0:BLOCK_SIZE0]; // search block row 1
+reg [7:0] block2 [0:BLOCK_SIZE0]; // search block row 2
+reg [7:0] block3 [0:BLOCK_SIZE0]; // search block row 3
+reg [7:0] block4 [0:BLOCK_SIZE0]; // search block row 4
+reg [7:0] block5 [0:BLOCK_SIZE0]; // search block row 5
+reg [7:0] block6 [0:BLOCK_SIZE0]; // search block row 6
+// 7x7 storage for abs(template-block)
+reg [7:0] SAD_diffs0 [0:BLOCK_SIZE0]; // block for holding abs(template-block) row 0
+reg [7:0] SAD_diffs1 [0:BLOCK_SIZE0]; // block for holding abs(template-block) row 1
+reg [7:0] SAD_diffs2 [0:BLOCK_SIZE0]; // block for holding abs(template-block) row 2
+reg [7:0] SAD_diffs3 [0:BLOCK_SIZE0]; // block for holding abs(template-block) row 3
+reg [7:0] SAD_diffs4 [0:BLOCK_SIZE0]; // block for holding abs(template-block) row 4
+reg [7:0] SAD_diffs5 [0:BLOCK_SIZE0]; // block for holding abs(template-block) row 5
+reg [7:0] SAD_diffs6 [0:BLOCK_SIZE0]; // block for holding abs(template-block) row 6
+// 7x1 storage for sum(abs(template-block))
+reg [10:0] temp0; // block for holding sum(abs(template-block)) row 0
+reg [10:0] temp1; // block for holding sum(abs(template-block)) row 1
+reg [10:0] temp2; // block for holding sum(abs(template-block)) row 2
+reg [10:0] temp3; // block for holding sum(abs(template-block)) row 3
+reg [10:0] temp4; // block for holding sum(abs(template-block)) row 4
+reg [10:0] temp5; // block for holding sum(abs(template-block)) row 5
+reg [10:0] temp6; // block for holding sum(abs(template-block)) row 6
+// 20x1 for storing SAD value for ALL search blocks corresponding to a single template block 
 reg [14:0] SAD_vector [0:SEARCH_RANGE]; // block for holding sum(sum(abs(template-block))) - up to 9x9 block size
 reg [10:0] line; // reg for holding [(focal length)*(baseline)]/index
 
@@ -96,31 +102,28 @@ always @ (posedge clk)
 		current_state <= next_state;
 
 // next state logic
-always @(current_state,enable,ccnt,dcnt,pipe,done,rcnt,maxd)//,buffer_ready)
+always @(current_state,enable,ccnt,dcnt,pipe,done,rcnt,maxd)
 	case(current_state)
-	IDLE: 
+	IDLE: // wait for new sequence enable
 		if(enable) 
 			next_state = READ;
 		else 
 			next_state = IDLE;
-	READ: 
-		//if(buffer_ready)
-			next_state = SEPARATE;
-		//else
-		//	next_state = READ;
-	SEPARATE:
+	READ: // previously stored logic now contained in imgbuf.v
+		next_state = SEPARATE;
+	SEPARATE: // isolate template and search block
 		if(ccnt == (BLOCK_SIZE0) && rcnt == (BLOCK_SIZE0))
 			next_state = SAD;
 		else
 			next_state = SEPARATE;
-	SAD:
+	SAD: // perform sum(sum(abs(template-search)))
 		if(dcnt < maxd && pipe == 2'b11)
 			next_state = SEPARATE;
 		else if (dcnt < maxd || pipe < 2'b11)
 			next_state = SAD;
 		else
 			next_state = FINALIZE;
-	FINALIZE: 
+	FINALIZE: // Find disparity value from SAD vector and store in output buffer
 		if(~done && pipe == 2'b11)
 			next_state = SEPARATE;
 		else if(done && pipe == 2'b11)
@@ -154,7 +157,6 @@ case(current_state)
 		// read in the template and search blocks IN PARALLEL as set by the following:
 		// template block: (t_minc:t_maxc,minr:maxr)
 		// search block: (b_minc:b_maxc,minr:maxr)
-		
 		// read in template image block
 		if(ccnt <= (t_maxc-t_minc) && rcnt <= (maxr-minr)) // fully within template search bounds
 			case(rcnt)
@@ -226,53 +228,53 @@ case(current_state)
 	begin
     	// ~~~~~~~~~~~~~~~~ abs(template-block) ~~~~~~~~~~~~~~~~ 
 		if (pipe == 2'b00) begin
+		    // abs0
 			if(template0[ccnt]>block0[ccnt])
 				SAD_diffs0[ccnt] <= template0[ccnt] - block0[ccnt];
 			else
 				SAD_diffs0[ccnt] <= block0[ccnt] - template0[ccnt];
-		    
+		    // abs1
 		    if(template1[ccnt]>block1[ccnt])
                 SAD_diffs1[ccnt] <= template1[ccnt] - block1[ccnt];
             else
                 SAD_diffs1[ccnt] <= block1[ccnt] - template1[ccnt];
-            
+            // abs2
             if(template2[ccnt]>block2[ccnt])
                 SAD_diffs2[ccnt] <= template2[ccnt] - block2[ccnt];
             else
                 SAD_diffs2[ccnt] <= block2[ccnt] - template2[ccnt];
-            
+            // abs3
             if(template3[ccnt]>block3[ccnt])
                 SAD_diffs3[ccnt] <= template3[ccnt] - block3[ccnt];
             else
                 SAD_diffs3[ccnt] <= block3[ccnt] - template3[ccnt];
-                
+            // abs4
             if(template4[ccnt]>block4[ccnt])
                 SAD_diffs4[ccnt] <= template4[ccnt] - block4[ccnt];
             else
                 SAD_diffs4[ccnt] <= block4[ccnt] - template4[ccnt];
-            
+            // abs5
             if(template5[ccnt]>block5[ccnt])
                 SAD_diffs5[ccnt] <= template5[ccnt] - block5[ccnt];
             else
                 SAD_diffs5[ccnt] <= block5[ccnt] - template5[ccnt];
-            
+            // abs6
             if(template6[ccnt]>block6[ccnt])
                 SAD_diffs6[ccnt] <= template6[ccnt] - block6[ccnt];
             else
                 SAD_diffs6[ccnt] <= block6[ccnt] - template6[ccnt];
                
-
+            // increment through each index in all template and search rows
 			if(ccnt<(BLOCK_SIZE0))
 				ccnt<=ccnt+1'b1;
-			else  // ccnt == (BLOCK_SIZE-1) && rcnt == (BLOCK_SIZE-1)
-				pipe <= 2'b01;
+			else
+				pipe <= 2'b01; // proceed to next stage of SAD
 		end
 		
 		// ~~~~~~~~~~~~~~~~ sum(abs(template-block)) ~~~~~~~~~~~~~~~~ 
-		//if (rcnt>1'b1 && pipe < 2'b10) begin // pipeline things
 		if(pipe == 2'b01) begin
 			if(cdcnt < BLOCK_SIZE) begin // 0 .. block_size-1
-                case(rdcnt)
+                case(rdcnt) // sum(abs0 + abs1 + abs2 + abs3 + abs4 + abs5 + abs6) for all columns within each row
                     0: temp0 <= SAD_diffs0[cdcnt] + SAD_diffs1[cdcnt] + SAD_diffs2[cdcnt] + SAD_diffs3[cdcnt] + SAD_diffs4[cdcnt] + SAD_diffs5[cdcnt] + SAD_diffs6[cdcnt];
                     1: temp1 <= SAD_diffs0[cdcnt] + SAD_diffs1[cdcnt] + SAD_diffs2[cdcnt] + SAD_diffs3[cdcnt] + SAD_diffs4[cdcnt] + SAD_diffs5[cdcnt] + SAD_diffs6[cdcnt];
                     2: temp2 <= SAD_diffs0[cdcnt] + SAD_diffs1[cdcnt] + SAD_diffs2[cdcnt] + SAD_diffs3[cdcnt] + SAD_diffs4[cdcnt] + SAD_diffs5[cdcnt] + SAD_diffs6[cdcnt];
@@ -281,7 +283,7 @@ case(current_state)
                     5: temp5 <= SAD_diffs0[cdcnt] + SAD_diffs1[cdcnt] + SAD_diffs2[cdcnt] + SAD_diffs3[cdcnt] + SAD_diffs4[cdcnt] + SAD_diffs5[cdcnt] + SAD_diffs6[cdcnt];
                     6: temp6 <= SAD_diffs0[cdcnt] + SAD_diffs1[cdcnt] + SAD_diffs2[cdcnt] + SAD_diffs3[cdcnt] + SAD_diffs4[cdcnt] + SAD_diffs5[cdcnt] + SAD_diffs6[cdcnt];
 			    endcase
-			end else begin// avg accross block width when one sum is done 
+			end else begin // avg accross block width when one sum is done temp[idx]=[sum[idx](0..7)/7]
 			    case(rdcnt)
                     0: temp0 <= (temp0/BLOCK_SIZE);
                     1: temp1 <= (temp1/BLOCK_SIZE);
@@ -293,12 +295,15 @@ case(current_state)
 				endcase
 		    end
 			
-			if(cdcnt<BLOCK_SIZE) // 0 .. block_size
+			// iterate through each colum within each row
+			if(cdcnt<BLOCK_SIZE) 
 				cdcnt<=cdcnt+1'b1;
+		    // after finishing all sums, reduce to an average value
 		    else if(cdcnt == BLOCK_SIZE && rdcnt < BLOCK_SIZE0) begin
 		        rdcnt <= rdcnt + 1'b1;
 		        cdcnt <= 0;
-			end else begin// ccnt == (BLOCK_SIZE) && rcnt == (BLOCK_SIZE-1)
+		    // when finished, reset for next stage of SAD
+			end else begin
 				pipe <= 2'b10;
 				ccnt <= 3'b0;
 				rcnt <= 9'b0;
@@ -321,21 +326,28 @@ case(current_state)
 		end 
 		
         // update SAD vector index (when full, proceed to finalization)	
+        // this index represents the position of the current search block
+        // in relation to the template block (0-19 for a 20px disparity search)
 		if(dcnt < maxd && pipe == 2'b11) begin
-			dcnt <= dcnt + 1'b1;
+			dcnt <= dcnt + 1'b1; // number of searches performed
 			blockIndex <= dcnt - mind; // index in SAD_vector
 		end
 		
-		// update cols & rows processed by the algorithm
+		// update cols & rows processed by the algorithm after comparing
+		// SEARCH_RANGE search blocks to the current template
 		if (next_state == FINALIZE) begin
 			scnt <= 6'b0;
 			pipe <= 2'b00;
+			
+			// increment accross each row of pixels
 			if(col_count < (WIDTH-(HALF_BLOCK+1'b1)))
                 col_count <= col_count + 1'b1;
+            // increment through all rows if NOT performing a line search
 			else if (~sw && col_count == (WIDTH-(HALF_BLOCK+1'b1)) && row_count < HEIGHT) begin
                 row_count <= row_count + 1'b1;
                 col_count <= 9'b0;
 		    end
+		    // increment through two rows if performing a line search
 	        else if (sw && col_count == (WIDTH-(HALF_BLOCK+1'b1)) && row_count < 9'd145) begin
 	            if(row_count < 9'd144)
 	               row_count <= 9'd144;
@@ -343,13 +355,19 @@ case(current_state)
                     row_count <= row_count + 1'b1;
                 col_count <= 9'b0;
 			end
+			
+			// full disparity search complete when all rows and cols have been processed
 			if(~sw && col_count == (WIDTH-(HALF_BLOCK+1'b1)) && row_count == HEIGHT)
 			   done <= 1'b1;
-			else if (sw && col_count == (WIDTH-(HALF_BLOCK+1'b1)) && row_count >= 9'd145) // 2 rows 
-			   done <= 1'b1;    
+			// line disparity search complete when two most central rows and cols have been processed
+			else if (sw && col_count == (WIDTH-(HALF_BLOCK+1'b1)) && row_count >= 9'd145) 
+			   done <= 1'b1;
+			// if neither search is complete, allow for the FSM to keep cycling
 			else
 			   done <= 1'b0;
 		end 
+		
+		// reset for a new SAD sequence if there are more search blocks to compare to the template
 		if (next_state == SEPARATE) begin
 			ccnt <= 3'b0;
 			rcnt <= 9'b0;
@@ -362,23 +380,29 @@ case(current_state)
 	FINALIZE:
 	begin
 		dcnt <= 9'b0;
-		// search for index of max valye in SAD_vector
+		// search for index of min value in SAD_vector
+		// this index corresponds to the pixel offset between the template
+		// block and the closest matching search block
 		if(scnt<numBlocks) begin
+		    // value at idx=0 will always be the lowest value to start...
 			if(scnt == 6'b0) begin
 				min <= SAD_vector[0];
 				index <= 8'h00;
 				end
+		    // update this value and its index while incrementing through...
 			else if(SAD_vector[scnt]<min) begin
 				min <= SAD_vector[scnt];
 				index <= scnt;
 				end
 			scnt <= scnt + 1'b1;
 		end
-		// place disparity value in output image array
+		
+		// place disparity value in output image array after finding the index
 		else begin		    
-            if(sw == 1'b0)
+            if(sw == 1'b0) // use disparity values when in full search mode
                 result_data <= index;
-            else
+            else // use depth values when in line mode
+                // in this case I sum 8 pixel values accross two lines for every output pixel
                 // non-zero pixel value on any col other than 1st
                 if(index > 0 && pipe > 2'b00)
                   line <= line + (FB/index);
@@ -392,37 +416,39 @@ case(current_state)
                 else
                   line = line;
             
-            // count through 4 pixels for each iteration
+            // count through 4 pixels for each iteration of line mode
             pipe <= pipe + 1'b1; //pipe <= 2'b11; // was 2'b11, changed to add a little extra time 
 		end
 	end
 endcase
 
+// single line pixel buffer
 line_bram linebuf (
   .clka(clk),    // input wire clka
   .wea(pipe == 2'b11 && sw && row_count == 9'd144),// input wire [0 : 0] wea
-  .addra(col_count[8:2]),  // input wire [6 : 0] addra
-  .dina(line>>3),    // input wire [7 : 0] dina
+  .addra(col_count[8:2]),  // addra will increment every 4 pixels
+  .dina(line>>3),    // dina is the sum of 8 depth values / 8
   .clkb(clk),    // input wire clkb
-  .addrb(lineaddr),  // input wire [6 : 0] addrb
-  .doutb(lineout)  // output wire [7 : 0] doutb
+  .addrb(lineaddr),  // line address from top-level display logic
+  .doutb(lineout)  // depth value to top-level display logic
 );
 
-//always @(lineaddr)
-//    lineout = line[lineaddr]>>3;
+// disparity value output buffer write enable
+assign result_wea = (current_state == FINALIZE && scnt == (numBlocks)) ? 1'b1 : 1'b0;  
 
-assign result_wea = (current_state == FINALIZE && scnt == (numBlocks)) ? 1'b1 : 1'b0; // && scnt == numBlocks    
-
+// result address
 always @(posedge clk)
     result_addr = ((WIDTH+1'b1)*row_count)+col_count;
-    
+
+// left image buffer read address (for template block)
 always @(posedge clk)
     laddr = ((WIDTH+1'b1)*(minr+rcnt))+(t_minc+ccnt);
 
+// right image buffer read address (for search block)
 always @(posedge clk)
     raddr = ((WIDTH+1'b1)*(minr+rcnt))+(b_minc+ccnt);
 
-// assign block search bounds
+// assign disparity block search bounds
 always @(row_count,col_count,t_maxc,maxd,mind,dcnt)
 begin
 		minr = (0 > $signed(row_count - HALF_BLOCK)) ? 9'b0 : (row_count - HALF_BLOCK);
@@ -433,7 +459,7 @@ begin
 		b_maxc = ((WIDTH) < (dcnt + HALF_BLOCK)) ? WIDTH : (dcnt + col_count + HALF_BLOCK);
 end
 
-// assign disparity search bounds
+// assign disparity search bounds 
 always @(t_maxc,maxd,mind,current_state)
         begin
 		mind = 6'b0; // or = max(-SEARCH_RANGE, 1-t_minc)
