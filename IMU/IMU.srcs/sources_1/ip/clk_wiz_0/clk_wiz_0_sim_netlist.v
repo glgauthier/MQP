@@ -1,7 +1,7 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-// Date        : Sun Nov 27 15:16:10 2016
+// Date        : Fri Dec 09 18:19:45 2016
 // Host        : JOHN-HP running 64-bit major release  (build 7600)
 // Command     : write_verilog -force -mode funcsim
 //               C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v
@@ -16,24 +16,24 @@
 module clk_wiz_0
    (clk_in1,
     clk_100M,
-    clk_15M,
+    clk_10M,
     reset,
     locked);
   input clk_in1;
   output clk_100M;
-  output clk_15M;
+  output clk_10M;
   input reset;
   output locked;
 
   wire clk_100M;
-  wire clk_15M;
+  wire clk_10M;
   (* IBUF_LOW_PWR *) wire clk_in1;
   wire locked;
   wire reset;
 
   clk_wiz_0_clk_wiz_0_clk_wiz inst
        (.clk_100M(clk_100M),
-        .clk_15M(clk_15M),
+        .clk_10M(clk_10M),
         .clk_in1(clk_in1),
         .locked(locked),
         .reset(reset));
@@ -43,19 +43,19 @@ endmodule
 module clk_wiz_0_clk_wiz_0_clk_wiz
    (clk_in1,
     clk_100M,
-    clk_15M,
+    clk_10M,
     reset,
     locked);
   input clk_in1;
   output clk_100M;
-  output clk_15M;
+  output clk_10M;
   input reset;
   output locked;
 
   wire clk_100M;
   wire clk_100M_clk_wiz_0;
-  wire clk_15M;
-  wire clk_15M_clk_wiz_0;
+  wire clk_10M;
+  wire clk_10M_clk_wiz_0;
   wire clk_in1;
   wire clk_in1_clk_wiz_0;
   wire clkfbout_buf_clk_wiz_0;
@@ -97,8 +97,8 @@ module clk_wiz_0_clk_wiz_0_clk_wiz
         .O(clk_100M));
   (* BOX_TYPE = "PRIMITIVE" *) 
   BUFG clkout2_buf
-       (.I(clk_15M_clk_wiz_0),
-        .O(clk_15M));
+       (.I(clk_10M_clk_wiz_0),
+        .O(clk_10M));
   (* BOX_TYPE = "PRIMITIVE" *) 
   MMCME2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
@@ -111,7 +111,7 @@ module clk_wiz_0_clk_wiz_0_clk_wiz
     .CLKOUT0_DUTY_CYCLE(0.500000),
     .CLKOUT0_PHASE(0.000000),
     .CLKOUT0_USE_FINE_PS("FALSE"),
-    .CLKOUT1_DIVIDE(75),
+    .CLKOUT1_DIVIDE(100),
     .CLKOUT1_DUTY_CYCLE(0.500000),
     .CLKOUT1_PHASE(0.000000),
     .CLKOUT1_USE_FINE_PS("FALSE"),
@@ -160,7 +160,7 @@ module clk_wiz_0_clk_wiz_0_clk_wiz
         .CLKINSTOPPED(NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED),
         .CLKOUT0(clk_100M_clk_wiz_0),
         .CLKOUT0B(NLW_mmcm_adv_inst_CLKOUT0B_UNCONNECTED),
-        .CLKOUT1(clk_15M_clk_wiz_0),
+        .CLKOUT1(clk_10M_clk_wiz_0),
         .CLKOUT1B(NLW_mmcm_adv_inst_CLKOUT1B_UNCONNECTED),
         .CLKOUT2(NLW_mmcm_adv_inst_CLKOUT2_UNCONNECTED),
         .CLKOUT2B(NLW_mmcm_adv_inst_CLKOUT2B_UNCONNECTED),

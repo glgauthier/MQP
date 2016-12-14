@@ -46,8 +46,6 @@ int main()
     u32 write;
 	u32 stepbuf;
 
-//	int first = 1;
-
 	char *echotestnl = "G00076801\n";
 	char *echotestlf = "G00076801\r";
 
@@ -61,19 +59,13 @@ int main()
 			{
 				//blocks until the flag is set (from PL) to initiate data transfer
 				while(Xil_In32(baseaddr_p) == 0);
-//				if(!first)
-//				{
-//					while(1)
-//						printf("%c\n", inbyte());
-//				}
-//				first = 0;
+
 				STATE = TX_COMMAND;
 				break;
 			}
 
 			case TX_COMMAND:
 			{
-//////////////////clear inbyte buffer before this line so that the next line read in is accurate
 				printf("G00076801\n");
 				STATE = RX_DATA;
 				break;
@@ -88,7 +80,6 @@ int main()
 				for(rx_index = 0; rx_index < 10; rx_index++)
 				{
 					echo[rx_index] = inbyte();	// blocking - inbyte is polled
-//					printf("receives char %c \n", echo[rx_index]);
 				}
 
 				// makes sure the echo command is successful
@@ -96,7 +87,6 @@ int main()
 
 				if(strcmp(echo, echotestnl) != 0 && strcmp(echo, echotestlf) != 0)
 				{
-//					printf("echo did not match\n");
 					STATE = WAIT;
 					break;
 				}
@@ -106,15 +96,6 @@ int main()
 				{
 					status[rx_index] = inbyte();	// blocking - inbyte is polled
 				}
-
-				//
-//				if(strcmp(status[0], '0') != 0)
-//				{
-//					STATE = WAIT;
-//					break;
-//				}
-
-//				printf("receiving data blocks\n");
 
 				int iteration = 0;
 
@@ -142,7 +123,6 @@ int main()
 						//sends information to the programmable logic for each data point (2 chars)
 						//in the order of {data, enable, step}
 						data_enable_step = (databufbuf[1] << 20) + (databufbuf[0] << 12) + (write << 11) + stepbuf;
-//						printf("about to write %c %c %d %d to mem\n", databufbuf[0], databufbuf[1], write, stepbuf);
 						*(baseaddr_p+1) = data_enable_step;
 					}
 				}

@@ -64,7 +64,7 @@ module mqp_top
     wire [8:0] device_y;
     
     assign device_x = 321;
-    assign device_y = 300;
+    assign device_y = 265;
          
     // for vga logic
     wire [10:0] hcount, vcount;    // horizontal, vertical location on screen
@@ -78,9 +78,9 @@ module mqp_top
     begin
         if(blank)
             rgb = 12'h000;
-        else if (hcount == device_x && vcount == device_y)
-            rgb = 12'h0F0;
-        else if(x_vga > 0)
+        else if ((hcount >= device_x-1 && hcount <= device_x+1) && (vcount >= device_y-1 && vcount <= device_y+1))
+            rgb = 12'hF00;
+        else if(x_vga == 8'hFF)
             rgb = 12'h000;
         else
             rgb = 12'hFFF;
@@ -101,7 +101,6 @@ module mqp_top
        .enable(enable),
        .step(step),
        .vga_waddr(vga_waddr),
-       .write(write),
        .transmit(transmit),
        .dina(dina),
        .wea(wea),

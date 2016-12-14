@@ -57,7 +57,7 @@
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
 // clk_100M___100.000______0.000______50.0______137.681____105.461
-// _clk_15M____12.000______0.000______50.0______211.763____105.461
+// _clk_10M_____9.000______0.000______50.0______223.879____105.461
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -74,7 +74,7 @@ module clk_wiz_0
   input         clk_in1,
   // Clock out ports
   output        clk_100M,
-  output        clk_15M,
+  output        clk_10M,
   // Status and control signals
   input         reset,
   output        locked
@@ -86,7 +86,7 @@ module clk_wiz_0
   .clk_in1(clk_in1),
   // Clock out ports  
   .clk_100M(clk_100M),
-  .clk_15M(clk_15M),
+  .clk_10M(clk_10M),
   // Status and control signals               
   .reset(reset), 
   .locked(locked)            

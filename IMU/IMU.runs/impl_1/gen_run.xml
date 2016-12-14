@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1480447756">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1481732543">
   <File Type="OPT-DCP" Name="IMU_top_opt.dcp"/>
   <File Type="ROUTE-STATUS-PB" Name="IMU_top_route_status.pb"/>
   <File Type="PA-TCL" Name="IMU_top.tcl"/>
@@ -96,7 +96,9 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="c_addsub_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="cordic_0"/>
   <BlockFileSet Type="BlockSrcs" Name="mult_gen_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="div_gen_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mult_gen_1"/>
 </GenRun>

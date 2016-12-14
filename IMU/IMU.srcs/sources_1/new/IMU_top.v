@@ -6,15 +6,21 @@ module IMU_top(
     input reset, // asynchronous reset
     output sclk,
     output reg mosi,
-    output reg cs_n,
-    input miso
+    output cs_nAG,
+    output cs_nALT,
+    output reg cs_nM,
+    input miso,
+    output [7:0] led
     );
     
-    wire clk_15M;
-        
+    assign cs_nALT = 1'b1;
+    assign cs_nAG = 1'b1;
+    
+    wire clk_10M;
+    
     wire clk_100M;
-    reg [15:0] transferVal, inVal;
-    reg [15:0] gyroZ;
+    reg [15:0] transferVal;
+    reg [31:0] inVal;
     
     reg [6:0] time_counter;
     reg [6:0] time_buf;
@@ -23,58 +29,56 @@ module IMU_top(
     parameter [1:0] s0 = 0, s1 = 1, s2 = 2;
     reg [1:0] current_state, next_state;
      
-    reg [3:0] bitsOut, bitsIn; // SPI bit transfer counter (0-15)
+    reg [5:0] bitsOut;
+    reg [2:0] bitsIn; // SPI bit transfer counter (0-7)
     reg [4:0] Count;
-    reg [2:0] SPI_counter;
-
-    // write enable signal, triggered by button pulse
+    reg [7:0] SPI_counter;
+    
+    // write enable signal, triggered by counter
     wire en;
-//    assign en = (button == 1'b1);
-    assign en = (SPI_counter == 3'b111);
+    assign en = (SPI_counter == 8'hFF);
     
     //waits 8 clock cycles between SPI transfers
-    always @ (posedge clk_15M, posedge reset)
+    always @ (posedge clk_10M, posedge reset)
     begin
-        if(reset || !cs_n)
-            SPI_counter <= 3'b000;
+        if(reset || !cs_nM)
+            SPI_counter <= 8'h00;
         else
             SPI_counter <= SPI_counter + 1'b1;
     end
-     
+    
     // State machine overhead control
-    //  - asynchronous reset
-    //  - jump to s1 (SPI write) on clk_en 
-    //  - otherwise, increment to next_state
-    always @ (negedge clk_15M, posedge reset)
+    always @ (negedge clk_10M, posedge reset)
         if (reset)
             current_state <= s0;
         else if (en)
             current_state <= s1;
         else
             current_state <= next_state;
-                     
+    
+    reg ctrl_reg3_n, status_reg, get_magn_data, get_magn_offset;
+    
     // Change next_state based on the SPI write sequence
-    //        s0: reset shift register for next write seq.
-    //        s1: assert CS, write to DAC
-    //        s2: de-assert CS, increment write counter
-    always @ (current_state, bitsOut, transferVal)
+    always @ (current_state, bitsOut, transferVal, get_magn_data, en)
     begin
         case (current_state)
             // The state machine will remain in s0 until a new en pulse
             s0:
-                next_state = s0;
-            
+                if(en)
+                    next_state = s1;
+                else
+                    next_state = s0;
+                    
             // The state machine will remain in s1 for the entirety of an SPI transfer
             s1:
-                if (bitsOut == 4'b1111)
+                if ((get_magn_data && bitsOut == 39) || (!get_magn_data && bitsOut == 15))
                     next_state = s2;
                 else
                     next_state = s1;
                     
-            // After an SPI transfer, s2 is used to increment the write count
             s2:
                 next_state = s0;
-
+                    
             default:
                 next_state = s0;
         endcase
@@ -82,7 +86,7 @@ module IMU_top(
     
     reg independence;  // declaration of independence
     
-    always @ (posedge clk_15M)
+    always @ (posedge clk_10M)
     begin
         if(current_state == s1)
             independence <= 1'b1;
@@ -90,230 +94,337 @@ module IMU_top(
             independence <= 1'b0;
     end
     
-    always @ (clk_15M)
+    always @ (clk_10M)
     begin
         if((current_state == s1 && independence && bitsOut < 5) || (current_state == s1 && bitsOut >= 5) || current_state == s2)
-            cs_n <= 1'b0; // assert CS
+            cs_nM <= 1'b0; // assert CS
         else if(current_state == s0)
-            cs_n <= 1'b1;
+            cs_nM <= 1'b1;
     end
     
-//    assign sclk = (current_state == s1 && independence && bitsOut < 5) || (current_state == s1 && bitsOut >= 5) || current_state == s2 ? clk_15M : 1'b1;
-    assign sclk = (cs_n) ? 1'b1 : clk_15M;
-    
+    assign sclk = (cs_nM) ? 1'b1 : clk_10M;
+        
     //state machine for shifting data out 
-    always @ (negedge clk_15M, posedge reset)
+    always @ (negedge clk_10M)
     begin
         if(reset)
-            transferVal <= 16'h7E00;
+        begin
+            ctrl_reg3_n <= 1'b0;
+            status_reg <= 1'b0;
+            get_magn_data <= 1'b0;
+            get_magn_offset <= 1'b0;
+            bitsOut <= 0;
+        end
+        
+        //resets counter, assigns transferVal based on if data is ready and which register was last read from
+        else if (current_state == s0)
+        begin
+            bitsOut <= 0; //reset the count of bits sent
             
-        // if in S1 (currently transferring a value)
+            if(!ctrl_reg3_n)
+                transferVal <= 16'h2200;    // write to control register
+            else if(status_reg)
+                transferVal <= 16'h2700 | 16'h8000; // read from status register
+            else if(get_magn_offset)
+                transferVal <= 16'h0500 | 16'hC000; // reaed from x and y offset registers
+            else if(get_magn_data)
+                transferVal <= 16'h2800 | 16'hC000; //read from x and y magnetometer registers
+        end
+                
+        // shifts address out
         else if (current_state == s1)
         begin
-            transferVal <= {transferVal[14:0],1'b0}; // shift out the SPI transfer val
+            transferVal <= {transferVal[14:0], 1'b0}; // shift out the SPI transfer val
             mosi <= transferVal[15]; // write the MSB of the transfer val to MOSI
             bitsOut <= bitsOut + 1'b1; // and increment the count of bits sent
         end
         
-        // if in S2 or S0 (not currently transferring a value)
-        else
+        // sets flag for next address to read from
+        else if (current_state == s2)
         begin
-            bitsOut <= 0; // reset the count of bits sent
-            // reset the transfer val for next write seq
-//            if(transferVal == 16'h1800)
-//                transferVal <= 16'h1A00;
-//            else if(transferVal == 16'h1A00)
-//                transferVal <= 16'h1800;
-            transferVal <= 16'h7E00;
+            if(!ctrl_reg3_n)
+            begin
+                ctrl_reg3_n <= 1'b1;
+                get_magn_offset <= 1'b1;
+            end
+            
+            else if(status_reg && (inVal[1:0] == 2'b11))
+            begin
+                status_reg <= 1'b0;
+                get_magn_offset <= 1'b1;
+            end
+            
+            else if(get_magn_offset)
+            begin
+                get_magn_offset <= 1'b0;
+                get_magn_data <= 1'b1;
+            end
+            
+            else if(get_magn_data)
+            begin
+                get_magn_data <= 1'b0;
+                status_reg <= 1'b1;
+            end
         end
     end
     
-    //state ma chine for shifting data in
-    always @(posedge clk_15M, posedge reset)
+    reg [15:0] magnXoffset_2s, magnYoffset_2s;
+    reg [15:0] magnXdata_2s, magnYdata_2s;
+    
+    reg dataInReady;
+        
+    //state machine for reading data in
+    always @(posedge clk_10M)
     begin
+        //resets values
         if(reset)
         begin
-            inVal <= 16'h0000;
+            inVal <= 0;
+            dataInReady <= 1'b0;
         end
         
-        // if in S1 (currently transferring a value)
-        else if (current_state == s1)
+        else if(current_state == s0)
         begin
-            inVal[bitsOut] <= miso; // write the MSB of the transfer val to MOSI
-            bitsIn <= bitsIn + 1'b1; // and increment the count of bits sent
+            inVal <= 0;
+            
+            if(status_reg)
+                dataInReady <= 1'b0;
         end
         
-        // if in S2 or S0 (not currently transferring a value)
-        else
+        //reads in data after address has been shifted out
+        else if(current_state == s1)
         begin
-            bitsIn <= 16'b0000;
+            if(bitsOut >= 8)
+            begin
+                inVal <= {inVal[30:0], miso};
+            end
         end
-    end    
-    
-    //buffer for gyroscope Z-axis data in and time
-    always @ (bitsIn, time_counter)
-    begin
-        //end of SPI transfer
-        if(bitsIn == 4'b1111)
+        
+        //stored data received into corresponding buffer
+        else if(current_state == s2)
         begin
-//            if(transferVal == 16'h1A00)
-//                gyroZ[31:16] <= bitsIn;
-//            else if(transferVal == 16'h1800)
-//                gyroZ[15:0] <= bitsIn;
-            gyroZ <= bitsIn;
-            time_buf <= time_counter;
+            if(get_magn_offset)
+            begin
+                magnXoffset_2s <= {inVal[23:16], inVal[31:24]};
+                magnYoffset_2s <= {inVal[7:0], inVal[15:8]};
+          end
+            
+            else if(get_magn_data)
+            begin
+                magnXdata_2s <= {inVal[23:16], inVal[31:24]};
+                magnYdata_2s <= {inVal[7:0], inVal[15:8]};
+           end
         end
-    end
-    
-    //counts clock cycles between data transfers
-    always @ (posedge clk_15M, posedge reset)
-    begin
-        if(reset || bitsIn == 4'b1111)
-            time_counter <= 7'b0;
-        else
-            time_counter <= time_counter + 1'b1;
     end
   
 //-------------------------------------------------------------  
 //-------------------------------------------------------------
 //data processing block    
     
-    wire data_en;
-    assign data_en = (bitsIn == 4'b1111);
+    reg data_en;
+    
+    always @ (posedge clk_100M)
+    begin
+        if((current_state == s2) && get_magn_data)
+            data_en <= 1'b1;
+        else
+            data_en = 1'b0;
+    end
+        
+//    assign data_en = (dataInReady == 2'b11);
     
     // regs/params for state machine control
-    parameter [2:0] ds0 = 0, ds1 = 1, ds2 = 2, ds3 = 3;
-    reg [1:0] currentData_state, nextData_state;
+    parameter [3:0] waits = 0, IPsubtracter = 1, invertY = 2, arcTan = 3, RadToDeg = 4, compassHeading = 5;
+    reg [3:0] currentData_state, nextData_state;
     
     // State machine overhead control
-    //  - asynchronous reset
-    //  - jump to s1 (SPI write) on clk_en
-    //  - otherwise, increment to next_state
-    always @ (negedge clk_100M, posedge reset)
+    always @ (negedge clk_100M)
         if (reset)
-            currentData_state <= ds0;
-        else if (data_en)
-            currentData_state <= ds1;
+            currentData_state <= waits;
         else
             currentData_state <= nextData_state;
 
-    reg [3:0] ds2count;
-    reg [5:0] ds3count;
+    reg [1:0] IPsubtracter_count;
+    reg [1:0] invertY_count;
+    reg [4:0] arcTan_count;
+    reg RadToDeg_count;
 
     //nest state logic
-    always @ (currentData_state, ds2count, ds3count)
+    always @ (currentData_state, data_en, IPsubtracter_count, invertY_count, arcTan_count, RadToDeg_count)
     begin
         case (currentData_state)
             //remains in s0 until a new en pulse
-            ds0:
-            begin
-                nextData_state = ds0;
-            end
+            waits:
+                if(data_en)
+                    nextData_state = IPsubtracter;
+                else
+                    nextData_state = waits;
             
-            //remains in ds1 for 2 clock cycles - decoding 2s comp
-            ds1:
-            begin
-                    nextData_state <= ds2;
-            end
+            //IP subtracter
+            IPsubtracter:
+                if(IPsubtracter_count == 2)
+                    nextData_state = invertY;
+                else
+                    nextData_state = IPsubtracter;
+                    
+            //multiplies y value by -1
+            invertY:
+                if(invertY_count == 2)
+                    nextData_state = arcTan;
+                else
+                    nextData_state = invertY;                    
             
-            //remains in ds2 for 
-            ds2:
-                if(ds2count == 7)
-                    nextData_state = ds3;
-                
-            //remains in ds3 for 
-            ds3:
-            begin
-                if(ds3count == 50)
-                    nextData_state = ds0;
-            end
+            //arcTan(x/y)
+            arcTan:
+                if(arcTan_count == 26)
+                    nextData_state = RadToDeg;
+                else
+                    nextData_state = arcTan;
+            
+            //multiplies by 180
+            RadToDeg:
+                if(RadToDeg_count == 1)
+                    nextData_state = compassHeading;
+                else
+                    nextData_state = RadToDeg;
 
+            //calculated compass heading
+            compassHeading:
+                nextData_state = waits;
             
             default:
-                nextData_state = ds0;
+                nextData_state = waits;
         endcase
     end
     
-    reg [15:0] gyroZ_data;
-    reg positive;
-    wire [36:0] P;
-    reg [36:0] gyroZ_scale;
-    reg gyroZ_scale_valid;
-    wire [47:0] stepOffset_sl2;
-    reg [46:0] stepOffset;
-
+    wire [15:0] magnX_2s, magnY_2s_n;
+    reg [15:0] magnY_2s;
+    reg [8:0] degrees;
+    
+    wire [2:0] sign;
+    wire [4:0] decimal;
+    
+    wire [12:0] unscaled_degrees;
+    
     //data processing state machine
-    always @ (posedge clk_100M, posedge reset)
+    always @ (posedge clk_100M)
     begin
-        if(reset || currentData_state == ds0)
-        begin
-            ds2count <= 3'b0;
-            ds3count <= 5'b0;
-            gyroZ_scale_valid <= 1'b0;
-        end
+        case(currentData_state)
         
-        //decode 2s comp
-        else if(currentData_state == ds1)
-        begin
-            if(!gyroZ[15])
+            waits:
             begin
-                positive <= 1'b1;
-                gyroZ_data <= gyroZ;
+                IPsubtracter_count <= 2'b00;
+                invertY_count <= 5'b00000;
+                arcTan_count <= 2'b00;
+                RadToDeg_count <= 1'b0;
             end
-            else
-            begin
-                positive <= 1'b0;
-                gyroZ_data <= ~gyroZ + 1'b1;
-            end
-        end
         
-        //multiplies gryoZ velocity by constant {f*(deg/sec/LSB)/(degrees/step)}
-        else if(currentData_state == ds2)
-        begin
-            ds2count <= ds2count + 1'b1;
-            if(ds2count == 6)
+            //delay 2 cycles for IP subtracters
+            IPsubtracter:
             begin
-                gyroZ_scale <= P;
-                gyroZ_scale_valid <= 1'b1;
+                IPsubtracter_count <= IPsubtracter_count + 1'b1;
             end
-        end
         
-        //divides by time counter to get (step offset << 2)
-        else if(currentData_state == ds3)
-        begin
-            ds3count <= ds3count + 1'b1;
-            if(ds3count == 49)
+            //inverts the y data point because of the IMU's direction 
+            // connected to the PMOD with respect to the ZedBoard
+            invertY:
             begin
-                stepOffset <= stepOffset_sl2[47:1];
-                gyroZ_scale_valid <= 1'b0;
+                invertY_count <= invertY_count + 1'b1;
+                
+                if(invertY_count == 0)
+                    magnY_2s <= ~magnY_2s_n;
+                else if(invertY_count == 1)
+                    magnY_2s <= magnY_2s + 1'b1;
             end
-        end
         
+            //delay 26 cycles for IP arcTan - output in scaled radians
+            arcTan:
+            begin
+                arcTan_count <= arcTan_count + 1'b1;
+            end
+        
+            //converts to degrees by multiplying by 180
+            //delays 1 cycle for IP constant coefficiant multiplier
+            RadToDeg:
+            begin
+                RadToDeg_count <= RadToDeg_count + 1'b1;
+            end
+        
+            //calculates compass degrees based on the y magnetometer data
+            compassHeading:
+            begin
+                if(magnY_2s == 16'hFFFF || magnY_2s == 16'h0000)
+                    if(magnX_2s[15] == 1'b0)
+                        degrees <= 180;
+                    else
+                        degrees <= 0;
+                else if(magnY_2s[15] == 1'b0)
+                    if(sign[2] == 1'b0)
+                        degrees <= 90 + unscaled_degrees[12:5];
+                    else
+                        degrees <= 90 - unscaled_degrees[12:5];
+                else
+                    if(sign[2] == 1'b0)
+                        degrees <= 270 + unscaled_degrees[12:5];
+                    else
+                        degrees <= 270 - unscaled_degrees[12:5];
+            end
+        endcase
     end
     
-    mult_gen_0 mult
+    assign led[3] = (degrees >= 225 && degrees <= 315);
+    assign led[2] = ((degrees >= 0 && degrees <= 45) || (degrees >= 315 && degrees <= 360));
+    assign led[1] = (degrees >= 135 && degrees <= 225);
+    assign led[0] = (degrees >= 45 && degrees <= 135);
+    
+    c_addsub_0 TwosCompSubX
     (
+        .A(magnXdata_2s),
+        .B(magnXoffset_2s),
         .CLK(clk_100M),
-        .A(gyroZ_data),
-        .P(P)
+        .S(magnX_2s)
     );
     
-    div_gen_0 div
+    c_addsub_0 TwosCompSubY
     (
-        .aclk(clk_100M),
-        .s_axis_dividend_tdata({3'b0, gyroZ_scale}),
-        .s_axis_dividend_tvalid(gyroZ_scale_valid),
-        .s_axis_divisor_tdata(time_buf),
-        .s_axis_divisor_tvalid(1'b1),
-        .m_axis_dout_tdata(stepOffset_sl2)
+        .A(magnYdata_2s),
+        .B(magnYoffset_2s),
+        .CLK(clk_100M),
+        .S(magnY_2s_n)
     );
+    
+    cordic_0 arcTangent
+    (
+        .s_axis_cartesian_tdata({2'b00, magnY_2s, 6'b000000, 2'b00, magnX_2s, 6'b00000}),
+        .s_axis_cartesian_tvalid(1'b1),
+        
+        .aclk(clk_100M),
+        
+        .m_axis_dout_tvalid(),
+        .m_axis_dout_tdata({sign, decimal})   // 3 sign bits, 5 decimal bits
+    );
+    
+    mult_gen_0 RadiansToDegrees
+    (
+        .CLK(clk_100M),
+        .A(decimal),
+        .P(unscaled_degrees)
+    );
+    
+//    mult_gen_1 DegToStep
+//    (
+//        .CLK(clk_100M),
+//        .A(degrees[10:0]),
+//        .P(stepOffset_shifted)
+//    );
     
     clk_wiz_0 mmcm
     (
         .clk_in1(fpga_clk),
-        .reset(reset),
         .clk_100M(clk_100M),
-        .clk_15M(clk_15M)
+        .clk_10M(clk_10M),
+        .reset(reset),
+        .locked()
     );
     
 endmodule

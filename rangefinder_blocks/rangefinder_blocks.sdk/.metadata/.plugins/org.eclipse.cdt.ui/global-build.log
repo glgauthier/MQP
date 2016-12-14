@@ -1,772 +1,4 @@
-16:33:57 **** Incremental Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building target: rangefinder.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_bsp/ps7_cortexa9_0/lib -o "rangefinder.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: rangefinder.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37580	   2192	  22628	  62400	   f3c0	rangefinder.elf
-'Finished building: rangefinder.elf.size'
-' '
-16:36:57 **** Auto Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:61:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 1);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:64:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:132:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                    ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:132:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                   ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:132:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                       ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:132:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                                      ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[3];
-          ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-     char status[2];
-          ^
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: rangefinder.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_bsp/ps7_cortexa9_0/lib -o "rangefinder.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: rangefinder.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37716	   2192	  22628	  62536	   f448	rangefinder.elf
-'Finished building: rangefinder.elf.size'
-' '
-16:37:04 **** Incremental Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:37:05 **** Incremental Build of configuration Debug for project rangefinder_old ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:38:02 **** Incremental Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:38:03 **** Incremental Build of configuration Debug for project rangefinder_old ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:38:37 **** Auto Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:61:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:129:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                    ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:129:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                   ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:129:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                       ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:129:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                                      ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[3];
-          ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-     char status[2];
-          ^
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: rangefinder.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_bsp/ps7_cortexa9_0/lib -o "rangefinder.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: rangefinder.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37580	   2192	  22628	  62400	   f3c0	rangefinder.elf
-'Finished building: rangefinder.elf.size'
-' '
-16:40:30 **** Auto Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:136:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                    ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                   ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                       ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                                      ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[3];
-          ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-     char status[2];
-          ^
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: rangefinder.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_bsp/ps7_cortexa9_0/lib -o "rangefinder.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: rangefinder.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37648	   2192	  22628	  62468	   f404	rangefinder.elf
-'Finished building: rangefinder.elf.size'
-' '
-16:40:36 **** Incremental Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:40:36 **** Incremental Build of configuration Debug for project rangefinder_old ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:41:02 **** Incremental Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:41:03 **** Incremental Build of configuration Debug for project rangefinder_old ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:42:24 **** Auto Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:136:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                    ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                   ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                       ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                                      ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[3];
-          ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-     char status[2];
-          ^
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: rangefinder.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_bsp/ps7_cortexa9_0/lib -o "rangefinder.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: rangefinder.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37580	   2192	  22628	  62400	   f3c0	rangefinder.elf
-'Finished building: rangefinder.elf.size'
-' '
-16:44:59 **** Auto Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:64:9: error: 'first' undeclared (first use in this function)
-     if(!first)
-         ^
-../src/helloworld.c:64:9: note: each undeclared identifier is reported only once for each function it appears in
-../src/helloworld.c:136:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                    ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                   ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                       ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                                      ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[3];
-          ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-     char status[2];
-          ^
-make: *** [src/helloworld.o] Error 1
-16:45:08 **** Auto Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:136:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                    ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                   ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                       ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:136:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                                      ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[3];
-          ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-     char status[2];
-          ^
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: rangefinder.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_bsp/ps7_cortexa9_0/lib -o "rangefinder.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: rangefinder.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  76520	   2588	  23340	 102448	  19030	rangefinder.elf
-'Finished building: rangefinder.elf.size'
-' '
-16:45:16 **** Incremental Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:45:17 **** Incremental Build of configuration Debug for project rangefinder_old ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:46:08 **** Incremental Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:46:09 **** Incremental Build of configuration Debug for project rangefinder_old ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:48:27 **** Auto Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:137:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                    ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                   ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                       ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                                      ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[3];
-          ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-     char status[2];
-          ^
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: rangefinder.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_bsp/ps7_cortexa9_0/lib -o "rangefinder.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: rangefinder.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  76520	   2588	  23340	 102448	  19030	rangefinder.elf
-'Finished building: rangefinder.elf.size'
-' '
-16:49:09 **** Incremental Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:49:09 **** Incremental Build of configuration Debug for project rangefinder_old ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:52:36 **** Auto Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:137:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                    ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                   ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                       ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                                      ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[3];
-          ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-     char status[2];
-          ^
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: rangefinder.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_bsp/ps7_cortexa9_0/lib -o "rangefinder.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: rangefinder.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37580	   2192	  22628	  62400	   f3c0	rangefinder.elf
-'Finished building: rangefinder.elf.size'
-' '
-16:54:00 **** Auto Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:137:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                    ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                   ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                       ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                                      ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[4];
-          ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-     char status[2];
-          ^
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: rangefinder.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_bsp/ps7_cortexa9_0/lib -o "rangefinder.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: rangefinder.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37580	   2192	  22628	  62400	   f3c0	rangefinder.elf
-'Finished building: rangefinder.elf.size'
-' '
-16:54:05 **** Incremental Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:54:06 **** Incremental Build of configuration Debug for project rangefinder_old ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:55:09 **** Incremental Build of configuration Debug for project rangefinder ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-16:55:10 **** Incremental Build of configuration Debug for project rangefinder_old ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-17:52:38 **** Build of project rangefinder_bsp ****
+14:55:11 **** Build of project rangefinder_bsp ****
 make -k all 
 "Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src"
 make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
@@ -801,6 +33,7 @@ make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=
 "Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src"
 make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
 "Compiling coresightps_dcc"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
 "Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src"
 make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
 "Compiling cpu_cortexa9"
@@ -844,66 +77,13 @@ make -C ps7_cortexa9_0/libsrc/uartps_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm
 make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
 "Compiling xadcps"
 'Finished building libraries'
-17:53:15 **** Build of configuration Debug for project rangefinder ****
+14:55:46 **** Build of configuration Debug for project rangefinder ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 'Building file: ../src/helloworld.c'
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:20:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
- #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-  ^
-../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
- #warning  Please refer the Standalone BSP UG647 for further details
-  ^
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
-     while(Xil_In32(baseaddr_p) == 0);
-                    ^
-In file included from ../src/helloworld.c:19:0:
-../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
- u32 Xil_In32(UINTPTR Addr);
-     ^
-../src/helloworld.c:137:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                    ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                   ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                       ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:137:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
-                                                                      ^
-In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
-                 from ../src/helloworld.c:16:
-c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
- int  _EXFUN(strcmp,(const char *, const char *));
-      ^
-../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[4];
-          ^
-../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-     char status[2];
-          ^
 'Finished building: ../src/helloworld.c'
 ' '
 'Building file: ../src/platform.c'
@@ -919,175 +99,202 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37580	   2192	  22628	  62400	   f3c0	rangefinder.elf
+  22960	   1152	  22580	  46692	   b664	rangefinder.elf
 'Finished building: rangefinder.elf.size'
 ' '
-17:53:22 **** Build of project rangefinder_old_bsp ****
-make -k all 
-"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src"
-make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src"
-make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
-make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
-make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/dmaps_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_1/src"
-make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/nu_nu_rangefinder_vga_v1_0/src"
-make -C ps7_cortexa9_0/libsrc/nu_nu_rangefinder_vga_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
-make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_3/src"
-make -C ps7_cortexa9_0/libsrc/scugic_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/standalone_v5_5/src"
-make -C ps7_cortexa9_0/libsrc/standalone_v5_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/ttcps_v3_1/src"
-make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_1/src"
-make -C ps7_cortexa9_0/libsrc/uartps_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
-make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src"
-make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling coresightps_dcc"
-"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src"
-make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling cpu_cortexa9"
-"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
-make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling ddrps"
-"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
-make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling devcfg"
-"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/dmaps_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling dmaps"
-"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_1/src"
-make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling gpiops"
-"Running Make libs in ps7_cortexa9_0/libsrc/nu_nu_rangefinder_vga_v1_0/src"
-make -C ps7_cortexa9_0/libsrc/nu_nu_rangefinder_vga_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling nu_nu_rangefinder_vga..."
-"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
-make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling qspips"
-"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_3/src"
-make -C ps7_cortexa9_0/libsrc/scugic_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling scugic"
-"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling scutimer"
-"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling scuwdt"
-"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v5_5/src"
-make -C ps7_cortexa9_0/libsrc/standalone_v5_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling standalone"
-"Running Make libs in ps7_cortexa9_0/libsrc/ttcps_v3_1/src"
-make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling ttcps"
-"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_1/src"
-make -C ps7_cortexa9_0/libsrc/uartps_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling uartps"
-"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
-make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
-"Compiling xadcps"
-'Finished building libraries'
-17:53:53 **** Build of configuration Debug for project rangefinder_old ****
+14:55:51 **** Auto Build of configuration Debug for project rangefinder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+14:56:16 **** Auto Build of configuration Debug for project rangefinder ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 'Building file: ../src/helloworld.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_old_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 In file included from ../src/helloworld.c:20:0:
-../../rangefinder_old_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
  #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
   ^
-../../rangefinder_old_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
  #warning  Please refer the Standalone BSP UG647 for further details
   ^
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:58:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
+../src/helloworld.c:63:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
      while(Xil_In32(baseaddr_p) == 0);
                     ^
 In file included from ../src/helloworld.c:19:0:
-../../rangefinder_old_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
+../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
  u32 Xil_In32(UINTPTR Addr);
      ^
-../src/helloworld.c:126:18: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(strcmp(databufbuf[1], 'C') != 0 && strcmp(databufbuf[0], '0') != 0)
-                  ^
+../src/helloworld.c:136:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
+        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
+                    ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
                  from ../src/helloworld.c:16:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:126:33: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(strcmp(databufbuf[1], 'C') != 0 && strcmp(databufbuf[0], '0') != 0)
-                                 ^
+../src/helloworld.c:136:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
+        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
+                                   ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
                  from ../src/helloworld.c:16:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:126:53: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
-        if(strcmp(databufbuf[1], 'C') != 0 && strcmp(databufbuf[0], '0') != 0)
-                                                     ^
+../src/helloworld.c:136:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
+        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
+                                                       ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
                  from ../src/helloworld.c:16:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:126:68: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
-        if(strcmp(databufbuf[1], 'C') != 0 && strcmp(databufbuf[0], '0') != 0)
-                                                                    ^
+../src/helloworld.c:136:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
+        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
+                                                                      ^
 In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
                  from ../src/helloworld.c:16:
 c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
  int  _EXFUN(strcmp,(const char *, const char *));
       ^
-../src/helloworld.c:89:11: warning: unused variable 'no_data' [-Wunused-variable]
-     char *no_data = "0C";
-           ^
 ../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
-     char linefeed[3];
+     char linefeed[4];
           ^
 ../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
      char status[2];
           ^
 'Finished building: ../src/helloworld.c'
 ' '
-'Building file: ../src/platform.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_old_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
-'Finished building: ../src/platform.c'
-' '
-'Building target: rangefinder_old.elf'
+'Building target: rangefinder.elf'
 'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_old_bsp/ps7_cortexa9_0/lib -o "rangefinder_old.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: rangefinder_old.elf'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_bsp/ps7_cortexa9_0/lib -o "rangefinder.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: rangefinder.elf'
 ' '
 'Invoking: ARM v7 Print Size'
-arm-none-eabi-size rangefinder_old.elf  |tee "rangefinder_old.elf.size"
+arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  77008	   2588	  23340	 102936	  19218	rangefinder_old.elf
-'Finished building: rangefinder_old.elf.size'
+  37580	   2192	  22628	  62400	   f3c0	rangefinder.elf
+'Finished building: rangefinder.elf.size'
 ' '
-17:54:57 **** Incremental Build of configuration Debug for project rangefinder ****
+14:56:51 **** Incremental Build of configuration Debug for project rangefinder ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
-17:54:59 **** Incremental Build of configuration Debug for project rangefinder_old ****
+14:58:35 **** Incremental Build of configuration Debug for project rangefinder ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
+14:59:36 **** Incremental Build of configuration Debug for project rangefinder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+15:01:03 **** Incremental Build of configuration Debug for project rangefinder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+15:01:45 **** Incremental Build of configuration Debug for project rangefinder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+15:03:40 **** Incremental Build of configuration Debug for project rangefinder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+15:05:24 **** Incremental Build of configuration Debug for project rangefinder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+15:09:38 **** Incremental Build of configuration Debug for project rangefinder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+19:01:08 **** Incremental Build of configuration Debug for project rangefinder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+19:06:05 **** Auto Build of configuration Debug for project rangefinder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../rangefinder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../src/helloworld.c:20:0:
+../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:115:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^
+../../rangefinder_bsp/ps7_cortexa9_0/include/xbasic_types.h:116:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:61:20: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast
+     while(Xil_In32(baseaddr_p) == 0);
+                    ^
+In file included from ../src/helloworld.c:19:0:
+../../rangefinder_bsp/ps7_cortexa9_0/include/xil_io.h:227:5: note: expected 'UINTPTR' but argument is of type 'Xuint32 *'
+ u32 Xil_In32(UINTPTR Addr);
+     ^
+../src/helloworld.c:118:20: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
+        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
+                    ^
+In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
+                 from ../src/helloworld.c:16:
+c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
+ int  _EXFUN(strcmp,(const char *, const char *));
+      ^
+../src/helloworld.c:118:35: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
+        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
+                                   ^
+In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
+                 from ../src/helloworld.c:16:
+c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
+ int  _EXFUN(strcmp,(const char *, const char *));
+      ^
+../src/helloworld.c:118:55: warning: passing argument 1 of 'strcmp' makes pointer from integer without a cast
+        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
+                                                       ^
+In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
+                 from ../src/helloworld.c:16:
+c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'char'
+ int  _EXFUN(strcmp,(const char *, const char *));
+      ^
+../src/helloworld.c:118:70: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast
+        if(!(strcmp(databufbuf[0], '0') == 0 && strcmp(databufbuf[1], 'C') <= 0))
+                                                                      ^
+In file included from c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h:29:0,
+                 from ../src/helloworld.c:16:
+c:\xilinx\sdk\2016.2\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\include\string.h:28:6: note: expected 'const char *' but argument is of type 'int'
+ int  _EXFUN(strcmp,(const char *, const char *));
+      ^
+../src/helloworld.c:38:10: warning: variable 'linefeed' set but not used [-Wunused-but-set-variable]
+     char linefeed[4];
+          ^
+../src/helloworld.c:35:10: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+     char status[2];
+          ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: rangefinder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../rangefinder_bsp/ps7_cortexa9_0/lib -o "rangefinder.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: rangefinder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size rangefinder.elf  |tee "rangefinder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  37580	   2192	  22628	  62400	   f3c0	rangefinder.elf
+'Finished building: rangefinder.elf.size'
+' '

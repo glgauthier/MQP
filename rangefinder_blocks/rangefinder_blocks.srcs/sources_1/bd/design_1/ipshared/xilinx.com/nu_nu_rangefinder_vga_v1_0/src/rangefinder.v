@@ -10,8 +10,7 @@ module rangefinder(
     input [15:0] data,
     input enable,
     input [10:0] step,
-    output [18:0] vga_waddr,
-    output reg write,
+    output reg [18:0] vga_waddr,
     output reg transmit,
     output reg [5:0] count,
     output reg [7:0] dina,
@@ -23,42 +22,30 @@ module rangefinder(
     output reg [7:0] addra2,
     input [12:0] coord2_data
     );
-   
-   // figure out how to deal with data points that were out of range for rangefinder!!!
-   // probably just append another test to the if statements - outer if(data!=outofrange)
     
     reg [15:0] watchdog;
     reg [15:0] decoded;
     reg [11:0] location;
-    reg [23:0] xmult, ymult;
+    reg [24:0] xmult, ymult;
     wire xneg, yneg;
     reg was_enabled;
     reg [5:0] write_count;
     
-    reg [8:0] xlocation;
+    reg [9:0] xlocation;
     reg [8:0] ylocation;
     
     reg [18:0] reset_count;
     reg reset_count_en;
     
-//-----------------------------------------------------------
-//resetting the vga BRAM
-//    always @ (posedge clk, posedge reset)
-//    begin
-//        if(reset)
-//            reset_count_en <= 1'b1;
-//        else if(reset_count == 307200)
-//            reset_count_en <= 1'b0;
-//    end
+    reg [2:0] s2_counter;
+    reg [1:0] s4_counter;
     
-//    always @ (posedge clk)
-//    begin
-//        if(reset_count_en)
-//            reset_count <= reset_count + 1'b1;
-//        else
-//            reset_count <= 19'b0;
-//    end
-//-----------------------------------------------------------
+    wire [18:0] vga_product;
+    
+    wire [24:0] product1, product2;
+    
+    parameter [2:0] s0 = 0, s1 = 1, s2 = 2, s3 = 3, s4 = 4, s5 = 5;
+    reg [2:0] current_state, next_state;
     
 //-----------------------------------------------------------
 //data processing
@@ -72,32 +59,68 @@ module rangefinder(
                   (step > 128 && step <= 384) ? 1'b0 :
                   (step > 384 && step <= 640) ? 1'b0 : 1'b1;
     
-    //enables data processing
-    always @ (posedge clk, posedge reset)
-    begin
-      if(reset)
-          was_enabled <= 1'b0;
-      else if(enable)
-          was_enabled <= 1'b1;
-      else if(count > 50)
-          was_enabled <= 1'b0;
-    end
-    
-    //clock edge counter to run data processing
-    always @ (posedge clk, posedge reset)
-    begin
-        if(reset)
-            count <= 0;
-        else if(was_enabled)
-            count <= count + 1'b1;
+    // State machine overhead control
+    always @ (posedge clk)
+        if (reset)
+            current_state <= s0;
         else
-            count <= 0;
+            current_state <= next_state;
+    
+    //next state logic
+    always @ (current_state, s2_counter, s4_counter, enable)
+    begin
+        case (current_state)
+            // stays in s0 until a new enable pulse
+            s0:
+                if(enable)
+                    next_state = s1;
+                else
+                    next_state = s0;
+            
+            // stays in s1 for one clock cycle
+            s1:
+                next_state = s2;
+                    
+            // stays in s2 for a multiply operation
+            s2:
+                if(s2_counter == 4)
+                    next_state = s3;
+                else
+                    next_state = s2;
+            
+            // stays in s3 for one clock cycle
+            s3:
+                next_state = s4;
+                
+            // stays in s4 for a multiply operation
+            s4:
+                if(s4_counter == 3)
+                    next_state = s5;
+                else
+                    next_state = s4;
+                    
+            // stays in s5 for one clock cycle
+            s5:
+                next_state = s0;
+
+            default:
+                next_state = s0;
+        endcase
     end
     
-    //calculating address of LUTs
+    //state machine
     always @ (posedge clk)
     begin
-        if(count == 10'b0000000001)
+        //resets registers, waits for data to process
+        if(current_state == s0)
+        begin
+            wea <= 1'b0;
+            dina <= 8'h00;
+        end
+        
+        //calculates adresses for trig LUTs
+        //decodes data by substracting 0x30 from both halves of data point
+        else if(current_state == s1)
         begin
             addra1 <= (step >= 0 && step <= 128)  ? 128-step :  //index 128 to 0  - Q1 - hz
                       (step > 128 && step <= 256) ? step-128 :  //index 1 to 128  - Q2 - hz
@@ -105,53 +128,45 @@ module rangefinder(
                       (step > 384 && step <= 512) ? step-384 :  //index 0 to 128  - Q3 - vr
                       (step > 512 && step <= 640) ? 640-step :  //index 127 to 0  - Q3 - hz
                                                     step-640;   //index 0 to 128  - Q4 - hz      
-        
+    
             addra2 <= (step >= 0 && step <= 128)  ? step :      //index 128 to 256 - Q1 - vr
                       (step > 128 && step <= 256) ? 256-step :  //index 255 to 128 - Q2 - vr
                       (step > 256 && step <= 384) ? step-256 :  //index 129 to 256 - Q2 - hz
                       (step > 384 && step <= 512) ? 512-step :  //index 255 to 128 - Q3 - hz
                       (step > 512 && step <= 640) ? step-512 :  //index 129 to 256 - Q3 - vr
-                                                    768-step;   //index 255 to 128 - Q4 - vr 
-        end
-    end
-        
-    //decodes data
-    always @ (posedge clk)
-    begin
-        if(count == 6'b000001)
+                                                    768-step;   //index 255 to 128 - Q4 - vr
+                                                    
+            
             decoded <= {data[7:0]-8'h30, data[15:8]-8'h30};
-    end
-    
-    //the upper two bits of each data byte are dropped
-    always @ (posedge clk)
-    begin
-        if(count == 3)
-            location <= {decoded[13:8], decoded[5:0]};
-    end
-    
-    //calculate horizontal and vertical position of each data point
-    always @ (posedge clk)
-    begin
-        if(count == 7)
-        begin
-            if(step > 256 && step <= 512)
-            begin
-                xmult <= location * coord2_data;
-                ymult <= location * coord1_data;
-            end
-            else
-            begin
-                xmult <= location * coord1_data;
-                ymult <= location * coord2_data;
-            end
         end
-    end
-    
-    //scales data and localizes to device location on screen
-    always @ (posedge clk)
-    begin
-        if(count == 25)
+        
+        //drops upper bit of each data point
+        //calculates horizontal and vertical distance for each data point
+        else if(current_state == s2)
         begin
+            if(s2_counter == 4)
+            begin
+                if(step > 256 && step <= 512)
+                begin
+                    xmult <= product2;
+                    ymult <= product1;
+                end
+                
+                else
+                begin
+                    xmult <= product1;
+                    ymult <= product2;
+                end
+            end
+            
+            s2_counter <= s2_counter + 1'b1;
+        end
+        
+        //scales data and localizes to device
+        else if(current_state == s3)
+        begin
+            s2_counter <= 3'b0;
+            
             if(xneg)
                 xlocation <= device_x - xmult[23:16];
             else
@@ -162,55 +177,47 @@ module rangefinder(
             else
                 ylocation <= device_y - ymult[23:16];
         end
-    end
-
-    //sets flag to signify data is ready to be added to VGA BRAM
-    always @ (posedge clk)
-    begin
-        if(count == 30)
-            write <= 1'b1;
-        else
-            write <= 1'b0;
-    end
-//-----------------------------------------------------------
-
-//-----------------------------------------------------------            
-//logic to write location to VGA BRAM
-    
-    assign vga_waddr = /*reset_count_en ? reset_count : */(640*ylocation) + xlocation;
-    
-    always @ (posedge clk)
-    begin
-        if(write)
+        
+        //calculates address for VGA BRAM
+        else if(current_state == s4)
         begin
-            write_count <= write_count + 1'b1;
+            if(s4_counter == 3)
+                vga_waddr <= vga_product + xlocation;
+            
+            s4_counter <= s4_counter + 1'b1;
+        end
+        
+        //writes to BRAM
+        else if(current_state == s5)
+        begin
+            s4_counter <= 2'b00;
+            dina <= 8'hFF;
             wea <= 1'b1;
         end
-        else
-        begin
-            write_count <= 1'b0;
-            wea <= 1'b0;
-        end
     end
     
-    always @ (posedge clk)
-    begin
-        if(write_count == 5)
-        begin
-            dina <= 8'hFF;
-        end
-    end
+    mult_gen_0 trig_mult_1
+    (
+        .CLK(clk),
+        .A({decoded[13:8], decoded[5:0]}),
+        .B(coord1_data),
+        .P(product1)
+    );
     
-    // delays vga logic by two 100M clock cycles
-    // for the BRAM read delay    
-//    always @ (posedge clk_100M)
-//    begin
-//        if(reset || blank)
-//            vga_count <= 2'b00;
-//        else if(!blank && vga_count < 2)
-//            vga_count <= vga_count + 1'b1;
-//    end    
+    mult_gen_1 trig_mult_2
+    (
+        .CLK(clk),
+        .A({decoded[13:8], decoded[5:0]}),
+        .B(coord2_data),
+        .P(product2)
+    );
     
+    mult_gen_2 vga_multiplier
+    (
+        .CLK(clk),
+        .A(ylocation),
+        .P(vga_product)
+    );
     
     //next data transfer logic
     
