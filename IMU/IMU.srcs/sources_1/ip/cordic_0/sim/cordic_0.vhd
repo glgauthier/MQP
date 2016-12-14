@@ -62,7 +62,7 @@ ENTITY cordic_0 IS
     s_axis_cartesian_tvalid : IN STD_LOGIC;
     s_axis_cartesian_tdata : IN STD_LOGIC_VECTOR(47 DOWNTO 0);
     m_axis_dout_tvalid : OUT STD_LOGIC;
-    m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
 END cordic_0;
 
@@ -120,7 +120,7 @@ ARCHITECTURE cordic_0_arch OF cordic_0 IS
       m_axis_dout_tready : IN STD_LOGIC;
       m_axis_dout_tuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       m_axis_dout_tlast : OUT STD_LOGIC;
-      m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+      m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
   END COMPONENT cordic_v6_0_10;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -142,10 +142,10 @@ BEGIN
       C_HAS_S_AXIS_CARTESIAN => 1,
       C_HAS_S_AXIS_PHASE => 0,
       C_HAS_ARESETN => 0,
-      C_INPUT_WIDTH => 22,
+      C_INPUT_WIDTH => 18,
       C_ITERATIONS => 0,
-      C_OUTPUT_WIDTH => 8,
-      C_PHASE_FORMAT => 0,
+      C_OUTPUT_WIDTH => 11,
+      C_PHASE_FORMAT => 1,
       C_PIPELINE_MODE => -2,
       C_PRECISION => 0,
       C_ROUND_MODE => 2,
@@ -160,7 +160,7 @@ BEGIN
       C_HAS_S_AXIS_CARTESIAN_TLAST => 0,
       C_S_AXIS_CARTESIAN_TDATA_WIDTH => 48,
       C_S_AXIS_CARTESIAN_TUSER_WIDTH => 1,
-      C_M_AXIS_DOUT_TDATA_WIDTH => 8,
+      C_M_AXIS_DOUT_TDATA_WIDTH => 16,
       C_M_AXIS_DOUT_TUSER_WIDTH => 1
     )
     PORT MAP (

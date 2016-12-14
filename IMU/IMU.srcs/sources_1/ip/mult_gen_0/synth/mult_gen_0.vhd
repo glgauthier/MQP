@@ -59,8 +59,8 @@ USE mult_gen_v12_0_11.mult_gen_v12_0_11;
 ENTITY mult_gen_0 IS
   PORT (
     CLK : IN STD_LOGIC;
-    A : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-    P : OUT STD_LOGIC_VECTOR(12 DOWNTO 0)
+    A : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    P : OUT STD_LOGIC_VECTOR(17 DOWNTO 0)
   );
 END mult_gen_0;
 
@@ -92,11 +92,11 @@ ARCHITECTURE mult_gen_0_arch OF mult_gen_0 IS
     );
     PORT (
       CLK : IN STD_LOGIC;
-      A : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      A : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
       B : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
       CE : IN STD_LOGIC;
       SCLR : IN STD_LOGIC;
-      P : OUT STD_LOGIC_VECTOR(12 DOWNTO 0)
+      P : OUT STD_LOGIC_VECTOR(17 DOWNTO 0)
     );
   END COMPONENT mult_gen_v12_0_11;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -104,7 +104,7 @@ ARCHITECTURE mult_gen_0_arch OF mult_gen_0 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF mult_gen_0_arch : ARCHITECTURE IS "mult_gen_0,mult_gen_v12_0_11,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF mult_gen_0_arch: ARCHITECTURE IS "mult_gen_0,mult_gen_v12_0_11,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=mult_gen,x_ipVersion=12.0,x_ipCoreRevision=11,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_VERBOSITY=0,C_MODEL_TYPE=0,C_OPTIMIZE_GOAL=1,C_XDEVICEFAMILY=zynq,C_HAS_CE=0,C_HAS_SCLR=0,C_LATENCY=1,C_A_WIDTH=5,C_A_TYPE=0,C_B_WIDTH=8,C_B_TYPE=1,C_OUT_HIGH=12,C_OUT_LOW=0,C_MULT_TYPE=2,C_CE_OVERRIDES_SCLR=0,C_CCM_IMP=0,C_B_VALUE=10110100,C_HAS_ZERO_DETECT=0,C_ROUND_OUTPUT=0,C_ROUND_PT=0}";
+  ATTRIBUTE CORE_GENERATION_INFO OF mult_gen_0_arch: ARCHITECTURE IS "mult_gen_0,mult_gen_v12_0_11,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=mult_gen,x_ipVersion=12.0,x_ipCoreRevision=11,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_VERBOSITY=0,C_MODEL_TYPE=0,C_OPTIMIZE_GOAL=1,C_XDEVICEFAMILY=zynq,C_HAS_CE=0,C_HAS_SCLR=0,C_LATENCY=2,C_A_WIDTH=10,C_A_TYPE=0,C_B_WIDTH=8,C_B_TYPE=1,C_OUT_HIGH=17,C_OUT_LOW=0,C_MULT_TYPE=2,C_CE_OVERRIDES_SCLR=0,C_CCM_IMP=0,C_B_VALUE=10110100,C_HAS_ZERO_DETECT=0,C_ROUND_OUTPUT=0,C_ROUND_PT=0}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 clk_intf CLK";
   ATTRIBUTE X_INTERFACE_INFO OF A: SIGNAL IS "xilinx.com:signal:data:1.0 a_intf DATA";
@@ -118,12 +118,12 @@ BEGIN
       C_XDEVICEFAMILY => "zynq",
       C_HAS_CE => 0,
       C_HAS_SCLR => 0,
-      C_LATENCY => 1,
-      C_A_WIDTH => 5,
+      C_LATENCY => 2,
+      C_A_WIDTH => 10,
       C_A_TYPE => 0,
       C_B_WIDTH => 8,
       C_B_TYPE => 1,
-      C_OUT_HIGH => 12,
+      C_OUT_HIGH => 17,
       C_OUT_LOW => 0,
       C_MULT_TYPE => 2,
       C_CE_OVERRIDES_SCLR => 0,

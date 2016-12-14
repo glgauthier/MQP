@@ -234,7 +234,8 @@ module IMU_top(
 //    assign data_en = (dataInReady == 2'b11);
     
     // regs/params for state machine control
-    parameter [3:0] waits = 0, IPsubtracter = 1, invertY = 2, arcTan = 3, RadToDeg = 4, compassHeading = 5;
+    parameter [4:0] waits = 0, IPsubtracter = 1, invertY = 2, domainChange = 3, reverseBitOrder = 4;
+    parameter [4:0] arcTan = 5, formatting = 6, RadToDeg = 7, compassHeading = 8;
     reg [3:0] currentData_state, nextData_state;
     
     // State machine overhead control
@@ -246,11 +247,16 @@ module IMU_top(
 
     reg [1:0] IPsubtracter_count;
     reg [1:0] invertY_count;
-    reg [4:0] arcTan_count;
-    reg RadToDeg_count;
+    reg [5:0] domainChange_count;
+    reg [4:0] reverseBitOrder_count;
+    reg [3:0] arcTan_count;
+    reg [1:0] formatting_count;
+    reg [1:0] RadToDeg_count;
+    
+    reg [8:0] degrees;
 
     //nest state logic
-    always @ (currentData_state, data_en, IPsubtracter_count, invertY_count, arcTan_count, RadToDeg_count)
+    always @ (currentData_state, data_en, IPsubtracter_count, invertY_count, domainChange_count, reverseBitOrder_count, arcTan_count, formatting_count, RadToDeg_count)
     begin
         case (currentData_state)
             //remains in s0 until a new en pulse
@@ -270,20 +276,40 @@ module IMU_top(
             //multiplies y value by -1
             invertY:
                 if(invertY_count == 2)
-                    nextData_state = arcTan;
+                    nextData_state = domainChange;
                 else
                     nextData_state = invertY;                    
             
+            domainChange:
+                if(domainChange_count == 36)
+                    nextData_state = reverseBitOrder;
+                else
+                    nextData_state = domainChange;
+            
+            //reverses bit order        
+            reverseBitOrder:
+                if(reverseBitOrder_count == 16)
+                    nextData_state = arcTan;
+                else
+                    nextData_state = reverseBitOrder;
+            
             //arcTan(x/y)
             arcTan:
-                if(arcTan_count == 26)
-                    nextData_state = RadToDeg;
+                if(arcTan_count == 15)
+                    nextData_state = formatting;
                 else
                     nextData_state = arcTan;
             
+            //formats data from 3QN format to a shifted unsigned integer        
+            formatting:
+                if(formatting == 2)
+                    nextData_state = RadToDeg;
+                else
+                    nextData_state = formatting;
+            
             //multiplies by 180
             RadToDeg:
-                if(RadToDeg_count == 1)
+                if(RadToDeg_count == 2)
                     nextData_state = compassHeading;
                 else
                     nextData_state = RadToDeg;
@@ -291,6 +317,12 @@ module IMU_top(
             //calculated compass heading
             compassHeading:
                 nextData_state = waits;
+                
+//            scaling:
+//                if(degrees < 360)
+//                    nextData_state = waits;
+//                else
+//                    nextData_state = scaling;
             
             default:
                 nextData_state = waits;
@@ -299,24 +331,32 @@ module IMU_top(
     
     wire [15:0] magnX_2s, magnY_2s_n;
     reg [15:0] magnY_2s;
-    reg [8:0] degrees;
     
-    wire [2:0] sign;
-    wire [4:0] decimal;
+    wire sign;
+    wire [1:0] phase_wire;
+    wire [7:0] decimal_wire;
     
-    wire [12:0] unscaled_degrees;
+    reg [1:0] phase;
+    reg [7:0] decimal;
+    
+    wire [17:0] unscaled_degrees;
     
     //data processing state machine
     always @ (posedge clk_100M)
     begin
         case(currentData_state)
         
+            //waits for data ready signal to begin data processing state machine
             waits:
             begin
                 IPsubtracter_count <= 2'b00;
-                invertY_count <= 5'b00000;
-                arcTan_count <= 2'b00;
-                RadToDeg_count <= 1'b0;
+                invertY_count <= 2'b00;
+                domainChange_count <= 6'b000000;
+                reverseBitOrder_count <= 5'b00000;
+                arcTan_count <= 4'b00;
+                formatting_count <= 2'b00;
+                RadToDeg_count <= 2'b00;
+                
             end
         
             //delay 2 cycles for IP subtracters
@@ -336,11 +376,44 @@ module IMU_top(
                 else if(invertY_count == 1)
                     magnY_2s <= magnY_2s + 1'b1;
             end
-        
+            
+            //scales the magnetometer data from -32768 <= x, y <= 32767
+            //to -1 <= x, y < 1 for domain input to arcTan IP
+            domainChange:
+            begin
+                domainChange_count <= domainChange_count + 1'b1;
+            end
+            
+            reverseBitOrder:
+            begin
+                reverseBitOrder_count <= reverseBitOrder_count + 1'b1;
+            end
+            
             //delay 26 cycles for IP arcTan - output in scaled radians
             arcTan:
             begin
                 arcTan_count <= arcTan_count + 1'b1;
+            end
+        
+            //
+            formatting:
+            begin
+                formatting_count = formatting_count + 1'b1;
+                
+                if(sign)
+                    if(formatting_count == 0)
+                        phase <= ~phase_wire;
+                    else if(formatting_count == 1)
+                    begin
+                        phase <= phase + 1'b1;
+                        decimal <= decimal_wire + 1'b1;
+                    end
+                else
+                begin
+                    phase <= phase_wire;
+                    decimal <= decimal_wire;
+                end
+                    
             end
         
             //converts to degrees by multiplying by 180
@@ -353,22 +426,29 @@ module IMU_top(
             //calculates compass degrees based on the y magnetometer data
             compassHeading:
             begin
-                if(magnY_2s == 16'hFFFF || magnY_2s == 16'h0000)
+                if(magnY_2s == 16'h0000)
                     if(magnX_2s[15] == 1'b0)
                         degrees <= 180;
                     else
                         degrees <= 0;
                 else if(magnY_2s[15] == 1'b0)
-                    if(sign[2] == 1'b0)
-                        degrees <= 90 + unscaled_degrees[12:5];
+                    if(sign == 1'b0)
+                        degrees <= 90 - unscaled_degrees[17:8];
                     else
-                        degrees <= 90 - unscaled_degrees[12:5];
+                        degrees <= 90 + unscaled_degrees[17:8];
                 else
-                    if(sign[2] == 1'b0)
-                        degrees <= 270 + unscaled_degrees[12:5];
+                    if(sign == 1'b0)
+                        degrees <= 270 - unscaled_degrees[17:8];
                     else
-                        degrees <= 270 - unscaled_degrees[12:5];
+                        degrees <= 270 + unscaled_degrees[17:8];
             end
+            
+//            //makes degrees < 360
+//            scaling:
+//            begin
+//                if(degrees >= 360)
+//                    degrees <= degrees - 360;
+//            end
         endcase
     end
     
@@ -393,21 +473,65 @@ module IMU_top(
         .S(magnY_2s_n)
     );
     
+    wire [15:0] quotientX, quotientY;
+    wire [15:0] fractionalX, fractionalY;
+    
+    wire [15:0] decimalX, decimalY;
+    
+    genvar i;
+    generate
+    for(i = 0; i < 16; i = i + 1)
+    begin : reverseBits
+        assign decimalX[i] = fractionalX[15-i];
+        assign decimalY[i] = fractionalY[15-i];
+    end
+    endgenerate
+    
+    div_gen_0 RadtoArcTanDomainX
+    (
+        .s_axis_dividend_tdata(magnX_2s),
+        .s_axis_dividend_tvalid(1'b1),
+        
+        .s_axis_divisor_tdata(17'd32768),
+        .s_axis_divisor_tvalid(1'b1),
+        
+        .aclk(clk_100M),
+        
+        .m_axis_dout_tdata({quotientX, fractionalX}),
+        .m_axis_dout_tvalid()
+    );
+    
+    div_gen_0 RadtoArcTanDomainY
+    (
+        .s_axis_dividend_tdata(magnY_2s),
+        .s_axis_dividend_tvalid(1'b1),
+        
+        .s_axis_divisor_tdata(17'd32768),
+        .s_axis_divisor_tvalid(1'b1),
+        
+        .aclk(clk_100M),
+        
+        .m_axis_dout_tdata({quotientY, fractionalY}),
+        .m_axis_dout_tvalid()
+    );
+    
+    wire [4:0] pad;
+    
     cordic_0 arcTangent
     (
-        .s_axis_cartesian_tdata({2'b00, magnY_2s, 6'b000000, 2'b00, magnX_2s, 6'b00000}),
+        .s_axis_cartesian_tdata({6'b000000, quotientY[15], quotientY[0], decimalY, 2'b000000, quotientX[15], quotientX[0], decimalX}),
         .s_axis_cartesian_tvalid(1'b1),
         
         .aclk(clk_100M),
         
         .m_axis_dout_tvalid(),
-        .m_axis_dout_tdata({sign, decimal})   // 3 sign bits, 5 decimal bits
+        .m_axis_dout_tdata({pad, sign, phase_wire, decimal_wire})   // 5 bit padding, sign bit, 2 phase bits, 8 decimal bits
     );
     
     mult_gen_0 RadiansToDegrees
     (
         .CLK(clk_100M),
-        .A(decimal),
+        .A({phase, decimal}),
         .P(unscaled_degrees)
     );
     

@@ -22,10 +22,10 @@ add_files -quiet c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_
 set_property used_in_implementation false [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0.dcp]
 add_files -quiet C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp
 set_property used_in_implementation false [get_files C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp]
-add_files -quiet c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp
-set_property used_in_implementation false [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp]
-add_files -quiet c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_1/mult_gen_1.dcp
-set_property used_in_implementation false [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_1/mult_gen_1.dcp]
+add_files -quiet C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp
+set_property used_in_implementation false [get_files C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp]
+add_files -quiet c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp
+set_property used_in_implementation false [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp]
 read_verilog -library xil_defaultlib C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v
 foreach dcp [get_files -quiet -all *.dcp] {
   set_property used_in_implementation false $dcp
