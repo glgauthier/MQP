@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Wed Dec 14 14:48:51 2016
+| Date         : Wed Dec 14 16:55:19 2016
 | Host         : JOHN-HP running 64-bit major release  (build 7600)
 | Command      : report_control_sets -verbose -file IMU_top_control_sets_placed.rpt
 | Design       : IMU_top
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     8 |
-| Unused register locations in slices containing registers |    31 |
+| Number of unique control sets                            |    19 |
+| Unused register locations in slices containing registers |    55 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,29 +33,40 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               6 |            3 |
-| No           | No                    | Yes                    |              10 |            3 |
-| No           | Yes                   | No                     |               1 |            1 |
-| Yes          | No                    | No                     |               8 |            2 |
+| No           | No                    | No                     |            3181 |          713 |
+| No           | No                    | Yes                    |              10 |            4 |
+| No           | Yes                   | No                     |              10 |            4 |
+| Yes          | No                    | No                     |             130 |           41 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |               8 |            3 |
+| Yes          | Yes                   | No                     |              38 |           10 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+--------------------+-------------------------+-------------------+------------------+----------------+
-|    Clock Signal    |      Enable Signal      |  Set/Reset Signal | Slice Load Count | Bel Load Count |
-+--------------------+-------------------------+-------------------+------------------+----------------+
-|  inVal             |                         | cs_nM0            |                1 |              1 |
-|  mmcm/inst/clk_10M |                         |                   |                1 |              1 |
-|  mmcm/inst/clk_10M | inVal[31]_i_2_n_0       | inVal[31]_i_1_n_0 |                1 |              2 |
-| ~mmcm/inst/clk_10M |                         | reset_IBUF        |                1 |              2 |
-| ~mmcm/inst/clk_10M |                         |                   |                2 |              5 |
-| ~mmcm/inst/clk_10M | bitsOut[5]_i_1_n_0      | inVal[31]_i_1_n_0 |                2 |              6 |
-|  mmcm/inst/clk_10M |                         | SPI_counter0      |                2 |              8 |
-| ~mmcm/inst/clk_10M | transferVal[15]_i_1_n_0 |                   |                2 |              8 |
-+--------------------+-------------------------+-------------------+------------------+----------------+
++---------------------+----------------------------------------------------------------------------------+-------------------+------------------+----------------+
+|     Clock Signal    |                                   Enable Signal                                  |  Set/Reset Signal | Slice Load Count | Bel Load Count |
++---------------------+----------------------------------------------------------------------------------+-------------------+------------------+----------------+
+|  inVal              |                                                                                  | cs_nM0            |                1 |              1 |
+|  mmcm/inst/clk_10M  |                                                                                  |                   |                1 |              1 |
+| ~mmcm/inst/clk_10M  |                                                                                  | reset_IBUF        |                1 |              2 |
+|  mmcm/inst/clk_100M | arcTan_count                                                                     |                   |                1 |              4 |
+|  mmcm/inst/clk_100M | reverseBitOrder_count                                                            |                   |                1 |              5 |
+| ~mmcm/inst/clk_10M  |                                                                                  |                   |                3 |              5 |
+|  mmcm/inst/clk_100M | domainChange_count                                                               |                   |                2 |              6 |
+| ~mmcm/inst/clk_10M  | bitsOut[5]_i_1_n_0                                                               | inVal[31]_i_1_n_0 |                2 |              6 |
+|  mmcm/inst/clk_100M | decimal                                                                          |                   |                3 |              8 |
+|  mmcm/inst/clk_10M  |                                                                                  | SPI_counter0      |                3 |              8 |
+| ~mmcm/inst/clk_10M  | transferVal[15]_i_1_n_0                                                          |                   |                3 |              8 |
+|  mmcm/inst/clk_100M | degrees[8]_i_1_n_0                                                               |                   |                4 |              9 |
+| ~mmcm/inst/clk_100M |                                                                                  | reset_IBUF        |                3 |              9 |
+|  mmcm/inst/clk_100M | arcTangent/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/CE |                   |                4 |             10 |
+|  mmcm/inst/clk_100M | magnY_2s                                                                         |                   |                5 |             16 |
+|  mmcm/inst/clk_10M  | inVal[31]_i_2_n_0                                                                | inVal[31]_i_1_n_0 |                8 |             32 |
+|  mmcm/inst/clk_10M  | magnXdata_2s                                                                     |                   |                8 |             32 |
+|  mmcm/inst/clk_10M  | magnXoffset_2s                                                                   |                   |               10 |             32 |
+|  mmcm/inst/clk_100M |                                                                                  |                   |              715 |           3186 |
++---------------------+----------------------------------------------------------------------------------+-------------------+------------------+----------------+
 
 

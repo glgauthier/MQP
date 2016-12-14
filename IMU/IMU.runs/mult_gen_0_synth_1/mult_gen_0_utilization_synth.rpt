@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Wed Dec 14 14:25:32 2016
+| Date         : Wed Dec 14 15:00:50 2016
 | Host         : JOHN-HP running 64-bit major release  (build 7600)
 | Command      : report_utilization -file mult_gen_0_utilization_synth.rpt -pb mult_gen_0_utilization_synth.pb
 | Design       : mult_gen_0
@@ -33,8 +33,8 @@ Table of Contents
 | Slice LUTs*             |   19 |     0 |     53200 |  0.04 |
 |   LUT as Logic          |   19 |     0 |     53200 |  0.04 |
 |   LUT as Memory         |    0 |     0 |     17400 |  0.00 |
-| Slice Registers         |   38 |     0 |    106400 |  0.04 |
-|   Register as Flip Flop |   38 |     0 |    106400 |  0.04 |
+| Slice Registers         |   36 |     0 |    106400 |  0.03 |
+|   Register as Flip Flop |   36 |     0 |    106400 |  0.03 |
 |   Register as Latch     |    0 |     0 |    106400 |  0.00 |
 | F7 Muxes                |    0 |     0 |     26600 |  0.00 |
 | F8 Muxes                |    0 |     0 |     13300 |  0.00 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 38    |          Yes |       Reset |            - |
+| 36    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -146,12 +146,13 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   38 |        Flop & Latch |
-| LUT2     |    8 |                 LUT |
-| LUT4     |    7 |                 LUT |
+| FDRE     |   36 |        Flop & Latch |
+| LUT2     |    9 |                 LUT |
 | LUT6     |    6 |                 LUT |
+| LUT3     |    5 |                 LUT |
 | CARRY4   |    3 |          CarryLogic |
 | LUT5     |    2 |                 LUT |
+| LUT4     |    1 |                 LUT |
 +----------+------+---------------------+
 
 

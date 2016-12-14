@@ -26,7 +26,7 @@ module IMU_top(
     reg [6:0] time_buf;
    
     // regs/params for state machine control
-    parameter [1:0] s0 = 0, s1 = 1, s2 = 2;
+    parameter [1:0] s0 = 2'b00, s1 = 2'b01, s2 = 2'b11;
     reg [1:0] current_state, next_state;
      
     reg [5:0] bitsOut;
@@ -234,9 +234,8 @@ module IMU_top(
 //    assign data_en = (dataInReady == 2'b11);
     
     // regs/params for state machine control
-    parameter [4:0] waits = 0, IPsubtracter = 1, invertY = 2, domainChange = 3, reverseBitOrder = 4;
-    parameter [4:0] arcTan = 5, formatting = 6, RadToDeg = 7, compassHeading = 8;
-    reg [3:0] currentData_state, nextData_state;
+    parameter [9:0] waits = 9'b0_0000_0001, IPsubtracter = 9'b0_0000_0010, invertY = 9'b0_0000_0100, domainChange = 9'b0_0000_1000, reverseBitOrder = 9'b0_0001_0000, arcTan = 9'b0_0010_0000, formatting = 9'b0_0100_0000, RadToDeg = 9'b0_1000_0000, compassHeading = 9'b1_0000_0000;
+    reg [9:0] currentData_state, nextData_state;
     
     // State machine overhead control
     always @ (negedge clk_100M)
@@ -302,7 +301,7 @@ module IMU_top(
             
             //formats data from 3QN format to a shifted unsigned integer        
             formatting:
-                if(formatting == 2)
+                if(formatting_count == 2)
                     nextData_state = RadToDeg;
                 else
                     nextData_state = formatting;
@@ -339,7 +338,7 @@ module IMU_top(
     reg [1:0] phase;
     reg [7:0] decimal;
     
-    wire [17:0] unscaled_degrees;
+    wire [16:0] unscaled_degrees;
     
     //data processing state machine
     always @ (posedge clk_100M)
@@ -356,7 +355,6 @@ module IMU_top(
                 arcTan_count <= 4'b00;
                 formatting_count <= 2'b00;
                 RadToDeg_count <= 2'b00;
-                
             end
         
             //delay 2 cycles for IP subtracters
@@ -398,7 +396,7 @@ module IMU_top(
             //
             formatting:
             begin
-                formatting_count = formatting_count + 1'b1;
+                formatting_count <= formatting_count + 1'b1;
                 
                 if(sign)
                     if(formatting_count == 0)
@@ -413,11 +411,10 @@ module IMU_top(
                     phase <= phase_wire;
                     decimal <= decimal_wire;
                 end
-                    
             end
         
             //converts to degrees by multiplying by 180
-            //delays 1 cycle for IP constant coefficiant multiplier
+            //delays 2 cycles for IP constant coefficiant multiplier
             RadToDeg:
             begin
                 RadToDeg_count <= RadToDeg_count + 1'b1;
@@ -428,19 +425,19 @@ module IMU_top(
             begin
                 if(magnY_2s == 16'h0000)
                     if(magnX_2s[15] == 1'b0)
-                        degrees <= 180;
-                    else
                         degrees <= 0;
+                    else
+                        degrees <= 180;
                 else if(magnY_2s[15] == 1'b0)
                     if(sign == 1'b0)
-                        degrees <= 90 - unscaled_degrees[17:8];
+                        degrees <= 90 - unscaled_degrees[15:9];
                     else
-                        degrees <= 90 + unscaled_degrees[17:8];
+                        degrees <= 90 + unscaled_degrees[15:9];
                 else
                     if(sign == 1'b0)
-                        degrees <= 270 - unscaled_degrees[17:8];
+                        degrees <= 270 - unscaled_degrees[15:9];
                     else
-                        degrees <= 270 + unscaled_degrees[17:8];
+                        degrees <= 270 + unscaled_degrees[15:9];
             end
             
 //            //makes degrees < 360
@@ -451,6 +448,9 @@ module IMU_top(
 //            end
         endcase
     end
+    
+    assign led[6] = (degrees >= 360);
+    assign led[5] = (degrees == 0);
     
     assign led[3] = (degrees >= 225 && degrees <= 315);
     assign led[2] = ((degrees >= 0 && degrees <= 45) || (degrees >= 315 && degrees <= 360));
@@ -519,7 +519,7 @@ module IMU_top(
     
     cordic_0 arcTangent
     (
-        .s_axis_cartesian_tdata({6'b000000, quotientY[15], quotientY[0], decimalY, 2'b000000, quotientX[15], quotientX[0], decimalX}),
+        .s_axis_cartesian_tdata({6'b000000, quotientY[15], quotientY[0], decimalY, 6'b000000, quotientX[15], quotientX[0], decimalX}),
         .s_axis_cartesian_tvalid(1'b1),
         
         .aclk(clk_100M),
@@ -531,7 +531,7 @@ module IMU_top(
     mult_gen_0 RadiansToDegrees
     (
         .CLK(clk_100M),
-        .A({phase, decimal}),
+        .A({phase[0], decimal}),
         .P(unscaled_degrees)
     );
     
