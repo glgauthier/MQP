@@ -21,7 +21,7 @@
 #define MANUAL_TRIG 0x0198
 #define LOCKED 0xDEAD
 #define UNLOCKED 0xBEEF
-// I2C address size
+
 typedef u8 AddressType;
 
 typedef enum
@@ -31,10 +31,9 @@ typedef enum
 	RX_DATA = 2
 }UART_STATE;
 
-// function prototype for camera initialization fxn
 void init_cams();
 
-XGpioPs Gpio; /* PS GPIO (buttons, LED, etc..) */
+XGpioPs Gpio;
 XIicPs IicInstance;		/* The instance of the IIC device. */
 
 int main()
@@ -68,12 +67,10 @@ int main()
     // initialize cameras using I2C
     init_cams();
 
-    // Continuously run rangefinder state machine after initialization is complete
     while(1)
     {
 		switch(STATE)
 		{
-			// Wait until the PL indicates that it wants new rangefinder data
 			case WAIT:
 			{
 				//blocks until the flag is set (from PL) to initiate data transfer
@@ -81,14 +78,14 @@ int main()
 				STATE = TX_COMMAND;
 				break;
 			}
-			// Call to the rangedfinder for a new round of data acquisition
+
 			case TX_COMMAND:
 			{
-				printf("G00076801\n"); // data acquisition command
+				printf("G00076801\n");
 				STATE = RX_DATA;
 				break;
 			}
-			// Process incoming data from the rangefinder byte by byte
+
 			case RX_DATA:
 			{
 				int rx_index = 0;	// indexes rows
@@ -102,6 +99,7 @@ int main()
 
 				// makes sure the echo command is successful
 				// if not, it repeats the tx_command state
+
 				if(strcmp(echo, echotestnl) != 0 && strcmp(echo, echotestlf) != 0)
 				{
 					STATE = WAIT;
@@ -121,7 +119,7 @@ int main()
 				for(rx_line = 0; rx_line < 24; rx_line++)
 				{
 					iteration = 0;
-					// receives 65 bytes per block
+
 					for(rx_index = 0; rx_index < 65; rx_index++)
 					{
 						iteration++;
@@ -129,7 +127,6 @@ int main()
 						write = 0;
 						databufbuf[1-(iteration%2)] = databuf[rx_line][rx_index];
 
-						// process data two chars at a time
 						if(iteration%2 == 0)
 						{
 							//'enables' data in memory when the data is not an error code
@@ -147,7 +144,7 @@ int main()
 				}
 
 				iteration = 0;
-				// account for 4 chars of data after step data has been sent
+
 				for(rx_index = 0; rx_index < 4; rx_index++)
 				{
 					linefeed[rx_index] = inbyte();	// blocking - inbyte is polled
@@ -166,36 +163,34 @@ int main()
 
 void init_cams()
 {
+    u8 WriteBuffer[sizeof(AddressType) + PAGE_SIZE];
+
     // number of bytes to be written from write buffer
     u8 ByteCount = 4;
-    // Create and fill write buffer with ByteCount bytes of data
-    u8 WriteBuffer[sizeof(AddressType) + PAGE_SIZE];
-    WriteBuffer[0] = (u8) (CAM1_ADDR); // camera 1 I2C address
-    WriteBuffer[1] = (u8) (CAMERA_CTL); // camera control register
-    WriteBuffer[2] = (u8) (MANUAL_TRIG >> 8); // 16 bit write value (upper byte)
-    WriteBuffer[3] = (u8) (MANUAL_TRIG); // 16 bit write value (lower byte)
+    // set write buffer
+    WriteBuffer[0] = (u8) (CAM1_ADDR);
+    WriteBuffer[1] = (u8) (CAMERA_CTL);
+    WriteBuffer[2] = (u8) (MANUAL_TRIG >> 8);
+    WriteBuffer[3] = (u8) (MANUAL_TRIG);
 
     XIicPs_Config *ConfigPtr;
     int Status;
 
-    // Look up Zynq-specific IIC device configuration
+    // Initialize iicps instance
     ConfigPtr = XIicPs_LookupConfig(IIC_DEVICE_ID);
-    // Initialize said device-specific iic configuration so the driver is ready for use
     Status = XIicPs_CfgInitialize(&IicInstance, ConfigPtr, ConfigPtr->BaseAddress);
-    // Run a self test to make sure the driver works (will return XST_SUCCESS if working)
     Status = XIicPs_SelfTest(&IicInstance);
-    // Set iic SCLK rate (bus now ready for use)
     XIicPs_SetSClk(&IicInstance, IIC_SCLK_RATE);
 
     // Initialize Cam1
-    XIicPs_MasterSendPolled(&IicInstance, WriteBuffer, ByteCount,CAM1_ADDR);
+    XIicPs_MasterSend(&IicInstance, WriteBuffer, ByteCount,CAM1_ADDR);    while(XIicPs_BusIsBusy(&IicInstance));
     while(XIicPs_BusIsBusy(&IicInstance));
 
     // Initialize Cam2
-    WriteBuffer[0] = (u8) (CAM2_ADDR); // change write address to cam2
-    XIicPs_MasterSendPolled(&IicInstance, WriteBuffer, ByteCount,CAM2_ADDR);
+    WriteBuffer[0] = (u8) (CAM2_ADDR);
+    XIicPs_MasterSend(&IicInstance, WriteBuffer, ByteCount,CAM2_ADDR);
     while(XIicPs_BusIsBusy(&IicInstance));
 
-    // Write LED to indicate finished initialization sequence
+    // Write LED to indicate finished init sequence
     XGpioPs_WritePin(&Gpio, 7, 0x01);
 }
