@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.hw/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Mon Dec 12 11:49:02 2016" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Tue Dec 13 12:16:44 2016" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "Vivado v2016.2 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "1577090" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "42a33766ecc3594d8d300fc75934d3ae" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "d708e9b5-886a-4f88-a761-96a2a12adf95" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "5" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "7" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz" -context "user_environment"
@@ -42,10 +42,10 @@ webtalk_add_data -client project -key system_ram -value "34.000 GB" -context "us
 webtalk_register_client -client labtool
 webtalk_add_data -client labtool -key pgmcnt -value "00:00:00" -context "labtool\\usage"
 webtalk_add_data -client labtool -key cable -value "" -context "labtool\\usage"
-webtalk_add_data -client labtool -key cable -value "" -context "labtool\\usage"
-webtalk_add_data -client labtool -key cable -value "" -context "labtool\\usage"
 webtalk_add_data -client labtool -key chain -value "0000400003727093" -context "labtool\\usage"
 webtalk_add_data -client labtool -key pgmcnt -value "01:00:00" -context "labtool\\usage"
 webtalk_add_data -client labtool -key cable -value "Digilent/Zed/15000000:" -context "labtool\\usage"
-webtalk_transmit -clientid 1977496157 -regid "" -xml C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.hw/webtalk/usage_statistics_ext_labtool.xml -html C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.hw/webtalk/usage_statistics_ext_labtool.html -wdm C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.hw/webtalk/usage_statistics_ext_labtool.wdm -intro "<H3>LABTOOL Usage Report</H3><BR>"
+webtalk_add_data -client labtool -key cable -value "Digilent/Zed/15000000:Digilent/Zed/15000000:" -context "labtool\\usage"
+webtalk_add_data -client labtool -key cable -value "Digilent/Zed/15000000:Digilent/Zed/15000000:Digilent/Zed/15000000:" -context "labtool\\usage"
+webtalk_transmit -clientid 3215860788 -regid "" -xml C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.hw/webtalk/usage_statistics_ext_labtool.xml -html C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.hw/webtalk/usage_statistics_ext_labtool.html -wdm C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.hw/webtalk/usage_statistics_ext_labtool.wdm -intro "<H3>LABTOOL Usage Report</H3><BR>"
 webtalk_terminate
