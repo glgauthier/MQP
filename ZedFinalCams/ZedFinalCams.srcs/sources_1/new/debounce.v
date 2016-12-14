@@ -4,7 +4,7 @@ module debounce(
     output reg btn_val
     );
 
-reg [1:0] count = 1'b0; // counter for keeping track of button signal times
+reg [1:0] count = 2'b0; // counter for keeping track of button signal times
 
 always @ (posedge clk)
 	

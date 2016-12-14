@@ -1,11 +1,10 @@
 `timescale 1ns / 1ps
 // Top module for future custom stereo camera IP package
 module noip_top(
-   input sw0,
    input sysclk,
    input reset, // reset 
+   input sw,
    input cam_rst, // button for camera RESET_BAR
-   input trigger, // button for camera trigger
    output cam_sysclk, // sysclk out to camera
    output cam_reset, // reset_bar out to camera
    output cam_trigger, // trigger out to camera
@@ -27,7 +26,6 @@ clk_wiz_0 clkgen
    // Clock in ports
     .clkin_100MHz(sysclk),      // input clk_100MHz
     // Clock out ports
-   // .clk_200MHz(clk_200MHz),     // output clk_200MHz
     .clk_100MHz(clk_50MHz),     // output clk_50MHz
     .clk_25MHz(clk_25MHz),     // output clk_25MHz
     .clk_24MHz(clk_24MHz),
@@ -36,34 +34,38 @@ clk_wiz_0 clkgen
     .reset(reset)
 );
 
-wire clk_20Hz;
-clk_divs clks(
-	.reset(reset), // synchronous reset
-    .clk_24M(clk_24MHz), // 24MHz clock signal
-    .clk_20Hz(clk_20Hz) // 20Hz clock pulse
-    );
+//wire clk_20Hz;
+//clk_divs clks(
+//	.reset(reset), // synchronous reset
+//    .clk_5MHz(clk_5MHz), // 24MHz clock signal
+//    .clk_20Hz(clk_20Hz) // 20Hz clock pulse
+//    );
     
 assign FIFO_RCK = clk_5MHz;
 assign cam_sysclk = clk_24MHz;
 
 // ~~~~~~~~~~ disparity code ~~~~~~~~~~~~~~
 wire trig_db;
-debounce deb(
-    .clk(clk_20Hz),
-    .btn(trigger),
-    .btn_val(trig_db)
-    );
-wire buffer_ready, idle, result_wea;
+//debounce deb(
+//    .clk(clk_20Hz),
+//    .btn(trigger),
+//    .btn_val(trig_db)
+//    );
+
+wire buffer_ready, result_wen;
 wire [2:0] current_state;
 wire [16:0] laddr, raddr; 
 wire [18:0] result_addr;
 wire [7:0] ldata, rdata, result_data;
+reg [10:0] lineaddr;
+wire [7:0] lineout;
+assign trig_db = current_state == 2'b00; // trigger a new sequence when disparity is idling
 
-disparity disp(
+parallel_disparity disp(
 	 .clk(clk_50MHz), // Read clk signal
-	 .sw0(sw0),
-	 .enable(trig_db), // enable new disparity calculation 
-	 .buffer_ready(buffer_ready),
+	 .enable(buffer_ready), // enable new disparity calculation 
+	 //.buffer_ready(buffer_ready), // was buffer_ready && ~ trig_db
+	 .sw(sw), // added in to parallel module
 	 .reset(reset), // reset disparity FSM
 	 .ldata(ldata), // FIFO data in
 	 .rdata(rdata), // FIFO data in
@@ -71,14 +73,14 @@ disparity disp(
 	 .raddr(raddr),
 	 .result_addr(result_addr),
 	 .result_data(result_data),
-	 .result_wea(result_wea),
-	 .idle(idle), // LED indicator signify end of process
-	 .state_LED(current_state) // current state indicator
+	 .result_wea(result_wen),
+	 .state_LED(current_state), // current state indicator
+	 .lineout(lineout),
+	 .lineaddr(lineaddr)
     );
     
 // state indicator LEDs
-//assign LEDs = {1'b0,buffer_ready,trigger,image_sel};
-assign LEDs = {idle,current_state[2:0]};
+assign LEDs = {trig_db,current_state[2:0]};
 
 // ~~~~~~~~~~~~~~~~ VGA controller ~~~~~~~~~~~~~~~~~~~~~~
 wire [10:0] hcount, vcount;
@@ -111,13 +113,8 @@ assign FIFO_OE2 = (image_sel == 1'b1) ? fifo_oe : 1'b1;
 assign FIFO_RRST1 = (image_sel == 1'b0) ? fifo_rrst : 1'b1;
 assign FIFO_RRST2 = (image_sel == 1'b1) ? fifo_rrst : 1'b1;
 
-// shifts = 2x12, 1x9, 1x14 - avg~=12
 imgbuf camctl(
-    //.output_sel(sw0),
     .get_data(trig_db),
-	//.href(hcount),
-	//.vref(vcount),
-	//.blank(blank),
 	.laddr(laddr),
     .raddr(raddr),
     .ldata(ldata), 
@@ -128,16 +125,15 @@ imgbuf camctl(
 	.image_sel(image_sel),
 	.fifo_rrst(fifo_rrst), // fifo read reset (reset read addr pointer to 0)
 	.fifo_oe(fifo_oe), // fifo output enable (allow for addr pointer to increment)
-	//.pixel_value(rgb), // 8-bit pixel value from internal buffer
 	.trigger(cam_trigger),
 	.buffer_ready(buffer_ready)
    );
 
 wire [7:0] vga_data;
 reg [18:0] vga_addr;     
-
 blk_mem_resultant resultant (
   .clka(clk_50MHz),    // input wire clka
+  .ena(result_wen),
   .wea(1'b1),      // input wire [0 : 0] wea
   .addra(result_addr),  // input wire [18 : 0] addra
   .dina(result_data),    // input wire [7 : 0] dina
@@ -146,16 +142,24 @@ blk_mem_resultant resultant (
   .doutb(vga_data)  // output wire [7 : 0] doutb
 );
 // ~~~~~~~~~~~~~~~~ End of image buffers ~~~~~~~~~~~~~~~~
+always @(hcount)
+    lineaddr = (hcount >= 272 && hcount < 368) ? hcount-272 : 11'd0;
 
-// allow for VGA controller to read resultant image data
-always @ (hcount,vcount,blank,vga_data) begin
-    vga_addr = (384*vcount)+hcount;
+always @ (hcount,vcount,blank,vga_data,sw)
 	if(blank)
 		rgb = 8'h00;
-    else if( hcount<384 && vcount <= 288)
+	// center 384x288 output in the middle of the screen
+    else if(~sw && hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384)
         rgb = vga_data;
+    else if(sw && hcount >= 272 && hcount < 368)
+        if(vcount == 265-lineout)
+            rgb = lineout;
+        else
+            rgb = 8'hF0;
     else
         rgb = 8'hF0;
-end
-
+        
+// set VGA read address to show disparity
+always @ (hcount,vcount)
+     vga_addr = (384*(vcount-96))+(hcount-128); // was hcount-128, red by 2 for read latency
 endmodule
