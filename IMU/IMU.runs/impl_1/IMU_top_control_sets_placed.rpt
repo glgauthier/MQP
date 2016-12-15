@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Wed Dec 14 19:56:00 2016
+| Date         : Thu Dec 15 01:48:42 2016
 | Host         : Georges-T460p running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file IMU_top_control_sets_placed.rpt
 | Design       : IMU_top
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    17 |
-| Unused register locations in slices containing registers |    45 |
+| Number of unique control sets                            |    21 |
+| Unused register locations in slices containing registers |    57 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |            3159 |          707 |
-| No           | No                    | Yes                    |              10 |            4 |
-| No           | Yes                   | No                     |              10 |            6 |
-| Yes          | No                    | No                     |              99 |           22 |
+| No           | No                    | No                     |            3088 |          687 |
+| No           | No                    | Yes                    |              10 |            3 |
+| No           | Yes                   | No                     |              11 |            6 |
+| Yes          | No                    | No                     |             116 |           29 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              53 |           15 |
+| Yes          | Yes                   | No                     |              62 |           18 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -49,22 +49,26 @@ Table of Contents
 |     Clock Signal    |                                   Enable Signal                                  |         Set/Reset Signal         | Slice Load Count | Bel Load Count |
 +---------------------+----------------------------------------------------------------------------------+----------------------------------+------------------+----------------+
 |  inVal              |                                                                                  | cs_nM0                           |                1 |              1 |
-|  mmcm/inst/clk_10M  |                                                                                  |                                  |                1 |              2 |
-| ~mmcm/inst/clk_10M  |                                                                                  | reset_IBUF                       |                1 |              2 |
-|  mmcm/inst/clk_100M | arcTan_count                                                                     | arcTan_count[3]_i_1_n_0          |                1 |              4 |
-|  mmcm/inst/clk_100M | reverseBitOrder_count                                                            | reverseBitOrder_count[4]_i_1_n_0 |                1 |              5 |
-| ~mmcm/inst/clk_10M  |                                                                                  |                                  |                3 |              5 |
-|  mmcm/inst/clk_100M | domainChange_count                                                               | domainChange_count[5]_i_1_n_0    |                2 |              6 |
+| ~mmcm/inst/clk_10M  |                                                                                  |                                  |                1 |              1 |
+|  mmcm/inst/clk_10M  |                                                                                  |                                  |                2 |              2 |
+| ~mmcm/inst/clk_10M  | transferVal[15]_i_1_n_0                                                          | transferVal[6]_i_1_n_0           |                1 |              4 |
+|  mmcm/inst/clk_100M | arcTan_count[3]_i_2_n_0                                                          | arcTan_count[3]_i_1_n_0          |                1 |              4 |
+| ~mmcm/inst/clk_100M |                                                                                  | reset_IBUF                       |                2 |              4 |
+|  mmcm/inst/clk_100M | RadToDeg_count[4]_i_2_n_0                                                        | RadToDeg_count[4]_i_1_n_0        |                2 |              5 |
+|  mmcm/inst/clk_100M | reverseBitOrder_count[4]_i_2_n_0                                                 | reverseBitOrder_count[4]_i_1_n_0 |                1 |              5 |
 | ~mmcm/inst/clk_10M  | bitsOut[5]_i_1_n_0                                                               | inVal[31]_i_1_n_0                |                2 |              6 |
-|  mmcm/inst/clk_10M  |                                                                                  | SPI_counter0                     |                3 |              8 |
-| ~mmcm/inst/clk_10M  | transferVal[15]_i_1_n_0                                                          |                                  |                2 |              8 |
-| ~mmcm/inst/clk_100M |                                                                                  | reset_IBUF                       |                5 |              9 |
-|  mmcm/inst/clk_100M | arcTangent/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/CE |                                  |                4 |             11 |
-|  mmcm/inst/clk_100M | magnY_2s                                                                         |                                  |                5 |             16 |
+|  mmcm/inst/clk_100M | domainChange_count[5]_i_2_n_0                                                    | domainChange_count[5]_i_1_n_0    |                2 |              6 |
+|  mmcm/inst/clk_10M  |                                                                                  | SPI_counter0                     |                2 |              8 |
+| ~mmcm/inst/clk_10M  |                                                                                  | reset_IBUF                       |                4 |              8 |
+|  mmcm/inst/clk_100M | decimal[7]_i_1_n_0                                                               |                                  |                2 |              8 |
+|  mmcm/inst/clk_100M | degrees[7]_i_1_n_0                                                               |                                  |                2 |              8 |
+| ~mmcm/inst/clk_10M  | transferVal[15]_i_1_n_0                                                          |                                  |                4 |             10 |
+|  mmcm/inst/clk_100M | arcTangent/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/CE |                                  |                4 |             10 |
+|  mmcm/inst/clk_100M | magnY_2s                                                                         |                                  |                4 |             16 |
 |  mmcm/inst/clk_10M  | inVal[31]_i_2_n_0                                                                | inVal[31]_i_1_n_0                |                9 |             32 |
-|  mmcm/inst/clk_10M  | magnXdata_2s                                                                     |                                  |                6 |             32 |
-|  mmcm/inst/clk_10M  | magnXoffset_2s                                                                   |                                  |                5 |             32 |
-|  mmcm/inst/clk_100M |                                                                                  |                                  |              709 |           3163 |
+|  mmcm/inst/clk_10M  | magnXdata_2s                                                                     |                                  |                7 |             32 |
+|  mmcm/inst/clk_10M  | magnXoffset_2s                                                                   |                                  |                6 |             32 |
+|  mmcm/inst/clk_100M |                                                                                  |                                  |              690 |           3096 |
 +---------------------+----------------------------------------------------------------------------------+----------------------------------+------------------+----------------+
 
 

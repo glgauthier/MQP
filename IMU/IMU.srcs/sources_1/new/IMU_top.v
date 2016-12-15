@@ -56,7 +56,7 @@ module IMU_top(
         else
             current_state <= next_state;
     
-    reg ctrl_reg3_n, status_reg, get_magn_data, get_magn_offset;
+    reg ctrl_reg3, ctrl_reg1_n, ctrl_reg2, status_reg, get_magn_data, get_magn_offset;
     
     // Change next_state based on the SPI write sequence
     always @ (current_state, bitsOut, transferVal, get_magn_data, en)
@@ -71,7 +71,8 @@ module IMU_top(
                     
             // The state machine will remain in s1 for the entirety of an SPI transfer
             s1:
-                if ((get_magn_data && bitsOut == 39) || (!get_magn_data && bitsOut == 15))
+                if (((get_magn_data || get_magn_offset) && bitsOut == 39) ||
+                    ((status_reg || ctrl_reg3 || !ctrl_reg1_n || ctrl_reg2) && bitsOut == 15))
                     next_state = s2;
                 else
                     next_state = s1;
@@ -84,19 +85,19 @@ module IMU_top(
         endcase
     end
     
-    reg independence;  // declaration of independence
+    reg trigger;  // triggers the chip select to go low on posedge clk_10M
     
     always @ (posedge clk_10M)
     begin
         if(current_state == s1)
-            independence <= 1'b1;
+            trigger <= 1'b1;
         else
-            independence <= 1'b0;
+            trigger <= 1'b0;
     end
     
     always @ (clk_10M)
     begin
-        if((current_state == s1 && independence && bitsOut < 5) || (current_state == s1 && bitsOut >= 5) || current_state == s2)
+        if((current_state == s1 && trigger && bitsOut < 5) || (current_state == s1 && bitsOut >= 5) || current_state == s2)
             cs_nM <= 1'b0; // assert CS
         else if(current_state == s0)
             cs_nM <= 1'b1;
@@ -109,7 +110,9 @@ module IMU_top(
     begin
         if(reset)
         begin
-            ctrl_reg3_n <= 1'b0;
+            ctrl_reg1_n <= 1'b0;
+            ctrl_reg2 <= 1'b0;
+            ctrl_reg3 <= 1'b0;
             status_reg <= 1'b0;
             get_magn_data <= 1'b0;
             get_magn_offset <= 1'b0;
@@ -121,7 +124,11 @@ module IMU_top(
         begin
             bitsOut <= 0; //reset the count of bits sent
             
-            if(!ctrl_reg3_n)
+            if(!ctrl_reg1_n)
+                transferVal <= 16'h207C;
+            else if(ctrl_reg2)
+                transferVal <= 16'h2100;
+            else if(ctrl_reg3)
                 transferVal <= 16'h2200;    // write to control register
             else if(status_reg)
                 transferVal <= 16'h2700 | 16'h8000; // read from status register
@@ -142,10 +149,22 @@ module IMU_top(
         // sets flag for next address to read from
         else if (current_state == s2)
         begin
-            if(!ctrl_reg3_n)
+            if(!ctrl_reg1_n)
             begin
-                ctrl_reg3_n <= 1'b1;
-                get_magn_offset <= 1'b1;
+                ctrl_reg1_n <= 1'b1;
+                ctrl_reg2 <= 1'b1;
+            end
+            
+            else if(ctrl_reg2)
+            begin
+                ctrl_reg2 <= 1'b0;
+                ctrl_reg3 <= 1'b1;
+            end
+            
+            else if(ctrl_reg3)
+            begin
+                ctrl_reg3 <= 1'b0;
+                status_reg <= 1'b1;
             end
             
             else if(status_reg && (inVal[1:0] == 2'b11))
@@ -231,14 +250,10 @@ module IMU_top(
 //-------------------------------------------------------------  
 //-------------------------------------------------------------
 //data processing block    
-        
-//    assign data_en = ((current_state == s2) && get_magn_data);
-        
-//    assign data_en = (dataInReady == 2'b11);
-    
+            
     // regs/params for state machine control
-    parameter [9:0] waits = 9'b0_0000_0001, IPsubtracter = 9'b0_0000_0010, invertY = 9'b0_0000_0100, domainChange = 9'b0_0000_1000, reverseBitOrder = 9'b0_0001_0000, arcTan = 9'b0_0010_0000, formatting = 9'b0_0100_0000, RadToDeg = 9'b0_1000_0000, compassHeading = 9'b1_0000_0000;
-    reg [9:0] currentData_state, nextData_state;
+    parameter [3:0] waits = 4'd0, IPsubtracter = 4'd1, invertY = 4'd2, domainChange = 4'd3, reverseBitOrder = 4'd4, arcTan = 4'd5, formatting = 4'd6, RadToDeg = 4'd7, compassHeading = 4'd8;
+    reg [3:0] currentData_state, nextData_state;
     
     // State machine overhead control
     always @ (negedge clk_100M)
@@ -253,7 +268,7 @@ module IMU_top(
     reg [4:0] reverseBitOrder_count;
     reg [3:0] arcTan_count;
     reg [1:0] formatting_count;
-    reg [1:0] RadToDeg_count;
+    reg [4:0] RadToDeg_count;
     
     reg [8:0] degrees;
 
@@ -277,7 +292,7 @@ module IMU_top(
                     
             //multiplies y value by -1
             invertY:
-                if(invertY_count == 2)
+                if(invertY_count == 3)
                     nextData_state = domainChange;
                 else
                     nextData_state = invertY;                    
@@ -311,7 +326,7 @@ module IMU_top(
             
             //multiplies by 180
             RadToDeg:
-                if(RadToDeg_count == 3)
+                if(RadToDeg_count == 31)
                     nextData_state = compassHeading;
                 else
                     nextData_state = RadToDeg;
@@ -334,10 +349,10 @@ module IMU_top(
     wire [15:0] magnX_2s, magnY_2s_n;
     reg [15:0] magnY_2s;
     
-    wire sign;
     wire [1:0] phase_wire;
     wire [7:0] decimal_wire;
     
+    wire sign;
     reg [1:0] phase;
     reg [7:0] decimal;
     
@@ -357,7 +372,9 @@ module IMU_top(
                 reverseBitOrder_count <= 5'b00000;
                 arcTan_count <= 4'b0000;
                 formatting_count <= 2'b00;
-                RadToDeg_count <= 2'b00;
+                RadToDeg_count <= 4'b0000;
+                
+//                led = 8'h00;
             end
         
             //delay 2 cycles for IP subtracters
@@ -372,9 +389,9 @@ module IMU_top(
             begin
                 invertY_count <= invertY_count + 1'b1;
                 
-                if(invertY_count == 0)
+                if(invertY_count == 1)
                     magnY_2s <= ~magnY_2s_n;
-                else if(invertY_count == 1)
+                else if(invertY_count == 2)
                     magnY_2s <= magnY_2s + 1'b1;
             end
             
@@ -402,6 +419,7 @@ module IMU_top(
                 formatting_count <= formatting_count + 1'b1;
                 
                 if(sign)
+                begin
                     if(formatting_count == 0)
                         phase <= ~phase_wire;
                     else if(formatting_count == 1)
@@ -409,11 +427,13 @@ module IMU_top(
                         phase <= phase + 1'b1;
                         decimal <= decimal_wire + 1'b1;
                     end
+                end
                 else
                 begin
                     phase <= phase_wire;
                     decimal <= decimal_wire;
                 end
+                
             end
         
             //converts to degrees by multiplying by 180
@@ -441,7 +461,12 @@ module IMU_top(
         endcase
     end
     
-   
+//    assign led = (button) ? degrees :
+//                (degrees >= 225 && degrees <= 315) ? 8'b0000_1000 :
+//                ((degrees >= 0 && degrees <= 45) || (degrees >= 315 && degrees <= 360)) ? 8'b00000100 :
+//                (degrees >= 135 && degrees <= 225) ? 8'b00000010 :
+//                (degrees >= 45 && degrees <= 135) ? 8'b00000001 : 8'b10000000;
+
     
 //    assign led[3] = (degrees >= 225 && degrees <= 315);
 //    assign led[2] = ((degrees >= 0 && degrees <= 45) || (degrees >= 315 && degrees <= 360));
@@ -468,6 +493,8 @@ module IMU_top(
     wire [15:0] fractionalX, fractionalY;
     
     wire [15:0] decimalX, decimalY;
+    
+    assign led = (button) ? degrees : {magnXdata_2s[15], magnYdata_2s[15], magnXoffset_2s[15], magnYoffset_2s[15],  magnX_2s[15], magnY_2s[15], quotientX[15], quotientY[15]};
     
     genvar i;
     generate
@@ -507,18 +534,16 @@ module IMU_top(
     );
     
     wire [4:0] pad;
-    wire [15:0] testData;
-    assign led = (button) ? testData[7:0] : testData[15:8];
+       
     cordic_0 arcTangent
     (
-        .s_axis_cartesian_tdata({6'b000000, quotientY[15], quotientY[0], decimalY, 6'b000000, quotientX[15], quotientX[0], decimalX}),
+        .s_axis_cartesian_tdata({6'b000000, quotientX[15], quotientX[0], decimalX, 6'b000000, quotientY[15], quotientY[0], decimalY}),
         .s_axis_cartesian_tvalid(1'b1),
         
         .aclk(clk_100M),
         
         .m_axis_dout_tvalid(),
-        .m_axis_dout_tdata(testData)
-        //.m_axis_dout_tdata({pad, sign, phase_wire, decimal_wire})   // 5 bit padding, sign bit, 2 phase bits, 8 decimal bits
+        .m_axis_dout_tdata({pad, sign, phase_wire, decimal_wire})   // 5 bit padding, sign bit, 2 phase bits, 8 decimal bits
     );
     
     mult_gen_0 RadiansToDegrees

@@ -65,8 +65,8 @@ set rc [catch {
   set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0.dcp]
   add_files -quiet c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp
   set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp]
-  add_files -quiet C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp
-  set_property netlist_only true [get_files C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp]
+  add_files -quiet c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp
+  set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp]
   add_files -quiet c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp
   set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp]
   read_xdc -mode out_of_context -ref clk_wiz_0 -cells inst c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc
