@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Wed Dec 14 17:07:01 2016
-| Host             : JOHN-HP running 64-bit major release  (build 7600)
+| Date             : Wed Dec 14 20:01:54 2016
+| Host             : Georges-T460p running 64-bit major release  (build 9200)
 | Command          : report_power -file IMU_top_power_routed.rpt -pb IMU_top_power_summary_routed.pb -rpx IMU_top_power_routed.rpx
 | Design           : IMU_top
 | Device           : xc7z020clg484-1
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+--------+
-| Total On-Chip Power (W)  | 0.277  |
-| Dynamic (W)              | 0.154  |
+| Total On-Chip Power (W)  | 0.300  |
+| Dynamic (W)              | 0.177  |
 | Device Static (W)        | 0.123  |
 | Effective TJA (C/W)      | 11.5   |
-| Max Ambient (C)          | 81.8   |
-| Junction Temperature (C) | 28.2   |
+| Max Ambient (C)          | 81.5   |
+| Junction Temperature (C) | 28.5   |
 | Confidence Level         | Medium |
 | Setting File             | ---    |
 | Simulation Activity File | ---    |
@@ -50,17 +50,17 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.014 |       10 |       --- |             --- |
-| Slice Logic             |     0.020 |     7075 |       --- |             --- |
-|   LUT as Logic          |     0.015 |     2023 |     53200 |            3.80 |
-|   CARRY4                |     0.003 |      503 |     13300 |            3.78 |
-|   Register              |     0.002 |     3369 |    106400 |            3.17 |
+| Slice Logic             |     0.020 |     6957 |       --- |             --- |
+|   LUT as Logic          |     0.015 |     1961 |     53200 |            3.69 |
+|   CARRY4                |     0.003 |      501 |     13300 |            3.77 |
+|   Register              |     0.002 |     3331 |    106400 |            3.13 |
 |   LUT as Shift Register |    <0.001 |       11 |     17400 |            0.06 |
-|   Others                |     0.000 |     1108 |       --- |             --- |
-| Signals                 |     0.018 |     3989 |       --- |             --- |
+|   Others                |     0.000 |     1102 |       --- |             --- |
+| Signals                 |     0.018 |     3915 |       --- |             --- |
 | MMCM                    |     0.101 |        1 |         4 |           25.00 |
-| I/O                     |     0.001 |       14 |       200 |            7.00 |
+| I/O                     |     0.024 |       17 |       200 |            8.50 |
 | Static Power            |     0.123 |          |           |                 |
-| Total                   |     0.277 |          |           |                 |
+| Total                   |     0.300 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,8 +71,8 @@ Table of Contents
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
 | Vccint    |       1.000 |     0.060 |       0.052 |      0.008 |
-| Vccaux    |       1.800 |     0.075 |       0.056 |      0.019 |
-| Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
+| Vccaux    |       1.800 |     0.075 |       0.057 |      0.019 |
+| Vcco33    |       3.300 |     0.008 |       0.007 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -83,7 +83,7 @@ Table of Contents
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccpint   |       1.000 |     0.017 |       0.000 |      0.017 |
+| Vccpint   |       1.000 |     0.018 |       0.000 |      0.018 |
 | Vccpaux   |       1.800 |     0.010 |       0.000 |      0.010 |
 | Vccpll    |       1.800 |     0.003 |       0.000 |      0.003 |
 | Vcco_ddr  |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -153,22 +153,12 @@ Table of Contents
 +-------------------------------------------------------------------------------+-----------+
 | Name                                                                          | Power (W) |
 +-------------------------------------------------------------------------------+-----------+
-| IMU_top                                                                       |     0.154 |
-|   RadiansToDegrees                                                            |    <0.001 |
-|     U0                                                                        |    <0.001 |
-|       i_mult                                                                  |    <0.001 |
-|         gCCM.iCCM                                                             |    <0.001 |
-|           use_ccm_core.ccm_core                                               |    <0.001 |
-|             b0g2.b1g4.bg[0].use_dist_ram.dg1.dmem                             |    <0.001 |
-|               sp_mem.dist_mem.dmg0                                            |    <0.001 |
-|             b0g2.b1g4.bg[1].use_adders.a1g[1].a2g.sa1                         |    <0.001 |
-|             b0g2.b1g4.bg[1].use_dist_ram.dg1.dmem                             |    <0.001 |
-|               sp_mem.dist_mem.dmg0                                            |    <0.001 |
-|   RadtoArcTanDomainX                                                          |     0.018 |
-|     U0                                                                        |     0.018 |
-|       i_synth                                                                 |     0.018 |
-|         i_nonzero_fract.i_synth                                               |     0.018 |
-|           i_algo_r2_or_lutmult.i_nonzero_fract.i_sdivider                     |     0.018 |
+| IMU_top                                                                       |     0.177 |
+|   RadtoArcTanDomainX                                                          |     0.017 |
+|     U0                                                                        |     0.017 |
+|       i_synth                                                                 |     0.017 |
+|         i_nonzero_fract.i_synth                                               |     0.017 |
+|           i_algo_r2_or_lutmult.i_nonzero_fract.i_sdivider                     |     0.017 |
 |             i_sdivider.divider_blk                                            |     0.017 |
 |               div_loop[0].adder_gen.reg_req.adsu_mod                          |    <0.001 |
 |                 add1                                                          |    <0.001 |
@@ -382,11 +372,11 @@ Table of Contents
 |               twos_comp                                                       |    <0.001 |
 |             signed_output.remd_fract.cmp_remd                                 |    <0.001 |
 |               twos_comp                                                       |    <0.001 |
-|   RadtoArcTanDomainY                                                          |     0.017 |
-|     U0                                                                        |     0.017 |
-|       i_synth                                                                 |     0.017 |
-|         i_nonzero_fract.i_synth                                               |     0.017 |
-|           i_algo_r2_or_lutmult.i_nonzero_fract.i_sdivider                     |     0.017 |
+|   RadtoArcTanDomainY                                                          |     0.018 |
+|     U0                                                                        |     0.018 |
+|       i_synth                                                                 |     0.018 |
+|         i_nonzero_fract.i_synth                                               |     0.018 |
+|           i_algo_r2_or_lutmult.i_nonzero_fract.i_sdivider                     |     0.018 |
 |             i_sdivider.divider_blk                                            |     0.017 |
 |               div_loop[0].adder_gen.reg_req.adsu_mod                          |    <0.001 |
 |                 add1                                                          |    <0.001 |
@@ -658,10 +648,10 @@ Table of Contents
 |                       no_pipelining.the_addsub                                |    <0.001 |
 |                         i_lut6.i_lut6_addsub                                  |    <0.001 |
 |                           i_q.i_simple.qreg                                   |    <0.001 |
-|             gen_para_arch.gen_iteration[1].eng                                |     0.001 |
+|             gen_para_arch.gen_iteration[1].eng                                |     0.002 |
 |               cntrl                                                           |    <0.001 |
 |                 engine_mode_dly                                               |    <0.001 |
-|               data_slice                                                      |    <0.001 |
+|               data_slice                                                      |     0.001 |
 |                 x_plus_y_shift                                                |    <0.001 |
 |                   inst                                                        |    <0.001 |
 |                     i_baseblox.i_baseblox_addsub                              |    <0.001 |

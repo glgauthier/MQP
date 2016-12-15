@@ -10,28 +10,28 @@ create_project -in_memory -part xc7z020clg484-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/John/Documents/GitHub/MQP/IMU/IMU.cache/wt [current_project]
-set_property parent.project_path C:/Users/John/Documents/GitHub/MQP/IMU/IMU.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.cache/wt [current_project]
+set_property parent.project_path C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.xpr [current_project]
 set_property XPM_LIBRARIES XPM_CDC [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
-add_files -quiet c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
-set_property used_in_implementation false [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp]
-add_files -quiet c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0.dcp
-set_property used_in_implementation false [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0.dcp]
-add_files -quiet C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp
-set_property used_in_implementation false [get_files C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp]
-add_files -quiet C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp
-set_property used_in_implementation false [get_files C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp]
-add_files -quiet c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp
-set_property used_in_implementation false [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp]
-read_verilog -library xil_defaultlib C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v
+add_files -quiet c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
+set_property used_in_implementation false [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp]
+add_files -quiet c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0.dcp
+set_property used_in_implementation false [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0.dcp]
+add_files -quiet c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp
+set_property used_in_implementation false [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp]
+add_files -quiet C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp
+set_property used_in_implementation false [get_files C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp]
+add_files -quiet c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp
+set_property used_in_implementation false [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp]
+read_verilog -library xil_defaultlib C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v
 foreach dcp [get_files -quiet -all *.dcp] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc
-set_property used_in_implementation false [get_files C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc]
+read_xdc C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc
+set_property used_in_implementation false [get_files C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc]
 
 
 synth_design -top IMU_top -part xc7z020clg484-1

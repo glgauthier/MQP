@@ -1,10 +1,10 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-// Date        : Wed Dec 14 14:45:49 2016
-// Host        : JOHN-HP running 64-bit major release  (build 7600)
+// Date        : Wed Dec 14 17:21:20 2016
+// Host        : Georges-T460p running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0_stub.v
+//               C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0_stub.v
 // Design      : cordic_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1

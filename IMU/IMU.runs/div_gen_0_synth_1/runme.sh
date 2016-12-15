@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/div_gen_0_synth_1'
+HD_PWD='C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/div_gen_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

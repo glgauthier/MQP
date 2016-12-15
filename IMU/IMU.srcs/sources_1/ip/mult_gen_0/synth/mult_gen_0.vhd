@@ -104,7 +104,7 @@ ARCHITECTURE mult_gen_0_arch OF mult_gen_0 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF mult_gen_0_arch : ARCHITECTURE IS "mult_gen_0,mult_gen_v12_0_11,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF mult_gen_0_arch: ARCHITECTURE IS "mult_gen_0,mult_gen_v12_0_11,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=mult_gen,x_ipVersion=12.0,x_ipCoreRevision=11,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_VERBOSITY=0,C_MODEL_TYPE=0,C_OPTIMIZE_GOAL=1,C_XDEVICEFAMILY=zynq,C_HAS_CE=0,C_HAS_SCLR=0,C_LATENCY=2,C_A_WIDTH=9,C_A_TYPE=1,C_B_WIDTH=8,C_B_TYPE=1,C_OUT_HIGH=16,C_OUT_LOW=0,C_MULT_TYPE=2,C_CE_OVERRIDES_SCLR=0,C_CCM_IMP=0,C_B_VALUE=10110100,C_HAS_ZERO_DETECT=0,C_ROUND_OUTPUT=0,C_ROUND_PT=0}";
+  ATTRIBUTE CORE_GENERATION_INFO OF mult_gen_0_arch: ARCHITECTURE IS "mult_gen_0,mult_gen_v12_0_11,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=mult_gen,x_ipVersion=12.0,x_ipCoreRevision=11,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_VERBOSITY=0,C_MODEL_TYPE=0,C_OPTIMIZE_GOAL=1,C_XDEVICEFAMILY=zynq,C_HAS_CE=0,C_HAS_SCLR=0,C_LATENCY=3,C_A_WIDTH=9,C_A_TYPE=1,C_B_WIDTH=8,C_B_TYPE=1,C_OUT_HIGH=16,C_OUT_LOW=0,C_MULT_TYPE=2,C_CE_OVERRIDES_SCLR=0,C_CCM_IMP=2,C_B_VALUE=10110100,C_HAS_ZERO_DETECT=0,C_ROUND_OUTPUT=0,C_ROUND_PT=0}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 clk_intf CLK";
   ATTRIBUTE X_INTERFACE_INFO OF A: SIGNAL IS "xilinx.com:signal:data:1.0 a_intf DATA";
@@ -118,7 +118,7 @@ BEGIN
       C_XDEVICEFAMILY => "zynq",
       C_HAS_CE => 0,
       C_HAS_SCLR => 0,
-      C_LATENCY => 2,
+      C_LATENCY => 3,
       C_A_WIDTH => 9,
       C_A_TYPE => 1,
       C_B_WIDTH => 8,
@@ -127,7 +127,7 @@ BEGIN
       C_OUT_LOW => 0,
       C_MULT_TYPE => 2,
       C_CE_OVERRIDES_SCLR => 0,
-      C_CCM_IMP => 0,
+      C_CCM_IMP => 2,
       C_B_VALUE => "10110100",
       C_HAS_ZERO_DETECT => 0,
       C_ROUND_OUTPUT => 0,

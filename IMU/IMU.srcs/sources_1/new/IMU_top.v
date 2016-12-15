@@ -172,6 +172,8 @@ module IMU_top(
     reg [15:0] magnXdata_2s, magnYdata_2s;
     
     reg dataInReady;
+    
+    reg data_en;
         
     //state machine for reading data in
     always @(posedge clk_10M)
@@ -203,16 +205,25 @@ module IMU_top(
         //stored data received into corresponding buffer
         else if(current_state == s2)
         begin
-            if(get_magn_offset)
+            if(status_reg)
+            begin
+                data_en <= 1'b0;
+            end
+        
+            else if(get_magn_offset)
             begin
                 magnXoffset_2s <= {inVal[23:16], inVal[31:24]};
                 magnYoffset_2s <= {inVal[7:0], inVal[15:8]};
-          end
+                
+                data_en <= 1'b0;
+            end
             
             else if(get_magn_data)
             begin
                 magnXdata_2s <= {inVal[23:16], inVal[31:24]};
                 magnYdata_2s <= {inVal[7:0], inVal[15:8]};
+                
+                data_en <= 1'b1;
            end
         end
     end
@@ -220,16 +231,8 @@ module IMU_top(
 //-------------------------------------------------------------  
 //-------------------------------------------------------------
 //data processing block    
-    
-    reg data_en;
-    
-    always @ (posedge clk_100M)
-    begin
-        if((current_state == s2) && get_magn_data)
-            data_en <= 1'b1;
-        else
-            data_en = 1'b0;
-    end
+        
+//    assign data_en = ((current_state == s2) && get_magn_data);
         
 //    assign data_en = (dataInReady == 2'b11);
     
@@ -308,7 +311,7 @@ module IMU_top(
             
             //multiplies by 180
             RadToDeg:
-                if(RadToDeg_count == 2)
+                if(RadToDeg_count == 3)
                     nextData_state = compassHeading;
                 else
                     nextData_state = RadToDeg;
@@ -352,7 +355,7 @@ module IMU_top(
                 invertY_count <= 2'b00;
                 domainChange_count <= 6'b000000;
                 reverseBitOrder_count <= 5'b00000;
-                arcTan_count <= 4'b00;
+                arcTan_count <= 4'b0000;
                 formatting_count <= 2'b00;
                 RadToDeg_count <= 2'b00;
             end
@@ -423,21 +426,10 @@ module IMU_top(
             //calculates compass degrees based on the y magnetometer data
             compassHeading:
             begin
-                if(magnY_2s == 16'h0000)
-                    if(magnX_2s[15] == 1'b0)
-                        degrees <= 0;
-                    else
-                        degrees <= 180;
-                else if(magnY_2s[15] == 1'b0)
-                    if(sign == 1'b0)
-                        degrees <= 90 - unscaled_degrees[15:9];
-                    else
-                        degrees <= 90 + unscaled_degrees[15:9];
+                if(sign)
+                    degrees <= 360 - unscaled_degrees[15:8];
                 else
-                    if(sign == 1'b0)
-                        degrees <= 270 - unscaled_degrees[15:9];
-                    else
-                        degrees <= 270 + unscaled_degrees[15:9];
+                    degrees <= unscaled_degrees[15:8];
             end
             
 //            //makes degrees < 360
@@ -449,13 +441,12 @@ module IMU_top(
         endcase
     end
     
-    assign led[6] = (degrees >= 360);
-    assign led[5] = (degrees == 0);
+   
     
-    assign led[3] = (degrees >= 225 && degrees <= 315);
-    assign led[2] = ((degrees >= 0 && degrees <= 45) || (degrees >= 315 && degrees <= 360));
-    assign led[1] = (degrees >= 135 && degrees <= 225);
-    assign led[0] = (degrees >= 45 && degrees <= 135);
+//    assign led[3] = (degrees >= 225 && degrees <= 315);
+//    assign led[2] = ((degrees >= 0 && degrees <= 45) || (degrees >= 315 && degrees <= 360));
+//    assign led[1] = (degrees >= 135 && degrees <= 225);
+//    assign led[0] = (degrees >= 45 && degrees <= 135);
     
     c_addsub_0 TwosCompSubX
     (
@@ -516,7 +507,8 @@ module IMU_top(
     );
     
     wire [4:0] pad;
-    
+    wire [15:0] testData;
+    assign led = (button) ? testData[7:0] : testData[15:8];
     cordic_0 arcTangent
     (
         .s_axis_cartesian_tdata({6'b000000, quotientY[15], quotientY[0], decimalY, 6'b000000, quotientX[15], quotientX[0], decimalX}),
@@ -525,7 +517,8 @@ module IMU_top(
         .aclk(clk_100M),
         
         .m_axis_dout_tvalid(),
-        .m_axis_dout_tdata({pad, sign, phase_wire, decimal_wire})   // 5 bit padding, sign bit, 2 phase bits, 8 decimal bits
+        .m_axis_dout_tdata(testData)
+        //.m_axis_dout_tdata({pad, sign, phase_wire, decimal_wire})   // 5 bit padding, sign bit, 2 phase bits, 8 decimal bits
     );
     
     mult_gen_0 RadiansToDegrees
@@ -534,7 +527,7 @@ module IMU_top(
         .A({phase[0], decimal}),
         .P(unscaled_degrees)
     );
-    
+//    assign unscaled_degrees = {phase,decimal[7:0]}*180;
 //    mult_gen_1 DegToStep
 //    (
 //        .CLK(clk_100M),

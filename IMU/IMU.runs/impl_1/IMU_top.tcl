@@ -53,37 +53,37 @@ set rc [catch {
   set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/John/Documents/GitHub/MQP/IMU/IMU.cache/wt [current_project]
-  set_property parent.project_path C:/Users/John/Documents/GitHub/MQP/IMU/IMU.xpr [current_project]
-  set_property ip_repo_paths c:/Users/John/Documents/GitHub/MQP/IMU/IMU.cache/ip [current_project]
-  set_property ip_output_repo c:/Users/John/Documents/GitHub/MQP/IMU/IMU.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.cache/wt [current_project]
+  set_property parent.project_path C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.xpr [current_project]
+  set_property ip_repo_paths c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.cache/ip [current_project]
+  set_property ip_output_repo c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.cache/ip [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/IMU_top.dcp
-  add_files -quiet c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
-  set_property netlist_only true [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp]
-  add_files -quiet c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0.dcp
-  set_property netlist_only true [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0.dcp]
-  add_files -quiet C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp
-  set_property netlist_only true [get_files C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp]
-  add_files -quiet C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp
-  set_property netlist_only true [get_files C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp]
-  add_files -quiet c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp
-  set_property netlist_only true [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp]
-  read_xdc -mode out_of_context -ref clk_wiz_0 -cells inst c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc
-  set_property processing_order EARLY [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
-  read_xdc -prop_thru_buffers -ref clk_wiz_0 -cells inst c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc
-  set_property processing_order EARLY [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-  read_xdc -ref clk_wiz_0 -cells inst c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc
-  set_property processing_order EARLY [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
-  read_xdc -mode out_of_context -ref c_addsub_0 -cells U0 c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0_ooc.xdc
-  set_property processing_order EARLY [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0_ooc.xdc]
-  read_xdc -mode out_of_context -ref cordic_0 -cells U0 c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0_ooc.xdc
-  set_property processing_order EARLY [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0_ooc.xdc]
-  read_xdc -mode out_of_context -ref mult_gen_0 -cells U0 c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0_ooc.xdc
-  set_property processing_order EARLY [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0_ooc.xdc]
-  read_xdc -mode out_of_context -ref div_gen_0 -cells U0 c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0_ooc.xdc
-  set_property processing_order EARLY [get_files c:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0_ooc.xdc]
-  read_xdc C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc
+  add_files -quiet C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/IMU_top.dcp
+  add_files -quiet c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
+  set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp]
+  add_files -quiet c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0.dcp
+  set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0.dcp]
+  add_files -quiet c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp
+  set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0.dcp]
+  add_files -quiet C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp
+  set_property netlist_only true [get_files C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0.dcp]
+  add_files -quiet c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp
+  set_property netlist_only true [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0.dcp]
+  read_xdc -mode out_of_context -ref clk_wiz_0 -cells inst c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
+  read_xdc -prop_thru_buffers -ref clk_wiz_0 -cells inst c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc
+  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
+  read_xdc -ref clk_wiz_0 -cells inst c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc
+  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
+  read_xdc -mode out_of_context -ref c_addsub_0 -cells U0 c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/c_addsub_0/c_addsub_0_ooc.xdc]
+  read_xdc -mode out_of_context -ref cordic_0 -cells U0 c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/cordic_0/cordic_0_ooc.xdc]
+  read_xdc -mode out_of_context -ref mult_gen_0 -cells U0 c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/mult_gen_0/mult_gen_0_ooc.xdc]
+  read_xdc -mode out_of_context -ref div_gen_0 -cells U0 c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/ip/div_gen_0/div_gen_0_ooc.xdc]
+  read_xdc C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc
   link_design -top IMU_top -part xc7z020clg484-1
   write_hwdef -file IMU_top.hwdef
   close_msg_db -file init_design.pb

@@ -2,12 +2,12 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Wed Dec 14 16:51:42 2016
-# Process ID: 980
-# Current directory: C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1
+# Start of session at: Wed Dec 14 19:54:37 2016
+# Process ID: 2568
+# Current directory: C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1
 # Command line: vivado.exe -log IMU_top.vds -mode batch -messageDb vivado.pb -notrace -source IMU_top.tcl
-# Log file: C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/IMU_top.vds
-# Journal file: C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1\vivado.jou
+# Log file: C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/IMU_top.vds
+# Journal file: C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source IMU_top.tcl -notrace
 Command: synth_design -top IMU_top -part xc7z020clg484-1
@@ -15,11 +15,11 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 5812 
+INFO: Helper process launched with PID 9628 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 273.027 ; gain = 66.008
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 273.105 ; gain = 66.492
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'IMU_top' [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:3]
+INFO: [Synth 8-638] synthesizing module 'IMU_top' [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:3]
 	Parameter s0 bound to: 2'b00 
 	Parameter s1 bound to: 2'b01 
 	Parameter s2 bound to: 2'b11 
@@ -32,28 +32,28 @@ INFO: [Synth 8-638] synthesizing module 'IMU_top' [C:/Users/John/Documents/GitHu
 	Parameter formatting bound to: 10'b0001000000 
 	Parameter RadToDeg bound to: 10'b0010000000 
 	Parameter compassHeading bound to: 10'b0100000000 
-WARNING: [Synth 8-567] referenced signal 'current_state' should be on the sensitivity list [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:97]
-WARNING: [Synth 8-567] referenced signal 'independence' should be on the sensitivity list [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:97]
-WARNING: [Synth 8-567] referenced signal 'bitsOut' should be on the sensitivity list [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:97]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:346]
-INFO: [Synth 8-638] synthesizing module 'c_addsub_0' [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/realtime/c_addsub_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'c_addsub_0' (1#1) [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/realtime/c_addsub_0_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'div_gen_0' [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/realtime/div_gen_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'div_gen_0' (2#1) [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/realtime/div_gen_0_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'cordic_0' [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/realtime/cordic_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'cordic_0' (3#1) [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/realtime/cordic_0_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'mult_gen_0' [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/realtime/mult_gen_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'mult_gen_0' (4#1) [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/realtime/mult_gen_0_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (5#1) [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'IMU_top' (6#1) [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:3]
+WARNING: [Synth 8-567] referenced signal 'current_state' should be on the sensitivity list [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:97]
+WARNING: [Synth 8-567] referenced signal 'independence' should be on the sensitivity list [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:97]
+WARNING: [Synth 8-567] referenced signal 'bitsOut' should be on the sensitivity list [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:97]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:349]
+INFO: [Synth 8-638] synthesizing module 'c_addsub_0' [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/realtime/c_addsub_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'c_addsub_0' (1#1) [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/realtime/c_addsub_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'div_gen_0' [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/realtime/div_gen_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'div_gen_0' (2#1) [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/realtime/div_gen_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'cordic_0' [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/realtime/cordic_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'cordic_0' (3#1) [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/realtime/cordic_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'mult_gen_0' [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/realtime/mult_gen_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'mult_gen_0' (4#1) [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/realtime/mult_gen_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (5#1) [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/realtime/clk_wiz_0_stub.v:5]
+WARNING: [Synth 8-3848] Net sign in module/entity IMU_top does not have driver. [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:337]
+WARNING: [Synth 8-3848] Net phase_wire in module/entity IMU_top does not have driver. [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:338]
+WARNING: [Synth 8-3848] Net decimal_wire in module/entity IMU_top does not have driver. [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:339]
+INFO: [Synth 8-256] done synthesizing module 'IMU_top' (6#1) [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:3]
 WARNING: [Synth 8-3917] design IMU_top has port cs_nAG driven by constant 1
 WARNING: [Synth 8-3917] design IMU_top has port cs_nALT driven by constant 1
-WARNING: [Synth 8-3331] design IMU_top has unconnected port led[7]
-WARNING: [Synth 8-3331] design IMU_top has unconnected port led[4]
-WARNING: [Synth 8-3331] design IMU_top has unconnected port button
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 310.367 ; gain = 103.348
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 311.430 ; gain = 104.816
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -63,63 +63,63 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 310.367 ; gain = 103.348
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 311.430 ; gain = 104.816
 ---------------------------------------------------------------------------------
-WARNING: [Project 1-560] Could not resolve non-primitive black box cell 'c_addsub_0' instantiated as 'TwosCompSubX'. 2 instances of this cell are unresolved black boxes. [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:460]
-WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'mmcm' [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:545]
-WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'cordic_0' instantiated as 'arcTangent' [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:520]
-WARNING: [Project 1-560] Could not resolve non-primitive black box cell 'div_gen_0' instantiated as 'RadtoArcTanDomainX'. 2 instances of this cell are unresolved black boxes. [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:490]
-WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'mult_gen_0' instantiated as 'RadiansToDegrees' [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:531]
+WARNING: [Project 1-560] Could not resolve non-primitive black box cell 'c_addsub_0' instantiated as 'TwosCompSubX'. 2 instances of this cell are unresolved black boxes. [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:451]
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'mmcm' [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:538]
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'cordic_0' instantiated as 'arcTangent' [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:512]
+WARNING: [Project 1-560] Could not resolve non-primitive black box cell 'div_gen_0' instantiated as 'RadtoArcTanDomainX'. 2 instances of this cell are unresolved black boxes. [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:481]
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'mult_gen_0' instantiated as 'RadiansToDegrees' [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:524]
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp/clk_wiz_0_in_context.xdc] for cell 'mmcm'
-Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp/clk_wiz_0_in_context.xdc] for cell 'mmcm'
-Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_2/c_addsub_0_in_context.xdc] for cell 'TwosCompSubX'
-Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_2/c_addsub_0_in_context.xdc] for cell 'TwosCompSubX'
-Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_2/c_addsub_0_in_context.xdc] for cell 'TwosCompSubY'
-Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_2/c_addsub_0_in_context.xdc] for cell 'TwosCompSubY'
-Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_3/cordic_0_in_context.xdc] for cell 'arcTangent'
-Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_3/cordic_0_in_context.xdc] for cell 'arcTangent'
-Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_4/mult_gen_0_in_context.xdc] for cell 'RadiansToDegrees'
-Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_4/mult_gen_0_in_context.xdc] for cell 'RadiansToDegrees'
-Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_5/div_gen_0_in_context.xdc] for cell 'RadtoArcTanDomainX'
-Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_5/div_gen_0_in_context.xdc] for cell 'RadtoArcTanDomainX'
-Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_5/div_gen_0_in_context.xdc] for cell 'RadtoArcTanDomainY'
-Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp_5/div_gen_0_in_context.xdc] for cell 'RadtoArcTanDomainY'
-Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc]
-Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/IMU_top_propImpl.xdc].
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp/clk_wiz_0_in_context.xdc] for cell 'mmcm'
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp/clk_wiz_0_in_context.xdc] for cell 'mmcm'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_2/c_addsub_0_in_context.xdc] for cell 'TwosCompSubX'
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_2/c_addsub_0_in_context.xdc] for cell 'TwosCompSubX'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_2/c_addsub_0_in_context.xdc] for cell 'TwosCompSubY'
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_2/c_addsub_0_in_context.xdc] for cell 'TwosCompSubY'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_3/cordic_0_in_context.xdc] for cell 'arcTangent'
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_3/cordic_0_in_context.xdc] for cell 'arcTangent'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_4/mult_gen_0_in_context.xdc] for cell 'RadiansToDegrees'
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_4/mult_gen_0_in_context.xdc] for cell 'RadiansToDegrees'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_5/div_gen_0_in_context.xdc] for cell 'RadtoArcTanDomainX'
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_5/div_gen_0_in_context.xdc] for cell 'RadtoArcTanDomainX'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_5/div_gen_0_in_context.xdc] for cell 'RadtoArcTanDomainY'
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp_5/div_gen_0_in_context.xdc] for cell 'RadtoArcTanDomainY'
+Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc]
+Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/constrs_1/new/IMU_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/IMU_top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/IMU_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 631.895 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 632.863 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'RadiansToDegrees' at clock pin 'CLK' is different from the actual clock period '10.000', this can result in different synthesis results.
 WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'RadtoArcTanDomainX' at clock pin 'aclk' is different from the actual clock period '10.000', this can result in different synthesis results.
 WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'RadtoArcTanDomainY' at clock pin 'aclk' is different from the actual clock period '10.000', this can result in different synthesis results.
 WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'arcTangent' at clock pin 'aclk' is different from the actual clock period '10.000', this can result in different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for fpga_clk. (constraint file  C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp/clk_wiz_0_in_context.xdc, line 4).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for fpga_clk. (constraint file  C:/Users/John/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-980-JOHN-HP/dcp/clk_wiz_0_in_context.xdc, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for fpga_clk. (constraint file  C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for fpga_clk. (constraint file  C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.runs/synth_1/.Xil/Vivado-2568-Georges-T460p/dcp/clk_wiz_0_in_context.xdc, line 5).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-3898] No Re-encoding of one hot register 'currentData_state_reg' in module 'IMU_top'
 INFO: [Synth 8-5544] ROM "independence" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
@@ -138,11 +138,10 @@ INFO: [Synth 8-5546] ROM "reverseBitOrder_count" won't be mapped to RAM because 
 INFO: [Synth 8-5546] ROM "arcTan_count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "formatting_count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "RadToDeg_count" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "decimal" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "degrees" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-327] inferring latch for variable 'cs_nM_reg' [C:/Users/John/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:100]
+INFO: [Synth 8-5545] ROM "decimal" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+WARNING: [Synth 8-327] inferring latch for variable 'cs_nM_reg' [C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.srcs/sources_1/new/IMU_top.v:100]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -156,8 +155,7 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     16 Bit       Adders := 1     
-	   2 Input      9 Bit       Adders := 3     
-	   2 Input      8 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 2     
 	   2 Input      6 Bit       Adders := 2     
 	   2 Input      5 Bit       Adders := 1     
 	   2 Input      4 Bit       Adders := 1     
@@ -165,7 +163,6 @@ Detailed RTL Component Info :
 +---Registers : 
 	               32 Bit    Registers := 1     
 	               16 Bit    Registers := 5     
-	                9 Bit    Registers := 1     
 	                8 Bit    Registers := 2     
 	                6 Bit    Registers := 2     
 	                5 Bit    Registers := 1     
@@ -173,10 +170,10 @@ Detailed RTL Component Info :
 	                2 Bit    Registers := 5     
 	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input     16 Bit        Muxes := 1     
 	   5 Input     16 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 6     
-	   2 Input      8 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 3     
 	   2 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 1     
@@ -184,9 +181,10 @@ Detailed RTL Component Info :
 	   2 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 4     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 35    
-	  10 Input      1 Bit        Muxes := 11    
-	   4 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 33    
+	  10 Input      1 Bit        Muxes := 10    
+	   4 Input      1 Bit        Muxes := 4     
+	   3 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -198,8 +196,7 @@ Module IMU_top
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     16 Bit       Adders := 1     
-	   2 Input      9 Bit       Adders := 3     
-	   2 Input      8 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 2     
 	   2 Input      6 Bit       Adders := 2     
 	   2 Input      5 Bit       Adders := 1     
 	   2 Input      4 Bit       Adders := 1     
@@ -207,7 +204,6 @@ Detailed RTL Component Info :
 +---Registers : 
 	               32 Bit    Registers := 1     
 	               16 Bit    Registers := 5     
-	                9 Bit    Registers := 1     
 	                8 Bit    Registers := 2     
 	                6 Bit    Registers := 2     
 	                5 Bit    Registers := 1     
@@ -215,10 +211,10 @@ Detailed RTL Component Info :
 	                2 Bit    Registers := 5     
 	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input     16 Bit        Muxes := 1     
 	   5 Input     16 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 6     
-	   2 Input      8 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 3     
 	   2 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 1     
@@ -226,9 +222,10 @@ Detailed RTL Component Info :
 	   2 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 4     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 35    
-	  10 Input      1 Bit        Muxes := 11    
-	   4 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 33    
+	  10 Input      1 Bit        Muxes := 10    
+	   4 Input      1 Bit        Muxes := 4     
+	   3 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -241,13 +238,12 @@ BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 631.895 ; gain = 424.875
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "nextData_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "nextData_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "degrees" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "invertY_count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "IPsubtracter_count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "domainChange_count" won't be mapped to RAM because it is too sparse
@@ -257,11 +253,10 @@ INFO: [Synth 8-5546] ROM "formatting_count" won't be mapped to RAM because it is
 INFO: [Synth 8-5546] ROM "RadToDeg_count" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3917] design IMU_top has port cs_nAG driven by constant 1
 WARNING: [Synth 8-3917] design IMU_top has port cs_nALT driven by constant 1
-WARNING: [Synth 8-3331] design IMU_top has unconnected port button
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Parallel Reinference  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 632.863 ; gain = 426.250
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -287,7 +282,6 @@ INFO: [Synth 8-3886] merging instance 'transferVal_reg[5]' (FDE_1) to 'transferV
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\transferVal_reg[6] )
 INFO: [Synth 8-3886] merging instance 'transferVal_reg[6]' (FDE_1) to 'transferVal_reg[7]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\transferVal_reg[7] )
-WARNING: [Synth 8-3332] Sequential element (currentData_state_reg[9]) is unused and will be removed from module IMU_top.
 WARNING: [Synth 8-3332] Sequential element (transferVal_reg[7]) is unused and will be removed from module IMU_top.
 WARNING: [Synth 8-3332] Sequential element (transferVal_reg[6]) is unused and will be removed from module IMU_top.
 WARNING: [Synth 8-3332] Sequential element (transferVal_reg[5]) is unused and will be removed from module IMU_top.
@@ -296,11 +290,12 @@ WARNING: [Synth 8-3332] Sequential element (transferVal_reg[3]) is unused and wi
 WARNING: [Synth 8-3332] Sequential element (transferVal_reg[2]) is unused and will be removed from module IMU_top.
 WARNING: [Synth 8-3332] Sequential element (transferVal_reg[1]) is unused and will be removed from module IMU_top.
 WARNING: [Synth 8-3332] Sequential element (transferVal_reg[0]) is unused and will be removed from module IMU_top.
+WARNING: [Synth 8-3332] Sequential element (currentData_state_reg[9]) is unused and will be removed from module IMU_top.
 WARNING: [Synth 8-3332] Sequential element (phase_reg[1]) is unused and will be removed from module IMU_top.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 632.863 ; gain = 426.250
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -317,10 +312,10 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'mmcm/clk_100M' to pin 'mm
 INFO: [Synth 8-5578] Moved timing constraint from pin 'mmcm/clk_10M' to pin 'mmcm/bbstub_clk_10M/O'
 INFO: [Synth 8-5820] Moved 2 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:14 ; elapsed = 00:01:18 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:14 ; elapsed = 00:01:18 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -332,16 +327,16 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:14 ; elapsed = 00:01:18 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:01:14 ; elapsed = 00:01:18 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 632.863 ; gain = 426.250
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:01:14 ; elapsed = 00:01:18 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -358,7 +353,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:16 ; elapsed = 00:01:20 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -371,7 +366,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:16 ; elapsed = 00:01:20 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -383,25 +378,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:16 ; elapsed = 00:01:20 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:16 ; elapsed = 00:01:20 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:16 ; elapsed = 00:01:20 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:16 ; elapsed = 00:01:20 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -430,35 +425,34 @@ Report Cell Usage:
 |6     |div_gen_0__1  |     1|
 |7     |mult_gen_0    |     1|
 |8     |CARRY4        |     4|
-|9     |LUT1          |    19|
-|10    |LUT2          |    22|
-|11    |LUT3          |    20|
-|12    |LUT4          |    52|
-|13    |LUT5          |    32|
-|14    |LUT6          |    57|
+|9     |LUT1          |    22|
+|10    |LUT2          |    18|
+|11    |LUT3          |    22|
+|12    |LUT4          |    34|
+|13    |LUT5          |    25|
+|14    |LUT6          |    28|
 |15    |FDCE          |    10|
-|16    |FDRE          |   182|
+|16    |FDRE          |   173|
 |17    |FDSE          |     1|
 |18    |LDC           |     1|
-|19    |IBUF          |     2|
-|20    |OBUF          |    11|
-|21    |OBUFT         |     2|
+|19    |IBUF          |     3|
+|20    |OBUF          |    13|
 +------+--------------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   550|
+|1     |top      |       |   489|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:16 ; elapsed = 00:01:20 . Memory (MB): peak = 631.895 ; gain = 424.875
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 632.863 ; gain = 426.250
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 14 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:44 ; elapsed = 00:00:55 . Memory (MB): peak = 631.895 ; gain = 103.348
-Synthesis Optimization Complete : Time (s): cpu = 00:01:17 ; elapsed = 00:01:21 . Memory (MB): peak = 631.895 ; gain = 424.875
+Synthesis finished with 0 errors, 0 critical warnings and 13 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 632.863 ; gain = 104.816
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 632.863 ; gain = 426.250
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 2 inverter(s) to 30 load pin(s).
@@ -467,8 +461,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LDC => LDCE: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-73 Infos, 31 Warnings, 0 Critical Warnings and 0 Errors encountered.
+71 Infos, 30 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:14 ; elapsed = 00:01:16 . Memory (MB): peak = 631.895 ; gain = 424.875
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 631.895 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Dec 14 16:53:08 2016...
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 632.863 ; gain = 426.250
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 632.863 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 14 19:55:06 2016...
