@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.hw/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Thu Dec 15 01:07:25 2016" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Thu Dec 15 11:50:54 2016" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "Vivado v2016.2 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "1577090" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "42a33766ecc3594d8d300fc75934d3ae" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "4dce412e-7b03-46ce-8cd6-193aad650d10" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "2" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "3" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz" -context "user_environment"
@@ -22,8 +22,7 @@ webtalk_add_data -client project -key cpu_speed -value "2712 MHz" -context "user
 webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
 webtalk_add_data -client project -key system_ram -value "34.000 GB" -context "user_environment"
 webtalk_register_client -client labtool
-webtalk_add_data -client labtool -key chain -value "0000400003727093" -context "labtool\\usage"
-webtalk_add_data -client labtool -key pgmcnt -value "08:00:00" -context "labtool\\usage"
-webtalk_add_data -client labtool -key cable -value "Digilent/Zed/15000000:" -context "labtool\\usage"
-webtalk_transmit -clientid 1248978632 -regid "" -xml C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.hw/webtalk/usage_statistics_ext_labtool.xml -html C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.hw/webtalk/usage_statistics_ext_labtool.html -wdm C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.hw/webtalk/usage_statistics_ext_labtool.wdm -intro "<H3>LABTOOL Usage Report</H3><BR>"
+webtalk_add_data -client labtool -key pgmcnt -value "00:00:00" -context "labtool\\usage"
+webtalk_add_data -client labtool -key cable -value "" -context "labtool\\usage"
+webtalk_transmit -clientid 640692504 -regid "" -xml C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.hw/webtalk/usage_statistics_ext_labtool.xml -html C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.hw/webtalk/usage_statistics_ext_labtool.html -wdm C:/Users/georges/Documents/GitHub/MQP/IMU/IMU.hw/webtalk/usage_statistics_ext_labtool.wdm -intro "<H3>LABTOOL Usage Report</H3><BR>"
 webtalk_terminate

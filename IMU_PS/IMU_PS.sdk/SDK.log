@@ -1,0 +1,51 @@
+19:42:18 INFO  : Launching XSDB server: xsdb.bat -interactive C:\Users\georges\Documents\GitHub\MQP\IMU_PS\IMU_PS.sdk\temp_xsdb_launch_script.tcl
+19:42:19 INFO  : XSDB server has started successfully.
+19:42:20 INFO  : Processing command line option -hwspec C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper.hdf.
+19:46:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:46:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+19:46:11 INFO  : FPGA configured successfully with bitstream "C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/IMU_bd_wrapper.bit"
+19:46:25 INFO  : ps7_init is completed.
+19:46:25 INFO  : ps7_post_config is completed.
+19:46:26 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:47:38 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:47:43 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:48:33 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:49:48 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:52:00 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:05:34 ERROR : Checking FPGA configuration failed..Connection to Board Failed
+
+
+    Unknown Error Occured
+    Cable is not powered-on
+
+20:05:34 ERROR : Unexpected error while launching program.
+com.xilinx.sdk.targetmanager.TMException: Connection to Board Failed
+
+
+    Unknown Error Occured
+    Cable is not powered-on
+
+	at com.xilinx.sdk.targetmanager.internal.TM.isFPGAConfigured(TM.java:374)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.isFpgaConfigured(XilinxAppLaunchConfigurationDelegate.java:409)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:303)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+20:05:52 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:05:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1' command is executed.
+20:05:56 INFO  : FPGA configured successfully with bitstream "C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/IMU_bd_wrapper.bit"
+20:06:21 INFO  : ps7_init is completed.
+20:06:21 INFO  : ps7_post_config is completed.
+20:06:21 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:06:44 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:07:47 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:08:00 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:08:32 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:09:21 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:09:33 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:09:42 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:10:31 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:23:52 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 

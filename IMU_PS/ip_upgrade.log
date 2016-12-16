@@ -1,0 +1,81 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Thu Dec 15 12:37:26 2016
+| Host         : Georges-T460p running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'IMU_bd_InOut_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of IMU_bd_InOut_0_0 (xilinx.com:user:InOut:1.0) from (Rev. 2) to (Rev. 3)
+
+After upgrade, an IP may have parameter differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality.
+
+2. Warnings
+-----------
+
+WARNING: The upgraded user parameter set contained parameters that could not be mapped on to the upgraded IP. Note that parameter names and IDs are case sensitive.
+
+
+3. Customization warnings
+-------------------------
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+Validation failed for parameter 'Component Name(Component_Name)' with value 'IMU_bd_InOut_0_0' for BD Cell 'InOut_0'. The specified IP name 'IMU_bd_InOut_0_0' is reserved. Please specify a different IP name.
+
+Customization errors found on 'InOut_0'. Restoring to previous valid configuration.
+
+Validation failed for parameter 'Component Name(Component_Name)' with value 'IMU_bd_InOut_0_0' for BD Cell 'InOut_0'. The specified IP name 'IMU_bd_InOut_0_0' is reserved. Please specify a different IP name.
+
+Customization errors found during restoring IP 'InOut_0' to previous valid configuration.
+
+Failed to restore IP 'InOut_0' customization to its previous valid configuration.
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+Validation failed for parameter 'Component Name(Component_Name)' with value 'IMU_bd_InOut_0_0' for BD Cell 'InOut_0'. The specified IP name 'IMU_bd_InOut_0_0' is reserved. Please specify a different IP name.
+
+Customization errors found on 'InOut_0'. Restoring to previous valid configuration.
+
+Validation failed for parameter 'Component Name(Component_Name)' with value 'IMU_bd_InOut_0_0' for BD Cell 'InOut_0'. The specified IP name 'IMU_bd_InOut_0_0' is reserved. Please specify a different IP name.
+
+Customization errors found during restoring IP 'InOut_0' to previous valid configuration.
+
+Failed to restore IP 'InOut_0' customization to its previous valid configuration.
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+Validation failed for parameter 'Component Name(Component_Name)' with value 'IMU_bd_InOut_0_0' for BD Cell 'InOut_0'. The specified IP name 'IMU_bd_InOut_0_0' is reserved. Please specify a different IP name.
+
+Customization errors found on 'InOut_0'. Restoring to previous valid configuration.
+
+Validation failed for parameter 'Component Name(Component_Name)' with value 'IMU_bd_InOut_0_0' for BD Cell 'InOut_0'. The specified IP name 'IMU_bd_InOut_0_0' is reserved. Please specify a different IP name.
+
+Customization errors found during restoring IP 'InOut_0' to previous valid configuration.
+
+Failed to restore IP 'InOut_0' customization to its previous valid configuration.
+
+
+4. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv xilinx.com:user:InOut:1.0 -user_name IMU_bd_InOut_0_0
+set_property -dict "\
+  CONFIG.Component_Name IMU_bd_InOut_0_0 " [get_ips IMU_bd_InOut_0_0]
+
+
