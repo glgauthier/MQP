@@ -56,12 +56,9 @@
 `timescale 1ns/1ps
 
 module IMU_bd_processing_system7_0_0 (
-I2C1_SDA_I, 
-I2C1_SDA_O, 
-I2C1_SDA_T, 
-I2C1_SCL_I, 
-I2C1_SCL_O, 
-I2C1_SCL_T, 
+GPIO_I, 
+GPIO_O, 
+GPIO_T, 
 SPI0_SCLK_I, 
 SPI0_SCLK_O, 
 SPI0_SCLK_T, 
@@ -139,12 +136,9 @@ PS_SRSTB,
 PS_CLK, 
 PS_PORB 
 );
-input I2C1_SDA_I;
-output I2C1_SDA_O;
-output I2C1_SDA_T;
-input I2C1_SCL_I;
-output I2C1_SCL_O;
-output I2C1_SCL_T;
+input [1 : 0] GPIO_I;
+output [1 : 0] GPIO_O;
+output [1 : 0] GPIO_T;
 input SPI0_SCLK_I;
 output SPI0_SCLK_O;
 output SPI0_SCLK_T;

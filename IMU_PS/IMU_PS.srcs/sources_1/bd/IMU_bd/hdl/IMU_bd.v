@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Thu Dec 15 17:52:35 2016
+//Date        : Fri Dec 16 16:49:53 2016
 //Host        : Georges-T460p running 64-bit major release  (build 9200)
 //Command     : generate_target IMU_bd.bd
 //Design      : IMU_bd
@@ -32,12 +32,9 @@ module IMU_bd
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    IIC_1_scl_i,
-    IIC_1_scl_o,
-    IIC_1_scl_t,
-    IIC_1_sda_i,
-    IIC_1_sda_o,
-    IIC_1_sda_t,
+    GPIO_0_tri_i,
+    GPIO_0_tri_o,
+    GPIO_0_tri_t,
     SPI_0_io0_i,
     SPI_0_io0_o,
     SPI_0_io0_t,
@@ -73,12 +70,9 @@ module IMU_bd
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
-  input IIC_1_scl_i;
-  output IIC_1_scl_o;
-  output IIC_1_scl_t;
-  input IIC_1_sda_i;
-  output IIC_1_sda_o;
-  output IIC_1_sda_t;
+  input [1:0]GPIO_0_tri_i;
+  output [1:0]GPIO_0_tri_o;
+  output [1:0]GPIO_0_tri_t;
   input SPI_0_io0_i;
   output SPI_0_io0_o;
   output SPI_0_io0_t;
@@ -116,12 +110,9 @@ module IMU_bd
   wire processing_system7_0_FIXED_IO_PS_CLK;
   wire processing_system7_0_FIXED_IO_PS_PORB;
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
-  wire processing_system7_0_IIC_1_SCL_I;
-  wire processing_system7_0_IIC_1_SCL_O;
-  wire processing_system7_0_IIC_1_SCL_T;
-  wire processing_system7_0_IIC_1_SDA_I;
-  wire processing_system7_0_IIC_1_SDA_O;
-  wire processing_system7_0_IIC_1_SDA_T;
+  wire [1:0]processing_system7_0_GPIO_0_TRI_I;
+  wire [1:0]processing_system7_0_GPIO_0_TRI_O;
+  wire [1:0]processing_system7_0_GPIO_0_TRI_T;
   wire processing_system7_0_SPI_0_IO0_I;
   wire processing_system7_0_SPI_0_IO0_O;
   wire processing_system7_0_SPI_0_IO0_T;
@@ -137,10 +128,8 @@ module IMU_bd
   wire processing_system7_0_SPI_0_SS_O;
   wire processing_system7_0_SPI_0_SS_T;
 
-  assign IIC_1_scl_o = processing_system7_0_IIC_1_SCL_O;
-  assign IIC_1_scl_t = processing_system7_0_IIC_1_SCL_T;
-  assign IIC_1_sda_o = processing_system7_0_IIC_1_SDA_O;
-  assign IIC_1_sda_t = processing_system7_0_IIC_1_SDA_T;
+  assign GPIO_0_tri_o[1:0] = processing_system7_0_GPIO_0_TRI_O;
+  assign GPIO_0_tri_t[1:0] = processing_system7_0_GPIO_0_TRI_T;
   assign SPI_0_io0_o = processing_system7_0_SPI_0_IO0_O;
   assign SPI_0_io0_t = processing_system7_0_SPI_0_IO0_T;
   assign SPI_0_io1_o = processing_system7_0_SPI_0_IO1_O;
@@ -151,8 +140,7 @@ module IMU_bd
   assign SPI_0_ss2_o = processing_system7_0_SPI_0_SS2_O;
   assign SPI_0_ss_o = processing_system7_0_SPI_0_SS_O;
   assign SPI_0_ss_t = processing_system7_0_SPI_0_SS_T;
-  assign processing_system7_0_IIC_1_SCL_I = IIC_1_scl_i;
-  assign processing_system7_0_IIC_1_SDA_I = IIC_1_sda_i;
+  assign processing_system7_0_GPIO_0_TRI_I = GPIO_0_tri_i[1:0];
   assign processing_system7_0_SPI_0_IO0_I = SPI_0_io0_i;
   assign processing_system7_0_SPI_0_IO1_I = SPI_0_io1_i;
   assign processing_system7_0_SPI_0_SCK_I = SPI_0_sck_i;
@@ -176,12 +164,9 @@ module IMU_bd
         .DDR_VRP(FIXED_IO_ddr_vrp),
         .DDR_WEB(DDR_we_n),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
-        .I2C1_SCL_I(processing_system7_0_IIC_1_SCL_I),
-        .I2C1_SCL_O(processing_system7_0_IIC_1_SCL_O),
-        .I2C1_SCL_T(processing_system7_0_IIC_1_SCL_T),
-        .I2C1_SDA_I(processing_system7_0_IIC_1_SDA_I),
-        .I2C1_SDA_O(processing_system7_0_IIC_1_SDA_O),
-        .I2C1_SDA_T(processing_system7_0_IIC_1_SDA_T),
+        .GPIO_I(processing_system7_0_GPIO_0_TRI_I),
+        .GPIO_O(processing_system7_0_GPIO_0_TRI_O),
+        .GPIO_T(processing_system7_0_GPIO_0_TRI_T),
         .MIO(FIXED_IO_mio[53:0]),
         .M_AXI_GP0_ACLK(processing_system7_0_FCLK_CLK0),
         .M_AXI_GP0_ARREADY(1'b0),

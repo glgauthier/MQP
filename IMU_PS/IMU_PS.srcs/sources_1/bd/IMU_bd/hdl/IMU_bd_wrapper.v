@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Thu Dec 15 17:52:35 2016
+//Date        : Fri Dec 16 16:49:53 2016
 //Host        : Georges-T460p running 64-bit major release  (build 9200)
 //Command     : generate_target IMU_bd_wrapper.bd
 //Design      : IMU_bd_wrapper
@@ -31,8 +31,7 @@ module IMU_bd_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    iic_1_scl_io,
-    iic_1_sda_io,
+    gpio_0_tri_io,
     spi_0_io0_io,
     spi_0_io1_io,
     spi_0_sck_io,
@@ -60,8 +59,7 @@ module IMU_bd_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
-  inout iic_1_scl_io;
-  inout iic_1_sda_io;
+  inout [1:0]gpio_0_tri_io;
   inout spi_0_io0_io;
   inout spi_0_io1_io;
   inout spi_0_sck_io;
@@ -90,14 +88,14 @@ module IMU_bd_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
-  wire iic_1_scl_i;
-  wire iic_1_scl_io;
-  wire iic_1_scl_o;
-  wire iic_1_scl_t;
-  wire iic_1_sda_i;
-  wire iic_1_sda_io;
-  wire iic_1_sda_o;
-  wire iic_1_sda_t;
+  wire [0:0]gpio_0_tri_i_0;
+  wire [1:1]gpio_0_tri_i_1;
+  wire [0:0]gpio_0_tri_io_0;
+  wire [1:1]gpio_0_tri_io_1;
+  wire [0:0]gpio_0_tri_o_0;
+  wire [1:1]gpio_0_tri_o_1;
+  wire [0:0]gpio_0_tri_t_0;
+  wire [1:1]gpio_0_tri_t_1;
   wire spi_0_io0_i;
   wire spi_0_io0_io;
   wire spi_0_io0_o;
@@ -139,12 +137,9 @@ module IMU_bd_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .IIC_1_scl_i(iic_1_scl_i),
-        .IIC_1_scl_o(iic_1_scl_o),
-        .IIC_1_scl_t(iic_1_scl_t),
-        .IIC_1_sda_i(iic_1_sda_i),
-        .IIC_1_sda_o(iic_1_sda_o),
-        .IIC_1_sda_t(iic_1_sda_t),
+        .GPIO_0_tri_i({gpio_0_tri_i_1,gpio_0_tri_i_0}),
+        .GPIO_0_tri_o({gpio_0_tri_o_1,gpio_0_tri_o_0}),
+        .GPIO_0_tri_t({gpio_0_tri_t_1,gpio_0_tri_t_0}),
         .SPI_0_io0_i(spi_0_io0_i),
         .SPI_0_io0_o(spi_0_io0_o),
         .SPI_0_io0_t(spi_0_io0_t),
@@ -159,16 +154,16 @@ module IMU_bd_wrapper
         .SPI_0_ss_i(spi_0_ss_i),
         .SPI_0_ss_o(spi_0_ss_o),
         .SPI_0_ss_t(spi_0_ss_t));
-  IOBUF iic_1_scl_iobuf
-       (.I(iic_1_scl_o),
-        .IO(iic_1_scl_io),
-        .O(iic_1_scl_i),
-        .T(iic_1_scl_t));
-  IOBUF iic_1_sda_iobuf
-       (.I(iic_1_sda_o),
-        .IO(iic_1_sda_io),
-        .O(iic_1_sda_i),
-        .T(iic_1_sda_t));
+  IOBUF gpio_0_tri_iobuf_0
+       (.I(gpio_0_tri_o_0),
+        .IO(gpio_0_tri_io[0]),
+        .O(gpio_0_tri_i_0),
+        .T(gpio_0_tri_t_0));
+  IOBUF gpio_0_tri_iobuf_1
+       (.I(gpio_0_tri_o_1),
+        .IO(gpio_0_tri_io[1]),
+        .O(gpio_0_tri_i_1),
+        .T(gpio_0_tri_t_1));
   IOBUF spi_0_io0_iobuf
        (.I(spi_0_io0_o),
         .IO(spi_0_io0_io),

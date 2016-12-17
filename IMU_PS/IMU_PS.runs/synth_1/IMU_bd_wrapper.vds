@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Thu Dec 15 19:39:47 2016
-# Process ID: 7516
+# Start of session at: Fri Dec 16 19:33:54 2016
+# Process ID: 11232
 # Current directory: C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1
 # Command line: vivado.exe -log IMU_bd_wrapper.vds -mode batch -messageDb vivado.pb -notrace -source IMU_bd_wrapper.tcl
 # Log file: C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/IMU_bd_wrapper.vds
@@ -18,9 +18,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9640 
+INFO: Helper process launched with PID 3864 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 303.012 ; gain = 96.074
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 303.199 ; gain = 95.914
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'IMU_bd_wrapper' [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd_wrapper.v:12]
 INFO: [Synth 8-638] synthesizing module 'IMU_bd' [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd.v:13]
@@ -52,7 +52,7 @@ INFO: [Synth 8-638] synthesizing module 'processing_system7_v5_5_processing_syst
 	Parameter C_FCLK_CLK1_BUF bound to: false - type: string 
 	Parameter C_FCLK_CLK2_BUF bound to: false - type: string 
 	Parameter C_FCLK_CLK3_BUF bound to: false - type: string 
-	Parameter C_EMIO_GPIO_WIDTH bound to: 64 - type: integer 
+	Parameter C_EMIO_GPIO_WIDTH bound to: 2 - type: integer 
 	Parameter C_INCLUDE_TRACE_BUFFER bound to: 0 - type: integer 
 	Parameter C_TRACE_BUFFER_FIFO_SIZE bound to: 128 - type: integer 
 	Parameter C_TRACE_BUFFER_CLOCK_DELAY bound to: 12 - type: integer 
@@ -89,9 +89,9 @@ INFO: [Synth 8-256] done synthesizing module 'BIBUF' (2#1) [C:/Xilinx/Vivado/201
 INFO: [Synth 8-638] synthesizing module 'PS7' [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:33164]
 INFO: [Synth 8-256] done synthesizing module 'PS7' (3#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:33164]
 INFO: [Synth 8-256] done synthesizing module 'processing_system7_v5_5_processing_system7' (4#1) [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:156]
-WARNING: [Synth 8-350] instance 'inst' of module 'processing_system7_v5_5_processing_system7' requires 685 connections, but only 672 given [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/synth/IMU_bd_processing_system7_0_0.v:363]
+WARNING: [Synth 8-350] instance 'inst' of module 'processing_system7_v5_5_processing_system7' requires 685 connections, but only 672 given [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/synth/IMU_bd_processing_system7_0_0.v:354]
 INFO: [Synth 8-256] done synthesizing module 'IMU_bd_processing_system7_0_0' (5#1) [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/synth/IMU_bd_processing_system7_0_0.v:59]
-WARNING: [Synth 8-350] instance 'processing_system7_0' of module 'IMU_bd_processing_system7_0_0' requires 82 connections, but only 54 given [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd.v:160]
+WARNING: [Synth 8-350] instance 'processing_system7_0' of module 'IMU_bd_processing_system7_0_0' requires 79 connections, but only 51 given [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd.v:148]
 INFO: [Synth 8-256] done synthesizing module 'IMU_bd' (6#1) [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd.v:13]
 INFO: [Synth 8-638] synthesizing module 'IOBUF' [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:17333]
 	Parameter DRIVE bound to: 12 - type: integer 
@@ -180,7 +180,7 @@ WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has un
 WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has unconnected port FTMD_TRACEIN_ATID[1]
 WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has unconnected port FTMD_TRACEIN_ATID[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 340.473 ; gain = 133.535
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 340.684 ; gain = 133.398
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -190,7 +190,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 340.473 ; gain = 133.535
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 340.684 ; gain = 133.398
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -217,16 +217,16 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 6 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 6 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 574.430 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 574.789 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 574.430 ; gain = 367.492
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 574.789 ; gain = 367.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 574.430 ; gain = 367.492
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 574.789 ; gain = 367.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -235,10 +235,10 @@ Applied set_property DONT_TOUCH = true for IMU_bd_i/processing_system7_0/inst. (
 Applied set_property DONT_TOUCH = true for IMU_bd_i. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for IMU_bd_i/processing_system7_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 574.430 ; gain = 367.492
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 574.789 ; gain = 367.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 574.430 ; gain = 367.492
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -269,7 +269,7 @@ BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 574.430 ; gain = 367.492
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -296,9 +296,9 @@ WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has un
 WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has unconnected port ENET1_GMII_RXD[3]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 574.430 ; gain = 367.492
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 574.430 ; gain = 367.492
+Finished Parallel Reinference  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -309,9 +309,9 @@ Report RTL Partitions:
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 574.430 ; gain = 367.492
+Finished Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 574.430 ; gain = 367.492
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -325,10 +325,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 786.543 ; gain = 579.605
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 786.840 ; gain = 579.555
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 803.559 ; gain = 596.621
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 802.891 ; gain = 595.605
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -340,16 +340,16 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 808.359 ; gain = 601.422
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 808.191 ; gain = 600.906
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 808.359 ; gain = 601.422
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 808.191 ; gain = 600.906
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 808.359 ; gain = 601.422
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 808.191 ; gain = 600.906
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -366,7 +366,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.359 ; gain = 601.422
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -379,7 +379,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.359 ; gain = 601.422
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -391,25 +391,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.359 ; gain = 601.422
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.359 ; gain = 601.422
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.359 ; gain = 601.422
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.359 ; gain = 601.422
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -427,7 +427,7 @@ Report Cell Usage:
 +------+------+------+
 |1     |BIBUF |   130|
 |2     |BUFG  |     1|
-|3     |LUT1  |   112|
+|3     |LUT1  |    50|
 |4     |PS7   |     1|
 |5     |IOBUF |     6|
 |6     |OBUF  |     2|
@@ -437,17 +437,17 @@ Report Instance Areas:
 +------+-------------------------+-------------------------------------------+------+
 |      |Instance                 |Module                                     |Cells |
 +------+-------------------------+-------------------------------------------+------+
-|1     |top                      |                                           |   252|
-|2     |  IMU_bd_i               |IMU_bd                                     |   244|
-|3     |    processing_system7_0 |IMU_bd_processing_system7_0_0              |   244|
-|4     |      inst               |processing_system7_v5_5_processing_system7 |   244|
+|1     |top                      |                                           |   190|
+|2     |  IMU_bd_i               |IMU_bd                                     |   182|
+|3     |    processing_system7_0 |IMU_bd_processing_system7_0_0              |   182|
+|4     |      inst               |processing_system7_v5_5_processing_system7 |   182|
 +------+-------------------------+-------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.359 ; gain = 601.422
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 79 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 808.359 ; gain = 343.074
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.359 ; gain = 601.422
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 808.191 ; gain = 342.258
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -460,6 +460,6 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 38 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 815.742 ; gain = 584.414
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 815.742 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu Dec 15 19:40:20 2016...
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 815.070 ; gain = 583.242
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.019 . Memory (MB): peak = 815.070 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri Dec 16 19:34:27 2016...

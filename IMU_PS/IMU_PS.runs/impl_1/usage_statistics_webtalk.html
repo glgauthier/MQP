@@ -4,11 +4,11 @@
   <TR ALIGN='CENTER' BGCOLOR='#A7BFDE'><TD COLSPAN='4'><B>software_version_and_target_device</B></TD></TR>
 <TR ALIGN='LEFT'>  <TD BGCOLOR='#DBE5F1'><B>beta</B></TD><TD>FALSE</TD>
   <TD BGCOLOR='#DBE5F1'><B>build_version</B></TD><TD>1577090</TD>
-</TR><TR ALIGN='LEFT'>  <TD BGCOLOR='#DBE5F1'><B>date_generated</B></TD><TD>Thu Dec 15 19:41:40 2016</TD>
+</TR><TR ALIGN='LEFT'>  <TD BGCOLOR='#DBE5F1'><B>date_generated</B></TD><TD>Fri Dec 16 19:35:45 2016</TD>
   <TD BGCOLOR='#DBE5F1'><B>os_platform</B></TD><TD>WIN64</TD>
 </TR><TR ALIGN='LEFT'>  <TD BGCOLOR='#DBE5F1'><B>product_version</B></TD><TD>Vivado v2016.2 (64-bit)</TD>
   <TD BGCOLOR='#DBE5F1'><B>project_id</B></TD><TD>d289a252d3fd4b4e8df018708db2a78f</TD>
-</TR><TR ALIGN='LEFT'>  <TD BGCOLOR='#DBE5F1'><B>project_iteration</B></TD><TD>8</TD>
+</TR><TR ALIGN='LEFT'>  <TD BGCOLOR='#DBE5F1'><B>project_iteration</B></TD><TD>13</TD>
   <TD BGCOLOR='#DBE5F1'><B>random_id</B></TD><TD>42a33766ecc3594d8d300fc75934d3ae</TD>
 </TR><TR ALIGN='LEFT'>  <TD BGCOLOR='#DBE5F1'><B>registration_id</B></TD><TD>211146563_0_0_943</TD>
   <TD BGCOLOR='#DBE5F1'><B>route_design</B></TD><TD>TRUE</TD>
@@ -31,7 +31,7 @@
   <TR ALIGN='CENTER' BGCOLOR='#A7BFDE'><TD COLSPAN='4'><B>vivado_usage</B></TD></TR>
 <TR ALIGN='LEFT'>  <TABLE BORDER='1' CELLSPACING='0' WIDTH='100%'>
    <TR ALIGN='CENTER' BGCOLOR='#DBE5F1'><TD COLSPAN='4'><B>other_data</B></TD></TR>
-<TR ALIGN='LEFT'>   <TD>guimode=7</TD>
+<TR ALIGN='LEFT'>   <TD>guimode=8</TD>
 </TR>  </TABLE>
   <TABLE BORDER='1' CELLSPACING='0' WIDTH='100%'>
    <TR ALIGN='CENTER' BGCOLOR='#DBE5F1'><TD COLSPAN='4'><B>project_data</B></TD></TR>
@@ -75,7 +75,7 @@
     <TD>bufg=1</TD>
     <TD>gnd=3</TD>
     <TD>ibuf=6</TD>
-</TR><TR ALIGN='LEFT'>    <TD>lut1=112</TD>
+</TR><TR ALIGN='LEFT'>    <TD>lut1=50</TD>
     <TD>obuf=2</TD>
     <TD>obuft=6</TD>
     <TD>ps7=1</TD>
@@ -89,7 +89,7 @@
     <TD>bufg=1</TD>
     <TD>gnd=3</TD>
     <TD>iobuf=6</TD>
-</TR><TR ALIGN='LEFT'>    <TD>lut1=112</TD>
+</TR><TR ALIGN='LEFT'>    <TD>lut1=50</TD>
     <TD>obuf=2</TD>
     <TD>ps7=1</TD>
     <TD>vcc=1</TD>
@@ -187,18 +187,18 @@
     <TD>pcw_ftm_cti_out1=DISABLED</TD>
 </TR><TR ALIGN='LEFT'>    <TD>pcw_ftm_cti_out2=DISABLED</TD>
     <TD>pcw_ftm_cti_out3=DISABLED</TD>
-    <TD>pcw_gpio_emio_gpio_enable=0</TD>
-    <TD>pcw_gpio_mio_gpio_enable=1</TD>
-</TR><TR ALIGN='LEFT'>    <TD>pcw_gpio_mio_gpio_io=MIO</TD>
+    <TD>pcw_gpio_emio_gpio_enable=1</TD>
+    <TD>pcw_gpio_emio_gpio_io=2</TD>
+</TR><TR ALIGN='LEFT'>    <TD>pcw_gpio_mio_gpio_enable=1</TD>
+    <TD>pcw_gpio_mio_gpio_io=MIO</TD>
     <TD>pcw_gpio_peripheral_enable=0</TD>
-    <TD>pcw_i2c0_grp_int_enable=0</TD>
+    <TD>pcw_i2c0_grp_int_enable=1</TD>
+</TR><TR ALIGN='LEFT'>    <TD>pcw_i2c0_grp_int_io=EMIO</TD>
     <TD>pcw_i2c0_i2c0_io=MIO 14 .. 15</TD>
-</TR><TR ALIGN='LEFT'>    <TD>pcw_i2c0_peripheral_enable=1</TD>
+    <TD>pcw_i2c0_peripheral_enable=1</TD>
     <TD>pcw_i2c0_reset_enable=0</TD>
-    <TD>pcw_i2c1_grp_int_enable=1</TD>
-    <TD>pcw_i2c1_grp_int_io=EMIO</TD>
-</TR><TR ALIGN='LEFT'>    <TD>pcw_i2c1_i2c1_io=EMIO</TD>
-    <TD>pcw_i2c1_peripheral_enable=1</TD>
+</TR><TR ALIGN='LEFT'>    <TD>pcw_i2c1_grp_int_enable=0</TD>
+    <TD>pcw_i2c1_peripheral_enable=0</TD>
     <TD>pcw_i2c1_reset_enable=0</TD>
     <TD>pcw_i2c_reset_polarity=Active Low</TD>
 </TR><TR ALIGN='LEFT'>    <TD>pcw_io_io_pll_freqmhz=1000.000</TD>
@@ -435,7 +435,7 @@
 <TR ALIGN='LEFT'>    <TD>c_dm_width=4</TD>
     <TD>c_dq_width=32</TD>
     <TD>c_dqs_width=4</TD>
-    <TD>c_emio_gpio_width=64</TD>
+    <TD>c_emio_gpio_width=2</TD>
 </TR><TR ALIGN='LEFT'>    <TD>c_en_emio_enet0=0</TD>
     <TD>c_en_emio_enet1=0</TD>
     <TD>c_en_emio_pjtag=0</TD>
@@ -559,10 +559,10 @@
 </TR><TR ALIGN='LEFT'>    <TD>confidence_level_overall=Low</TD>
     <TD>customer=TBD</TD>
     <TD>customer_class=TBD</TD>
-    <TD>devstatic=0.157392</TD>
+    <TD>devstatic=0.157393</TD>
 </TR><TR ALIGN='LEFT'>    <TD>die=xc7z020clg484-1</TD>
     <TD>dsp_output_toggle=12.500000</TD>
-    <TD>dynamic=1.530384</TD>
+    <TD>dynamic=1.530436</TD>
     <TD>effective_thetaja=11.5</TD>
 </TR><TR ALIGN='LEFT'>    <TD>enable_probability=0.990000</TD>
     <TD>family=zynq</TD>
@@ -587,22 +587,22 @@
 </TR><TR ALIGN='LEFT'>    <TD>mgtvccaux_voltage=1.800000</TD>
     <TD>netlist_net_matched=NA</TD>
     <TD>off-chip_power=0.000000</TD>
-    <TD>on-chip_power=1.687776</TD>
+    <TD>on-chip_power=1.687829</TD>
 </TR><TR ALIGN='LEFT'>    <TD>output_enable=1.000000</TD>
     <TD>output_load=5.000000</TD>
     <TD>output_toggle=12.500000</TD>
     <TD>package=clg484</TD>
-</TR><TR ALIGN='LEFT'>    <TD>pct_clock_constrained=1.000000</TD>
+</TR><TR ALIGN='LEFT'>    <TD>pct_clock_constrained=0.000000</TD>
     <TD>pct_inputs_defined=0</TD>
     <TD>platform=nt64</TD>
     <TD>process=typical</TD>
-</TR><TR ALIGN='LEFT'>    <TD>ps7=1.523685</TD>
+</TR><TR ALIGN='LEFT'>    <TD>ps7=1.523749</TD>
     <TD>ram_enable=50.000000</TD>
     <TD>ram_write=50.000000</TD>
     <TD>read_saif=False</TD>
 </TR><TR ALIGN='LEFT'>    <TD>set/reset_probability=0.000000</TD>
     <TD>signal_rate=False</TD>
-    <TD>signals=0.000442</TD>
+    <TD>signals=0.000429</TD>
     <TD>simulation_file=None</TD>
 </TR><TR ALIGN='LEFT'>    <TD>speedgrade=-1</TD>
     <TD>static_prob=False</TD>
@@ -631,9 +631,9 @@
 </TR><TR ALIGN='LEFT'>    <TD>vccbram_static_current=0.000900</TD>
     <TD>vccbram_total_current=0.000900</TD>
     <TD>vccbram_voltage=1.000000</TD>
-    <TD>vccint_dynamic_current=0.000870</TD>
-</TR><TR ALIGN='LEFT'>    <TD>vccint_static_current=0.014796</TD>
-    <TD>vccint_total_current=0.015666</TD>
+    <TD>vccint_dynamic_current=0.000857</TD>
+</TR><TR ALIGN='LEFT'>    <TD>vccint_static_current=0.014797</TD>
+    <TD>vccint_total_current=0.015654</TD>
     <TD>vccint_voltage=1.000000</TD>
     <TD>vcco12_dynamic_current=0.000000</TD>
 </TR><TR ALIGN='LEFT'>    <TD>vcco12_static_current=0.000000</TD>
@@ -671,13 +671,13 @@
 </TR><TR ALIGN='LEFT'>    <TD>vcco_mio1_static_current=0.001000</TD>
     <TD>vcco_mio1_total_current=0.001048</TD>
     <TD>vcco_mio1_voltage=1.800000</TD>
-    <TD>vccpaux_dynamic_current=0.050455</TD>
+    <TD>vccpaux_dynamic_current=0.050478</TD>
 </TR><TR ALIGN='LEFT'>    <TD>vccpaux_static_current=0.010330</TD>
-    <TD>vccpaux_total_current=0.060785</TD>
+    <TD>vccpaux_total_current=0.060808</TD>
     <TD>vccpaux_voltage=1.800000</TD>
-    <TD>vccpint_dynamic_current=0.717496</TD>
-</TR><TR ALIGN='LEFT'>    <TD>vccpint_static_current=0.030062</TD>
-    <TD>vccpint_total_current=0.747558</TD>
+    <TD>vccpint_dynamic_current=0.717518</TD>
+</TR><TR ALIGN='LEFT'>    <TD>vccpint_static_current=0.030063</TD>
+    <TD>vccpint_total_current=0.747581</TD>
     <TD>vccpint_voltage=1.000000</TD>
     <TD>vccpll_dynamic_current=0.013878</TD>
 </TR><TR ALIGN='LEFT'>    <TD>vccpll_static_current=0.003000</TD>
@@ -862,12 +862,12 @@
     <TD>lut_flip_flop_pairs_util_percentage=0.00</TD>
 </TR><TR ALIGN='LEFT'>    <TD>slice_available=13300</TD>
     <TD>slice_fixed=0</TD>
-    <TD>slice_used=4</TD>
-    <TD>slice_util_percentage=0.03</TD>
+    <TD>slice_used=3</TD>
+    <TD>slice_util_percentage=0.02</TD>
 </TR><TR ALIGN='LEFT'>    <TD>slicel_fixed=0</TD>
     <TD>slicel_used=0</TD>
     <TD>slicem_fixed=0</TD>
-    <TD>slicem_used=4</TD>
+    <TD>slicem_used=3</TD>
 </TR><TR ALIGN='LEFT'>    <TD>unique_control_sets_used=0</TD>
     <TD>using_o5_and_o6_fixed=0</TD>
     <TD>using_o5_and_o6_used=0</TD>
@@ -920,7 +920,7 @@
    <TR><TD>
    <TABLE BORDER='1' CELLSPACING='0' WIDTH='100%'>
     <TR ALIGN='CENTER' BGCOLOR='#DBE5F1'><TD COLSPAN='4'><B>usage</B></TD></TR>
-<TR ALIGN='LEFT'>    <TD>actual_expansions=145627</TD>
+<TR ALIGN='LEFT'>    <TD>actual_expansions=148993</TD>
     <TD>bogomips=0</TD>
     <TD>bram18=0</TD>
     <TD>bram36=0</TD>
@@ -930,7 +930,7 @@
     <TD>ctrls=0</TD>
 </TR><TR ALIGN='LEFT'>    <TD>dsp=0</TD>
     <TD>effort=2</TD>
-    <TD>estimated_expansions=342924</TD>
+    <TD>estimated_expansions=331602</TD>
     <TD>ff=0</TD>
 </TR><TR ALIGN='LEFT'>    <TD>global_clocks=1</TD>
     <TD>high_fanout_nets=1</TD>
@@ -940,7 +940,7 @@
     <TD>nets=478</TD>
     <TD>pins=3617</TD>
     <TD>pll=0</TD>
-</TR><TR ALIGN='LEFT'>    <TD>router_runtime=27.616000</TD>
+</TR><TR ALIGN='LEFT'>    <TD>router_runtime=27.447000</TD>
     <TD>router_timing_driven=1</TD>
     <TD>threads=2</TD>
     <TD>timing_constraints_exist=1</TD>
@@ -992,8 +992,8 @@
     <TR ALIGN='CENTER' BGCOLOR='#DBE5F1'><TD COLSPAN='4'><B>usage</B></TD></TR>
 <TR ALIGN='LEFT'>    <TD>elapsed=00:00:27s</TD>
     <TD>hls_ip=0</TD>
-    <TD>memory_gain=577.031MB</TD>
-    <TD>memory_peak=808.359MB</TD>
+    <TD>memory_gain=576.363MB</TD>
+    <TD>memory_peak=808.191MB</TD>
 </TR>   </TABLE>
    </TD></TR>
   </TABLE><BR>

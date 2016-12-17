@@ -156,7 +156,7 @@ proc create_root_design { parentCell } {
   # Create interface ports
   set DDR [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:ddrx_rtl:1.0 DDR ]
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
-  set IIC_1 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:iic_rtl:1.0 IIC_1 ]
+  set GPIO_0 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 GPIO_0 ]
   set SPI_0 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:spi_rtl:1.0 SPI_0 ]
 
   # Create ports
@@ -253,10 +253,9 @@ CONFIG.PCW_ENET_RESET_ENABLE {1} \
 CONFIG.PCW_ENET_RESET_POLARITY {Active Low} \
 CONFIG.PCW_ENET_RESET_SELECT {<Select>} \
 CONFIG.PCW_EN_4K_TIMER {0} \
-CONFIG.PCW_EN_EMIO_I2C1 {1} \
+CONFIG.PCW_EN_EMIO_GPIO {1} \
 CONFIG.PCW_EN_EMIO_SPI0 {1} \
 CONFIG.PCW_EN_I2C0 {1} \
-CONFIG.PCW_EN_I2C1 {1} \
 CONFIG.PCW_EN_QSPI {1} \
 CONFIG.PCW_EN_SPI0 {1} \
 CONFIG.PCW_EN_UART0 {1} \
@@ -278,21 +277,22 @@ CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {150.000000} \
 CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
-CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE {0} \
-CONFIG.PCW_GPIO_EMIO_GPIO_IO {<Select>} \
+CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE {1} \
+CONFIG.PCW_GPIO_EMIO_GPIO_IO {2} \
+CONFIG.PCW_GPIO_EMIO_GPIO_WIDTH {2} \
 CONFIG.PCW_GPIO_MIO_GPIO_ENABLE {1} \
 CONFIG.PCW_GPIO_MIO_GPIO_IO {MIO} \
 CONFIG.PCW_GPIO_PERIPHERAL_ENABLE {0} \
-CONFIG.PCW_I2C0_GRP_INT_ENABLE {0} \
-CONFIG.PCW_I2C0_GRP_INT_IO {<Select>} \
+CONFIG.PCW_I2C0_GRP_INT_ENABLE {1} \
+CONFIG.PCW_I2C0_GRP_INT_IO {EMIO} \
 CONFIG.PCW_I2C0_I2C0_IO {MIO 14 .. 15} \
 CONFIG.PCW_I2C0_PERIPHERAL_ENABLE {1} \
 CONFIG.PCW_I2C0_RESET_ENABLE {0} \
 CONFIG.PCW_I2C0_RESET_IO {<Select>} \
-CONFIG.PCW_I2C1_GRP_INT_ENABLE {1} \
-CONFIG.PCW_I2C1_GRP_INT_IO {EMIO} \
-CONFIG.PCW_I2C1_I2C1_IO {EMIO} \
-CONFIG.PCW_I2C1_PERIPHERAL_ENABLE {1} \
+CONFIG.PCW_I2C1_GRP_INT_ENABLE {0} \
+CONFIG.PCW_I2C1_GRP_INT_IO {<Select>} \
+CONFIG.PCW_I2C1_I2C1_IO {<Select>} \
+CONFIG.PCW_I2C1_PERIPHERAL_ENABLE {0} \
 CONFIG.PCW_I2C1_RESET_ENABLE {0} \
 CONFIG.PCW_I2C1_RESET_IO {<Select>} \
 CONFIG.PCW_I2C_PERIPHERAL_FREQMHZ {111.111115} \
@@ -319,7 +319,7 @@ CONFIG.PCW_MIO_12_PULLUP {disabled} \
 CONFIG.PCW_MIO_12_SLEW {slow} \
 CONFIG.PCW_MIO_13_DIRECTION {inout} \
 CONFIG.PCW_MIO_13_IOTYPE {LVCMOS 3.3V} \
-CONFIG.PCW_MIO_13_PULLUP {disabled} \
+CONFIG.PCW_MIO_13_PULLUP {enabled} \
 CONFIG.PCW_MIO_13_SLEW {slow} \
 CONFIG.PCW_MIO_14_DIRECTION {inout} \
 CONFIG.PCW_MIO_14_IOTYPE {LVCMOS 3.3V} \
@@ -885,10 +885,9 @@ CONFIG.PCW_ENET_RESET_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_ENET_RESET_POLARITY.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_ENET_RESET_SELECT.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_4K_TIMER.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_EN_EMIO_I2C1.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_EN_EMIO_GPIO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_EMIO_SPI0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_I2C0.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_EN_I2C1.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_QSPI.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_SPI0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_UART0.VALUE_SRC {DEFAULT} \
@@ -910,8 +909,7 @@ CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_GPIO_EMIO_GPIO_IO.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_GPIO_EMIO_GPIO_WIDTH.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_GPIO_MIO_GPIO_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_GPIO_PERIPHERAL_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_I2C0_GRP_INT_ENABLE.VALUE_SRC {DEFAULT} \
@@ -945,7 +943,6 @@ CONFIG.PCW_MIO_12_PULLUP.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_MIO_12_SLEW.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_MIO_13_DIRECTION.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_MIO_13_IOTYPE.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_MIO_13_PULLUP.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_MIO_13_SLEW.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_MIO_14_DIRECTION.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_MIO_14_IOTYPE.VALUE_SRC {DEFAULT} \
@@ -1254,9 +1251,7 @@ CONFIG.PCW_SPI0_GRP_SS2_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI0_GRP_SS2_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI1_GRP_SS0_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI1_GRP_SS0_IO.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_SPI1_GRP_SS1_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI1_GRP_SS1_IO.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_SPI1_GRP_SS2_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI1_GRP_SS2_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI_PERIPHERAL_CLKSRC.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI_PERIPHERAL_DIVISOR0.VALUE_SRC {DEFAULT} \
@@ -1408,7 +1403,7 @@ CONFIG.PCW_WDT_WDT_IO.VALUE_SRC {DEFAULT} \
   # Create interface connections
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
-  connect_bd_intf_net -intf_net processing_system7_0_IIC_1 [get_bd_intf_ports IIC_1] [get_bd_intf_pins processing_system7_0/IIC_1]
+  connect_bd_intf_net -intf_net processing_system7_0_GPIO_0 [get_bd_intf_ports GPIO_0] [get_bd_intf_pins processing_system7_0/GPIO_0]
   connect_bd_intf_net -intf_net processing_system7_0_SPI_0 [get_bd_intf_ports SPI_0] [get_bd_intf_pins processing_system7_0/SPI_0]
 
   # Create port connections
@@ -1420,17 +1415,17 @@ CONFIG.PCW_WDT_WDT_IO.VALUE_SRC {DEFAULT} \
   regenerate_bd_layout -layout_string {
    guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -y 20 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 40 -defaultsOSRD
-preplace port IIC_1 -pg 1 -y 70 -defaultsOSRD
+preplace port DDR -pg 1 -y 50 -defaultsOSRD
+preplace port GPIO_0 -pg 1 -y 30 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 70 -defaultsOSRD
 preplace port SPI_0 -pg 1 -y 90 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -y 90 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 1 1 NJ
-preplace netloc processing_system7_0_IIC_1 1 1 1 N
 preplace netloc processing_system7_0_FIXED_IO 1 1 1 NJ
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 2 20 200 380
-preplace netloc processing_system7_0_SPI_0 1 1 1 NJ
-levelinfo -pg 1 0 200 410 -top -10 -bot 230
+preplace netloc processing_system7_0_GPIO_0 1 1 1 N
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 2 20 -20 570
+preplace netloc processing_system7_0_SPI_0 1 1 1 N
+levelinfo -pg 1 0 390 590 -top -30 -bot 200
 ",
 }
 
