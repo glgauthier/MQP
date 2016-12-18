@@ -1,8 +1,8 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Fri Dec 16 16:49:53 2016
-//Host        : Georges-T460p running 64-bit major release  (build 9200)
+//Date        : Sat Dec 17 20:34:34 2016
+//Host        : JOHN-HP running 64-bit major release  (build 7600)
 //Command     : generate_target IMU_bd.bd
 //Design      : IMU_bd
 //Purpose     : IP block netlist

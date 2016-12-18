@@ -2,30 +2,31 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Fri Dec 16 19:33:54 2016
-# Process ID: 11232
-# Current directory: C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1
+# Start of session at: Sat Dec 17 20:35:39 2016
+# Process ID: 2356
+# Current directory: C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1
 # Command line: vivado.exe -log IMU_bd_wrapper.vds -mode batch -messageDb vivado.pb -notrace -source IMU_bd_wrapper.tcl
-# Log file: C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/IMU_bd_wrapper.vds
-# Journal file: C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1\vivado.jou
+# Log file: C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/IMU_bd_wrapper.vds
+# Journal file: C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source IMU_bd_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/georges/Documents/GitHub/MQP/ip_repo'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/John/Documents/GitHub/MQP/ip_repo'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.2/data/ip'.
+add_files: Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 231.695 ; gain = 25.324
 Command: synth_design -top IMU_bd_wrapper -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 3864 
+INFO: Helper process launched with PID 2988 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 303.199 ; gain = 95.914
+Starting RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:36 . Memory (MB): peak = 302.250 ; gain = 95.879
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'IMU_bd_wrapper' [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd_wrapper.v:12]
-INFO: [Synth 8-638] synthesizing module 'IMU_bd' [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd.v:13]
-INFO: [Synth 8-638] synthesizing module 'IMU_bd_processing_system7_0_0' [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/synth/IMU_bd_processing_system7_0_0.v:59]
-INFO: [Synth 8-638] synthesizing module 'processing_system7_v5_5_processing_system7' [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:156]
+INFO: [Synth 8-638] synthesizing module 'IMU_bd_wrapper' [C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd_wrapper.v:12]
+INFO: [Synth 8-638] synthesizing module 'IMU_bd' [C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd.v:13]
+INFO: [Synth 8-638] synthesizing module 'IMU_bd_processing_system7_0_0' [c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/synth/IMU_bd_processing_system7_0_0.v:59]
+INFO: [Synth 8-638] synthesizing module 'processing_system7_v5_5_processing_system7' [c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:156]
 	Parameter C_USE_DEFAULT_ACP_USER_VAL bound to: 0 - type: integer 
 	Parameter C_S_AXI_ACP_ARUSER_VAL bound to: 31 - type: integer 
 	Parameter C_S_AXI_ACP_AWUSER_VAL bound to: 31 - type: integer 
@@ -80,26 +81,26 @@ INFO: [Synth 8-638] synthesizing module 'processing_system7_v5_5_processing_syst
 	Parameter C_USE_S_AXI_GP0 bound to: 0 - type: integer 
 	Parameter C_USE_S_AXI_GP1 bound to: 0 - type: integer 
 	Parameter C_USE_S_AXI_ACP bound to: 0 - type: integer 
-INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:1338]
-INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:1339]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:1338]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:1339]
 INFO: [Synth 8-638] synthesizing module 'BUFG' [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:607]
 INFO: [Synth 8-256] done synthesizing module 'BUFG' (1#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:607]
 INFO: [Synth 8-638] synthesizing module 'BIBUF' [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:268]
 INFO: [Synth 8-256] done synthesizing module 'BIBUF' (2#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:268]
 INFO: [Synth 8-638] synthesizing module 'PS7' [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:33164]
 INFO: [Synth 8-256] done synthesizing module 'PS7' (3#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:33164]
-INFO: [Synth 8-256] done synthesizing module 'processing_system7_v5_5_processing_system7' (4#1) [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:156]
-WARNING: [Synth 8-350] instance 'inst' of module 'processing_system7_v5_5_processing_system7' requires 685 connections, but only 672 given [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/synth/IMU_bd_processing_system7_0_0.v:354]
-INFO: [Synth 8-256] done synthesizing module 'IMU_bd_processing_system7_0_0' (5#1) [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/synth/IMU_bd_processing_system7_0_0.v:59]
-WARNING: [Synth 8-350] instance 'processing_system7_0' of module 'IMU_bd_processing_system7_0_0' requires 79 connections, but only 51 given [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd.v:148]
-INFO: [Synth 8-256] done synthesizing module 'IMU_bd' (6#1) [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd.v:13]
+INFO: [Synth 8-256] done synthesizing module 'processing_system7_v5_5_processing_system7' (4#1) [c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:156]
+WARNING: [Synth 8-350] instance 'inst' of module 'processing_system7_v5_5_processing_system7' requires 685 connections, but only 672 given [c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/synth/IMU_bd_processing_system7_0_0.v:354]
+INFO: [Synth 8-256] done synthesizing module 'IMU_bd_processing_system7_0_0' (5#1) [c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/synth/IMU_bd_processing_system7_0_0.v:59]
+WARNING: [Synth 8-350] instance 'processing_system7_0' of module 'IMU_bd_processing_system7_0_0' requires 79 connections, but only 51 given [C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd.v:148]
+INFO: [Synth 8-256] done synthesizing module 'IMU_bd' (6#1) [C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd.v:13]
 INFO: [Synth 8-638] synthesizing module 'IOBUF' [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:17333]
 	Parameter DRIVE bound to: 12 - type: integer 
 	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 	Parameter SLEW bound to: SLOW - type: string 
 INFO: [Synth 8-256] done synthesizing module 'IOBUF' (7#1) [C:/Xilinx/Vivado/2016.2/scripts/rt/data/unisim_comp.v:17333]
-INFO: [Synth 8-256] done synthesizing module 'IMU_bd_wrapper' (8#1) [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd_wrapper.v:12]
+INFO: [Synth 8-256] done synthesizing module 'IMU_bd_wrapper' (8#1) [C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/hdl/IMU_bd_wrapper.v:12]
 WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has unconnected port ENET0_GMII_COL
 WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has unconnected port ENET0_GMII_CRS
 WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has unconnected port ENET0_GMII_RX_DV
@@ -180,7 +181,7 @@ WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has un
 WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has unconnected port FTMD_TRACEIN_ATID[1]
 WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has unconnected port FTMD_TRACEIN_ATID[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 340.684 ; gain = 133.398
+Finished RTL Elaboration : Time (s): cpu = 00:00:19 ; elapsed = 00:00:41 . Memory (MB): peak = 339.750 ; gain = 133.379
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -190,7 +191,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 340.684 ; gain = 133.398
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:41 . Memory (MB): peak = 339.750 ; gain = 133.379
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -199,17 +200,17 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc] for cell 'IMU_bd_i/processing_system7_0/inst'
-Finished Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc] for cell 'IMU_bd_i/processing_system7_0/inst'
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/IMU_bd_wrapper_propImpl.xdc].
+Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc] for cell 'IMU_bd_i/processing_system7_0/inst'
+Finished Parsing XDC File [c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc] for cell 'IMU_bd_i/processing_system7_0/inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/IMU_bd_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/IMU_bd_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/constrs_1/new/top.xdc]
-Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/constrs_1/new/top.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/constrs_1/new/top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/IMU_bd_wrapper_propImpl.xdc].
+Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/constrs_1/new/top.xdc]
+Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/constrs_1/new/top.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/constrs_1/new/top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/IMU_bd_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/IMU_bd_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/dont_touch.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/IMU_bd_wrapper_propImpl.xdc].
+Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/dont_touch.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/IMU_bd_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/IMU_bd_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
@@ -217,28 +218,28 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 6 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 6 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 574.789 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 572.730 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 574.789 ; gain = 367.504
+Finished Constraint Validation : Time (s): cpu = 00:00:44 ; elapsed = 00:01:27 . Memory (MB): peak = 572.730 ; gain = 366.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 574.789 ; gain = 367.504
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:44 ; elapsed = 00:01:27 . Memory (MB): peak = 572.730 ; gain = 366.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for IMU_bd_i/processing_system7_0/inst. (constraint file  C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/dont_touch.xdc, line 13).
+Applied set_property DONT_TOUCH = true for IMU_bd_i/processing_system7_0/inst. (constraint file  C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/dont_touch.xdc, line 13).
 Applied set_property DONT_TOUCH = true for IMU_bd_i. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for IMU_bd_i/processing_system7_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 574.789 ; gain = 367.504
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:45 ; elapsed = 00:01:28 . Memory (MB): peak = 572.730 ; gain = 366.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:46 ; elapsed = 00:01:30 . Memory (MB): peak = 572.730 ; gain = 366.359
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -269,7 +270,7 @@ BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:47 ; elapsed = 00:01:31 . Memory (MB): peak = 572.730 ; gain = 366.359
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -296,9 +297,9 @@ WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has un
 WARNING: [Synth 8-3331] design processing_system7_v5_5_processing_system7 has unconnected port ENET1_GMII_RXD[3]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:01:31 . Memory (MB): peak = 572.730 ; gain = 366.359
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
+Finished Parallel Reinference  : Time (s): cpu = 00:00:47 ; elapsed = 00:01:31 . Memory (MB): peak = 572.730 ; gain = 366.359
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -309,9 +310,9 @@ Report RTL Partitions:
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
+Finished Area Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:01:34 . Memory (MB): peak = 572.730 ; gain = 366.359
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 574.789 ; gain = 367.504
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:47 ; elapsed = 00:01:34 . Memory (MB): peak = 572.730 ; gain = 366.359
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -325,10 +326,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 786.840 ; gain = 579.555
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:10 ; elapsed = 00:02:06 . Memory (MB): peak = 784.598 ; gain = 578.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 802.891 ; gain = 595.605
+Finished Timing Optimization : Time (s): cpu = 00:01:10 ; elapsed = 00:02:06 . Memory (MB): peak = 801.648 ; gain = 595.277
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -340,16 +341,16 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 808.191 ; gain = 600.906
+Finished Technology Mapping : Time (s): cpu = 00:01:13 ; elapsed = 00:02:10 . Memory (MB): peak = 806.160 ; gain = 599.789
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 808.191 ; gain = 600.906
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:01:13 ; elapsed = 00:02:10 . Memory (MB): peak = 806.160 ; gain = 599.789
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 808.191 ; gain = 600.906
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:01:13 ; elapsed = 00:02:10 . Memory (MB): peak = 806.160 ; gain = 599.789
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -366,7 +367,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
+Finished IO Insertion : Time (s): cpu = 00:01:17 ; elapsed = 00:02:15 . Memory (MB): peak = 806.160 ; gain = 599.789
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -379,7 +380,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:17 ; elapsed = 00:02:15 . Memory (MB): peak = 806.160 ; gain = 599.789
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -391,25 +392,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:17 ; elapsed = 00:02:16 . Memory (MB): peak = 806.160 ; gain = 599.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:17 ; elapsed = 00:02:16 . Memory (MB): peak = 806.160 ; gain = 599.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:17 ; elapsed = 00:02:16 . Memory (MB): peak = 806.160 ; gain = 599.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:17 ; elapsed = 00:02:16 . Memory (MB): peak = 806.160 ; gain = 599.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -443,11 +444,11 @@ Report Instance Areas:
 |4     |      inst               |processing_system7_v5_5_processing_system7 |   182|
 +------+-------------------------+-------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:17 ; elapsed = 00:02:16 . Memory (MB): peak = 806.160 ; gain = 599.789
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 79 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 808.191 ; gain = 342.258
-Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 808.191 ; gain = 600.906
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:41 ; elapsed = 00:01:16 . Memory (MB): peak = 806.160 ; gain = 341.484
+Synthesis Optimization Complete : Time (s): cpu = 00:01:17 ; elapsed = 00:02:17 . Memory (MB): peak = 806.160 ; gain = 599.789
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -460,6 +461,6 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 38 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 815.070 ; gain = 583.242
-report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.019 . Memory (MB): peak = 815.070 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Fri Dec 16 19:34:27 2016...
+synth_design: Time (s): cpu = 00:01:11 ; elapsed = 00:02:01 . Memory (MB): peak = 813.832 ; gain = 582.137
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:02 . Memory (MB): peak = 813.832 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Dec 17 20:38:15 2016...

@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc rfile:../../../IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc id:1 order:EARLY scoped_inst:IMU_bd_i/processing_system7_0/inst} [current_design]
-set_property SRC_FILE_INFO {cfile:C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/constrs_1/new/top.xdc rfile:../../../IMU_PS.srcs/constrs_1/new/top.xdc id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc rfile:../../../IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc id:1 order:EARLY scoped_inst:IMU_bd_i/processing_system7_0/inst} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/constrs_1/new/top.xdc rfile:../../../IMU_PS.srcs/constrs_1/new/top.xdc id:2} [current_design]
 set_property src_info {type:SCOPED_XDC file:1 line:21 export:INPUT save:INPUT read:READ} [current_design]
 set_input_jitter clk_fpga_0 0.3
 set_property src_info {type:SCOPED_XDC file:1 line:31 export:INPUT save:INPUT read:READ} [current_design]

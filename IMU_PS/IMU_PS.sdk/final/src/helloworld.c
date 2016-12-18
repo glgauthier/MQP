@@ -45,12 +45,24 @@
  *   ps7_uart    115200 (configured by bootrom/bsp)
  */
 
-#include <stdio.h>
+/*
+ * how to include math.h after deleting sdk:
+ *
+ * right click on project -> Properties -> C/C++ Build -> Settings -> gcc linker -> Libraries
+ * under Libraries (-l) add m
+ * click Apply -> OK
+ *
+ * congratulations brocahtoa, now you can use all the math you want!
+ */
+
+
+//#include <stdio.h>
 #include "platform.h"
 #include "xil_printf.h"
 #include "xparameters.h"	/* EDK generated parameters */
 #include "xspips.h"		/* SPI device driver */
 #include "xgpiops.h"
+#include <math.h>
 
 // Zynq SPI device ID
 #define SPI_DEVICE_ID		XPAR_XSPIPS_0_DEVICE_ID
@@ -62,7 +74,11 @@
 #define CTL3 0x22
 #define STATUS_ADDRESS 0x27
 #define DATA_ADDRESS 0x28
-#define CASCADE 0xC0
+#define OFFSET_ADDRESS 0x05
+#define CASCADE 0x60
+
+#define PI 3.14159265
+#define DEGREES_PER_STEP 0.3515625	// 360 degrees/1024 steps
 
 // create a new SPI instance
 static XSpiPs SpiInstance;
@@ -71,8 +87,11 @@ static XGpioPs Gpio;
 
 void delay(int cycles);
 void IMU_init();
-void getIMUdata();
+int getIMUdata();
+double getCompassHeading();
+double getStepOffset(double compassHeading);
 
+int xOffset, yOffset;
 int xData, yData;
 
 int main()
@@ -99,11 +118,17 @@ int main()
     // initialize the imu
 	IMU_init();
 
+	int deviceStepOffset = 0;
 
-	while(1){
+	while(1)
+	{
 		int val = XGpioPs_ReadPin(&Gpio, 50);
-		if( val > 0)
-			getIMUdata();
+		if(val > 0)
+			if(getIMUdata())
+			{
+				deviceStepOffset = (int) round(getStepOffset(getCompassHeading()));
+				printf("Step Offset: %d\n", deviceStepOffset);
+			}
     }
 
     cleanup_platform();
@@ -141,7 +166,9 @@ void IMU_init(){
 	return;
 }
 
-void getIMUdata(){
+int getIMUdata(){
+
+	int returnVal = 0;
 
 	// check status address
 	u8 DataBuffer[2]; // addr + 32 bits read val
@@ -151,15 +178,55 @@ void getIMUdata(){
 
 	// if XY data's available, indicate so and grab it
 	if ((DataBuffer[1] & 0x03) == 0x03) {
+
+		// grabs x and y magnetometer environmental offset
+		u8 XYoffset[5];
+		XYoffset[0] = (u8) OFFSET_ADDRESS | CASCADE | READ;
+		XYoffset[1] = (u8) 0x00;
+		XYoffset[2] = (u8) 0x00;
+		XYoffset[3] = (u8) 0x00;
+		XYoffset[4] = (u8) 0x00;
+		XSpiPs_PolledTransfer(&SpiInstance, XYoffset, &XYoffset[0], 5);
+		xOffset = (XYoffset[2]<<8) | XYoffset[1];
+	    yOffset = (XYoffset[4]<<8) | XYoffset[3];
+
+	    // grabs x and y magnetometer data
 		u8 XYdata[5];
-		XYdata[0] = (u8) DATA_ADDRESS|CASCADE|READ;
+		XYdata[0] = (u8) DATA_ADDRESS | CASCADE  |READ;
 		XYdata[1] = (u8) 0x00;
 		XYdata[2] = (u8) 0x00;
 		XYdata[3] = (u8) 0x00;
 		XYdata[4] = (u8) 0x00;
 		XSpiPs_PolledTransfer(&SpiInstance, XYdata, &XYdata[0], 5);
-		xData = (XYdata[2]<<8)|XYdata[1];
-	    yData = (XYdata[4]<<8)|XYdata[3];
+		xData = (XYdata[2]<<8) | XYdata[1];
+	    yData = (XYdata[4]<<8) | XYdata[3];
+
+	    returnVal = 1;	//signifies new magnetometer data
 	}
-	return;
+
+	return returnVal;
 }
+
+// translates magnetometer data into a compass heading
+double getCompassHeading()
+{
+	//subtracts the environmental interference from the data
+	int xMagnetometer = xData - xOffset;
+	int yMagnetometer = yData - yOffset;
+
+	//compass heading in degrees
+	double compassHeading = atan((double)(xMagnetometer/yMagnetometer)) * (double)(180/PI);
+
+	return compassHeading;
+}
+
+// converts compass heading to a step offset for rangefinder data
+double getStepOffset(double compassHeading)
+{
+	double stepOffset = compassHeading * DEGREES_PER_STEP;
+
+	return stepOffset;
+}
+
+
+

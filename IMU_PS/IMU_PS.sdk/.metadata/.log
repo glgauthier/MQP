@@ -1,37 +1,67 @@
-!SESSION 2016-12-16 19:36:53.179 -----------------------------------------------
+!SESSION 2016-12-17 21:27:33.711 -----------------------------------------------
 eclipse.buildId=2016.2
 java.version=1.8.0_66
 java.vendor=Oracle Corporation
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:36:59.913
-!MESSAGE XSDB Command: [::hsi::utils::init_repo], Thread: Worker-2
+!ENTRY com.xilinx.sdk.debug.core 4 0 2016-12-17 21:27:38.590
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.debug.core [388]
+  Another singleton bundle selected: osgi.identity; osgi.identity="com.xilinx.sdk.debug.core"; type="osgi.bundle"; version:Version="1.0.0.201606022303"; singleton:="true"
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:00.088
-!MESSAGE XSDB command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-2
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:01.391
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: Worker-7
+!ENTRY com.xilinx.sdk.debug.ui 4 0 2016-12-17 21:27:38.624
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.xilinx.sdk.debug.ui [389]
+  Another singleton bundle selected: osgi.identity; osgi.identity="com.xilinx.sdk.debug.ui"; type="osgi.bundle"; version:Version="1.0.0.201606022303"; singleton:="true"
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.600
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: Worker-7
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.625
-!MESSAGE XSDB Command: [::hsi::utils::get_design_properties -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: Worker-7
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:28:41.392
+!MESSAGE XSDB Command: [::hsi::utils::init_repo], Thread: Worker-8
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.632
-!MESSAGE XSDB command with result: [::hsi::utils::get_design_properties -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, {"device": "7z020",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:28:42.251
+!MESSAGE XSDB command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-8
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:28:42.821
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: Worker-7
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:28:59.441
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: Worker-7
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:28:59.571
+!MESSAGE XSDB Command: [::hsi::utils::get_design_properties -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: Worker-7
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:28:59.584
+!MESSAGE XSDB command with result: [::hsi::utils::get_design_properties -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, {"device": "7z020",
 "family": "zynq",
-"timestamp": "Fri Dec 16 16:50:11 2016",
+"timestamp": "Sat Dec 17 20:35:22 2016",
 "vivado_version": "2016.2",
 }]. Thread: Worker-7
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.637
-!MESSAGE XSDB Command: [::hsi::utils::get_all_periphs -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: Worker-7
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:28:59.588
+!MESSAGE XSDB Command: [::hsi::utils::get_all_periphs -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: Worker-7
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.650
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_periphs -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, {"processing_system7_0": {"hier_name": "processing_system7_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:28:59.620
+!MESSAGE XSDB command with result: [::hsi::utils::get_all_periphs -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, {"processing_system7_0": {"hier_name": "processing_system7_0",
 "type": "processing_system7",
 "version": "5.5",
 "ip_type": "",
@@ -41,7 +71,7 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges
 "version": "1.00.a",
 "ip_type": "PERIPHERAL",
 },
-"ps7_uart_0": {"hier_name": "ps7_uart_0",
+"ps7_uart_1": {"hier_name": "ps7_uart_1",
 "type": "ps7_uart",
 "version": "1.00.a",
 "ip_type": "PERIPHERAL",
@@ -223,11 +253,11 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges
 },
 }]. Thread: Worker-7
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.746
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_ranges -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:01.446
+!MESSAGE XSDB Command: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.763
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_ranges -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"ps7_afi_0": {"name": "ps7_afi_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:01.511
+!MESSAGE XSDB command with result: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"ps7_afi_0": {"name": "ps7_afi_0",
 "base": "0xF8008000",
 "high": "0xF8008FFF",
 "size": "4096",
@@ -435,9 +465,9 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges
 "type": "REGISTER",
 "flags": "3",
 },
-"ps7_uart_0": {"name": "ps7_uart_0",
-"base": "0xE0000000",
-"high": "0xE0000FFF",
+"ps7_uart_1": {"name": "ps7_uart_1",
+"base": "0xE0001000",
+"high": "0xE0001FFF",
 "size": "4096",
 "slaveintf": "",
 "type": "REGISTER",
@@ -485,11 +515,11 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.818
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_ranges -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:01.737
+!MESSAGE XSDB Command: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.836
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_ranges -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"ps7_afi_0": {"name": "ps7_afi_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:02.196
+!MESSAGE XSDB command with result: [::hsi::utils::get_addr_ranges -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"ps7_afi_0": {"name": "ps7_afi_0",
 "base": "0xF8008000",
 "high": "0xF8008FFF",
 "size": "4096",
@@ -697,9 +727,9 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges
 "type": "REGISTER",
 "flags": "3",
 },
-"ps7_uart_0": {"name": "ps7_uart_0",
-"base": "0xE0000000",
-"high": "0xE0000FFF",
+"ps7_uart_1": {"name": "ps7_uart_1",
+"base": "0xE0001000",
+"high": "0xE0001FFF",
 "size": "4096",
 "slaveintf": "",
 "type": "REGISTER",
@@ -747,11 +777,11 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.877
-!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:02.341
+!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.886
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"ps7_afi_0": {},
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:03.009
+!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"ps7_afi_0": {},
 "ps7_afi_1": {},
 "ps7_afi_2": {},
 "ps7_afi_3": {},
@@ -781,15 +811,15 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges
 "ps7_scuwdt_0": {},
 "ps7_slcr_0": {},
 "ps7_spi_0": {},
-"ps7_uart_0": {},
+"ps7_uart_1": {},
 "ps7_xadc_0": {},
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.890
-!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:03.010
+!MESSAGE XSDB Command: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:04.899
-!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"ps7_afi_0": {},
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:03.781
+!MESSAGE XSDB command with result: [::hsi::utils::get_all_register_data -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"ps7_afi_0": {},
 "ps7_afi_1": {},
 "ps7_afi_2": {},
 "ps7_afi_3": {},
@@ -819,15 +849,15 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges
 "ps7_scuwdt_0": {},
 "ps7_slcr_0": {},
 "ps7_spi_0": {},
-"ps7_uart_0": {},
+"ps7_uart_1": {},
 "ps7_xadc_0": {},
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:08.867
-!MESSAGE XSDB Command: [hsi::utils::get_supported_os -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.262
+!MESSAGE XSDB Command: [hsi::utils::get_supported_os -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:08.880
-!MESSAGE XSDB command with result: [hsi::utils::get_supported_os -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, {"ps7_cortexa9_0": {"freertos823_xilinx_v1_1": {"name": "freertos823_xilinx",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.280
+!MESSAGE XSDB command with result: [hsi::utils::get_supported_os -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, {"ps7_cortexa9_0": {"freertos823_xilinx_v1_1": {"name": "freertos823_xilinx",
 "version": "1.1",
 "desc": "FreeRTOS is a market leading open source RTOS",
 "compilerflags": "",
@@ -859,34 +889,34 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:/Users/georges
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:08.895
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.350
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:08.900
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.355
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:08.908
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.364
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:08.913
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.368
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:08.917
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.371
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:08.922
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.376
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:08.933
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.389
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:08.939
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.394
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:08.943
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.395
 !MESSAGE XSDB Command: [::hsi::utils::get_all_app_details -json], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:09.005
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.495
 !MESSAGE XSDB command with result: [::hsi::utils::get_all_app_details -json], Result: [null, {"dhrystone": {"userdefname": "Dhrystone",
 "description": "Dhrystone synthetic benchmark program.",
 "supp_proc": "microblaze ps7_cortexa9",
@@ -1049,164 +1079,173 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:09.014
-!MESSAGE XSDB Command: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.511
+!MESSAGE XSDB Command: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:09.047
-!MESSAGE XSDB command with result: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Result: [null, 1]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.660
+!MESSAGE XSDB command with result: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Result: [null, 1]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:09.052
-!MESSAGE XSDB Command: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.664
+!MESSAGE XSDB Command: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:09.081
-!MESSAGE XSDB command with result: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Result: [null, 1]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:38.725
+!MESSAGE XSDB command with result: [::hsi::utils::is_app_supported_on_hw_sw  -hw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -os standalone -processor ps7_cortexa9_0 -app hello_world -sw {} -arch {}], Result: [null, 1]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.148
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:44.120
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.154
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:44.127
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.192
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:44.246
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.198
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:44.255
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.253
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:45.769
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.260
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:45.780
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.364
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:47.217
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.378
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:47.221
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.473
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:49.705
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.488
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:49.709
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.852
-!MESSAGE XSDB Command: [::hsi::utils::write_sw_mss -hw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -sw final_bsp -dir C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp -processor ps7_cortexa9_0 -os standalone -app hello_world], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:49.844
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:10.885
-!MESSAGE XSDB command with result: [::hsi::utils::write_sw_mss -hw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -sw final_bsp -dir C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp -processor ps7_cortexa9_0 -os standalone -app hello_world], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:49.854
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:11.054
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:50.906
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:11.060
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:50.910
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:11.064
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:51.397
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:11.070
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:51.401
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:51.428
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:51.433
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:51.460
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:51.465
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:51.493
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:51.498
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:51.530
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:51.536
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:52.377
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:52.758
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:52.775
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:52.825
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:52.833
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:52.942
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:52.946
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:52.954
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:52.983
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:53.016
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:54.965
+!MESSAGE XSDB Command: [::hsi::utils::write_sw_mss -hw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -sw final_bsp -dir C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp -processor ps7_cortexa9_0 -os standalone -app hello_world], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:55.054
+!MESSAGE XSDB command with result: [::hsi::utils::write_sw_mss -hw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -sw final_bsp -dir C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp -processor ps7_cortexa9_0 -os standalone -app hello_world], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:55.382
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:55.396
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:55.398
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:55.404
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "5.5",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:11.074
-!MESSAGE XSDB Command: [::hsi::utils::generate_bsp_sources C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:29:55.407
+!MESSAGE XSDB Command: [::hsi::utils::generate_bsp_sources C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:12.646
-!MESSAGE XSDB command with result: [::hsi::utils::generate_bsp_sources C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:15.380
+!MESSAGE XSDB command with result: [::hsi::utils::generate_bsp_sources C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.164
-!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:16.906
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.169
-!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:16.938
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.173
-!MESSAGE XSDB Command: [::hsi::utils::get_sw_libs -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:16.941
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.178
-!MESSAGE XSDB command with result: [::hsi::utils::get_sw_libs -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.181
-!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.186
-!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.189
-!MESSAGE XSDB Command: [::hsi::utils::get_sw_libs -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.194
-!MESSAGE XSDB command with result: [::hsi::utils::get_sw_libs -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.197
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.201
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.232
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.238
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.241
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.247
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:17.280
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "5.5",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.250
-!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:17.299
+!MESSAGE XSDB Command: [::hsi::utils::get_connected_periphs C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.254
-!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:18.169
+!MESSAGE XSDB command with result: [::hsi::utils::get_connected_periphs C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, ps7_afi_0 ps7_afi_1 ps7_afi_2 ps7_afi_3 ps7_coresight_comp_0 ps7_ddr_0 ps7_ddrc_0 ps7_dev_cfg_0 ps7_dma_ns ps7_dma_s ps7_globaltimer_0 ps7_gpio_0 ps7_gpv_0 ps7_i2c_0 ps7_intc_dist_0 ps7_iop_bus_config_0 ps7_l2cachec_0 ps7_ocmc_0 ps7_pl310_0 ps7_pmu_0 ps7_qspi_0 ps7_qspi_linear_0 ps7_ram_0 ps7_ram_1 ps7_scuc_0 ps7_scugic_0 ps7_scutimer_0 ps7_scuwdt_0 ps7_slcr_0 ps7_spi_0 ps7_uart_1 ps7_xadc_0]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.258
-!MESSAGE XSDB Command: [::hsi::utils::opensw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:18.170
+!MESSAGE XSDB Command: [::hsi::utils::get_drivers_for_sw -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.262
-!MESSAGE XSDB command with result: [::hsi::utils::opensw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.265
-!MESSAGE XSDB Command: [::hsi::utils::generate_app_template -hw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss -app hello_world -processor ps7_cortexa9_0 -os standalone -dir C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final/src], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.333
-!MESSAGE XSDB command with result: [::hsi::utils::generate_app_template -hw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss -app hello_world -processor ps7_cortexa9_0 -os standalone -dir C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final/src], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.588
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.594
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.597
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.602
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
-"osname": "standalone",
-"osver": "5.5",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.615
-!MESSAGE XSDB Command: [::hsi::utils::get_connected_periphs C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.619
-!MESSAGE XSDB command with result: [::hsi::utils::get_connected_periphs C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, ps7_afi_0 ps7_afi_1 ps7_afi_2 ps7_afi_3 ps7_coresight_comp_0 ps7_ddr_0 ps7_ddrc_0 ps7_dev_cfg_0 ps7_dma_ns ps7_dma_s ps7_globaltimer_0 ps7_gpio_0 ps7_gpv_0 ps7_i2c_0 ps7_intc_dist_0 ps7_iop_bus_config_0 ps7_l2cachec_0 ps7_ocmc_0 ps7_pl310_0 ps7_pmu_0 ps7_qspi_0 ps7_qspi_linear_0 ps7_ram_0 ps7_ram_1 ps7_scuc_0 ps7_scugic_0 ps7_scutimer_0 ps7_scuwdt_0 ps7_slcr_0 ps7_spi_0 ps7_uart_0 ps7_xadc_0]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.623
-!MESSAGE XSDB Command: [::hsi::utils::get_drivers_for_sw -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.632
-!MESSAGE XSDB command with result: [::hsi::utils::get_drivers_for_sw -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"ps7_afi_0": {"name": "generic",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:18.259
+!MESSAGE XSDB command with result: [::hsi::utils::get_drivers_for_sw -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"ps7_afi_0": {"name": "generic",
 "ver": "2.0",
 },
 "ps7_afi_1": {"name": "generic",
@@ -1296,7 +1335,7 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 "ps7_spi_0": {"name": "spips",
 "ver": "3.0",
 },
-"ps7_uart_0": {"name": "uartps",
+"ps7_uart_1": {"name": "uartps",
 "ver": "3.1",
 },
 "ps7_xadc_0": {"name": "xadcps",
@@ -1307,11 +1346,11 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.636
-!MESSAGE XSDB Command: [hsi::utils::get_drivers_for_hw -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:18.261
+!MESSAGE XSDB Command: [hsi::utils::get_drivers_for_hw -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.726
-!MESSAGE XSDB command with result: [hsi::utils::get_drivers_for_hw -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, {"processing_system7_0": {"version": "5.5",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:18.524
+!MESSAGE XSDB command with result: [hsi::utils::get_drivers_for_hw -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, {"processing_system7_0": {"version": "5.5",
 "driver_info": {"generic": {"name": "generic",
 "version": "2.0",
 "repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
@@ -1325,7 +1364,7 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 },
 },
 },
-"ps7_uart_0": {"version": "1.00.a",
+"ps7_uart_1": {"version": "1.00.a",
 "driver_info": {"generic": {"name": "generic",
 "version": "2.0",
 "repo": "C:/Xilinx/SDK/2016.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
@@ -1643,61 +1682,124 @@ Don't forget to modify blconfig.h to reflect the offset where your SREC image re
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.770
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:19.441
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.775
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:20.431
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.778
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:20.432
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.783
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:21.472
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "5.5",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.791
-!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:21.485
+!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.796
-!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:21.726
+!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.840
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:21.818
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:13.844
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:23.092
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:14.297
-!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:28.884
+!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:14.304
-!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.035
+!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:14.308
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.037
+!MESSAGE XSDB Command: [::hsi::utils::get_sw_libs -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:14.313
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.044
+!MESSAGE XSDB command with result: [::hsi::utils::get_sw_libs -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.045
+!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.052
+!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.053
+!MESSAGE XSDB Command: [::hsi::utils::get_sw_libs -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.059
+!MESSAGE XSDB command with result: [::hsi::utils::get_sw_libs -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.060
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.069
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.172
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.240
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.241
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.641
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "5.5",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:14.320
-!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.643
+!MESSAGE XSDB Command: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:14.325
-!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.648
+!MESSAGE XSDB command with result: [::hsi::utils::openhw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:14.362
-!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.649
+!MESSAGE XSDB Command: [::hsi::utils::opensw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:37:14.367
-!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.864
+!MESSAGE XSDB command with result: [::hsi::utils::opensw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:14.697
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:29.865
+!MESSAGE XSDB Command: [::hsi::utils::generate_app_template -hw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss -app hello_world -processor ps7_cortexa9_0 -os standalone -dir C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final/src], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:30.526
+!MESSAGE XSDB command with result: [::hsi::utils::generate_app_template -hw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf -sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss -app hello_world -processor ps7_cortexa9_0 -os standalone -dir C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final/src], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:32.974
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:32.981
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:32.983
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:33.040
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:33.046
+!MESSAGE XSDB Command: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:33.054
+!MESSAGE XSDB command with result: [::hsi::utils::get_libs_from_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:33.132
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:30:33.704
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:34.974
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1724,7 +1826,10 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:14.767
+!ENTRY org.eclipse.cdt.core 1 0 2016-12-17 21:30:37.736
+!MESSAGE Indexed 'final' (2 sources, 35 headers) in 3.56 sec: 1,220 declarations; 1,956 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:38.295
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1735,7 +1840,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:14.775
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:38.321
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1746,7 +1851,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:14.828
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:38.816
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1757,7 +1862,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:14.835
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:38.860
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1768,7 +1873,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:14.901
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:39.036
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1779,7 +1884,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:14.915
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:39.081
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1790,7 +1895,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:14.973
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:39.261
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1801,7 +1906,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:14.982
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:39.311
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1812,10 +1917,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 1 0 2016-12-16 19:37:15.027
-!MESSAGE Indexed 'final' (2 sources, 35 headers) in 0.486 sec: 1,220 declarations; 1,956 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
-
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.066
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:39.423
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1826,7 +1928,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.075
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:39.436
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1837,7 +1939,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.160
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:39.553
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1848,7 +1950,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.169
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:39.576
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1859,7 +1961,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.245
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:39.769
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1870,7 +1972,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.254
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:39.815
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1881,7 +1983,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.341
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:40.111
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1892,7 +1994,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.350
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:40.154
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1903,7 +2005,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.435
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:40.386
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1914,7 +2016,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.443
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:40.568
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1925,7 +2027,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.521
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:40.859
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1936,7 +2038,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.530
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:41.841
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1947,7 +2049,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.603
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:41.846
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1958,7 +2060,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.610
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:41.853
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1969,7 +2071,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.681
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:42.036
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1980,7 +2082,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.690
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:42.055
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -1991,7 +2093,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.779
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:42.160
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2002,7 +2104,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:15.788
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:42.171
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2013,7 +2115,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.080
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:42.722
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2024,7 +2126,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.089
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:42.777
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2035,7 +2137,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.168
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:43.029
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2046,7 +2148,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.178
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:43.130
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2057,7 +2159,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.246
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:43.329
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2068,7 +2170,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.254
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:43.386
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2078,11 +2180,8 @@ java.lang.NullPointerException
 	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.write(ConsoleOutputSniffer.java:58)
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
-
-!ENTRY org.eclipse.cdt.core 1 0 2016-12-16 19:37:16.277
-!MESSAGE Indexed 'final_bsp' (108 sources, 63 headers) in 1.23 sec: 3,581 declarations; 22,342 references; 45 unresolved inclusions; 3 syntax errors; 51 unresolved names (0.2%)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.291
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:43.514
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2093,7 +2192,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.408
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:46.237
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2104,7 +2203,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.440
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:46.425
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2115,7 +2214,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.448
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:46.467
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2126,7 +2225,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.481
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:46.545
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2137,7 +2236,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.503
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:46.584
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2148,7 +2247,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.511
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:46.663
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2159,7 +2258,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.545
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:46.856
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2170,7 +2269,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.585
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:47.249
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2181,7 +2280,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.592
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:47.830
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2192,7 +2291,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:16.627
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:48.054
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2203,7 +2302,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:17.365
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:50.283
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2214,7 +2313,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:17.379
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:50.331
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2225,7 +2324,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:17.444
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:50.485
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2236,7 +2335,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:18.135
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:53.049
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2247,7 +2346,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:18.141
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:53.107
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2258,7 +2357,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:18.178
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:53.204
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2269,7 +2368,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:18.954
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:55.516
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2280,7 +2379,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:18.960
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:55.622
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2291,7 +2390,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:18.994
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:55.715
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2302,7 +2401,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:20.085
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:58.954
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2313,7 +2412,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:20.092
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:58.987
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2324,7 +2423,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:20.128
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:30:59.140
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2335,7 +2434,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:20.973
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:01.365
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2346,7 +2445,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:20.980
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:01.377
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2357,7 +2456,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:21.017
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:01.513
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2368,7 +2467,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:21.727
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:03.317
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2379,7 +2478,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:21.736
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:03.337
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2390,7 +2489,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:21.772
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:03.451
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2401,7 +2500,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:22.196
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:04.831
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2412,7 +2511,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:22.205
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:04.846
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2423,7 +2522,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:22.247
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:04.929
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2434,7 +2533,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:22.675
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:06.232
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2445,7 +2544,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:22.684
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:06.272
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2456,7 +2555,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:22.718
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:06.390
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2467,7 +2566,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:23.543
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:08.660
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2478,7 +2577,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:23.552
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:08.708
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2489,7 +2588,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:23.623
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:08.975
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2500,7 +2599,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:27.083
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:19.414
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2511,7 +2610,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:27.092
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:19.444
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2522,7 +2621,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:27.127
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:19.548
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2533,7 +2632,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:27.990
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:22.398
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2544,7 +2643,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:27.997
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:22.410
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2555,7 +2654,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:28.032
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:22.499
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2566,7 +2665,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:28.815
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:25.387
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2577,7 +2676,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2016-12-16 19:37:28.844
+!ENTRY org.eclipse.cdt.core 4 0 2016-12-17 21:31:25.479
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -2602,167 +2701,364 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:11.024
-!MESSAGE XSDB Command: [::hsi::utils::get_hw_files_on_hw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf bit], Thread: main
+!ENTRY org.eclipse.cdt.core 1 0 2016-12-17 21:31:35.519
+!MESSAGE Indexed 'final_bsp' (108 sources, 125 headers) in 9.43 sec: 4,904 declarations; 23,632 references; 62 unresolved inclusions; 5 syntax errors; 62 unresolved names (0.22%)
 
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:11.030
-!MESSAGE XSDB command with result: [::hsi::utils::get_hw_files_on_hw C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf bit], Result: [null, IMU_bd_wrapper.bit]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:19.173
-!MESSAGE XSDB Command: [::hsi::utils::get_cpu_nr -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Thread: Worker-7
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:19.179
-!MESSAGE XSDB command with result: [::hsi::utils::get_cpu_nr -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf], Result: [null, {"ps7_cortexa9_0": {"bscan": "",
-"index": "0",
-},
-"ps7_cortexa9_1": {"bscan": "",
-"index": "1",
-},
-}]. Thread: Worker-7
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:40.602
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_tag_info -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:40.608
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_tag_info -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ], Result: [null, {"ps7_cortexa9_0": "",
-"ps7_cortexa9_1": "",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:42.177
-!MESSAGE XSDB Command: [::hsi::utils::get_bram_blocks C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:42.183
-!MESSAGE XSDB command with result: [::hsi::utils::get_bram_blocks C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:42.190
-!MESSAGE XSDB Command: [connect -url tcp:127.0.0.1:3121], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:42.199
-!MESSAGE XSDB command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#1]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:42.206
-!MESSAGE XSDB Command: [jtag targets -filter {level == 0}], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:43.704
-!MESSAGE XSDB command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Zed 210248447864 (closed)]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:43.708
-!MESSAGE XSDB Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zed 210248447864 (closed)" && level==1}], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:43.730
-!MESSAGE XSDB command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zed 210248447864 (closed)" && level==1}], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:46.734
-!MESSAGE XSDB Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zed 210248447864 (closed)" && level==1}], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:46.788
-!MESSAGE XSDB command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zed 210248447864 (closed)" && level==1}], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:57.658
-!MESSAGE XSDB Command: [::hsi::utils::get_addr_tag_info -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:57.665
-!MESSAGE XSDB command with result: [::hsi::utils::get_addr_tag_info -json C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ], Result: [null, {"ps7_cortexa9_0": "",
-"ps7_cortexa9_1": "",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:58.745
-!MESSAGE XSDB Command: [::hsi::utils::get_bram_blocks C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:58.753
-!MESSAGE XSDB command with result: [::hsi::utils::get_bram_blocks C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:58.757
-!MESSAGE XSDB Command: [connect -url tcp:127.0.0.1:3121], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:58.762
-!MESSAGE XSDB command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#1]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:58.766
-!MESSAGE XSDB Command: [jtag targets -filter {level == 0}], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:59.370
-!MESSAGE XSDB command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Zed 210248447864]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:59.378
-!MESSAGE XSDB Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==1}], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:59.419
-!MESSAGE XSDB command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
-     3  xc7z020 (idcode 03727093 irlen 6 fpga)]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:59.428
-!MESSAGE XSDB Command: [targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:59.683
-!MESSAGE XSDB command with result: [targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248447864" && level==0} -index 1], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:38:59.686
-!MESSAGE XSDB Command: [fpga -file C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/IMU_bd_wrapper.bit], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:39:05.016
-!MESSAGE XSDB command with result: [fpga -file C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/IMU_bd_wrapper.bit], Result: [null, ]. Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:39:05.833
-!MESSAGE XSDB Command: [::hsi::utils::get_bram_blocks C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2016-12-16 19:39:05.849
-!MESSAGE XSDB command with result: [::hsi::utils::get_bram_blocks C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf ], Result: [null, ]. Thread: ModalContext
-
-!ENTRY org.eclipse.debug.core 4 0 2016-12-16 19:42:41.760
-!MESSAGE FrameworkEvent ERROR
+!ENTRY org.eclipse.cdt.ui 4 2 2016-12-17 21:32:20.033
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.cdt.ui".
 !STACK 0
-org.osgi.framework.BundleException: Exception in org.eclipse.debug.core.DebugPlugin.stop() of bundle org.eclipse.debug.core.
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:847)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:955)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:323)
-	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
-	at org.eclipse.osgi.container.Module.stop(Module.java:488)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
-	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:144)
-	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
-	at org.eclipse.osgi.container.Module.stop(Module.java:488)
-	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:159)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.NullPointerException
-	at com.xilinx.sdk.targetmanager.internal.json.XMDJSONProcess.issueCommand(XMDJSONProcess.java:144)
-	at com.xilinx.sdk.targetmanager.internal.TM.stop(TM.java:762)
-	at com.xilinx.sdk.debug.core.internal.AppRunner.stopRun(AppRunner.java:192)
-	at com.xilinx.sdk.debug.core.internal.RemoteProcess.terminate(RemoteProcess.java:132)
-	at org.eclipse.debug.core.Launch.terminate(Launch.java:248)
-	at org.eclipse.debug.internal.core.LaunchManager.shutdown(LaunchManager.java:2384)
-	at org.eclipse.debug.core.DebugPlugin.stop(DebugPlugin.java:660)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
-	... 13 more
-Root exception:
-java.lang.NullPointerException
-	at com.xilinx.sdk.targetmanager.internal.json.XMDJSONProcess.issueCommand(XMDJSONProcess.java:144)
-	at com.xilinx.sdk.targetmanager.internal.TM.stop(TM.java:762)
-	at com.xilinx.sdk.debug.core.internal.AppRunner.stopRun(AppRunner.java:192)
-	at com.xilinx.sdk.debug.core.internal.RemoteProcess.terminate(RemoteProcess.java:132)
-	at org.eclipse.debug.core.Launch.terminate(Launch.java:248)
-	at org.eclipse.debug.internal.core.LaunchManager.shutdown(LaunchManager.java:2384)
-	at org.eclipse.debug.core.DebugPlugin.stop(DebugPlugin.java:660)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:955)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:323)
-	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
-	at org.eclipse.osgi.container.Module.stop(Module.java:488)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
-	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:144)
-	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
-	at org.eclipse.osgi.container.Module.stop(Module.java:488)
-	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:159)
-	at java.lang.Thread.run(Thread.java:745)
+java.lang.IllegalArgumentException: 
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:63)
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:47)
+	at org.eclipse.jface.text.rules.RuleBasedScanner.checkRange(RuleBasedScanner.java:120)
+	at org.eclipse.jface.text.rules.RuleBasedScanner.setRange(RuleBasedScanner.java:92)
+	at org.eclipse.jface.text.rules.BufferedRuleBasedScanner.setRange(BufferedRuleBasedScanner.java:98)
+	at org.eclipse.cdt.internal.ui.text.spelling.CSpellingEngine.check(CSpellingEngine.java:133)
+	at org.eclipse.cdt.internal.ui.text.spelling.SpellingEngine.check(SpellingEngine.java:73)
+	at org.eclipse.cdt.internal.ui.text.spelling.CSpellingService$1.run(CSpellingService.java:58)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.cdt.internal.ui.text.spelling.CSpellingService.check(CSpellingService.java:64)
+	at org.eclipse.ui.texteditor.spelling.SpellingReconcileStrategy.reconcile(SpellingReconcileStrategy.java:198)
+	at org.eclipse.cdt.internal.ui.text.spelling.CSpellingReconcileStrategy.reconcile(CSpellingReconcileStrategy.java:121)
+	at org.eclipse.ui.texteditor.spelling.SpellingReconcileStrategy.initialReconcile(SpellingReconcileStrategy.java:169)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:117)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.initialReconcile(CCompositeReconcilingStrategy.java:108)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:105)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.initialProcess(CReconciler.java:338)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:173)
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:53.526
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:53.584
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:53.585
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:53.591
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:53.592
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:53.599
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:58.601
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:59.036
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:59.038
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:59.049
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:59.050
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:46:59.112
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:52:07.200
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:52:07.288
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:52:07.289
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:52:07.370
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:52:07.374
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:52:07.385
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:55:40.174
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:55:40.457
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:55:40.458
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:55:40.496
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:55:40.499
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:55:40.505
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:56:13.079
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:56:13.089
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:56:13.090
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:56:13.102
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:56:13.104
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 21:56:13.135
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:14:15.588
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:14:15.661
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:14:15.662
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:14:15.713
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:14:15.714
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:14:15.720
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:17:58.882
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:17:59.020
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:17:59.022
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:17:59.162
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:17:59.164
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:17:59.181
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:19:32.966
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:19:33.014
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:19:33.015
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:19:33.068
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:19:33.069
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:19:33.088
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:20:21.516
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:20:21.526
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:20:21.527
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:20:21.633
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:20:21.638
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:20:21.737
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:22:44.662
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:22:44.670
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:22:44.671
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:22:44.742
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:22:44.744
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:22:44.751
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:25:14.112
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:25:14.123
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:25:14.126
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:25:14.167
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:25:14.168
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:25:14.207
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:27:41.334
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:27:41.364
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:27:41.365
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:27:41.370
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:27:41.371
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 22:27:41.375
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:28:54.976
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:28:55.100
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:28:55.102
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:28:55.171
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:28:55.173
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:28:55.190
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:20.678
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:20.711
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:20.712
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:20.719
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:20.719
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:20.724
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:42.622
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:42.646
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:42.647
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:42.690
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:42.691
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:29:42.711
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:30:22.290
+!MESSAGE XSDB Command: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:30:22.325
+!MESSAGE XSDB command with result: [ ::hsi::utils::set_current_hw_sw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:30:22.326
+!MESSAGE XSDB Command: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:30:22.370
+!MESSAGE XSDB command with result: [::hsi::utils::get_hw_sw_details -json C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/IMU_bd_wrapper_hw_platform_0/system.hdf C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "5.5",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:30:22.372
+!MESSAGE XSDB Command: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2016-12-17 23:30:22.380
+!MESSAGE XSDB command with result: [::hsi::utils::closesw C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.sdk/final_bsp/system.mss], Result: [null, ]. Thread: main

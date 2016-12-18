@@ -52,17 +52,17 @@ set rc [catch {
   set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.cache/wt [current_project]
-  set_property parent.project_path C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.xpr [current_project]
+  set_property webtalk.parent_dir C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.cache/wt [current_project]
+  set_property parent.project_path C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.xpr [current_project]
   set_property ip_repo_paths {
-  c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.cache/ip
-  C:/Users/georges/Documents/GitHub/MQP/ip_repo
+  c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.cache/ip
+  C:/Users/John/Documents/GitHub/MQP/ip_repo
 } [current_project]
-  set_property ip_output_repo c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.cache/ip [current_project]
-  add_files -quiet C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/IMU_bd_wrapper.dcp
-  read_xdc -ref IMU_bd_processing_system7_0_0 -cells inst c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc
-  set_property processing_order EARLY [get_files c:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc]
-  read_xdc C:/Users/georges/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/constrs_1/new/top.xdc
+  set_property ip_output_repo c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.cache/ip [current_project]
+  add_files -quiet C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.runs/synth_1/IMU_bd_wrapper.dcp
+  read_xdc -ref IMU_bd_processing_system7_0_0 -cells inst c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc
+  set_property processing_order EARLY [get_files c:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/sources_1/bd/IMU_bd/ip/IMU_bd_processing_system7_0_0/IMU_bd_processing_system7_0_0.xdc]
+  read_xdc C:/Users/John/Documents/GitHub/MQP/IMU_PS/IMU_PS.srcs/constrs_1/new/top.xdc
   link_design -top IMU_bd_wrapper -part xc7z020clg484-1
   write_hwdef -file IMU_bd_wrapper.hwdef
   close_msg_db -file init_design.pb
