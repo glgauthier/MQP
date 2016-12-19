@@ -74,15 +74,11 @@
 #define CTL3 0x22
 #define STATUS_ADDRESS 0x27
 #define DATA_ADDRESS 0x28
-#define OFFSET_ADDRESS_XLOW 0x05
-#define OFFSET_ADDRESS_XHIGH 0x06
-#define OFFSET_ADDRESS_YLOW 0x07
-#define OFFSET_ADDRESS_YHIGH 0x08
+#define OFFSET_ADDRESS 0x05
 #define CASCADE 0x60
 
 #define PI 3.14159265
 #define DEGREES_PER_STEP 0.3515625	// 360 degrees/1024 steps = 0.3515625
-#define MAGNETOMETER_SENSITIVITY 0.00014	// +/- 4 gauss
 
 // create a new SPI instance
 static XSpiPs SpiInstance;
@@ -152,7 +148,7 @@ void delay(int cycles)
 
 void IMU_init()
 {
-	u8 DataBuffer[2]; // addr + 8 bits write val
+	u8 DataBuffer[2]; // addr + 32 bits read val
 	// high power mode
 	DataBuffer[0] = (u8) CTL1 & WRITE;
 	DataBuffer[1] = (u8) 0x7C;
@@ -173,84 +169,18 @@ void IMU_init()
 	XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
 	delay(250);
 
-	calibrateMagnetometer();
+	calibrateMagnitometer();
 
 	return;
 }
 
-// calibrates magnetometer
 void calibrateMagnetometer()
 {
 	int i, j;
 
-	int magnetometerMaxX = 0;
-	int magnetometerMaxY = 0;
+	int16_t magnetometerMin[2] = {0, 0};
 
-	int magnetometerMinX = 0;
-	int magnetometerMinY = 0;
 
-	for(i=0; i<128; i++)
-	{
-		while(!getIMUdata());	// waits until new magnetometer data is available
-
-		int magnetometerTempX = 0;
-		int magnetometerTempY = 0;
-		magnetometerTempX = xData;
-		magnetometerTempY = yData;
-
-		// sets new axis maximum value if necessary
-		if(magnetometerTempX > magnetometerMaxX)
-			magnetometerMaxX = magnetometerTempX;
-		if(magnetometerTempY > magnetometerMaxY)
-			magnetometerMaxY = magnetometerTempY;
-
-		// sets new axis minimum value if necessary
-		if(magnetometerTempX < magnetometerMinX)
-			magnetometerMinX = magnetometerTempX;
-		if(magnetometerTempY < magnetometerMinY)
-			magnetometerMinY = magnetometerTempY;
-	}
-
-	int magnetometerOffsetX, magnetometerOffsetY;
-
-	magnetometerOffsetX = (magnetometerMaxX + magnetometerMinX) / 2;
-	magnetometerOffsetY = (magnetometerMaxY + magnetometerMinY) / 2;
-
-	// setting the x,y offset registers
-
-	u8 DataBuffer[2]; // addr + 8 bits write val
-
-	// setting the low x offset register
-	DataBuffer[0] = (u8) OFFSET_ADDRESS_XLOW & WRITE;
-	DataBuffer[1] = (u8) (magnetometerOffsetX & 0x00FF);
-	// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
-	XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
-	XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
-	delay(500);
-
-	// setting the high x offset register
-	DataBuffer[0] = (u8) OFFSET_ADDRESS_XHIGH & WRITE;
-	DataBuffer[1] = (u8) (magnetometerOffsetX & 0xFF00) >> 8;
-	// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
-	XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
-	XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
-	delay(500);
-
-	// setting the low y offset register
-	DataBuffer[0] = (u8) OFFSET_ADDRESS_YLOW & WRITE;
-	DataBuffer[1] = (u8) (magnetometerOffsetY & 0x00FF);
-	// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
-	XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
-	XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
-	delay(500);
-
-	// setting the high y offset register
-	DataBuffer[0] = (u8) OFFSET_ADDRESS_YHIGH & WRITE;
-	DataBuffer[1] = (u8) (magnetometerOffsetY & 0xFF00) >> 8;
-	// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
-	XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
-	XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
-	delay(250);
 }
 
 int getIMUdata()
@@ -259,7 +189,7 @@ int getIMUdata()
 	int newDataReady = 0;
 
 	// check status address
-	u8 DataBuffer[2]; // addr + 8 bits read val
+	u8 DataBuffer[2]; // addr + 32 bits read val
 	DataBuffer[0] = (u8) STATUS_ADDRESS | READ;
 	DataBuffer[1] = (u8) 0x00;
 	XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, &DataBuffer[0], 2);
@@ -269,7 +199,7 @@ int getIMUdata()
 
 		// grabs x and y magnetometer environmental offset
 		u8 XYoffset[5];
-		XYoffset[0] = (u8) OFFSET_ADDRESS_XLOW | CASCADE | READ;
+		XYoffset[0] = (u8) OFFSET_ADDRESS | CASCADE | READ;
 		XYoffset[1] = (u8) 0x00;
 		XYoffset[2] = (u8) 0x00;
 		XYoffset[3] = (u8) 0x00;

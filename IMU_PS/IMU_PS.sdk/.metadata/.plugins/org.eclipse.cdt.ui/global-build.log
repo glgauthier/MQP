@@ -895,3 +895,378 @@ arm-none-eabi-size final.elf  |tee "final.elf.size"
   89536	   2604	  23436	 115576	  1c378	final.elf
 'Finished building: final.elf.size'
 ' '
+13:53:23 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:121:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:107:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: final.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../final_bsp/ps7_cortexa9_0/lib -o "final.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: final.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size final.elf  |tee "final.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  89536	   2604	  23436	 115576	  1c378	final.elf
+'Finished building: final.elf.size'
+' '
+13:56:47 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:121:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:107:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: final.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../final_bsp/ps7_cortexa9_0/lib -o "final.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: final.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size final.elf  |tee "final.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  89536	   2604	  23436	 115576	  1c378	final.elf
+'Finished building: final.elf.size'
+' '
+13:57:01 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:121:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:107:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: final.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../final_bsp/ps7_cortexa9_0/lib -o "final.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: final.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size final.elf  |tee "final.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  89536	   2604	  23436	 115576	  1c378	final.elf
+'Finished building: final.elf.size'
+' '
+15:26:26 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:122:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:108:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+../src/helloworld.c: In function 'IMU_init':
+../src/helloworld.c:172:2: warning: implicit declaration of function 'calibrateMagnitometer' [-Wimplicit-function-declaration]
+  calibrateMagnitometer();
+  ^
+../src/helloworld.c: In function 'calibrateMagnetometer':
+../src/helloworld.c:181:10: warning: unused variable 'magnetometerMin' [-Wunused-variable]
+  int16_t magnetometerMin[2] = {0, 0};
+          ^
+../src/helloworld.c:179:9: warning: unused variable 'j' [-Wunused-variable]
+  int i, j;
+         ^
+../src/helloworld.c:179:6: warning: unused variable 'i' [-Wunused-variable]
+  int i, j;
+      ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: final.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../final_bsp/ps7_cortexa9_0/lib -o "final.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/helloworld.o: In function `IMU_init':
+C:\Users\John\Documents\GitHub\MQP\IMU_PS\IMU_PS.sdk\final\Debug/../src/helloworld.c:172: undefined reference to `calibrateMagnitometer'
+collect2.exe: error: ld returned 1 exit status
+make: *** [final.elf] Error 1
+15:26:42 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:122:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:108:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+../src/helloworld.c: In function 'calibrateMagnetometer':
+../src/helloworld.c:181:10: warning: unused variable 'magnetometerMin' [-Wunused-variable]
+  int16_t magnetometerMin[2] = {0, 0};
+          ^
+../src/helloworld.c:179:9: warning: unused variable 'j' [-Wunused-variable]
+  int i, j;
+         ^
+../src/helloworld.c:179:6: warning: unused variable 'i' [-Wunused-variable]
+  int i, j;
+      ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: final.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../final_bsp/ps7_cortexa9_0/lib -o "final.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: final.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size final.elf  |tee "final.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  89536	   2604	  23436	 115576	  1c378	final.elf
+'Finished building: final.elf.size'
+' '
+15:36:17 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:122:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:108:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+../src/helloworld.c: In function 'calibrateMagnetometer':
+../src/helloworld.c:188:7: warning: variable 'magnetometerTemp' set but not used [-Wunused-but-set-variable]
+   int magnetometerTemp[2] = {0, 0};
+       ^
+../src/helloworld.c:182:6: warning: unused variable 'magnetometerMin' [-Wunused-variable]
+  int magnetometerMin[2] = {0, 0};
+      ^
+../src/helloworld.c:181:6: warning: unused variable 'magnetometerMax' [-Wunused-variable]
+  int magnetometerMax[2] = {0, 0};
+      ^
+../src/helloworld.c:179:9: warning: unused variable 'j' [-Wunused-variable]
+  int i, j;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: final.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../final_bsp/ps7_cortexa9_0/lib -o "final.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: final.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size final.elf  |tee "final.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  89664	   2604	  23436	 115704	  1c3f8	final.elf
+'Finished building: final.elf.size'
+' '
+15:43:52 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:122:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:108:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: final.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../final_bsp/ps7_cortexa9_0/lib -o "final.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: final.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size final.elf  |tee "final.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  89792	   2604	  23436	 115832	  1c478	final.elf
+'Finished building: final.elf.size'
+' '
+16:18:44 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:126:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:112:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+../src/helloworld.c: In function 'calibrateMagnetometer':
+../src/helloworld.c:183:9: warning: unused variable 'j' [-Wunused-variable]
+  int i, j;
+         ^
+../src/helloworld.c: In function 'getIMUdata':
+../src/helloworld.c:272:22: error: 'OFFSET_ADDRESS' undeclared (first use in this function)
+   XYoffset[0] = (u8) OFFSET_ADDRESS | CASCADE | READ;
+                      ^
+../src/helloworld.c:272:22: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/helloworld.o] Error 1
+16:19:50 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:126:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:112:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+../src/helloworld.c: In function 'calibrateMagnetometer':
+../src/helloworld.c:183:9: warning: unused variable 'j' [-Wunused-variable]
+  int i, j;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: final.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../final_bsp/ps7_cortexa9_0/lib -o "final.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: final.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size final.elf  |tee "final.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  90176	   2604	  23436	 116216	  1c5f8	final.elf
+'Finished building: final.elf.size'
+' '
+16:35:08 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:126:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:112:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+../src/helloworld.c: In function 'calibrateMagnetometer':
+../src/helloworld.c:183:9: warning: unused variable 'j' [-Wunused-variable]
+  int i, j;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: final.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../final_bsp/ps7_cortexa9_0/lib -o "final.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: final.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size final.elf  |tee "final.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  90112	   2604	  23436	 116152	  1c5b8	final.elf
+'Finished building: final.elf.size'
+' '
+16:36:34 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:126:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:112:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+../src/helloworld.c: In function 'calibrateMagnetometer':
+../src/helloworld.c:183:9: warning: unused variable 'j' [-Wunused-variable]
+  int i, j;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: final.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../final_bsp/ps7_cortexa9_0/lib -o "final.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: final.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size final.elf  |tee "final.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  90112	   2604	  23436	 116152	  1c5b8	final.elf
+'Finished building: final.elf.size'
+' '
+16:41:23 **** Auto Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../final_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:126:6: warning: variable 'deviceStepOffset' set but not used [-Wunused-but-set-variable]
+  int deviceStepOffset = 0;
+      ^
+../src/helloworld.c:112:9: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int Status;
+         ^
+../src/helloworld.c: In function 'calibrateMagnetometer':
+../src/helloworld.c:184:9: warning: unused variable 'j' [-Wunused-variable]
+  int i, j;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: final.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../final_bsp/ps7_cortexa9_0/lib -o "final.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: final.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size final.elf  |tee "final.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  90112	   2604	  23436	 116152	  1c5b8	final.elf
+'Finished building: final.elf.size'
+' '
+16:48:42 **** Incremental Build of configuration Debug for project final ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.

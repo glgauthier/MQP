@@ -178,7 +178,6 @@ void IMU_init()
 	return;
 }
 
-// calibrates magnetometer
 void calibrateMagnetometer()
 {
 	int i, j;
@@ -209,48 +208,47 @@ void calibrateMagnetometer()
 			magnetometerMinX = magnetometerTempX;
 		if(magnetometerTempY < magnetometerMinY)
 			magnetometerMinY = magnetometerTempY;
+
+		int magnetometerOffsetX, magnetometerOffsetY;
+
+		magnetometerOffsetX = (magnetometerMaxX + magnetometerMinX) / 2;
+		magnetometerOffsetY = (magnetometerMaxY + magnetometerMinY) / 2;
+
+		// setting the x,y offset registers
+
+		u8 DataBuffer[2]; // addr + 8 bits write val
+
+		// setting the low x offset register
+		DataBuffer[0] = (u8) OFFSET_ADDRESS_XLOW & WRITE;
+		DataBuffer[1] = (u8) (magnetometerOffsetX & 0x00FF);
+		// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
+		XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
+		XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
+		delay(500);
+
+		// setting the high x offset register
+		DataBuffer[0] = (u8) OFFSET_ADDRESS_XHIGH & WRITE;
+		DataBuffer[1] = (u8) (magnetometerOffsetX & 0xFF00) >> 8;
+		// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
+		XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
+		XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
+		delay(500);
+
+		// setting the low y offset register
+		DataBuffer[0] = (u8) OFFSET_ADDRESS_YLOW & WRITE;
+		DataBuffer[1] = (u8) (magnetometerOffsetY & 0x00FF);
+		// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
+		XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
+		XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
+		delay(500);
+
+		// setting the high y offset register
+		DataBuffer[0] = (u8) OFFSET_ADDRESS_YHIGH & WRITE;
+		DataBuffer[1] = (u8) (magnetometerOffsetY & 0xFF00) >> 8;
+		// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
+		XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
+		XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
 	}
-
-	int magnetometerOffsetX, magnetometerOffsetY;
-
-	magnetometerOffsetX = (magnetometerMaxX + magnetometerMinX) / 2;
-	magnetometerOffsetY = (magnetometerMaxY + magnetometerMinY) / 2;
-
-	// setting the x,y offset registers
-
-	u8 DataBuffer[2]; // addr + 8 bits write val
-
-	// setting the low x offset register
-	DataBuffer[0] = (u8) OFFSET_ADDRESS_XLOW & WRITE;
-	DataBuffer[1] = (u8) (magnetometerOffsetX & 0x00FF);
-	// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
-	XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
-	XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
-	delay(500);
-
-	// setting the high x offset register
-	DataBuffer[0] = (u8) OFFSET_ADDRESS_XHIGH & WRITE;
-	DataBuffer[1] = (u8) (magnetometerOffsetX & 0xFF00) >> 8;
-	// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
-	XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
-	XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
-	delay(500);
-
-	// setting the low y offset register
-	DataBuffer[0] = (u8) OFFSET_ADDRESS_YLOW & WRITE;
-	DataBuffer[1] = (u8) (magnetometerOffsetY & 0x00FF);
-	// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
-	XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
-	XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
-	delay(500);
-
-	// setting the high y offset register
-	DataBuffer[0] = (u8) OFFSET_ADDRESS_YHIGH & WRITE;
-	DataBuffer[1] = (u8) (magnetometerOffsetY & 0xFF00) >> 8;
-	// ONLY SET SLAVE SELECT ON THE 1ST TRANSFER
-	XSpiPs_SetSlaveSelect(&SpiInstance,0x01);
-	XSpiPs_PolledTransfer(&SpiInstance, DataBuffer, NULL, 2);
-	delay(250);
 }
 
 int getIMUdata()
