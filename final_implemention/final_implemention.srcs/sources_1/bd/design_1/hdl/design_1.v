@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Wed Dec 14 16:23:53 2016
+//Date        : Tue Dec 20 20:04:53 2016
 //Host        : Georges-T460p running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -38,6 +38,23 @@ module design_1
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
+    GPIO_0_tri_i,
+    GPIO_0_tri_o,
+    GPIO_0_tri_t,
+    SPI_0_io0_i,
+    SPI_0_io0_o,
+    SPI_0_io0_t,
+    SPI_0_io1_i,
+    SPI_0_io1_o,
+    SPI_0_io1_t,
+    SPI_0_sck_i,
+    SPI_0_sck_o,
+    SPI_0_sck_t,
+    SPI_0_ss1_o,
+    SPI_0_ss2_o,
+    SPI_0_ss_i,
+    SPI_0_ss_o,
+    SPI_0_ss_t,
     button,
     cam_reset,
     cam_rst,
@@ -77,6 +94,23 @@ module design_1
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
+  input [1:0]GPIO_0_tri_i;
+  output [1:0]GPIO_0_tri_o;
+  output [1:0]GPIO_0_tri_t;
+  input SPI_0_io0_i;
+  output SPI_0_io0_o;
+  output SPI_0_io0_t;
+  input SPI_0_io1_i;
+  output SPI_0_io1_o;
+  output SPI_0_io1_t;
+  input SPI_0_sck_i;
+  output SPI_0_sck_o;
+  output SPI_0_sck_t;
+  output SPI_0_ss1_o;
+  output SPI_0_ss2_o;
+  input SPI_0_ss_i;
+  output SPI_0_ss_o;
+  output SPI_0_ss_t;
   input button;
   output cam_reset;
   input cam_rst;
@@ -141,6 +175,9 @@ module design_1
   wire processing_system7_0_FIXED_IO_PS_CLK;
   wire processing_system7_0_FIXED_IO_PS_PORB;
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
+  wire [1:0]processing_system7_0_GPIO_0_TRI_I;
+  wire [1:0]processing_system7_0_GPIO_0_TRI_O;
+  wire [1:0]processing_system7_0_GPIO_0_TRI_T;
   wire [31:0]processing_system7_0_M_AXI_GP0_ARADDR;
   wire [1:0]processing_system7_0_M_AXI_GP0_ARBURST;
   wire [3:0]processing_system7_0_M_AXI_GP0_ARCACHE;
@@ -179,6 +216,20 @@ module design_1
   wire processing_system7_0_M_AXI_GP0_WREADY;
   wire [3:0]processing_system7_0_M_AXI_GP0_WSTRB;
   wire processing_system7_0_M_AXI_GP0_WVALID;
+  wire processing_system7_0_SPI_0_IO0_I;
+  wire processing_system7_0_SPI_0_IO0_O;
+  wire processing_system7_0_SPI_0_IO0_T;
+  wire processing_system7_0_SPI_0_IO1_I;
+  wire processing_system7_0_SPI_0_IO1_O;
+  wire processing_system7_0_SPI_0_IO1_T;
+  wire processing_system7_0_SPI_0_SCK_I;
+  wire processing_system7_0_SPI_0_SCK_O;
+  wire processing_system7_0_SPI_0_SCK_T;
+  wire processing_system7_0_SPI_0_SS1_O;
+  wire processing_system7_0_SPI_0_SS2_O;
+  wire processing_system7_0_SPI_0_SS_I;
+  wire processing_system7_0_SPI_0_SS_O;
+  wire processing_system7_0_SPI_0_SS_T;
   wire [31:0]processing_system7_0_axi_periph_M00_AXI_ARADDR;
   wire [2:0]processing_system7_0_axi_periph_M00_AXI_ARPROT;
   wire processing_system7_0_axi_periph_M00_AXI_ARREADY;
@@ -209,6 +260,18 @@ module design_1
   assign FIFO_RCK = custom_logic_FIFO_RCK;
   assign FIFO_RRST1 = custom_logic_FIFO_RRST1;
   assign FIFO_RRST2 = custom_logic_FIFO_RRST2;
+  assign GPIO_0_tri_o[1:0] = processing_system7_0_GPIO_0_TRI_O;
+  assign GPIO_0_tri_t[1:0] = processing_system7_0_GPIO_0_TRI_T;
+  assign SPI_0_io0_o = processing_system7_0_SPI_0_IO0_O;
+  assign SPI_0_io0_t = processing_system7_0_SPI_0_IO0_T;
+  assign SPI_0_io1_o = processing_system7_0_SPI_0_IO1_O;
+  assign SPI_0_io1_t = processing_system7_0_SPI_0_IO1_T;
+  assign SPI_0_sck_o = processing_system7_0_SPI_0_SCK_O;
+  assign SPI_0_sck_t = processing_system7_0_SPI_0_SCK_T;
+  assign SPI_0_ss1_o = processing_system7_0_SPI_0_SS1_O;
+  assign SPI_0_ss2_o = processing_system7_0_SPI_0_SS2_O;
+  assign SPI_0_ss_o = processing_system7_0_SPI_0_SS_O;
+  assign SPI_0_ss_t = processing_system7_0_SPI_0_SS_T;
   assign button_1 = button;
   assign cam_reset = custom_logic_cam_reset;
   assign cam_rst_1 = cam_rst;
@@ -217,6 +280,11 @@ module design_1
   assign fpga_clk_1 = fpga_clk;
   assign hsync = nu_nu_rangefinder_vga_0_hsync;
   assign leds[7:0] = nu_nu_rangefinder_vga_0_leds;
+  assign processing_system7_0_GPIO_0_TRI_I = GPIO_0_tri_i[1:0];
+  assign processing_system7_0_SPI_0_IO0_I = SPI_0_io0_i;
+  assign processing_system7_0_SPI_0_IO1_I = SPI_0_io1_i;
+  assign processing_system7_0_SPI_0_SCK_I = SPI_0_sck_i;
+  assign processing_system7_0_SPI_0_SS_I = SPI_0_ss_i;
   assign reset_1 = reset;
   assign rgb[11:0] = custom_logic_rgb;
   assign sw_1 = sw[7:0];
@@ -310,6 +378,9 @@ module design_1
         .DDR_WEB(DDR_we_n),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
+        .GPIO_I(processing_system7_0_GPIO_0_TRI_I),
+        .GPIO_O(processing_system7_0_GPIO_0_TRI_O),
+        .GPIO_T(processing_system7_0_GPIO_0_TRI_T),
         .MIO(FIXED_IO_mio[53:0]),
         .M_AXI_GP0_ACLK(processing_system7_0_FCLK_CLK0),
         .M_AXI_GP0_ARADDR(processing_system7_0_M_AXI_GP0_ARADDR),
@@ -352,7 +423,21 @@ module design_1
         .M_AXI_GP0_WVALID(processing_system7_0_M_AXI_GP0_WVALID),
         .PS_CLK(FIXED_IO_ps_clk),
         .PS_PORB(FIXED_IO_ps_porb),
-        .PS_SRSTB(FIXED_IO_ps_srstb));
+        .PS_SRSTB(FIXED_IO_ps_srstb),
+        .SPI0_MISO_I(processing_system7_0_SPI_0_IO1_I),
+        .SPI0_MISO_O(processing_system7_0_SPI_0_IO1_O),
+        .SPI0_MISO_T(processing_system7_0_SPI_0_IO1_T),
+        .SPI0_MOSI_I(processing_system7_0_SPI_0_IO0_I),
+        .SPI0_MOSI_O(processing_system7_0_SPI_0_IO0_O),
+        .SPI0_MOSI_T(processing_system7_0_SPI_0_IO0_T),
+        .SPI0_SCLK_I(processing_system7_0_SPI_0_SCK_I),
+        .SPI0_SCLK_O(processing_system7_0_SPI_0_SCK_O),
+        .SPI0_SCLK_T(processing_system7_0_SPI_0_SCK_T),
+        .SPI0_SS1_O(processing_system7_0_SPI_0_SS1_O),
+        .SPI0_SS2_O(processing_system7_0_SPI_0_SS2_O),
+        .SPI0_SS_I(processing_system7_0_SPI_0_SS_I),
+        .SPI0_SS_O(processing_system7_0_SPI_0_SS_O),
+        .SPI0_SS_T(processing_system7_0_SPI_0_SS_T));
   design_1_processing_system7_0_axi_periph_0 processing_system7_0_axi_periph
        (.ACLK(processing_system7_0_FCLK_CLK0),
         .ARESETN(rst_processing_system7_0_100M_interconnect_aresetn),

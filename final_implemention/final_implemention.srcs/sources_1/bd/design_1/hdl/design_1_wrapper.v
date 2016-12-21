@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Wed Dec 14 16:23:54 2016
+//Date        : Tue Dec 20 20:04:54 2016
 //Host        : Georges-T460p running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -43,10 +43,17 @@ module design_1_wrapper
     cam_sysclk,
     cam_trigger,
     fpga_clk,
+    gpio_0_tri_io,
     hsync,
     leds,
     reset,
     rgb,
+    spi_0_io0_io,
+    spi_0_io1_io,
+    spi_0_sck_io,
+    spi_0_ss1_o,
+    spi_0_ss2_o,
+    spi_0_ss_io,
     sw,
     vsync);
   inout [14:0]DDR_addr;
@@ -82,10 +89,17 @@ module design_1_wrapper
   output cam_sysclk;
   output cam_trigger;
   input fpga_clk;
+  inout [1:0]gpio_0_tri_io;
   output hsync;
   output [7:0]leds;
   input reset;
   output [11:0]rgb;
+  inout spi_0_io0_io;
+  inout spi_0_io1_io;
+  inout spi_0_sck_io;
+  output spi_0_ss1_o;
+  output spi_0_ss2_o;
+  inout spi_0_ss_io;
   input [7:0]sw;
   output vsync;
 
@@ -122,10 +136,36 @@ module design_1_wrapper
   wire cam_sysclk;
   wire cam_trigger;
   wire fpga_clk;
+  wire [0:0]gpio_0_tri_i_0;
+  wire [1:1]gpio_0_tri_i_1;
+  wire [0:0]gpio_0_tri_io_0;
+  wire [1:1]gpio_0_tri_io_1;
+  wire [0:0]gpio_0_tri_o_0;
+  wire [1:1]gpio_0_tri_o_1;
+  wire [0:0]gpio_0_tri_t_0;
+  wire [1:1]gpio_0_tri_t_1;
   wire hsync;
   wire [7:0]leds;
   wire reset;
   wire [11:0]rgb;
+  wire spi_0_io0_i;
+  wire spi_0_io0_io;
+  wire spi_0_io0_o;
+  wire spi_0_io0_t;
+  wire spi_0_io1_i;
+  wire spi_0_io1_io;
+  wire spi_0_io1_o;
+  wire spi_0_io1_t;
+  wire spi_0_sck_i;
+  wire spi_0_sck_io;
+  wire spi_0_sck_o;
+  wire spi_0_sck_t;
+  wire spi_0_ss1_o;
+  wire spi_0_ss2_o;
+  wire spi_0_ss_i;
+  wire spi_0_ss_io;
+  wire spi_0_ss_o;
+  wire spi_0_ss_t;
   wire [7:0]sw;
   wire vsync;
 
@@ -157,6 +197,23 @@ module design_1_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
+        .GPIO_0_tri_i({gpio_0_tri_i_1,gpio_0_tri_i_0}),
+        .GPIO_0_tri_o({gpio_0_tri_o_1,gpio_0_tri_o_0}),
+        .GPIO_0_tri_t({gpio_0_tri_t_1,gpio_0_tri_t_0}),
+        .SPI_0_io0_i(spi_0_io0_i),
+        .SPI_0_io0_o(spi_0_io0_o),
+        .SPI_0_io0_t(spi_0_io0_t),
+        .SPI_0_io1_i(spi_0_io1_i),
+        .SPI_0_io1_o(spi_0_io1_o),
+        .SPI_0_io1_t(spi_0_io1_t),
+        .SPI_0_sck_i(spi_0_sck_i),
+        .SPI_0_sck_o(spi_0_sck_o),
+        .SPI_0_sck_t(spi_0_sck_t),
+        .SPI_0_ss1_o(spi_0_ss1_o),
+        .SPI_0_ss2_o(spi_0_ss2_o),
+        .SPI_0_ss_i(spi_0_ss_i),
+        .SPI_0_ss_o(spi_0_ss_o),
+        .SPI_0_ss_t(spi_0_ss_t),
         .button(button),
         .cam_reset(cam_reset),
         .cam_rst(cam_rst),
@@ -169,4 +226,34 @@ module design_1_wrapper
         .rgb(rgb),
         .sw(sw),
         .vsync(vsync));
+  IOBUF gpio_0_tri_iobuf_0
+       (.I(gpio_0_tri_o_0),
+        .IO(gpio_0_tri_io[0]),
+        .O(gpio_0_tri_i_0),
+        .T(gpio_0_tri_t_0));
+  IOBUF gpio_0_tri_iobuf_1
+       (.I(gpio_0_tri_o_1),
+        .IO(gpio_0_tri_io[1]),
+        .O(gpio_0_tri_i_1),
+        .T(gpio_0_tri_t_1));
+  IOBUF spi_0_io0_iobuf
+       (.I(spi_0_io0_o),
+        .IO(spi_0_io0_io),
+        .O(spi_0_io0_i),
+        .T(spi_0_io0_t));
+  IOBUF spi_0_io1_iobuf
+       (.I(spi_0_io1_o),
+        .IO(spi_0_io1_io),
+        .O(spi_0_io1_i),
+        .T(spi_0_io1_t));
+  IOBUF spi_0_sck_iobuf
+       (.I(spi_0_sck_o),
+        .IO(spi_0_sck_io),
+        .O(spi_0_sck_i),
+        .T(spi_0_sck_t));
+  IOBUF spi_0_ss_iobuf
+       (.I(spi_0_ss_o),
+        .IO(spi_0_ss_io),
+        .O(spi_0_ss_i),
+        .T(spi_0_ss_t));
 endmodule

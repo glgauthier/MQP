@@ -45,21 +45,22 @@ module rangefinder(
     
     reg [10:0] row_count; // 0-480
     reg [10:0] col_count; // 0-640
+    reg [8:0] step_count = 9'd0;
 //-----------------------------------------------------------
 //data processing
     //sets flag to indicate negative horizontal value on circle                 
     assign xneg = (step >= 0 && step <= 128)  ? 1'b0 :
                   (step > 128 && step <= 384) ? 1'b0 :
-                  (step > 384 && step <= 640) ? 1'b1 : 1'b1;
-                  // (step > 640 && step <= 768) ? 1'b1 :
-                  // (step > 768 && step <= 896) ? 1'b1 : 1'b0
+                  (step > 384 && step <= 640) ? 1'b1 : //1'b1;
+                  (step > 640 && step <= 768) ? 1'b1 :
+                  (step > 768 && step <= 896) ? 1'b1 : 1'b0;
                   
     //sets flag to indicate negative vertical value on circle                 
     assign yneg = (step >= 0 && step <= 128)  ? 1'b1 :
                   (step > 128 && step <= 384) ? 1'b0 :
-                  (step > 384 && step <= 640) ? 1'b0 : 1'b1;
-                  // (step > 640 && step <= 768) ? 1'b1 :
-                  // (step > 768 && step <= 896) ? 1'b1 : 1'b1
+                  (step > 384 && step <= 640) ? 1'b0 : //1'b1;
+                  (step > 640 && step <= 768) ? 1'b1 :
+                  (step > 768 && step <= 896) ? 1'b1 : 1'b1;
     
     // State machine overhead control
     always @ (posedge clk)
@@ -76,7 +77,7 @@ module rangefinder(
             IDLE:
                 if(enable)
                     next_state = DECODE;
-                else if (button || step == 768)
+                else if (button) // was (button || step == 768)
                     next_state = CLEAR;
                 else
                     next_state = IDLE;
@@ -127,6 +128,8 @@ module rangefinder(
             dina <= 8'h00;
             row_count <= 11'd0;
             col_count <= 11'd0;
+            if(step_count == 9'd767)
+                step_count <= 9'd0;
         end
         
         // clear previous set of data from BRAM
@@ -148,27 +151,29 @@ module rangefinder(
         //decodes data by substracting 0x30 from both halves of data point
         else if(current_state == DECODE)
         begin
+            step_count <= step_count + 1'b1;
+            
             wea <= 1'b0;
 
             addra1 <= (step >= 0 && step <= 128)  ? 128-step :  //index 128 to 0  - Q1 - hz
                       (step > 128 && step <= 256) ? step-128 :  //index 1 to 128  - Q2 - hz
                       (step > 256 && step <= 384) ? 384-step :  //index 127 to 0  - Q2 - vr
-                      (step > 384 && step <= 512) ? step-384 :  //index 0 to 128  - Q3 - vr
+                      (step > 384 && step <= 512) ? step-384 :  //index 1 to 128  - Q3 - vr
                       (step > 512 && step <= 640) ? 640-step :  //index 127 to 0  - Q3 - hz
-                      // (step > 640 && step <= 768) ? step - 640 :
-                      // (step > 768 && step <= 896) ? 896 - step :
-                      // (step > 896 && step <= 1023) ? step - 896 :
-                                                    step-640;   //index 0 to 128  - Q4 - hz      
+                      (step > 640 && step <= 768) ? step-640 :  //index 1 to 128  - Q4 - hz
+                      (step > 768 && step <= 896) ? 896-step :  //index 127 to 0  - Q4 - vr
+                      //(step > 896 && step <= 1023) ? step - 896 :
+                                                    step-896;   //index 0 to 128  - Q1 - vr
     
             addra2 <= (step >= 0 && step <= 128)  ? step :      //index 128 to 256 - Q1 - vr
                       (step > 128 && step <= 256) ? 256-step :  //index 255 to 128 - Q2 - vr
                       (step > 256 && step <= 384) ? step-256 :  //index 129 to 256 - Q2 - hz
                       (step > 384 && step <= 512) ? 512-step :  //index 255 to 128 - Q3 - hz
                       (step > 512 && step <= 640) ? step-512 :  //index 129 to 256 - Q3 - vr
-                      // (step > 640 && step <= 768) ? 768 - step :
-                      // (step > 768 && step <= 896) ? step - 168 :
-                      // (step > 896 && step <= 1023) ? 1023 - step :
-                                                    768-step;   //index 255 to 128 - Q4 - vr
+                      (step > 640 && step <= 768) ? 768-step :
+                      (step > 768 && step <= 896) ? step-768 :
+                      //(step > 896 && step <= 1023) ? 1023 - step :
+                                                    1023-step;   //index 255 to 128 - Q4 - vr
                                                     
             
             decoded <= {data[7:0]-8'h30, data[15:8]-8'h30};
@@ -180,7 +185,7 @@ module rangefinder(
         begin
             if(offset_counter == 4)
             begin
-                if(step > 256 && step <= 512)
+                if((step > 256 && step <= 512) || (step > 768 && step <= 1023))
                 begin
                     xmult <= product2;
                     ymult <= product1;
@@ -269,7 +274,7 @@ module rangefinder(
     // trigger a new rangefinder data aquisition sequence when the entire screen has been cleared
     always @ (posedge clk)
     begin
-        if(row_count == 479 && col_count == 639)
+        if((row_count == 479 && col_count == 639) || step_count == 9'd767)
             transmit <= 1'b1;
         else
             transmit <= 1'b0;

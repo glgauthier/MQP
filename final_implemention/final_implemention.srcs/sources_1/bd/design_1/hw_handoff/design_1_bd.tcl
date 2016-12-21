@@ -156,6 +156,8 @@ proc create_root_design { parentCell } {
   # Create interface ports
   set DDR [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:ddrx_rtl:1.0 DDR ]
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
+  set GPIO_0 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 GPIO_0 ]
+  set SPI_0 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:spi_rtl:1.0 SPI_0 ]
 
   # Create ports
   set FIFO_DATA [ create_bd_port -dir I -from 7 -to 0 FIFO_DATA ]
@@ -268,7 +270,6 @@ CONFIG.PCW_ACT_PCAP_PERIPHERAL_FREQMHZ {200.000000} \
 CONFIG.PCW_ACT_QSPI_PERIPHERAL_FREQMHZ {200.000000} \
 CONFIG.PCW_ACT_SDIO_PERIPHERAL_FREQMHZ {10.000000} \
 CONFIG.PCW_ACT_SMC_PERIPHERAL_FREQMHZ {10.000000} \
-CONFIG.PCW_ACT_SPI_PERIPHERAL_FREQMHZ {10.000000} \
 CONFIG.PCW_ACT_TPIU_PERIPHERAL_FREQMHZ {200.000000} \
 CONFIG.PCW_ACT_UART_PERIPHERAL_FREQMHZ {50.000000} \
 CONFIG.PCW_APU_CLK_RATIO_ENABLE {6:2:1} \
@@ -346,14 +347,15 @@ CONFIG.PCW_ENET_RESET_ENABLE {1} \
 CONFIG.PCW_ENET_RESET_POLARITY {Active Low} \
 CONFIG.PCW_ENET_RESET_SELECT {<Select>} \
 CONFIG.PCW_EN_4K_TIMER {0} \
-CONFIG.PCW_EN_EMIO_TTC0 {1} \
+CONFIG.PCW_EN_EMIO_GPIO {1} \
+CONFIG.PCW_EN_EMIO_SPI0 {1} \
 CONFIG.PCW_EN_I2C0 {1} \
 CONFIG.PCW_EN_QSPI {1} \
-CONFIG.PCW_EN_TTC0 {1} \
+CONFIG.PCW_EN_SPI0 {1} \
 CONFIG.PCW_EN_UART0 {1} \
 CONFIG.PCW_FCLK0_PERIPHERAL_CLKSRC {IO PLL} \
-CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {4} \
-CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {4} \
+CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {5} \
+CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {2} \
 CONFIG.PCW_FCLK1_PERIPHERAL_CLKSRC {IO PLL} \
 CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR0 {1} \
 CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR1 {1} \
@@ -369,8 +371,9 @@ CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {150.000000} \
 CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
-CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE {0} \
-CONFIG.PCW_GPIO_EMIO_GPIO_IO {<Select>} \
+CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE {1} \
+CONFIG.PCW_GPIO_EMIO_GPIO_IO {2} \
+CONFIG.PCW_GPIO_EMIO_GPIO_WIDTH {2} \
 CONFIG.PCW_GPIO_MIO_GPIO_ENABLE {1} \
 CONFIG.PCW_GPIO_MIO_GPIO_IO {MIO} \
 CONFIG.PCW_GPIO_PERIPHERAL_ENABLE {0} \
@@ -390,8 +393,8 @@ CONFIG.PCW_I2C_PERIPHERAL_FREQMHZ {111.111115} \
 CONFIG.PCW_I2C_RESET_ENABLE {1} \
 CONFIG.PCW_I2C_RESET_POLARITY {Active Low} \
 CONFIG.PCW_I2C_RESET_SELECT {Share reset pin} \
-CONFIG.PCW_IOPLL_CTRL_FBDIV {48} \
-CONFIG.PCW_IO_IO_PLL_FREQMHZ {1600.000} \
+CONFIG.PCW_IOPLL_CTRL_FBDIV {30} \
+CONFIG.PCW_IO_IO_PLL_FREQMHZ {1000.000} \
 CONFIG.PCW_MIO_0_DIRECTION {inout} \
 CONFIG.PCW_MIO_0_IOTYPE {LVCMOS 3.3V} \
 CONFIG.PCW_MIO_0_PULLUP {disabled} \
@@ -672,7 +675,7 @@ CONFIG.PCW_PACKAGE_DDR_DQS_TO_CLK_DELAY_1 {-0.010} \
 CONFIG.PCW_PACKAGE_DDR_DQS_TO_CLK_DELAY_2 {-0.006} \
 CONFIG.PCW_PACKAGE_DDR_DQS_TO_CLK_DELAY_3 {-0.048} \
 CONFIG.PCW_PCAP_PERIPHERAL_CLKSRC {IO PLL} \
-CONFIG.PCW_PCAP_PERIPHERAL_DIVISOR0 {8} \
+CONFIG.PCW_PCAP_PERIPHERAL_DIVISOR0 {5} \
 CONFIG.PCW_PCAP_PERIPHERAL_FREQMHZ {200} \
 CONFIG.PCW_PERIPHERAL_BOARD_PRESET {part0} \
 CONFIG.PCW_PJTAG_PERIPHERAL_ENABLE {0} \
@@ -689,7 +692,7 @@ CONFIG.PCW_QSPI_GRP_SINGLE_SS_IO {MIO 1 .. 6} \
 CONFIG.PCW_QSPI_GRP_SS1_ENABLE {0} \
 CONFIG.PCW_QSPI_GRP_SS1_IO {<Select>} \
 CONFIG.PCW_QSPI_PERIPHERAL_CLKSRC {IO PLL} \
-CONFIG.PCW_QSPI_PERIPHERAL_DIVISOR0 {8} \
+CONFIG.PCW_QSPI_PERIPHERAL_DIVISOR0 {5} \
 CONFIG.PCW_QSPI_PERIPHERAL_ENABLE {1} \
 CONFIG.PCW_QSPI_PERIPHERAL_FREQMHZ {200} \
 CONFIG.PCW_QSPI_QSPI_IO {MIO 1 .. 6} \
@@ -715,14 +718,14 @@ CONFIG.PCW_SDIO_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_SMC_PERIPHERAL_CLKSRC {IO PLL} \
 CONFIG.PCW_SMC_PERIPHERAL_DIVISOR0 {1} \
 CONFIG.PCW_SMC_PERIPHERAL_FREQMHZ {100} \
-CONFIG.PCW_SPI0_GRP_SS0_ENABLE {0} \
-CONFIG.PCW_SPI0_GRP_SS0_IO {<Select>} \
-CONFIG.PCW_SPI0_GRP_SS1_ENABLE {0} \
-CONFIG.PCW_SPI0_GRP_SS1_IO {<Select>} \
-CONFIG.PCW_SPI0_GRP_SS2_ENABLE {0} \
-CONFIG.PCW_SPI0_GRP_SS2_IO {<Select>} \
-CONFIG.PCW_SPI0_PERIPHERAL_ENABLE {0} \
-CONFIG.PCW_SPI0_SPI0_IO {<Select>} \
+CONFIG.PCW_SPI0_GRP_SS0_ENABLE {1} \
+CONFIG.PCW_SPI0_GRP_SS0_IO {EMIO} \
+CONFIG.PCW_SPI0_GRP_SS1_ENABLE {1} \
+CONFIG.PCW_SPI0_GRP_SS1_IO {EMIO} \
+CONFIG.PCW_SPI0_GRP_SS2_ENABLE {1} \
+CONFIG.PCW_SPI0_GRP_SS2_IO {EMIO} \
+CONFIG.PCW_SPI0_PERIPHERAL_ENABLE {1} \
+CONFIG.PCW_SPI0_SPI0_IO {EMIO} \
 CONFIG.PCW_SPI1_GRP_SS0_ENABLE {0} \
 CONFIG.PCW_SPI1_GRP_SS0_IO {<Select>} \
 CONFIG.PCW_SPI1_GRP_SS1_ENABLE {0} \
@@ -732,8 +735,9 @@ CONFIG.PCW_SPI1_GRP_SS2_IO {<Select>} \
 CONFIG.PCW_SPI1_PERIPHERAL_ENABLE {0} \
 CONFIG.PCW_SPI1_SPI1_IO {<Select>} \
 CONFIG.PCW_SPI_PERIPHERAL_CLKSRC {IO PLL} \
-CONFIG.PCW_SPI_PERIPHERAL_DIVISOR0 {1} \
+CONFIG.PCW_SPI_PERIPHERAL_DIVISOR0 {6} \
 CONFIG.PCW_SPI_PERIPHERAL_FREQMHZ {166.666666} \
+CONFIG.PCW_SPI_PERIPHERAL_VALID {1} \
 CONFIG.PCW_S_AXI_HP0_DATA_WIDTH {64} \
 CONFIG.PCW_S_AXI_HP1_DATA_WIDTH {64} \
 CONFIG.PCW_S_AXI_HP2_DATA_WIDTH {64} \
@@ -763,8 +767,8 @@ CONFIG.PCW_TTC0_CLK1_PERIPHERAL_FREQMHZ {133.333333} \
 CONFIG.PCW_TTC0_CLK2_PERIPHERAL_CLKSRC {CPU_1X} \
 CONFIG.PCW_TTC0_CLK2_PERIPHERAL_DIVISOR0 {1} \
 CONFIG.PCW_TTC0_CLK2_PERIPHERAL_FREQMHZ {133.333333} \
-CONFIG.PCW_TTC0_PERIPHERAL_ENABLE {1} \
-CONFIG.PCW_TTC0_TTC0_IO {EMIO} \
+CONFIG.PCW_TTC0_PERIPHERAL_ENABLE {0} \
+CONFIG.PCW_TTC0_TTC0_IO {<Select>} \
 CONFIG.PCW_TTC1_CLK0_PERIPHERAL_CLKSRC {CPU_1X} \
 CONFIG.PCW_TTC1_CLK0_PERIPHERAL_DIVISOR0 {1} \
 CONFIG.PCW_TTC1_CLK0_PERIPHERAL_FREQMHZ {133.333333} \
@@ -788,7 +792,7 @@ CONFIG.PCW_UART1_GRP_FULL_IO {<Select>} \
 CONFIG.PCW_UART1_PERIPHERAL_ENABLE {0} \
 CONFIG.PCW_UART1_UART1_IO {<Select>} \
 CONFIG.PCW_UART_PERIPHERAL_CLKSRC {IO PLL} \
-CONFIG.PCW_UART_PERIPHERAL_DIVISOR0 {32} \
+CONFIG.PCW_UART_PERIPHERAL_DIVISOR0 {20} \
 CONFIG.PCW_UART_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_UART_PERIPHERAL_VALID {1} \
 CONFIG.PCW_UIPARAM_DDR_ADV_ENABLE {0} \
@@ -899,7 +903,6 @@ CONFIG.PCW_ACT_PCAP_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_ACT_QSPI_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_ACT_SDIO_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_ACT_SMC_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_ACT_SPI_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_ACT_TPIU_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_ACT_UART_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_APU_CLK_RATIO_ENABLE.VALUE_SRC {DEFAULT} \
@@ -976,10 +979,11 @@ CONFIG.PCW_ENET_RESET_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_ENET_RESET_POLARITY.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_ENET_RESET_SELECT.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_4K_TIMER.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_EN_EMIO_TTC0.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_EN_EMIO_GPIO.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_EN_EMIO_SPI0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_I2C0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_QSPI.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_EN_TTC0.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_EN_SPI0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_EN_UART0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FCLK0_PERIPHERAL_CLKSRC.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0.VALUE_SRC {DEFAULT} \
@@ -999,8 +1003,7 @@ CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_GPIO_EMIO_GPIO_IO.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_GPIO_EMIO_GPIO_WIDTH.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_GPIO_MIO_GPIO_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_GPIO_MIO_GPIO_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_GPIO_PERIPHERAL_ENABLE.VALUE_SRC {DEFAULT} \
@@ -1345,7 +1348,6 @@ CONFIG.PCW_SPI0_GRP_SS1_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI0_GRP_SS1_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI0_GRP_SS2_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI0_GRP_SS2_IO.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_SPI0_PERIPHERAL_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI0_SPI0_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI1_GRP_SS0_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI1_GRP_SS0_IO.VALUE_SRC {DEFAULT} \
@@ -1358,6 +1360,7 @@ CONFIG.PCW_SPI1_SPI1_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI_PERIPHERAL_CLKSRC.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI_PERIPHERAL_DIVISOR0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_SPI_PERIPHERAL_VALID.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_S_AXI_HP0_DATA_WIDTH.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_S_AXI_HP1_DATA_WIDTH.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_S_AXI_HP2_DATA_WIDTH.VALUE_SRC {DEFAULT} \
@@ -1387,7 +1390,6 @@ CONFIG.PCW_TTC0_CLK1_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_TTC0_CLK2_PERIPHERAL_CLKSRC.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_TTC0_CLK2_PERIPHERAL_DIVISOR0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_TTC0_CLK2_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_TTC0_PERIPHERAL_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_TTC0_TTC0_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_TTC1_CLK0_PERIPHERAL_CLKSRC.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_TTC1_CLK0_PERIPHERAL_DIVISOR0.VALUE_SRC {DEFAULT} \
@@ -1513,7 +1515,9 @@ CONFIG.NUM_MI {1} \
   # Create interface connections
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
+  connect_bd_intf_net -intf_net processing_system7_0_GPIO_0 [get_bd_intf_ports GPIO_0] [get_bd_intf_pins processing_system7_0/GPIO_0]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins processing_system7_0_axi_periph/S00_AXI]
+  connect_bd_intf_net -intf_net processing_system7_0_SPI_0 [get_bd_intf_ports SPI_0] [get_bd_intf_pins processing_system7_0/SPI_0]
   connect_bd_intf_net -intf_net processing_system7_0_axi_periph_M00_AXI [get_bd_intf_pins custom_logic/S00_AXI] [get_bd_intf_pins processing_system7_0_axi_periph/M00_AXI]
 
   # Create port connections
@@ -1559,72 +1563,76 @@ CONFIG.NUM_MI {1} \
   regenerate_bd_layout -layout_string {
    guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port cam_trigger -pg 1 -y 520 -defaultsOSRD
-preplace port fpga_clk -pg 1 -y 260 -defaultsOSRD
-preplace port vsync -pg 1 -y 440 -defaultsOSRD
-preplace port DDR -pg 1 -y 330 -defaultsOSRD
-preplace port button -pg 1 -y 240 -defaultsOSRD
-preplace port hsync -pg 1 -y 420 -defaultsOSRD
-preplace port cam_rst -pg 1 -y 720 -defaultsOSRD
-preplace port FIFO_OE1 -pg 1 -y 540 -defaultsOSRD
-preplace port cam_reset -pg 1 -y 500 -defaultsOSRD
-preplace port FIFO_RCK -pg 1 -y 620 -defaultsOSRD
-preplace port FIFO_OE2 -pg 1 -y 580 -defaultsOSRD
-preplace port cam_sysclk -pg 1 -y 480 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 350 -defaultsOSRD
-preplace port FIFO_RRST1 -pg 1 -y 560 -defaultsOSRD
-preplace port FIFO_RRST2 -pg 1 -y 600 -defaultsOSRD
-preplace port reset -pg 1 -y 280 -defaultsOSRD
-preplace portBus sw -pg 1 -y 300 -defaultsOSRD
-preplace portBus FIFO_DATA -pg 1 -y 700 -defaultsOSRD
-preplace portBus rgb -pg 1 -y 460 -defaultsOSRD
-preplace portBus leds -pg 1 -y 400 -defaultsOSRD
-preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 620 -defaultsOSRD
-preplace inst custom_logic -pg 1 -lvl 3 -y 610 -defaultsOSRD
-preplace inst blk_mem_gen_0 -pg 1 -lvl 4 -y 240 -defaultsOSRD
+preplace port cam_trigger -pg 1 -y 530 -defaultsOSRD
+preplace port fpga_clk -pg 1 -y 530 -defaultsOSRD
+preplace port vsync -pg 1 -y 450 -defaultsOSRD
+preplace port DDR -pg 1 -y 190 -defaultsOSRD
+preplace port button -pg 1 -y 570 -defaultsOSRD
+preplace port hsync -pg 1 -y 430 -defaultsOSRD
+preplace port cam_rst -pg 1 -y 610 -defaultsOSRD
+preplace port FIFO_OE1 -pg 1 -y 550 -defaultsOSRD
+preplace port cam_reset -pg 1 -y 510 -defaultsOSRD
+preplace port FIFO_RCK -pg 1 -y 630 -defaultsOSRD
+preplace port FIFO_OE2 -pg 1 -y 590 -defaultsOSRD
+preplace port cam_sysclk -pg 1 -y 490 -defaultsOSRD
+preplace port GPIO_0 -pg 1 -y 170 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 210 -defaultsOSRD
+preplace port FIFO_RRST1 -pg 1 -y 570 -defaultsOSRD
+preplace port SPI_0 -pg 1 -y 230 -defaultsOSRD
+preplace port FIFO_RRST2 -pg 1 -y 610 -defaultsOSRD
+preplace port reset -pg 1 -y 550 -defaultsOSRD
+preplace portBus sw -pg 1 -y 590 -defaultsOSRD
+preplace portBus FIFO_DATA -pg 1 -y 630 -defaultsOSRD
+preplace portBus rgb -pg 1 -y 470 -defaultsOSRD
+preplace portBus leds -pg 1 -y 410 -defaultsOSRD
+preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 190 -defaultsOSRD
+preplace inst custom_logic -pg 1 -lvl 3 -y 620 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 4 -y 320 -defaultsOSRD
 preplace inst blk_mem_gen_1 -pg 1 -lvl 4 -y 80 -defaultsOSRD
 preplace inst blk_mem_gen_2 -pg 1 -lvl 4 -y 770 -defaultsOSRD
-preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 500 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -y 400 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 1 4 NJ 330 NJ 330 NJ 330 NJ
-preplace netloc custom_logic_FIFO_RCK 1 3 2 NJ 620 NJ
-preplace netloc custom_logic_cam_reset 1 3 2 NJ 500 NJ
+preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 220 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 3 -y 230 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 3 2 NJ 190 NJ
+preplace netloc custom_logic_FIFO_RCK 1 3 2 NJ 630 NJ
+preplace netloc custom_logic_cam_reset 1 3 2 NJ 510 NJ
 preplace netloc nu_nu_rangefinder_vga_0_dina 1 3 1 1110
-preplace netloc nu_nu_rangefinder_vga_0_vsync 1 3 2 NJ 440 NJ
-preplace netloc blk_mem_gen_1_douta 1 2 2 800 100 NJ
-preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 N
-preplace netloc custom_logic_cam_trigger 1 3 2 NJ 520 NJ
-preplace netloc nu_nu_rangefinder_vga_0_hsync 1 3 2 NJ 420 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 440
-preplace netloc nu_nu_rangefinder_vga_0_vga_raddr 1 3 1 1080
-preplace netloc blk_mem_gen_2_doutb 1 2 2 810 870 NJ
-preplace netloc FIFO_DATA_1 1 0 3 NJ 710 NJ 710 NJ
-preplace netloc nu_nu_rangefinder_vga_0_clk_25M1 1 3 1 1070
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 520 410
-preplace netloc custom_logic_FIFO_RRST1 1 3 2 NJ 560 NJ
-preplace netloc custom_logic_cam_sysclk 1 3 2 NJ 480 NJ
-preplace netloc custom_logic_rgb 1 3 2 NJ 460 NJ
-preplace netloc custom_logic_FIFO_RRST2 1 3 2 NJ 600 NJ
-preplace netloc custom_logic_FIFO_OE1 1 3 2 NJ 540 NJ
-preplace netloc fpga_clk_1 1 0 3 NJ 240 NJ 240 NJ
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 440 660 760
-preplace netloc custom_logic_FIFO_OE2 1 3 2 NJ 580 NJ
-preplace netloc nu_nu_rangefinder_vga_0_addra1 1 3 1 1110
-preplace netloc processing_system7_0_FIXED_IO 1 1 4 NJ 350 NJ 350 NJ 350 NJ
-preplace netloc nu_nu_rangefinder_vga_0_vga_waddr 1 3 1 N
-preplace netloc nu_nu_rangefinder_vga_0_clk_100M3 1 3 1 1120
-preplace netloc nu_nu_rangefinder_vga_0_addra2 1 3 1 1100
-preplace netloc nu_nu_rangefinder_vga_0_wea 1 3 1 1090
-preplace netloc blk_mem_gen_0_douta 1 2 2 810 260 NJ
-preplace netloc sw_1 1 0 3 NJ 260 NJ 260 NJ
-preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 420
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 280 430 630 780
-preplace netloc custom_logic_ena 1 3 1 1100
-preplace netloc nu_nu_rangefinder_vga_0_leds 1 3 2 NJ 400 NJ
-preplace netloc button_1 1 0 3 NJ 230 NJ 230 NJ
-preplace netloc reset_1 1 0 3 NJ 250 NJ 250 NJ
-preplace netloc cam_rst_1 1 0 3 NJ 530 NJ 620 NJ
-levelinfo -pg 1 -40 220 610 940 1230 1350 -top 0 -bot 910
+preplace netloc nu_nu_rangefinder_vga_0_vsync 1 3 2 NJ 450 NJ
+preplace netloc blk_mem_gen_1_douta 1 2 2 710 110 NJ
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 690
+preplace netloc custom_logic_cam_trigger 1 3 2 NJ 530 NJ
+preplace netloc nu_nu_rangefinder_vga_0_hsync 1 3 2 NJ 430 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 3 370 100 NJ 100 1080
+preplace netloc nu_nu_rangefinder_vga_0_vga_raddr 1 3 1 1120
+preplace netloc blk_mem_gen_2_doutb 1 2 2 720 880 NJ
+preplace netloc FIFO_DATA_1 1 0 3 NJ 630 NJ 630 NJ
+preplace netloc nu_nu_rangefinder_vga_0_clk_25M1 1 3 1 1090
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 4 20 90 NJ 90 NJ 90 1090
+preplace netloc custom_logic_FIFO_RRST1 1 3 2 NJ 570 NJ
+preplace netloc custom_logic_cam_sysclk 1 3 2 NJ 490 NJ
+preplace netloc custom_logic_rgb 1 3 2 NJ 470 NJ
+preplace netloc custom_logic_FIFO_RRST2 1 3 2 NJ 610 NJ
+preplace netloc custom_logic_FIFO_OE1 1 3 2 NJ 550 NJ
+preplace netloc fpga_clk_1 1 0 3 NJ 530 NJ 530 NJ
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 350 350 NJ
+preplace netloc custom_logic_FIFO_OE2 1 3 2 NJ 590 NJ
+preplace netloc nu_nu_rangefinder_vga_0_addra1 1 3 1 1120
+preplace netloc processing_system7_0_FIXED_IO 1 3 2 NJ 210 NJ
+preplace netloc nu_nu_rangefinder_vga_0_vga_waddr 1 3 1 1100
+preplace netloc nu_nu_rangefinder_vga_0_clk_100M3 1 3 1 1140
+preplace netloc nu_nu_rangefinder_vga_0_addra2 1 3 1 1110
+preplace netloc nu_nu_rangefinder_vga_0_wea 1 3 1 1110
+preplace netloc blk_mem_gen_0_douta 1 2 2 720 350 NJ
+preplace netloc processing_system7_0_GPIO_0 1 3 2 NJ 170 NJ
+preplace netloc sw_1 1 0 3 NJ 590 NJ 590 NJ
+preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 350
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 30 100 360 340 700 340 1080
+preplace netloc processing_system7_0_SPI_0 1 3 2 NJ 230 NJ
+preplace netloc custom_logic_ena 1 3 1 1110
+preplace netloc nu_nu_rangefinder_vga_0_leds 1 3 2 NJ 410 NJ
+preplace netloc button_1 1 0 3 NJ 570 NJ 570 NJ
+preplace netloc reset_1 1 0 3 NJ 550 NJ 550 NJ
+preplace netloc cam_rst_1 1 0 3 NJ 610 NJ 610 NJ
+levelinfo -pg 1 0 190 530 900 1240 1360 -top 0 -bot 910
 ",
 }
 
