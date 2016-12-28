@@ -1,0 +1,47 @@
+\subsection{Camera Operation}
+After obtaining two of the MT9V034 cameras chosen through the process referenced in Appendix item \ref{camdecision}, the operation of the camera modules was then investigated. In order to gather working images from each camera module, we first needed to understand what circuitry our camera module breakouts contained so that we could interface with them. The MT9V034 camera breakouts used have been purchased through Leopard Imaging Inc. Although these camera module breakout boards are intended to be used with Leopard Imaging's LeopardBoard ARM development board, the breakouts were found to contain only the supporting circuitry recommended in the MT9V034 datasheet, and we decided that they would be ideal for our application \cite{livm34lp,mt9v034}. Once the schematics of each camera module breakout were known, it was then possible to design a basic control interface for each camera.
+\subsubsection{Camera Signaling}
+By default, the MT9V034 camera module will continuously gather image data at 60Hz  as long as it is supplied with an external clock signal and output is enabled \cite{mt9v034}. Several output signals from the camera module are then used to transmit image data. Each image, or frame, is broken up into individual "lines" which correspond to a line of pixels that stretch the width of the frame. Since our camera module captures images at 752x480 pixel resolution, one frame will contain 480 lines of 752 pixels each. The camera module breaks up image data by frame and line, and camera data pins FRAME\_VALID and LINE\_VALID are toggled to indicate the transmission of a frame or line. The timing diagram shown in Figure \ref{FvLv} shows the operation of these pins while transmitting an image.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{camFvLv.png}}
+	\caption{Frame and Line Valid \cite{mt9v034}}
+	\label{FvLv}
+\end{figure}
+
+\par
+Since the MT9V034 module transmits image data in parallel and each pixel contains 10 bits of resolution, 10 pins are used to transmit pixel values. Pixel data is transmitted in correspondence with LINE\_VALID and output clock signal PIXCLK. When LINE\_VALID is asserted, the pixel data pins are updated with values corresponding to pixels 0-751 of the given line. Values for each pixel are written out on the falling edge of the camera's PIXCLK pin, allowing for each pixel's value to be read on each rising PIXCLK edge. A full LINE\_VALID data transmission sequence will therefore contain 752 PIXCLK cycles, corresponding to the 752 pixels that make up the given line. A timing diagram of this data transmission scheme is shown in Figure \ref{LvDout}.  
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{camLvPckDout.png}}
+	\caption{Line Data Transfer \cite{mt9v034}}
+	\label{LvDout}
+\end{figure}
+
+\par
+The default camera data transmission scheme was also examined using an oscilloscope, as shown in Figure \ref{camDataTransfer}, with channels 1-4 corresponding to camera PCLK, FRAME\_VALID, LINE\_VALID, and Data[0], respectively. In the case of Figure \ref{camDataTransfer}, the camera is initially powered off, resulting in an inactive PCLK signal during the beginning of the recording.
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{oScope/pclk_fv_lv_data2/tek00004.png}}
+	\caption{Camera Data Transfer}
+	\label{camDataTransfer}
+\end{figure}
+
+\subsubsection{I$^2$C Control} \label{cameraI2Cdescription}
+The MT9V034 Camera module's mode of operation can be configured using a standard I$^2$C control interface. I$^2$C, or Inter-Integrated Circuit, is a bidirectional serial interface that allows for a master device to read from and write to several slave devices sharing the same data bus. An I$^2$C interface will use a Serial Data Line (SDA) and Serial Clock Line (SCL) that are normally pulled to 5V. When one connected I$^2$C device wishes to communicate with another, it will pull the SDA line low while leaving the SCL line high. The master device will then begin clocking the SCL line, and SDA will be used to transfer 7 bits representing the address of the desired slave device, along with an 8th bit representing whether it would like to read from or write to the device. An example of this transfer is shown in Figure \ref{I2Cexample}. A second 8 bit sequence representing a specific register within the slave device may also be transmitted following the device address. For example, if the master device wishes to write to slave device 0x40 at register 0x00, it will transmit 0x41 (address 0x40 and WRITE), followed by 0x00. If the slave device receives this transmission, it will acknowledge by pulling the SDA line low. At this point, the master can then transmit the value that it wishes to write to the given slave address and register. If the operation were a read rather than a write, the slave would transmit a value back to the master.  
+\par
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.0\textwidth]{I2C_data_transfer.png}}
+	\caption{Example I$^2$C Data Transfer}
+	\label{I2Cexample}
+\end{figure}
+
+Based on the LIVM34LP camera board schematic, each breakout board have been configured so that its camera is accessible at I$^2$C address 0x58 \cite{livm34lp,mt9v034}. Note that since both cameras come configured with the same I$^2$C bus address, a pullup resistor must be added to one of the cameras I$^2$C address lines so that both are individually accessible on a shared bus.
+
+\subsubsection{Image Buffering}
+Since each camera image contains 752x480 pixels with 10 bits of resolution per pixel, a full camera image will consume 3,609,600 bits, or 440.6kB, as shown in Equation \ref{imagesize}.
+\begin{equation} \label{imagesize}
+Image\,\,Size = 752px*480px*10\frac{bits}{pixel} = 3609600\,bits*\frac{1\,byte}{8\,bits}*\frac{1 kB}{1024\,bytes} = 440.625kB
+\end{equation}
+\par
+In order to send a camera image to a computer or monitor for viewing, several steps need to be taken. Although it would be ideal to transfer the image directly from the camera to a computer or display, this would be difficult to achieve due to the high speeds of the camera's data output. In order to properly synchronize camera data with a VGA display, both the camera and VGA display would have to run at exactly the same clock speed, and would need to have the same amount of vertical and horizontal blanking to display each pixel in its correct location. If the image were transferred to a computer, the act of packaging the information so that it may be interpreted by said computer would place severe limitations on the speed of the system. A proper solution to these timing issues would be to buffer the image between the camera and the desired output source, since this would allow for separate clock domains to be used for camera data transfer and data output. However, the act of locally buffering a camera image on an FPGA would also be difficult due to low memory resources. 
+\par
+Although 440kB may seem like a relatively small image size, creating a buffer object large enough for storing said image would consume an extremely large amount of logic. For reference, a standard Nexys3 FPGA evaluation board contains only 18kB of onboard Block RAM (internal memory), and would not be able to buffer an image of this size without the use of external memory\footnote{Xilinx, \textit{Spartan-6 FPGA Block RAM Resources}, 11.\\  \url{http://www.xilinx.com/support/documentation/user_guides/ug383.pdf}}. This leaves the final option of using either external memory or a First-In First-Out (FIFO) memory array for transferring a captured image between clock domains. During initial development, an AL422B FIFO IC was used, since the IC has been created specifically for buffering VGA imagery similar to that of the MT9V034 camera module, and can be connected directly to the camera module outputs \cite{al422b}. The AL422B FIFO module contains 3M-bits of RAM that can be written to and read from in parallel, and supports separate input and output clock speeds between 1-50MHz \cite{al422b}. This means that the camera module can write pixel data to the FIFO as long as it operates at a speed between 1 and 50MHz, and the FPGA can independently read from the FIFO at any speed within the same range. Note that since this FIFO supports only 8-bit parallel data in and out, the lowest two bits of camera pixel data must be truncated. This isn't a major issue, since the truncation will correspond to a 4/1024 reduction in the range of values that each pixel can map to.
