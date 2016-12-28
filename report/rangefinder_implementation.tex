@@ -1,46 +1,18 @@
 \subsection{Rangefinder Implementation}
-Because this device is intended to traverse unknown locations and create a 2-dimensional map, data accuracy, precision, and reliability are vital. As such, proper equipment is needed to suffice these needs. 
+With the data acquisition command tested and functioning properly, it needs to be connected to the ZedBoard. Since the rangefinder uses UART communication, there are a few reasonable options to create a UART controller on the ZedBoard.
 
-\subsubsection{Rangefinder Selection}
-The project's rangefinder selection depended on the following criteria: field of vision, depth of sense, accuracy, precision, and cost. Many of the rangefinders limited by our budgetary restrictions were only strong in one of our project's vital criteria. However Professor Duckworth, and WPI's Electrical and Computer Engineering and Robotics Engineering Departments generously donated the URG-04LX Scanning Laser Rangefinder for the purpose of this project. The URG-04LX is a very sensitive piece of equipment that has a field of view of 240 degrees, a depth of data of 4 meters, and accuracy to within 10 millimeters, which is perfect for our application \cite{urg04lx_specifications}. Figure \ref{rangefinder_pic} below shows the rangefinder that we will be using.
+\subsubsection{Rangefinder UART Options}
+As the ZedBoard is such a powerful device, it has a few different options for controlling UART. A few of them are by controlling UART through linux, through a MicroBlaze soft-core processor, or through the Zynq-7000 Processing System. Running linux on the ZedBoard would use much of the board's valuable resources, and we would only be using a fraction of the capability provided by linux. The MicroBlaze soft-core processor would be a better alternative, but it runs in the programmable logic in the FPGA and is unnecessary when the ARM processor on the ZedBoard is unused \cite{microblaze}. Because of this, we decided to utilize the ARM processor on the ZedBoard by using the Zynq7 Processing System via Xilinx's Zynq-7000 Processing System Intellectual Property (IP) core.
 
-\begin{figure}[H]
-	\centerline{\includegraphics[width=0.5\textwidth]{urg_top.jpg}}
-	\caption{URG-04LX Scanning Laser Rangefinder}
-	\label{rangefinder_pic}
-\end{figure}
-
-\subsubsection{Rangefinder Communication}
-The URG-04LX rangefinder uses the RS-232C communication protocol over UART. RS-232 is a form of differential serial data transmission which recognizes a logic high from -3V to -25V, and a logic low from +3V to +25V \cite{rs232}.
-\par
-The rangefinder can be connected to one of the ZedBoard's Pmod connectors because they support UART communication. The Pmod connectors use TTL communication, which is a form of non-differential serial data transmission that recognizes a logic high of +3V to +5V and a logic low of 0V \cite{ttl}. 
-\par
-Since these two serial communication formats have incompatible logic levels, an RS-232 to TTL converter is needed so that the rangefinder can communicate with the ZedBoard. The converter's TTL side will be connected to the ZedBoard's Pmod connector, and the RS-232 side will be connected to the rangefinder. However, for ease of connection and testing, the 9-pin DSUB RS-232 connector will be connected to an RS-232 breakout so that the pins can be easily accessed. Figure \ref{rs232_ttl_breakout} shows the RS-232 to TTL converter attached to the RS-232 breakout board.
+\subsubsection{Zynq7 Processing System}
+The ZedBoard SoC features a dual-core ARM Cortex-A9 MPCore processing system and Xilinx Programmable Logic. The Zynq7 Processing System IP core acts as a logic interface that integrates the Programmable Software (PS) with the Programmable Logic (PL), which allows access to both on-chip and external memory interfaces, to PL clocks, to many I/O peripherals, and even to extended I/O peripherals \cite{zynq7ps}. With all of this overwhelming functionality, the processing system is easy to customize, featuring a simple user interface (UI). The UI can be used to change the activated features. Figure \ref{zynq7ps_pic} below shows the processing system customization window.
 
 \begin{figure}[H]
-	\centerline{\includegraphics[width=0.5\textwidth]{rs232_ttl_breakout.png}}
-	\caption{RS-232 to TTL Converter with RS-232 Breakout Board}
-	\label{rs232_ttl_breakout}
+	\centerline{\includegraphics[width=1\textwidth]{zynq7ps.png}}
+	\caption{Zynq7 Processing System Customization Window \cite{zynq7ps}}
+	\label{zynq7ps_pic}
 \end{figure}
 
-\subsubsection{Rangefinder Commands}
-The rangefinder defaults to a communication speed of 19.2 kbps, or 19200 baud. Using that baud rate over UART, the rangefinder recognizes four different commands: the version command, the laser illumination command, the communication speed setting command, and the distance data acquisition command. The version command is used as a test; as soon as it is received, the rangefinder transmits the device specific information. The laser illumination command is used to turn the laser on and off. The communication speed setting command is used to change the baud rate. The distance data acquisition command is the main command is used to request the distance data from the rangefinder \cite{urg04lx_datasheet}.
-\par
-The distance data acquisition command is the primary command that will be used for the purpose of this project. This command consists of five different parts that control the data output: 'G', the data starting point, the data end point, the cluster count, and either a line feed or a carriage return. The start point is the step of the area from where the data reading starts, and the end point is the step of the area where the data reading stops. The data reading starts at the start point and traverses counterclockwise until the end point. Changing these steps changes the field of vision of the device. Figure \ref{rangefinder_fov} below shows a top-down view of the device field of vision with the steps labeled.
+In the figure above there are two options for UART shown: UART0 and UART1. explain difference between 0 and 1. say which one we chose. mio/emio. 
 
-\begin{figure}[H]
-	\centerline{\includegraphics[width=0.5\textwidth]{rangefinder_fov.png}}
-	\caption{Top-Down View of Rangefinder Field of Vision}
-	\label{rangefinder_fov}
-\end{figure}
-
-For this project, we set the beginning point to '000' and the end point to '768' for the device's maximum coverage of 240 degrees. Note that the device's angular rotation per step can be calculated by using Equation \ref{degrees_per_step} below.
-
-\begin{equation}
-	360^\circ / 1024 \textrm{ steps}  = 0.3515625^\circ \textrm{ per step}
-	\label{degrees_per_step}
-\end{equation}
-
-So each step corresponds to a change of $0.3515625^\circ$.
-
-
+\subsubsection{PS-PL Communication}

@@ -3,39 +3,44 @@
 \BOOKMARK [1][-]{section.2}{Background}{}% 3
 \BOOKMARK [1][-]{section.3}{System Design}{}% 4
 \BOOKMARK [1][-]{section.4}{System Implementation}{}% 5
-\BOOKMARK [2][-]{subsection.4.1}{Rangefinder Implementation}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Rangefinder Operation}{section.4}% 6
 \BOOKMARK [3][-]{subsubsection.4.1.1}{Rangefinder Selection}{subsection.4.1}% 7
 \BOOKMARK [3][-]{subsubsection.4.1.2}{Rangefinder Communication}{subsection.4.1}% 8
 \BOOKMARK [3][-]{subsubsection.4.1.3}{Rangefinder Commands}{subsection.4.1}% 9
-\BOOKMARK [1][-]{section.5}{Testing and Results}{}% 10
-\BOOKMARK [2][-]{subsection.5.1}{Camera Testing}{section.5}% 11
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Camera Operation}{subsection.5.1}% 12
-\BOOKMARK [3][-]{subsubsection.5.1.2}{I2C Control}{subsection.5.1}% 13
-\BOOKMARK [3][-]{subsubsection.5.1.3}{Data Management}{subsection.5.1}% 14
-\BOOKMARK [3][-]{subsubsection.5.1.4}{Transmitting Images Over UART for Analysis}{subsection.5.1}% 15
-\BOOKMARK [2][-]{subsection.5.2}{Final Camera Hardware Implementation}{section.5}% 16
-\BOOKMARK [3][-]{subsubsection.5.2.1}{Image Buffering}{subsection.5.2}% 17
-\BOOKMARK [2][-]{subsection.5.3}{Disparity Algorithm}{section.5}% 18
-\BOOKMARK [3][-]{subsubsection.5.3.1}{Sum of Absolute Differences}{subsection.5.3}% 19
-\BOOKMARK [3][-]{subsubsection.5.3.2}{Image Rectification}{subsection.5.3}% 20
-\BOOKMARK [3][-]{subsubsection.5.3.3}{Test Implementation}{subsection.5.3}% 21
-\BOOKMARK [3][-]{subsubsection.5.3.4}{Final Implementation}{subsection.5.3}% 22
-\BOOKMARK [1][-]{section.6}{Conclusions}{}% 23
-\BOOKMARK [1][-]{section*.37}{References}{}% 24
-\BOOKMARK [1][-]{section.7}{Appendix}{}% 25
-\BOOKMARK [2][-]{subsection.7.1}{Useful Resources}{section.7}% 26
-\BOOKMARK [2][-]{subsection.7.2}{Component Selection}{section.7}% 27
-\BOOKMARK [2][-]{subsection.7.3}{Camera Module Decision Matrix}{section.7}% 28
-\BOOKMARK [2][-]{subsection.7.4}{Camera Module Control Register}{section.7}% 29
-\BOOKMARK [2][-]{subsection.7.5}{Stereo Camera Schematic}{section.7}% 30
-\BOOKMARK [2][-]{subsection.7.6}{Matlab Code}{section.7}% 31
-\BOOKMARK [3][-]{subsubsection.7.6.1}{Camera Image Parsing}{subsection.7.6}% 32
-\BOOKMARK [3][-]{subsubsection.7.6.2}{Disparity Algorithm Implementation}{subsection.7.6}% 33
-\BOOKMARK [2][-]{subsection.7.7}{Verilog Code}{section.7}% 34
-\BOOKMARK [3][-]{subsubsection.7.7.1}{MT9V034 and Al422b Test Code}{subsection.7.7}% 35
-\BOOKMARK [2][-]{subsection.7.8}{C Code}{section.7}% 36
-\BOOKMARK [3][-]{subsubsection.7.8.1}{Camera Image Parsing}{subsection.7.8}% 37
-\BOOKMARK [2][-]{subsection.7.9}{LaTeX Coding Examples}{section.7}% 38
-\BOOKMARK [3][-]{subsubsection.7.9.1}{Figures}{subsection.7.9}% 39
-\BOOKMARK [3][-]{subsubsection.7.9.2}{Code Snippet}{subsection.7.9}% 40
-\BOOKMARK [3][-]{subsubsection.7.9.3}{Using the bibliography}{subsection.7.9}% 41
+\BOOKMARK [3][-]{subsubsection.4.1.4}{Rangefinder Testing}{subsection.4.1}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Rangefinder Implementation}{section.4}% 11
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Rangefinder UART Options}{subsection.4.2}% 12
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Zynq7 Processing System}{subsection.4.2}% 13
+\BOOKMARK [3][-]{subsubsection.4.2.3}{PS-PL Communication}{subsection.4.2}% 14
+\BOOKMARK [1][-]{section.5}{Testing and Results}{}% 15
+\BOOKMARK [2][-]{subsection.5.1}{Camera Testing}{section.5}% 16
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Camera Operation}{subsection.5.1}% 17
+\BOOKMARK [3][-]{subsubsection.5.1.2}{I2C Control}{subsection.5.1}% 18
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Data Management}{subsection.5.1}% 19
+\BOOKMARK [3][-]{subsubsection.5.1.4}{Transmitting Images Over UART for Analysis}{subsection.5.1}% 20
+\BOOKMARK [2][-]{subsection.5.2}{Final Camera Hardware Implementation}{section.5}% 21
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Image Buffering}{subsection.5.2}% 22
+\BOOKMARK [2][-]{subsection.5.3}{Disparity Algorithm}{section.5}% 23
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Sum of Absolute Differences}{subsection.5.3}% 24
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Image Rectification}{subsection.5.3}% 25
+\BOOKMARK [3][-]{subsubsection.5.3.3}{Test Implementation}{subsection.5.3}% 26
+\BOOKMARK [3][-]{subsubsection.5.3.4}{Final Implementation}{subsection.5.3}% 27
+\BOOKMARK [1][-]{section.6}{Conclusions}{}% 28
+\BOOKMARK [1][-]{section*.39}{References}{}% 29
+\BOOKMARK [1][-]{section.7}{Appendix}{}% 30
+\BOOKMARK [2][-]{subsection.7.1}{Useful Resources}{section.7}% 31
+\BOOKMARK [2][-]{subsection.7.2}{Component Selection}{section.7}% 32
+\BOOKMARK [2][-]{subsection.7.3}{Camera Module Decision Matrix}{section.7}% 33
+\BOOKMARK [2][-]{subsection.7.4}{Camera Module Control Register}{section.7}% 34
+\BOOKMARK [2][-]{subsection.7.5}{Stereo Camera Schematic}{section.7}% 35
+\BOOKMARK [2][-]{subsection.7.6}{Matlab Code}{section.7}% 36
+\BOOKMARK [3][-]{subsubsection.7.6.1}{Camera Image Parsing}{subsection.7.6}% 37
+\BOOKMARK [3][-]{subsubsection.7.6.2}{Disparity Algorithm Implementation}{subsection.7.6}% 38
+\BOOKMARK [2][-]{subsection.7.7}{Verilog Code}{section.7}% 39
+\BOOKMARK [3][-]{subsubsection.7.7.1}{MT9V034 and Al422b Test Code}{subsection.7.7}% 40
+\BOOKMARK [2][-]{subsection.7.8}{C Code}{section.7}% 41
+\BOOKMARK [3][-]{subsubsection.7.8.1}{Camera Image Parsing}{subsection.7.8}% 42
+\BOOKMARK [2][-]{subsection.7.9}{LaTeX Coding Examples}{section.7}% 43
+\BOOKMARK [3][-]{subsubsection.7.9.1}{Figures}{subsection.7.9}% 44
+\BOOKMARK [3][-]{subsubsection.7.9.2}{Code Snippet}{subsection.7.9}% 45
+\BOOKMARK [3][-]{subsubsection.7.9.3}{Using the bibliography}{subsection.7.9}% 46
