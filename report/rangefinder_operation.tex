@@ -2,7 +2,7 @@
 Because this device is intended to traverse unknown locations and create a 2-dimensional map, data accuracy, precision, and reliability are vital. As such, proper equipment is needed to suffice these needs. 
 
 \subsubsection{Rangefinder Selection}
-The project's rangefinder selection depended on the following criteria: field of vision, depth of sense, accuracy, precision, and cost. Many of the rangefinders limited by our budgetary restrictions were only strong in one of our project's vital criteria. However Professor Duckworth, and WPI's Electrical and Computer Engineering and Robotics Engineering Departments generously donated the URG-04LX Scanning Laser Rangefinder for the purpose of this project. The URG-04LX is a very sensitive piece of equipment that has a field of view of 240 degrees, a depth of data of 4 meters, and accuracy to within 10 millimeters, which is perfect for our application \cite{urg04lx_specifications}. Figure \ref{rangefinder_pic} below shows the rangefinder that we will be using.
+The project's rangefinder selection depended on the following criteria: field of vision, depth of sense, accuracy, precision, and cost. Many of the rangefinders limited by our budgetary restrictions were only strong in one of our project's vital criteria. However Professor Duckworth, and WPI's Electrical and Computer Engineering and Robotics Engineering Departments generously donated the URG-04LX Scanning Laser Rangefinder for the purpose of this project. The URG-04LX is a very sensitive piece of equipment that has a field of view of 240 degrees, a depth of data of 4 meters, and accuracy to within 10 millimeters, which is perfect for our application \cite{urg04lx_specifications}. Figure \ref{rangefinder_pic} below shows the URG-04LX rangefinder that we will be using.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.5\textwidth]{urg_top.jpg}}
@@ -13,8 +13,14 @@ The project's rangefinder selection depended on the following criteria: field of
 \subsubsection{Rangefinder Communication}
 The URG-04LX rangefinder uses the RS-232C communication protocol over UART. RS-232 is a form of differential serial data transmission which recognizes a logic high from -3V to -25V, and a logic low from +3V to +25V \cite{rs232}.
 \par
-The rangefinder can be connected to one of the ZedBoard's Pmod connectors because they support UART communication. The Pmod connectors use TTL communication, which is a form of non-differential serial data transmission that recognizes a logic high of +3V to +5V and a logic low of 0V \cite{ttl}. 
-\par
+The rangefinder can be connected to one of the ZedBoard's Pmod connectors because they support UART communication. The Pmod connectors use TTL communication, which is a form of non-differential serial data transmission that recognizes a logic high of +3V to +5V and a logic low of 0V \cite{ttl}. Figure \ref{ttl_rs232_pic} shows a timing diagram of both RS-232 and TTL communication protocols.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.9\textwidth]{ttl_rs232.png}}
+	\caption{Timing Diagram of RS-232 (top) and TTL Communication Protocols \cite{ttl}}
+	\label{ttl_rs232_pic}
+\end{figure}
+
 Since these two serial communication formats have incompatible logic levels, an RS-232 to TTL converter is needed so that the rangefinder can communicate with the ZedBoard. The converter's TTL side will be connected to the ZedBoard's Pmod connector, and the RS-232 side will be connected to the rangefinder. However, for ease of connection and testing, the 9-pin DSUB RS-232 connector will be connected to an RS-232 breakout so that the pins can be easily accessed. Figure \ref{rs232_ttl_breakout} shows the RS-232 to TTL converter attached to the RS-232 breakout board.
 
 \begin{figure}[H]
@@ -50,7 +56,17 @@ The cluster count is the number of neighboring points that are grouped together 
 Putting all of these settings together, we get the data acquisition command 'G00076801\textbackslash{}n' which was transmitted from the ZedBoard to the rangefinder to request one cycle of data.
 
 \subsubsection{Rangefinder Testing}
-The URG-04LX has a data viewing tool, which is a useful application by Hokuyo Automatic to view, record, and replay the device's data. To use this tool, the device must be plugged into a computer via its USB port. Figure \ref{URGBenriStandard_pic} below shows a screen capture of the application recording data captured by the rangefinder.
+We were able to test the rangefinder by connecting it to a laptop via its USB port. We used PuTTy, a serial console application, to communicate with the rangefinder. Figure \ref{rangefinder_putty} below shows the data transfer via PuTTy between a laptop and the rangefinder.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1\textwidth]{rangefinder_putty.png}}
+	\caption{Rangefinder Communication Test via PuTTy}
+	\label{rangefinder_putty}
+\end{figure}
+
+The figure above shows four communication sequences. The first is the laser illumination command 'L0\textbackslash{}n'. Since the laser defaults on, this command turned the laser off. The rangefinder responded to this command with '0', indicating success. The second command is our data acquisition command 'G00076801\textbackslash{}n'. The rangefinder responded with '6', indicating an error code, which was caused by the laser being off. The third command is the laser illumination command again, which turns on the laser. The rangefinder's response was '0' again, indicating success. The last command shown is the data acquisition command again. The rangefinder's response begins with '0', indicating success, followed by the distance data block. The data block consists of 768 points, specified by the data acquisition command. Each data point consists of two characters \cite{urg04lx_datasheet}. By communicating with the rangefinder via PuTTy, we were able to observe the rangefinder's behavior and confirm the data acquisition command functions properly.
+\par
+In addition to communication via PuTTy, the URG-04LX has a data viewing tool which is a useful application by Hokuyo Automatic that can be used to view, record, and replay the device's data. Again, to use this tool the device must be plugged into a computer via its USB port. Figure \ref{URGBenriStandard_pic} below shows a screen capture of the application recording data captured by the rangefinder.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1\textwidth]{UrgBenri_screenshot.png}}
@@ -58,4 +74,4 @@ The URG-04LX has a data viewing tool, which is a useful application by Hokuyo Au
 	\label{URGBenriStandard_pic}
 \end{figure}
 
-Note that the start point of 0, end point of 768, and dead zone align to that shown in Figure \ref{rangefinder_fov}. For this project the data viewing tool was used to ensure the commands were functioning properly, and was later used to verify our project's functionality.
+Note that the start point of 0, end point of 768, and dead zone align to that shown in Figure \ref{rangefinder_fov}. For this project the data viewing tool was used to verify our project's data processing functionality.
