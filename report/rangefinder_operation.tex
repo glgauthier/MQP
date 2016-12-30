@@ -29,7 +29,7 @@ Since these two serial communication formats have incompatible logic levels, an 
 	\label{rs232_ttl_breakout}
 \end{figure}
 
-Although the ZedBoard's Pmod connectors are sufficient for UART communication with the URG-04LX, the power specifications are not compatible; the Pmod connectors output 3.3V but the rangefinder requires 5V \cite{zedboard_datasheet}, \cite{urg04lx_specifications}. Thus, the rangefinder was powered externally by a lab bench power supply.
+Although the ZedBoard's Pmod connectors are sufficient for UART communication with the URG-04LX, the power specifications are not compatible; the Pmod connectors output 3.3V but the rangefinder requires 5V \cite{zedboard_datasheet, urg04lx_specifications}. Thus, the rangefinder was powered externally by a lab bench power supply.
 
 \subsubsection{Rangefinder Commands}
 The rangefinder defaults to a communication speed of 19.2 kbps, or 19200 baud. Using that baud rate over UART, the rangefinder recognizes four different commands: the version command, the laser illumination command, the communication speed setting command, and the distance data acquisition command. The version command is used as a test; as soon as it is received, the rangefinder transmits the device specific information. The laser illumination command is used to turn the laser on and off. The communication speed setting command is used to change the baud rate. The distance data acquisition command is the main command is used to request the distance data from the rangefinder \cite{urg04lx_datasheet}.
@@ -37,7 +37,7 @@ The rangefinder defaults to a communication speed of 19.2 kbps, or 19200 baud. U
 The distance data acquisition command is the primary command that will be used for the purpose of this project. This command consists of five different parts that control the data output: 'G', the data starting point, the data end point, the cluster count, and either a line feed or a carriage return. The start point is the step of the area from where the data reading starts, and the end point is the step of the area where the data reading stops. The data reading starts at the start point and traverses counterclockwise until the end point. Changing these steps changes the field of vision of the device. Figure \ref{rangefinder_fov} below shows a top-down view of the device field of vision with the steps labeled.
 
 \begin{figure}[H]
-	\centerline{\includegraphics[width=0.6\textwidth]{rangefinder_fov.png}}
+	\centerline{\includegraphics[width=0.7\textwidth]{rangefinder_fov.png}}
 	\caption{Top-Down View of Rangefinder Field of Vision \cite{urg04lx_datasheet}}
 	\label{rangefinder_fov}
 \end{figure}
@@ -56,7 +56,7 @@ The cluster count is the number of neighboring points that are grouped together 
 Putting all of these settings together, we get the data acquisition command 'G00076801\textbackslash{}n' which was transmitted from the ZedBoard to the rangefinder to request one cycle of data.
 
 \subsubsection{Rangefinder Testing}
-We were able to test the rangefinder by connecting it to a laptop via its USB port. We used PuTTy, a serial console application, to communicate with the rangefinder. Figure \ref{rangefinder_putty} below shows the data transfer via PuTTy between a laptop and the rangefinder.
+We were able to test the rangefinder by connecting it to a laptop via its USB port. We used PuTTy, a serial console application, to communicate with the rangefinder. Figure \ref{rangefinder_putty} shows the data transfer via PuTTy between a laptop and the rangefinder. Note that PuTTy only shows data received, and that the rangefinder always echoes back the command that it receives.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1\textwidth]{rangefinder_putty.png}}
@@ -64,7 +64,7 @@ We were able to test the rangefinder by connecting it to a laptop via its USB po
 	\label{rangefinder_putty}
 \end{figure}
 
-The figure above shows four communication sequences. The first is the laser illumination command 'L0\textbackslash{}n'. Since the laser defaults on, this command turned the laser off. The rangefinder responded to this command with '0', indicating success. The second command is our data acquisition command 'G00076801\textbackslash{}n'. The rangefinder responded with '6', indicating an error code, which was caused by the laser being off. The third command is the laser illumination command again, which turns on the laser. The rangefinder's response was '0' again, indicating success. The last command shown is the data acquisition command again. The rangefinder's response begins with '0', indicating success, followed by the distance data block. The data block consists of 768 points, specified by the data acquisition command. Each data point consists of two characters \cite{urg04lx_datasheet}. By communicating with the rangefinder via PuTTy, we were able to observe the rangefinder's behavior and confirm the data acquisition command functions properly.
+The figure above shows four communication sequences. The first is the laser illumination command 'L0\textbackslash{}n'. Since the laser defaults on, this command turned the laser off. The rangefinder responded to this command first with the echo 'L0\textbackslash{}n', and then with '0', indicating success. The second command is our data acquisition command 'G00076801\textbackslash{}n'. The rangefinder responded with '6', indicating an error code, which was caused by the laser being off. The third command is the laser illumination command again, which turns on the laser. The rangefinder's response was '0' again, indicating success. The last command shown is the data acquisition command again. The rangefinder's response begins with '0', indicating success, followed by the distance data block. The data block consists of 768 points, specified by the data acquisition command. Each data point consists of two characters \cite{urg04lx_datasheet}. By communicating with the rangefinder via PuTTy, we were able to observe the rangefinder's behavior and confirm the data acquisition command functions properly.
 \par
 In addition to communication via PuTTy, the URG-04LX has a data viewing tool which is a useful application by Hokuyo Automatic that can be used to view, record, and replay the device's data. Again, to use this tool the device must be plugged into a computer via its USB port. Figure \ref{URGBenriStandard_pic} below shows a screen capture of the application recording data captured by the rangefinder.
 

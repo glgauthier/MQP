@@ -1,18 +1,22 @@
 \subsection{Rangefinder Data Processing}
-With the communication between the ZedBoard and rangefinder, and the PS and PL functioning properly the data processing can begin.
+With the communication between the ZedBoard and rangefinder, and between the PS and PL functioning properly the data processing can begin.
 
 \subsubsection{Programmable Software}
 The Programmable Software (PS) is responsible for all of the communication with the rangefinder, in addition to formatting the data before it is sent to the Programmable Logic.
 \par
-Once the data acquisition command is transmitted to the rangefinder, the IDK MAN I'M OUT FOR TODAY
-
+The distance data acquisition command is transmitted by the PS when it receives a signal from the PL. Once the command is sent, there are two different pieces of information that the software needs to capture: the distance data and the step count. The rangefinder transmits the distance data half a data point (one character) at a time, but it does not transmit the step count. As such, the software receives the distance data one character at a time, so the first character is stored in a buffer until the second character is received. Once the second character is received the distance data buffer is updated to hold both characters, the step count is incremented, and then both are sent to the PL by writing them to the memory location referenced by it, as discussed in Section \ref{sssec:ps_pl}.
 
 \subsubsection{Programmable Logic}
-The Programmable Logic (PL) is responsible for all data processing, memory manipulation, and outputting to VGA.
-
-
+The Programmable Logic (PL) is responsible for all data processing, block memory manipulation, and outputting to VGA.
 \par
-WORK OUT ORGANIZATION/ SUBSECTIONS
-\subsubsection{LUT}
-\subsubsection{BRAM}
-\subsubsection{Output to VGA}
+The rangefinder encodes each data point before transmitting it. The uncoded data point is expressed with 12 bits, in order to cover the device's maximum distance of 4095 millimeters. The 12-bit data is separated into two 6-bit data points, and 30\textsubscript{16} is added to each. The resultant data point is comprised of two ASCII characters \cite{ascii}. The decoding process takes place in the PL, and is the inverse of encoding where 30\textsubscript{16} is subtracted from each character and then they are merged together \cite{urg04lx_datasheet}.
+\par
+Since the rangefinder provides the distance away from an object and the angle at which it was detected, the data is essentially expressed in the polar coordinate system \cite{polar_coordinates}. We will be outputting our data on a VGA screen which expresses data in the rectangular (Cartesian) coordinate system, so we must convert from polar to rectangular coordinates. This is accomplished by using the step number, which corresponds to an angle around a circle as shown in Figure \ref{rangefinder_fov}.
+\par
+Converting from polar to rectangular coordinates requires basic trigonometry. Luckily, Xilinx supports a few options for performing complex math operations in the PL: a Coordinate Rotational Digital Computer (CORDIC) function, multiplier IP blocks, and Lookup Tables (LUTs). Due to latency concerns and ease of integration we decided to implement a LUT with a multiplier. The values in the LUT will be used to scale the data according to their horizontal and vertical components. Taking advantage of a circle's symmetry, the LUT only needs to hold values 256 values, which correspond to the amount of steps in one quadrant of a circle. Each step value is manipulated such that it corresponds to two addresses in the LUT: one for the horizontal scale factor, and one for the vertical scale factor.
+\par
+The LUT was set up in using a BRAM IP core with a depth of 256, and was initialized by importing up a .coe file. Once the LUT was customized, the BRAM IP Wizard window in Vivado specifies the BRAM's latency. In this case, once the addresses are calculated there is a latency of 2 clock cycles before the data from the LUT is valid. Once the horizontal and vertical data is valid, each is multiplied by the decoded polar coordinate data point by being input to a Multiplier IP block which, in this case, has a latency of (LOOK UP LATENCY FOR MULTIPLIER). This transformation changes the data from polar to rectangular coordinates. After this transformation the data needs to be localized to the device's location, so the x- and y-coordinates are shifted by the device's location. After this step, the x- and y-location accurately reflect the distance data localized to the device.
+\par
+\par
+\par
+NEXT TALK ABOUT OUTPUTTING TO VGA
