@@ -1,8 +1,17 @@
 \subsection{IMU Implementation}
-talk about what it takes to insert the imu into the design
+Since the IMU will be connected to the ZedBoard's Pmod connector, it can be controlled by either the Programmable Logic (PL) or the Programmable Software (PS). Since the IMU's magnetometer data will be used to rotate the rangefinder data according to a compass direction, it will affect the rangefinder's step value. Since the step value is set in the PS, it is easiest to keep all of the IMU's implementation in the PS rather than take advantage of the PS-PL communication setup from Section \ref{sssec:ps_pl}. Another motivation for the PS is that the IMU data processing involves complex trigonometry. Rather than attempt this in the PL, it would be simpler to do in the PS.
+\par
+The Zynq7 Processing System in the PL needs to be re-customized in order to add SPI capability.
+
+\subsubsection{Re-Customizing the Zynq7 Processing System}
+The Zynq7 Processing System is easily re-customizable, as discussed in Section \ref{zynq7processingsystem}. SPI functionality can be added in the processing system's customization window under Peripheral I/O Pins on the Sidebar of Figure \ref{zynq7ps_pic}. We arbitrarily chose SPI0 over SPI1. Under the MIO Configuration tab, we routed the SPI pins to EMIO (Extended MIO), so that we could control one of the ZedBoard's PL Pmod's from the PS.
+\par
+ADD NEW SECTION IF THIS ISN'T DONE IN THE PROCESSING SYSTEM CONFIGURATION
+\par
+This is all you brocahtoa, i got nothing.
 
 
-\subsubsection{Recustomizing the Zynq7 Processing System}
-talk about re-customizing the processing system, rerouting the SPI pins to the EMIO PMOD, differential signals.
+
+talk about rerouting the SPI pins to the EMIO PMOD, differential signals?
 
 

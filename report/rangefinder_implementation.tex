@@ -5,6 +5,7 @@ With the data acquisition command tested and functioning properly, the rangefind
 As the ZedBoard is such a powerful device, it has a few different options for controlling UART. A few of them are by controlling UART through linux, through a MicroBlaze soft-core processor, or through the Zynq-7000 Processing System. Running linux on the ZedBoard would use much of the board's valuable resources, and we would only be using a fraction of the capability provided by linux. The MicroBlaze soft-core processor would be a better alternative, but it runs in the programmable logic in the FPGA and is unnecessary when the ARM processor on the ZedBoard is unused \cite{microblaze}. Because of this, we decided to utilize the ARM processor on the ZedBoard by using the Zynq7 Processing System via Xilinx's Zynq-7000 Processing System Intellectual Property (IP) core.
 
 \subsubsection{Zynq7 Processing System}
+\label{zynq7processingsystem}
 The ZedBoard SoC features a dual-core ARM Cortex-A9 MPCore processing system and Xilinx Programmable Logic. The Zynq7 Processing System IP core acts as a logic interface that integrates the Programmable Software (PS) with the Programmable Logic (PL), which allows access to both on-chip and external memory interfaces, to PL clocks, to many I/O peripherals, and even to extended I/O peripherals \cite{zynq7ps}. With all of this overwhelming functionality, the processing system is easy to customize, featuring a simple user interface, once it is added into a project's block design. The user interface can be used to change the processing system's activated features. Figure \ref{zynq7ps_pic} below shows the processing system customization window.
 
 \begin{figure}[H]
@@ -29,3 +30,13 @@ With the processing system customized in this fashion, the programmable logic's 
 \label{sssec:ps_pl}
 maybe break into two sections? one for ps-pl and talk about what AXI is and why we need to use it, and then in the testing and results section make a second one about how we needed to create custom axi peripherals? whatever works best
 I HAVE NO IDEA WHAT TO WRITE FOR THIS
+
+\subsubsection{Launching the Xilinx SDK}
+The PS can be accessed through Vivado by generating a bitstream and then exporting the hardware. After that, the Xilinx SDK can be launched.
+
+\par
+DOES THIS SECTION BELONG HERE??
+
+
+
+
