@@ -1,0 +1,67 @@
+\BOOKMARK [1][-]{section*.3}{Abstract}{}% 1
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 2
+\BOOKMARK [1][-]{section.2}{Background}{}% 3
+\BOOKMARK [1][-]{section.3}{System Design}{}% 4
+\BOOKMARK [1][-]{section.4}{System Implementation}{}% 5
+\BOOKMARK [2][-]{subsection.4.1}{Rangefinder Operation}{section.4}% 6
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Selection}{subsection.4.1}% 7
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Communication}{subsection.4.1}% 8
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Commands}{subsection.4.1}% 9
+\BOOKMARK [3][-]{subsubsection.4.1.4}{Testing}{subsection.4.1}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Rangefinder Implementation}{section.4}% 11
+\BOOKMARK [3][-]{subsubsection.4.2.1}{UART Options}{subsection.4.2}% 12
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Zynq7 Processing System}{subsection.4.2}% 13
+\BOOKMARK [3][-]{subsubsection.4.2.3}{PS-PL Communication / Creating Custom IP}{subsection.4.2}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Rangefinder Data Processing}{section.4}% 15
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Programmable Software}{subsection.4.3}% 16
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Programmable Logic}{subsection.4.3}% 17
+\BOOKMARK [2][-]{subsection.4.4}{Inertial Measurement Unit \(IMU\) Operation}{section.4}% 18
+\BOOKMARK [3][-]{subsubsection.4.4.1}{Selection}{subsection.4.4}% 19
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Communication}{subsection.4.4}% 20
+\BOOKMARK [3][-]{subsubsection.4.4.3}{Settings}{subsection.4.4}% 21
+\BOOKMARK [3][-]{subsubsection.4.4.4}{Commands}{subsection.4.4}% 22
+\BOOKMARK [2][-]{subsection.4.5}{IMU Implementation}{section.4}% 23
+\BOOKMARK [3][-]{subsubsection.4.5.1}{Recustomizing the Zynq7 Processing System}{subsection.4.5}% 24
+\BOOKMARK [2][-]{subsection.4.6}{IMU Data Processing}{section.4}% 25
+\BOOKMARK [3][-]{subsubsection.4.6.1}{Programmable Software}{subsection.4.6}% 26
+\BOOKMARK [2][-]{subsection.4.7}{Camera Operation}{section.4}% 27
+\BOOKMARK [3][-]{subsubsection.4.7.1}{Camera Signaling}{subsection.4.7}% 28
+\BOOKMARK [3][-]{subsubsection.4.7.2}{I2C Control}{subsection.4.7}% 29
+\BOOKMARK [3][-]{subsubsection.4.7.3}{Image Buffering}{subsection.4.7}% 30
+\BOOKMARK [2][-]{subsection.4.8}{Disparity Algorithm}{section.4}% 31
+\BOOKMARK [3][-]{subsubsection.4.8.1}{Image Rectification}{subsection.4.8}% 32
+\BOOKMARK [3][-]{subsubsection.4.8.2}{Sum of Absolute Differences}{subsection.4.8}% 33
+\BOOKMARK [1][-]{section.5}{Testing and Results}{}% 34
+\BOOKMARK [2][-]{subsection.5.1}{Single Camera Testing}{section.5}% 35
+\BOOKMARK [3][-]{subsubsection.5.1.1}{I2C Control}{subsection.5.1}% 36
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Data Management}{subsection.5.1}% 37
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Transmitting Images Over UART for Analysis}{subsection.5.1}% 38
+\BOOKMARK [2][-]{subsection.5.2}{Final Camera Hardware Implementation}{section.5}% 39
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Image Buffering}{subsection.5.2}% 40
+\BOOKMARK [2][-]{subsection.5.3}{Disparity Testing}{section.5}% 41
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Image Rectification}{subsection.5.3}% 42
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Matlab Impelmentation}{subsection.5.3}% 43
+\BOOKMARK [3][-]{subsubsection.5.3.3}{Verilog Test Bench}{subsection.5.3}% 44
+\BOOKMARK [3][-]{subsubsection.5.3.4}{Test Bench Results}{subsection.5.3}% 45
+\BOOKMARK [3][-]{subsubsection.5.3.5}{Final Implementation}{subsection.5.3}% 46
+\BOOKMARK [1][-]{section.6}{Conclusions}{}% 47
+\BOOKMARK [1][-]{section*.47}{References}{}% 48
+\BOOKMARK [1][-]{section.7}{Appendix}{}% 49
+\BOOKMARK [2][-]{subsection.7.1}{Useful Resources}{section.7}% 50
+\BOOKMARK [2][-]{subsection.7.2}{Component Selection}{section.7}% 51
+\BOOKMARK [2][-]{subsection.7.3}{Camera Module Decision Matrix}{section.7}% 52
+\BOOKMARK [2][-]{subsection.7.4}{Camera Module Control Register}{section.7}% 53
+\BOOKMARK [2][-]{subsection.7.5}{Stereo Camera Schematic}{section.7}% 54
+\BOOKMARK [2][-]{subsection.7.6}{Matlab Code}{section.7}% 55
+\BOOKMARK [3][-]{subsubsection.7.6.1}{Camera Image Parsing}{subsection.7.6}% 56
+\BOOKMARK [3][-]{subsubsection.7.6.2}{Disparity Algorithm Implementation}{subsection.7.6}% 57
+\BOOKMARK [2][-]{subsection.7.7}{Verilog Code}{section.7}% 58
+\BOOKMARK [3][-]{subsubsection.7.7.1}{MT9V034 and Al422b Test Code}{subsection.7.7}% 59
+\BOOKMARK [2][-]{subsection.7.8}{C Code}{section.7}% 60
+\BOOKMARK [3][-]{subsubsection.7.8.1}{Camera Image Parsing}{subsection.7.8}% 61
+\BOOKMARK [2][-]{subsection.7.9}{Coefficient Files}{section.7}% 62
+\BOOKMARK [3][-]{subsubsection.7.9.1}{LUT Initialization Code for Transformation from Polar to Cartesian}{subsection.7.9}% 63
+\BOOKMARK [2][-]{subsection.7.10}{LaTeX Coding Examples}{section.7}% 64
+\BOOKMARK [3][-]{subsubsection.7.10.1}{Figures}{subsection.7.10}% 65
+\BOOKMARK [3][-]{subsubsection.7.10.2}{Code Snippet}{subsection.7.10}% 66
+\BOOKMARK [3][-]{subsubsection.7.10.3}{Using the bibliography}{subsection.7.10}% 67
