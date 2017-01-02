@@ -1,6 +1,6 @@
 \subsection{Disparity Algorithm}
 What is disparity
-\subsubsection{Image Rectification}
+\subsubsection{Image Rectification} \label{rectsec}
 The Sum of Absolute Differences algorithm operates under the assumption that objects in both camera images lie on the same horizontal line between both images, known as an epipolar line. An example of shared epipolar lines between camera imagery is shown in Figure \ref{epipolarLines} below. Although an ideal stereo camera setup would contain shared epipolar lines between camera images, raw image data from each camera will contain slight differences in object location based on the physical position of the camera modules, as well as minor differences in the lenses of each camera. Both input images can be adjusted to share the same epipolar lines through a post-processing step known as image rectification. 
 \par
 \begin{figure}[H]
