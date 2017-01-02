@@ -1,5 +1,5 @@
 \subsection{Single Camera Testing}
-After obtaining two of the MT9V034 cameras chosen through the process referenced in Appendix item \ref{camdecision}, several steps were taken to obtain test images from each camera. These steps are outlined in the following sections.
+After obtaining two of the MT9V034 cameras chosen through the process described in Section \ref{camdecision}, several steps were taken to obtain test images from each camera. These steps are outlined in the following sections.
 \par
 According to the MT9V034 datasheet, each camera module needs to be supplied with an external Master Clock and Output Enable signal in order to operate \cite{mt9v034}. A simple Verilog module for the Nexys3 Spartan-6 FPGA board was created in order to supply the camera module with a 24MHz master clock signal, and a switch was used to toggle output enable. With this module implemented, the camera module's default outputs could then be observed. In order to interface the camera module with an FPGA, the breakout board shown in Figure \ref{camBreakoutBoard} was also created to make the module's pins more easily accessible. 
 
