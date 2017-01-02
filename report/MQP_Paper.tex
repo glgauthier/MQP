@@ -10,6 +10,9 @@
 \usepackage{amsmath}
 \usepackage{url}
 \usepackage{array}
+\usepackage{listings}
+
+\lstloadaspects{keywordcomments}
 
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 % Fix backwards double quotes
@@ -44,7 +47,7 @@
     emphstyle = [1]{\color{Magenta}},
     emph = [2]{BUFG,ODDR2},
     emphstyle = [2]{\color{Maroon}},
-	}  
+	} 
 % Matlab code snippet configuration
 \definecolor{mygreen}{rgb}{0.11,0.67,0} % color values Red, Green, Blue
 \definecolor{mylilas}{rgb}{0.67,0.22,0.95}
@@ -90,7 +93,22 @@
    tabsize=4,
    showspaces=false,
    showstringspaces=false
-}  
+} 
+
+% COE code
+\lstdefinestyle{coe}{
+	language=C,
+	frame=single,
+	breaklines=true,
+	basicstyle=\ttfamily\footnotesize, %font and size
+	numbers=left,
+	numberstyle=\tiny\color{black}\ttfamily,
+	comment=[s]{;}{.},
+	commentstyle=\color{Green}\ttfamily,
+	emph = [1]{memory_initialization_radix, memory_initialization_vector},
+	emphstyle = [1]{\color{Maroon}}
+	} 
+
 \lstset{%
   escapeinside={(*}{*)},%
 }
@@ -136,6 +154,11 @@
 \input{rangefinder_operation.tex}
 \input{rangefinder_implementation.tex}
 \input{rangefinder_data_processing.tex}
+
+\input{imu_operation.tex}
+\input{imu_implementation.tex}
+\input{imu_data_processing.tex}
+
 \input{camera_operation.tex}
 \input{disparity_implementation.tex}
 
@@ -166,7 +189,10 @@
 \input{appendix/verilogCode.tex}
 \newpage
 \input{appendix/cCode.tex}
+\newpage
+\input{appendix/coeCode.tex}
 
+\newpage
 \input{appendix/examples.tex} % example latex code for setting things up
 
 \end{document}
