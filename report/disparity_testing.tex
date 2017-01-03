@@ -8,25 +8,84 @@ In order to perform the most accurate block matching as possible on camera image
 
 
 \subsubsection{\textsc{Matlab} Implementation}
-\cite{mccormick}
-code in Appendix item \ref{disparityTestMatlab}
-based around algorithm discussed in Section \ref{SADexample}
+The Sum of Absolute Differences algorithm discussed in Section \ref{SADexample} was implemented first implemented using \textsc{Matlab}, and can be found in Appendix item \ref{disparityTestMatlab} \cite{mccormick}. This implementation has been created to operate on the "cones" standard test image set, and produces a resultant disparity image from its given input images. In the case of this specific example, the algorithm performs a 7x7 Sum of Absolute Differences block matching process on 50 search ranges of horizontal epipolar lines between the two images. However, the block size and search range may be customized by the user to test the functionality of the algorithm. 
+\par
+Overall, the \textsc{Matlab} disparity test implementation may be broken down into the following steps:
+\par
+\singlespacing
+\begin{enumerate}
+\item
+Load in image data (also convert to grayscale if using the "cones" image set)
+\item
+Determine the size of the template image and create a resultant matrix to store output disparity values in
+\item
+For each full row of pixels across an image, perform the following steps:
+\begin{enumerate}
+\item
+Set minimum and maximum row bounds for the current block of pixels being used for SAD 
+\item
+For each column in the given row, perform the following steps:
+\begin{enumerate}
+\item
+Set minimum and maximum column bounds for the current block of pixels being used for SAD
+\item
+Determine the number of blocks that will be used in the current search. Note that this number will be the Disparity Range until the blocks being searched are closer in pixels to the right edge of the image than the Disparity Range
+\item
+Create a memory block for holding the SAD value for each block comparison based on the number of blocks from (ii), and create a template block from the right image at the current column/row
+\item
+For the number of blocks calculated in (ii)
+\begin{enumerate}
+\item
+Compute the Sum of Absolute Differences for each left image block along the current pixel row with respect to the right image template block, and store the calculated value in the memory block created during (iii)
+\end{enumerate}
+\item
+Find the smallest value in the memory block containing SAD values. Use the index of this block to determine the pixel offset from the template block location. This value is the disparity for the particular point
+\item
+Store the calculated disparity value in the resultant image matrix. Go back to (b) if there are more columns (pixels) remaining in the current row, otherwise go to (3)
+\end{enumerate}
+\end{enumerate}
+\item
+When the entire image has been iterated through, display the resultant disparity matrix, and scale pixel coloration based on the minimum and maximum disparity values for better contrast.
+\end{enumerate}
+\doublespacing
+\par
+An example of the output of this test implementation is shown in Figure \ref{dispMatlabOutput} below.
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.2\textwidth]{disparity.png}}
+	\caption{Disparity Implementation Output}
+	\label{dispMatlabOutput}
+\end{figure}
 
 \subsubsection{Verilog Test Bench}
-The original disparity test implementation used closely follows the \textsc{Matlab} disparity algorithm shown in Appendix item \ref{disparityTestMatlab}. This algorithm is implemented using a finite state machine with five states, as shown in Figure \ref{disparityTestImp} below. In order to maintain simplicity, the test algorithm has been implemented to operate on 46x30 windowed portions of the input imagery. By default, the disparity module will remain in an idle state until an external enable signal is toggled high using a button input. This will cause the finite state machine to advance to its READ state, and image data for the left and right camera images will be read in from the stereo camera breakout board. After image data has been received, the state machine will then advance to a cyclical set of states used for iterating through each image and calculating disparity. 
+The original Verilog disparity test implementation used closely follows the \textsc{Matlab} disparity algorithm discussed in the previous section. This algorithm is implemented using a finite state machine with five states, as shown in Figure \ref{disparityTestImp} below. In order to maintain simplicity, the test algorithm has been implemented to operate on the 20x7 pixel test images shown in Figure \ref{disparityTestImg}. By default, the disparity module will remain in an idle state until an external enable signal is toggled high using a button input. This will cause the finite state machine to advance to its READ state, and image data for the left and right camera images will be read in from the stereo camera breakout board. After image data has been received, the state machine will then advance to a cyclical set of states used for iterating through each image and calculating disparity. 
 \par
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.75\textwidth]{disp_tb/testImages.png}}
+	\caption{Disparity Test Images}
+	\label{disparityTestImg}
+\end{figure}
 The disparity module will begin by isolating the template and search blocks from the right and left image data in the finite state machine's separation state. Next, the state machine will advance to its SAD state, and will calculate the sum of absolute differences between the template and search block. This value is placed in a vector that matches the length of the search range. If the vector hasn't been completely filled, indicating that there are more search blocks to compare to the template, the state machine will revert back to the separate state, isolating a new search block from the right camera image. When the SAD vector is full, the state machine will advance to its finalization state. 
 \par
 \begin{figure}[H]
-	\centerline{\includegraphics[width=0.75\textwidth]{looping_disparity.png}}
+	\centerline{\includegraphics[width=1.0\textwidth]{looping_disparity.png}}
 	\caption{Disparity Test Implementation}
 	\label{disparityTestImp}
 \end{figure}
 \par
 The finalization state is used to search through the SAD vector for the lowest value. The index of this value within the SAD vector in reference to the template block location is used to create a disparity value for the given template block location. This value is then converted to a distance using Equation \ref{disp2dist}, and is stored in the output image location. If the output image hasn't been fully populated with distance values, the state machine will then revert back to the separate state. Otherwise, the state machine will advance to its idle state, and the resulting disparity image can be read for output. 
 \par
-This module was initially tested using a verilog test bench, and was then tested using camera image data and a VGA display controller module, allowing for real-time verification of the algorithm's effectiveness. After testing the initial disparity algorithm, several modifications were made to increase the overall speed and efficiency of the disparity module. 
+This module was initially tested using a Verilog Test Bench, and was then tested using camera image data and a VGA display controller module, allowing for real-time verification of the algorithm's effectiveness. After testing the initial disparity algorithm, several modifications were made to increase the overall speed and efficiency of the disparity module. 
 \subsubsection{Test Bench Results}
+The READ state of the disparity state machine was first analyzed using the Verilog Test Bench, and the these test results are shown in Figure \ref{disparityImgRead} below. The state machine is shown transitioning from IDLE to READ in the beginning of the timing diagram. After transitioning to its READ state, the disparity module reads in each image horizontally from left to right, as dictated by \texttt{buffer\_href} and \texttt{buffer\_vref}. The left camera image is read first, and output \texttt{image\_sel} is then toggled to signal a second read sequence from the right camera image buffer. During each rising clock cycle, input \texttt{image\_data} is stored in an internal BRAM module for the associated camera's image data, with the write address based on the current value of \texttt{buffer\_href} and \texttt{buffer\_vref}. 
+
+\par
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1.25\textwidth]{disp_tb/read_bothimages.png}}
+	\caption{Image Read Sequence}
+	\label{disparityImgRead}
+\end{figure}
+\par
+
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1.25\textwidth]{disp_tb/disparity_vector.png}}
 	\caption{Disparity Search Vector}
