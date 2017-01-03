@@ -1,5 +1,28 @@
 \subsection{IMU Data Processing}
 The IMU's data processing was implemented in the Programmable Software because it involves complex mathematical equations, and can be easily integrated with the rangefinder's data in the Software Development Kit.
+\par
+POSSIBLY CHANGE DEPENDING ON WHAT WAS SAID IN SDK SECTION
 
 \subsubsection{Programmable Software}
-Talk about the math, integration into the rangefinder's code, and how the IMU data rotates the rangefinder's data.
+The IMU's register settings were set and then the registers were read using the 
+\par
+TALK ABOUT WHAT EXAMPLE WE FOLLOWED TO FIGURE OUT HOW TO DO SPI THINGS
+
+\par
+The axis data is signed and expressed in Two's Complement format\footnote{Two's Complement is a way of encoding negative numbers in binary where the most significant bit is used as a sign bit, with '1' signifying a negative number and '0' signifying a positive number. To convert a positive number to negative, all of the bits are inverted and then 1 is added to the resultant number\cite{2sComp}.}. The axis data is read into an array of unsigned 8-bit numbers. The data points are rearranged and then stored into an integer buffer for each axis. Combining the data in this manner would work if the $int$ data type was only 16 bits. However, the data type $int$ in the Xilinx SDK is 32 bits. For positive numbers this method is sufficient, but for negative numbers this process drops the sign bit. The sign bit is the most significant bit of the axes' 16-bit data, which gets lost when getting stored in a 32-bit integer. We corrected this problem by checking if the data stored in each axes' most significant word was greater than or equal to 80\textsubscript{16}. If greater than or equal to 80\textsubscript{16} then the sign bit must be '1', signifying a negative number. As such, the data was turned negative if necessary by subtracting FFFF\textsubscript{16}, or 65535\textsubscript{10}, from the data and adding 1.
+\par
+Once the magnetometer axis data was accurately stored in their corresponding buffers, the data can begin its transformation. The data is expressed in terms of milligauss per bit, which is converted to a compass heading in degrees by using Equation \ref{GaussToDegrees}.
+
+\begin{equation}
+	Compass\ Heading = \arctan(\dfrac{y}{x})\times\dfrac{180}{\pi}
+	\label{GaussToDegrees}
+\end{equation}
+
+To convert the compass heading to a rangefinder step offset, Equation \ref{CompassHeadingToStepOffset} was used.
+
+\begin{equation}
+	Step\ Offset = \dfrac{Compass\ Heading}{\dfrac{360^\circ}{1024\ steps}}
+	\label{CompassHeadingToStepOffset}
+\end{equation}
+
+The resultant step offset is added to the rangefinder's step in order to account for the rangefinder's compass direction deviation from North. When the ZedBoard faces North the step offset equates to 0, so the rangefinder's data is not rotated. When the ZedBoard faces South the step offset equates to 512, which rotates the rangefinder data by $180^\circ$.
