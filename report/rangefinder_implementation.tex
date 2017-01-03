@@ -28,14 +28,37 @@ With the processing system customized in this fashion, the programmable logic's 
 
 \subsubsection{PS-PL Communication / Creating Custom IP}
 \label{sssec:ps_pl}
+
+
+
 maybe break into two sections? one for ps-pl and talk about what AXI is and why we need to use it, and then in the testing and results section make a second one about how we needed to create custom axi peripherals? whatever works best
 I HAVE NO IDEA WHAT TO WRITE FOR THIS
 
-\subsubsection{Launching the Xilinx SDK}
-The PS can be accessed through Vivado by generating a bitstream and then exporting the hardware. After that, the Xilinx SDK can be launched.
+\subsubsection{Designing with the Xilinx SDK}
+The Programmable Software (PS) is coded in the Xilinx SDK, and can be edited in the project through Vivado. To launch the SDK, we must export our design to the SDK. This is done by generating a bitstream. The bitstream compiles all of the customization we have done in Vivado into a $.bit$ file which is used to program the FPGA on the ZedBoard. Generating a bitstream can be done in Vivado under the Program and Debug section of the Flow Navigator, as seen in Figure \ref{generateBitstream}.
 
+\begin{figure}[H]
+	\centerline{\includegraphics[width=.85\textwidth]{generateBitstream.png}}
+	\caption{Generating a Bitstream in Vivado}
+	\label{generateBitstream}
+\end{figure}
+
+Once the bitstream is generated, the hardware needs to be exported to the SDK so that the PS has platform to be coded on. This done in Vivado by choosing File $\rightarrow$ Export $\rightarrow$ Export Hardware and including the bitstream. Finally, the SDK can be launched by choosing File $\rightarrow$ Launch SDK.
 \par
-DOES THIS SECTION BELONG HERE??
+When the SDK launches, there will be a hardware platform project in the Project Explorer tab. This file contains the hardware platform that was exported from Vivado and will be used to program the FPGA on the ZedBoard from the SDK. To begin programming the PS, an Application must be created with the hardware platform. In the SDK choose File $\rightarrow$ New $\rightarrow$ Application Project. Enter a project name and choose Next. Note that the hardware platform exported from Vivado is selected in the Hardware Platform and is used to create the Application Project. Next, a template can be chosen to begin designing. We chose to use the 'Hello World' template. This process is shown in Figure \ref{newApplicationProject}.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1\textwidth]{newApplicationProject.png}}
+	\caption{Creating a New Application Project in the Xilinx SDK}
+	\label{newApplicationProject}
+\end{figure}
+
+The new Application Project exists under the Project Explorer tab, and the PS can be edited in the project's source file folder.
+\par
+When ready to program the ZedBoard, the FPGA needs to be programmed first in order to configure the PL by the hardware platform. This is done by choosing Xilinx Tools $\rightarrow$ Program FPGA. To indicate success, the ZedBoard's blue $DONE$ LED, LD12, will illuminate. Once that process has completed, the PS can be uploaded by right clicking on the application project $\rightarrow$ Run As $\rightarrow$ Launch on Hardware (GDB).
+
+
+
 
 
 

@@ -4,7 +4,17 @@ Since the IMU will be connected to the ZedBoard's Pmod connector, it can be cont
 The Zynq7 Processing System in the PL needs to be re-customized in order to add SPI capability.
 
 \subsubsection{Re-Customizing the Zynq7 Processing System}
-The Zynq7 Processing System is easily re-customizable, as discussed in Section \ref{zynq7processingsystem}. SPI functionality can be added in the processing system's customization window under Peripheral I/O Pins on the Sidebar of Figure \ref{zynq7ps_pic}. We arbitrarily chose SPI0 over SPI1. Under the MIO Configuration tab, we routed the SPI pins to EMIO (Extended MIO), so that we could control one of the ZedBoard's PL Pmod's from the PS.
+The Zynq7 Processing System is easily re-customizable, as discussed in Section \ref{zynq7processingsystem}. SPI functionality can be added in the processing system's customization window under I/O Peripherals in the MIO Configuration tab. We intend to route the SPI pins to EMIO (Extended MIO) so that we could control one of the ZedBoard's PL Pmod's from the PS. Since both SPI0 and SPI1 have EMIO functionality, we arbitrarily chose SPI0 over SPI1. This process is shown in Figure \ref{enabling_spi0}.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=1\textwidth]{enabling_spi0.png}}
+	\caption{Re-Customizing the Zynq7 Processing System to Add SPI}
+	\label{enabling_spi0}
+\end{figure}
+
+
+\par
+talk about rerouting the SPI pins to the EMIO PMOD, differential signals?
 \par
 ADD NEW SECTION IF THIS ISN'T DONE IN THE PROCESSING SYSTEM CONFIGURATION
 \par
@@ -12,6 +22,5 @@ This is all you brocahtoa, i got nothing.
 
 
 
-talk about rerouting the SPI pins to the EMIO PMOD, differential signals?
 
 
