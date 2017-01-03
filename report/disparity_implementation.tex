@@ -16,7 +16,7 @@ A pictorial representation of the process of stereo image rectification is shown
 \end{figure}
 \par
 After a given pair of images has been rectified, it is then possible to perform the Sum of Absolute Differences on the given image pair in order to extract depth information. 
-\subsubsection{Sum of Absolute Differences}
+\subsubsection{Sum of Absolute Differences} \label{SADexample}
 The method used in our disparity algorithm implementation is known as the Sum of Absolute Differences, or SAD. SAD is a common digital image processing technique used to measure the similarity between blocks of image data. In the case of our stereo camera interface, a SAD algorithm is used to search along epioplar lines in the right image for pixel blocks that match a template block selected from the left camera image. This process is performed using 7x7 pixel search blocks over 20 pixel horizontal ranges, and is repeated throughout the image. The expression for the sum of absolute differences is shown in Equation \ref{disparityEQN} below. 
 \par
 % sum(sum(abs(template-block)))

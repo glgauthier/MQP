@@ -7,8 +7,10 @@ In order to perform the most accurate block matching as possible on camera image
 - TALK ABOUT WHY WE DIDNT USE IN FINAL IMP
 
 
-\subsubsection{\textsc{Matlab} Impelmentation}
-
+\subsubsection{\textsc{Matlab} Implementation}
+\cite{mccormick}
+code in Appendix item \ref{disparityTestMatlab}
+based around algorithm discussed in Section \ref{SADexample}
 
 \subsubsection{Verilog Test Bench}
 The original disparity test implementation used closely follows the \textsc{Matlab} disparity algorithm shown in Appendix item \ref{disparityTestMatlab}. This algorithm is implemented using a finite state machine with five states, as shown in Figure \ref{disparityTestImp} below. In order to maintain simplicity, the test algorithm has been implemented to operate on 46x30 windowed portions of the input imagery. By default, the disparity module will remain in an idle state until an external enable signal is toggled high using a button input. This will cause the finite state machine to advance to its READ state, and image data for the left and right camera images will be read in from the stereo camera breakout board. After image data has been received, the state machine will then advance to a cyclical set of states used for iterating through each image and calculating disparity. 
@@ -64,7 +66,6 @@ This module was initially tested using a verilog test bench, and was then tested
 \label{disparityVerilogvsMatlab}
 \caption{\textsc{Matlab} vs. Verilog Test Bench Results}
 \end{figure}
-
 
 
 \subsubsection{Final Implementation}
