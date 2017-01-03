@@ -57,7 +57,7 @@ An example of the output of this test implementation is shown in Figure \ref{dis
 \end{figure}
 
 \subsubsection{Verilog Test Bench}
-The original Verilog disparity test implementation used closely follows the \textsc{Matlab} disparity algorithm discussed in the previous section. This algorithm is implemented using a finite state machine with five states, as shown in Figure \ref{disparityTestImp} below. In order to maintain simplicity, the test algorithm has been implemented to operate on the 20x7 pixel test images shown in Figure \ref{disparityTestImg}. By default, the disparity module will remain in an idle state until an external enable signal is toggled high using a button input. This will cause the finite state machine to advance to its READ state, and image data for the left and right camera images will be read in from the stereo camera breakout board. After image data has been received, the state machine will then advance to a cyclical set of states used for iterating through each image and calculating disparity. 
+The original Verilog disparity test implementation used closely follows the \textsc{Matlab} disparity algorithm discussed in the previous section. This algorithm is implemented using a finite state machine with five states, as shown in Figure \ref{disparityTestImp} below. In order to maintain simplicity, the test algorithm has been implemented to operate on the 20x7 pixel test images shown in Figure \ref{disparityTestImg}. The search range and block size for this module have been defined as 15 pixels and 5x5 pixels, respectively. By default, the disparity module will remain in an idle state until an external enable signal is toggled high using a button input. This will cause the finite state machine to advance to its READ state, and image data for the left and right camera images will be read in from the stereo camera breakout board. After image data has been received, the state machine will then advance to a cyclical set of states used for iterating through each image and calculating disparity. 
 \par
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.75\textwidth]{disp_tb/testImages.png}}
@@ -76,7 +76,7 @@ The finalization state is used to search through the SAD vector for the lowest v
 \par
 This module was initially tested using a Verilog Test Bench, and was then tested using camera image data and a VGA display controller module, allowing for real-time verification of the algorithm's effectiveness. After testing the initial disparity algorithm, several modifications were made to increase the overall speed and efficiency of the disparity module. 
 \subsubsection{Test Bench Results}
-The READ state of the disparity state machine was first analyzed using the Verilog Test Bench, and the these test results are shown in Figure \ref{disparityImgRead} below. The state machine is shown transitioning from IDLE to READ in the beginning of the timing diagram. After transitioning to its READ state, the disparity module reads in each image horizontally from left to right, as dictated by \texttt{buffer\_href} and \texttt{buffer\_vref}. The left camera image is read first, and output \texttt{image\_sel} is then toggled to signal a second read sequence from the right camera image buffer. During each rising clock cycle, input \texttt{image\_data} is stored in an internal BRAM module for the associated camera's image data, with the write address based on the current value of \texttt{buffer\_href} and \texttt{buffer\_vref}. 
+The READ state of the disparity state machine was first analyzed using the Verilog Test Bench, and the these test results are shown in Figure \ref{disparityImgRead} below. The state machine is shown transitioning from IDLE (0) to READ (1) in the beginning of the timing diagram, as shown by output indicator \texttt{state\_LED}. After transitioning to its READ state, the disparity module reads in each image horizontally from left to right, as dictated by \texttt{buffer\_href} and \texttt{buffer\_vref}. The left camera image is read first, and output \texttt{image\_sel} is then toggled to signal a second read sequence from the right camera image buffer. During each rising clock cycle, input \texttt{image\_data} is stored in an internal BRAM module for the associated camera's image data, with the write address based on the current value of \texttt{buffer\_href} and \texttt{buffer\_vref}. 
 
 \par
 \begin{figure}[H]
@@ -86,41 +86,52 @@ The READ state of the disparity state machine was first analyzed using the Veril
 \end{figure}
 \par
 
+After the state machine finishes reading both images into local BRAM on the Zynq7 processor, it will iterate through the SEPARATE (2) and SAD (3) states until an entire search range of search blocks have been compared to the given template block. After the search range has been traversed, the state machine will advance to its FINALIZE (4) state to find the disparity value for the given search and place the value in the output buffer. Figure \ref{disparityVector} shows an example of this process, where a template block set by pixel row bounds \texttt{minr} and \texttt{maxr} and pixel column bounds \texttt{t\_minc} and \texttt{t\_maxc} is compared to 15 individual search blocks set by row bounds \texttt{minr} and \texttt{maxr} and column bounds \texttt{b\_minc} and \texttt{b\_maxc}.
+\par
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1.25\textwidth]{disp_tb/disparity_vector.png}}
 	\caption{Disparity Search Vector}
 	\label{disparityVector}
 \end{figure}
-
+\par
+Note that in the case of the disparity search shown in Figure \ref{disparityVector} above, a disparity value is being calculated for the pixel location (0,0), or the top left corner of the image, as defined by \texttt{buffer\_href} and \texttt{buffer\_vref}.
+\par
+After each disparity search is completed, the state machine will advance from the FINALIZE state to the SEPARATE state to isolate a new template block and search block. Internal counters for horizontal and vertical pixel location of the disparity search are also updated at this point, triggering an update of the template and search block parameters, as well as the number of blocks to analyze in the current disparity search. This number decreases as the template block gets closer to the right side of the image, since the search range will eventually exceed the distance from the template block to the width (right edge) of the image. An example of multiple disparity searches across one horizontal line of pixels in the top row of the 20x7 test image is shown below in Figure \ref{disparityHorizSearch}. In the case of this example, \texttt{numBlocks} represents the number of blocks to include in the current disparity search. Since the width of the image is 20px and the search range is set to 15px, \texttt{numBlocks} begins to decrease after the 4th disparity search is performed, as shown below.
+\par
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1.25\textwidth]{disp_tb/disparity_fullPixelRow.png}}
 	\caption{Horizontal Pixel Row Search}
-	\label{disparityRowSearch}
+	\label{disparityHorizSearch}
 \end{figure}
-
+\par
+After an entire horizontal row of pixels has been analyzed by the disparity algorithm, the vertical location of the template block is increased, and the overall process is repeated continuously until the entire image has been analyzed. An example of a disparity search through the entire 20x7 image is shown below in Figure \ref{disparityFullSearch}.
+\par
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1.25\textwidth]{disp_tb/full_disparity.png}}
 	\caption{Full Image Search}
 	\label{disparityFullSearch}
 \end{figure}
-
+\par
+The output disparity image of the test analyzed above is shown below in Figure \ref{disparityTestResults}. Note that the artifacts in the resultant image are due to the fact that a 5x5 template and search block set is being used on a 20x7 image, making it impossible to avoid the block contained in the upper left corner of the search image. The direction of artifacts around the block in the lower right corner of each image are a function of the search direction, since the search blocks descend downwards and to the left.
+\par
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1.0\textwidth]{disp_tb/result_gray.png}}
 	\caption{Disparity Test Results}
 	\label{disparityTestResults}
 \end{figure}
-
-\begin{figure}[H]
-	 \begin{subfigure}[h]{1.0\textwidth}
-             \centerline{\includegraphics[width=1.2\textwidth]{disp_tb/MATLAB_cones.png}}
-             \caption{\textsc{Matlab} Result}
-			\label{disparityMatlabResult}
-         \end{subfigure} 
-         %\\
-         \begin{subfigure}[h]{1.0\textwidth}
-              \centerline{\includegraphics[width=0.66\textwidth]{disp_tb/tb_cones.png}}
+\par
+After the disparity module was deemed working on the 20x7 test image, further testing on image data was performed. Through some simple modifications to the Test Bench and a  \textsc{Matlab} script for converting image data to a format recognizable by the Verilog Test Bench's \texttt{\$readmemb} command. Using these converted images, it was then possible to compare the Verilog disparity implementation's results to those of the \textsc{Matlab} implementation. Note that due to limitations in computer memory, the disparity search range and block sizes capable of being processed by the Verilog Test Bench were limited to 15 pixels and 5x5 pixels, respectively. 
+\par
+Figure \ref{disparityVerilogvsMatlab} below contains a comparison between the test bench and \textsc{Matlab} results for a disparity search on the "cones" test image set. Note that the outputs from the \textsc{Matlab} and Verilog disparity search algorithms are noticeably close in comparison, as well as in pixel intensity. Losses in the the output of the Verilog disparity algorithm are likely due to the fact that all operations are performed using integers rather than floating point values.
+\par
+\begin{figure}[H] 
+         \begin{subfigure}[h]{0.5\textwidth}
+              \centerline{\includegraphics[width=1.1\textwidth]{disp_tb/tb_cones.png}}
              \caption{Test Bench Result}
-			\label{disparityVerilogResult}
+         \end{subfigure}
+         \begin{subfigure}[h]{0.5\textwidth}
+             \centerline{\includegraphics[width=1.1\textwidth]{disp_tb/MATLAB_conesDSP.png}}
+             \caption{\textsc{Matlab} Result}
          \end{subfigure}
 \label{disparityVerilogvsMatlab}
 \caption{\textsc{Matlab} vs. Verilog Test Bench Results}
