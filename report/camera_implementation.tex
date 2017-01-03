@@ -133,6 +133,8 @@ Since a single camera image contains 8 bits * $752*480$ pixels, a simple dual-po
 \end{figure}
 \par
 After determining that the Zynq Processor's internal BRAM would be usable for storing image data, several tradeoffs associated with the memory requirements of buffering image data in BRAM needed to be addressed. 
+
 \subsubsection{Resource Management}
-TALK ABOUT HOW WE NEEDED TO CONSERVE BRAM B/T TWO CAMERA IMAGES + OUTPUT IMAGE BUFFER
-\\ REFERENCE THE Zynq7 BRAM USERS GUIDE
+One major issue encountered while dealing with resource management on the ZedBoard was the usage of Block RAM. The Zynq7 processor used on the ZedBoard contains 140 individual blocks of 36Kb BRAM, which is equivalent to 630,000 8-bit bytes of memory \cite{zynq7bram}. Although this is plenty of memory for buffering a single 752x480 camera image, three separate image buffers need to be implemented in BRAM for this project. Two of said memory buffers are to be used for storing left and right camera images that are ready to be processed by the disparity algorithm, and a third is to be used for storing a resultant output image that may be displayed via VGA.
+\par
+In order to address this issue, input camera has been centrally windowed to a resolution of 384x288 pixels, or $0.6*VGA$. The output display buffer has also been reduced from WVGA (752x480) to VGA (640x480). In total, this results in the use of 27 36Kb Block RAM modules for each of the windowed left and right camera images, and 75 36Kb Block RAM modules for the VGA display buffer. Note that each buffer is configured using an individual Block RAM IP, and each consists of a simple dual-port RAM with an 8-bit data length. Overall, this implementation consumes 129 out of the 140 available 36Kb Block RAM modules available on the ZedBoard's Zynq7 processor, leaving additional resources for use in the IMU and rangefinder implementation. 
