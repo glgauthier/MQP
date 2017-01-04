@@ -1,0 +1,49 @@
+\subsection{Code}
+
+\subsubsection{MT9V034 and Al422b Test Code} \label{mt9v034TestCode}
+\textbf{Top Module:}
+\singlespacing
+\lstinputlisting[style=Verilog]{appendix/verilog/mt9v034_test_top.v}
+\doublespacing
+\par
+\textbf{Local Data Buffer:}
+\singlespacing
+\lstinputlisting[style=Verilog]{appendix/verilog/mt9v034_test_buffer.v}
+\doublespacing
+\par
+\textbf{MicroBlaze Code:}
+\label{camTestC}
+\singlespacing
+\lstinputlisting[style=C]{appendix/c/imageUART.c}
+\doublespacing
+\par
+\textbf{\textsc{Matlab} Image Parser:}
+\label{camTestMatlab}
+\singlespacing
+\lstinputlisting[style=Matlab]{appendix/matlab/ParseData.m}
+\doublespacing
+%%%%%%%%%%% end mt9v034 test code %%%%%%%%%% 
+
+\subsubsection{Custom IP} 
+\textbf{Top Module:} \label{customIPtop}
+\singlespacing
+\lstinputlisting[style=Verilog]{appendix/verilog/nu_nu_rangefinder_vga_v1_0.v}
+\doublespacing
+
+\par
+\textbf{Instantiated File:} \label{customIPaxi}
+\singlespacing
+\lstinputlisting[style=Verilog]{appendix/verilog/nu_nu_rangefinder_vga_v1_0_S00_AXI.v}
+\doublespacing
+
+\subsubsection{Disparity Algorithm Implementation} \label{disparityTestMatlab}
+\textbf{\textsc{Matlab} Algorithm:}
+\singlespacing
+\lstinputlisting[style=Matlab]{appendix/matlab/stereoDisparity.m}
+\doublespacing
+
+\par
+\textbf{\textsc{Verilog} Algorithm:}
+\singlespacing
+\lstinputlisting[style=Verilog]{appendix/verilog/disparity.v}
+\doublespacing
