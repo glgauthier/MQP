@@ -24,15 +24,7 @@ After choosing UART0 and configuring the MIO pins, the Baud Rate needs to be con
 	\label{zynq7ps_baud_pic}
 \end{figure}
 
-With the processing system customized in this fashion, the programmable logic's configuration is complete.
-
-\subsubsection{PS-PL Communication / Creating Custom IP}
-\label{sssec:ps_pl}
-
-
-
-maybe break into two sections? one for ps-pl and talk about what AXI is and why we need to use it, and then in the testing and results section make a second one about how we needed to create custom axi peripherals? whatever works best
-I HAVE NO IDEA WHAT TO WRITE FOR THIS
+With the processing system customized in this fashion, the Programmable Logic's configuration is complete.
 
 \subsubsection{Designing with the Xilinx SDK}
 The Programmable Software (PS) is coded in the Xilinx SDK, and can be edited in the project through Vivado. To launch the SDK, we must export our design to the SDK. This is done by generating a bitstream. The bitstream compiles all of the customization we have done in Vivado into a $.bit$ file which is used to program the FPGA on the ZedBoard. Generating a bitstream can be done in Vivado under the Program and Debug section of the Flow Navigator, as seen in Figure \ref{generateBitstream}.
@@ -56,10 +48,6 @@ When the SDK launches, there will be a hardware platform project in the Project 
 The new Application Project exists under the Project Explorer tab, and the PS can be edited in the project's source file folder.
 \par
 When ready to program the ZedBoard, the FPGA needs to be programmed first in order to configure the PL by the hardware platform. This is done by choosing Xilinx Tools $\rightarrow$ Program FPGA. To indicate success, the ZedBoard's blue $DONE$ LED, LD12, will illuminate. Once that process has completed, the PS can be uploaded by right clicking on the application project $\rightarrow$ Run As $\rightarrow$ Launch on Hardware (GDB).
-
-
-
-
 
 
 

@@ -33,6 +33,7 @@
 
 %% CODE SNIPPET CONFIGURATION %%
 \usepackage{listings}
+
 % verilog code snippet configuration
 \lstdefinestyle{Verilog}{
 	language=Verilog,
@@ -109,10 +110,6 @@
 	emphstyle = [1]{\color{Maroon}}
 	} 
 
-\lstset{%
-  escapeinside={(*}{*)},%
-}
-
 \begin{document}
 
 \pagenumbering{gobble} % turn off page numbering for the first few pages
@@ -142,11 +139,11 @@
 \pagenumbering{arabic} % change page numbering to 1,2, ...
 
 \input{introduction.tex} %%%% Introduction %%%%
-\newpage
 
+\newpage
 \input{background.tex} %%%% Background %%%%
-\newpage
 
+\newpage
 \section{System Design}
 
 \newpage
@@ -154,6 +151,8 @@
 \input{rangefinder_operation.tex}
 \input{rangefinder_implementation.tex}
 \input{rangefinder_data_processing.tex}
+
+\input{pspl_communication.tex}
 
 \input{imu_operation.tex}
 \input{imu_implementation.tex}
