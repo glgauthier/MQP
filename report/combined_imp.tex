@@ -14,12 +14,15 @@ This means that the output from the disparity pixel line should be scaled down b
 \subsubsection{Accounting for Navigational Data}
 With the IMU's accelerometer, gyroscope, and magnetometer, displacement and orientation can be calculated. The orientation and displacement can be displayed on a screen to show the device's behavior and its location. This can be combined with the rangefinder's data to show the orientation of the device, where it has traversed, and the distance away of the objects closest to it.
 \par
-The IMU's compass was combined with the 
+The IMU's compass data was combined with the rangefinder's step count. Changing the step count rotates the distance data around the device by changing the starting point of the data processing. This changes the direction of the rangefinder's $240^\circ$ field of vision. For example, an IMU reading corresponding to due West is a rotation of $90^\circ$ counterclockwise from due North. By Equation \ref{StepsPerDegree}, $90^\circ$ equates to 256 rangefinder steps. So, the rangefinder's data would essentially begin at step 256 and end at step 1024 or 0\footnote{step 768 + 256 step offset = 1024. Since there are 1024 rangefinder steps in a circle, step 1024 is the same as step 0.}, seen in Figure \ref{rangefinder_fov}.
 
-
+\begin{equation}
+	90^\circ \div \dfrac{360^\circ}{1024 \textrm{ } steps}  = 256 \textrm{ } steps
+	\label{StepsPerDegree}
+\end{equation}
 
 \par
-Due to time constraints, the IMU displacement data was not able to be incorporated into this project. The displacement data was planned to change the device's location on the VGA screen. Ideally, the device would appear to traverse the screen with the rangefinder's data traveling with it. Since the rangefinder's data is stored in such a way that it is localized to the device's location, incorporating the IMU's displacement data should be as easy as obtaining the data from the IMU in the PS and sending it to the PL via an extra PL read register discussed in Section \ref{sssec:creatingCustomIP}.
+Due to time constraints, the IMU displacement data was not able to be incorporated into this project. The displacement data was planned to change the device's location on the VGA screen. Ideally, the device would appear to traverse the screen as the device itself traverses a location, with the rangefinder's data traveling with it. Since the rangefinder's data is stored in such a way that it is localized to the device's location, incorporating the IMU's displacement data should be as easy as obtaining the data from the IMU in the PS and sending it to the PL via an extra PL read register discussed in Section \ref{sssec:creatingCustomIP}.
 
 
 

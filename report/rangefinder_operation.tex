@@ -42,14 +42,13 @@ The distance data acquisition command is the primary command that will be used f
 	\label{rangefinder_fov}
 \end{figure}
 
-For this project, we set the beginning point to '000' and the end point to '768' to obtain the device's maximum coverage of 240 degrees. Note that the device's angular rotation per step can be calculated by using Equation \ref{degrees_per_step} below.
+For this project, we set the beginning point to '000' and the end point to '768' to obtain the device's maximum coverage of 240 degrees. Note that the device's angular rotation per step can be calculated by using Equation \ref{degrees_per_step} below. Accordingly, each step around the rangefinder's field of view corresponds to a change of $0.3515625^\circ$.
 
 \begin{equation}
-	360^\circ / 1024 \textrm{ steps}  = 0.3515625^\circ \textrm{ per step}
+	\dfrac{360^\circ }{1024 \textrm{ steps}}  = 0.3515625^\circ \textrm{ per step}
 	\label{degrees_per_step}
 \end{equation}
 
-Each step around the rangefinder's field of view corresponds to a change of $0.3515625^\circ$.
 \par
 The cluster count is the number of neighboring points that are grouped together as a cluster. The cluster count was set to '01' in order to have a cluster count of one data point.
 \par

@@ -34,7 +34,7 @@ With proper x- and y-coordinates, the data is ready to be stored in memory. Anot
 \end{equation}
 
 \par
-With the data stored in memory, it is ready to be output to a VGA screen. We implemented a VHDL $640\times480$ VGA controller model by Digilent, found in Appendix \ref{vga_controller} ADD ANOTHER APPENDIX FOR CODE, to control our VGA logic. In addition, the ZedBoard's VGA pins were configured in a constraints file (.xdc) to support 12-bit color resolution \cite{zedboard_datasheet}. Similar to Equation \ref{vga_wequation}, Equation \ref{vga_requation} was used to calculate the read address of the VGA BRAM IP.
+With the data stored in memory, it is ready to be output to a VGA screen. We implemented a VHDL $640\times480$ VGA controller model by Digilent, found in Appendix \ref{vga_controller}, to control our VGA logic. In addition, the ZedBoard's VGA pins were configured in a constraints file (.xdc) to support 12-bit color resolution \cite{zedboard_datasheet}. Similar to Equation \ref{vga_wequation}, Equation \ref{vga_requation} was used to calculate the read address of the VGA BRAM IP.
 
 \begin{equation}
 	\textrm{read address} = (640\times{}v\textsubscript{count})+ h\textsubscript{count}
