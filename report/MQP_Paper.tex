@@ -195,7 +195,11 @@
 \doublespacing
 \newpage
 
-\section{Appendix} %%%% Appendix %%%% 
+\section*{Appendix} %%%% Appendix %%%% 
+\addcontentsline{toc}{section}{Appendix}
+\setcounter{subsection}{0}
+\renewcommand\thesubsection{\Alph{subsection}.}
+\renewcommand\thesubsubsection{\thesubsection\roman{subsubsection}}
 \input{appendix/resources.tex} % useful resources
 \input{appendix/componentSelection.tex} % component selection
 %\input{appendix/camDecisionMatrix.tex} % camera module decision matrix
