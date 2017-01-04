@@ -1,11 +1,10 @@
 \subsection{Disparity Testing}
 After verifying that the camera interface was functional, a large portion of time was spent implementing a disparity algorithm that would allow for the extraction of 3D depth information from stereo image data. This algorithm was first implemented in \textsc{Matlab}, and was then transferred to programmable logic after the algorithm was verified working. 
-\subsubsection{Image Rectification}
-In order to perform the most accurate block matching as possible on camera image data, it would be ideal to rectify the images as outlined in Section \ref{rectsec}. 
-\par
-- ADD AN EXAMPLE OF THE MATLAB CALIBRATION STUFF (figures showing 3d anaglyph process)\par
-- TALK ABOUT WHY WE DIDNT USE IN FINAL IMP
 
+\subsubsection{Image Rectification}
+In order to perform the most accurate block matching as possible on camera image data, it would be ideal to rectify the images as outlined in Section \ref{rectsec}. However, since the image data used in the disparity calculation contains a central 384x288 image taken from the middle of each 752x480 input image, a large portion of the input image is cropped out. Since many of the lens artifacts corrected using a rectification process are contained on the external edges of the input imagery, no additional camera calibration is performed in the disparity or camera controller implementations \cite{collins}. 
+\par
+After extensive testing with the stereo camera breakout board and disparity module detailed in the following sections, it was also found that the camera imagery captured through the stereo camera interface contains consistent horizontal epipolar lines between both images. These lines are accurate enough for the custom disparity algorithm to process without additional calibration, saving a large amount of calibration time in the image processing pipeline. Along with the aforementioned reasons, a full camera calibration and image rectification process was not implemented in FPGA hardware due to time constraints, although a cursory calibration process was examined in \textsc{Matlab}. With the issue of camera calibration and image rectification addressed, it was then possible to begin implementing a test disparity algorithm in \textsc{Matlab}.
 
 \subsubsection{\textsc{Matlab} Implementation}
 The Sum of Absolute Differences algorithm discussed in Section \ref{SADexample} was implemented first implemented using \textsc{Matlab}, and can be found in Appendix item \ref{disparityTestMatlab} \cite{mccormick}. This implementation has been created to operate on the "cones" standard test image set, and produces a resultant disparity image from its given input images. In the case of this specific example, the algorithm performs a 7x7 Sum of Absolute Differences block matching process on 50 search ranges of horizontal epipolar lines between the two images. However, the block size and search range may be customized by the user to test the functionality of the algorithm. 
