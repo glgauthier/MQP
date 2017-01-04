@@ -12,13 +12,9 @@ The Zynq7 Processing System is easily re-customizable, as discussed in Section \
 	\label{enabling_spi0}
 \end{figure}
 
+\par
+The usage of EMIO pins allows for pins normally connected to the Zynq7 processor's programmable logic to be connected to the processor's programmable software instead. In other words, EMIO peripherals allow for the user to control physical pins using C code running on the Zynq7 dual ARM processors rather than in Verilog-defined hardware. By creating an EMIO SPI peripheral, it is possible to route the physical connection of the interface to any pin on the ZedBoard that is accessible by programmable logic. In the case of this specific implementation, the EMIO SPI peripheral is routed to one of the ZedBoard's PMOD ports, allowing for the MIO PMOD port to remain unused and open for I$^2$C and UART peripheral communications.
 
-\par
-talk about rerouting the SPI pins to the EMIO PMOD
-\par
-ADD NEW SECTION IF THIS ISN'T DONE IN THE PROCESSING SYSTEM CONFIGURATION
-\par
-This is all you brocahtoa, i got nothing.
 
 
 
