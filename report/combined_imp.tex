@@ -1,3 +1,14 @@
 \subsection{Combined Implementation}
 \subsubsection{Rangefinder and Disparity Data Integration}
+In order to increase the overall accuracy of the system, 3D depth information from the disparity algorithm may be combined with 2D depth information from the scanning laser rangefinder. If the rangefinder and stereo camera interface share a horizontal viewing plane, and both sensors are gathering information on the same scene, there will be some distinguishable overlap in sensor data. This overlap may be taken advantage of in order to produce a more accurate 2D "floorplan" of the area being observed. This type of data integration is especially useful in situations where the scanning laser rangefinder is out of range.
+\par
+Through the use of a moving average Finite Impulse Response (FIR) filter across a horizontal line of depth information from the disparity algorithm output, a single line of depth information may be obtained that can be correlated with rangefinder data obtained from the same scene. Note that although 2D rangefinder data is organized using a polar coordinate scheme, the output buffer used for displaying rangefinder data via VGA contains the same data in a Cartesian format. This Cartesian rangefinder data can easily be combined with averaged disparity depth information at the output stage, where both sensors' data is displayed relative to the same central location on screen. 
+\par
+In order to correlate both sensors' data for a combined output mode, the field of view of each device needs to be taken into account. Since each camera has an approximate 55$^\circ$ field of view, and camera imagery is 752 pixels wide, the stereo camera interface has a deg:pixel ratio of $\frac{752}{55}=13.67\frac{px}{deg}$. Output data from the rangefinder is divided into 768 steps over a 270$^\circ$ field of view. In order to correlate disparity data with rangefinder data, the averaged disparity depth line needs to be converted an equivalent number of "steps" worth of data. The conversion factor for pixels of disparity depth to "steps" may be calculated as shown by Equation \ref{yeeboi}.
+\begin{equation} \label{yeeboi}
+13.67\frac{px}{deg}*\frac{270^\circ}{768\,\,steps} = 4.8\frac{px}{step}
+\end{equation}
+\par
+This means that the output from the disparity pixel line should be scaled down by an approximate factor of 4.8 in order for it to correlate with depth information from the scanning laser rangefinder. Once this scaling process is complete, depth information from the disparity algorithm may be directly overlaid on the 2D scanning laser rangefinder's output in order to produce a combined depth map. 
+
 \subsubsection{Accounting for Navigational Data}
