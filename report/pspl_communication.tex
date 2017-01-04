@@ -1,5 +1,4 @@
-\subsection{PS-PL Communication}
-\label{sssec:ps_pl}
+\subsection{PS-PL Communication} \label{ssec:ps_pl}
 The Programmable Logic (PL) and Programmable Software (PS) need to be able to communicate so that data can traverse between the two. This process is configured in Vivado with the use of an Advanced eXtensible Interface (AXI) bus.
 
 \subsubsection{Advanced eXtensible Interface (AXI)}
@@ -7,7 +6,7 @@ AXI is a type of on-chip interconnect specification intended for transaction bas
 \par
 Our custom PL must be able to communicate properly with an AXI bus, which contains many signals and control flags. Instead of attempting to interface with AXI by creating the signals, Vivado supports creating a new custom IP AXI Peripheral that will abstract away the complications of AXI communication.
 
-\subsubsection{Creating Custom IP}
+\subsubsection{Creating Custom IP} \label{sssec:creatingCustomIP}
 Vivado supports creating custom packaged IP blocks as an AXI Peripheral. As an AXI Peripheral, this IP block will be able to communicate with any other Xilinx IP blocks that use AXI. For the purpose of this project, the custom IP block will communicate with the Zynq7 Processing System via its AXI bus.
 \par
 The custom IP can be created in Vivado under Tools $\rightarrow$ Create and Package IP. The IP must be set up as an AXI Peripheral, and its data width and number of registers can be customized to fit the needs of the project.
