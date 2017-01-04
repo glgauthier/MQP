@@ -139,11 +139,17 @@ Figure \ref{disparityVerilogvsMatlab} below contains a comparison between the te
 
 
 \subsubsection{Final Implementation}
+In order to increase the speed of the disparity algorithm's output, several portions of the original disparity Verilog module used in the previous section were modified to increase parallelization and decrease the overall latency associated with various calculations. Most of this parallelization was based around taking the 2D memory arrays used for storing the template and search blocks, and breaking said arrays into individual vectors. For example, instead of having a 7x7 memory array for storing one "block" of pixels, the block is broken into seven separate 1x7 vectors that can be operated on individually. This parallelization decreases the overall latency of the system by making it so that there is less time spent waiting to read from individual addresses within memory arrays. An overall block diagram of the more parallel disparity implementation is shown in Figure \ref{disparityFinalImp} below. 
+\par
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1.2\textwidth]{Disparity_Algorithm.png}}
 	\caption{Disparity Final Implementation}
-	\label{disparityTestImp}
+	\label{disparityFinalImp}
 \end{figure}
+\par
+The overall state machine used to create the final disparity implementation still follows the same next state logic as that of the original implementation, shown in Figure \ref{disparityTestImp}. Advances in speed of the overall algorithm are therefore mostly associated with parallel calculations during the computation of the Sum of Absolute Differences. As discussed in Section \ref{dataman}, the left and right search images passed to the disparity algorithm are also windowed to $0.6*VGA$ resolution. 
+\par
+In order to verify the output of the hardware disparity implementation, a VGA display driver is used to display the disparity algorithm's output in real time, as shown in Figure \ref{disparityFin}. With the successful implementation of this output mode, it was then possible to concentrate on combining the disparity and camera controller modules into a final design that incorporated the IMU and Rangefinder modules.
 \par
 \begin{figure}[H] 
 	\begin{subfigure}{0.5\textwidth}
@@ -159,5 +165,3 @@ Figure \ref{disparityVerilogvsMatlab} below contains a comparison between the te
 	\caption{Disparity Algorithm Output}
 	\label{disparityFin}
 \end{figure}
-\par
-GET RID OF CALIBRATION 
