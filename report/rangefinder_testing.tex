@@ -28,7 +28,28 @@ With communication via the rangefinder's USB port working, we decided to continu
 \par
 The ZedBoard was programmed, the rangefinder was turned on, and the two devices were connected by a standard micro-USB to mini-USB cable. The ZedBoard transmitted the command, as signified by the blink of the TX LED. However the rangefinder did not acknowledge the command; its status LED was staying lit signifying the laser was on. Due to this failure\footnote{This communication failure was most likely due to the lack of necessary hardware, as USB OTG requires an adapter that controls which device will be hosting the communication. Without this adapter, both USB devices will act as a peripheral, and neither will initiate communication \cite{usb-otg}.}, using USB OTG was not implemented. Instead the methodology described in Section \ref{sssec:rangefinder_communication} was implemented.
 
+\subsubsection{Communication via Pmod}
+Once we decided not to continue with USB OTG, we routed the UART signals to a Pmod connector, described in Section \ref{sssec:rangefinder_communication}. To make sure that UART via Pmod was functioning correctly, the transmit pin was measured with an oscilloscope. The laser illumination command "L0\textbackslash{}n" was transmitted and observed indicating success, as shown in Figure \ref{laser_illumination}. Note that this is a TTL signal.
 
+\begin{figure}[H]
+	\centerline{\includegraphics[width=.7\textwidth]{laser_illumination.png}}
+	\caption{Laser Illumination Command TTL Oscillogram}
+	\label{laser_illumination}
+\end{figure}
+
+The RS-232 to TTL converter with the attached breakout board was attached to the ZedBoard. The converter's V\textsubscript{CC} and GND were connected to the ZedBoard Pmod's respective V\textsubscript{CC} and ground pins. When these pins were connected, the converter's power LED turned on. In addition, the converter's RX and TX pins were connected to the ZedBoard's respective TX and RX pins. The breakout board's TX pin was measured on the oscilloscope to observe the resultant RS-232 waveform. However when the command was transmitted from the ZedBoard, there was no change on the oscilloscope. We disconnected the converter's TX and RX pins and reconnected them such that the converter's RX and TX pins were connected to the ZedBoard's respective RX and TX pins. The laser illumination command was re-transmitted and the waveform in Figure \ref{rangefinder_rs232} was observed on the oscilloscope. The oscillogram shows a waveform from +6V to -6V, which is a valid RS-232 signal.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=.7\textwidth]{rangefinder_rs232.png}}
+	\caption{Laser Illumination Command RS-232 Oscillogram}
+	\label{rangefinder_rs232}
+\end{figure}
+
+With the communication functioning properly, the rangefinder's RX and TX were connected to the breakout board's respective TX and RX pins, and the laser illumination command was transmitted from the ZedBoard. The rangefinder's status LED started blinking, signifying that it received the laser illumination command and the laser was turned off. This test's success indicates that the rangefinder's communication is completely successful.
+
+\subsubsection{PS-PL Testing}
+%talk about transmitting the command from the button press -> uart led blinking
+%testing vga stuff
 
 
 
