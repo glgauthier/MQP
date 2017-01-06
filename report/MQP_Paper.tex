@@ -200,8 +200,8 @@
 \section*{Appendix} %%%% Appendix %%%% 
 \addcontentsline{toc}{section}{Appendix}
 \setcounter{subsection}{0}
-\renewcommand\thesubsection{\Alph{subsection}.}
-\renewcommand\thesubsubsection{\thesubsection\roman{subsubsection}}
+\renewcommand\thesubsection{\Alph{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\roman{subsubsection}}
 \input{appendix/resources.tex} % useful resources
 \input{appendix/componentSelection.tex} % component selection
 %\input{appendix/camDecisionMatrix.tex} % camera module decision matrix
@@ -220,7 +220,7 @@
 %\newpage
 %\input{appendix/coeCode.tex}
 
-\newpage
-\input{appendix/examples.tex} % example latex code for setting things up
+%\newpage
+%\input{appendix/examples.tex} % example latex code for setting things up
 
 \end{document}
