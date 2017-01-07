@@ -27,11 +27,11 @@ The register read and write commands are completed in 16 clock pulses. The first
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1\textwidth]{multiple_reads.png}}
-	\caption{Magnetometer Multiple byte SPI Read Protocol \cite{lsm9ds1}}
+	\caption{Magnetometer Multiple-Byte SPI Read Protocol \cite{lsm9ds1}}
 	\label{multiple_reads}
 \end{figure}
 
-\subsubsection{Register Settings}
+\subsubsection{Register Settings} \label{imu_settings}
 The LSM9DS1 IMU requires memory register setting in order to turn on the magnetometer and function properly. The memory register settings are can be set by writing to the IMU in the SPI communication format shown in Figure \ref{magnetometer_spi}. As such, for all of the setting adjustments the $R\overline{W}$ bit is set to 0 signifying a write command.
 \par
 One register that needs to be written to is the magnetometer's control register 1, or CTRL\textunderscore{}REG\textunderscore{}1\textunderscore{}M, which is at address 20\textsubscript{16}. 7C\textsubscript{16} was written to CTRL\textunderscore{}REG\textunderscore{}1\textunderscore{}M to signify ultra high performance mode for the magnetometer's x- and y-axis, and leave all of the other settings in the register at their defaults \cite{lsm9ds1}.
