@@ -36,5 +36,17 @@ With this configuration a waveform similar to the correct waveforms, shown in Fi
 \subsubsection{Data Testing}
 The IMU's data was tested by transmitting it via UART. The IMU's magnetometer data was processed until it was transformed into a compass heading. The ZedBoard's UART was routed to USB UART so that it could connect with a serial console. The ZedBoard, with the IMU connected, was rotated while the compass heading was being observed. The results were inaccurate and inconsistent until the ZedBoard was moved as far from the lab bench as the wires would allow. An IMU is a very sensitive piece of equipment that picks up electromagnetic interference, in this case most noticeably by the ZedBoard's own power supply. Once the device was further away from the lab bench, accurate and repeatable compass headings were observed. The further the ZedBoard and connected IMU are from the device's power supply, the better it performs.
 
+\subsubsection{Interfacing with the ADIS16375 IMU}
+Although we were ultimately able to interface with the PmodNav IMU, this was not our first choice IMU. We originally attempted to interface with the ADIS16375 Six Degrees of Freedom Inertial Sensor, shown in Figure \ref{adis16375}.
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=.7\textwidth]{adis16375.jpg}}
+	\caption{The ADIS16375 Six Degrees of Freedom Inertial Sensor \cite{adisBreakout}}
+	\label{adis16375}
+\end{figure}
+
+This IMU is a highly sensitive, heavy duty device. It has a tri-axis gyroscope, a tri-axis accelerometer, and a temperature sensor, has onboard functionality to calculate delta-angle and velocity, and uses SPI communication. Although the ADIS16375 does not have a magnetometer, its gyroscope?s sensitivity combined with its sample rate and onboard delta-angle calculation make it perfect to accommodate for device rotation. In addition, the device?s onboard velocity calculation is extremely useful for displacement calculations. However, we were not able to communicate with it. There was no way to test the ADIS16375 so we could not verify it was functioning in any manner. With a strict deadline approaching, the PmodNav was implemented as a quick and simple solution.
+
+
 
 
