@@ -11,13 +11,11 @@ Vivado supports creating custom packaged IP blocks as an AXI Peripheral. As an A
 \par
 The custom IP can be created in Vivado under Tools $\rightarrow$ Create and Package IP. The IP must be set up as an AXI Peripheral, and its data width and number of registers can be customized to fit the needs of the project.
 \par
-TALK ABOUT HOW TO ADD THE FILES AND WHATEVER ELSE IS NECESSARY
-\par
-The IP customization up to this point has created a path for the communication to take place. With the path set, the custom IP's auto-generated files need to be edited to allow for our custom data to be used in the AXI bus. In the auto-generated file instantiated in the top module, there are as many lines of code that need changing as there are the amount of registers intended to be used. In the case of this project we customized the IP for the use of four registers, but only needed to use two: one for writing data to the PS, and the other for reading from the PS.
+After setting up a custom AXI peripheral, users will be presented with a bare IP module containing an AXI peripheral. With the peripheral creation complete, the custom IP's auto-generated files need to be edited to allow for our custom logic to be used in the AXI bus. In the auto-generated file instantiated in the top module, several lines of code need to be edited in order to connect the AXI peripheral's input and output channels to user logic. In the case of this project we customized the IP for the use of four registers, but only needed to use two: one for writing data to the PS, and the other for reading from the PS. 
 \par
 To write to the PS, the output register data needs to be set with the data to be transmitted. This is done in the AXI read address $case$ statement that decodes addresses for reading registers. This can be seen on line 368 of our edited auto-generated custom IP code, shown in Appendix \ref{customIPaxi}.
 \par
 To read from the PS, the data stored in the input register needs to be stored into a buffer so that it can be used for the purposes of the project. This is done in the AXI write address $case$ statement. This can be seen on line 239 of our edited auto-generated custom IP code, shown in Appendix \ref{customIPaxi}.
 \par
-In addition, any other I/O ports from the custom logic can be created in the custom IP's top module, in the same manner as a normal top module. Our custom IP top module can be found in Appendix \ref{customIPtop}.
+In addition, any other I/O ports from the custom logic can be created in the custom IP's top module, in the same manner as a normal top module. Our custom IP top module can be found in Appendix \ref{customIPtop}. Advanced user logic may also be implemented within the IP core through modular instantiation.
 
