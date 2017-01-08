@@ -134,7 +134,10 @@ module mqp_top
     
     // State machine for capturing and storing new camera images
     // This module also contains internal BRAM for storing left and right images
-    wire [16:0] laddr, raddr; // left/right image buffer addr
+    wire [16:0] laddr, raddr, disp_laddr, disp_raddr; // left/right image buffer addr
+    reg [16:0] img_laddr, img_raddr;
+    assign laddr = (sw[7:0] != 8'h03) ? disp_laddr : img_laddr;
+    assign raddr = (sw[7:0] != 8'h04) ? disp_raddr : img_raddr;
     wire [7:0] ldata, rdata; // left/right image pixel data
     wire buffer_ready; // image capture complete (disparity enable)
     imgbuf camctl(
@@ -163,12 +166,12 @@ module mqp_top
     parallel_disparity disp(
          .clk(clk_100M), // Read clk signal
          .enable(buffer_ready), // enable new disparity calculation 
-         .sw(sw[1]), // added in to parallel module
+         .sw(sw[7:0]>=8'h02), // added in to parallel module (was sw[1])
          .reset(reset), // reset disparity FSM
          .ldata(ldata), // FIFO data in
          .rdata(rdata), // FIFO data in
-         .laddr(laddr), // left camera data address (to imgbuf)
-         .raddr(raddr), // right camera data address (to imgbuf)
+         .laddr(disp_laddr), // left camera data address (to imgbuf)
+         .raddr(disp_raddr), // right camera data address (to imgbuf)
          .result_addr(result_addr), // VGA bram write address
          .result_data(result_data), // VGA bram pixel data (disparity vals)
          .result_wea(result_wen), // VGA bram write enable
@@ -184,7 +187,7 @@ module mqp_top
     // VGA output
     wire [10:0] hcount, vcount; // horizontal, vertical location on screen
     wire blank; // blanking signal
-       vga_controller_640_60 vga_controller(
+    vga_controller_640_60 vga_controller(
         .rst(reset),
         .pixel_clk(clk_25M),
         .HS(hsync),
@@ -247,6 +250,28 @@ module mqp_top
                         rgb = {4'h8,lineout};
                     else
                         rgb = 12'h000;
+            end
+            8'h03: // left camera image
+            begin
+                // center 384x288 output in the middle of the screen
+                if(hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384) begin
+                    img_laddr = 384*(vcount-96) + (hcount-128);
+                    rgb = {ldata,4'h8};
+                end
+                // pad screen areas outside the active image black
+                else
+                    rgb = 12'h000;
+            end
+            8'h04: // right camera image
+            begin
+                // center 384x288 output in the middle of the screen
+                if(hcount>= 128 && hcount < 512 && vcount >= 96 && vcount < 384) begin
+                    img_raddr = 384*(vcount-96) + (hcount-128);
+                    rgb = {rdata,4'h8};
+                end
+                // pad screen areas outside the active image black
+                else
+                    rgb = 12'h000;
             end
             default: // combined disparity + rangefinder output
             begin

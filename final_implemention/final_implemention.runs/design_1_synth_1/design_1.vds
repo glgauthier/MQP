@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Tue Dec 20 20:05:54 2016
-# Process ID: 10480
+# Start of session at: Sun Jan 08 12:14:06 2017
+# Process ID: 7928
 # Current directory: C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.runs/design_1_synth_1
 # Command line: vivado.exe -log design_1.vds -mode batch -messageDb vivado.pb -notrace -source design_1.tcl
 # Log file: C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.runs/design_1_synth_1/design_1.vds
@@ -23,11 +23,11 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 8908 
+INFO: Helper process launched with PID 13192 
 WARNING: [Synth 8-2292] literal value truncated to fit in 9 bits [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v:131]
 WARNING: [Synth 8-2292] literal value truncated to fit in 9 bits [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v:277]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 340.359 ; gain = 133.910
+Starting RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 340.547 ; gain = 134.063
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1' [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/hdl/design_1.v:13]
 INFO: [Synth 8-638] synthesizing module 'design_1_blk_mem_gen_0_1' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_1/synth/design_1_blk_mem_gen_0_1.vhd:67]
@@ -88,7 +88,9 @@ WARNING: [Synth 8-689] width (11) of port connection 'dina' does not match port 
 INFO: [Synth 8-256] done synthesizing module 'parallel_disparity' (34#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:5]
 INFO: [Synth 8-638] synthesizing module 'vga_controller_640_60' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/vga_controller_640_60.vhd:88]
 INFO: [Synth 8-256] done synthesizing module 'vga_controller_640_60' (35#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/vga_controller_640_60.vhd:88]
-WARNING: [Synth 8-567] referenced signal 'sw' should be on the sensitivity list [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:198]
+WARNING: [Synth 8-567] referenced signal 'sw' should be on the sensitivity list [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:201]
+WARNING: [Synth 8-567] referenced signal 'ldata' should be on the sensitivity list [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:223]
+WARNING: [Synth 8-567] referenced signal 'rdata' should be on the sensitivity list [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:223]
 INFO: [Synth 8-256] done synthesizing module 'mqp_top' (36#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:6]
 INFO: [Synth 8-256] done synthesizing module 'custom_logic_v1_0' (37#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/hdl/nu_nu_rangefinder_vga_v1_0.v:4]
 INFO: [Synth 8-256] done synthesizing module 'design_1_nu_nu_rangefinder_vga_0_0' (38#1) [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_nu_nu_rangefinder_vga_0_0/synth/design_1_nu_nu_rangefinder_vga_0_0.v:57]
@@ -298,7 +300,7 @@ WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_9_b2s_rd_cmd_fsm has 
 WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_9_b2s_rd_cmd_fsm has unconnected port s_arlen[2]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:05:52 ; elapsed = 00:06:03 . Memory (MB): peak = 661.711 ; gain = 455.262
+Finished RTL Elaboration : Time (s): cpu = 00:05:37 ; elapsed = 00:05:47 . Memory (MB): peak = 661.961 ; gain = 455.477
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -308,7 +310,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:05:53 ; elapsed = 00:06:05 . Memory (MB): peak = 661.711 ; gain = 455.262
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:05:38 ; elapsed = 00:05:48 . Memory (MB): peak = 661.961 ; gain = 455.477
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 663 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -344,16 +346,16 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   MULT_AND => LUT2: 168 instances
   SRL16 => SRL16E: 1 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.204 . Memory (MB): peak = 832.523 ; gain = 0.457
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.205 . Memory (MB): peak = 834.086 ; gain = 1.465
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:06:13 ; elapsed = 00:06:25 . Memory (MB): peak = 832.523 ; gain = 626.074
+Finished Constraint Validation : Time (s): cpu = 00:05:57 ; elapsed = 00:06:08 . Memory (MB): peak = 834.086 ; gain = 627.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:06:13 ; elapsed = 00:06:25 . Memory (MB): peak = 832.523 ; gain = 626.074
+Finished Loading Part and Timing Information : Time (s): cpu = 00:05:57 ; elapsed = 00:06:08 . Memory (MB): peak = 834.086 ; gain = 627.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -384,7 +386,7 @@ Applied set_property DONT_TOUCH = true for processing_system7_0_axi_periph/s00_c
 Applied set_property DONT_TOUCH = true for rst_processing_system7_0_100M. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for rst_processing_system7_0_100M/U0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:06:13 ; elapsed = 00:06:25 . Memory (MB): peak = 832.523 ; gain = 626.074
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:05:58 ; elapsed = 00:06:08 . Memory (MB): peak = 834.086 ; gain = 627.602
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v:209]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/rangefinder.v:214]
@@ -447,14 +449,16 @@ INFO: [Synth 8-5544] ROM "cdcnt" won't be mapped to Block RAM because address si
 INFO: [Synth 8-5544] ROM "scnt" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "maxd" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "maxd" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:199]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:199]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:202]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:202]
 INFO: [Synth 8-5546] ROM "rgb" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-4471] merging register 'seq_cnt_en_reg' into 'from_sys_reg' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/proc_sys_reset_v5_0/hdl/src/vhdl/sequence_psr.vhd:222]
 WARNING: [Synth 8-327] inferring latch for variable 'maxd_reg' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/disparity.v:437]
-WARNING: [Synth 8-327] inferring latch for variable 'rgb_reg' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:223]
+WARNING: [Synth 8-327] inferring latch for variable 'rgb_reg' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:226]
+WARNING: [Synth 8-327] inferring latch for variable 'img_laddr_reg' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:139]
+WARNING: [Synth 8-327] inferring latch for variable 'img_raddr_reg' [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/custom_logic_v1_0/src/mqp_top.v:140]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:06:20 ; elapsed = 00:06:34 . Memory (MB): peak = 832.523 ; gain = 626.074
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:06:04 ; elapsed = 00:06:17 . Memory (MB): peak = 834.086 ; gain = 627.602
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -483,7 +487,7 @@ BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:06:20 ; elapsed = 00:06:34 . Memory (MB): peak = 832.523 ; gain = 626.074
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:06:04 ; elapsed = 00:06:17 . Memory (MB): peak = 834.086 ; gain = 627.602
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -496,9 +500,9 @@ INFO: [Synth 8-5546] ROM "inst/mqp_top/rangefinder/step_count" won't be mapped t
 INFO: [Synth 8-3936] Found unconnected internal register 'gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw_pipe/m_payload_i_reg' and it is trimmed from '66' to '62' bits. [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:318]
 INFO: [Synth 8-3936] Found unconnected internal register 'gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar_pipe/m_payload_i_reg' and it is trimmed from '66' to '62' bits. [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ipshared/xilinx.com/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v:318]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:06:23 ; elapsed = 00:06:38 . Memory (MB): peak = 832.523 ; gain = 626.074
+Finished Cross Boundary Optimization : Time (s): cpu = 00:06:08 ; elapsed = 00:06:21 . Memory (MB): peak = 834.086 ; gain = 627.602
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:06:23 ; elapsed = 00:06:38 . Memory (MB): peak = 832.523 ; gain = 626.074
+Finished Parallel Reinference  : Time (s): cpu = 00:06:08 ; elapsed = 00:06:21 . Memory (MB): peak = 834.086 ; gain = 627.602
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -672,9 +676,9 @@ INFO: [Synth 8-3886] merging instance 'rst_processing_system7_0_100M/U0/SEQ/pr_d
 INFO: [Synth 8-3886] merging instance 'rst_processing_system7_0_100M/U0/SEQ/bsr_dec_reg[1]' (FD) to 'rst_processing_system7_0_100M/U0/SEQ/core_dec_reg[1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (custom_logic/\inst/mqp_top/disp /\maxd_reg[5] )
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:06:39 ; elapsed = 00:06:54 . Memory (MB): peak = 832.523 ; gain = 626.074
+Finished Area Optimization : Time (s): cpu = 00:06:23 ; elapsed = 00:06:37 . Memory (MB): peak = 834.086 ; gain = 627.602
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:06:39 ; elapsed = 00:06:54 . Memory (MB): peak = 832.523 ; gain = 626.074
+Finished Parallel Area Optimization  : Time (s): cpu = 00:06:23 ; elapsed = 00:06:37 . Memory (MB): peak = 834.086 ; gain = 627.602
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -690,10 +694,10 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'processing_system7_0/FCLK_CLK0' to pin 'processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O'
 INFO: [Synth 8-5820] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:53 ; elapsed = 00:07:09 . Memory (MB): peak = 1026.797 ; gain = 820.348
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:37 ; elapsed = 00:06:52 . Memory (MB): peak = 1028.500 ; gain = 822.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:07:03 ; elapsed = 00:07:18 . Memory (MB): peak = 1151.504 ; gain = 945.055
+Finished Timing Optimization : Time (s): cpu = 00:06:46 ; elapsed = 00:07:01 . Memory (MB): peak = 1151.293 ; gain = 944.809
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -705,16 +709,16 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:07:07 ; elapsed = 00:07:23 . Memory (MB): peak = 1159.219 ; gain = 952.770
+Finished Technology Mapping : Time (s): cpu = 00:06:51 ; elapsed = 00:07:05 . Memory (MB): peak = 1160.781 ; gain = 954.297
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:07:07 ; elapsed = 00:07:23 . Memory (MB): peak = 1159.219 ; gain = 952.770
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:06:51 ; elapsed = 00:07:05 . Memory (MB): peak = 1160.781 ; gain = 954.297
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:07:07 ; elapsed = 00:07:23 . Memory (MB): peak = 1159.219 ; gain = 952.770
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:06:51 ; elapsed = 00:07:05 . Memory (MB): peak = 1160.781 ; gain = 954.297
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -748,7 +752,7 @@ INFO: [Synth 8-4618] Found max_fanout attribute set to 20 on net \gen_axilite.ge
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:07:09 ; elapsed = 00:07:24 . Memory (MB): peak = 1159.219 ; gain = 952.770
+Finished IO Insertion : Time (s): cpu = 00:06:52 ; elapsed = 00:07:07 . Memory (MB): peak = 1160.781 ; gain = 954.297
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -761,7 +765,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:07:09 ; elapsed = 00:07:24 . Memory (MB): peak = 1159.219 ; gain = 952.770
+Finished Renaming Generated Instances : Time (s): cpu = 00:06:52 ; elapsed = 00:07:07 . Memory (MB): peak = 1160.781 ; gain = 954.297
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -773,25 +777,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:07:10 ; elapsed = 00:07:25 . Memory (MB): peak = 1159.219 ; gain = 952.770
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:53 ; elapsed = 00:07:08 . Memory (MB): peak = 1160.781 ; gain = 954.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:07:10 ; elapsed = 00:07:25 . Memory (MB): peak = 1159.219 ; gain = 952.770
+Finished Renaming Generated Ports : Time (s): cpu = 00:06:53 ; elapsed = 00:07:08 . Memory (MB): peak = 1160.781 ; gain = 954.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:07:10 ; elapsed = 00:07:26 . Memory (MB): peak = 1159.219 ; gain = 952.770
+Finished Handling Custom Attributes : Time (s): cpu = 00:06:54 ; elapsed = 00:07:08 . Memory (MB): peak = 1160.781 ; gain = 954.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:07:10 ; elapsed = 00:07:26 . Memory (MB): peak = 1159.219 ; gain = 952.770
+Finished Renaming Generated Nets : Time (s): cpu = 00:06:54 ; elapsed = 00:07:08 . Memory (MB): peak = 1160.781 ; gain = 954.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -812,20 +816,20 @@ Report Cell Usage:
 |3     |CARRY4     |   181|
 |4     |DSP48E1    |     1|
 |5     |DSP48E1_1  |     1|
-|6     |DSP48E1_2  |     1|
-|7     |DSP48E1_3  |     2|
+|6     |DSP48E1_2  |     2|
+|7     |DSP48E1_3  |     3|
 |8     |DSP48E1_4  |     1|
 |9     |DSP48E1_5  |     1|
 |10    |LUT1       |   197|
-|11    |LUT2       |   416|
-|12    |LUT3       |   574|
-|13    |LUT4       |   515|
-|14    |LUT5       |   371|
-|15    |LUT6       |  1106|
+|11    |LUT2       |   411|
+|12    |LUT3       |   566|
+|13    |LUT4       |   519|
+|14    |LUT5       |   377|
+|15    |LUT6       |  1154|
 |16    |MMCME2_ADV |     1|
 |17    |MULT_AND   |   168|
 |18    |MUXCY      |   168|
-|19    |MUXF7      |   156|
+|19    |MUXF7      |   165|
 |20    |MUXF8      |    38|
 |21    |PS7        |     1|
 |22    |RAM16X1S   |   112|
@@ -842,18 +846,19 @@ Report Cell Usage:
 |33    |FDR        |     8|
 |34    |FDRE       |  1860|
 |35    |FDSE       |    55|
-|36    |LDC        |    14|
-|37    |LDP        |     3|
-|38    |IBUF       |     1|
+|36    |LD         |    34|
+|37    |LDC        |    14|
+|38    |LDP        |     3|
+|39    |IBUF       |     1|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:07:10 ; elapsed = 00:07:26 . Memory (MB): peak = 1159.219 ; gain = 952.770
+Finished Writing Synthesis Report : Time (s): cpu = 00:06:54 ; elapsed = 00:07:08 . Memory (MB): peak = 1160.781 ; gain = 954.297
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1510 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:01 ; elapsed = 00:06:58 . Memory (MB): peak = 1159.219 ; gain = 729.789
-Synthesis Optimization Complete : Time (s): cpu = 00:07:10 ; elapsed = 00:07:26 . Memory (MB): peak = 1159.219 ; gain = 952.770
+Synthesis finished with 0 errors, 0 critical warnings and 1512 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:00 ; elapsed = 00:06:41 . Memory (MB): peak = 1160.781 ; gain = 728.832
+Synthesis Optimization Complete : Time (s): cpu = 00:06:54 ; elapsed = 00:07:09 . Memory (MB): peak = 1160.781 ; gain = 954.297
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 990 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 1026 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 Parsing XDC File [C:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
@@ -870,9 +875,10 @@ Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final
 Finished Parsing XDC File [c:/Users/georges/Documents/GitHub/MQP/final_implemention/final_implemention.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_100M_0/design_1_rst_processing_system7_0_100M_0.xdc] for cell 'rst_processing_system7_0_100M/U0'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 368 instances were transformed.
+  A total of 402 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 48 instances
   FDR => FDRE: 8 instances
+  LD => LDCE: 34 instances
   LDC => LDCE: 14 instances
   LDP => LDPE: 3 instances
   MULT_AND => LUT2: 168 instances
@@ -881,9 +887,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   SRL16 => SRL16E: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-437 Infos, 117 Warnings, 0 Critical Warnings and 0 Errors encountered.
+437 Infos, 121 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:07:16 ; elapsed = 00:07:30 . Memory (MB): peak = 1498.723 ; gain = 1251.102
+synth_design: Time (s): cpu = 00:07:00 ; elapsed = 00:07:13 . Memory (MB): peak = 1507.074 ; gain = 1258.840
 INFO: [Coretcl 2-1174] Renamed 359 cell refs.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1498.723 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Dec 20 20:13:34 2016...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1507.074 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Jan 08 12:21:30 2017...
