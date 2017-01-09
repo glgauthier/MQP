@@ -1,5 +1,6 @@
 \subsection{Code}
 
+%%%%%%%%%%% mt9v034 test code %%%%%%%%%%%
 \subsubsection{MT9V034 and Al422b Test Code} \label{mt9v034TestCode}
 \textbf{Top Module:}
 \singlespacing
@@ -24,6 +25,9 @@
 \doublespacing
 %%%%%%%%%%% end mt9v034 test code %%%%%%%%%%%
 
+\newpage
+
+%%%%%%%%%%% Custom IP code %%%%%%%%%%%
 \subsubsection{Custom IP} 
 \textbf{Top Module:} \label{customIPtop}
 \singlespacing
@@ -42,6 +46,41 @@
 \lstinputlisting[style=Verilog]{appendix/verilog/rangefinder.v}
 \doublespacing
 
+\par
+\textbf{VGA Controller Module by Digilent:} \label{vga_controller}
+\singlespacing
+\lstinputlisting[style=VHDL]{appendix/vhdl/vga_controller_640_60.vhd}
+\doublespacing
+%%%%%%%%%%% end Custom IP code %%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%% coe file code %%%%%%%%%%%
+\subsubsection{LUT Initialization Code for Transformation from Polar to Cartesian} \label{coe_file}
+\textbf{Coefficient File for $0^\circ{}\leq{}\theta{}\leq45^\circ$:}
+\singlespacing
+\lstinputlisting[style=coe]{appendix/coe/coord1.coe}
+\doublespacing
+\par
+\textbf{Coefficient File for $45^\circ{}\leq{}\theta{}\leq90^\circ$:}
+\singlespacing
+\lstinputlisting[style=coe]{appendix/coe/coord2.coe}
+\doublespacing
+%%%%%%%%%%% end coe file code %%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%% Programmable Software %%%%%%%%%%%
+\subsubsection{Programmable Software} \label{ps_code}
+\textbf{Programmable Software for the Zynq7 Processing System:}
+\singlespacing
+\lstinputlisting[style=C]{appendix/c/helloworld.c}
+\doublespacing
+%%%%%%%%%%% end Programmable Software %%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%% Disparity Algorithm Implementation %%%%%%%%%%%
 \subsubsection{Disparity Algorithm Implementation} \label{disparityTestMatlab}
 \textbf{\textsc{Matlab} Algorithm:}
 \singlespacing
@@ -53,35 +92,7 @@
 \singlespacing
 \lstinputlisting[style=Verilog]{appendix/verilog/disparity.v}
 \doublespacing
-
-%%%%%%%%%%% vga controller code %%%%%%%%%%%
-\subsubsection{VGA Controller Module by Digilent} \label{vga_controller}
-\textbf{640 $\times$ 480 VGA Controller}
-\singlespacing
-\lstinputlisting[style=VHDL]{appendix/vhdl/vga_controller_640_60.vhd}
-\doublespacing
-%%%%%%%%%%% end vga controller code %%%%%%%%%%%
-
-%%%%%%%%%%% coe file code %%%%%%%%%%%
-\subsubsection{LUT Initialization Code for Transformation from Polar to Cartesian} \label{coe_file}
-\textbf{Coefficient File for $0^\circ{}\leq{}\theta{}\leq45^\circ$}
-\singlespacing
-\lstinputlisting[style=coe]{appendix/coe/coord1.coe}
-\doublespacing
-\par
-\textbf{Coefficient File for $45^\circ{}\leq{}\theta{}\leq90^\circ$}
-\singlespacing
-\lstinputlisting[style=coe]{appendix/coe/coord2.coe}
-\doublespacing
-%%%%%%%%%%% end coe file code %%%%%%%%%%%
-
-%%%%%%%%%%% Programmable software %%%%%%%%%%%
-\subsubsection{Programmable Software} \label{ps_code}
-\textbf{Programmable Software for the Zynq7 Processing System}
-\singlespacing
-\lstinputlisting[style=C]{appendix/c/helloworld.c}
-\doublespacing
-%%%%%%%%%%% end coe file code %%%%%%%%%%%
+%%%%%%%%%%% end Disparity Algorithm Implementation %%%%%%%%%%%
 
 
 
