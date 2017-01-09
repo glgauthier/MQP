@@ -1,10 +1,10 @@
 \subsection{IMU Implementation}
-Since the IMU will be connected to the ZedBoard's Pmod connector, it can be controlled by either the Programmable Logic (PL) or the Programmable Software (PS). Since the IMU's magnetometer data will be used to rotate the rangefinder data according to a compass direction, it will affect the rangefinder's step value. Since the step value is set in the PS, it is easiest to keep all of the IMU's implementation in the PS rather than take advantage of the PS-PL communication setup from Section \ref{ssec:ps_pl}. Another motivation for the PS is that the IMU data processing involves complex trigonometry. Rather than attempt this in the PL, it would be simpler to do in the PS.
+As the IMU will be connected to one of the ZedBoard's Pmod connectors, it can be controlled by either the Programmable Logic (PL) or the Programmable Software (PS). The IMU's magnetometer data will be used to rotate the rangefinder data according to a compass direction by offsetting the rangefinder's step value. Since the step value is set in the PS, all of the IMU's implementation can be in the PS, which is a simpler and quicker solution than taking advantage of the PS-PL communication setup from Section \ref{ssec:ps_pl}. Another motivation for the PS is that the IMU data processing involves complex trigonometry, which is simpler done in the PS than by using a CORDIC function in the PL.
 \par
-The Zynq7 Processing System in the PL needs to be re-customized in order to add SPI capability.
+As such, the Zynq7 Processing System needs to be re-customized to provide this capability.
 
 \subsubsection{Re-Customizing the Zynq7 Processing System}
-The Zynq7 Processing System is easily re-customizable, as discussed in Section \ref{zynq7processingsystem}. SPI functionality can be added in the processing system's customization window under I/O Peripherals in the MIO Configuration tab. We intend to route the SPI pins to EMIO (Extended MIO) so that we could control one of the ZedBoard's PL Pmod's from the PS. Since both SPI0 and SPI1 have EMIO functionality, we arbitrarily chose SPI0 over SPI1. This process is shown in Figure \ref{enabling_spi0}.
+The Zynq7 Processing System is easily re-customizable, as discussed in Section \ref{zynq7processingsystem}. SPI functionality can be added in the processing system's customization window under I/O Peripherals in the MIO Configuration tab. The SPI pins will be routed to Extended MIO (EMIO) so that the ZedBoard's PL Pmod could be controlled from the PS. Since both SPI0 and SPI1 have EMIO functionality, SPI0 was chosen over SPI1. This process is shown in Figure \ref{enabling_spi0}.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1\textwidth]{enabling_spi0.png}}
@@ -13,7 +13,7 @@ The Zynq7 Processing System is easily re-customizable, as discussed in Section \
 \end{figure}
 
 \par
-The usage of EMIO pins allows for pins normally connected to the Zynq7 processor's programmable logic to be connected to the processor's programmable software instead. In other words, EMIO peripherals allow for the user to control physical pins using C code running on the Zynq7 dual ARM processors rather than in Verilog-defined hardware. By creating an EMIO SPI peripheral, it is possible to route the physical connection of the interface to any pin on the ZedBoard that is accessible by programmable logic. In the case of this specific implementation, the EMIO SPI peripheral is routed to one of the ZedBoard's Pmod ports, allowing for the MIO Pmod port to remain unused and open for I$^2$C and UART peripheral communications.
+EMIO functionality allows for pins normally connected to the Zynq7 processor's programmable logic to be connected to the processor's programmable software instead. In other words, EMIO peripherals allow for the user to control physical pins using C code running on the Zynq7 dual ARM processors rather than in Verilog-defined hardware. By creating an EMIO SPI peripheral, it is possible to route the physical connection of the interface to any pin on the ZedBoard that is accessible by programmable logic. In the case of this specific implementation, the EMIO SPI peripheral is routed to one of the ZedBoard's Pmod ports, allowing for the MIO Pmod port to remain unused and open for I$^2$C and UART peripheral communications.
 
 
 
