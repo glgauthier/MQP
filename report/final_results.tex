@@ -1,7 +1,7 @@
 \subsection{Combined Implementation}
 An overall system block diagram of the final implementation of this project is shown in Figure \ref{finalBD}. This implementation may be broken down into several major components. At the top level, several blocks are used to connect the Zynq7 ARM Cortex A9 processing system to customized programmable logic using an AXI peripheral controller, as well as to peripherals such as the rangefinder and IMU using EMIO-GPIO and SPI-GPIO. 
 \par
-All programmable logic created for the rangefinder, IMU, and camera interface has been ported to a user-generated IP module named "custom logic", as shown in Figure \ref{finalBD}. This module connects directly to the stereo camera breakout board, and accepts rangefinder and IMU data from the programmable software via AXI interface. This customized IP core also accepts user inputs through the ZedBoard's switches, and supports outputs to the ZedBoard's LEDs and VGA interface. 
+All programmable logic created for the rangefinder, IMU, and camera interface has been ported to a user-generated IP module named "custom logic", as shown in Figure \ref{finalBD}. This module connects directly to the stereo camera breakout board, and accepts rangefinder and IMU data from the programmable software via an AXI interface. This customized IP core also accepts user inputs through the ZedBoard's switches, and supports outputs to the ZedBoard's LEDs and VGA interface. 
 \par
 \begin{figure}[!htb] 
 	\centerline{
