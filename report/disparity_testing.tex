@@ -146,7 +146,7 @@ In order to increase the speed of the disparity algorithm's output, several port
 	\label{disparityFinalImp}
 \end{figure}
 \par
-The overall state machine used to create the final disparity implementation still follows the same next state logic as that of the original implementation, shown in Figure \ref{disparityTestImp}. Advances in speed of the overall algorithm are therefore mostly associated with parallel calculations during the computation of the Sum of Absolute Differences. As discussed in Section \ref{dataman}, the left and right search images passed to the disparity algorithm are also windowed to $0.6*VGA$ resolution. 
+The overall state machine used to create the final disparity implementation still follows the same next state logic as that of the original implementation, shown in Figure \ref{disparityTestImp}. Advances in speed of the overall algorithm are therefore mostly associated with parallel calculations during the computation of the Sum of Absolute Differences. As discussed in Section \ref{dataman}, the left and right search images passed to the disparity algorithm are also windowed to $0.6\times{}VGA$ resolution. 
 \par
 In order to verify the output of the hardware disparity implementation, a VGA display driver is used to display the disparity algorithm's output in real time, as shown in Figure \ref{disparityFin}. With the successful implementation of this output mode, it was then possible to concentrate on combining the disparity and camera controller modules into a final design that incorporated the IMU and Rangefinder modules.
 \par
