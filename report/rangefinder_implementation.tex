@@ -14,7 +14,7 @@ The ZedBoard SoC features a dual-core ARM Cortex-A9 MPCore processing system and
 	\label{zynq7ps_pic}
 \end{figure}
 
-In the figure above there are two options for UART shown: UART0 and UART1. The functionality of UART0 and UART1 are nearly identical, except that UART1 has the capability of being routed to the ZedBoard's USB UART port, which is not compatible with the rangefinder \cite{zedboard_datasheet}. So, we arbitrarily chose UART0 and routed the signals to MIO10 and MIO11, which correspond to the ZedBoard's PS \textsc{pmod}, JE.
+In the figure above there are two options for UART shown: UART0 and UART1. The functionality of UART0 and UART1 are nearly identical, except that UART1 has the capability of being routed to the ZedBoard's USB UART port, which is not compatible with the rangefinder \cite{zedboard_datasheet}. So, we arbitrarily chose UART0 and routed the signals to MIO10 and MIO11, which correspond to the ZedBoard's PS Pmod, JE.
 \par
 After choosing UART0 and configuring the MIO pins, the baud rate needs to be configured such that it corresponds with the rangefinder's default communication speed, 19200 baud \cite{urg04lx_datasheet}. This can be done in the processing system's customization window under PS-PL Configuration on the sidebar in Figure \ref{zynq7ps_pic}. Figure \ref{zynq7ps_baud_pic} shows the PS-PL Configuration window.
 

@@ -2,18 +2,18 @@
 An Inertial Measurement Unit (IMU) is a device that measures linear and angular momentum, as well as the direction of the magnetic field at a point in space. It accomplishes this by reading data from an accelerometer, gyroscope, and magnetometer respectively. 
 
 \subsubsection{Selection}
-Our project requires a sensitive IMU that is able to provide data that can be used to tell compass direction and change of position. Due to the time limitations and budgetary restrictions of this project, we chose the Pmod NAV IMU that provides 10-degree of freedom functionality through the LSM9DS1 3-axis accelerometer, 3-axis gyroscope, and 3-axis magnetometer, and the LPS25HB barometer \cite{lsm9ds1, lps25hd}. The Pmod NAV is shown in Figure \ref{pmodnav}.
+This project requires a sensitive IMU that is able to provide data that can be used to tell compass direction and change of position. Due to the time limitations and budgetary restrictions of this project, we chose the PmodNAV IMU that provides 10-degree of freedom functionality through the LSM9DS1 3-axis accelerometer, 3-axis gyroscope, and 3-axis magnetometer, and the LPS25HB barometer \cite{lsm9ds1, lps25hd}. The PmodNAV is shown in Figure \ref{pmodnav}.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.5\textwidth]{pmodnav.png}}
-	\caption{The Pmod NAV 10-Axis IMU \cite{pmodnav_ref}}
+	\caption{The PmodNAV 10-Axis IMU \cite{pmodnav_ref}}
 	\label{pmodnav}
 \end{figure}
 
-The Pmod NAV's simple Pmod connector makes the IMU easy to integrate into our design, as it can be fixed in position connected to the ZedBoard, and its communication is directly compatible, requiring no intermediate hardware.
+The PmodNAV's simple Pmod connector makes the IMU easy to integrate into this design, as it can be fixed in position connected to the ZedBoard. Also, its communication is directly compatible with the ZedBoard, requiring no intermediate hardware.
 
 \subsubsection{Communication}
-The IMU supports two means of communication: Serial Peripheral Interface (SPI) and Inter-integrated Circuit (I\textsuperscript{2}C) Communication \cite{lsm9ds1}. However the magnetometer on the LSM9DS1 is not addressable by the I\textsuperscript{2}C bus. Since the magnetometer is needed to be able to tell compass direction, we chose to use SPI communication. The magnetometer sensor SPI protocol is shown in Figure \ref{magnetometer_spi}.
+The IMU supports two means of communication: Serial Peripheral Interface (SPI) and Inter-Integrated Circuit (I\textsuperscript{2}C) Communication \cite{lsm9ds1}. However the magnetometer on the LSM9DS1 is not addressable by the I\textsuperscript{2}C bus. Since the magnetometer is needed to be able to tell compass direction, SPI communication was implemented. The magnetometer sensor SPI protocol is shown in Figure \ref{magnetometer_spi}.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1\textwidth]{magnetometer_spi.png}}
@@ -23,7 +23,7 @@ The IMU supports two means of communication: Serial Peripheral Interface (SPI) a
 
 The CS\textunderscore{}M line is the magnetometer chip select and is an active low. It goes low at the beginning of the transaction and high at the end. The SPC is the clock controlled by the master. SDI and SDO\textunderscore{}M are the data input and data output lines, respectively. They are driven at the falling edge of SPC and should be captured at the rising edge \cite{lsm9ds1}.
 \par
-The register read and write commands are completed in 16 clock pulses. The first bit sent from the master, bit 0 or $R\overline{W}$, is the read/write bit. When data is read from the IMU this bit is sent to 1, otherwise it is set to 0. When bit 1, the $M\overline{S}$ bit, is set to 1 the address is auto-incremented, allowing for multiple read/writes to be completed in the same SPI sequence. Figure \ref{multiple_reads} shows a multiple byte SPI read protocol. Bits 2-7, the $AD$ bits, are the address bits transmitted MSB first. When in write mode bits 8-15, the $DI$ bits, are the data that is written to the device MSB first. When in read mode bits 8-15, the $DO$ bits, are the data that is read from the device MSB first \cite{lsm9ds1}.
+The register read and write commands are completed in 16 clock pulses. The first bit sent from the master, bit 0 or $R\overline{W}$, is the read/write bit. When data is read from the IMU this bit is set to 1, otherwise it is set to 0. When bit 1, the $M\overline{S}$ bit, is set to 1 the address is auto-incremented, allowing for multiple reads or writes to be completed in the same SPI transaction. Figure \ref{multiple_reads} shows a multiple-byte SPI read protocol. Bits 2-7, the $AD$ bits, are the address bits transmitted MSB first. When in write mode bits 8-15, the $DI$ bits, are the data that is written to the device MSB first. When in read mode bits 8-15, the $DO$ bits, are the data that is read from the device MSB first \cite{lsm9ds1}.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1\textwidth]{multiple_reads.png}}
@@ -32,20 +32,20 @@ The register read and write commands are completed in 16 clock pulses. The first
 \end{figure}
 
 \subsubsection{Register Settings} \label{imu_settings}
-The LSM9DS1 IMU requires memory register setting in order to turn on the magnetometer and function properly. The memory register settings are can be set by writing to the IMU in the SPI communication format shown in Figure \ref{magnetometer_spi}. As such, for all of the setting adjustments the $R\overline{W}$ bit is set to 0 signifying a write command.
+The LSM9DS1 IMU requires memory register setting in order to turn on the magnetometer and function properly. The memory register settings can be set by writing to the IMU in the SPI communication format shown in Figure \ref{magnetometer_spi}. For all of the settings adjustments the $R\overline{W}$ bit is set to 0, signifying a write command.
 \par
-One register that needs to be written to is the magnetometer's control register 1, or CTRL\textunderscore{}REG\textunderscore{}1\textunderscore{}M, which is at address 20\textsubscript{16}. 7C\textsubscript{16} was written to CTRL\textunderscore{}REG\textunderscore{}1\textunderscore{}M to signify ultra high performance mode for the magnetometer's x- and y-axis, and leave all of the other settings in the register at their defaults \cite{lsm9ds1}.
+One register that needs to be written to is the magnetometer's control register 1, CTRL\textunderscore{}REG\textunderscore{}1\textunderscore{}M, which is at address 20\textsubscript{16}. 7C\textsubscript{16} was written to CTRL\textunderscore{}REG\textunderscore{}1\textunderscore{}M to signify ultra high performance mode for the magnetometer's x- and y-axis, and leave all of the other settings in the register at their defaults \cite{lsm9ds1}.
 \par
 The other register that needs to be written to is the magnetometer's control register 3, CTRL\textunderscore{}REG\textunderscore{}3\textunderscore{}M, at address 22\textsubscript{16}. 80\textsubscript{16} was written to CTRL\textunderscore{}REG\textunderscore{}3\textunderscore{}M to turn off I\textsuperscript{2}C, turn on the magnetometer in the continuous-conversion mode, and leave all of the other settings in the register at their defaults \cite{lsm9ds1}.
 \par
-Due to time constraints, we only needed to use the magnetometer. The accelerometer, gyroscope, and barometer were not used so we only needed to set these two registers once.
+Due to time constraints, the magnetometer on the PmodNAV was the only slave that needed to be interfaced to. The accelerometer, gyroscope, and barometer were not used so the above registers only needed to set once.
 
 \subsubsection{Read Registers}
 With the magnetometer turned on and its registers set, its data is ready to be read. As such, the $R\overline{W}$ bit is set to 1, and there are two registers that need to be read from in order to ensure data accuracy. 
 \par
 One register to read from is the status register, STATUS\textunderscore{}REG\textunderscore{}M, which is at address 27\textsubscript{16}. This address is read from until the two least significant data bits read 11\textsubscript{2}, which signifies that new x- and y-axis magnetometer data is ready. Once new x- and y-axis data is ready, the corresponding data registers can be read from \cite{lsm9ds1}.
 \par
-The x- and y-axis data comes in 16-bit resolution. Due to the SPI transfer protocol shown in Figure \ref{magnetometer_spi}, data is read 8 bits at a time MSB first. Since each axis has 16-bit resolution, each axis has two addresses containing 8-bit data words. Since the x- and y-data addresses are consecutive, we can read 32 bits of data in one cascading read in the format shown in Figure \ref{multiple_reads}. Because of this, we perform a cascading read from address 28\textsubscript{16}, OUT\textunderscore{}X\textunderscore{}L\textunderscore{}M, to obtain the x-axis lower word, the x-axis upper word, the y-axis lower word, and then the y-axis upper word \cite{lsm9ds1}.
+The x- and y-axis data comes in 16-bit resolution. Due to the SPI transfer protocol shown in Figure \ref{magnetometer_spi}, data is read 8 bits at a time MSB first. Since each axis has 16-bit resolution, each axis has two addresses containing 8-bit data words. The x- and y-data addresses are consecutive, so the 32 bits of data can be obtained in one cascading read in the format shown in Figure \ref{multiple_reads}. Because of this, we perform a cascading read from address 28\textsubscript{16}, OUT\textunderscore{}X\textunderscore{}L\textunderscore{}M, to obtain the x-axis lower word, the x-axis upper word, the y-axis lower word, and then the y-axis upper word \cite{lsm9ds1}.
 
 
 

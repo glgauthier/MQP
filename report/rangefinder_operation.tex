@@ -13,7 +13,7 @@ The project's rangefinder selection depended on the following criteria: field of
 \subsubsection{Communication} \label{sssec:rangefinder_communication}
 The URG-04LX rangefinder uses the RS-232C communication protocol over UART. RS-232 is a form of differential serial data transmission which recognizes a logic high from -3V to -25V, and a logic low from +3V to +25V \cite{rs232}.
 \par
-The rangefinder can be connected to one of the ZedBoard's Peripheral Module (\textsc{pmod}) connectors because they support UART communication. The \textsc{pmod} connectors use TTL communication, which is a form of non-differential serial data transmission that recognizes a logic high of +3V to +5V and a logic low of 0V \cite{ttl}. Figure \ref{ttl_rs232_pic} shows a timing diagram of both RS-232 and TTL communication protocols.
+The rangefinder can be connected to one of the ZedBoard's Peripheral Module (Pmod) connectors because they support UART communication. The Pmod connectors use TTL communication, which is a form of non-differential serial data transmission that recognizes a logic high of +3V to +5V and a logic low of 0V \cite{ttl}. Figure \ref{ttl_rs232_pic} shows a timing diagram of both RS-232 and TTL communication protocols.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.9\textwidth]{ttl_rs232.png}}
@@ -21,7 +21,7 @@ The rangefinder can be connected to one of the ZedBoard's Peripheral Module (\te
 	\label{ttl_rs232_pic}
 \end{figure}
 
-Since these two serial communication formats have incompatible logic levels, an RS-232 to TTL converter is needed so that the rangefinder can communicate with the ZedBoard. The converter's TTL side will be connected to the ZedBoard's \textsc{pmod} connector, and the RS-232 side will be connected to the rangefinder. For ease of connection and testing, the 9-pin DSUB RS-232 connector will be connected to an RS-232 breakout board so that the pins can be easily accessed. Figure \ref{rs232_ttl_breakout} shows the RS-232 to TTL converter attached to the RS-232 breakout board.
+Since these two serial communication formats have incompatible logic levels, an RS-232 to TTL converter is needed so that the rangefinder can communicate with the ZedBoard. The converter's TTL side will be connected to the ZedBoard's Pmod connector, and the RS-232 side will be connected to the rangefinder. For ease of connection and testing, the 9-pin DSUB RS-232 connector will be connected to an RS-232 breakout board so that the pins can be easily accessed. Figure \ref{rs232_ttl_breakout} shows the RS-232 to TTL converter attached to the RS-232 breakout board.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.5\textwidth]{rs232_ttl_breakout.png}}
@@ -29,7 +29,7 @@ Since these two serial communication formats have incompatible logic levels, an 
 	\label{rs232_ttl_breakout}
 \end{figure}
 
-Although the ZedBoard's \textsc{pmod} connectors are sufficient for UART communication with the URG-04LX, the power specifications are not compatible; the \textsc{pmod} connectors output 3.3V but the rangefinder requires 5V \cite{zedboard_datasheet, urg04lx_specifications}. Thus, the rangefinder was powered externally by a lab bench power supply.
+Although the ZedBoard's Pmod connectors are sufficient for UART communication with the URG-04LX, the power specifications are not compatible; the Pmod connectors output 3.3V but the rangefinder requires 5V \cite{zedboard_datasheet, urg04lx_specifications}. Thus, the rangefinder was powered externally by a lab bench power supply.
 
 \subsubsection{Commands}
 The rangefinder defaults to a communication speed of 19.2 kbps, or 19200 baud, and recognizes four different commands: the version command, the laser illumination command, the communication speed setting command, and the distance data acquisition command. The version command is used as a test; as soon as it is received, the rangefinder transmits the device specific information. The laser illumination command is used to turn the laser on and off. The communication speed setting command is used to change the baud rate. The distance data acquisition command is used to request the distance data from the rangefinder \cite{urg04lx_datasheet}.
