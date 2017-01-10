@@ -32,7 +32,7 @@ The ZedBoard was programmed, the rangefinder was turned on, and the two devices 
 Once we decided not to continue with USB OTG, we routed the UART signals to a Pmod connector, described in Section \ref{sssec:rangefinder_communication}. To make sure that UART via Pmod was functioning correctly, the transmit pin was measured with an oscilloscope. The laser illumination command "L0\textbackslash{}n" was transmitted and observed indicating success, as shown in Figure \ref{laser_illumination}. Note that this is a TTL signal.
 
 \begin{figure}[H]
-	\centerline{\includegraphics[width=.7\textwidth]{laser_illumination.png}}
+	\centerline{\includegraphics[width=.7\textwidth]{laser_illumination_labeled.png}}
 	\caption{Laser Illumination Command TTL Oscillogram}
 	\label{laser_illumination}
 \end{figure}
@@ -40,7 +40,7 @@ Once we decided not to continue with USB OTG, we routed the UART signals to a Pm
 The RS-232 to TTL converter with the attached breakout board was attached to the ZedBoard. The converter's V\textsubscript{CC} and GND were connected to the ZedBoard Pmod's respective V\textsubscript{CC} and ground pins. When these pins were connected, the converter's power LED turned on. In addition, the converter's RX and TX pins were connected to the ZedBoard's respective TX and RX pins. The breakout board's TX pin was measured on the oscilloscope to observe the resultant RS-232 waveform. However when the command was transmitted from the ZedBoard, there was no change on the oscilloscope. We disconnected the converter's TX and RX pins and reconnected them such that the converter's RX and TX pins were connected to the ZedBoard's respective RX and TX pins. The laser illumination command was re-transmitted and the waveform in Figure \ref{rangefinder_rs232} was observed on the oscilloscope. The oscillogram shows a waveform from +6V to -6V, which is a valid RS-232 signal.
 
 \begin{figure}[H]
-	\centerline{\includegraphics[width=.7\textwidth]{rangefinder_rs232.png}}
+	\centerline{\includegraphics[width=.7\textwidth]{rangefinder_rs232_label.png}}
 	\caption{Laser Illumination Command RS-232 Oscillogram}
 	\label{rangefinder_rs232}
 \end{figure}
