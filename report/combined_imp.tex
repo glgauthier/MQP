@@ -1,4 +1,5 @@
 \subsection{Combined Implementation}
+The overall implementation of the sensor suite created through this project it outlined in the following sections. In order to produce accurate depth estimations, rangefinder and disparity data needed to be properly combined. For more accurate approximation of relative surroundings, this data also needed to be integrated with navigational data. 
 \subsubsection{Rangefinder and Disparity Data Integration}
 In order to increase the overall accuracy of the system, 3D depth information from the disparity algorithm may be combined with 2D depth information from the scanning laser rangefinder. If the rangefinder and stereo camera interface share a horizontal viewing plane and both sensors are gathering information on the same scene, there will be some distinguishable overlap in sensor data. This overlap may be taken advantage of in order to produce a more accurate 2D "floorplan" of the area being observed. This type of data integration is especially useful in situations where the scanning laser rangefinder is out of range.
 \par
