@@ -1,5 +1,5 @@
 \subsection{Inertial Measurement Unit (IMU) Operation}
-An Inertial Measurement Unit (IMU) is a device that measures linear and angular momentum, as well as the direction of the magnetic field at a point in space. It accomplishes this by reading data from an accelerometer, gyroscope, and magnetometer respectively. 
+With the rangefinder's data processing implementation completed, the data is ready to be offset based on the device's relative location and direction in space. This can be done with the use of an Inertial Measurement Unit (IMU). An IMU is a device that measures linear and angular momentum, as well as the direction of the magnetic field at a point in space. It accomplishes this by reading data from an accelerometer, gyroscope, and magnetometer respectively. 
 
 \subsubsection{Selection}
 This project requires a sensitive IMU that is able to provide data that can be used to tell compass direction and change of position. Due to the time limitations and budgetary restrictions of this project, we chose the PmodNAV IMU that provides 10-degree of freedom functionality through the LSM9DS1 3-axis accelerometer, 3-axis gyroscope, and 3-axis magnetometer, and the LPS25HB barometer \cite{lsm9ds1, lps25hd}. The PmodNAV is shown in Figure \ref{pmodnav}.
