@@ -1,21 +1,21 @@
 \subsection{PS-PL Communication} \label{ssec:ps_pl}
-The Programmable Logic (PL) and Programmable Software (PS) need to be able to communicate so that data can traverse between the two. This process is configured in Vivado with the use of an Advanced eXtensible Interface (AXI) bus.
+Communication between the Programmable Logic (PL) and Programmable Software (PS) was implemented so that data is able to traverse between the two. This process is configured in Vivado with the use of an Advanced eXtensible Interface (AXI) bus.
 
 \subsubsection{Advanced eXtensible Interface (AXI)}
 AXI is a type of on-chip interconnect specification intended for transaction based master-to-slave memory mapped operations, which makes it perfect for PS-PL communication. These AXI busses are integrally involved in most Xilinx IP cores and contain many signals and control flags.
 \par
-The custom PL in this project must be able to communicate properly with an AXI bus. Instead of attempting to interface with AXI by creating the signals, Vivado supports creating a new custom IP AXI Peripheral that will abstract away the complications of AXI communication.
+The custom PL in this project was able to communicate properly with an AXI bus. Instead of attempting to interface with AXI by creating the signals, Vivado supports creating a new custom IP AXI Peripheral that abstracts away the complications of AXI communication.
 
 \subsubsection{Creating Custom IP} \label{sssec:creatingCustomIP}
-Vivado supports creating custom packaged IP blocks as AXI Peripherals. As an AXI Peripheral, this IP block will be able to communicate with any other Xilinx IP blocks that use AXI. For the purpose of this project, the custom IP block will communicate with the Zynq7 Processing System via its AXI bus.
+Vivado supports creating custom packaged IP blocks as AXI Peripherals. As an AXI Peripheral, this IP block is able to communicate with any other Xilinx IP blocks that use AXI. For the purpose of this project, the custom IP block communicates with the Zynq7 Processing System via its AXI bus.
 \par
-The custom IP can be created in Vivado under Tools $\rightarrow$ Create and Package IP. The IP must be set up as an AXI Peripheral, and its data width and number of registers can be customized to fit the needs of the project.
+The custom IP was created in Vivado under Tools $\rightarrow$ Create and Package IP. The IP was set up as an AXI Peripheral, with its data width set to 32 bits and the number of registers were set to 4, which are both the minimum amount.
 \par
-After setting up a custom AXI peripheral, users will be presented with a bare IP module containing an AXI peripheral. With the peripheral creation complete, the custom IP's auto-generated files need to be edited to allow for the user's custom logic to be used in the AXI bus. In the auto-generated file instantiated in the top module, several lines of code need to be edited in order to connect the AXI peripheral's input and output channels to user logic. In the case of this project, the IP was customized for the use of four registers, but only two were used: one for writing data to the PS, and the other for reading from the PS. 
+After setting up a custom AXI peripheral, users will be presented with a bare IP module containing an AXI peripheral. With the peripheral creation complete, the custom IP's auto-generated files were edited to allow for the user's custom logic to be used in the AXI bus. In the auto-generated file instantiated in the top module, several lines of code were edited in order to connect the AXI peripheral's input and output channels to user logic. In the case of this project, the IP was customized for the use of four registers, but only two were used: one for writing data to the PS, and the other for reading from the PS. 
 \par
-To write to the PS, the output register data needs to be wired to the data to be transmitted. This is done in the AXI read address $case$ statement that decodes addresses for reading registers. This can be seen on line 368 of our edited auto-generated custom IP code, shown in Appendix \ref{customIPaxi}.
+To write to the PS, the output register data was wired to the data to be transmitted. This is done in the AXI read address $case$ statement that decodes addresses for reading registers. This can be seen on line 368 of our edited auto-generated custom IP code, shown in Appendix \ref{customIPaxi}.
 \par
-To read from the PS, the data stored in the AXI's input register needs to be wired to a buffer that is used by the PL. This is done in the AXI write address $case$ statement on line 239 of our edited auto-generated custom IP code, shown in Appendix \ref{customIPaxi}.
+To read from the PS, the data stored in the AXI's input register was wired to a buffer that is used by the PL. This is done in the AXI write address $case$ statement on line 239 of our edited auto-generated custom IP code, shown in Appendix \ref{customIPaxi}.
 \par
-In addition, any other I/O ports from the custom logic can be created in the custom IP's top module, in the same manner as a normal top module. Our custom IP top module can be found in Appendix \ref{customIPtop}. Advanced user logic may also be implemented within the IP core through modular instantiation.
+In addition, other necessary I/O ports from the custom logic were created in the custom IP's top module, in the same manner as a normal top module. Our custom IP top module can be found in Appendix \ref{customIPtop}. Advanced user logic was also implemented within the IP core through modular instantiation.
 
