@@ -1,5 +1,5 @@
 \subsection{Full System Operation}
-After fully testing each of the individual sensors used in this project and developing a working disparity algorithm, the individual modules created for each test were combined. The result of this finalized implementation was a proof of concept SLAM implementation capable of generating compass-referenced 2D floorplans of its surroundings, as well as 3D depth maps of its entire field of view. The output modes of this device were user-selectable, and could be viewed on an external VGA display. An overall system block diagram of the final implementation of this project is shown in Figure \ref{systemBD2}.
+After fully testing each of the individual sensors used in this project and developing a working disparity algorithm, the individual modules created for each test were combined. The result of this finalized implementation was a proof of concept SLAM implementation capable of generating compass-referenced 2D floorplans of its surroundings, as well as 3D depth maps of its entire field of view. The output modes of this device are user-selectable, and could be viewed on an external VGA display. An overall system block diagram of the final implementation of this project is shown in Figure \ref{systemBD2}.
 
 \begin{figure}[H] 
 	\centerline{
@@ -9,27 +9,19 @@ After fully testing each of the individual sensors used in this project and deve
 	\label{systemBD2}
 \end{figure}
 
-This implementation was broken down into several major components. At the top level, several blocks were used to connect the Zynq7 ARM Cortex A9 processing system to customized programmable logic, as well as to peripherals such as the rangefinder and IMU by using an AXI peripheral controller, SPI, and SPI/GPIO, respectively. The programmable hardware version of this implementation may be found in Figure \ref{finalBD}.
+This implementation was broken down into several major components. At the top level, the Zynq7 ARM Cortex A9 processing system was connected to the customized programmable logic by an AXI peripheral controller.
+\par
+In order to create a fully integrated hardware-software interface that would allow for communication between the Zynq FPGA fabric and ARM processor, a customized IP core needed to be created. This issue was resolved by placing all programmable logic for the rangefinder, IMU, and camera interface into a user-generated IP core. named "custom logic", as shown in Figure \ref{finalBD}. The IP core was connected directly to the stereo camera breakout board, and accepted rangefinder and IMU data from the programmable software via an AXI interface. This customized IP core also accepted user inputs through the ZedBoard's switches, and supported outputs to the ZedBoard's LEDs and VGA interface. Vivado's programmable hardware version of this implementation may be found in Figure \ref{finalBD}.
 
 \begin{figure}[H] 
 	\centerline{
-	\includegraphics[width=1.25\linewidth, angle=90]{final_bd.png}
+	\includegraphics[width=1.3\linewidth, angle=90]{final_bd.png}
 	}
 	\caption{Implemented Design}
 	\label{finalBD}
 \end{figure}
 
-The final hardware implementation of the project can be seen in Figure \ref{finalHW}. This implementation supported several output modes based on the positions of the user switches, including a 3D disparity mode, camera image mode, rangefinder output mode, and combined 2D "floorplan" mode. Note that the VGA outputs of each mode were continuously updated. 
-
-\begin{figure}[H]  
- 	\centerline{
-	\includegraphics[width=1\linewidth]{setup_label.JPG}
-	}
-	\caption{System Hardware}
-	\label{finalHW}
-\end{figure}
-
-In order to create a fully integrated hardware-software interface that would allow for communication between the Zynq FPGA fabric and ARM processor, a customized IP core needed to be created. This issue was resolved by placing all programmable logic for the rangefinder, IMU, and camera interface into a user-generated IP core. named "custom logic", as shown in Figure \ref{finalBD}. The IP core was connected directly to the stereo camera breakout board, and accepted rangefinder and IMU data from the programmable software via an AXI interface. This customized IP core also accepted user inputs through the ZedBoard's switches, and supported outputs to the ZedBoard's LEDs and VGA interface. 
+This implementation supported several output modes based on the positions of the user switches, including a 3D disparity mode, camera image mode, rangefinder output mode, and combined 2D "floorplan" mode. Note that the VGA outputs of each mode were continuously updated.
 \par
 The 3D disparity output mode may be found in Figure \ref{disparityOutputs}a. In this mode, a windowed 384x288 pixel depth map was continuously updated to reflect the camera's current field of view. Figure \ref{disparityOutputs}b shows a modified version of this output consisting of depth information from a centrally-located horizontal line of pixels from this depth map that may then be correlated with data from the scanning laser rangefinder. 
 
@@ -50,7 +42,7 @@ In order to aid in hardware debugging, an additional output mode was also includ
 
 \begin{figure}[H]  
  	\centerline{
-	\includegraphics[width=0.5\linewidth]{camera_mode.JPG}
+	\includegraphics[width=0.6\linewidth]{camera_mode.JPG}
 	}
 	\caption{Raw Camera Data Mode}
 	\label{camOutMode}
@@ -72,3 +64,15 @@ A final output mode was also included to incorporate disparity data with the 2D 
 \caption{2D "Floorplan" Output Modes}
 \label{rangeOutputs}
 \end{figure}
+
+The final hardware implementation of the project can be seen in Figure \ref{finalHW}.
+
+\par\null\par
+\begin{figure}[H]  
+ 	\centerline{
+	\includegraphics[width=1\linewidth]{setup_label.JPG}
+	}
+	\caption{System Hardware}
+	\label{finalHW}
+\end{figure}
+
