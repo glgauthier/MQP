@@ -1,4 +1,4 @@
-\subsection{IMU Implementation}
+\subsection{Compass Implementation}
 As the IMU was connected to one of the ZedBoard's Pmod connectors, it had the option of being controlled by either the Programmable Logic (PL) or the Programmable Software (PS). The IMU's magnetometer data was be used to rotate the rangefinder data according to a compass direction by offsetting the rangefinder's step value. Since the step value was set in the PS, all of the IMU's implementation has the ability to be done in the PS, which is a simpler and quicker solution than taking advantage of the PS-PL communication setup from Section \ref{ssec:ps_pl}. Another motivation for using the PS is that the IMU data processing involves complex trigonometry, which is simpler done in the PS than by using a CORDIC function in the PL.
 \par
 As such, the Zynq7 Processing System was re-customized to provide this capability.

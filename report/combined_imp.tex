@@ -13,7 +13,7 @@ In order to correlate both sensors' data for a combined output mode, the field o
 \par
 The output from the disparity pixel line was scaled down by an approximate factor of 4.8 in order for it to correlate with depth information from the scanning laser rangefinder. Once this scaling process was complete, depth information from the disparity algorithm was directly overlaid on the 2D scanning laser rangefinder's output in order to produce a combined depth map. 
 
-\subsubsection{Accounting for Navigational Data}
+\subsubsection{Accounting for Compass Data}
 With compass data from the IMU's magnetometer, orientation was calculated. The IMU's compass data offset the rangefinder's step count in the programmable software. Changing the step count changes the start point location of the data processing, thus rotating the distance data around the device. This changes the direction of the rangefinder's $240^\circ$ "field of vision". For example, an IMU reading corresponding to due West is a rotation of $90^\circ$ counterclockwise from due North. By Equation \ref{StepsPerDegree}, $90^\circ$ equates to 256 rangefinder steps. So, the rangefinder's data essentially begins at step 256 and end at step 1024 or 0\footnote{step 768 + 256 step offset = 1024. Since there are 1024 rangefinder steps in a circle, step 1024 is the same as step 0.}, seen in Figure \ref{rangefinder_fov}.
 
 \begin{equation}

@@ -35,18 +35,17 @@ For the purposes of demonstration, the sensor suite was used to observe the scen
 	\label{camOutMode}
 \end{figure}  
 \par
-While in 3D disparity mode, a 384x288 pixel depth map was continuously updated to reflect the camera's current field of view. An example of the system output for this mode may be found in Figure \ref{disparityOutputs}a. Figure \ref{disparityOutputs}b shows a modified version of this output consisting of depth information taken from a centrally-located horizontal line of pixels in the 3D depth map. Note that the location of the device in this output mode is represented by a red dot in the center of the screen, and objects are represented by darkly colored pixels. This 2D line of pixels was an important addition to the disparity output modes, as it allowed for correlation with data from the scanning laser rangefinder. 
-
+While in 3D disparity mode, a 384x288 pixel depth map was continuously updated to reflect the camera's current field of view. An example of the system output for this mode may be found in Figure \ref{disparityOutputs}. 
 \begin{figure}[H] 
-         \begin{subfigure}[h]{0.5\textwidth}
+        % \begin{subfigure}[h]{0.5\textwidth}
               \centerline{\includegraphics[width=1.0\textwidth]{disparity_mode.JPG}}
-             \caption{Full Output}
-         \end{subfigure}
-         \begin{subfigure}[h]{0.5\textwidth}
-             \centerline{\includegraphics[width=1.0\textwidth]{disparity_line_mode.JPG}}
-             \caption{Single Line Output}
-         \end{subfigure}
-\caption{Disparity Output Modes}
+         %    \caption{Full Output}
+         %\end{subfigure}
+         %\begin{subfigure}[h]{0.5\textwidth}
+         %    \centerline{\includegraphics[width=1.0\textwidth]{disparity_line_mode.JPG}}
+          %   \caption{Single Line Output}
+         %\end{subfigure}
+\caption{Disparity Output Mode}
 \label{disparityOutputs}
 \end{figure}
 
@@ -70,7 +69,7 @@ A final output mode was also included to incorporate disparity data with the 2D 
 \par
 \begin{figure}[H]  
  	\centerline{
-	\includegraphics[width=0.6\linewidth]{combined_mode.JPG}
+	\includegraphics[width=1\linewidth]{combined_mode.JPG}
 	}
 	\caption{Combined Output Mode}
 	\label{combinedOut}
@@ -79,7 +78,7 @@ A final output mode was also included to incorporate disparity data with the 2D 
 Several steps were taken throughout the creation of each output mode in order to aid in hardware debugging. As a basic confirmation of working hardware, the current state of the rangefinder or disparity state machines were passed to the ZedBoard's LEDs depending on the current mode of operation. Another important debugging step included an additional output mode showing the current camera images being used by the disparity algorithm. An example of this mode's output is shown in Figure \ref{camOutMode}. Note that the image coloration is a result of mapping a monochrome image to arbitrary VGA colors in order to account for a lack of grayscale color space. 
 \begin{figure}[H]  
  	\centerline{
-	\includegraphics[width=0.6\linewidth]{camera_mode.JPG}
+	\includegraphics[width=1\linewidth]{camera_mode.JPG}
 	}
 	\caption{Raw Camera Data Mode}
 	\label{camOutMode}
