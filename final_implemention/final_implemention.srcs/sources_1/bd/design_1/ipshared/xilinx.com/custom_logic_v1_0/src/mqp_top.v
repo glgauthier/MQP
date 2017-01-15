@@ -75,7 +75,7 @@ module mqp_top
     
     // offset for centralized device "location" on VGA display
     // i.e. show rangefinder in center of display
-    parameter [8:0] X_OFFSET = 321, Y_OFFSET = 240;
+    parameter [8:0] X_OFFSET = 321, Y_OFFSET = 240, LINE_OFFSET = 170;
     
     // VGA display buffer controls from rangefinder controller
     wire [18:0] rangefinder_waddr; // VGA display logic waddr
@@ -285,7 +285,7 @@ module mqp_top
                     else
                         rgb = 12'h000;
                 // point from disparity data without rangefinder overlap
-                else if(hcount >= 272 && hcount < 368 && vcount == Y_OFFSET-lineout && lineout > 0)
+                else if(hcount >= 272 && hcount < 368 && vcount == LINE_OFFSET-lineout && lineout > 0)
                     rgb = {4'h0,lineout};
                 else
                     rgb = 12'hFFF;

@@ -128,8 +128,8 @@ int main()
 			{
 				//blocks until the flag is set (from PL) to initiate data transfer
 				while(Xil_In32(baseaddr_p) == 0);
-                while(getIMUdata()==0);
-				deviceStepOffset = (int) round(getStepOffset(getCompassHeading()));
+                //while(getIMUdata()==0);
+				//deviceStepOffset = (int) round(getStepOffset(getCompassHeading()));
 
 				STATE = TX_COMMAND;
 				break;
