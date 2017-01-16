@@ -1,12 +1,12 @@
 \section{Background}
-The initial research portion of this project focused on several important subjects. In order to gain a complete understanding of the types of sensor technology used in current remote situational awareness products, these devices were investigated first. Research was then performed on prior art in the field of SLAM and depth estimation. Following this research, the Zynq processor and Avnet ZedBoard platform were investigated, and an intended overall system design and sensor suite were defined. 
+The initial research portion of this project focused on learning more about different remote situational awareness products and how they may have been improved using existing technology, eventually leading to a set of overall project goals.
 
 \subsection{Remote Situational Awareness Products}
-Remote situational awareness devices consist of throwable robotic platforms with simple video-streaming capability. One such example is the 110 Firstlook by Endeaver Robotics, seen in Figure \ref{robocop}a. This device is a throwable, rugged robot that provides real-time situational awareness, and investigates dangerous and hazardous material while keeping its operator out of harm's way. It has four day and night cameras and supports two-way audio. The device is remotely controlled by a tablet operator control unit. With all of this functionality, the 110 Firstlook is currently being used by military personnel \cite{endeavor}.
+Many situational awareness devices consist of remote-controlled throwable robots with wireless video-streaming capability. One such example is the 110 FirstLook by Endeavor Robotics, seen in Figure \ref{robocop}a. This device is a throwable, rugged robot that streams real-time video of its surroundings, and is used to investigate dangerous locations and hazardous material while keeping its operator out of harm's way. The 110 FirstLook has four day and night cameras, and also supports two-way audio. The device is remotely controlled by a tablet operator control unit, and is currently in use for military applications \cite{endeavor}.
 \par
-Similar to the 110 Firstlook, the Bounce Image Explorer is a throwable camera ball that wirelessly transmits a 360$^\circ$ panoramic real-time video stream of its surroundings. The ball receives input from six monochrome WVGA camera modules, and the output video stream can be accessed by tablets and smartphones. This device is currently in the trial phase with United States Law Enforcement \cite{bounceImaging}. The Bounce Image Explorer can be seen in Figure \ref{robocop}b.
+Similar to the 110 FirstLook, the Bounce Image Explorer is a throwable camera ball that wirelessly transmits a 360$^\circ$ real-time video stream of its surroundings. The Bounce Image Explorer can be seen in Figure \ref{robocop}b. The Explorer processes input from six monochrome WVGA camera modules, and outputs a video stream that can be accessed from a tablet or smartphone. This device is currently in a trial phase with United States Law Enforcement \cite{bounceImaging}. 
 \par
-A more commercial device is Serveball's Squito\textsuperscript{TM} \cite{serveball}. Squito is a wireless, throwable, 360$^{\circ}$ panoramic camera that implements target detection to stabilize the video feed from its many cameras. It is shown in Figure \ref{squito} below.
+A more commercial remote situational awareness device is the Serveball Squito\textsuperscript{TM} \cite{serveball}. Squito is a wireless, throwable, 360$^{\circ}$ panoramic camera that implements target detection to produce a stabilized output video stream. This device is shown in Figure \ref{squito} below.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.3\textwidth]{serveball_squito.png}}
@@ -14,18 +14,20 @@ A more commercial device is Serveball's Squito\textsuperscript{TM} \cite{serveba
 	\label{squito}
 \end{figure}
 
-Squito utilizes a microprocessor receiving input from cameras, as well as orientation and position sensors, in order to transmit a real-time stabilized video of its adventure. The device is still in the prototype stage and is receiving interest from first responders. The image in Figure \ref{squito_io} shows the input from the Squito's four cameras on the left, and the corresponding stitched output on the right.
-
+Squito utilizes a microprocessor receiving input from a fiber optic camera interface, as well as orientation and position sensors, in order to transmit a real-time stabilized video of its surroundings. The image in Figure \ref{squito_io} shows the input from the Squito's four camera inputs on the left, and a corresponding stitched output on the right. The device is still in the prototype stage, and has received interest from the first responder community. 
+\par
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.6\textwidth]{serveball_io.png}}
 	\caption{Serveball's Squito Input and Output \cite{serveball}}
 	\label{squito_io}
 \end{figure}
 \par
-After gaining an understanding of the basic imaging functionality contained in current remote situational awareness products, research was performed on improving these systems through the use of Simultaneous Localization and Mapping. 
+The 110 FirstLook, Explorer, and Squito are all examples of remote situational awareness products that contain basic controls and real time video streaming outputs. Using additional image processing in the form of Simultaneous Localization and Mapping, the outputs of each of these devices could be improved to create comprehensive situational awareness. 
 
 \subsection{Simultaneous Localization and Mapping}
-As mentioned in the previous chapter, Simultaneous Localization and Mapping is the technique of mapping an unknown environment with respect to the device performing the mapping. SLAM is a rapidly expanding field with much potential for improvement, and recent research has focused on making these systems portable. One application of such a system is a proof of concept of camera-based SLAM implementation presented by Andrew Davison of Oxford University in a research paper entitled "Real-Time SLAM with a Single Camera" \cite{davison}. This system is handheld and relies on a computer using a 2.2 GHz Pentium processor connected to a single camera and laser rangefinder. The system requires data of its environment to be coded into it before it can successfully localize and map. This system implements edge detection but is limited to the narrow field of vision of the rangefinder. This system carries a latency of around 33 milliseconds. An output frame of the device is shown in Figure \ref{rtSLAM}.
+As mentioned in the previous chapter, Simultaneous Localization and Mapping is the technique of mapping an unknown environment with respect to a localized agent. SLAM is especially useful for autonomous systems and remote observation, as it can be used for situational analysis and response. Recent research in the field of SLAM has focused on making these systems more portable.
+\par
+One application of such a system was a proof of concept of camera-based SLAM implementation for feature identification presented by Andrew Davison of Oxford University \cite{davison}. This system was handheld, and relied on a computer using a 2.2 GHz Pentium processor connected to a single camera and laser rangefinder. This system implemented edge detection on a known environment, and produced a real-time video output containing a 3D feature localization plot. An output frame from the device is shown in Figure \ref{rtSLAM}.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.8\textwidth]{real_time_SLAM.png}}
@@ -33,9 +35,11 @@ As mentioned in the previous chapter, Simultaneous Localization and Mapping is t
 	\label{rtSLAM}
 \end{figure}
 
-The frame on the left in Figure \ref{rtSLAM} is the video feed with 6 points of a paper target input as prior knowledge, along with successfully marked identifying features (marked as red squares), and another identifying feature that is not marked for measurement (marked by a yellow circle). The frame on the right is a localization graph displaying the relative positions of all red squares.
+The left image in Figure \ref{rtSLAM} shows 6 points of a paper target that were input to the system as prior knowledge, along with successfully marked identifying features (marked as red squares), and another identifying feature that was not marked for measurement (marked by a yellow circle). The frame on the right is a localization plot that displayed the relative positions of all red squares detected by the device.
 \par
-By using multiple camera sensors in a sensor suite, it is also possible to determine depth information from corresponding images of an area. This technique is known as stereo imaging, and the process of gathering depth information from a pair of stereo images is known as disparity mapping. University of Bologna researchers Stefano Mattoccia and Matteo Poggi have worked to implement a real-time disparity mapping algorithm on an FPGA, and an example of a stereo image disparity is shown in Figure \ref{disparity_example} below \cite{mattoccia}. Using their stereo vision algorithm, the researchers were able to generate real-time image data showing the relative locations of objects within an image frame using color gradients. Based on this depth information, it is also possible to detect objects located within the field of view of the stereo imaging system, as shown in Figure \ref{disparity_example}. An implementation similar to this is extremely useful in a SLAM-like system, as it allows for the localization of objects and creation of 2D "floorplans" of an area in real-time using only two camera sensors.
+Along with identifying features of interest, SLAM image processing techniques are also used for depth estimation. The process of estimating depth from imagery is known as disparity mapping. Disparity mapping algorithms are used to calculate the similarities between stereo camera image pairs, and to convert said similarities to relative depth measurements. Disparity mapping is useful for situational awareness because it is used to determine the exact locations of all objects within a sensor suite's field of view.
+\par
+University of Bologna researchers Stefano Mattoccia and Matteo Poggi have worked to implement a real-time disparity mapping algorithm on an FPGA, and an example of a disparity image from this implementation is shown in Figure \ref{disparity_example} \cite{mattoccia}. Using their stereo disparity implementation, the researchers were able to generate real-time video showing the relative locations of objects within the device's field of view. The relative distance from the device to a given object was displayed using a color gradient, with nearer objects shown in brighter colors. Based on this depth information, it was also possible for the researchers to detect objects located within the field of view of the stereo imaging system, as shown in Figure \ref{disparity_example}. This implementation was extremely applicable to situational awareness systems, as it allowed for the localization of objects and creation of 2D slices of an area in real-time using only two camera sensors.
 \par
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.9\textwidth]{disparity_example.png}}
@@ -43,10 +47,10 @@ By using multiple camera sensors in a sensor suite, it is also possible to deter
 	\label{disparity_example}
 \end{figure}
 \par
-A major concern with real-time image processing, especially in first responder situations, is speed. Because FPGAs have the ability to process data in parallel, they are ideal for this type of application. Using an FPGA for this system will enable all data inputs to be processed at the same time, thereby dramatically increasing throughput speed. 
+A major concern with calculating disparity in real time is image processing speed. In the case of the implementation shown above, the parallelized data processing capabilities of FPGA hardware were used to address these concerns. The successful creation of this system demonstrated that FPGAs are useful for complex image processing applications \cite{mattoccia}. 
 
 \subsection{The Zynq Evaluation and Development Board (ZedBoard)}
-The ZedBoard is a low-cost development board containing a Xilinx Zynq7000 All-Programmable SoC, and is shown in Figure \ref{zedboard_pic}.
+The FPGA platform used in this project was the Zynq Evaluation and Development Board, or ZedBoard. The ZedBoard is a low-cost development board containing a Xilinx Zynq-7000 All-Programmable SoC, and is shown in Figure \ref{zedboard_pic}.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1\textwidth]{ZedBoard.jpg}}
@@ -54,7 +58,7 @@ The ZedBoard is a low-cost development board containing a Xilinx Zynq7000 All-Pr
 	\label{zedboard_pic}
 \end{figure}
 
-The Xilinx Zynq-7000 SoC consists of a dual-core ARM Cortex A9 processor coupled with Xilinx Artix-7 FPGA fabric. The ARM Cortex A9 processor uses a dedicated 33.3333 MHz clock source, while the onboard 100 MHz oscillator supplies the PL clock. The Zynq-700 SoC contains 85,000 programmable logic cells with 140 36K block RAM modules. The ZedBoard also features 5 Pmod ports, 8 LEDs, 8 switches, 7 push buttons, a USB UART port, and a VGA port \cite{zedboard_datasheet}. This is shown in the ZedBoard?s block diagram in Figure \ref{zedboardbd}.
+The Xilinx Zynq-7000 SoC consists of a dual-core ARM Cortex A9 processor coupled with Xilinx Artix-7 FPGA fabric. The ARM Cortex A9 processor uses a dedicated 33.3333 MHz clock source, while the onboard 100 MHz oscillator supplies the Programmable Logic (PL) clock. The Zynq-7000 SoC contains 85,000 programmable logic cells with 140 36K Block RAM modules. The ZedBoard also features 5 Pmod IO ports, 8 LEDs, 8 switches, 7 push buttons, a USB UART port, and a VGA port \cite{zedboard_datasheet}. These are shown in the ZedBoard's block diagram in Figure \ref{zedboardbd}.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.85\textwidth]{ZedBoardBD.png}}
@@ -62,4 +66,9 @@ The Xilinx Zynq-7000 SoC consists of a dual-core ARM Cortex A9 processor coupled
 	\label{zedboardbd}
 \end{figure}
 \par
-As our research progressed, we believed that we could use a stereo camera pair to gather disparity depth information on an area, and supplement that data with IMU and rangefinder readings in order to produce detailed maps of the sensor suite's surroundings. The envisioned output of this sensor suite was a real-time disparity map of the device's field of view, as well as a compass-referenced 2D "floorplan" of the device's surroundings. An implementation scheme for the creation of this proof of concept sensor suite was then devised, as detailed in the following chapter.
+As our research progressed, it became evident that FPGAs were a viable solution for implementing real-time situational awareness algorithms on a compact scale. For the purposes of this project, we decided to interface the ZedBoard with a stereo camera pair to gather disparity depth information on an area, and supplement that data with digital compass and rangefinder readings to produce detailed maps of the sensor suite's surroundings in real time. The implementation scheme for this device is detailed in the following chapter.
+
+
+
+
+
