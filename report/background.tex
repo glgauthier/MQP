@@ -50,7 +50,7 @@ University of Bologna researchers Stefano Mattoccia and Matteo Poggi have worked
 A major concern with calculating disparity in real time is image processing speed. In the case of the implementation shown above, the parallelized data processing capabilities of FPGA hardware were used to address these concerns. The successful creation of this system demonstrated that FPGAs are useful for complex image processing applications \cite{mattoccia}. 
 
 \subsection{The Zynq Evaluation and Development Board (ZedBoard)}
-The FPGA platform used in this project was the Zynq Evaluation and Development Board, or ZedBoard. The ZedBoard is a low-cost development board containing a Xilinx Zynq-7000 All-Programmable SoC, and is shown in Figure \ref{zedboard_pic}.
+The FPGA platform used in this project was the Zynq Evaluation and Development Board, or ZedBoard. The ZedBoard is a low-cost development board containing a Xilinx Zynq-7020 All-Programmable SoC, and is shown in Figure \ref{zedboard_pic}.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=1\textwidth]{ZedBoard.jpg}}
@@ -58,7 +58,7 @@ The FPGA platform used in this project was the Zynq Evaluation and Development B
 	\label{zedboard_pic}
 \end{figure}
 
-The Xilinx Zynq-7000 SoC consists of a dual-core ARM Cortex A9 processor coupled with Xilinx Artix-7 FPGA fabric. The ARM Cortex A9 processor uses a dedicated 33.3333 MHz clock source, while the onboard 100 MHz oscillator supplies the Programmable Logic (PL) clock. The Zynq-7000 SoC contains 85,000 programmable logic cells with 140 36K Block RAM modules. The ZedBoard also features 5 Pmod IO ports, 8 LEDs, 8 switches, 7 push buttons, a USB UART port, and a VGA port \cite{zedboard_datasheet}. These are shown in the ZedBoard's block diagram in Figure \ref{zedboardbd}.
+The Xilinx Zynq-7020 SoC consists of a dual-core ARM Cortex A9 processor coupled with Xilinx Artix-7 FPGA fabric. The ARM Cortex A9 processor uses a dedicated 33.3333 MHz clock source, while the onboard 100 MHz oscillator supplies the Programmable Logic (PL) clock. The Zynq-7020 SoC contains 85,000 programmable logic cells with 140 36K Block RAM modules. The ZedBoard also features 5 Pmod IO ports, 8 LEDs, 8 switches, 7 push buttons, a USB UART port, and a VGA port \cite{zedboard_datasheet}. These are shown in the ZedBoard's block diagram in Figure \ref{zedboardbd}.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[width=0.85\textwidth]{ZedBoardBD.png}}

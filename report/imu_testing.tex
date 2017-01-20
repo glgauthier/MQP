@@ -2,7 +2,7 @@
 The PmodNAV IMU is a small device that was directly connected to the ZedBoard's Pmod connector. As such, it required no external power source or other intermediate connections.
 
 \subsubsection{Communication Testing}
-With the rangefinder connected to the ZedBoard's PS MIO Pmod, JE, the PmodNAV IMU required an Extended MIO Pmod so that it could still be controlled by the PS. As such, the SPI pins were routed to the JD Pmod. Since the only slave this project used on the PmodNAV was its magnetometer, the slave select and register settings were adjusted accordingly, as discussed in Section \ref{imu_settings}. To choose the magnetometer and deselect the accelerometer/gyroscope and barometer, the magnetometer's slave select was brought low for each SPI transfer while the other two were left high. The behavior of Pmod JD's pins were observed with an oscilloscope during an SPI transfer. It was observed that as soon as the magnetometer's slave select line was asserted there was unidentified behavior with all of the other pins. Since the PmodNAV was disconnected this issue was thought to be with routing the SPI pins to EMIO incorrectly, so it was decided to test the SPI transfer via Pmod JE.
+With the rangefinder connected to the ZedBoard's PS MIO Pmod, JE, the PmodNAV IMU required an Extended MIO Pmod so that it was able to be controlled by the PS. As such, the SPI pins were routed to the JD Pmod. Since the only slave this project used on the PmodNAV was its magnetometer, the slave select and register settings were adjusted accordingly, as discussed in Section \ref{imu_settings}. To choose the magnetometer and deselect the accelerometer/gyroscope and barometer, the magnetometer's slave select was brought low for each SPI transfer while the other two were left high. The behavior of Pmod JD's pins were observed with an oscilloscope during an SPI transfer. It was observed that as soon as the magnetometer's slave select line was asserted there was unidentified behavior with all of the other pins. Since the PmodNAV was disconnected this issue was thought to be with routing the SPI pins to EMIO incorrectly, so it was decided to test the SPI transfer via Pmod JE.
 \par
 The pins were re-routed to the MIO Pmod JE and similar undefined functionality was observed when the magnetometer's slave select line was asserted. The ZedBoard's SPI errata was investigated until AR\# 47511 was found, which describes an unresolved issue in the MIO interface where the SPI controller resets itself when slave select 0 signals asserts \cite{zedboardErrata}. Since this issue affected the PS SPI controller itself, this errata was also the cause of the EMIO's undefined behavior.
 \par
@@ -16,7 +16,7 @@ The SPI pins were again routed to Pmod JD. To avoid the errata, slave select 1 w
 	\label{emio_config}
 \end{figure}
 
-With this configuration a waveform similar to those shown in Figures \ref{magnetometer_spi} and \ref{multiple_reads}, were observed, indicating that the errata was avoided and the the master's SPI waveforms were accurate. The PmodNAV was connected to the ZedBoard and successful communication was observed on the oscilloscope, as shown in Figure \ref{OTPHJ}.
+With this configuration a waveform similar to those shown in Figures \ref{magnetometer_spi} and \ref{multiple_reads} were observed, indicating that the errata was avoided and the the ZedBoard's SPI waveforms were accurate. The PmodNAV was connected to the ZedBoard and successful communication was observed on the oscilloscope, as shown in Figure \ref{OTPHJ}.
 
 \begin{figure}[H] 
 	\begin{subfigure}{1\textwidth}
@@ -45,7 +45,7 @@ Although this project ultimately interfaced with the PmodNAV IMU, this was not t
 	\label{adis16375}
 \end{figure}
 
-The ADIS16375 IMU was a highly sensitive, heavy duty device. It had a tri-axis gyroscope, a tri-axis accelerometer, and a temperature sensor, had onboard functionality to calculate delta-angle and velocity, and used SPI communication. Although the ADIS16375 did not have a magnetometer, its gyroscope's sensitivity combined with its sample rate and onboard delta-angle calculation made it perfect to account for rotation. However, communication was not able to be established with it. There was no way to test the ADIS16375 so its functionality could not be confirmed in any manner. instead, the PmodNAV was implemented as a quicker and simpler solution.
+The ADIS16375 IMU was a highly sensitive, heavy duty device. It had a tri-axis gyroscope, a tri-axis accelerometer, and a temperature sensor, had onboard functionality to calculate delta-angle and velocity, and used SPI communication. Although the ADIS16375 did not have a magnetometer, its gyroscope's sensitivity combined with its sample rate and onboard delta-angle calculation made it perfect to account for rotation. However, communication was not able to be established with it. There was no way to test the ADIS16375 so its functionality could not be confirmed in any manner. Instead, the PmodNAV was implemented as a quicker and simpler solution.
 
 
 

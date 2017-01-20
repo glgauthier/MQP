@@ -9,7 +9,7 @@ The result of this finalized implementation was a proof of concept SLAM system c
 	\label{finalHW}
 \end{figure}
 \par
-An overall system block diagram is shown in Figure \ref{systemBD2}. The system implementation was broken down into several major components. At the top level, the Zynq-7000 ARM Cortex A9 processing system was used for controlling low-level sensor peripherals. These included the stereo camera I$^2$C lines, as well as UART and SPI interfaces for the rangefinder and digital compass, respectively. The ARM processor was also used for continuously pre-parsing rangefinder and digital compass data before it was written to the programmable logic.
+An overall system block diagram is shown in Figure \ref{systemBD2}. The system implementation was broken down into several major components. At the top level, the Zynq-7020 ARM Cortex A9 processing system was used for controlling low-level sensor peripherals. These included the stereo camera I$^2$C lines, as well as UART and SPI interfaces for the rangefinder and digital compass, respectively. The ARM processor was also used for continuously pre-parsing rangefinder and digital compass data before it was written to the programmable logic.
 \par
 \begin{figure}[H]
 	\centerline{
@@ -38,11 +38,11 @@ By default, the system was placed in rangefinder output mode, as shown in Figure
 \begin{figure}[H]
 \centering
        \begin{subfigure}[h]{1\textwidth}
-            \centerline{\includegraphics[width=1.0\textwidth]{rangefinder_mode.JPG}}
+            \centerline{\includegraphics[width=1.0\textwidth]{rangefinder_mode1.JPG}}
            \caption{Rangefinder Output}
        \end{subfigure}
        \begin{subfigure}[h]{1\textwidth}
-           \centerline{\includegraphics[width=1.0\textwidth]{rangefinder_mode_rotated.JPG}}
+           \centerline{\includegraphics[width=1.0\textwidth]{rangefinder_mode_rotated1.JPG}}
            \caption{Rotated Rangefinder Output}
        \end{subfigure}
 \caption{2D "Floorplan" Output Modes}
@@ -51,7 +51,7 @@ By default, the system was placed in rangefinder output mode, as shown in Figure
 \par
 A second device output mode was included for displaying continuous stereo disparity. While in disparity mode, a 384x288 pixel depth map was continuously updated to reflect the camera's current field of view. An example of the system output for this mode may be found in Figure \ref{disparityOutputs}.
 \begin{figure}[H]
-        \centerline{\includegraphics[width=1.0\textwidth]{disparity_mode.JPG}}
+        \centerline{\includegraphics[width=1.0\textwidth]{disparity_mode1.JPG}}
         \caption{Disparity Output Mode}
         \label{disparityOutputs}
 \end{figure}
@@ -60,7 +60,7 @@ A final output mode was also included to incorporate filtered disparity data ove
 \par
 \begin{figure}[H]
 	\centerline{
-	\includegraphics[width=1\linewidth]{combined_mode.JPG}
+	\includegraphics[width=1\linewidth]{combined_mode1.JPG}
 	}
 	\caption{Combined Output Mode}
 	\label{combinedOut}
