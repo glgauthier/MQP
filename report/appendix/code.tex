@@ -27,6 +27,16 @@
 
 \newpage
 
+%%%%%%%%%%% Disparity Algorithm Implementation %%%%%%%%%%%
+\subsubsection{Disparity Algorithm Implementation} \label{disparityTestMatlab}
+\textbf{\textsc{Matlab} Algorithm:}
+\singlespacing
+\lstinputlisting[style=Matlab]{appendix/matlab/stereoDisparity.m}
+\doublespacing
+%%%%%%%%%%% end Disparity Algorithm Implementation %%%%%%%%%%%
+
+\newpage
+
 %%%%%%%%%%% Custom IP code %%%%%%%%%%%
 \subsubsection{Custom IP} 
 \textbf{Top Module:} \label{customIPtop}
@@ -35,9 +45,15 @@
 \doublespacing
 
 \par
-\textbf{Instantiated File:} \label{customIPaxi}
+\textbf{AXI Interface:} \label{customIPaxi}
 \singlespacing
 \lstinputlisting[style=Verilog]{appendix/verilog/nu_nu_rangefinder_vga_v1_0_S00_AXI.v}
+\doublespacing
+
+\par
+\textbf{User Logic Top Module:}
+\singlespacing
+\lstinputlisting[style=Verilog]{appendix/verilog/mqp_top.v}
 \doublespacing
 
 \par
@@ -47,11 +63,33 @@
 \doublespacing
 
 \par
+\textbf{Camera Image Buffer:} \label{finalCamBuf}
+\singlespacing
+\lstinputlisting[style=Verilog]{appendix/verilog/imgbuf.v}
+\doublespacing
+
+\par
+\textbf{Disparity Algorithm:} \label{finalDisparity}
+\singlespacing
+\lstinputlisting[style=Verilog]{appendix/verilog/disparity.v}
+\doublespacing
+
+\par
 \textbf{VGA Controller Module by Digilent:} \label{vga_controller}
 \singlespacing
 \lstinputlisting[style=VHDL]{appendix/vhdl/vga_controller_640_60.vhd}
 \doublespacing
 %%%%%%%%%%% end Custom IP code %%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%% Programmable Software %%%%%%%%%%%
+\subsubsection{Programmable Software} \label{ps_code}
+\textbf{Programmable Software for the Zynq7 Processing System:}
+\singlespacing
+\lstinputlisting[style=C]{appendix/c/helloworld.c}
+\doublespacing
+%%%%%%%%%%% end Programmable Software %%%%%%%%%%%
 
 \newpage
 
@@ -67,32 +105,6 @@
 \lstinputlisting[style=coe]{appendix/coe/coord2.coe}
 \doublespacing
 %%%%%%%%%%% end coe file code %%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%% Programmable Software %%%%%%%%%%%
-\subsubsection{Programmable Software} \label{ps_code}
-\textbf{Programmable Software for the Zynq7 Processing System:}
-\singlespacing
-\lstinputlisting[style=C]{appendix/c/helloworld.c}
-\doublespacing
-%%%%%%%%%%% end Programmable Software %%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%% Disparity Algorithm Implementation %%%%%%%%%%%
-\subsubsection{Disparity Algorithm Implementation} \label{disparityTestMatlab}
-\textbf{\textsc{Matlab} Algorithm:}
-\singlespacing
-\lstinputlisting[style=Matlab]{appendix/matlab/stereoDisparity.m}
-\doublespacing
-
-\par
-\textbf{\textsc{Verilog} Algorithm:}
-\singlespacing
-\lstinputlisting[style=Verilog]{appendix/verilog/disparity.v}
-\doublespacing
-%%%%%%%%%%% end Disparity Algorithm Implementation %%%%%%%%%%%
 
 
 
