@@ -148,6 +148,16 @@ Several structural changes were made to the original disparity implementation in
 \par
 The overall state machine used to create the final disparity implementation still followed the same next-state logic as that of the original implementation shown in Figure \ref{disparityTestImp}. Advances in speed of the overall algorithm were therefore mostly associated with parallel calculations during the computation of the Sum of Absolute Differences. As discussed in Section \ref{dataman}, the left and right search images passed to the disparity algorithm were also windowed to $0.6\times{}VGA$ resolution, further reducing computation time. 
 \par
+The disparity hardware implementation was debugged by passing the current state of the disparity state machine to the ZedBoard's LEDs. Another important debugging step included a VGA output mode that showed the current camera images being used by the disparity algorithm. An example of this mode's output is shown in Figure \ref{camOutMode}. This example image shows a lab bench to the left, with a chair and doorframe on the right. Note that the image coloration was a result of mapping a monochrome image to arbitrary VGA colors to account for a lack of grayscale color space.
+\par
+\begin{figure}[H]
+	\centerline{
+	\includegraphics[width=1\linewidth]{camera_mode.JPG}
+	}
+	\caption{Raw Camera Data Mode}
+	\label{camOutMode}
+\end{figure}
+\par
 The output of the hardware disparity implementation was verified by using a VGA display driver to show the algorithm's output in real time, as demonstrated in Figure \ref{disparityFin}. With this output mode successfully implemented, the disparity and camera controller modules were then added into a finalized design that incorporated the IMU and Rangefinder modules.
 \par
 \begin{figure}[H] 

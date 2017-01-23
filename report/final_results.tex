@@ -33,7 +33,7 @@ This implementation supported several output modes based on the positions of the
 	\label{demoScene}
 \end{figure}
 \par
-By default, the system was placed in rangefinder output mode, as shown in Figure \ref{rangeOutputs}a. In this mode, objects found by the scanning laser rangefinder were displayed in black. The entire scan was also localized to the device's central location, shown in red. All rangefinder data was pre-processed by the programmable software to include an offset from the digital compass before being written to programmable logic. In Figure \ref{rangeOutputs}, picture (a) shows the rangefinder output with the device facing due north, while picture (b) shows the rangefinder output with the device rotated west by approximately 90$^\circ$.
+By default, the system was placed in rangefinder output mode, as shown in Figure \ref{rangeOutputs}a. In this mode, objects found within the scanning laser rangefinder's 240$^\circ$ field of view were displayed in black. The entire scan was also localized to the device's central location, shown in red. All rangefinder data was pre-processed by the programmable software to include an offset from the digital compass before being written to programmable logic. In Figure \ref{rangeOutputs}, picture (a) shows the rangefinder output with the device facing due north, while picture (b) shows the rangefinder output with the device rotated west by approximately 90$^\circ$.
 \par
 \begin{figure}[H]
 \centering
@@ -56,7 +56,7 @@ A second device output mode was included for displaying continuous stereo dispar
         \label{disparityOutputs}
 \end{figure}
 \par
-A final output mode was also included to incorporate filtered disparity data overlaid onto the 2D "floorplan" produced by the rangefinder. By combining data from both sensors, the stereo cameras were able to account for situations where the scanning laser rangefinder was out of range due to limitations in viewing distance. This output mode is shown in Figure \ref{combinedOut}.
+A final output mode was also included to incorporate filtered disparity data overlaid onto the 2D "floorplan" produced by the rangefinder. By combining data from both sensors, the stereo cameras were able to account for situations where the scanning laser rangefinder was out of range due to limitations in viewing distance. This output mode is shown in Figure \ref{combinedOut}. In this example the disparity algorithm identified the corner of the lab bench, as it was the most distinguishable feature found by the filtering algorithm. 
 \par
 \begin{figure}[H]
 	\centerline{
@@ -65,16 +65,3 @@ A final output mode was also included to incorporate filtered disparity data ove
 	\caption{Combined Output Mode}
 	\label{combinedOut}
 \end{figure}
-\par
-Several steps were taken during the creation of each output mode to aid in hardware debugging. As a basic confirmation of working hardware, the current state of the rangefinder or disparity state machines were passed to the ZedBoard's LEDs. Another important debugging step included an additional output mode that showed the current camera images being used by the disparity algorithm. An example of this mode's output is shown in Figure \ref{camOutMode}. Note that the image coloration was a result of mapping a monochrome image to arbitrary VGA colors to account for a lack of grayscale color space.
-\par
-\begin{figure}[H]
-	\centerline{
-	\includegraphics[width=1\linewidth]{camera_mode.JPG}
-	}
-	\caption{Raw Camera Data Mode}
-	\label{camOutMode}
-\end{figure}
-
-
-
